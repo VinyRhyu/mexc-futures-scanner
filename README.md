@@ -44,7 +44,7 @@ Saídas: `.scanner-state/latest/report.md`, `report.json` e `snapshot.json`. A c
 ## Primeiro teste no GitHub
 
 1. Criar um repositório separado chamado `mexc-futures-scanner` e enviar os arquivos preservando as pastas, inclusive `.github/workflows`. Se receber o projeto em ZIP, extraí-lo antes: subir apenas o ZIP não instala os workflows.
-2. Manter `main` como branch padrão. O workflow **Testes** executa testes sem rede, demonstração e replay sintéticos. A primeira publicação de `integration-smoke.yml` também inicia **Testar coleta MEXC**, consultando cinco contratos em simulação, sem Telegram e sem gravar na branch de estado. Esse teste também pode ser iniciado manualmente.
+2. Manter `main` como branch padrão. O workflow **Testes** executa testes sem rede, demonstração e replay sintéticos. A publicação de `integration-smoke.yml` também inicia **Testar coleta MEXC**: consulta cinco contratos e, se passar, executa duas rodadas de 50 contratos para verificar a persistência na branch de estado. Todos esses testes usam simulação e não enviam Telegram, mesmo que existam segredos configurados no repositório. Esse workflow também pode ser iniciado manualmente.
 3. Em **Actions → Scanner MEXC → Run workflow**, selecionar `5`. Esse teste consulta a API real e publica o diagnóstico no resumo da execução. Funciona mesmo sem Telegram configurado; nesse caso o envio fica identificado como não configurado.
 4. Conferir a branch `scanner-state`, o resumo, a cobertura e eventuais motivos de falha. Não considerar uma execução com falha da fonte como teste de mercado bem-sucedido.
 5. Configurar os dois segredos do Telegram e executar **Testar Telegram**.

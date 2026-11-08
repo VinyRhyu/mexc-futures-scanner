@@ -37,3 +37,43 @@ jobs:
           with open(os.environ['GITHUB_STEP_SUMMARY'], 'a') as output:
               output.write(report.read_text() if report.exists() else 'A coleta não produziu relatório; conferir o log.')
           PY
+  state-rounds:
+    needs: public-api
+    permissions:
+      contents: write
+    concurrency:
+      group: scanner-state
+      cancel-in-progress: false
+    runs-on: ubuntu-latest
+    timeout-minutes: 12
+    env:
+      REPOSITORY_IS_PRIVATE: ${{ github.event.repository.private }}
+    steps:
+      - uses: actions/checkout@v7.0.1
+      - uses: actions/setup-python@v7
+        with:
+          python-version: '3.12'
+      - name: Persistir primeira rodada de 50 contratos, sem Telegram
+        run: python -m scripts.run_round --limit 50
+      - name: Recuperar estado remoto em pasta nova
+        run: |
+          python - <<'PY'
+          from pathlib import Path
+          Path('.scanner-state').rename('.first-round-state')
+          PY
+          python -m scripts.run_round --limit 50
+      - name: Conferir continuidade e cobertura
+        run: |
+          python - <<'PY'
+          import json
+          from pathlib import Path
+          first = json.loads(Path('.first-round-state/state.json').read_text())
+          state = json.loads(Path('.scanner-state/state.json').read_text())
+          report = json.loads(Path('.scanner-state/latest/report.json').read_text())
+          assert first['config_fingerprint'] == state['config_fingerprint']
+          assert first['wallet'] == state['wallet'], 'A coleta não deve alterar a carteira sem registros de operação'
+          assert report['source_status'] == 'OK', report.get('diagnostics')
+          assert report['analyzed_symbols'] == report['selected_symbols'] == 50, report.get('diagnostics')
+          assert state['last_success'] >= first['last_success']
+          print('Persistência remota e segunda rodada de 50 contratos verificadas. Telegram não configurado neste teste.')
+          PY
