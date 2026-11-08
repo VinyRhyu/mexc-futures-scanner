@@ -1,0 +1,33 @@
+name: Scanner MEXC
+on:
+  schedule:
+    - cron: '2,17,32,47 * * * *'
+  workflow_dispatch:
+    inputs:
+      limit:
+        description: Contratos no teste (5 para a primeira coleta)
+        type: choice
+        options: ['5', '50']
+        default: '5'
+permissions:
+  contents: write
+concurrency:
+  group: scanner-state
+  cancel-in-progress: false
+jobs:
+  scan:
+    if: github.event_name == 'workflow_dispatch' || vars.SCANNER_ENABLED == 'true'
+    runs-on: ubuntu-latest
+    timeout-minutes: 12
+    env:
+      TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
+      TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
+      REPOSITORY_IS_PRIVATE: ${{ github.event.repository.private }}
+      SCAN_LIMIT: ${{ inputs.limit || '50' }}
+    steps:
+      - uses: actions/checkout@v7.0.1
+      - uses: actions/setup-python@v7
+        with:
+          python-version: '3.12'
+      - name: Coletar, persistir e notificar
+        run: python -m scripts.run_round --limit "$SCAN_LIMIT"

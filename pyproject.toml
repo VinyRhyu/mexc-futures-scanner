@@ -1,0 +1,16 @@
+[project]
+name = "mexc-futures-scanner"
+version = "0.1.0"
+description = "Scanner de futuros MEXC com regras auditáveis e execução manual"
+requires-python = ">=3.11"
+dependencies = []
+
+[project.scripts]
+mexc-scanner = "mexc_scanner.cli:main"
+
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[tool.setuptools.packages.find]
+include = ["mexc_scanner*"]

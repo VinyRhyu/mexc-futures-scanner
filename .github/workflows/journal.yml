@@ -1,0 +1,68 @@
+name: Registrar operação
+on:
+  workflow_dispatch:
+    inputs:
+      action:
+        description: Ação de registro (não envia ordens à MEXC)
+        type: choice
+        options: [enter, skip, close, balance]
+        required: true
+      plan_id:
+        description: ID do plano no alerta
+        type: string
+      variant:
+        type: choice
+        options: [ANTECIPADA, CONFIRMADA]
+        default: ANTECIPADA
+      price:
+        description: Preço realmente executado, quando aplicável
+        default: '0'
+        type: string
+      contracts:
+        description: Número de contratos na entrada (não USDT)
+        default: '0'
+        type: string
+      fees:
+        description: Taxa efetiva em USDT da entrada ou saída
+        default: '0'
+        type: string
+      funding:
+        description: Funding pago em USDT; negativo para recebimento
+        default: '0'
+        type: string
+      balance:
+        description: Saldo conciliado, somente para action=balance
+        default: '0'
+        type: string
+      executed_at:
+        description: Horário real com fuso, ex. 2026-11-08T20:00:00-03:00; vazio usa registro
+        type: string
+permissions:
+  contents: write
+concurrency:
+  group: scanner-state
+  cancel-in-progress: false
+jobs:
+  journal:
+    runs-on: ubuntu-latest
+    timeout-minutes: 8
+    env:
+      JOURNAL_ACTION: ${{ inputs.action }}
+      PLAN_ID: ${{ inputs.plan_id }}
+      VARIANT: ${{ inputs.variant }}
+      PRICE: ${{ inputs.price }}
+      CONTRACTS: ${{ inputs.contracts }}
+      FEES: ${{ inputs.fees }}
+      FUNDING: ${{ inputs.funding }}
+      BALANCE: ${{ inputs.balance }}
+      EXECUTED_AT: ${{ inputs.executed_at }}
+      TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
+      TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
+      REPOSITORY_IS_PRIVATE: ${{ github.event.repository.private }}
+    steps:
+      - uses: actions/checkout@v7.0.1
+      - uses: actions/setup-python@v7
+        with:
+          python-version: '3.12'
+      - name: Registrar e notificar
+        run: python -m scripts.run_journal

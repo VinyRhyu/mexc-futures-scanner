@@ -1,0 +1,26 @@
+name: Testar Telegram
+on:
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    env:
+      TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
+      TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
+    steps:
+      - uses: actions/checkout@v7.0.1
+      - uses: actions/setup-python@v7
+        with:
+          python-version: '3.12'
+      - name: Enviar mensagem de teste
+        run: |
+          python - <<'PY'
+          import os
+          from mexc_scanner.telegram import send_text
+          send_text(os.environ.get('TELEGRAM_BOT_TOKEN', ''), os.environ.get('TELEGRAM_CHAT_ID', ''),
+                    'MEXC Scanner | Teste de conexão. Nenhuma operação foi executada.')
+          print('Mensagem de teste confirmada pelo Telegram.')
+          PY

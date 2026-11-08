@@ -1,0 +1,28 @@
+# Hipóteses iniciais: isto não demonstra rentabilidade.
+mode = "paper"
+universe_size = 50
+minimum_turnover = "5000000"
+hourly_bars = 240
+quarter_bars = 480
+atr_period = 14
+ttl_seconds = 1800
+max_leverage = 20
+risk_fraction = "0.30"
+gain_fraction = "0.60"
+minimum_rr = "2"
+# 0,06% por execução, hipótese de simulação, não taxa pessoal da conta.
+taker_fee = "0.0006"
+fees_verified = false
+account_rules_verified = false
+fair_trigger_verified = false
+slippage_rate = "0.0002"
+funding_hours = 6
+assumed_funding_cycle = 8
+max_cost_fraction = "0.10"
+liquidation_buffer = "1.5"
+quote_max_age = 120
+initial_balance = "1"
+phase_target = "100"
+replay_bars = 16
+max_alerts = 6
+api_base = "https://api.mexc.com"

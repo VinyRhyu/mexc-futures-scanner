@@ -1,0 +1,39 @@
+name: Testar coleta MEXC
+on:
+  push:
+    branches: [main]
+    paths: ['.github/workflows/integration-smoke.yml']
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  public-api:
+    runs-on: ubuntu-latest
+    timeout-minutes: 8
+    steps:
+      - uses: actions/checkout@v7.0.1
+      - uses: actions/setup-python@v7
+        with:
+          python-version: '3.12'
+      - name: Coletar cinco contratos em simulação
+        run: python -m mexc_scanner scan --init --limit 5 --output reports/integration
+      - name: Conferir cobertura completa da coleta
+        run: |
+          python - <<'PY'
+          import json
+          from pathlib import Path
+          report = json.loads(Path('reports/integration/report.json').read_text())
+          assert report['source_status'] == 'OK', report.get('diagnostics')
+          assert report['selected_symbols'] == report['analyzed_symbols'] == 5, report.get('diagnostics')
+          print('Coleta de cinco contratos validada. Nenhuma ordem ou mensagem enviada.')
+          PY
+      - name: Publicar diagnóstico no resumo
+        if: always()
+        run: |
+          python - <<'PY'
+          import os
+          from pathlib import Path
+          report = Path('reports/integration/report.md')
+          with open(os.environ['GITHUB_STEP_SUMMARY'], 'a') as output:
+              output.write(report.read_text() if report.exists() else 'A coleta não produziu relatório; conferir o log.')
+          PY
