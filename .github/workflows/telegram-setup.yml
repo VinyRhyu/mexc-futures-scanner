@@ -1,0 +1,20 @@
+name: Identificar chat Telegram
+on:
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  identify:
+    if: github.event.repository.private
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    env:
+      TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
+      REPOSITORY_IS_PRIVATE: ${{ github.event.repository.private }}
+    steps:
+      - uses: actions/checkout@v7.0.1
+      - uses: actions/setup-python@v7
+        with:
+          python-version: '3.12'
+      - name: Consultar conversa privada sem exibir token
+        run: python -m scripts.telegram_chat_id

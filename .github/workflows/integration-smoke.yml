@@ -53,7 +53,7 @@ jobs:
       - uses: actions/setup-python@v7
         with:
           python-version: '3.12'
-      - name: Persistir primeira rodada de 50 contratos, sem Telegram
+      - name: Persistir primeira rodada de até 50 contratos, sem Telegram
         run: python -m scripts.run_round --limit 50
       - name: Recuperar estado remoto em pasta nova
         run: |
@@ -73,7 +73,8 @@ jobs:
           assert first['config_fingerprint'] == state['config_fingerprint']
           assert first['wallet'] == state['wallet'], 'A coleta não deve alterar a carteira sem registros de operação'
           assert report['source_status'] == 'OK', report.get('diagnostics')
-          assert report['analyzed_symbols'] == report['selected_symbols'] == 50, report.get('diagnostics')
+          assert report['analyzed_symbols'] == report['selected_symbols'], report.get('diagnostics')
+          assert 5 <= report['selected_symbols'] <= 50, 'Validar todos os elegíveis, até o limite de 50'
           assert state['last_success'] >= first['last_success']
-          print('Persistência remota e segunda rodada de 50 contratos verificadas. Telegram não configurado neste teste.')
+          print(f"Persistência remota e segunda rodada verificadas: {report['analyzed_symbols']}/{report['selected_symbols']} contratos. Telegram não configurado neste teste.")
           PY
