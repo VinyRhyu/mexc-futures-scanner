@@ -148,3 +148,7 @@ Consulte [o relatório de validação](docs/VALIDATION.md) para saber o que foi 
 - [GitHub Actions: agendamento](https://docs.github.com/en/actions/reference/workflows-and-actions/events-that-trigger-workflows#schedule)
 - [GitHub Actions: cobrança e franquias](https://docs.github.com/en/actions/concepts/billing-and-usage)
 - [Telegram Bot API](https://core.telegram.org/bots/api)
+
+### Comando `/ajuda` no Telegram
+
+Envie `/ajuda` em conversa privada com o bot. O comando é consultado ao fim de cada rodada agendada do scanner (até cerca de 15 minutos, mais eventuais atrasos). A resposta explica classificações, risco e meta projetada. Somente o `TELEGRAM_CHAT_ID` configurado recebe a resposta. O cursor das mensagens fica na branch `scanner-state` para evitar respostas repetidas. O bot não recebe comandos em tempo real e não executa ordens.

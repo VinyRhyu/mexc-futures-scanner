@@ -5,6 +5,8 @@ import os
 
 from mexc_scanner.cli import main
 from scripts.state_branch import restore, save
+from scripts.telegram_commands import process_commands
+from mexc_scanner.telegram import TelegramError
 
 
 def run(limit: int) -> int:
@@ -21,6 +23,16 @@ def run(limit: int) -> int:
     save(directory)
     notify_outcome = main(["notify"])
     save(directory)
+    try:
+        answered = process_commands(directory, os.environ.get("TELEGRAM_BOT_TOKEN", ""),
+                                    os.environ.get("TELEGRAM_CHAT_ID", ""))
+        if answered:
+            print({"telegram_help_responses": answered})
+        save(directory)
+    except TelegramError as exc:
+        # Uma falha no comando não invalida o scan nem os alertas enviados.
+        print({"telegram_commands_error": str(exc)})
+        save(directory)
     report = directory / "latest/report.md"
     summary = os.environ.get("GITHUB_STEP_SUMMARY")
     if summary and report.exists():
