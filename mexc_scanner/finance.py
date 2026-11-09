@@ -4,7 +4,7 @@ from decimal import Decimal, ROUND_CEILING
 
 from .config import Config
 from .mexc import quote_is_fresh
-from .models import Contract, D, DataError, Plan, Variant, ceil_step, seconds
+from .models import Contract, D, DataError, Plan, Variant, ceil_step, floor_step, seconds
 
 
 def _depth_price(depth: dict, side: str, contracts: Decimal) -> Decimal | None:
@@ -89,7 +89,10 @@ def evaluate(plan: Plan, variant: Variant, contract: Contract, balance: Decimal,
         gain = sign * (target - entry) - cost_target
         return loss, gain, max(cost_stop, cost_target)
 
-    budget, goal = balance * D(config.risk_fraction), balance * D(config.gain_fraction)
+    # 10% por entrada é a exposição planejada; 30% permanece o limite absoluto
+    # e o gatilho de pausa do diário. 60% é meta de acompanhamento, não filtro.
+    budget = balance * min(D(config.risk_fraction), D("0.10"))
+    cost_budget = balance * D(config.risk_fraction) * D(config.max_cost_fraction)
 
     def ratio_ok(entry: Decimal) -> bool:
         loss, gain, _ = units(entry)
@@ -97,7 +100,7 @@ def evaluate(plan: Plan, variant: Variant, contract: Contract, balance: Decimal,
 
     def quantity_at(entry: Decimal) -> tuple[Decimal, Decimal, Decimal, Decimal]:
         loss, gain, costs = units(entry)
-        volume = max(ceil_step(goal / (gain * contract.size), contract.volume_step),
+        volume = max(floor_step(budget / (loss * contract.size), contract.volume_step),
                      ceil_step(contract.min_volume, contract.volume_step))
         q = volume * contract.size
         return volume, q * loss, q * gain, q * costs
@@ -106,7 +109,7 @@ def evaluate(plan: Plan, variant: Variant, contract: Contract, balance: Decimal,
         if not ratio_ok(entry):
             return False
         volume, loss, _, costs = quantity_at(entry)
-        return loss <= budget and costs <= budget * D(config.max_cost_fraction) and volume <= contract.max_volume
+        return loss <= budget and costs <= cost_budget and volume <= contract.max_volume
 
     # Reduzir a faixa para preservar RR no pior preço; não mover SL/TP.
     low_i = int((variant.entry_low / tick).to_integral_value(rounding=ROUND_CEILING))
@@ -117,7 +120,7 @@ def evaluate(plan: Plan, variant: Variant, contract: Contract, balance: Decimal,
     best_volume, best_loss, _, best_costs = quantity_at(best)
     if best_loss > budget:
         return blocked("LOTE_MINIMO_OU_META_EXCEDE_RISCO")
-    if best_costs > budget * D(config.max_cost_fraction):
+    if best_costs > cost_budget:
         return blocked("CUSTO_RELATIVO_ELEVADO")
     if best_volume > contract.max_volume:
         return blocked("QUANTIDADE_ACIMA_DO_CONTRATO")
@@ -141,14 +144,16 @@ def evaluate(plan: Plan, variant: Variant, contract: Contract, balance: Decimal,
     low, high = D(low_i) * tick, D(high_i) * tick
     entry = high if sign == 1 else low
     loss_unit, gain_unit, costs_unit = units(entry)
-    volume = max(ceil_step(goal / (gain_unit * contract.size), contract.volume_step),
+    volume = max(floor_step(budget / (loss_unit * contract.size), contract.volume_step),
                  ceil_step(contract.min_volume, contract.volume_step))
     quantity = volume * contract.size
     loss, gain, costs = quantity * loss_unit, quantity * gain_unit, quantity * costs_unit
     result.update({"entry_low": low, "entry_high": high, "worst_entry": entry, "contract_size": contract.size,
                    "contracts": volume, "base_quantity": quantity, "stop": stop, "target": target,
                    "loss_usdt": loss, "gain_usdt": gain, "loss_fraction": loss / balance,
-                   "gain_fraction": gain / balance, "net_rr": gain / loss,
+                   "gain_fraction": gain / balance, "daily_goal_fraction": D(config.gain_fraction),
+                   "daily_goal_reachable_in_one_trade": gain / balance >= D(config.gain_fraction),
+                   "net_rr": gain / loss,
                    "costs_usdt": costs, "fee_rate": fee, "funding_cost_rate": fund_rate,
                    "quote_at": seconds(ticker["timestamp"]), "evaluated_at": now,
                    "stop_trigger": "FAIR" if contract.stop_only_fair else "LAST"})
@@ -156,7 +161,7 @@ def evaluate(plan: Plan, variant: Variant, contract: Contract, balance: Decimal,
         return blocked("QUANTIDADE_ACIMA_DO_CONTRATO")
     if loss > budget:
         return blocked("LOTE_MINIMO_OU_META_EXCEDE_RISCO")
-    if costs > budget * D(config.max_cost_fraction):
+    if costs > cost_budget:
         return blocked("CUSTO_RELATIVO_ELEVADO")
     current = D(ticker["ask1"] if sign == 1 else ticker["bid1"])
     if not low <= current <= high:

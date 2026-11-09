@@ -36,4 +36,4 @@ class CommandTests(unittest.TestCase):
     def test_help_explains_estimate(self):
         self.assertIn('60%', HELP)
         self.assertIn('30%', HELP)
-        self.assertIn('não garante lucro', HELP)
+        self.assertIn('não garantem lucro', HELP)

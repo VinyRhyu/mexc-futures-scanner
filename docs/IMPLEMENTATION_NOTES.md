@@ -25,3 +25,7 @@ Essa correção não altera risco, alvo, stop nem alavancagem. A validade contin
 - Replay de uma captura atual usa hipóteses explicitadas de regras, custos e universo históricos. Isso não constitui validação de rentabilidade fora da amostra.
 
 Consulte o relatório de validação para distinguir testes sintéticos, integração real e verificações ainda pendentes.
+
+## Revisão da meta de ganho (2026-11-09)
+
+O ganho de 60% deixou de ser exigência por operação: é meta diária aspiracional. O dimensionamento utiliza até 10% de perda estimada por entrada, sem aumentar a exposição para atingir a meta, e exige retorno/risco líquido mínimo de 2:1. O teto de 30% permanece na regra de proteção do diário. Um sinal pode projetar mais de 60% com risco de até 10% caso a geometria permita; o alerta sinaliza essa possibilidade. O controle automático do lucro acumulado e um limite de perda acumulada por dia não fazem parte desta revisão. A configuração persistida mantém a mesma impressão digital, mas os sinais ativos são recalculados na próxima rodada validada.

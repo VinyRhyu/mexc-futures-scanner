@@ -146,6 +146,8 @@ def plan_message(plan: Plan, mode: str, now: int, variant: Variant | None = None
                   f"Ganho projetado: +{money(f.get('gain_usdt'))}{gain_pct}",
                   f"Retorno/risco líquido: {fixed(f.get('net_rr'))}:1 (pior entrada)",
                   f"Custos estimados: {money(f.get('costs_usdt'))}"]
+        if f.get("daily_goal_reachable_in_one_trade"):
+            lines.append("🎯 Projeção alcança a meta diária de 60% nesta entrada (sem garantia).")
         if f.get("fee_rate") is not None:
             lines.append(f"Taxa por execução: {fixed(D(f['fee_rate']) * 100)}%")
         if f.get("stop_trigger"):

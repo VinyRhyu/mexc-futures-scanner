@@ -29,16 +29,28 @@ class FinanceTests(unittest.TestCase):
     def test_one_dollar_synthetic_trade_can_fit(self):
         result = self.calculate()
         self.assertEqual(result["status"], "VIAVEL_SIMULADO")
-        self.assertGreaterEqual(result["gain_usdt"], D("0.60"))
-        self.assertLessEqual(result["loss_usdt"], D("0.30"))
+        self.assertGreaterEqual(result["net_rr"], 2)
+        self.assertLess(result["gain_usdt"], D("0.60"))
+        self.assertFalse(result["daily_goal_reachable_in_one_trade"])
+        self.assertLessEqual(result["loss_usdt"], D("0.10"))
         self.assertLessEqual(result["margin_usdt"] + result["costs_usdt"], 1)
         self.assertLessEqual(result["leverage"], 20)
 
     def test_short_has_symmetric_budget(self):
         result = self.calculate("SHORT")
         self.assertEqual(result["status"], "VIAVEL_SIMULADO")
+        self.assertGreaterEqual(result["net_rr"], 2)
+        self.assertLess(result["gain_fraction"], D("0.60"))
+        self.assertLessEqual(result["loss_fraction"], D("0.10"))
+
+    def test_large_upside_can_reach_daily_goal_without_extra_risk(self):
+        p, v, c, t, b, f = context()
+        v.target = D(120)
+        result = evaluate(p, v, c, D(1), t, b, f, NOW, Config())
+        self.assertEqual(result["status"], "VIAVEL_SIMULADO")
+        self.assertTrue(result["daily_goal_reachable_in_one_trade"])
         self.assertGreaterEqual(result["gain_fraction"], D("0.60"))
-        self.assertLessEqual(result["loss_fraction"], D("0.30"))
+        self.assertLessEqual(result["loss_fraction"], D("0.10"))
 
     def test_large_minimum_is_not_silently_rounded_down(self):
         c = replace(context()[2], min_volume=D(1000000))

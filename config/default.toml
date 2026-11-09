@@ -7,7 +7,9 @@ quarter_bars = 480
 atr_period = 14
 ttl_seconds = 1800
 max_leverage = 20
+# Teto absoluto; a exposição planejada por entrada é 10%.
 risk_fraction = "0.30"
+# Meta diária aspiracional, não filtro de entrada.
 gain_fraction = "0.60"
 minimum_rr = "2"
 # 0,06% por execução, hipótese de simulação, não taxa pessoal da conta.

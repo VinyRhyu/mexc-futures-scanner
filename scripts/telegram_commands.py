@@ -22,7 +22,7 @@ HELP = """📖 GUIA DOS ALERTAS — MEXC SCANNER
 
 ⚪ Plano expirado ou invalidado: o prazo acabou ou a ideia perdeu validade. Espere uma nova análise.
 
-O plano busca ganho líquido estimado de pelo menos 60% do saldo, com perda estimada até 30% e retorno/risco mínimo de 2:1. Projeção não garante lucro.
+Cada entrada busca retorno/risco líquido mínimo de 2:1, com risco planejado até 10% do saldo. 30% segue como teto absoluto. Ganhos menores podem somar para a meta diária de 60%; se um plano projetar 60%, ele também pode contribuir sozinho. Meta não é obrigação de operar; projeções não garantem lucro.
 
 O scanner não executa ordens. Atualmente opera em modo paper. Confira sempre horário, preço e validade do alerta antes de agir."""
 
