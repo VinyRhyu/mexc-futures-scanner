@@ -1,0 +1,23 @@
+name: Auditar continuação em paper
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'scripts/audit_continuation.py'
+      - '.github/workflows/audit-continuation.yml'
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  audit:
+    runs-on: ubuntu-latest
+    timeout-minutes: 8
+    steps:
+      - uses: actions/checkout@v7.0.1
+      - uses: actions/setup-python@v7
+        with:
+          python-version: '3.12'
+      - name: Testar cálculo local
+        run: python -m unittest tests.test_audit_continuation -q
+      - name: Buscar candles públicos e calcular hipóteses
+        run: python -m scripts.audit_continuation
