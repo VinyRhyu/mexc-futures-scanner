@@ -4,9 +4,9 @@ Data: 8 de novembro de 2026. Ambiente local: Python 3.12.14.
 
 ## Verificações concluídas
 
-Revisão dos alertas: a suíte foi ampliada para **59 testes**, aprovados localmente. Os oito casos adicionais verificam preservação dos preços e do estado, distinção de bloqueio/validação, restrições da carteira, expiração sem novos gatilhos, direção SHORT, agrupamento dos planos conhecidos, prioridade de entrega e rotulagem da amostra fictícia. O workflow de testes e o envio dessa amostra são executados novamente ao publicar a revisão.
+Revisão dos alertas: a suíte foi ampliada para **59 testes**, aprovados localmente e no [GitHub Actions](https://github.com/VinyRhyu/mexc-futures-scanner/actions/runs/42541551560). Os oito casos adicionais verificam preservação dos preços e do estado, distinção de bloqueio/validação, restrições da carteira, expiração sem novos gatilhos, direção SHORT, agrupamento dos planos conhecidos, prioridade de entrega e rotulagem da amostra fictícia. O [teste do Telegram](https://github.com/VinyRhyu/mexc-futures-scanner/actions/runs/42541551690) também concluiu com sucesso e confirmou o envio de uma única amostra fictícia do novo formato, sem operação de mercado.
 
-**51 testes automatizados passaram, localmente e no GitHub Actions.** Foram exercitados:
+**59 testes automatizados passaram, localmente e no GitHub Actions.** Foram exercitados:
 
 - Integridade, atualidade e fechamento de candles; agregação UTC de 2h; pivôs conhecidos somente depois da confirmação.
 - Entradas antecipadas e confirmadas, direção LONG/SHORT, expiração sem renovar gatilho antigo, stop e candles ambíguos.
@@ -17,7 +17,7 @@ Revisão dos alertas: a suíte foi ampliada para **59 testes**, aprovados localm
 - Persistência entre checkouts usando um repositório Git bare temporário; rejeição de gravação concorrente com base antiga.
 - Tratamento de resposta HTML como falha de fonte; nenhuma ordem é enviada.
 
-Os seis arquivos de workflow foram analisados como YAML. Os arquivos Python passaram pela análise de sintaxe e os arquivos TOML foram carregados. O workflow de testes executou a suíte, a demonstração e o replay na infraestrutura do GitHub. A identificação de chat e o teste de mensagem do Telegram ainda não foram executados com credenciais reais.
+Os seis arquivos de workflow foram analisados como YAML. Os arquivos Python passaram pela análise de sintaxe e os arquivos TOML foram carregados. O workflow de testes executou a suíte, a demonstração e o replay na infraestrutura do GitHub. A identificação de chat, a conexão e o envio da amostra do Telegram também foram executados com credenciais configuradas pelo usuário.
 
 ## Demonstração e replay
 
@@ -56,9 +56,8 @@ A falha local de acesso à fonte, descrita acima, continua sendo um resultado da
 
 ## Integrações ainda pendentes
 
-- Configuração de `TELEGRAM_BOT_TOKEN` e `TELEGRAM_CHAT_ID` e recebimento real de uma mensagem de teste.
 - Conferência de lotes, timestamps, volume financeiro, livro e parâmetros de stop com a interface da corretora.
 - Acompanhamento prospectivo das duas estratégias e modalidades, inclusive sinais descartados, custos e entradas que expiraram.
 - Verificação da taxa pessoal, regras da conta e comportamento do gatilho de stop antes de considerar modo real.
 
-O agendamento está condicionado a `SCANNER_ENABLED=true`. Publicar os arquivos não ativa as coletas periódicas automaticamente. Nenhuma operação de mercado ou mensagem real no Telegram foi executada nesta validação.
+O agendamento está condicionado a `SCANNER_ENABLED=true`. Publicar os arquivos não ativa as coletas periódicas automaticamente. Nenhuma operação de mercado foi executada. As mensagens de teste do Telegram são demonstrações explicitamente identificadas, sem ordens ou alteração do diário.
