@@ -44,27 +44,35 @@
       "expires_at": 1794182400,
       "id": "067f18bf26397dba3ddb",
       "quote_at": 0,
-      "status": "PENDING",
+      "status": "EXPIRED",
       "text": "SIMULAÇÃO | GATILHO CUMPRIDO\nID 6c04130384c7b71d1f02/r1 | ADA_USDT | SHORT | CONTINUACAO\nFormação: 08/11/2026 20:15:00 BRT | Análise: 08/11/2026 20:37:36 BRT\nModalidade: ANTECIPADA | Gatilho: 08/11/2026 20:30:00 BRT\nFaixa: 0.1766 a 0.1772\nSL: 0.1801 | Alvo: 0.1689 (PROJECAO_2_5_R)\nSituação financeira: BLOQUEADA\nBloqueios: CUSTO_RELATIVO_ELEVADO\nHipóteses: FUNDING_FUTURO_MANTIDO_POR_6H, DESLIZAMENTO_ESTIMADO, TAXA_SIMULADA_NAO_PESSOAL\nPlano expira: 08/11/2026 21:00:00 BRT.\nA validade de entrada não encerra uma posição já aberta."
     },
     "101f6578766a0978e317": {
-      "attempts": 0,
+      "attempts": 1,
       "category": "INFO",
       "created_at": 1794184390,
       "expires_at": 1794187990,
       "id": "101f6578766a0978e317",
       "quote_at": 0,
-      "status": "PENDING",
+      "sent_at": 1794184392,
+      "status": "SENT",
+      "telegram_ids": [
+        3
+      ],
       "text": "SIMULAÇÃO | EXPIRADO\nID 447dcdc6925584cdc64b/r2 | LINK_USDT | SHORT | CONTINUACAO\nFormação: 08/11/2026 20:30:00 BRT | Análise: 08/11/2026 21:33:10 BRT\nRegião: 10.59135981307142269692789899 a 10.63064018692857730307210101\nAntecipada: reação fechada de 15m recuperando a região\nConfirmada: fechamento posterior além do extremo da reação\nEstado: EXPIRADO | Motivo: PRAZO_ENCERRADO\nPlano expira: 08/11/2026 21:00:00 BRT.\nA validade de entrada não encerra uma posição já aberta."
     },
     "1bfb9a06535228e8745b": {
-      "attempts": 0,
+      "attempts": 1,
       "category": "INFO",
       "created_at": 1794184390,
       "expires_at": 1794187990,
       "id": "1bfb9a06535228e8745b",
       "quote_at": 0,
-      "status": "PENDING",
+      "sent_at": 1794184392,
+      "status": "SENT",
+      "telegram_ids": [
+        4
+      ],
       "text": "SIMULAÇÃO | EXPIRADO\nID 0c2e269a680fc0895bdc/r2 | BTC_USDT | SHORT | CONTINUACAO\nFormação: 08/11/2026 20:30:00 BRT | Análise: 08/11/2026 21:33:10 BRT\nRegião: 75555.20674438139414121129128 a 75712.79325561860585878870872\nAntecipada: reação fechada de 15m recuperando a região\nConfirmada: fechamento posterior além do extremo da reação\nEstado: EXPIRADO | Motivo: PRAZO_ENCERRADO\nPlano expira: 08/11/2026 21:00:00 BRT.\nA validade de entrada não encerra uma posição já aberta."
     },
     "1fa722ddf1ce3bf207d8": {
@@ -74,7 +82,7 @@
       "expires_at": 1794181500,
       "id": "1fa722ddf1ce3bf207d8",
       "quote_at": 0,
-      "status": "PENDING",
+      "status": "EXPIRED",
       "text": "SIMULAÇÃO | POSSIVEL\nID 3f6752daaa18866ebb2b/r0 | HBAR_USDT | SHORT | CONTINUACAO\nFormação: 08/11/2026 20:15:00 BRT | Análise: 08/11/2026 20:37:36 BRT\nRegião: 0.06596907172255346978689965081 a 0.06617092827744653021310034919\nAntecipada: reação fechada de 15m recuperando a região\nConfirmada: fechamento posterior além do extremo da reação\nEstado: POSSIVEL | Motivo: aguardando gatilho\nPlano expira: 08/11/2026 20:45:00 BRT.\nA validade de entrada não encerra uma posição já aberta."
     },
     "361bbc041266464344b9": {
@@ -84,7 +92,7 @@
       "expires_at": 1794182400,
       "id": "361bbc041266464344b9",
       "quote_at": 0,
-      "status": "PENDING",
+      "status": "EXPIRED",
       "text": "SIMULAÇÃO | GATILHO CUMPRIDO\nID 0c2e269a680fc0895bdc/r1 | BTC_USDT | SHORT | CONTINUACAO\nFormação: 08/11/2026 20:30:00 BRT | Análise: 08/11/2026 20:37:36 BRT\nModalidade: ANTECIPADA | Gatilho: 08/11/2026 20:30:00 BRT\nFaixa: 75301.4 a 75458.8\nSL: 75746.5 | Alvo: 75292 (PIVO_CONHECIDO)\nSituação financeira: BLOQUEADA\nBloqueios: RETORNO_RISCO_INSUFICIENTE\nHipóteses: FUNDING_FUTURO_MANTIDO_POR_6H, DESLIZAMENTO_ESTIMADO, TAXA_SIMULADA_NAO_PESSOAL\nPlano expira: 08/11/2026 21:00:00 BRT.\nA validade de entrada não encerra uma posição já aberta."
     },
     "58bbe1ea38bde0c37902": {
@@ -94,67 +102,91 @@
       "expires_at": 1794181500,
       "id": "58bbe1ea38bde0c37902",
       "quote_at": 0,
-      "status": "PENDING",
+      "status": "EXPIRED",
       "text": "SIMULAÇÃO | GATILHO CUMPRIDO\nID 3beabc8ad2c65ea2e822/r1 | ENA_USDT | SHORT | CONTINUACAO\nFormação: 08/11/2026 20:15:00 BRT | Análise: 08/11/2026 20:37:36 BRT\nModalidade: ANTECIPADA | Gatilho: 08/11/2026 20:15:00 BRT\nFaixa: 0.1506 a 0.15102\nSL: 0.15368 | Alvo: 0.14318 (PROJECAO_2_5_R)\nSituação financeira: BLOQUEADA\nContratos: 9 | Margem: indisponível USDT | Alavancagem: indisponívelx\nPerda planejada: 0.299433456 USDT | Ganho projetado: 0.646322544 USDT\nRR líquido no pior preço: 2.158484735252830264898655814\nTaxa por execução: 0.0006 (fração) | Custos estimados: 0.022233456 USDT\nDisparo do TP/SL: LAST\nBloqueios: PRECO_FORA_DO_PLANO\nHipóteses: FUNDING_FUTURO_MANTIDO_POR_6H, DESLIZAMENTO_ESTIMADO, TAXA_SIMULADA_NAO_PESSOAL\nCotação usada: 08/11/2026 20:37:31 BRT\nPlano expira: 08/11/2026 20:45:00 BRT.\nA validade de entrada não encerra uma posição já aberta."
     },
     "948cf6b40592fae9ccef": {
-      "attempts": 0,
+      "attempts": 1,
       "category": "INFO",
       "created_at": 1794184390,
       "expires_at": 1794187990,
       "id": "948cf6b40592fae9ccef",
       "quote_at": 0,
-      "status": "PENDING",
+      "sent_at": 1794184392,
+      "status": "SENT",
+      "telegram_ids": [
+        5
+      ],
       "text": "SIMULAÇÃO | EXPIRADO\nID 3f6752daaa18866ebb2b/r2 | HBAR_USDT | SHORT | CONTINUACAO\nFormação: 08/11/2026 20:15:00 BRT | Análise: 08/11/2026 21:33:10 BRT\nRegião: 0.06596907172255346978689965081 a 0.06617092827744653021310034919\nAntecipada: reação fechada de 15m recuperando a região\nConfirmada: fechamento posterior além do extremo da reação\nEstado: EXPIRADO | Motivo: PRAZO_ENCERRADO\nPlano expira: 08/11/2026 21:15:00 BRT.\nA validade de entrada não encerra uma posição já aberta."
     },
     "a11818b5c794d6c945a1": {
-      "attempts": 0,
+      "attempts": 1,
       "category": "INFO",
       "created_at": 1794184390,
       "expires_at": 1794187990,
       "id": "a11818b5c794d6c945a1",
       "quote_at": 0,
-      "status": "PENDING",
+      "sent_at": 1794184392,
+      "status": "SENT",
+      "telegram_ids": [
+        6
+      ],
       "text": "SIMULAÇÃO | EXPIRADO\nID 0a8c2d1ff539db130186/r0 | SUI_USDT | SHORT | CONTINUACAO\nFormação: 08/11/2026 20:30:00 BRT | Análise: 08/11/2026 21:33:10 BRT\nRegião: 0.8383994658637602019066054194 a 0.8420005341362397980933945806\nAntecipada: reação fechada de 15m recuperando a região\nConfirmada: fechamento posterior além do extremo da reação\nEstado: EXPIRADO | Motivo: PRAZO_ENCERRADO\nPlano expira: 08/11/2026 21:00:00 BRT.\nA validade de entrada não encerra uma posição já aberta."
     },
     "ad817c901421a63468f5": {
-      "attempts": 0,
+      "attempts": 1,
       "category": "INFO",
       "created_at": 1794184390,
       "expires_at": 1794187990,
       "id": "ad817c901421a63468f5",
       "quote_at": 0,
-      "status": "PENDING",
+      "sent_at": 1794184392,
+      "status": "SENT",
+      "telegram_ids": [
+        7
+      ],
       "text": "SIMULAÇÃO | EXPIRADO\nID 053777f596cb35a7b357/r1 | TIA_USDT | SHORT | CONTINUACAO\nFormação: 08/11/2026 20:15:00 BRT | Análise: 08/11/2026 21:33:10 BRT\nRegião: 0.4145861491472897424382179327 a 0.4164138508527102575617820673\nAntecipada: reação fechada de 15m recuperando a região\nConfirmada: fechamento posterior além do extremo da reação\nEstado: EXPIRADO | Motivo: PRAZO_ENCERRADO\nPlano expira: 08/11/2026 20:45:00 BRT.\nA validade de entrada não encerra uma posição já aberta."
     },
     "b293730e6a09a469b474": {
-      "attempts": 0,
+      "attempts": 1,
       "category": "ENTRY",
       "created_at": 1794184390,
       "expires_at": 1794186000,
       "id": "b293730e6a09a469b474",
       "quote_at": 1794184388,
-      "status": "PENDING",
+      "sent_at": 1794184392,
+      "status": "SENT",
+      "telegram_ids": [
+        8
+      ],
       "text": "SIMULAÇÃO | GATILHO CUMPRIDO\nID e5d20129663a3d4e2ad5/r1 | ENA_USDT | SHORT | CONTINUACAO\nFormação: 08/11/2026 21:30:00 BRT | Análise: 08/11/2026 21:33:10 BRT\nModalidade: ANTECIPADA | Gatilho: 08/11/2026 21:30:00 BRT\nFaixa: 0.15053 a 0.15098\nSL: 0.15278 | Alvo: 0.14515 (PROJECAO_2_5_R)\nSituação financeira: VIAVEL_SIMULADO\nContratos: 12 | Margem: 0.9507157894736842105263157895 USDT | Alavancagem: 19x\nPerda planejada: 0.2996054772 USDT | Ganho projetado: 0.6167270028 USDT\nRR líquido no pior preço: 2.05846371222481776444639711\nTaxa por execução: 0.0006 (fração) | Custos estimados: 0.0296054772 USDT\nDisparo do TP/SL: LAST\nHipóteses: FUNDING_FUTURO_MANTIDO_POR_6H, DESLIZAMENTO_ESTIMADO, TAXA_SIMULADA_NAO_PESSOAL\nCotação usada: 08/11/2026 21:33:08 BRT\nPendências para uso real: TAXA_PESSOAL_NAO_VERIFICADA, REGRAS_DA_CONTA_NAO_VERIFICADAS\nPlano expira: 08/11/2026 22:00:00 BRT.\nA validade de entrada não encerra uma posição já aberta."
     },
     "cfb71d72a12795a7b07d": {
-      "attempts": 0,
+      "attempts": 1,
       "category": "INFO",
       "created_at": 1794184390,
       "expires_at": 1794187990,
       "id": "cfb71d72a12795a7b07d",
       "quote_at": 0,
-      "status": "PENDING",
+      "sent_at": 1794184392,
+      "status": "SENT",
+      "telegram_ids": [
+        9
+      ],
       "text": "SIMULAÇÃO | EXPIRADO\nID 3beabc8ad2c65ea2e822/r1 | ENA_USDT | SHORT | CONTINUACAO\nFormação: 08/11/2026 20:15:00 BRT | Análise: 08/11/2026 21:33:10 BRT\nRegião: 0.1510399731264261878580027508 a 0.1517800268735738121419972492\nAntecipada: reação fechada de 15m recuperando a região\nConfirmada: fechamento posterior além do extremo da reação\nEstado: EXPIRADO | Motivo: PRAZO_ENCERRADO\nPlano expira: 08/11/2026 20:45:00 BRT.\nA validade de entrada não encerra uma posição já aberta."
     },
     "e27d097657cf7a6bc29a": {
-      "attempts": 0,
+      "attempts": 1,
       "category": "INFO",
       "created_at": 1794184390,
       "expires_at": 1794270790,
       "id": "e27d097657cf7a6bc29a",
       "quote_at": 0,
-      "status": "PENDING",
+      "sent_at": 1794184392,
+      "status": "SENT",
+      "telegram_ids": [
+        10
+      ],
       "text": "SCANNER | RESUMO 2026-11-08 | SIMULAÇÃO\nFonte: OK. Cobertura: 29/29.\nPlanos registrados: 137. Operações no diário: 0.\nSaldo registrado: 1 USDT.\nResultados simulados e reais são separados. Não há meta diária de entradas."
     },
     "f11736c7be90587602cb": {
@@ -164,7 +196,7 @@
       "expires_at": 1794182400,
       "id": "f11736c7be90587602cb",
       "quote_at": 0,
-      "status": "PENDING",
+      "status": "EXPIRED",
       "text": "SIMULAÇÃO | GATILHO CUMPRIDO\nID eefe4fde2c859a39502a/r1 | AAVE_USDT | SHORT | CONTINUACAO\nFormação: 08/11/2026 20:15:00 BRT | Análise: 08/11/2026 20:37:36 BRT\nModalidade: ANTECIPADA | Gatilho: 08/11/2026 20:30:00 BRT\nFaixa: 127.17 a 127.61\nSL: 129.29 | Alvo: 127.45 (PIVO_CONHECIDO)\nSituação financeira: BLOQUEADA\nBloqueios: RETORNO_RISCO_INSUFICIENTE\nHipóteses: FUNDING_FUTURO_MANTIDO_POR_6H, DESLIZAMENTO_ESTIMADO, TAXA_SIMULADA_NAO_PESSOAL\nPlano expira: 08/11/2026 21:00:00 BRT.\nA validade de entrada não encerra uma posição já aberta."
     },
     "fd1a09eef11064f6c979": {
@@ -174,7 +206,7 @@
       "expires_at": 1794182400,
       "id": "fd1a09eef11064f6c979",
       "quote_at": 0,
-      "status": "PENDING",
+      "status": "EXPIRED",
       "text": "SIMULAÇÃO | POSSIVEL\nID a8bd79ae69c00b2e0bfb/r0 | DOT_USDT | SHORT | CONTINUACAO\nFormação: 08/11/2026 20:30:00 BRT | Análise: 08/11/2026 20:37:36 BRT\nRegião: 0.8788645093501221508998772087 a 0.8823354906498778491001227913\nAntecipada: reação fechada de 15m recuperando a região\nConfirmada: fechamento posterior além do extremo da reação\nEstado: POSSIVEL | Motivo: aguardando gatilho\nPlano expira: 08/11/2026 21:00:00 BRT.\nA validade de entrada não encerra uma posição já aberta."
     }
   },
