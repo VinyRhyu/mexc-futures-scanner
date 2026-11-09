@@ -11,7 +11,7 @@ from .finance import evaluate
 from .market import parse_candles, select_universe, structure, aggregate_two_hours
 from .mexc import MexcClient, SourceError
 from .models import Contract, D, DataError, Plan, jsonable, stable_id
-from .reporting import brt, plan_message
+from .reporting import brt, closed_plans_message, daily_message, plan_message
 from .state import queue_message
 from .strategies import process_symbol
 
@@ -116,8 +116,9 @@ def run_scan(client: MexcClient, config: Config, state: dict, assets: set[str],
             if message["status"] == "PENDING" and message["category"] == "ENTRY":
                 message["status"] = "EXPIRED"
         error_key = stable_id("SOURCE_ERROR", str(exc), started // 86400)
-        queue_message(state, error_key, "SCANNER | FALHA DE COLETA\n" + str(exc) +
-                      "\nNenhuma entrada nova liberada. Último sucesso: " +
+        queue_message(state, error_key, "⚠️ FALHA NA COLETA\n" +
+                      ("🧪 SIMULAÇÃO" if config.mode == "paper" else "REAL • EXECUÇÃO MANUAL") +
+                      "\n\n" + str(exc) + "\nNenhuma nova entrada liberada.\nÚltima coleta válida: " +
                       (brt(state["last_success"]) if state["last_success"] else "nenhum"), started, started + 3600)
     report["plans"] = [p for p in state["plans"].values() if not p.get("hidden", False)
                         and p["formed_at"] >= report["analyzed_at"] - 86400]
@@ -128,7 +129,16 @@ def run_scan(client: MexcClient, config: Config, state: dict, assets: set[str],
 
 def _queue_transitions(state: dict, previous: dict, config: Config, now: int) -> None:
     viable = []
+    closed = []
     observations_queued = 0
+
+    def was_notified(p: Plan) -> bool:
+        ids = [stable_id(p.id, "POSSIVEL")]
+        for kind in p.variants:
+            ids += [stable_id(p.id, kind, "OBSERVACAO"), stable_id(p.id, kind, "GATILHO", config.mode)]
+        return any((m := state["outbox"].get(event)) and
+                   (m["status"] == "SENT" or m.get("attempts", 0) > 0) for event in ids)
+
     for row in state["plans"].values():
         p = Plan.from_dict(row)
         old = previous.get(p.id)
@@ -136,9 +146,8 @@ def _queue_transitions(state: dict, previous: dict, config: Config, now: int) ->
             queue_message(state, stable_id(p.id, "POSSIVEL"), plan_message(p, config.mode, now), now, p.expires_at)
             observations_queued += 1
         if p.terminal:
-            if old and old["status"] != p.status and observations_queued < config.max_alerts:
-                queue_message(state, stable_id(p.id, p.status), plan_message(p, config.mode, now), now, now + 3600)
-                observations_queued += 1
+            if old and old["status"] != p.status and was_notified(p) and len(closed) < config.max_alerts:
+                closed.append(p)
             continue
         for v in p.variants.values():
             if v.status != "VALIDA":
@@ -157,7 +166,7 @@ def _queue_transitions(state: dict, previous: dict, config: Config, now: int) ->
     wallet = state["wallet"]
     available = not wallet.get("position") and not wallet.get("pending") and now >= wallet["pause_until"] and not wallet["review_required"]
     for index, (p, v) in enumerate(viable[:config.max_alerts]):
-        suffix = ""
+        suffix, restriction = "", ""
         event_id = stable_id(p.id, v.kind, "GATILHO", config.mode)
         if config.mode == "real":
             if index == 0 and available:
@@ -165,10 +174,20 @@ def _queue_transitions(state: dict, previous: dict, config: Config, now: int) ->
                                      "delivery_event_id": event_id}
                 suffix = "\nIndicação selecionada. Registrar entrada ou não execução antes de outra indicação."
             else:
-                suffix = "\nOBSERVAÇÃO: banca ocupada, indicação pendente, pausa ou revisão da fase."
+                if wallet.get("position"):
+                    restriction = "Já existe uma posição registrada para esta banca."
+                elif wallet.get("pending"):
+                    restriction = "Outra indicação aguarda registro de entrada ou não execução."
+                elif now < wallet["pause_until"]:
+                    restriction = "A banca está em pausa até " + brt(wallet["pause_until"]) + "."
+                else:
+                    restriction = "A banca atingiu uma fase que exige revisão dos parâmetros."
         quote_at = int(v.financial.get("quote_at", 0))
-        queue_message(state, event_id, plan_message(p, config.mode, now, v) + suffix,
+        queue_message(state, event_id, plan_message(p, config.mode, now, v, restriction=restriction) + suffix,
                       now, p.expires_at, "ENTRY", quote_at)
+    if closed:
+        event_id = stable_id("CLOSED_PLANS", [(p.id, p.status) for p in closed], config.mode)
+        queue_message(state, event_id, closed_plans_message(closed, config.mode, now), now, now + 3600)
 
 
 def _daily_summary(state: dict, report: dict, config: Config) -> None:
@@ -177,10 +196,6 @@ def _daily_summary(state: dict, report: dict, config: Config) -> None:
     date = local.date().isoformat()
     if local.hour < 21 or state["last_summary_date"] == date:
         return
-    text = (f"SCANNER | RESUMO {date} | {'SIMULAÇÃO' if config.mode == 'paper' else 'REAL'}\n"
-            f"Fonte: {report['source_status']}. Cobertura: {report['analyzed_symbols']}/{report['selected_symbols']}.\n"
-            f"Planos registrados: {len(state['plans'])}. Operações no diário: {sum(e['action'] == 'close' for e in state['journal'])}.\n"
-            f"Saldo registrado: {state['wallet']['balance']} USDT.\n"
-            "Resultados simulados e reais são separados. Não há meta diária de entradas.")
+    text = daily_message(state, report, config.mode)
     queue_message(state, stable_id("SUMMARY", date, config.mode), text, now, now + 86400)
     state["last_summary_date"] = date

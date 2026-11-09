@@ -4,6 +4,8 @@ Data: 8 de novembro de 2026. Ambiente local: Python 3.12.14.
 
 ## Verificações concluídas
 
+Revisão dos alertas: a suíte foi ampliada para **59 testes**, aprovados localmente. Os oito casos adicionais verificam preservação dos preços e do estado, distinção de bloqueio/validação, restrições da carteira, expiração sem novos gatilhos, direção SHORT, agrupamento dos planos conhecidos, prioridade de entrega e rotulagem da amostra fictícia. O workflow de testes e o envio dessa amostra são executados novamente ao publicar a revisão.
+
 **51 testes automatizados passaram, localmente e no GitHub Actions.** Foram exercitados:
 
 - Integridade, atualidade e fechamento de candles; agregação UTC de 2h; pivôs conhecidos somente depois da confirmação.

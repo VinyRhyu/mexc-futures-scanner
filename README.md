@@ -82,6 +82,20 @@ Se ainda não souber seu `TELEGRAM_CHAT_ID`, salve primeiro somente `TELEGRAM_BO
 
 O bot é inicialmente um canal de saída. Ele não interpreta respostas de operação nesta versão. Registrar a execução pelo workflow de diário.
 
+### Formato dos alertas
+
+O início da mensagem informa a ação possível: **possível entrada / aguardar gatilho**, **entrada bloqueada**, **gatilho válido para simular**, ou **apenas acompanhamento**. Simulação e uso real são identificados separadamente. Cada alerta destaca ativo e direção, modalidade, faixa de entrada, stop, alvo e prazo. Quando viável, apresenta quantidade, margem, alavancagem, risco em USDT e porcentagem da banca, ganho projetado e custos.
+
+Preços executáveis preservam a precisão original. Somente regiões de atenção ainda sem gatilho aparecem aproximadas (`≈`); valores financeiros estimados e percentuais são arredondados para leitura. Os cálculos e os motivos completos continuam disponíveis no relatório JSON.
+
+Encerramentos são agrupados em uma atualização curta, somente para planos já notificados (ou com tentativa de entrega ambígua). Indicações atuais têm prioridade de envio sobre acompanhamentos e resumos. IDs dos planos permanecem visíveis para uso no diário. Uma pausa ou indicação pendente nunca é apresentada com o título de entrada validada.
+
+**Testar Telegram** agora envia uma amostra com o ativo fictício `DEMO_USDT`, explicitamente marcada como **EXEMPLO FICTÍCIO — NÃO OPERAR**. Pode ser iniciado manualmente e também roda quando o formato ou seu script de amostra é atualizado em `main`; executa os testes antes de enviar uma única demonstração. Para visualizar sem enviar:
+
+```bash
+python -m scripts.telegram_preview
+```
+
 ## Diário de operações
 
 Em **Actions → Registrar operação → Run workflow**, escolher:
