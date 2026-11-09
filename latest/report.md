@@ -1,6 +1,6 @@
 # MEXC Futures Scanner — rodada
 
-Modo: **paper**. Análise: 09/11/2026 10:31:31 BRT.
+Modo: **paper**. Análise: 09/11/2026 10:46:28 BRT.
 
 Fonte: OK
 Cobertura: 32/32 contratos selecionados.
@@ -66,6 +66,7 @@ Cobertura: 32/32 contratos selecionados.
 | TAO_USDT | ROMPIMENTO | SHORT | EXPIRADO | — | PRAZO_ENCERRADO |
 | XLM_USDT | ROMPIMENTO | SHORT | EXPIRADO | — | PRAZO_ENCERRADO |
 | WLD_USDT | ROMPIMENTO | SHORT | EXPIRADO | — | PRAZO_ENCERRADO |
+| PEPE_USDT | ROMPIMENTO | LONG | EXPIRADO | — | PRAZO_ENCERRADO |
 | NEAR_USDT | ROMPIMENTO | LONG | EXPIRADO | — | PRAZO_ENCERRADO |
 | ENA_USDT | ROMPIMENTO | LONG | EXPIRADO | — | PRAZO_ENCERRADO |
 | LTC_USDT | CONTINUACAO | SHORT | EXPIRADO | — | PRAZO_ENCERRADO |
@@ -472,6 +473,7 @@ Cobertura: 32/32 contratos selecionados.
 | NEAR_USDT | ROMPIMENTO | SHORT | EXPIRADO | — | PRAZO_ENCERRADO |
 | NEAR_USDT | CONTINUACAO | SHORT | INVALIDADO | — | PERDA_DA_REGIAO_OU_ESTRUTURA |
 | BTC_USDT | ROMPIMENTO | SHORT | EXPIRADO | — | PRAZO_ENCERRADO |
+| PEPE_USDT | ROMPIMENTO | SHORT | EXPIRADO | — | PRAZO_ENCERRADO |
 | NEAR_USDT | ROMPIMENTO | SHORT | EXPIRADO | — | PRAZO_ENCERRADO |
 | AAVE_USDT | CONTINUACAO | SHORT | INVALIDADO | — | PERDA_DA_REGIAO_OU_ESTRUTURA |
 | HOT_USDT | ROMPIMENTO | LONG | EXPIRADO | — | PRAZO_ENCERRADO |
@@ -888,8 +890,20 @@ Cobertura: 32/32 contratos selecionados.
 | SUI_USDT | CONTINUACAO | SHORT | EXPIRADO | CONFIRMADA | RETORNO_RISCO_INSUFICIENTE |
 | QNT_USDT | CONTINUACAO | SHORT | INVALIDADO | — | PERDA_DA_REGIAO_OU_ESTRUTURA |
 | DOGE_USDT | ROMPIMENTO | LONG | EXPIRADO | — | PRAZO_ENCERRADO |
-| PEPE_USDT | ROMPIMENTO | LONG | POSSIVEL | — | aguardando gatilho |
-| PEPE_USDT | ROMPIMENTO | SHORT | POSSIVEL | — | aguardando gatilho |
+| DASH_USDT | ROMPIMENTO | LONG | POSSIVEL | — | aguardando gatilho |
+| DASH_USDT | ROMPIMENTO | SHORT | POSSIVEL | — | aguardando gatilho |
+| ENA_USDT | ROMPIMENTO | LONG | POSSIVEL | — | aguardando gatilho |
+| ENA_USDT | ROMPIMENTO | SHORT | POSSIVEL | — | aguardando gatilho |
+| HOT_USDT | ROMPIMENTO | LONG | POSSIVEL | — | aguardando gatilho |
+| HOT_USDT | ROMPIMENTO | SHORT | POSSIVEL | — | aguardando gatilho |
+| LINK_USDT | ROMPIMENTO | LONG | POSSIVEL | — | aguardando gatilho |
+| LINK_USDT | ROMPIMENTO | SHORT | POSSIVEL | — | aguardando gatilho |
+| LTC_USDT | ROMPIMENTO | LONG | POSSIVEL | — | aguardando gatilho |
+| LTC_USDT | ROMPIMENTO | SHORT | POSSIVEL | — | aguardando gatilho |
+| WLD_USDT | ROMPIMENTO | LONG | POSSIVEL | — | aguardando gatilho |
+| WLD_USDT | ROMPIMENTO | SHORT | POSSIVEL | — | aguardando gatilho |
+| ZEC_USDT | ROMPIMENTO | LONG | POSSIVEL | — | aguardando gatilho |
+| ZEC_USDT | ROMPIMENTO | SHORT | POSSIVEL | — | aguardando gatilho |
 
 ## Diagnósticos
 
