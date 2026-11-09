@@ -331,23 +331,31 @@
       "text": "SIMULAÇÃO | GATILHO CUMPRIDO\nID 3beabc8ad2c65ea2e822/r1 | ENA_USDT | SHORT | CONTINUACAO\nFormação: 08/11/2026 20:15:00 BRT | Análise: 08/11/2026 20:37:36 BRT\nModalidade: ANTECIPADA | Gatilho: 08/11/2026 20:15:00 BRT\nFaixa: 0.1506 a 0.15102\nSL: 0.15368 | Alvo: 0.14318 (PROJECAO_2_5_R)\nSituação financeira: BLOQUEADA\nContratos: 9 | Margem: indisponível USDT | Alavancagem: indisponívelx\nPerda planejada: 0.299433456 USDT | Ganho projetado: 0.646322544 USDT\nRR líquido no pior preço: 2.158484735252830264898655814\nTaxa por execução: 0.0006 (fração) | Custos estimados: 0.022233456 USDT\nDisparo do TP/SL: LAST\nBloqueios: PRECO_FORA_DO_PLANO\nHipóteses: FUNDING_FUTURO_MANTIDO_POR_6H, DESLIZAMENTO_ESTIMADO, TAXA_SIMULADA_NAO_PESSOAL\nCotação usada: 08/11/2026 20:37:31 BRT\nPlano expira: 08/11/2026 20:45:00 BRT.\nA validade de entrada não encerra uma posição já aberta."
     },
     "5c9daf3b7e6a9f3f977c": {
-      "attempts": 0,
+      "attempts": 1,
       "category": "INFO",
       "created_at": 1794192396,
       "expires_at": 1794194100,
       "id": "5c9daf3b7e6a9f3f977c",
       "quote_at": 0,
-      "status": "PENDING",
+      "sent_at": 1794192397,
+      "status": "SENT",
+      "telegram_ids": [
+        61
+      ],
       "text": "🟠 ENTRADA BLOQUEADA\nONDO/USDT • LONG\n🧪 SIMULAÇÃO • Antecipada\nRompimento de consolidação\n\nMotivo: A relação entre ganho e perda ficou abaixo do mínimo.\nSem entrada liberada nesta análise.\n\n📍 Faixa do plano: 0.3576 a 0.3586\n🛑 Stop: 0.3555\n🎯 Alvo: 0.3608\n\nEstimativas de taxas, deslizamento e funding; ganho não garantido.\n\n⏱ Nova entrada até 09/11 00:15:00 BRT (28min 24s).\nGatilho 15m: 23:45:00 BRT\nAnálise: 08/11/2026 23:46:36 BRT\nA validade se aplica a novas entradas.\nPlano: c8d99fa6de608c5a47cf • revisão 1"
     },
     "5d836e9841f2bdf8b213": {
-      "attempts": 0,
+      "attempts": 1,
       "category": "INFO",
       "created_at": 1794192396,
       "expires_at": 1794193200,
       "id": "5d836e9841f2bdf8b213",
       "quote_at": 0,
-      "status": "PENDING",
+      "sent_at": 1794192397,
+      "status": "SENT",
+      "telegram_ids": [
+        62
+      ],
       "text": "🟠 ENTRADA BLOQUEADA\nETH/USDT • LONG\n🧪 SIMULAÇÃO • Confirmada\nRompimento de consolidação\n\nMotivo: A relação entre ganho e perda ficou abaixo do mínimo.\nSem entrada liberada nesta análise.\n\n📍 Faixa do plano: 2152.21 a 2157.35\n🛑 Stop: 2142.84\n🎯 Alvo: 2177.92\n\nEstimativas de taxas, deslizamento e funding; ganho não garantido.\n\n⏱ Nova entrada até 09/11 00:00:00 BRT (13min 24s).\nGatilho 15m: 23:45:00 BRT\nAnálise: 08/11/2026 23:46:36 BRT\nA validade se aplica a novas entradas.\nPlano: b8e97af83e5998730691 • revisão 2"
     },
     "5dd76292677a13e11398": {
@@ -379,13 +387,17 @@
       "text": "🟠 ENTRADA BLOQUEADA\nWLD/USDT • SHORT\n🧪 SIMULAÇÃO • Antecipada\nContinuação após correção\n\nMotivo: Os custos estão altos demais em relação ao risco.\nSem entrada liberada nesta análise.\n\n📍 Faixa do plano: 0.3155 a 0.3171\n🛑 Stop: 0.3203\n🎯 Alvo: 0.3063\n\nEstimativas de taxas, deslizamento e funding; ganho não garantido.\n\n⏱ Nova entrada até 22:45:00 BRT (28min 21s).\nGatilho 15m: 22:15:00 BRT\nAnálise: 08/11/2026 22:16:39 BRT\nA validade se aplica a novas entradas.\nPlano: 90e00cd13985d82f440a • revisão 1"
     },
     "6393adc49f28b5b226b3": {
-      "attempts": 0,
+      "attempts": 1,
       "category": "INFO",
       "created_at": 1794192396,
       "expires_at": 1794193200,
       "id": "6393adc49f28b5b226b3",
       "quote_at": 0,
-      "status": "PENDING",
+      "sent_at": 1794192397,
+      "status": "SENT",
+      "telegram_ids": [
+        63
+      ],
       "text": "👀 POSSÍVEL ENTRADA • AGUARDAR GATILHO\nAAVE/USDT • LONG\n🧪 SIMULAÇÃO\nRompimento de consolidação\n\nRegião de atenção ≈ 126.99 a 130.46\n\nAntecipada: Primeiro fechamento de 15m acima da faixa, com a tolerância do plano.\nConfirmada: O candle de 15m imediatamente seguinte mantém o rompimento.\nCada modalidade é avaliada de forma independente.\n\nPreparação válida até 09/11 00:00:00 BRT (13min 24s).\nAnálise: 08/11/2026 23:46:36 BRT\nPlano: 5ac0ed975b5b056a3a43 • revisão 0"
     },
     "672d970f8a0b9bc0fc7c": {
@@ -431,13 +443,17 @@
       "text": "👀 POSSÍVEL ENTRADA • AGUARDAR GATILHO\nAAVE/USDT • LONG\n🧪 SIMULAÇÃO\nRompimento de consolidação\n\nRegião de atenção ≈ 125.53 a 128.79\n\nAntecipada: Primeiro fechamento de 15m acima da faixa, com a tolerância do plano.\nConfirmada: O candle de 15m imediatamente seguinte mantém o rompimento.\nCada modalidade é avaliada de forma independente.\n\nPreparação válida até 22:30:00 BRT (13min 21s).\nAnálise: 08/11/2026 22:16:39 BRT\nPlano: 86577f1545a2f8bc3d9a • revisão 0"
     },
     "73161e1f6cee43c64ba7": {
-      "attempts": 0,
+      "attempts": 1,
       "category": "INFO",
       "created_at": 1794192396,
       "expires_at": 1794193200,
       "id": "73161e1f6cee43c64ba7",
       "quote_at": 0,
-      "status": "PENDING",
+      "sent_at": 1794192397,
+      "status": "SENT",
+      "telegram_ids": [
+        64
+      ],
       "text": "🟠 ENTRADA BLOQUEADA\nAVAX/USDT • LONG\n🧪 SIMULAÇÃO • Confirmada\nRompimento de consolidação\n\nMotivo: O preço está fora da faixa permitida.\nSem entrada liberada nesta análise.\n\n📍 Faixa do plano: 8.081 a 8.083\n🛑 Stop: 8.042\n🎯 Alvo: 8.209\n\nEstimativas de taxas, deslizamento e funding; ganho não garantido.\n\n⏱ Nova entrada até 09/11 00:00:00 BRT (13min 24s).\nGatilho 15m: 23:45:00 BRT\nCotação: 23:46:25 BRT\nAnálise: 08/11/2026 23:46:36 BRT\nA validade se aplica a novas entradas.\nPlano: 18f4a100b8821431a1bb • revisão 2"
     },
     "76ef77219932032cefd3": {
@@ -581,13 +597,17 @@
       "text": "👀 POSSÍVEL ENTRADA • AGUARDAR GATILHO\nUNI/USDT • SHORT\n🧪 SIMULAÇÃO\nContinuação após correção\n\nRegião de atenção ≈ 6.92235 a 6.95365\n\nAntecipada: Tocar a região e fechar o candle de 15m abaixo dela.\nConfirmada: Outro candle de 15m fecha além da mínima da reação.\nCada modalidade é avaliada de forma independente.\n\nPreparação válida até 22:30:00 BRT (14min 46s).\nAnálise: 08/11/2026 22:15:14 BRT\nPlano: 5a5a906213be05af1193 • revisão 0"
     },
     "9c9f596d24fe826b41cc": {
-      "attempts": 0,
+      "attempts": 1,
       "category": "INFO",
       "created_at": 1794192396,
       "expires_at": 1794194100,
       "id": "9c9f596d24fe826b41cc",
       "quote_at": 0,
-      "status": "PENDING",
+      "sent_at": 1794192397,
+      "status": "SENT",
+      "telegram_ids": [
+        65
+      ],
       "text": "🟠 ENTRADA BLOQUEADA\nWLD/USDT • LONG\n🧪 SIMULAÇÃO • Antecipada\nRompimento de consolidação\n\nMotivo: A relação entre ganho e perda ficou abaixo do mínimo.\nSem entrada liberada nesta análise.\n\n📍 Faixa do plano: 0.3215 a 0.3229\n🛑 Stop: 0.3193\n🎯 Alvo: 0.3268\n\nEstimativas de taxas, deslizamento e funding; ganho não garantido.\n\n⏱ Nova entrada até 09/11 00:15:00 BRT (28min 24s).\nGatilho 15m: 23:45:00 BRT\nAnálise: 08/11/2026 23:46:36 BRT\nA validade se aplica a novas entradas.\nPlano: de82b1a840ad4fbdba4d • revisão 1"
     },
     "a11818b5c794d6c945a1": {
@@ -815,13 +835,17 @@
       "text": "👀 POSSÍVEL ENTRADA • AGUARDAR GATILHO\nSUI/USDT • SHORT\n🧪 SIMULAÇÃO\nContinuação após correção\n\nRegião de atenção ≈ 0.838393 a 0.842007\n\nAntecipada: Tocar a região e fechar o candle de 15m abaixo dela.\nConfirmada: Outro candle de 15m fecha além da mínima da reação.\nCada modalidade é avaliada de forma independente.\n\nPreparação válida até 22:30:00 BRT (14min 46s).\nAnálise: 08/11/2026 22:15:14 BRT\nPlano: ff30d079e5db7f24ec00 • revisão 0"
     },
     "e120621b530aa4261469": {
-      "attempts": 0,
+      "attempts": 1,
       "category": "INFO",
       "created_at": 1794192396,
       "expires_at": 1794194100,
       "id": "e120621b530aa4261469",
       "quote_at": 0,
-      "status": "PENDING",
+      "sent_at": 1794192397,
+      "status": "SENT",
+      "telegram_ids": [
+        66
+      ],
       "text": "🟠 ENTRADA BLOQUEADA\nXLM/USDT • LONG\n🧪 SIMULAÇÃO • Antecipada\nRompimento de consolidação\n\nMotivo: A relação entre ganho e perda ficou abaixo do mínimo.\nSem entrada liberada nesta análise.\n\n📍 Faixa do plano: 0.14848 a 0.14881\n🛑 Stop: 0.14782\n🎯 Alvo: 0.15029\n\nEstimativas de taxas, deslizamento e funding; ganho não garantido.\n\n⏱ Nova entrada até 09/11 00:15:00 BRT (28min 24s).\nGatilho 15m: 23:45:00 BRT\nAnálise: 08/11/2026 23:46:36 BRT\nA validade se aplica a novas entradas.\nPlano: 8ecf4455664f960776e9 • revisão 1"
     },
     "e1a7b4cbdb9238c6f378": {
@@ -853,13 +877,17 @@
       "text": "SCANNER | RESUMO 2026-11-08 | SIMULAÇÃO\nFonte: OK. Cobertura: 29/29.\nPlanos registrados: 137. Operações no diário: 0.\nSaldo registrado: 1 USDT.\nResultados simulados e reais são separados. Não há meta diária de entradas."
     },
     "e4f567248c9ebdea08dc": {
-      "attempts": 0,
+      "attempts": 1,
       "category": "INFO",
       "created_at": 1794192396,
       "expires_at": 1794195996,
       "id": "e4f567248c9ebdea08dc",
       "quote_at": 0,
-      "status": "PENDING",
+      "sent_at": 1794192397,
+      "status": "SENT",
+      "telegram_ids": [
+        67
+      ],
       "text": "⚪ ATUALIZAÇÃO DOS PLANOS ACOMPANHADOS\n🧪 SIMULAÇÃO\n\n• AVAX/USDT • SHORT: janela expirou\n  Plano: 2054d3a0fbc7e54b718e\n• DASH/USDT • SHORT: janela expirou\n  Plano: 61bba377258f7df70f53\n• ADA/USDT • SHORT: janela expirou\n  Plano: 9b617db917998b2e2d6a\n• DASH/USDT • LONG: janela expirou\n  Plano: afb6267f8406f10f11ee\n• ADA/USDT • LONG: janela expirou\n  Plano: c6dfdf70a356b4b73fd1\n\nSem novas entradas por esses planos.\nA expiração não encerra posições já abertas.\nAnálise: 08/11/2026 23:46:36 BRT"
     },
     "e685600dc173b98954cc": {
