@@ -6,7 +6,7 @@ from pathlib import Path
 from mexc_scanner.config import Config
 from mexc_scanner.models import D,ceil_step,floor_step,jsonable
 from scripts.audit_sustained_trigger import MODE,read_dataset,restore_plan,restore_variant,metrics
-from scripts.audit_stop_causes import walk,financial
+from scripts.audit_stop_causes import walk,financial,net
 
 
 def extended_target(mid,target,side,tick):
@@ -21,9 +21,18 @@ def extended_target(mid,target,side,tick):
     return value
 
 
+def mark_open(result,last_price,mid,side,v,contract,cfg):
+    result=deepcopy(result)
+    if result['outcome']=='ABERTO':
+        risk=-net(v.stop,mid,side,contract,cfg)
+        result['mark_to_market_r']=str(net(last_price,mid,side,contract,cfg)/risk)
+    return result
+
 def summarize(rows):
     return {'baseline':metrics([r['baseline'] for r in rows]),
         'extended':metrics([r['extended'] for r in rows]),
+        'baseline_including_open_marks_r':str(sum((D(r['baseline'].get('net_r',r['baseline'].get('mark_to_market_r',0))) for r in rows),D(0))),
+        'extended_including_open_marks_r':str(sum((D(r['extended'].get('net_r',r['extended'].get('mark_to_market_r',0))) for r in rows),D(0))),
         'original_targets_to_stop':sum(r['baseline']['outcome']=='ALVO' and r['extended']['outcome']=='STOP' for r in rows),
         'original_targets_to_open':sum(r['baseline']['outcome']=='ALVO' and r['extended']['outcome']=='ABERTO' for r in rows),
         'financial_gate_outcomes':dict(Counter(r['financial']['status'] for r in rows)),
@@ -59,7 +68,8 @@ def run():
             new.target=extended_target(mid,v.target,p.side,d['contract'].tick)
             rows.append(jsonable({'id':row['id'],'symbol':row['symbol'],'side':row['side'],'week':row['week'],
                 'signal':signal,'entry_mid':mid,'stop':v.stop,'old_target':v.target,'new_target':new.target,
-                'baseline':base,'extended':walk(bars,mid,p.side,new,d['contract'],cfg),
+                'baseline':mark_open(base,bars[-1].close,mid,p.side,v,d['contract'],cfg),
+                'extended':mark_open(walk(bars,mid,p.side,new,d['contract'],cfg),bars[-1].close,mid,p.side,new,d['contract'],cfg),
                 'financial':financial(p,new,mid,signal,d['contract'],cfg)}))
     if len(rows)!=28:raise ValueError('Incomplete comparison')
     result={'kind':'TP_DISTANCE_PLUS25','summary':summarize(rows),
@@ -71,6 +81,7 @@ def run():
             'Resultados emR usam mesmo risco ao SL e mesmos custos por operação. Custos de saída são calculados no novo preço-alvo. Sem proteção no zero.',
             'Gate financeiro do novo TP informado separadamente; o resumo principal preserva as28entradas para isolar o efeito do alvo, sem redimensionar a posição.',
             'Abertas4h não são vitórias nem entram na soma encerrada. Stops primeiro em ambiguidade. Fills/funding/livro mantêm hipóteses anteriores.',
+            'Marcação das abertas informada separadamente, ao fechamento de4h com custos hipotéticos de saída nos dois modelos. Não conta aberta como TP e não é execução observada.',
             'Mesmo histórico já explorado, sem validação fora da amostra. Sinais sobrepostos: somaR não representa dinheiro ou ROI de uma carteira.',
             'Aumento fixado antes do teste; não houve busca de outros multiplicadores após resultados. Produção não alterada.'
         ]}
