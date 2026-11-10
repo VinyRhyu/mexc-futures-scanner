@@ -19,19 +19,19 @@
       "ANTECIPADA": {
         "all": {
           "avoided_stops": 1,
-          "candidates": 35,
+          "candidates": 36,
           "capture_late": 0,
           "models": {
             "ATUAL": {
-              "candidates": 35,
+              "candidates": 36,
               "closed_r_independent": "-1",
               "entries": 2,
-              "marked_r_independent": "-0.6840080436137253044966283907",
+              "marked_r_independent": "-0.3577747435011614093928513951",
               "open": 1,
               "outcomes": {
                 "ABERTO": 1,
-                "AGUARDANDO_CANDLE": 5,
-                "BLOQUEADA": 28,
+                "AGUARDANDO_CANDLE": 1,
+                "BLOQUEADA": 33,
                 "STOP": 1
               },
               "stops": 1,
@@ -54,7 +54,7 @@
           "structure_counts": {
             "ALTA": 1,
             "BAIXA": 22,
-            "INDEFINIDA": 12
+            "INDEFINIDA": 13
           }
         },
         "complete": {
@@ -137,18 +137,18 @@
       "CONFIRMADA": {
         "all": {
           "avoided_stops": 0,
-          "candidates": 22,
+          "candidates": 24,
           "capture_late": 0,
           "models": {
             "ATUAL": {
-              "candidates": 22,
+              "candidates": 24,
               "closed_r_independent": "0",
               "entries": 0,
               "marked_r_independent": "0",
               "open": 0,
               "outcomes": {
-                "AGUARDANDO_CANDLE": 1,
-                "BLOQUEADA": 21
+                "AGUARDANDO_CANDLE": 2,
+                "BLOQUEADA": 22
               },
               "stops": 0,
               "targets": 0
@@ -169,7 +169,7 @@
           "removed_winners": 0,
           "structure_counts": {
             "ALTA": 1,
-            "BAIXA": 16,
+            "BAIXA": 18,
             "INDEFINIDA": 5
           }
         },
@@ -456,5 +456,5 @@
       }
     }
   },
-  "updated_at": "2026-11-10T21:16:47+00:00"
+  "updated_at": "2026-11-10T21:31:42+00:00"
 }
