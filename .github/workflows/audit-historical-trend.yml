@@ -1,0 +1,38 @@
+name: Comparar tendência 1h em histórico anterior
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'scripts/audit_historical_trend.py'
+      - 'tests/test_audit_historical_trend.py'
+      - '.github/workflows/audit-historical-trend.yml'
+  workflow_dispatch:
+    inputs:
+      start:
+        description: Data inicial em Brasília (inclusiva)
+        default: '2026-11-01'
+        type: string
+      end:
+        description: Data final em Brasília (exclusiva)
+        default: '2026-11-08'
+        type: string
+permissions:
+  contents: read
+jobs:
+  replay:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    env:
+      REPLAY_START: ${{ inputs.start || '2026-11-01' }}
+      REPLAY_END: ${{ inputs.end || '2026-11-08' }}
+    steps:
+      - uses: actions/checkout@v7.0.1
+        with:
+          persist-credentials: false
+      - uses: actions/setup-python@v7
+        with:
+          python-version: '3.12'
+      - name: Verificar geração sem candles futuros
+        run: python -m unittest tests.test_audit_historical_trend -q
+      - name: Buscar históricos públicos e comparar regras fixas
+        run: python -m scripts.audit_historical_trend --start "$REPLAY_START" --end "$REPLAY_END"
