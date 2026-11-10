@@ -98,6 +98,7 @@ def run(state):
         'minimum_at': local(min(later, key=lambda c:c.low).ts),
         'change_percent': (later[-1].close / start_bar.open - 1) * 100,
         'candles_15m': rows, 'candles_1h': [c for c in h if first-7200 <= c.end <= end],
+        'candles_1m': m,
         'reconstructed_events': events, 'recorded_events': recorded,
         'limitations': ['Preços de mercado são observados; fills, taxas e livro das entradas reconstruídas são hipóteses.',
             'EMAs, volumes e rompimentos de mínimas são descrições, não uma estratégia validada ou prova de previsão.',
