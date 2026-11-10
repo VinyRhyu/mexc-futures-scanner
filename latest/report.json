@@ -57,61 +57,77 @@
         },
         "complete": {
           "avoided_stops": 0,
-          "candidates": 0,
+          "candidates": 6,
           "capture_late": 0,
           "models": {
             "ATUAL": {
-              "candidates": 0,
+              "candidates": 6,
               "closed_r_independent": "0",
               "entries": 0,
               "marked_r_independent": "0",
               "open": 0,
-              "outcomes": {},
+              "outcomes": {
+                "BLOQUEADA": 6
+              },
               "stops": 0,
               "targets": 0
             },
             "FILTRO_1H": {
-              "candidates": 0,
+              "candidates": 2,
               "closed_r_independent": "0",
               "entries": 0,
               "marked_r_independent": "0",
               "open": 0,
-              "outcomes": {},
+              "outcomes": {
+                "BLOQUEADA": 2
+              },
               "stops": 0,
               "targets": 0
             }
           },
           "removed_winners": 0,
-          "structure_counts": {}
+          "structure_counts": {
+            "ALTA": 1,
+            "BAIXA": 2,
+            "INDEFINIDA": 3
+          }
         },
         "timely_complete": {
           "avoided_stops": 0,
-          "candidates": 0,
+          "candidates": 6,
           "capture_late": 0,
           "models": {
             "ATUAL": {
-              "candidates": 0,
+              "candidates": 6,
               "closed_r_independent": "0",
               "entries": 0,
               "marked_r_independent": "0",
               "open": 0,
-              "outcomes": {},
+              "outcomes": {
+                "BLOQUEADA": 6
+              },
               "stops": 0,
               "targets": 0
             },
             "FILTRO_1H": {
-              "candidates": 0,
+              "candidates": 2,
               "closed_r_independent": "0",
               "entries": 0,
               "marked_r_independent": "0",
               "open": 0,
-              "outcomes": {},
+              "outcomes": {
+                "BLOQUEADA": 2
+              },
               "stops": 0,
               "targets": 0
             }
           },
           "removed_winners": 0,
-          "structure_counts": {}
+          "structure_counts": {
+            "ALTA": 1,
+            "BAIXA": 2,
+            "INDEFINIDA": 3
+          }
         }
       },
       "CONFIRMADA": {
@@ -427,5 +443,5 @@
       }
     }
   },
-  "updated_at": "2026-11-10T17:31:40+00:00"
+  "updated_at": "2026-11-10T17:46:41+00:00"
 }
