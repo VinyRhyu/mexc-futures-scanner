@@ -1,0 +1,47 @@
+name: Testar fechamento no terço favorável
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'scripts/audit_close_quality.py'
+      - 'tests/test_close_quality.py'
+      - '.github/workflows/audit-close-quality.yml'
+  workflow_dispatch:
+permissions:
+  contents: read
+  actions: read
+jobs:
+  audit:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v7.0.1
+        with:
+          persist-credentials: false
+      - uses: actions/setup-python@v7
+        with:
+          python-version: '3.12'
+      - name: Verificar níveis congelados e causalidade
+        run: python -m unittest tests.test_close_quality -q
+      - name: Recuperar exatamente a coleta anterior
+        uses: actions/download-artifact@v8.0.2
+        with:
+          name: early-trigger-history-42879077420
+          run-id: 42879077420
+          github-token: ${{ github.token }}
+          path: reports/early-trigger-source/
+      - uses: actions/download-artifact@v8.0.2
+        with:
+          name: sustained-trigger-history-42890505005
+          run-id: 42890505005
+          github-token: ${{ github.token }}
+          path: reports/sustained-source/
+      - name: Comparar filtro em coleta congelada e período novo
+        run: python -m scripts.audit_close_quality
+      - uses: actions/upload-artifact@v7.0.2
+        if: always()
+        with:
+          name: close-quality-${{ github.run_id }}
+          path: reports/close-quality/
+          retention-days: 30
+          compression-level: 0
