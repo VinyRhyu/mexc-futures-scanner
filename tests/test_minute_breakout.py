@@ -2,7 +2,7 @@ from copy import deepcopy
 from dataclasses import replace
 import unittest
 from mexc_scanner.config import Config
-from mexc_scanner.models import Candle,D,jsonable
+from mexc_scanner.models import Candle,D,jsonable,stable_id
 from mexc_scanner.minute_breakout import (MODEL,STRATEGY,form_plans,prepare_model,process_minutes,validate_minute_ohlc)
 from mexc_scanner.state import initial_state
 from mexc_scanner.reporting import plan_message
@@ -73,11 +73,14 @@ class MinuteBreakoutTests(unittest.TestCase):
         s['plans'][p.id]=jsonable(p)
         s['outbox']['pending']={'category':'ENTRY','status':'PENDING'}
         s['outbox']['sent']={'category':'ENTRY','status':'SENT'}
+        info_id=stable_id(p.id,'POSSIVEL')
+        s['outbox'][info_id]={'category':'INFO','status':'PENDING'}
         wallet,journal=deepcopy(s['wallet']),deepcopy(s['journal'])
         prepare_model(s,MODEL,T+130)
         self.assertEqual(s['wallet'],wallet);self.assertEqual(s['journal'],journal)
         self.assertEqual(s['outbox']['pending']['status'],'EXPIRED')
         self.assertEqual(s['outbox']['sent']['status'],'SENT')
+        self.assertEqual(s['outbox'][info_id]['status'],'EXPIRED')
         self.assertEqual(s['plans'][p.id]['reason'],'MODELO_SUBSTITUIDO')
     def test_reporting_has_actual_timeframe(self):
         p=self.long(self.run_model()[0])

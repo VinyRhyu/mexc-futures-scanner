@@ -23,14 +23,18 @@ def prepare_model(state,model,now):
     if state.get('active_signal_model')==model:
         return
     # Existing ledger/position/balance are deliberately retained.
+    old_events=set()
     for p in state['plans'].values():
+        old_events.add(stable_id(p['id'],'POSSIVEL'))
+        for kind in p.get('variants',{}):
+            old_events.add(stable_id(p['id'],kind,'OBSERVACAO'))
         if p['status'] not in {'EXPIRADO','INVALIDADO','AMBIGUO','EVENTO_PASSADO'}:
             p['status'],p['reason']='EXPIRADO','MODELO_SUBSTITUIDO'
             for v in p.get('variants',{}).values():
                 v['status']='ENCERRADA'
                 v['financial']={'status':'BLOQUEADA','reasons':['MODELO_SUBSTITUIDO']}
-    for message in state['outbox'].values():
-        if message['category']=='ENTRY' and message['status']=='PENDING':
+    for event_id,message in state['outbox'].items():
+        if message['status']=='PENDING' and (message['category']=='ENTRY' or event_id in old_events):
             message['status']='EXPIRED'
     state['active_signal_model']=model
     state['model_activated_at']=now
