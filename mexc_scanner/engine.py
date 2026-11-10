@@ -49,14 +49,15 @@ def run_scan(client: MexcClient, config: Config, state: dict, assets: set[str],
         snapshot["contracts"], snapshot["tickers"] = selected, tickers
         def collect(row):
             symbol = row["symbol"]
-            h = client.candles(symbol, "Min60", config.hourly_bars, server)
+            h_count=config.hourly_bars+2 if signal_model==MODEL else config.hourly_bars
+            h = client.candles(symbol, "Min60", h_count, server)
             q_count=config.quarter_bars+config.replay_bars if signal_model==MODEL else config.quarter_bars
             q = client.candles(symbol, "Min15", q_count, server)
             minute=(parse_candles(client.candles(symbol,'Min1',120,server),60,server,120)
                     if signal_model==MODEL else None)
             quarter=parse_candles(q,900,server,q_count)
             if minute is not None:validate_minute_ohlc(quarter,minute)
-            return (row, parse_candles(h, 3600, server, config.hourly_bars),quarter,minute)
+            return (row, parse_candles(h, 3600, server, h_count),quarter,minute)
         results = []
         with ThreadPoolExecutor(max_workers=4) as pool:
             futures = {pool.submit(collect, row): row["symbol"] for row in selected}

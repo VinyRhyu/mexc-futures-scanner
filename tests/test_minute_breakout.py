@@ -65,6 +65,14 @@ class MinuteBreakoutTests(unittest.TestCase):
         q=self.q+[candle(T,900,hi='150',lo='50')]
         other=[p for p in form_plans('TEST_USDT',q,D('.01'),T,T) if p.formed_at==T]
         self.assertEqual(jsonable(plans),jsonable(other))
+    def test_hour_boundary_reconciliation_retains_240_bars_known_at_trigger(self):
+        self.h=self.h+[candle(T,3600)]
+        p=self.long(self.run_model(now=T+3610)[0])
+        self.assertIn('CONFIRMADA',p.variants)
+        # A 240-only fetch would lose one bar needed by this earlier trigger.
+        self.h=self.h[-240:]
+        with self.assertRaisesRegex(ValueError,'H1'):
+            self.run_model(now=T+3610)
     def test_migration_preserves_ledger_and_balance_expires_pending_entries(self):
         cfg=Config();s=initial_state(cfg)
         s['wallet']['balance']='50';s['wallet']['position']={'plan_id':'old'}
