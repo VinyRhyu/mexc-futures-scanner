@@ -21,23 +21,39 @@ def time_exit(price,entry,quantity,tick,cfg,side):
                      -max(2*tick,price*D(cfg.slippage_rate))-D(cfg.taker_fee)*(fill+price))
 
 
-def simulate(rows,datasets,cfg,initial=D(50)):
+def simulate(rows,datasets,cfg,initial=D(50),decisions=None):
     balance,peak,drawdown,available=initial,initial,D(0),0
     trades,skips,seen=[],Counter(),set()
+    first_seen={}
     candidates=sorted((r for r in rows if 'signal' in r[MODE]),
                       key=lambda r:(r[MODE]['signal'],r['symbol'],r['id']))
     for row in candidates:
         signal=int(row[MODE]['signal'])
         key=(row['symbol'],row['side'],signal,row['M1']['stop'],row['M1']['target'])
+        event={'id':row['id'],'symbol':row['symbol'],'side':row['side'],'signal':signal,
+               'baseline_eligible':'entered_at' in row[MODE],
+               'baseline_outcome':row[MODE].get('outcome'),
+               'baseline_net_r':row[MODE].get('net_r'),
+               'band':[row['M1']['entry_low'],row['M1']['entry_high']],
+               'stop':row['M1']['stop'],'target':row['M1']['target']}
+        def emit(status,**extra):
+            event.update(status=status,**jsonable(extra))
+            if decisions is not None:
+                decisions.append(event)
         if key in seen:
             skips['DUPLICATA']+=1
+            emit('DUPLICATA',duplicate_of=first_seen[key])
             continue
         seen.add(key)
+        first_seen[key]=row['id']
         if signal<available:
             skips['POSICAO_EM_ABERTO']+=1
+            emit('POSICAO_EM_ABERTO',occupied_by=trades[-1]['symbol'],
+                 occupied_until=iso(available),last_settled_balance=trades[-1]['balance_before'])
             continue
         if balance<=0:
             skips['SEM_SALDO']+=1
+            emit('SEM_SALDO',balance=balance)
             continue
         data=datasets[row['symbol']]
         m=data['minute_map']
@@ -48,6 +64,7 @@ def simulate(rows,datasets,cfg,initial=D(50)):
         quote=paper_quote(p,v,data['contract'],bars[0].open,signal+1,current)
         if quote['status']!='VIAVEL_SIMULADO':
             skips.update(quote['reasons'])
+            emit('BLOQUEADA_FINANCEIRO',balance=balance,reasons=quote['reasons'])
             continue
         result=close_outcome(bars,p,v,data['contract'],quote,bars[0].open,current,True)
         if result['outcome']=='ABERTO':
@@ -64,6 +81,8 @@ def simulate(rows,datasets,cfg,initial=D(50)):
             balance_before=before,balance_after=balance,planned_risk=quote['loss_usdt'],
             contracts=quote['contracts'],leverage=quote['leverage'],margin=quote['margin_usdt'],
             target=v.target,stop=v.stop,**result)))
+        emit('EXECUTADA',balance_before=before,balance_after=balance,
+             outcome=result['outcome'],net_usdt=pnl)
     return jsonable({'initial_balance':initial,'final_balance':balance,'net_usdt':balance-initial,
         'return_percent':(balance/initial-1)*100,'trades':trades,'entries':len(trades),
         'wins':sum(D(t['net_usdt'])>0 for t in trades),'losses':sum(D(t['net_usdt'])<0 for t in trades),

@@ -41,6 +41,16 @@ class PortfolioTests(unittest.TestCase):
         self.assertEqual(r['entries'],0)
         self.assertEqual(r['final_balance'],'50')
 
+    def test_tracing_does_not_change_wallet_and_records_each_candidate(self):
+        decisions=[]
+        blocked={'status':'BLOQUEADA','reasons':['MARGEM']}
+        with patch('scripts.audit_portfolio.paper_quote',return_value=blocked):
+            plain=simulate([row(),row()],self.data,Config())
+            traced=simulate([row(),row()],self.data,Config(),decisions=decisions)
+        self.assertEqual(plain,traced)
+        self.assertEqual([e['status'] for e in decisions],['BLOQUEADA_FINANCEIRO','DUPLICATA'])
+        self.assertEqual(decisions[1]['duplicate_of'],decisions[0]['id'])
+
     def test_time_exit_includes_both_fees_and_slippage(self):
         cfg=Config()
         self.assertLess(time_exit(D(100),D(100),D(1),D('.01'),cfg,'LONG'),0)
