@@ -1,0 +1,44 @@
+name: Investigar volume relativo no gatilho
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'scripts/audit_trigger_volume.py'
+      - 'tests/test_trigger_volume.py'
+      - '.github/workflows/audit-trigger-volume.yml'
+  workflow_dispatch:
+permissions:
+  contents: read
+  actions: read
+jobs:
+  audit:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v7.0.1
+        with:
+          persist-credentials: false
+      - uses: actions/setup-python@v7
+        with:
+          python-version: '3.12'
+      - name: Verificar níveis congelados e causalidade
+        run: python -m unittest tests.test_trigger_volume -q
+      - name: Recuperar exatamente a coleta anterior
+        uses: actions/download-artifact@v8.0.2
+        with:
+          name: early-trigger-history-42879077420
+          run-id: 42879077420
+          github-token: ${{ github.token }}
+          path: reports/early-trigger-source/
+      - uses: actions/download-artifact@v8.0.2
+        with:
+          name: sustained-trigger-history-42890505005
+          run-id: 42890505005
+          github-token: ${{ github.token }}
+          path: reports/sustained-source/
+      - run: python -m scripts.audit_trigger_volume
+      - uses: actions/upload-artifact@v7.0.2
+        with:
+          name: trigger-volume-${{ github.run_id }}
+          path: reports/trigger-volume/
+          retention-days: 30
