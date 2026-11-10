@@ -19,19 +19,58 @@
       "ANTECIPADA": {
         "all": {
           "avoided_stops": 1,
-          "candidates": 27,
+          "candidates": 29,
           "capture_late": 0,
           "models": {
             "ATUAL": {
-              "candidates": 27,
+              "candidates": 29,
               "closed_r_independent": "-1",
               "entries": 2,
-              "marked_r_independent": "-1.052633241481029140772082623",
+              "marked_r_independent": "-1.037888233566336987321064454",
               "open": 1,
               "outcomes": {
                 "ABERTO": 1,
+                "AGUARDANDO_CANDLE": 2,
+                "BLOQUEADA": 25,
+                "STOP": 1
+              },
+              "stops": 1,
+              "targets": 0
+            },
+            "FILTRO_1H": {
+              "candidates": 3,
+              "closed_r_independent": "0",
+              "entries": 0,
+              "marked_r_independent": "0",
+              "open": 0,
+              "outcomes": {
                 "AGUARDANDO_CANDLE": 1,
-                "BLOQUEADA": 24,
+                "BLOQUEADA": 2
+              },
+              "stops": 0,
+              "targets": 0
+            }
+          },
+          "removed_winners": 0,
+          "structure_counts": {
+            "ALTA": 1,
+            "BAIXA": 17,
+            "INDEFINIDA": 11
+          }
+        },
+        "complete": {
+          "avoided_stops": 1,
+          "candidates": 8,
+          "capture_late": 0,
+          "models": {
+            "ATUAL": {
+              "candidates": 8,
+              "closed_r_independent": "-1",
+              "entries": 1,
+              "marked_r_independent": "-1",
+              "open": 0,
+              "outcomes": {
+                "BLOQUEADA": 7,
                 "STOP": 1
               },
               "stops": 1,
@@ -53,62 +92,26 @@
           "removed_winners": 0,
           "structure_counts": {
             "ALTA": 1,
-            "BAIXA": 16,
-            "INDEFINIDA": 10
-          }
-        },
-        "complete": {
-          "avoided_stops": 0,
-          "candidates": 7,
-          "capture_late": 0,
-          "models": {
-            "ATUAL": {
-              "candidates": 7,
-              "closed_r_independent": "0",
-              "entries": 0,
-              "marked_r_independent": "0",
-              "open": 0,
-              "outcomes": {
-                "BLOQUEADA": 7
-              },
-              "stops": 0,
-              "targets": 0
-            },
-            "FILTRO_1H": {
-              "candidates": 2,
-              "closed_r_independent": "0",
-              "entries": 0,
-              "marked_r_independent": "0",
-              "open": 0,
-              "outcomes": {
-                "BLOQUEADA": 2
-              },
-              "stops": 0,
-              "targets": 0
-            }
-          },
-          "removed_winners": 0,
-          "structure_counts": {
-            "ALTA": 1,
             "BAIXA": 2,
-            "INDEFINIDA": 4
+            "INDEFINIDA": 5
           }
         },
         "timely_complete": {
-          "avoided_stops": 0,
-          "candidates": 7,
+          "avoided_stops": 1,
+          "candidates": 8,
           "capture_late": 0,
           "models": {
             "ATUAL": {
-              "candidates": 7,
-              "closed_r_independent": "0",
-              "entries": 0,
-              "marked_r_independent": "0",
+              "candidates": 8,
+              "closed_r_independent": "-1",
+              "entries": 1,
+              "marked_r_independent": "-1",
               "open": 0,
               "outcomes": {
-                "BLOQUEADA": 7
+                "BLOQUEADA": 7,
+                "STOP": 1
               },
-              "stops": 0,
+              "stops": 1,
               "targets": 0
             },
             "FILTRO_1H": {
@@ -128,25 +131,25 @@
           "structure_counts": {
             "ALTA": 1,
             "BAIXA": 2,
-            "INDEFINIDA": 4
+            "INDEFINIDA": 5
           }
         }
       },
       "CONFIRMADA": {
         "all": {
           "avoided_stops": 0,
-          "candidates": 18,
+          "candidates": 19,
           "capture_late": 0,
           "models": {
             "ATUAL": {
-              "candidates": 18,
+              "candidates": 19,
               "closed_r_independent": "0",
               "entries": 0,
               "marked_r_independent": "0",
               "open": 0,
               "outcomes": {
-                "AGUARDANDO_CANDLE": 2,
-                "BLOQUEADA": 16
+                "AGUARDANDO_CANDLE": 1,
+                "BLOQUEADA": 18
               },
               "stops": 0,
               "targets": 0
@@ -167,7 +170,7 @@
           "removed_winners": 0,
           "structure_counts": {
             "ALTA": 1,
-            "BAIXA": 13,
+            "BAIXA": 14,
             "INDEFINIDA": 4
           }
         },
@@ -454,5 +457,5 @@
       }
     }
   },
-  "updated_at": "2026-11-10T20:31:45+00:00"
+  "updated_at": "2026-11-10T20:46:43+00:00"
 }

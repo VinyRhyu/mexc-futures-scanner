@@ -1,6 +1,6 @@
 ## Experimento paralelo: rompimento a favor da estrutura de 1h
 
-Atualização: 2026-11-10T20:31:45+00:00.
+Atualização: 2026-11-10T20:46:43+00:00.
 Coleta prospectiva: 2026-11-10T13:30:00+00:00 até 2026-11-24T13:30:00+00:00.
 
 LONG somente em ALTA; SHORT somente em BAIXA. INDEFINIDA/DESCONHECIDA são excluídas.
@@ -12,8 +12,8 @@ ANTECIPADA e CONFIRMADA são simulações independentes, não carteiras somávei
 | RESERVADA_PRELIMINAR | ANTECIPADA | 8 | FILTRO_1H | 0 | 0 | 0 | 0 | 0.000 |
 | RESERVADA_PRELIMINAR | CONFIRMADA | 6 | ATUAL | 0 | 0 | 0 | 0 | 0.000 |
 | RESERVADA_PRELIMINAR | CONFIRMADA | 6 | FILTRO_1H | 0 | 0 | 0 | 0 | 0.000 |
-| PROSPECTIVA | ANTECIPADA | 7 | ATUAL | 0 | 0 | 0 | 0 | 0.000 |
-| PROSPECTIVA | ANTECIPADA | 7 | FILTRO_1H | 0 | 0 | 0 | 0 | 0.000 |
+| PROSPECTIVA | ANTECIPADA | 8 | ATUAL | 1 | 0 | 1 | 0 | -1.000 |
+| PROSPECTIVA | ANTECIPADA | 8 | FILTRO_1H | 0 | 0 | 0 | 0 | 0.000 |
 | PROSPECTIVA | CONFIRMADA | 6 | ATUAL | 0 | 0 | 0 | 0 | 0.000 |
 | PROSPECTIVA | CONFIRMADA | 6 | FILTRO_1H | 0 | 0 | 0 | 0 | 0.000 |
 
@@ -240,27 +240,66 @@ ANTECIPADA e CONFIRMADA são simulações independentes, não carteiras somávei
   "PROSPECTIVA": {
     "ANTECIPADA": {
       "all": {
-        "candidates": 27,
+        "candidates": 29,
         "structure_counts": {
-          "BAIXA": 16,
+          "BAIXA": 17,
           "ALTA": 1,
-          "INDEFINIDA": 10
+          "INDEFINIDA": 11
         },
         "capture_late": 0,
         "models": {
           "ATUAL": {
-            "candidates": 27,
+            "candidates": 29,
             "entries": 2,
             "targets": 0,
             "stops": 1,
             "open": 1,
             "closed_r_independent": "-1",
-            "marked_r_independent": "-1.052633241481029140772082623",
+            "marked_r_independent": "-1.037888233566336987321064454",
             "outcomes": {
-              "BLOQUEADA": 24,
+              "BLOQUEADA": 25,
               "ABERTO": 1,
               "STOP": 1,
+              "AGUARDANDO_CANDLE": 2
+            }
+          },
+          "FILTRO_1H": {
+            "candidates": 3,
+            "entries": 0,
+            "targets": 0,
+            "stops": 0,
+            "open": 0,
+            "closed_r_independent": "0",
+            "marked_r_independent": "0",
+            "outcomes": {
+              "BLOQUEADA": 2,
               "AGUARDANDO_CANDLE": 1
+            }
+          }
+        },
+        "removed_winners": 0,
+        "avoided_stops": 1
+      },
+      "complete": {
+        "candidates": 8,
+        "structure_counts": {
+          "BAIXA": 2,
+          "ALTA": 1,
+          "INDEFINIDA": 5
+        },
+        "capture_late": 0,
+        "models": {
+          "ATUAL": {
+            "candidates": 8,
+            "entries": 1,
+            "targets": 0,
+            "stops": 1,
+            "open": 0,
+            "closed_r_independent": "-1",
+            "marked_r_independent": "-1",
+            "outcomes": {
+              "BLOQUEADA": 7,
+              "STOP": 1
             }
           },
           "FILTRO_1H": {
@@ -279,62 +318,26 @@ ANTECIPADA e CONFIRMADA são simulações independentes, não carteiras somávei
         "removed_winners": 0,
         "avoided_stops": 1
       },
-      "complete": {
-        "candidates": 7,
-        "structure_counts": {
-          "BAIXA": 2,
-          "ALTA": 1,
-          "INDEFINIDA": 4
-        },
-        "capture_late": 0,
-        "models": {
-          "ATUAL": {
-            "candidates": 7,
-            "entries": 0,
-            "targets": 0,
-            "stops": 0,
-            "open": 0,
-            "closed_r_independent": "0",
-            "marked_r_independent": "0",
-            "outcomes": {
-              "BLOQUEADA": 7
-            }
-          },
-          "FILTRO_1H": {
-            "candidates": 2,
-            "entries": 0,
-            "targets": 0,
-            "stops": 0,
-            "open": 0,
-            "closed_r_independent": "0",
-            "marked_r_independent": "0",
-            "outcomes": {
-              "BLOQUEADA": 2
-            }
-          }
-        },
-        "removed_winners": 0,
-        "avoided_stops": 0
-      },
       "timely_complete": {
-        "candidates": 7,
+        "candidates": 8,
         "structure_counts": {
           "BAIXA": 2,
           "ALTA": 1,
-          "INDEFINIDA": 4
+          "INDEFINIDA": 5
         },
         "capture_late": 0,
         "models": {
           "ATUAL": {
-            "candidates": 7,
-            "entries": 0,
+            "candidates": 8,
+            "entries": 1,
             "targets": 0,
-            "stops": 0,
+            "stops": 1,
             "open": 0,
-            "closed_r_independent": "0",
-            "marked_r_independent": "0",
+            "closed_r_independent": "-1",
+            "marked_r_independent": "-1",
             "outcomes": {
-              "BLOQUEADA": 7
+              "BLOQUEADA": 7,
+              "STOP": 1
             }
           },
           "FILTRO_1H": {
@@ -351,21 +354,21 @@ ANTECIPADA e CONFIRMADA são simulações independentes, não carteiras somávei
           }
         },
         "removed_winners": 0,
-        "avoided_stops": 0
+        "avoided_stops": 1
       }
     },
     "CONFIRMADA": {
       "all": {
-        "candidates": 18,
+        "candidates": 19,
         "structure_counts": {
-          "BAIXA": 13,
+          "BAIXA": 14,
           "INDEFINIDA": 4,
           "ALTA": 1
         },
         "capture_late": 0,
         "models": {
           "ATUAL": {
-            "candidates": 18,
+            "candidates": 19,
             "entries": 0,
             "targets": 0,
             "stops": 0,
@@ -373,8 +376,8 @@ ANTECIPADA e CONFIRMADA são simulações independentes, não carteiras somávei
             "closed_r_independent": "0",
             "marked_r_independent": "0",
             "outcomes": {
-              "BLOQUEADA": 16,
-              "AGUARDANDO_CANDLE": 2
+              "BLOQUEADA": 18,
+              "AGUARDANDO_CANDLE": 1
             }
           },
           "FILTRO_1H": {
