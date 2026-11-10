@@ -1,0 +1,1477 @@
+{
+  "kind": "UNCHANGED_PORTFOLIO_TRACE",
+  "validation": "Identical wallet result with and without instrumentation; identical to previous artifact.",
+  "summary": {
+    "original_opportunities": 57,
+    "statuses": {
+      "BLOQUEADA_FINANCEIRO": 11,
+      "EXECUTADA": 15,
+      "POSICAO_EM_ABERTO": 31
+    },
+    "financial_reasons": {
+      "CUSTO_RELATIVO_ELEVADO": 11
+    },
+    "by_original_outcome": {
+      "ALVO": {
+        "EXECUTADA": 4,
+        "POSICAO_EM_ABERTO": 12,
+        "BLOQUEADA_FINANCEIRO": 2
+      },
+      "STOP": {
+        "BLOQUEADA_FINANCEIRO": 9,
+        "EXECUTADA": 10,
+        "POSICAO_EM_ABERTO": 14
+      },
+      "ABERTO": {
+        "POSICAO_EM_ABERTO": 5,
+        "EXECUTADA": 1
+      }
+    },
+    "new_executions_outside_original_57": 1
+  },
+  "wallet": {
+    "initial_balance": "50",
+    "final_balance": "45.872763441731600",
+    "net_usdt": "-4.127236558268400",
+    "return_percent": "-8.254473116536800",
+    "trades": [
+      {
+        "symbol": "ENA_USDT",
+        "side": "LONG",
+        "entered_at": "2026-10-27T16:19:00+00:00",
+        "balance_before": "50",
+        "balance_after": "45.3443441214080",
+        "planned_risk": "4.996279920",
+        "contracts": "149",
+        "leverage": 7,
+        "margin": "45.97927142857142857142857143",
+        "target": "0.22309",
+        "stop": "0.21300",
+        "outcome": "STOP",
+        "window_complete": true,
+        "ambiguous": false,
+        "net_usdt": "-4.6556558785920",
+        "net_r": "-1",
+        "exited_at": "2026-10-27T16:48:00+00:00"
+      },
+      {
+        "symbol": "ONE_USDT",
+        "side": "LONG",
+        "entered_at": "2026-10-29T05:29:00+00:00",
+        "balance_before": "45.3443441214080",
+        "balance_after": "41.349799976139400",
+        "planned_risk": "4.53443148664",
+        "contracts": "342023",
+        "leverage": 10,
+        "margin": "42.04146716",
+        "target": "0.0012600",
+        "stop": "0.0012179",
+        "outcome": "STOP",
+        "window_complete": true,
+        "ambiguous": false,
+        "net_usdt": "-3.994544145268600",
+        "net_r": "-1",
+        "exited_at": "2026-10-29T06:06:00+00:00"
+      },
+      {
+        "symbol": "HYPE_USDT",
+        "side": "SHORT",
+        "entered_at": "2026-10-29T20:34:00+00:00",
+        "balance_before": "41.349799976139400",
+        "balance_after": "37.777165146459400",
+        "planned_risk": "4.04042240",
+        "contracts": "35",
+        "leverage": 8,
+        "margin": "40.3598125",
+        "target": "89.796",
+        "stop": "93.257",
+        "outcome": "STOP",
+        "window_complete": true,
+        "ambiguous": false,
+        "net_usdt": "-3.572634829680",
+        "net_r": "-1",
+        "exited_at": "2026-10-29T20:50:00+00:00"
+      },
+      {
+        "symbol": "LINK_USDT",
+        "side": "LONG",
+        "entered_at": "2026-10-30T02:17:00+00:00",
+        "balance_before": "37.777165146459400",
+        "balance_after": "46.911555332835400",
+        "planned_risk": "3.76746552",
+        "contracts": "273",
+        "leverage": 8,
+        "margin": "36.4693875",
+        "target": "11.014",
+        "stop": "10.566",
+        "outcome": "ALVO",
+        "window_complete": true,
+        "ambiguous": false,
+        "net_usdt": "9.134390186376",
+        "net_r": "2.959728705905394867890501740",
+        "exited_at": "2026-10-30T04:19:00+00:00"
+      },
+      {
+        "symbol": "DOT_USDT",
+        "side": "LONG",
+        "entered_at": "2026-10-30T04:33:00+00:00",
+        "balance_before": "46.911555332835400",
+        "balance_after": "56.778733320863600",
+        "planned_risk": "4.690750694",
+        "contracts": "5201",
+        "leverage": 11,
+        "margin": "44.26523818181818181818181818",
+        "target": "0.9559",
+        "stop": "0.9287",
+        "outcome": "ALVO",
+        "window_complete": true,
+        "ambiguous": false,
+        "net_usdt": "9.8671779880282",
+        "net_r": "2.310244270921939714852304138",
+        "exited_at": "2026-10-30T05:12:00+00:00"
+      },
+      {
+        "symbol": "TAO_USDT",
+        "side": "SHORT",
+        "entered_at": "2026-10-30T07:44:00+00:00",
+        "balance_before": "56.778733320863600",
+        "balance_after": "68.311387835231600",
+        "planned_risk": "5.66865216",
+        "contracts": "344",
+        "leverage": 15,
+        "margin": "54.01488",
+        "target": "231.84",
+        "stop": "236.80",
+        "outcome": "ALVO",
+        "window_complete": true,
+        "ambiguous": false,
+        "net_usdt": "11.532654514368",
+        "net_r": "2.080431517234186414870759916",
+        "exited_at": "2026-10-30T10:23:00+00:00"
+      },
+      {
+        "symbol": "WLD_USDT",
+        "side": "LONG",
+        "entered_at": "2026-10-30T10:55:00+00:00",
+        "balance_before": "68.311387835231600",
+        "balance_after": "61.916565855663600",
+        "planned_risk": "6.82898304",
+        "contracts": "1672",
+        "leverage": 11,
+        "margin": "61.5904",
+        "target": "0.4143",
+        "stop": "0.4020",
+        "outcome": "STOP",
+        "window_complete": true,
+        "ambiguous": false,
+        "net_usdt": "-6.394821979568",
+        "net_r": "-1",
+        "exited_at": "2026-10-30T12:03:00+00:00"
+      },
+      {
+        "symbol": "XRP_USDT",
+        "side": "LONG",
+        "entered_at": "2026-10-30T15:08:00+00:00",
+        "balance_before": "61.916565855663600",
+        "balance_after": "56.439210230831600",
+        "planned_risk": "6.18759232",
+        "contracts": "728",
+        "leverage": 16,
+        "margin": "57.00695",
+        "target": "1.2720",
+        "stop": "1.2464",
+        "outcome": "STOP",
+        "window_complete": true,
+        "ambiguous": false,
+        "net_usdt": "-5.477355624832",
+        "net_r": "-1",
+        "exited_at": "2026-10-30T15:35:00+00:00"
+      },
+      {
+        "symbol": "ENA_USDT",
+        "side": "SHORT",
+        "entered_at": "2026-10-30T18:48:00+00:00",
+        "balance_before": "56.439210230831600",
+        "balance_after": "52.191058621871600",
+        "planned_risk": "5.636551200",
+        "contracts": "210",
+        "leverage": 7,
+        "margin": "54.78000",
+        "target": "0.17662",
+        "stop": "0.18499",
+        "outcome": "STOP",
+        "window_complete": true,
+        "ambiguous": false,
+        "net_usdt": "-4.2481516089600",
+        "net_r": "-1",
+        "exited_at": "2026-10-30T18:57:00+00:00"
+      },
+      {
+        "symbol": "AAVE_USDT",
+        "side": "LONG",
+        "entered_at": "2026-10-30T22:41:00+00:00",
+        "balance_before": "52.191058621871600",
+        "balance_after": "47.570317932047600",
+        "planned_risk": "5.21260152",
+        "contracts": "609",
+        "leverage": 16,
+        "margin": "49.11204375",
+        "target": "130.95",
+        "stop": "128.38",
+        "outcome": "STOP",
+        "window_complete": true,
+        "ambiguous": false,
+        "net_usdt": "-4.620740689824",
+        "net_r": "-1",
+        "exited_at": "2026-10-30T22:56:00+00:00"
+      },
+      {
+        "symbol": "ENA_USDT",
+        "side": "SHORT",
+        "entered_at": "2026-11-02T15:36:00+00:00",
+        "balance_before": "47.570317932047600",
+        "balance_after": "44.102198330663600",
+        "planned_risk": "4.747334640",
+        "contracts": "271",
+        "leverage": 11,
+        "margin": "43.20725454545454545454545455",
+        "target": "0.17117",
+        "stop": "0.17685",
+        "outcome": "STOP",
+        "window_complete": true,
+        "ambiguous": false,
+        "net_usdt": "-3.4681196013840",
+        "net_r": "-1",
+        "exited_at": "2026-11-02T15:46:00+00:00"
+      },
+      {
+        "symbol": "ENA_USDT",
+        "side": "SHORT",
+        "entered_at": "2026-11-02T15:52:00+00:00",
+        "balance_before": "44.102198330663600",
+        "balance_after": "56.025241773863600",
+        "planned_risk": "4.404650400",
+        "contracts": "270",
+        "leverage": 11,
+        "margin": "42.99627272727272727272727273",
+        "target": "0.17049",
+        "stop": "0.17652",
+        "outcome": "ALVO",
+        "window_complete": true,
+        "ambiguous": false,
+        "net_usdt": "11.923043443200",
+        "net_r": "2.727772660171873282147786259",
+        "exited_at": "2026-11-02T17:02:00+00:00"
+      },
+      {
+        "symbol": "NEAR_USDT",
+        "side": "SHORT",
+        "entered_at": "2026-11-02T18:30:00+00:00",
+        "balance_before": "56.025241773863600",
+        "balance_after": "51.501092384783600",
+        "planned_risk": "5.5964874",
+        "contracts": "141",
+        "leverage": 11,
+        "margin": "49.914",
+        "target": "3.787",
+        "stop": "3.925",
+        "outcome": "STOP",
+        "window_complete": true,
+        "ambiguous": false,
+        "net_usdt": "-4.52414938908",
+        "net_r": "-1",
+        "exited_at": "2026-11-02T20:06:00+00:00"
+      },
+      {
+        "symbol": "HYPE_USDT",
+        "side": "SHORT",
+        "entered_at": "2026-11-03T03:23:00+00:00",
+        "balance_before": "51.501092384783600",
+        "balance_after": "47.400090018959600",
+        "planned_risk": "5.12254176",
+        "contracts": "84",
+        "leverage": 14,
+        "margin": "49.6668",
+        "target": "81.424",
+        "stop": "83.255",
+        "outcome": "STOP",
+        "window_complete": true,
+        "ambiguous": false,
+        "net_usdt": "-4.101002365824",
+        "net_r": "-1",
+        "exited_at": "2026-11-03T03:55:00+00:00"
+      },
+      {
+        "symbol": "ENA_USDT",
+        "side": "LONG",
+        "entered_at": "2026-11-05T19:18:00+00:00",
+        "balance_before": "47.400090018959600",
+        "balance_after": "43.123763828063600",
+        "planned_risk": "4.729674960",
+        "contracts": "261",
+        "leverage": 10,
+        "margin": "42.96321",
+        "target": "0.16851",
+        "stop": "0.16306",
+        "outcome": "STOP",
+        "window_complete": true,
+        "ambiguous": false,
+        "net_usdt": "-4.2763261908960",
+        "net_r": "-1",
+        "exited_at": "2026-11-05T19:28:00+00:00"
+      },
+      {
+        "symbol": "DOT_USDT",
+        "side": "LONG",
+        "entered_at": "2026-11-06T00:33:00+00:00",
+        "balance_before": "43.123763828063600",
+        "balance_after": "45.872763441731600",
+        "planned_risk": "4.312312620",
+        "contracts": "5390",
+        "leverage": 12,
+        "margin": "41.34130",
+        "target": "0.9380",
+        "stop": "0.9139",
+        "outcome": "ENCERRAMENTO_4H",
+        "exited_at": "2026-11-06T04:33:00+00:00",
+        "net_usdt": "2.7489996136680"
+      }
+    ],
+    "entries": 16,
+    "wins": 5,
+    "losses": 11,
+    "outcomes": {
+      "STOP": 11,
+      "ALVO": 4,
+      "ENCERRAMENTO_4H": 1
+    },
+    "gains_usdt": "45.2062657456402",
+    "losses_usdt": "49.333502303908600",
+    "maximum_realized_drawdown_percent": "36.87177907718847761813626091",
+    "skips": {
+      "RETORNO_RISCO_INSUFICIENTE": 2148,
+      "DUPLICATA": 200,
+      "CUSTO_RELATIVO_ELEVADO": 73,
+      "PRECO_FORA_DO_PLANO": 63,
+      "POSICAO_EM_ABERTO": 151
+    }
+  },
+  "original_57": [
+    {
+      "id": "8c0cdce1a4c4af727983",
+      "symbol": "ZEC_USDT",
+      "side": "SHORT",
+      "signal": 1792919700,
+      "baseline_eligible": true,
+      "baseline_outcome": "STOP",
+      "baseline_net_r": "-1",
+      "band": [
+        "1178.46",
+        "1181.38"
+      ],
+      "stop": "1185.53",
+      "target": "1164.10",
+      "status": "BLOQUEADA_FINANCEIRO",
+      "balance": "50",
+      "reasons": [
+        "CUSTO_RELATIVO_ELEVADO"
+      ]
+    },
+    {
+      "id": "3193ae6d486d7bce2146",
+      "symbol": "ENA_USDT",
+      "side": "LONG",
+      "signal": 1793117940,
+      "baseline_eligible": true,
+      "baseline_outcome": "STOP",
+      "baseline_net_r": "-1",
+      "band": [
+        "0.21492",
+        "0.21630"
+      ],
+      "stop": "0.21300",
+      "target": "0.22309",
+      "status": "EXECUTADA",
+      "balance_before": "50",
+      "balance_after": "45.3443441214080",
+      "outcome": "STOP",
+      "net_usdt": "-4.6556558785920"
+    },
+    {
+      "id": "4eea637c0610f0b94466",
+      "symbol": "ONE_USDT",
+      "side": "LONG",
+      "signal": 1793251740,
+      "baseline_eligible": true,
+      "baseline_outcome": "STOP",
+      "baseline_net_r": "-1",
+      "band": [
+        "0.0012260",
+        "0.0012292"
+      ],
+      "stop": "0.0012179",
+      "target": "0.0012600",
+      "status": "EXECUTADA",
+      "balance_before": "45.3443441214080",
+      "balance_after": "41.349799976139400",
+      "outcome": "STOP",
+      "net_usdt": "-3.994544145268600"
+    },
+    {
+      "id": "575703333e48defb373e",
+      "symbol": "LINK_USDT",
+      "side": "LONG",
+      "signal": 1793326620,
+      "baseline_eligible": true,
+      "baseline_outcome": "ALVO",
+      "baseline_net_r": "2.959728705905394867890501740",
+      "band": [
+        "10.653",
+        "10.687"
+      ],
+      "stop": "10.566",
+      "target": "11.014",
+      "status": "EXECUTADA",
+      "balance_before": "37.777165146459400",
+      "balance_after": "46.911555332835400",
+      "outcome": "ALVO",
+      "net_usdt": "9.134390186376"
+    },
+    {
+      "id": "3563d5fc5fd4360c5509",
+      "symbol": "LINK_USDT",
+      "side": "LONG",
+      "signal": 1793327040,
+      "baseline_eligible": true,
+      "baseline_outcome": "ALVO",
+      "baseline_net_r": "3.214411954302814442090421770",
+      "band": [
+        "10.664",
+        "10.704"
+      ],
+      "stop": "10.576",
+      "target": "11.036",
+      "status": "POSICAO_EM_ABERTO",
+      "occupied_by": "LINK_USDT",
+      "occupied_until": "2026-10-30T04:19:00+00:00",
+      "last_settled_balance": "37.777165146459400"
+    },
+    {
+      "id": "d869e0d560520c488df0",
+      "symbol": "AVAX_USDT",
+      "side": "LONG",
+      "signal": 1793327160,
+      "baseline_eligible": true,
+      "baseline_outcome": "ALVO",
+      "baseline_net_r": "2.904398030238558245007568529",
+      "band": [
+        "8.294",
+        "8.320"
+      ],
+      "stop": "8.230",
+      "target": "8.565",
+      "status": "POSICAO_EM_ABERTO",
+      "occupied_by": "LINK_USDT",
+      "occupied_until": "2026-10-30T04:19:00+00:00",
+      "last_settled_balance": "37.777165146459400"
+    },
+    {
+      "id": "b705a49ee8fb51611c62",
+      "symbol": "XLM_USDT",
+      "side": "LONG",
+      "signal": 1793327220,
+      "baseline_eligible": true,
+      "baseline_outcome": "ALVO",
+      "baseline_net_r": "3.174800758736270709240625973",
+      "band": [
+        "0.16269",
+        "0.16322"
+      ],
+      "stop": "0.16163",
+      "target": "0.16742",
+      "status": "POSICAO_EM_ABERTO",
+      "occupied_by": "LINK_USDT",
+      "occupied_until": "2026-10-30T04:19:00+00:00",
+      "last_settled_balance": "37.777165146459400"
+    },
+    {
+      "id": "cc39ee066675d01522ce",
+      "symbol": "AVAX_USDT",
+      "side": "LONG",
+      "signal": 1793327280,
+      "baseline_eligible": true,
+      "baseline_outcome": "ALVO",
+      "baseline_net_r": "2.648761553787003347082957618",
+      "band": [
+        "8.305",
+        "8.342"
+      ],
+      "stop": "8.241",
+      "target": "8.587",
+      "status": "POSICAO_EM_ABERTO",
+      "occupied_by": "LINK_USDT",
+      "occupied_until": "2026-10-30T04:19:00+00:00",
+      "last_settled_balance": "37.777165146459400"
+    },
+    {
+      "id": "1c35fded736d1fce7503",
+      "symbol": "AAVE_USDT",
+      "side": "LONG",
+      "signal": 1793329440,
+      "baseline_eligible": true,
+      "baseline_outcome": "ALVO",
+      "baseline_net_r": "2.893011352069150325241495700",
+      "band": [
+        "122.08",
+        "122.56"
+      ],
+      "stop": "120.99",
+      "target": "126.12",
+      "status": "POSICAO_EM_ABERTO",
+      "occupied_by": "LINK_USDT",
+      "occupied_until": "2026-10-30T04:19:00+00:00",
+      "last_settled_balance": "37.777165146459400"
+    },
+    {
+      "id": "4cc95118dbc0dbf7435b",
+      "symbol": "AAVE_USDT",
+      "side": "LONG",
+      "signal": 1793329440,
+      "baseline_eligible": true,
+      "baseline_outcome": "ALVO",
+      "baseline_net_r": "2.960408449739305596199082251",
+      "band": [
+        "122.08",
+        "122.55"
+      ],
+      "stop": "121.02",
+      "target": "126.12",
+      "status": "POSICAO_EM_ABERTO",
+      "occupied_by": "LINK_USDT",
+      "occupied_until": "2026-10-30T04:19:00+00:00",
+      "last_settled_balance": "37.777165146459400"
+    },
+    {
+      "id": "23fc09306e576e1d7509",
+      "symbol": "ARB_USDT",
+      "side": "LONG",
+      "signal": 1793330700,
+      "baseline_eligible": true,
+      "baseline_outcome": "ALVO",
+      "baseline_net_r": "2.234181233801796654936209438",
+      "band": [
+        "0.15650",
+        "0.15704"
+      ],
+      "stop": "0.15520",
+      "target": "0.16046",
+      "status": "POSICAO_EM_ABERTO",
+      "occupied_by": "LINK_USDT",
+      "occupied_until": "2026-10-30T04:19:00+00:00",
+      "last_settled_balance": "37.777165146459400"
+    },
+    {
+      "id": "e15d246b130b51d85c5f",
+      "symbol": "SUI_USDT",
+      "side": "LONG",
+      "signal": 1793330760,
+      "baseline_eligible": true,
+      "baseline_outcome": "ALVO",
+      "baseline_net_r": "2.232478707428698856755834188",
+      "band": [
+        "0.8718",
+        "0.8754"
+      ],
+      "stop": "0.8648",
+      "target": "0.8953",
+      "status": "POSICAO_EM_ABERTO",
+      "occupied_by": "LINK_USDT",
+      "occupied_until": "2026-10-30T04:19:00+00:00",
+      "last_settled_balance": "37.777165146459400"
+    },
+    {
+      "id": "4bc695584ee61e6bdd24",
+      "symbol": "XLM_USDT",
+      "side": "LONG",
+      "signal": 1793330820,
+      "baseline_eligible": true,
+      "baseline_outcome": "ALVO",
+      "baseline_net_r": "2.389755840950982384852293130",
+      "band": [
+        "0.16370",
+        "0.16418"
+      ],
+      "stop": "0.16275",
+      "target": "0.16722",
+      "status": "POSICAO_EM_ABERTO",
+      "occupied_by": "LINK_USDT",
+      "occupied_until": "2026-10-30T04:19:00+00:00",
+      "last_settled_balance": "37.777165146459400"
+    },
+    {
+      "id": "7d9c94bedc0f067d2385",
+      "symbol": "ARB_USDT",
+      "side": "LONG",
+      "signal": 1793331240,
+      "baseline_eligible": true,
+      "baseline_outcome": "ALVO",
+      "baseline_net_r": "2.241374729983016601884225974",
+      "band": [
+        "0.15714",
+        "0.15807"
+      ],
+      "stop": "0.15590",
+      "target": "0.16176",
+      "status": "POSICAO_EM_ABERTO",
+      "occupied_by": "LINK_USDT",
+      "occupied_until": "2026-10-30T04:19:00+00:00",
+      "last_settled_balance": "37.777165146459400"
+    },
+    {
+      "id": "50aeec03c60e5b431e3d",
+      "symbol": "INJ_USDT",
+      "side": "LONG",
+      "signal": 1793331240,
+      "baseline_eligible": true,
+      "baseline_outcome": "ALVO",
+      "baseline_net_r": "2.354486085383985953334637464",
+      "band": [
+        "7.174",
+        "7.197"
+      ],
+      "stop": "7.114",
+      "target": "7.360",
+      "status": "POSICAO_EM_ABERTO",
+      "occupied_by": "LINK_USDT",
+      "occupied_until": "2026-10-30T04:19:00+00:00",
+      "last_settled_balance": "37.777165146459400"
+    },
+    {
+      "id": "bb39799f82912fd4de59",
+      "symbol": "WLD_USDT",
+      "side": "LONG",
+      "signal": 1793331300,
+      "baseline_eligible": true,
+      "baseline_outcome": "ALVO",
+      "baseline_net_r": "2.645833424247866024178820731",
+      "band": [
+        "0.3849",
+        "0.3865"
+      ],
+      "stop": "0.3813",
+      "target": "0.3999",
+      "status": "POSICAO_EM_ABERTO",
+      "occupied_by": "LINK_USDT",
+      "occupied_until": "2026-10-30T04:19:00+00:00",
+      "last_settled_balance": "37.777165146459400"
+    },
+    {
+      "id": "1abbf84c632eff679950",
+      "symbol": "DOT_USDT",
+      "side": "LONG",
+      "signal": 1793334780,
+      "baseline_eligible": true,
+      "baseline_outcome": "ALVO",
+      "baseline_net_r": "2.310244270921939714852304138",
+      "band": [
+        "0.9350",
+        "0.9376"
+      ],
+      "stop": "0.9287",
+      "target": "0.9559",
+      "status": "EXECUTADA",
+      "balance_before": "46.911555332835400",
+      "balance_after": "56.778733320863600",
+      "outcome": "ALVO",
+      "net_usdt": "9.8671779880282"
+    },
+    {
+      "id": "fea502a2643da9e92228",
+      "symbol": "INJ_USDT",
+      "side": "LONG",
+      "signal": 1793334780,
+      "baseline_eligible": true,
+      "baseline_outcome": "STOP",
+      "baseline_net_r": "-1",
+      "band": [
+        "7.355",
+        "7.394"
+      ],
+      "stop": "7.297",
+      "target": "7.599",
+      "status": "POSICAO_EM_ABERTO",
+      "occupied_by": "DOT_USDT",
+      "occupied_until": "2026-10-30T05:12:00+00:00",
+      "last_settled_balance": "46.911555332835400"
+    },
+    {
+      "id": "5eec1b10716029478f6f",
+      "symbol": "LINK_USDT",
+      "side": "LONG",
+      "signal": 1793335680,
+      "baseline_eligible": true,
+      "baseline_outcome": "ABERTO",
+      "baseline_net_r": null,
+      "band": [
+        "11.033",
+        "11.073"
+      ],
+      "stop": "10.963",
+      "target": "11.38",
+      "status": "POSICAO_EM_ABERTO",
+      "occupied_by": "DOT_USDT",
+      "occupied_until": "2026-10-30T05:12:00+00:00",
+      "last_settled_balance": "46.911555332835400"
+    },
+    {
+      "id": "166b339ecc45c281c498",
+      "symbol": "ONDO_USDT",
+      "side": "LONG",
+      "signal": 1793335680,
+      "baseline_eligible": true,
+      "baseline_outcome": "STOP",
+      "baseline_net_r": "-1",
+      "band": [
+        "0.3921",
+        "0.3931"
+      ],
+      "stop": "0.3891",
+      "target": "0.4043",
+      "status": "POSICAO_EM_ABERTO",
+      "occupied_by": "DOT_USDT",
+      "occupied_until": "2026-10-30T05:12:00+00:00",
+      "last_settled_balance": "46.911555332835400"
+    },
+    {
+      "id": "97e0b716bbc50721c0ed",
+      "symbol": "TAO_USDT",
+      "side": "LONG",
+      "signal": 1793335680,
+      "baseline_eligible": true,
+      "baseline_outcome": "STOP",
+      "baseline_net_r": "-1",
+      "band": [
+        "238.12",
+        "238.85"
+      ],
+      "stop": "236.53",
+      "target": "243.85",
+      "status": "POSICAO_EM_ABERTO",
+      "occupied_by": "DOT_USDT",
+      "occupied_until": "2026-10-30T05:12:00+00:00",
+      "last_settled_balance": "46.911555332835400"
+    },
+    {
+      "id": "a099b184ee9138c07605",
+      "symbol": "NEAR_USDT",
+      "side": "LONG",
+      "signal": 1793335740,
+      "baseline_eligible": true,
+      "baseline_outcome": "STOP",
+      "baseline_net_r": "-1",
+      "band": [
+        "4.211",
+        "4.224"
+      ],
+      "stop": "4.178",
+      "target": "4.356",
+      "status": "POSICAO_EM_ABERTO",
+      "occupied_by": "DOT_USDT",
+      "occupied_until": "2026-10-30T05:12:00+00:00",
+      "last_settled_balance": "46.911555332835400"
+    },
+    {
+      "id": "e0e152f661760088d57e",
+      "symbol": "SUI_USDT",
+      "side": "LONG",
+      "signal": 1793335740,
+      "baseline_eligible": true,
+      "baseline_outcome": "STOP",
+      "baseline_net_r": "-1",
+      "band": [
+        "0.8915",
+        "0.8945"
+      ],
+      "stop": "0.8857",
+      "target": "0.9131",
+      "status": "POSICAO_EM_ABERTO",
+      "occupied_by": "DOT_USDT",
+      "occupied_until": "2026-10-30T05:12:00+00:00",
+      "last_settled_balance": "46.911555332835400"
+    },
+    {
+      "id": "749eceac357a4859ad79",
+      "symbol": "BTC_USDT",
+      "side": "LONG",
+      "signal": 1793336880,
+      "baseline_eligible": true,
+      "baseline_outcome": "STOP",
+      "baseline_net_r": "-1",
+      "band": [
+        "78457.5",
+        "78572.1"
+      ],
+      "stop": "78223.2",
+      "target": "79575.8",
+      "status": "POSICAO_EM_ABERTO",
+      "occupied_by": "DOT_USDT",
+      "occupied_until": "2026-10-30T05:12:00+00:00",
+      "last_settled_balance": "46.911555332835400"
+    },
+    {
+      "id": "cd175928b6cbe3745d66",
+      "symbol": "BTC_USDT",
+      "side": "LONG",
+      "signal": 1793336880,
+      "baseline_eligible": true,
+      "baseline_outcome": "STOP",
+      "baseline_net_r": "-1",
+      "band": [
+        "78455.9",
+        "78568.2"
+      ],
+      "stop": "78230.9",
+      "target": "79562.4",
+      "status": "POSICAO_EM_ABERTO",
+      "occupied_by": "DOT_USDT",
+      "occupied_until": "2026-10-30T05:12:00+00:00",
+      "last_settled_balance": "46.911555332835400"
+    },
+    {
+      "id": "c5dc4f2f23e98d884ffd",
+      "symbol": "HYPE_USDT",
+      "side": "LONG",
+      "signal": 1793336880,
+      "baseline_eligible": true,
+      "baseline_outcome": "STOP",
+      "baseline_net_r": "-1",
+      "band": [
+        "93.145",
+        "93.416"
+      ],
+      "stop": "92.509",
+      "target": "95.102",
+      "status": "POSICAO_EM_ABERTO",
+      "occupied_by": "DOT_USDT",
+      "occupied_until": "2026-10-30T05:12:00+00:00",
+      "last_settled_balance": "46.911555332835400"
+    },
+    {
+      "id": "d05a1148311a7e40b6a4",
+      "symbol": "HYPE_USDT",
+      "side": "LONG",
+      "signal": 1793336880,
+      "baseline_eligible": true,
+      "baseline_outcome": "STOP",
+      "baseline_net_r": "-1",
+      "band": [
+        "93.148",
+        "93.423"
+      ],
+      "stop": "92.494",
+      "target": "95.099",
+      "status": "POSICAO_EM_ABERTO",
+      "occupied_by": "DOT_USDT",
+      "occupied_until": "2026-10-30T05:12:00+00:00",
+      "last_settled_balance": "46.911555332835400"
+    },
+    {
+      "id": "20c721a880786a40efe8",
+      "symbol": "SOL_USDT",
+      "side": "LONG",
+      "signal": 1793336940,
+      "baseline_eligible": true,
+      "baseline_outcome": "STOP",
+      "baseline_net_r": "-1",
+      "band": [
+        "97.69",
+        "97.88"
+      ],
+      "stop": "97.23",
+      "target": "99.87",
+      "status": "POSICAO_EM_ABERTO",
+      "occupied_by": "DOT_USDT",
+      "occupied_until": "2026-10-30T05:12:00+00:00",
+      "last_settled_balance": "46.911555332835400"
+    },
+    {
+      "id": "27813bbd6ab936066d7d",
+      "symbol": "TAO_USDT",
+      "side": "SHORT",
+      "signal": 1793346240,
+      "baseline_eligible": true,
+      "baseline_outcome": "ALVO",
+      "baseline_net_r": "2.080431517234186414870759916",
+      "band": [
+        "234.93",
+        "235.59"
+      ],
+      "stop": "236.80",
+      "target": "231.84",
+      "status": "EXECUTADA",
+      "balance_before": "56.778733320863600",
+      "balance_after": "68.311387835231600",
+      "outcome": "ALVO",
+      "net_usdt": "11.532654514368"
+    },
+    {
+      "id": "219272d094a9e632288a",
+      "symbol": "BNB_USDT",
+      "side": "SHORT",
+      "signal": 1793350200,
+      "baseline_eligible": true,
+      "baseline_outcome": "ABERTO",
+      "baseline_net_r": null,
+      "band": [
+        "704.38",
+        "705.42"
+      ],
+      "stop": "707.65",
+      "target": "695.6",
+      "status": "POSICAO_EM_ABERTO",
+      "occupied_by": "TAO_USDT",
+      "occupied_until": "2026-10-30T10:23:00+00:00",
+      "last_settled_balance": "56.778733320863600"
+    },
+    {
+      "id": "b19ebad5d77fd9f0641c",
+      "symbol": "ARB_USDT",
+      "side": "SHORT",
+      "signal": 1793352840,
+      "baseline_eligible": true,
+      "baseline_outcome": "STOP",
+      "baseline_net_r": "-1",
+      "band": [
+        "0.16103",
+        "0.16151"
+      ],
+      "stop": "0.16245",
+      "target": "0.15775",
+      "status": "POSICAO_EM_ABERTO",
+      "occupied_by": "TAO_USDT",
+      "occupied_until": "2026-10-30T10:23:00+00:00",
+      "last_settled_balance": "56.778733320863600"
+    },
+    {
+      "id": "50fd3bdb48f13d642761",
+      "symbol": "WLD_USDT",
+      "side": "LONG",
+      "signal": 1793357700,
+      "baseline_eligible": true,
+      "baseline_outcome": "STOP",
+      "baseline_net_r": "-1",
+      "band": [
+        "0.4047",
+        "0.4062"
+      ],
+      "stop": "0.4020",
+      "target": "0.4143",
+      "status": "EXECUTADA",
+      "balance_before": "68.311387835231600",
+      "balance_after": "61.916565855663600",
+      "outcome": "STOP",
+      "net_usdt": "-6.394821979568"
+    },
+    {
+      "id": "edd05b668945b8509344",
+      "symbol": "XRP_USDT",
+      "side": "LONG",
+      "signal": 1793372880,
+      "baseline_eligible": true,
+      "baseline_outcome": "STOP",
+      "baseline_net_r": "-1",
+      "band": [
+        "1.2512",
+        "1.2535"
+      ],
+      "stop": "1.2464",
+      "target": "1.2720",
+      "status": "EXECUTADA",
+      "balance_before": "61.916565855663600",
+      "balance_after": "56.439210230831600",
+      "outcome": "STOP",
+      "net_usdt": "-5.477355624832"
+    },
+    {
+      "id": "702ceed2c04a6c3a03a2",
+      "symbol": "ENA_USDT",
+      "side": "SHORT",
+      "signal": 1793386080,
+      "baseline_eligible": true,
+      "baseline_outcome": "STOP",
+      "baseline_net_r": "-1",
+      "band": [
+        "0.18260",
+        "0.18344"
+      ],
+      "stop": "0.18499",
+      "target": "0.17662",
+      "status": "EXECUTADA",
+      "balance_before": "56.439210230831600",
+      "balance_after": "52.191058621871600",
+      "outcome": "STOP",
+      "net_usdt": "-4.2481516089600"
+    },
+    {
+      "id": "a53d422b16f0556e5a94",
+      "symbol": "AAVE_USDT",
+      "side": "LONG",
+      "signal": 1793400060,
+      "baseline_eligible": true,
+      "baseline_outcome": "STOP",
+      "baseline_net_r": "-1",
+      "band": [
+        "128.90",
+        "129.17"
+      ],
+      "stop": "128.38",
+      "target": "130.95",
+      "status": "EXECUTADA",
+      "balance_before": "52.191058621871600",
+      "balance_after": "47.570317932047600",
+      "outcome": "STOP",
+      "net_usdt": "-4.620740689824"
+    },
+    {
+      "id": "7332d02cdaa14acb74e5",
+      "symbol": "HYPE_USDT",
+      "side": "SHORT",
+      "signal": 1793427180,
+      "baseline_eligible": true,
+      "baseline_outcome": "STOP",
+      "baseline_net_r": "-1",
+      "band": [
+        "88.118",
+        "88.293"
+      ],
+      "stop": "88.579",
+      "target": "87.146",
+      "status": "BLOQUEADA_FINANCEIRO",
+      "balance": "47.570317932047600",
+      "reasons": [
+        "CUSTO_RELATIVO_ELEVADO"
+      ]
+    },
+    {
+      "id": "2bbdd2bca208e00cbe53",
+      "symbol": "INJ_USDT",
+      "side": "LONG",
+      "signal": 1793429340,
+      "baseline_eligible": true,
+      "baseline_outcome": "STOP",
+      "baseline_net_r": "-1",
+      "band": [
+        "7.161",
+        "7.178"
+      ],
+      "stop": "7.134",
+      "target": "7.269",
+      "status": "BLOQUEADA_FINANCEIRO",
+      "balance": "47.570317932047600",
+      "reasons": [
+        "CUSTO_RELATIVO_ELEVADO"
+      ]
+    },
+    {
+      "id": "69e7ba838770785ee257",
+      "symbol": "INJ_USDT",
+      "side": "LONG",
+      "signal": 1793429340,
+      "baseline_eligible": true,
+      "baseline_outcome": "STOP",
+      "baseline_net_r": "-1",
+      "band": [
+        "7.160",
+        "7.177"
+      ],
+      "stop": "7.135",
+      "target": "7.269",
+      "status": "BLOQUEADA_FINANCEIRO",
+      "balance": "47.570317932047600",
+      "reasons": [
+        "CUSTO_RELATIVO_ELEVADO"
+      ]
+    },
+    {
+      "id": "502dbf28cb8661c4de3b",
+      "symbol": "HYPE_USDT",
+      "side": "LONG",
+      "signal": 1793447040,
+      "baseline_eligible": true,
+      "baseline_outcome": "STOP",
+      "baseline_net_r": "-1",
+      "band": [
+        "88.272",
+        "88.525"
+      ],
+      "stop": "87.965",
+      "target": "89.551",
+      "status": "BLOQUEADA_FINANCEIRO",
+      "balance": "47.570317932047600",
+      "reasons": [
+        "CUSTO_RELATIVO_ELEVADO"
+      ]
+    },
+    {
+      "id": "ff91850bf372a0993a82",
+      "symbol": "HYPE_USDT",
+      "side": "LONG",
+      "signal": 1793447040,
+      "baseline_eligible": true,
+      "baseline_outcome": "STOP",
+      "baseline_net_r": "-1",
+      "band": [
+        "88.275",
+        "88.521"
+      ],
+      "stop": "87.973",
+      "target": "89.551",
+      "status": "BLOQUEADA_FINANCEIRO",
+      "balance": "47.570317932047600",
+      "reasons": [
+        "CUSTO_RELATIVO_ELEVADO"
+      ]
+    },
+    {
+      "id": "60b2adc9f6d34c64f478",
+      "symbol": "ENA_USDT",
+      "side": "LONG",
+      "signal": 1793569440,
+      "baseline_eligible": true,
+      "baseline_outcome": "STOP",
+      "baseline_net_r": "-1",
+      "band": [
+        "0.18268",
+        "0.18299"
+      ],
+      "stop": "0.18202",
+      "target": "0.18544",
+      "status": "BLOQUEADA_FINANCEIRO",
+      "balance": "47.570317932047600",
+      "reasons": [
+        "CUSTO_RELATIVO_ELEVADO"
+      ]
+    },
+    {
+      "id": "7aaa2d6afb5a5cba9c76",
+      "symbol": "ENA_USDT",
+      "side": "LONG",
+      "signal": 1793569440,
+      "baseline_eligible": true,
+      "baseline_outcome": "STOP",
+      "baseline_net_r": "-1",
+      "band": [
+        "0.18268",
+        "0.18299"
+      ],
+      "stop": "0.18202",
+      "target": "0.18569",
+      "status": "BLOQUEADA_FINANCEIRO",
+      "balance": "47.570317932047600",
+      "reasons": [
+        "CUSTO_RELATIVO_ELEVADO"
+      ]
+    },
+    {
+      "id": "5583cb6a9b06d839064c",
+      "symbol": "ENA_USDT",
+      "side": "LONG",
+      "signal": 1793574900,
+      "baseline_eligible": true,
+      "baseline_outcome": "STOP",
+      "baseline_net_r": "-1",
+      "band": [
+        "0.18310",
+        "0.18357"
+      ],
+      "stop": "0.18247",
+      "target": "0.18544",
+      "status": "BLOQUEADA_FINANCEIRO",
+      "balance": "47.570317932047600",
+      "reasons": [
+        "CUSTO_RELATIVO_ELEVADO"
+      ]
+    },
+    {
+      "id": "f2a2e83512dab8e162bf",
+      "symbol": "ENA_USDT",
+      "side": "SHORT",
+      "signal": 1793633760,
+      "baseline_eligible": true,
+      "baseline_outcome": "STOP",
+      "baseline_net_r": "-1",
+      "band": [
+        "0.17538",
+        "0.17589"
+      ],
+      "stop": "0.17685",
+      "target": "0.17117",
+      "status": "EXECUTADA",
+      "balance_before": "47.570317932047600",
+      "balance_after": "44.102198330663600",
+      "outcome": "STOP",
+      "net_usdt": "-3.4681196013840"
+    },
+    {
+      "id": "092c5ccff0b2b13c6f23",
+      "symbol": "ENA_USDT",
+      "side": "SHORT",
+      "signal": 1793634720,
+      "baseline_eligible": true,
+      "baseline_outcome": "ALVO",
+      "baseline_net_r": "2.727772660171873282147786259",
+      "band": [
+        "0.17517",
+        "0.17555"
+      ],
+      "stop": "0.17652",
+      "target": "0.17049",
+      "status": "EXECUTADA",
+      "balance_before": "44.102198330663600",
+      "balance_after": "56.025241773863600",
+      "outcome": "ALVO",
+      "net_usdt": "11.923043443200"
+    },
+    {
+      "id": "3f40f57a1445865c42d5",
+      "symbol": "ENA_USDT",
+      "side": "SHORT",
+      "signal": 1793636640,
+      "baseline_eligible": true,
+      "baseline_outcome": "ABERTO",
+      "baseline_net_r": null,
+      "band": [
+        "0.17198",
+        "0.17282"
+      ],
+      "stop": "0.17422",
+      "target": "0.16787",
+      "status": "POSICAO_EM_ABERTO",
+      "occupied_by": "ENA_USDT",
+      "occupied_until": "2026-11-02T17:02:00+00:00",
+      "last_settled_balance": "44.102198330663600"
+    },
+    {
+      "id": "860be863ea3d656ed68b",
+      "symbol": "NEAR_USDT",
+      "side": "SHORT",
+      "signal": 1793644200,
+      "baseline_eligible": true,
+      "baseline_outcome": "STOP",
+      "baseline_net_r": "-1",
+      "band": [
+        "3.894",
+        "3.902"
+      ],
+      "stop": "3.925",
+      "target": "3.787",
+      "status": "EXECUTADA",
+      "balance_before": "56.025241773863600",
+      "balance_after": "51.501092384783600",
+      "outcome": "STOP",
+      "net_usdt": "-4.52414938908"
+    },
+    {
+      "id": "0dfe0655f44a137054e0",
+      "symbol": "NEAR_USDT",
+      "side": "SHORT",
+      "signal": 1793644500,
+      "baseline_eligible": true,
+      "baseline_outcome": "STOP",
+      "baseline_net_r": "-1",
+      "band": [
+        "3.887",
+        "3.894"
+      ],
+      "stop": "3.917",
+      "target": "3.799",
+      "status": "POSICAO_EM_ABERTO",
+      "occupied_by": "NEAR_USDT",
+      "occupied_until": "2026-11-02T20:06:00+00:00",
+      "last_settled_balance": "56.025241773863600"
+    },
+    {
+      "id": "db5a091d3a5700f4620f",
+      "symbol": "HYPE_USDT",
+      "side": "SHORT",
+      "signal": 1793676180,
+      "baseline_eligible": true,
+      "baseline_outcome": "STOP",
+      "baseline_net_r": "-1",
+      "band": [
+        "82.733",
+        "82.947"
+      ],
+      "stop": "83.255",
+      "target": "81.424",
+      "status": "EXECUTADA",
+      "balance_before": "51.501092384783600",
+      "balance_after": "47.400090018959600",
+      "outcome": "STOP",
+      "net_usdt": "-4.101002365824"
+    },
+    {
+      "id": "3fe60c8c8c234f353599",
+      "symbol": "ONE_USDT",
+      "side": "SHORT",
+      "signal": 1793676960,
+      "baseline_eligible": true,
+      "baseline_outcome": "STOP",
+      "baseline_net_r": "-1",
+      "band": [
+        "0.0010752",
+        "0.0010767"
+      ],
+      "stop": "0.0010809",
+      "target": "0.0010586",
+      "status": "POSICAO_EM_ABERTO",
+      "occupied_by": "HYPE_USDT",
+      "occupied_until": "2026-11-03T03:55:00+00:00",
+      "last_settled_balance": "51.501092384783600"
+    },
+    {
+      "id": "c95ae9bc74f148b75e15",
+      "symbol": "HYPE_USDT",
+      "side": "SHORT",
+      "signal": 1793875620,
+      "baseline_eligible": true,
+      "baseline_outcome": "ALVO",
+      "baseline_net_r": "2.756059219185563402216616093",
+      "band": [
+        "82.388",
+        "82.497"
+      ],
+      "stop": "82.734",
+      "target": "81.220",
+      "status": "BLOQUEADA_FINANCEIRO",
+      "balance": "47.400090018959600",
+      "reasons": [
+        "CUSTO_RELATIVO_ELEVADO"
+      ]
+    },
+    {
+      "id": "e6034a4c47f0f5e2320e",
+      "symbol": "HYPE_USDT",
+      "side": "SHORT",
+      "signal": 1793875620,
+      "baseline_eligible": true,
+      "baseline_outcome": "ALVO",
+      "baseline_net_r": "2.583037347612873274966676050",
+      "band": [
+        "82.386",
+        "82.521"
+      ],
+      "stop": "82.761",
+      "target": "81.220",
+      "status": "BLOQUEADA_FINANCEIRO",
+      "balance": "47.400090018959600",
+      "reasons": [
+        "CUSTO_RELATIVO_ELEVADO"
+      ]
+    },
+    {
+      "id": "3a2869d9c347b97c58b3",
+      "symbol": "ENA_USDT",
+      "side": "LONG",
+      "signal": 1793906280,
+      "baseline_eligible": true,
+      "baseline_outcome": "STOP",
+      "baseline_net_r": "-1",
+      "band": [
+        "0.16436",
+        "0.16488"
+      ],
+      "stop": "0.16306",
+      "target": "0.16851",
+      "status": "EXECUTADA",
+      "balance_before": "47.400090018959600",
+      "balance_after": "43.123763828063600",
+      "outcome": "STOP",
+      "net_usdt": "-4.2763261908960"
+    },
+    {
+      "id": "b7564dfb69f31b7e5998",
+      "symbol": "ENA_USDT",
+      "side": "LONG",
+      "signal": 1793906280,
+      "baseline_eligible": true,
+      "baseline_outcome": "STOP",
+      "baseline_net_r": "-1",
+      "band": [
+        "0.16436",
+        "0.16488"
+      ],
+      "stop": "0.16305",
+      "target": "0.16851",
+      "status": "POSICAO_EM_ABERTO",
+      "occupied_by": "ENA_USDT",
+      "occupied_until": "2026-11-05T19:28:00+00:00",
+      "last_settled_balance": "47.400090018959600"
+    },
+    {
+      "id": "68eeb7b106aa1747bd56",
+      "symbol": "DOT_USDT",
+      "side": "LONG",
+      "signal": 1793925180,
+      "baseline_eligible": true,
+      "baseline_outcome": "ABERTO",
+      "baseline_net_r": null,
+      "band": [
+        "0.9185",
+        "0.9205"
+      ],
+      "stop": "0.9139",
+      "target": "0.9380",
+      "status": "EXECUTADA",
+      "balance_before": "43.123763828063600",
+      "balance_after": "45.872763441731600",
+      "outcome": "ENCERRAMENTO_4H",
+      "net_usdt": "2.7489996136680"
+    },
+    {
+      "id": "32b507cb79b6dc84d90e",
+      "symbol": "DOT_USDT",
+      "side": "LONG",
+      "signal": 1793925240,
+      "baseline_eligible": true,
+      "baseline_outcome": "ABERTO",
+      "baseline_net_r": null,
+      "band": [
+        "0.9198",
+        "0.9216"
+      ],
+      "stop": "0.9151",
+      "target": "0.9380",
+      "status": "POSICAO_EM_ABERTO",
+      "occupied_by": "DOT_USDT",
+      "occupied_until": "2026-11-06T04:33:00+00:00",
+      "last_settled_balance": "43.123763828063600"
+    },
+    {
+      "id": "58927fcd0bdb97ef12db",
+      "symbol": "AVAX_USDT",
+      "side": "LONG",
+      "signal": 1793925300,
+      "baseline_eligible": true,
+      "baseline_outcome": "ABERTO",
+      "baseline_net_r": null,
+      "band": [
+        "8.267",
+        "8.283"
+      ],
+      "stop": "8.230",
+      "target": "8.437",
+      "status": "POSICAO_EM_ABERTO",
+      "occupied_by": "DOT_USDT",
+      "occupied_until": "2026-11-06T04:33:00+00:00",
+      "last_settled_balance": "43.123763828063600"
+    }
+  ],
+  "duplicate_details": [],
+  "limits": [
+    "No strategy, risk or position-count changes. Same frozen data and chronological wallet.",
+    "Original outcome labels are used only for retrospective mapping, never for selecting entries.",
+    "Risk/price/cost blocks must be distinguished from the single-position restriction."
+  ],
+  "source_run": "https://github.com/VinyRhyu/mexc-futures-scanner/actions/runs/42894708894"
+}
