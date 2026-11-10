@@ -1,6 +1,6 @@
 ## Experimento paralelo: rompimento a favor da estrutura de 1h
 
-Atualização: 2026-11-10T19:31:38+00:00.
+Atualização: 2026-11-10T19:46:42+00:00.
 Coleta prospectiva: 2026-11-10T13:30:00+00:00 até 2026-11-24T13:30:00+00:00.
 
 LONG somente em ALTA; SHORT somente em BAIXA. INDEFINIDA/DESCONHECIDA são excluídas.
@@ -240,16 +240,16 @@ ANTECIPADA e CONFIRMADA são simulações independentes, não carteiras somávei
   "PROSPECTIVA": {
     "ANTECIPADA": {
       "all": {
-        "candidates": 21,
+        "candidates": 22,
         "structure_counts": {
           "BAIXA": 11,
           "ALTA": 1,
-          "INDEFINIDA": 9
+          "INDEFINIDA": 10
         },
         "capture_late": 0,
         "models": {
           "ATUAL": {
-            "candidates": 21,
+            "candidates": 22,
             "entries": 1,
             "targets": 0,
             "stops": 1,
@@ -258,7 +258,8 @@ ANTECIPADA e CONFIRMADA são simulações independentes, não carteiras somávei
             "marked_r_independent": "-1",
             "outcomes": {
               "BLOQUEADA": 20,
-              "STOP": 1
+              "STOP": 1,
+              "AGUARDANDO_CANDLE": 1
             }
           },
           "FILTRO_1H": {
