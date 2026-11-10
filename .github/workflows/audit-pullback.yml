@@ -1,0 +1,31 @@
+name: Comparar confirmação e recuo em paper
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'scripts/audit_pullback.py'
+      - 'tests/test_audit_pullback.py'
+      - '.github/workflows/audit-pullback.yml'
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  audit:
+    runs-on: ubuntu-latest
+    timeout-minutes: 8
+    steps:
+      - uses: actions/checkout@v7.0.1
+        with:
+          persist-credentials: false
+      - uses: actions/setup-python@v7
+        with:
+          python-version: '3.12'
+      - name: Verificar cálculo e ausência de execução retroativa
+        run: python -m unittest tests.test_audit_pullback -q
+      - uses: actions/checkout@v7.0.1
+        with:
+          ref: scanner-state
+          path: audit-state
+          persist-credentials: false
+      - name: Comparar sinais registrados com candles públicos
+        run: python -m scripts.audit_pullback --report audit-state/latest/report.json
