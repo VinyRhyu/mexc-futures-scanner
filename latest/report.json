@@ -250,17 +250,17 @@
         },
         "complete": {
           "avoided_stops": 0,
-          "candidates": 2,
-          "capture_late": 2,
+          "candidates": 3,
+          "capture_late": 3,
           "models": {
             "ATUAL": {
-              "candidates": 2,
+              "candidates": 3,
               "closed_r_independent": "0",
               "entries": 0,
               "marked_r_independent": "0",
               "open": 0,
               "outcomes": {
-                "BLOQUEADA": 2
+                "BLOQUEADA": 3
               },
               "stops": 0,
               "targets": 0
@@ -278,7 +278,7 @@
           },
           "removed_winners": 0,
           "structure_counts": {
-            "INDEFINIDA": 2
+            "INDEFINIDA": 3
           }
         },
         "timely_complete": {
@@ -416,5 +416,5 @@
       }
     }
   },
-  "updated_at": "2026-11-10T16:01:38+00:00"
+  "updated_at": "2026-11-10T16:16:44+00:00"
 }
