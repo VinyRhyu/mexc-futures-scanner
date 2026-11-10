@@ -1,0 +1,26 @@
+name: Testar rejeição de recuperação em histórico
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'scripts/audit_rejection_strategy.py'
+      - 'tests/test_rejection_strategy.py'
+      - '.github/workflows/audit-rejection.yml'
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  audit:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v7.0.1
+        with:
+          persist-credentials: false
+      - uses: actions/setup-python@v7
+        with:
+          python-version: '3.12'
+      - name: Verificar simetria e ausência de informação futura
+        run: python -m unittest tests.test_rejection_strategy -q
+      - name: Recriar todos os casos históricos com regras fixas
+        run: python -m scripts.audit_rejection_strategy
