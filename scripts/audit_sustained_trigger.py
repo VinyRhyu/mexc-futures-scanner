@@ -86,7 +86,8 @@ def metrics(values):
         'ambiguous':sum(v['outcome']=='STOP_AMBIGUO' for v in closed),
         'open':sum(v['outcome']=='ABERTO' for v in values),
         'win_rate_closed':str(D(targets)/len(closed)) if closed else None,
-        'positive_r':str(positive),'negative_r':str(negative),'net_r':str(positive-negative)}
+        'positive_r':str(positive),'negative_r':str(negative),
+        'net_r':str(sum((D(v['net_r']) for v in closed),D(0)))}
 
 
 def summary(rows):
@@ -154,6 +155,7 @@ def run(source,directory):
         rows = by_symbol.pop(symbol,[])
         if len(rows)!=manifest['formations']:
             raise ValueError('Formation count differs for '+symbol)
+        processed = []
         for old in rows:
             row = deepcopy(old)
             if 'signal' not in old['M1']:
@@ -167,7 +169,8 @@ def run(source,directory):
                 checked += 1
                 row[MODE] = sustained(plan,old['M1'],m,data['contract'],cfg)
             records.append(row)
-        print(json.dumps({'progress':f'{num}/{len(prior["datasets"])}','symbol':symbol,'summary':summary(rows)}),flush=True)
+            processed.append(row)
+        print(json.dumps({'progress':f'{num}/{len(prior["datasets"])}','symbol':symbol,'summary':summary(processed)}),flush=True)
     if by_symbol or len(records)!=len(original):
         raise ValueError('Original universe not fully reconstructed')
     s = summary(records)

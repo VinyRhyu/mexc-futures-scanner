@@ -1,14 +1,16 @@
 from copy import deepcopy
 from dataclasses import replace
+from decimal import localcontext
 import gzip
+import json
 from pathlib import Path
 import tempfile
 import unittest
 from unittest.mock import patch
 
 from mexc_scanner.config import Config
-from mexc_scanner.models import Candle, Contract, D, Plan
-from scripts.audit_sustained_trigger import MODE, metrics, read_dataset, summary, sustained
+from mexc_scanner.models import Candle, Contract, D, Plan, jsonable
+from scripts.audit_sustained_trigger import MODE, metrics, read_dataset, run, summary, sustained
 
 
 START=1793502000
@@ -128,6 +130,36 @@ class SustainedTriggerTests(unittest.TestCase):
         self.assertEqual(m['net_r'],'1.5')
         self.assertEqual(m['open'],1)
         self.assertEqual(m['win_rate_closed'],'0.5')
+
+    def test_r_aggregation_preserves_the_frozen_baseline_order(self):
+        with localcontext() as ctx:
+            ctx.prec=1
+            m=metrics([{'outcome':'STOP','net_r':'-0.8'},
+                       {'outcome':'ALVO','net_r':'0.8'},{'outcome':'ALVO','net_r':'0.8'}])
+        self.assertEqual(m['net_r'],'0.8')
+
+    def test_complete_driver_writes_summary_of_processed_rows(self):
+        cfg=Config()
+        row={'id':'p','symbol':'TEST_USDT','side':'LONG','week':'01–07/11',
+             'M1':{'outcome':'SEM_GATILHO'}}
+        manifest={'symbol':'TEST_USDT','formations':1}
+        prior={'kind':'EARLY_TRIGGER_MATCHED_HISTORY','errors':{},'analyzed_symbols':1,'selected_symbols':1,
+               'config':jsonable(cfg),'config_fingerprint':cfg.fingerprint,'datasets':[manifest],
+               'code_sha':'fixture','start_brt':'2026-11-01T00:00:00-03:00','end_exclusive_brt':'2026-11-02T00:00:00-03:00',
+               'weekly':{'01–07/11':{}},'summary':{'formations':1,'M1':{
+                   'unique_entries':0,'unique_targets':0,'unique_stops':0,'unique_open':0,
+                   'unique_closed_r_independent':'0'}}}
+        with tempfile.TemporaryDirectory() as d:
+            source=Path(d)/'source'
+            source.mkdir()
+            (source/'summary.json').write_text(json.dumps(prior))
+            (source/'all-formations.json.gz').write_bytes(gzip.compress(json.dumps([row]).encode()))
+            data={'quarter':[],'hourly':[],'minute':[bar(START)],'contract':self.c}
+            with patch('scripts.audit_sustained_trigger.read_dataset',return_value=data):
+                result=run(source,Path(d)/'output')
+            self.assertEqual(result['formations'],1)
+            self.assertEqual(result['summary'][MODE]['outcomes'],{'SEM_GATILHO':1})
+            self.assertTrue((Path(d)/'output'/'summary.json').exists())
 
 
 if __name__=='__main__':
