@@ -1,0 +1,31 @@
+name: Investigar stops custos e faixa em paper
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'scripts/audit_stops_costs.py'
+      - 'tests/test_audit_stops_costs.py'
+      - '.github/workflows/audit-stops-costs.yml'
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  audit:
+    runs-on: ubuntu-latest
+    timeout-minutes: 8
+    steps:
+      - uses: actions/checkout@v7.0.1
+        with:
+          persist-credentials: false
+      - uses: actions/setup-python@v7
+        with:
+          python-version: '3.12'
+      - name: Verificar stops conhecidos e diagnóstico financeiro
+        run: python -m unittest tests.test_audit_stops_costs -q
+      - uses: actions/checkout@v7.0.1
+        with:
+          ref: 35e99172f470795be0c5f3f8c47e1e160b09e07d
+          path: audit-state
+          persist-credentials: false
+      - name: Investigar a mesma amostra histórica
+        run: python -m scripts.audit_stops_costs --report audit-state/latest/report.json
