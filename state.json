@@ -569,10 +569,200 @@
       "symbol": "ENA_USDT",
       "timely_capture": false
     },
-    "254d9309b737eb554636": {
+    "1e3b3108ee68f9acbfd1": {
       "aligned": false,
       "baseline": {
         "outcome": "AGUARDANDO_CANDLE",
+        "window_complete": false
+      },
+      "cohort": "PROSPECTIVA",
+      "contract": {
+        "amountScale": 4,
+        "apiAllowed": true,
+        "appraisal": 0,
+        "askLimitPriceRate": "0.2",
+        "automaticDelivery": 0,
+        "baseCoin": "XLM",
+        "baseCoinIconUrl": "https://public.mocortech.com/coin/F20210422173954112qjjSI1PpY4Ej7v.png",
+        "baseCoinId": "c6af7cad34bb42869e5bbe06731f28d8",
+        "baseCoinName": "XLM",
+        "bidLimitPriceRate": "0.2",
+        "conceptPlate": [
+          "mc-trade-zone-mainly",
+          "mc-trade-zone-0fees"
+        ],
+        "conceptPlateId": [
+          50,
+          45
+        ],
+        "contractSize": 10,
+        "countryConfigContractMaxLeverage": 0,
+        "createTime": 1603174391000,
+        "depthStepList": [
+          "0.00001",
+          "0.0001",
+          "0.001"
+        ],
+        "displayName": "XLM_USDT永续",
+        "displayNameEn": "XLM_USDT PERPETUAL",
+        "feeRateMode": "NORMAL",
+        "feeRateType": "BASE",
+        "fn": "XLM_USDT永续",
+        "futureType": 1,
+        "id": 65,
+        "indexOrigin": [
+          "BITGET",
+          "BYBIT",
+          "BINANCE",
+          "HTX",
+          "OKX",
+          "MEXC",
+          "KUCOIN"
+        ],
+        "initialMarginRate": "0.00333333",
+        "isHidden": false,
+        "isHot": false,
+        "isMaxLeverage": true,
+        "isNew": false,
+        "isZeroFeeRate": true,
+        "isZeroFeeSymbol": true,
+        "leverageFeeRates": [],
+        "limitMaxVol": 588000,
+        "liquidationFeeRate": 0,
+        "maintenanceMarginRate": "0.0023",
+        "makerFeeRate": 0,
+        "marketOrderMaxLevel": 20,
+        "marketOrderPriceLimitRate1": "0.2",
+        "marketOrderPriceLimitRate2": "0.005",
+        "maxLeverage": 300,
+        "maxNumOrders": [
+          200,
+          50
+        ],
+        "maxVol": 588000,
+        "minLeverage": 1,
+        "minVol": 1,
+        "openingCountdownOption": 1,
+        "openingTime": 0,
+        "positionOpenType": 3,
+        "preMarket": false,
+        "priceCoefficientVariation": "0.4",
+        "priceScale": 5,
+        "priceUnit": "0.00001",
+        "quoteCoin": "USDT",
+        "quoteCoinName": "USDT",
+        "regularMaxLeverage": 300,
+        "riskBaseVol": 550000,
+        "riskIncrImr": 0,
+        "riskIncrMmr": 0,
+        "riskIncrVol": 0,
+        "riskLevelLimit": 1,
+        "riskLimitCustom": [
+          {
+            "imr": "0.00333333",
+            "level": 1,
+            "maxLeverage": 300,
+            "maxVol": 90000,
+            "mmr": "0.0023"
+          },
+          {
+            "imr": "0.005",
+            "level": 2,
+            "maxLeverage": 200,
+            "maxVol": 550000,
+            "mmr": "0.004"
+          }
+        ],
+        "riskLimitMode": "CUSTOM",
+        "riskLimitType": "BY_VOLUME",
+        "riskLongShortSwitch": 0,
+        "settleCoin": "USDT",
+        "showAppraisalCountdown": 0,
+        "showBeforeOpen": true,
+        "state": 0,
+        "stopOnlyFair": false,
+        "symbol": "XLM_USDT",
+        "tagIdList": [
+          5,
+          8
+        ],
+        "takerFeeRate": 0,
+        "tempMaxLeverageLimited": false,
+        "threshold": 0,
+        "tieredFeeRates": [],
+        "triggerProtect": "0.1",
+        "type": 1,
+        "typeLabel": 0,
+        "vid": "128f589271cb4951b03e71e6323eb7be",
+        "volScale": 0,
+        "volUnit": 1
+      },
+      "first_seen_at": 1794317500,
+      "kind": "CONFIRMADA",
+      "plan": {
+        "atr": "0.0005964270278797536943180413787",
+        "detected_at": 1794315691,
+        "entry_started_at": 1794316500,
+        "expires_at": 1794318300,
+        "family": "3c31339cdb5113884f5b",
+        "formed_at": 1794314700,
+        "id": "054d81ee2429824ac95c",
+        "last_bar": 1794317400,
+        "level": "0.14544",
+        "lower": "0.14544",
+        "observations": [],
+        "preparation_expires_at": 1794316500,
+        "reaction_at": 1794316500,
+        "reaction_extreme": null,
+        "reason": "",
+        "revision": 2,
+        "side": "SHORT",
+        "status": "ATIVO",
+        "stop": "0.14574",
+        "strategy": "ROMPIMENTO",
+        "symbol": "XLM_USDT",
+        "upper": "0.1465",
+        "variants": {
+          "CONFIRMADA": {
+            "entry_high": "0.14537",
+            "entry_low": "0.14513",
+            "financial": {
+              "assumptions": [
+                "FUNDING_FUTURO_MANTIDO_POR_6H",
+                "DESLIZAMENTO_ESTIMADO",
+                "TAXA_SIMULADA_NAO_PESSOAL"
+              ],
+              "mode": "paper",
+              "reasons": [
+                "RETORNO_RISCO_INSUFICIENTE"
+              ],
+              "status": "BLOQUEADA"
+            },
+            "kind": "CONFIRMADA",
+            "reason": "",
+            "reference": "0.14527",
+            "status": "VALIDA",
+            "stop": "0.14574",
+            "target": "0.14499",
+            "target_origin": "PIVO_CONHECIDO",
+            "triggered_at": 1794317400
+          }
+        }
+      },
+      "plan_id": "054d81ee2429824ac95c",
+      "side": "SHORT",
+      "signal": 1794317400,
+      "structure_1h": "INDEFINIDA",
+      "symbol": "XLM_USDT",
+      "timely_capture": true
+    },
+    "254d9309b737eb554636": {
+      "aligned": false,
+      "baseline": {
+        "outcome": "BLOQUEADA",
+        "reasons": [
+          "RETORNO_RISCO_INSUFICIENTE"
+        ],
         "window_complete": false
       },
       "cohort": "RESERVADA_PRELIMINAR",
@@ -1505,7 +1695,10 @@
     "50177c0d24393ef8160c": {
       "aligned": false,
       "baseline": {
-        "outcome": "AGUARDANDO_CANDLE",
+        "outcome": "BLOQUEADA",
+        "reasons": [
+          "RETORNO_RISCO_INSUFICIENTE"
+        ],
         "window_complete": false
       },
       "cohort": "RESERVADA_PRELIMINAR",
@@ -2636,7 +2829,7 @@
     }
   },
   "diagnostics": [],
-  "last_update": 1794316986,
+  "last_update": 1794317500,
   "protocol": {
     "calculation_hash": "6330537db92e28356c9f6cd5f422a1a91a6e939cca5aba3d9248dbe58d0cbfa8",
     "config_fingerprint": "9e786afdec21907bc113",

@@ -1,6 +1,6 @@
 ## Experimento paralelo: rompimento a favor da estrutura de 1h
 
-Atualização: 2026-11-10T13:23:06+00:00.
+Atualização: 2026-11-10T13:31:40+00:00.
 Coleta prospectiva: 2026-11-10T13:30:00+00:00 até 2026-11-24T13:30:00+00:00.
 
 LONG somente em ALTA; SHORT somente em BAIXA. INDEFINIDA/DESCONHECIDA são excluídas.
@@ -51,8 +51,7 @@ ANTECIPADA e CONFIRMADA são simulações independentes, não carteiras somávei
             "closed_r_independent": "0",
             "marked_r_independent": "0",
             "outcomes": {
-              "AGUARDANDO_CANDLE": 1,
-              "BLOQUEADA": 7
+              "BLOQUEADA": 8
             }
           },
           "FILTRO_1H": {
@@ -132,8 +131,8 @@ ANTECIPADA e CONFIRMADA são simulações independentes, não carteiras somávei
       "all": {
         "candidates": 6,
         "structure_counts": {
-          "BAIXA": 2,
-          "INDEFINIDA": 4
+          "INDEFINIDA": 4,
+          "BAIXA": 2
         },
         "capture_late": 6,
         "models": {
@@ -146,8 +145,7 @@ ANTECIPADA e CONFIRMADA são simulações independentes, não carteiras somávei
             "closed_r_independent": "0",
             "marked_r_independent": "0",
             "outcomes": {
-              "AGUARDANDO_CANDLE": 1,
-              "BLOQUEADA": 5
+              "BLOQUEADA": 6
             }
           },
           "FILTRO_1H": {
@@ -318,19 +316,23 @@ ANTECIPADA e CONFIRMADA são simulações independentes, não carteiras somávei
     },
     "CONFIRMADA": {
       "all": {
-        "candidates": 0,
-        "structure_counts": {},
+        "candidates": 1,
+        "structure_counts": {
+          "INDEFINIDA": 1
+        },
         "capture_late": 0,
         "models": {
           "ATUAL": {
-            "candidates": 0,
+            "candidates": 1,
             "entries": 0,
             "targets": 0,
             "stops": 0,
             "open": 0,
             "closed_r_independent": "0",
             "marked_r_independent": "0",
-            "outcomes": {}
+            "outcomes": {
+              "AGUARDANDO_CANDLE": 1
+            }
           },
           "FILTRO_1H": {
             "candidates": 0,

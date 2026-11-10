@@ -108,16 +108,18 @@
       "CONFIRMADA": {
         "all": {
           "avoided_stops": 0,
-          "candidates": 0,
+          "candidates": 1,
           "capture_late": 0,
           "models": {
             "ATUAL": {
-              "candidates": 0,
+              "candidates": 1,
               "closed_r_independent": "0",
               "entries": 0,
               "marked_r_independent": "0",
               "open": 0,
-              "outcomes": {},
+              "outcomes": {
+                "AGUARDANDO_CANDLE": 1
+              },
               "stops": 0,
               "targets": 0
             },
@@ -133,7 +135,9 @@
             }
           },
           "removed_winners": 0,
-          "structure_counts": {}
+          "structure_counts": {
+            "INDEFINIDA": 1
+          }
         },
         "complete": {
           "avoided_stops": 0,
@@ -209,8 +213,7 @@
               "marked_r_independent": "0",
               "open": 0,
               "outcomes": {
-                "AGUARDANDO_CANDLE": 1,
-                "BLOQUEADA": 7
+                "BLOQUEADA": 8
               },
               "stops": 0,
               "targets": 0
@@ -305,8 +308,7 @@
               "marked_r_independent": "0",
               "open": 0,
               "outcomes": {
-                "AGUARDANDO_CANDLE": 1,
-                "BLOQUEADA": 5
+                "BLOQUEADA": 6
               },
               "stops": 0,
               "targets": 0
@@ -391,5 +393,5 @@
       }
     }
   },
-  "updated_at": "2026-11-10T13:23:06+00:00"
+  "updated_at": "2026-11-10T13:31:40+00:00"
 }
