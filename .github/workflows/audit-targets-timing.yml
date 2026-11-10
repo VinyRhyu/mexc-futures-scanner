@@ -1,0 +1,31 @@
+name: Investigar pivôs alvos e confirmação em paper
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'scripts/audit_targets_timing.py'
+      - 'tests/test_audit_targets_timing.py'
+      - '.github/workflows/audit-targets-timing.yml'
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  audit:
+    runs-on: ubuntu-latest
+    timeout-minutes: 8
+    steps:
+      - uses: actions/checkout@v7.0.1
+        with:
+          persist-credentials: false
+      - uses: actions/setup-python@v7
+        with:
+          python-version: '3.12'
+      - name: Verificar reconstrução e ausência de dados futuros
+        run: python -m unittest tests.test_audit_targets_timing -q
+      - uses: actions/checkout@v7.0.1
+        with:
+          ref: 35e99172f470795be0c5f3f8c47e1e160b09e07d
+          path: audit-state
+          persist-credentials: false
+      - name: Rastrear alvos e comparar modalidades
+        run: python -m scripts.audit_targets_timing --report audit-state/latest/report.json
