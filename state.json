@@ -2337,7 +2337,7 @@
         "reasons": [
           "RETORNO_RISCO_INSUFICIENTE"
         ],
-        "window_complete": false
+        "window_complete": true
       },
       "cohort": "RESERVADA_PRELIMINAR",
       "contract": {
@@ -3119,7 +3119,7 @@
         "reasons": [
           "RETORNO_RISCO_INSUFICIENTE"
         ],
-        "window_complete": false
+        "window_complete": true
       },
       "cohort": "RESERVADA_PRELIMINAR",
       "contract": {
@@ -5220,8 +5220,16 @@
     "fdc90f365176b29a9686": {
       "aligned": false,
       "baseline": {
-        "outcome": "AGUARDANDO_CANDLE",
-        "window_complete": false
+        "ambiguous": false,
+        "entered_at": "2026-11-10T16:45:00+00:00",
+        "entry_net_rr": "2.705500289566462987677216983",
+        "mark_to_market_r": "-0.6149840539969981400191240011",
+        "marked_at": "2026-11-10T17:00:00+00:00",
+        "outcome": "ABERTO",
+        "planned_loss_usdt": "0.09998042208",
+        "quantity": "1804",
+        "window_complete": false,
+        "worst_band_rr": "2.001844770767745092520017495"
       },
       "cohort": "PROSPECTIVA",
       "contract": {
@@ -5408,7 +5416,7 @@
     }
   },
   "diagnostics": [],
-  "last_update": 1794329197,
+  "last_update": 1794330096,
   "protocol": {
     "calculation_hash": "6330537db92e28356c9f6cd5f422a1a91a6e939cca5aba3d9248dbe58d0cbfa8",
     "config_fingerprint": "9e786afdec21907bc113",
