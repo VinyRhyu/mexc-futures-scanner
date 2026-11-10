@@ -1,0 +1,50 @@
+name: Testar TP 25 por cento mais distante
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'scripts/audit_tp_extension.py'
+      - 'tests/test_tp_extension.py'
+      - '.github/workflows/audit-tp-extension.yml'
+  workflow_dispatch:
+permissions:
+  contents: read
+  actions: read
+jobs:
+  audit:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v7.0.1
+        with:
+          persist-credentials: false
+      - uses: actions/setup-python@v7
+        with:
+          python-version: '3.12'
+      - name: Verificar níveis congelados e causalidade
+        run: python -m unittest tests.test_tp_extension -q
+      - name: Recuperar exatamente a coleta anterior
+        uses: actions/download-artifact@v8.0.2
+        with:
+          name: early-trigger-history-42879077420
+          run-id: 42879077420
+          github-token: ${{ github.token }}
+          path: reports/early-trigger-source/
+      - uses: actions/download-artifact@v8.0.2
+        with:
+          name: sustained-trigger-history-42890505005
+          run-id: 42890505005
+          github-token: ${{ github.token }}
+          path: reports/sustained-source/
+      - uses: actions/download-artifact@v8.0.2
+        with:
+          name: volume-retention-42908548312
+          run-id: 42908548312
+          github-token: ${{ github.token }}
+          path: reports/retention-source/
+      - run: python -m scripts.audit_tp_extension
+      - uses: actions/upload-artifact@v7.0.2
+        with:
+          name: tp-extension-${{ github.run_id }}
+          path: reports/tp-extension/
+          retention-days: 30
