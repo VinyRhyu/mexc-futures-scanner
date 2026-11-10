@@ -100,3 +100,50 @@ class FinanceTests(unittest.TestCase):
         c = replace(context()[2], volume_step=D(3), min_volume=D(3))
         result = self.calculate(contract_override=c)
         self.assertEqual(result["contracts"] % 3, 0)
+
+    def band_cost_case(self, side='LONG'):
+        p, v, c, t, b, f = context(side)
+        v.stop, v.target = (D(99), D(104)) if side == 'LONG' else (D(101), D(96))
+        v.entry_low, v.entry_high = ((D('99.05'), D('100.05')) if side == 'LONG' else
+                                   (D('99.95'), D('100.95')))
+        t.update(bid1='100', ask1='100')
+        b.update(bids=[['100', '1000000', 1]], asks=[['100', '1000000', 1]])
+        return p, v, c, t, b, f
+
+    def test_cost_at_best_endpoint_cannot_reject_viable_current_price(self):
+        for side in ('LONG', 'SHORT'):
+            with self.subTest(side=side):
+                p, v, c, t, b, f = self.band_cost_case(side)
+                old_low, old_high, old_stop, old_target = v.entry_low, v.entry_high, v.stop, v.target
+                r = evaluate(p, v, c, D(1), t, b, f, NOW, Config())
+                self.assertEqual(r['status'], 'VIAVEL_SIMULADO')
+                self.assertEqual((r['entry_low'], r['entry_high']), (D(100), D(100)))
+                self.assertGreaterEqual(r['net_rr'], 2)
+                self.assertLessEqual(r['loss_usdt'], D('0.10'))
+                self.assertLessEqual(r['costs_usdt'], D('0.03'))
+                self.assertLessEqual(r['leverage'], 20)
+                self.assertEqual((v.entry_low, v.entry_high, v.stop, v.target),
+                                 (old_low, old_high, old_stop, old_target))
+
+    def test_retry_cannot_expand_original_entry_band(self):
+        p, v, c, t, b, f = self.band_cost_case()
+        t.update(bid1='100.5', ask1='100.5')
+        b.update(asks=[['100.5', '1000000', 1]])
+        r = evaluate(p, v, c, D(1), t, b, f, NOW, Config())
+        self.assertEqual(r['status'], 'BLOQUEADA')
+
+    def test_retry_keeps_rr_depth_and_real_verification_gates(self):
+        for failure in ('rr', 'depth', 'real', 'margin'):
+            with self.subTest(failure=failure):
+                p, v, c, t, b, f = self.band_cost_case()
+                cfg = Config()
+                if failure == 'rr':
+                    v.target = D('100.2')
+                elif failure == 'depth':
+                    b['asks'] = [['100', '1', 1]]
+                elif failure == 'real':
+                    cfg = replace(cfg, mode='real')
+                elif failure == 'margin':
+                    c = replace(c, max_leverage=1)
+                r = evaluate(p, v, c, D(1), t, b, f, NOW, cfg)
+                self.assertEqual(r['status'], 'BLOQUEADA')
