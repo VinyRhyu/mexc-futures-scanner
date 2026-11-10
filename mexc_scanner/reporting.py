@@ -18,6 +18,12 @@ def number(value) -> str:
 
 
 REASONS = {
+    'MODELO_SUBSTITUIDO':'Este plano pertence ao modelo anterior.',
+    'GATILHO_M1_ATRASADO':'O gatilho M1 chegou atrasado; não liberar entrada retroativa.',
+    'SEGUNDO_M1_NAO_SUSTENTOU':'O segundo fechamento M1 perdeu o nível do gatilho.',
+    'VOLUME_M1_INSUFICIENTE':'O volume do segundo candle M1 foi menor que50% do primeiro.',
+    'SEGUNDO_M1_INDISPONIVEL':'Não foi possível validar o candle M1 imediatamente seguinte.',
+    'LACUNA_M1':'Houve lacuna no histórico M1; este plano foi encerrado.',
     "PLANO_NAO_ATUAL": "O plano não está mais válido para uma nova entrada.",
     "SALDO_NAO_POSITIVO": "Não há saldo disponível.",
     "DADOS_NAO_VERIFICADOS": "A cotação não está atualizada ou validada.",
@@ -106,8 +112,16 @@ def plan_message(plan: Plan, mode: str, now: int, variant: Variant | None = None
             "Sem nova entrada por este plano.", f"Validade encerrada: {clock(plan.expires_at, now)}" if terminal == "EXPIRADO" else
             f"Análise: {brt(now)}", "A expiração não encerra uma posição já aberta.", "", footer])
 
-    strategy = "Continuação após correção" if plan.strategy == "CONTINUACAO" else "Rompimento de consolidação"
+    minute_model=plan.strategy=='ROMPIMENTO_M1_VOLUME'
+    strategy = ("Rompimento • 2 fechamentos M1 • volume ≥50%" if minute_model else
+                "Continuação após correção" if plan.strategy == "CONTINUACAO" else "Rompimento de consolidação")
     if variant is None:
+        if minute_model:
+            return '\n'.join(['👀 POSSÍVEL ENTRADA • AGUARDAR GATILHO',_identity(plan),_mode(mode),strategy,'',
+                f'Região de atenção ≈ {approximate(plan.lower)} a {approximate(plan.upper)}',
+                'Dois fechamentos consecutivos de1min além do gatilho.',
+                'Volume do segundo candle pelo menos50% do primeiro. Apenas a confirmação pode liberar entrada.',
+                f'Preparação até {clock(plan.expires_at,now)}.',f'Análise: {brt(now)}',footer])
         above = plan.side == "LONG"
         direction = "acima" if above else "abaixo"
         if plan.strategy == "CONTINUACAO":
@@ -130,6 +144,10 @@ def plan_message(plan: Plan, mode: str, now: int, variant: Variant | None = None
         title = "👀 APENAS ACOMPANHAMENTO"
     modality = "Antecipada" if variant.kind == "ANTECIPADA" else "Confirmada"
     lines = [title, _identity(plan), f"{_mode(mode)} • {modality}", strategy, ""]
+    if minute_model:
+        for note in plan.observations:
+            if note.startswith('VOLUME_M1_PERCENT='):
+                lines.append('Volume do segundo M1: '+fixed(note.split('=',1)[1],1)+'% do primeiro.')
     if restriction:
         lines += [restriction, "Nenhuma nova entrada indicada.", ""]
     elif not viable:
@@ -157,7 +175,7 @@ def plan_message(plan: Plan, mode: str, now: int, variant: Variant | None = None
     if f.get("real_gates"):
         lines.append("Falta validar para uso real: " + "; ".join(friendly(r).rstrip(".") for r in f["real_gates"]) + ".")
     lines += ["", f"⏱ Nova entrada até {clock(plan.expires_at, now)} ({_remaining(plan.expires_at, now)}).",
-              f"Gatilho 15m: {clock(variant.triggered_at, now)}"]
+              f"Gatilho {'M1 (segundo fechamento)' if minute_model else '15m'}: {clock(variant.triggered_at, now)}"]
     if f.get("quote_at"):
         lines.append("Cotação: " + clock(int(f["quote_at"]), now))
     lines += [f"Análise: {brt(now)}", "A validade se aplica a novas entradas.", footer]

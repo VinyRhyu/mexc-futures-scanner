@@ -53,6 +53,8 @@ def main(argv=None) -> int:
     scan.add_argument("--output", default=".scanner-state/latest")
     scan.add_argument("--init", action="store_true", help="Criar estado novo, somente paper")
     scan.add_argument("--limit", type=int, default=0)
+    scan.add_argument('--model',choices=['legacy','m1_volume50_v1'],
+                      default=os.environ.get('SCANNER_STRATEGY','legacy'))
     demo = sub.add_parser("demo", help="Executar exemplo SINTÉTICO sem conexão à MEXC")
     demo.add_argument("--output", default="reports/demo")
     notify = sub.add_parser("notify", help="Entregar outbox já persistida; não coleta preços")
@@ -108,7 +110,7 @@ def main(argv=None) -> int:
             if args.command == "scan":
                 assets = set(json.loads(Path("config/crypto-assets.json").read_text())["assets"])
                 report, snapshot = run_scan(MexcClient(config.api_base), config, state, assets,
-                                            symbol_limit=args.limit or None)
+                                            symbol_limit=args.limit or None,signal_model=args.model)
                 atomic_json(path, state)
                 write_report(Path(args.output), report, snapshot)
                 (path.parent / "round-complete.marker").write_text(str(report["analyzed_at"]))

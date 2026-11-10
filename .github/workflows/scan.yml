@@ -1,5 +1,8 @@
 name: Scanner MEXC
 on:
+  push:
+    branches: [main]
+    paths: ['mexc_scanner/minute_breakout.py', '.github/workflows/scan.yml']
   schedule:
     - cron: '2,17,32,47 * * * *'
   workflow_dispatch:
@@ -8,7 +11,7 @@ on:
         description: Contratos no teste (5 para a primeira coleta)
         type: choice
         options: ['5', '50']
-        default: '5'
+        default: '50'
 permissions:
   contents: write
 concurrency:
@@ -16,10 +19,11 @@ concurrency:
   cancel-in-progress: false
 jobs:
   scan:
-    if: github.event_name == 'workflow_dispatch' || vars.SCANNER_ENABLED == 'true'
+    if: github.event_name == 'push' || github.event_name == 'workflow_dispatch' || vars.SCANNER_ENABLED == 'true'
     runs-on: ubuntu-latest
     timeout-minutes: 12
     env:
+      SCANNER_STRATEGY: m1_volume50_v1
       TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
       TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
       REPOSITORY_IS_PRIVATE: ${{ github.event.repository.private }}
@@ -31,6 +35,3 @@ jobs:
           python-version: '3.12'
       - name: Coletar, persistir e notificar
         run: python -m scripts.run_round --limit "$SCAN_LIMIT"
-      - name: Acompanhar filtro de tendência em simulação separada
-        continue-on-error: true
-        run: python -m scripts.trend_experiment

@@ -1,0 +1,52 @@
+name: Validar implantação do modelo M1
+on:
+  push:
+    branches: ['deploy/m1-volume50']
+permissions:
+  contents: read
+  actions: read
+jobs:
+  verify:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v7.0.1
+        with:
+          persist-credentials: false
+      - uses: actions/setup-python@v7
+        with:
+          python-version: '3.12'
+      - run: python -m unittest discover -s tests -q
+      - uses: actions/download-artifact@v8.0.2
+        with:
+          name: early-trigger-history-42879077420
+          run-id: 42879077420
+          github-token: ${{ github.token }}
+          path: reports/early-trigger-source/
+      - uses: actions/download-artifact@v8.0.2
+        with:
+          name: sustained-trigger-history-42890505005
+          run-id: 42890505005
+          github-token: ${{ github.token }}
+          path: reports/sustained-source/
+      - run: python -m scripts.verify_minute_model
+      - name: Coleta real somente leitura sem Telegram
+        run: |
+          python -m mexc_scanner scan --init --model m1_volume50_v1 --limit 50 --state reports/m1-live/state.json --output reports/m1-live/latest
+          python - <<'PY'
+          import json
+          from pathlib import Path
+          r=json.loads(Path('reports/m1-live/latest/report.json').read_text())
+          s=json.loads(Path('reports/m1-live/latest/snapshot.json').read_text())
+          assert r['source_status']=='OK',r.get('diagnostics')
+          assert r['signal_model']=='m1_volume50_v1'
+          assert r['analyzed_symbols']>0
+          assert all(len(m['minute'])==120 for m in s['market'].values())
+          print({'live_validation':'PASS','coverage':r['analyzed_symbols'],'duration_seconds':r['analyzed_at']-s['captured_at']})
+          PY
+      - uses: actions/upload-artifact@v7.0.2
+        if: always()
+        with:
+          name: minute-model-validation-${{ github.run_id }}
+          path: reports/m1-live/
+          retention-days: 14

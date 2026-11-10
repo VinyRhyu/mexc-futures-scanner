@@ -14,16 +14,22 @@ from .models import Contract, D, DataError, Plan, jsonable, stable_id
 from .reporting import brt, closed_plans_message, daily_message, plan_message
 from .state import queue_message
 from .strategies import process_symbol
+from .minute_breakout import MODEL,prepare_model,process_minutes,validate_minute_ohlc
 
 
 def run_scan(client: MexcClient, config: Config, state: dict, assets: set[str],
-             now: int | None = None, symbol_limit: int | None = None) -> tuple[dict, dict]:
+             now: int | None = None, symbol_limit: int | None = None,
+             signal_model: str = 'legacy') -> tuple[dict, dict]:
     started = int(time.time()) if now is None else now
     wall_start = time.monotonic()
+    if signal_model not in {'legacy',MODEL}:raise DataError('Modelo de sinal desconhecido')
+    if signal_model==MODEL or state.get('active_signal_model'):
+        prepare_model(state,signal_model,started)
     report = {"mode": config.mode, "analyzed_at": started, "source_status": "FALHA",
               "selected_symbols": 0, "analyzed_symbols": 0, "plans": [], "diagnostics": [],
               "execution": "MANUAL_SEM_ENVIO_DE_ORDENS", "config_fingerprint": config.fingerprint}
     snapshot = {"schema_version": 1, "source": "MEXC_LIVE", "captured_at": started, "market": {}, "contracts": []}
+    report['signal_model']=snapshot['signal_model']=signal_model
     previous_plans = state["plans"]
     try:
         server = client.server_time()
@@ -44,9 +50,13 @@ def run_scan(client: MexcClient, config: Config, state: dict, assets: set[str],
         def collect(row):
             symbol = row["symbol"]
             h = client.candles(symbol, "Min60", config.hourly_bars, server)
-            q = client.candles(symbol, "Min15", config.quarter_bars, server)
-            return (row, parse_candles(h, 3600, server, config.hourly_bars),
-                    parse_candles(q, 900, server, config.quarter_bars))
+            q_count=config.quarter_bars+config.replay_bars if signal_model==MODEL else config.quarter_bars
+            q = client.candles(symbol, "Min15", q_count, server)
+            minute=(parse_candles(client.candles(symbol,'Min1',120,server),60,server,120)
+                    if signal_model==MODEL else None)
+            quarter=parse_candles(q,900,server,q_count)
+            if minute is not None:validate_minute_ohlc(quarter,minute)
+            return (row, parse_candles(h, 3600, server, config.hourly_bars),quarter,minute)
         results = []
         with ThreadPoolExecutor(max_workers=4) as pool:
             futures = {pool.submit(collect, row): row["symbol"] for row in selected}
@@ -58,18 +68,28 @@ def run_scan(client: MexcClient, config: Config, state: dict, assets: set[str],
                     report["diagnostics"].append({"symbol": symbol, "reason": str(exc)})
         new_plans = dict(previous_plans)
         good_symbols = set()
-        for row, hourly, quarter in sorted(results, key=lambda r: r[0]["symbol"]):
+        for row, hourly, quarter, minute in sorted(results, key=lambda r: r[0]["symbol"]):
             symbol = row["symbol"]
             analysis_time = server + int(time.monotonic() - wall_start)
             try:
                 contract = Contract.from_api(row)
                 plans = [Plan.from_dict(p) for p in previous_plans.values() if p["symbol"] == symbol]
-                plans, cursor = process_symbol(symbol, quarter, hourly, plans,
-                    int(state["cursors"].get(symbol, 0)), analysis_time, contract.tick, config)
+                if signal_model==MODEL:
+                    activated=state.setdefault('minute_activation',{}).setdefault(symbol,server)
+                    plans,cursor,diagnostics=process_minutes(symbol,quarter,hourly,minute,plans,
+                        int(state.setdefault('minute_cursors',{}).get(symbol,0)),analysis_time,
+                        contract.tick,config,activated)
+                    state['minute_cursors'][symbol]=cursor
+                    if diagnostics:state['minute_activation'][symbol]=analysis_time
+                    report['diagnostics'] += [{'symbol':symbol,'reason':x} for x in diagnostics]
+                else:
+                    plans, cursor = process_symbol(symbol, quarter, hourly, plans,
+                        int(state["cursors"].get(symbol, 0)), analysis_time, contract.tick, config)
                 active = [p for p in plans if not p.terminal and any(v.status == "VALIDA" for v in p.variants.values())]
                 market = {"hourly": hourly, "quarter": quarter,
                           "context_1h": structure(hourly, server),
                           "context_2h": structure(aggregate_two_hours(hourly), server)}
+                if minute is not None:market['minute']=minute
                 if active:
                     try:
                         ticker = client.ticker(symbol)
@@ -88,7 +108,7 @@ def run_scan(client: MexcClient, config: Config, state: dict, assets: set[str],
                         report["diagnostics"].append({"symbol": symbol, "reason": str(exc)})
                 for p in plans:
                     new_plans[p.id] = jsonable(p)
-                state["cursors"][symbol] = cursor
+                if signal_model!=MODEL:state["cursors"][symbol] = cursor
                 snapshot["market"][symbol] = jsonable(market)
                 good_symbols.add(symbol)
             except (DataError, KeyError, ValueError, TypeError) as exc:

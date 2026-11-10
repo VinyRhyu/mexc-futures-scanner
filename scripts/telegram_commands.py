@@ -10,6 +10,8 @@ from mexc_scanner.telegram import TelegramError, send_text
 
 HELP = """📖 GUIA DOS ALERTAS — MEXC SCANNER
 
+Modelo em uso: rompimento de consolidação com dois fechamentos consecutivos de 1 minuto. O volume do segundo deve ser pelo menos 50% do primeiro. TP, SL e faixa ficam fixados no primeiro gatilho; apenas a confirmação pode liberar uma entrada. Gatilhos atrasados não são entradas atuais.
+
 👀 Observação: o ativo merece atenção, mas ainda não há entrada definida.
 
 🟡 Possível entrada: há direção, região, stop e alvo. Aguarde o gatilho indicado.
