@@ -1,0 +1,28 @@
+name: Reconstruir ETH 10h15 a 12h45
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'scripts/audit_eth_case.py'
+      - '.github/workflows/audit-eth-case.yml'
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  audit:
+    runs-on: ubuntu-latest
+    timeout-minutes: 6
+    steps:
+      - uses: actions/checkout@v7.0.1
+        with:
+          persist-credentials: false
+      - uses: actions/setup-python@v7
+        with:
+          python-version: '3.12'
+      - uses: actions/checkout@v7.0.1
+        with:
+          ref: scanner-state
+          path: source-state
+          persist-credentials: false
+      - name: Ler preços públicos e rastrear decisões já registradas
+        run: python -m scripts.audit_eth_case --state source-state/state.json
