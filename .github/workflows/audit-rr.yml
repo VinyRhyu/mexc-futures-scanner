@@ -1,0 +1,32 @@
+name: Testar confirmação sem mínimo 2 para 1
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'scripts/audit_rr.py'
+      - 'tests/test_audit_rr.py'
+      - '.github/workflows/audit-rr.yml'
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  audit:
+    runs-on: ubuntu-latest
+    timeout-minutes: 8
+    steps:
+      - uses: actions/checkout@v7.0.1
+        with:
+          persist-credentials: false
+      - uses: actions/setup-python@v7
+        with:
+          python-version: '3.12'
+      - name: Verificar isolamento e cálculo sem mínimo RR
+        run: python -m unittest tests.test_audit_rr -q
+      - uses: actions/checkout@v7.0.1
+        with:
+          # Exatamente o relatório usado no teste A/B anterior (85 confirmações).
+          ref: 35e99172f470795be0c5f3f8c47e1e160b09e07d
+          path: audit-state
+          persist-credentials: false
+      - name: Comparar mínimos com os mesmos sinais e período de observação
+        run: python -m scripts.audit_rr --report audit-state/latest/report.json
