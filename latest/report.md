@@ -1,6 +1,6 @@
 ## Experimento paralelo: rompimento a favor da estrutura de 1h
 
-Atualização: 2026-11-10T14:46:42+00:00.
+Atualização: 2026-11-10T15:01:39+00:00.
 Coleta prospectiva: 2026-11-10T13:30:00+00:00 até 2026-11-24T13:30:00+00:00.
 
 LONG somente em ALTA; SHORT somente em BAIXA. INDEFINIDA/DESCONHECIDA são excluídas.
@@ -10,8 +10,8 @@ ANTECIPADA e CONFIRMADA são simulações independentes, não carteiras somávei
 | --- | --- | ---: | --- | ---: | ---: | ---: | ---: | ---: |
 | RESERVADA_PRELIMINAR | ANTECIPADA | 0 | ATUAL | 0 | 0 | 0 | 0 | 0.000 |
 | RESERVADA_PRELIMINAR | ANTECIPADA | 0 | FILTRO_1H | 0 | 0 | 0 | 0 | 0.000 |
-| RESERVADA_PRELIMINAR | CONFIRMADA | 0 | ATUAL | 0 | 0 | 0 | 0 | 0.000 |
-| RESERVADA_PRELIMINAR | CONFIRMADA | 0 | FILTRO_1H | 0 | 0 | 0 | 0 | 0.000 |
+| RESERVADA_PRELIMINAR | CONFIRMADA | 2 | ATUAL | 0 | 0 | 0 | 0 | 0.000 |
+| RESERVADA_PRELIMINAR | CONFIRMADA | 2 | FILTRO_1H | 0 | 0 | 0 | 0 | 0.000 |
 | PROSPECTIVA | ANTECIPADA | 0 | ATUAL | 0 | 0 | 0 | 0 | 0.000 |
 | PROSPECTIVA | ANTECIPADA | 0 | FILTRO_1H | 0 | 0 | 0 | 0 | 0.000 |
 | PROSPECTIVA | CONFIRMADA | 0 | ATUAL | 0 | 0 | 0 | 0 | 0.000 |
@@ -165,29 +165,36 @@ ANTECIPADA e CONFIRMADA são simulações independentes, não carteiras somávei
         "avoided_stops": 0
       },
       "complete": {
-        "candidates": 0,
-        "structure_counts": {},
-        "capture_late": 0,
+        "candidates": 2,
+        "structure_counts": {
+          "INDEFINIDA": 1,
+          "BAIXA": 1
+        },
+        "capture_late": 2,
         "models": {
           "ATUAL": {
-            "candidates": 0,
+            "candidates": 2,
             "entries": 0,
             "targets": 0,
             "stops": 0,
             "open": 0,
             "closed_r_independent": "0",
             "marked_r_independent": "0",
-            "outcomes": {}
+            "outcomes": {
+              "BLOQUEADA": 2
+            }
           },
           "FILTRO_1H": {
-            "candidates": 0,
+            "candidates": 1,
             "entries": 0,
             "targets": 0,
             "stops": 0,
             "open": 0,
             "closed_r_independent": "0",
             "marked_r_independent": "0",
-            "outcomes": {}
+            "outcomes": {
+              "BLOQUEADA": 1
+            }
           }
         },
         "removed_winners": 0,

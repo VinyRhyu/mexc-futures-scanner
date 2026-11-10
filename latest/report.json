@@ -346,32 +346,39 @@
         },
         "complete": {
           "avoided_stops": 0,
-          "candidates": 0,
-          "capture_late": 0,
+          "candidates": 2,
+          "capture_late": 2,
           "models": {
             "ATUAL": {
-              "candidates": 0,
+              "candidates": 2,
               "closed_r_independent": "0",
               "entries": 0,
               "marked_r_independent": "0",
               "open": 0,
-              "outcomes": {},
+              "outcomes": {
+                "BLOQUEADA": 2
+              },
               "stops": 0,
               "targets": 0
             },
             "FILTRO_1H": {
-              "candidates": 0,
+              "candidates": 1,
               "closed_r_independent": "0",
               "entries": 0,
               "marked_r_independent": "0",
               "open": 0,
-              "outcomes": {},
+              "outcomes": {
+                "BLOQUEADA": 1
+              },
               "stops": 0,
               "targets": 0
             }
           },
           "removed_winners": 0,
-          "structure_counts": {}
+          "structure_counts": {
+            "BAIXA": 1,
+            "INDEFINIDA": 1
+          }
         },
         "timely_complete": {
           "avoided_stops": 0,
@@ -405,5 +412,5 @@
       }
     }
   },
-  "updated_at": "2026-11-10T14:46:42+00:00"
+  "updated_at": "2026-11-10T15:01:39+00:00"
 }
