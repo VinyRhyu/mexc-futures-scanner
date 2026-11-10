@@ -1,6 +1,6 @@
 ## Experimento paralelo: rompimento a favor da estrutura de 1h
 
-Atualização: 2026-11-10T17:16:39+00:00.
+Atualização: 2026-11-10T17:31:40+00:00.
 Coleta prospectiva: 2026-11-10T13:30:00+00:00 até 2026-11-24T13:30:00+00:00.
 
 LONG somente em ALTA; SHORT somente em BAIXA. INDEFINIDA/DESCONHECIDA são excluídas.
@@ -14,8 +14,8 @@ ANTECIPADA e CONFIRMADA são simulações independentes, não carteiras somávei
 | RESERVADA_PRELIMINAR | CONFIRMADA | 6 | FILTRO_1H | 0 | 0 | 0 | 0 | 0.000 |
 | PROSPECTIVA | ANTECIPADA | 0 | ATUAL | 0 | 0 | 0 | 0 | 0.000 |
 | PROSPECTIVA | ANTECIPADA | 0 | FILTRO_1H | 0 | 0 | 0 | 0 | 0.000 |
-| PROSPECTIVA | CONFIRMADA | 0 | ATUAL | 0 | 0 | 0 | 0 | 0.000 |
-| PROSPECTIVA | CONFIRMADA | 0 | FILTRO_1H | 0 | 0 | 0 | 0 | 0.000 |
+| PROSPECTIVA | CONFIRMADA | 1 | ATUAL | 0 | 0 | 0 | 0 | 0.000 |
+| PROSPECTIVA | CONFIRMADA | 1 | FILTRO_1H | 0 | 0 | 0 | 0 | 0.000 |
 
 ### Como interpretar
 
@@ -375,19 +375,23 @@ ANTECIPADA e CONFIRMADA são simulações independentes, não carteiras somávei
         "avoided_stops": 0
       },
       "complete": {
-        "candidates": 0,
-        "structure_counts": {},
+        "candidates": 1,
+        "structure_counts": {
+          "INDEFINIDA": 1
+        },
         "capture_late": 0,
         "models": {
           "ATUAL": {
-            "candidates": 0,
+            "candidates": 1,
             "entries": 0,
             "targets": 0,
             "stops": 0,
             "open": 0,
             "closed_r_independent": "0",
             "marked_r_independent": "0",
-            "outcomes": {}
+            "outcomes": {
+              "BLOQUEADA": 1
+            }
           },
           "FILTRO_1H": {
             "candidates": 0,
@@ -404,19 +408,23 @@ ANTECIPADA e CONFIRMADA são simulações independentes, não carteiras somávei
         "avoided_stops": 0
       },
       "timely_complete": {
-        "candidates": 0,
-        "structure_counts": {},
+        "candidates": 1,
+        "structure_counts": {
+          "INDEFINIDA": 1
+        },
         "capture_late": 0,
         "models": {
           "ATUAL": {
-            "candidates": 0,
+            "candidates": 1,
             "entries": 0,
             "targets": 0,
             "stops": 0,
             "open": 0,
             "closed_r_independent": "0",
             "marked_r_independent": "0",
-            "outcomes": {}
+            "outcomes": {
+              "BLOQUEADA": 1
+            }
           },
           "FILTRO_1H": {
             "candidates": 0,
