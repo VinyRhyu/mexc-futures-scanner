@@ -3,7 +3,10 @@
     "0233c5814d69e80bbf0c": {
       "aligned": false,
       "baseline": {
-        "outcome": "AGUARDANDO_CANDLE",
+        "outcome": "BLOQUEADA",
+        "reasons": [
+          "RETORNO_RISCO_INSUFICIENTE"
+        ],
         "window_complete": false
       },
       "cohort": "PROSPECTIVA",
@@ -391,6 +394,177 @@
       "signal": 1794318300,
       "structure_1h": "BAIXA",
       "symbol": "ETH_USDT",
+      "timely_capture": true
+    },
+    "06ed5080d1df72349c87": {
+      "aligned": false,
+      "baseline": {
+        "outcome": "AGUARDANDO_CANDLE",
+        "window_complete": false
+      },
+      "cohort": "PROSPECTIVA",
+      "contract": {
+        "amountScale": 4,
+        "apiAllowed": true,
+        "appraisal": 0,
+        "askLimitPriceRate": "0.2",
+        "automaticDelivery": 0,
+        "baseCoin": "HBAR",
+        "baseCoinIconUrl": "https://public.mocortech.com/coin/F20230701191651284uwTj2nQVcafJwU.png",
+        "baseCoinId": "770aa628c79140ffa3ae8d16215dc8cb",
+        "baseCoinName": "HBAR",
+        "bidLimitPriceRate": "0.2",
+        "conceptPlate": [
+          "mc-trade-zone-mainly",
+          "mc-trade-zone-layer2",
+          "mc-trade-zone-0fees"
+        ],
+        "conceptPlateId": [
+          50,
+          5,
+          45
+        ],
+        "contractSize": 1,
+        "countryConfigContractMaxLeverage": 0,
+        "createTime": 1617155502000,
+        "depthStepList": [
+          "0.00001",
+          "0.0001",
+          "0.001"
+        ],
+        "displayName": "HBAR_USDT永续",
+        "displayNameEn": "HBAR_USDT PERPETUAL",
+        "feeRateMode": "NORMAL",
+        "feeRateType": "BASE",
+        "fn": "HBAR_USDT永续",
+        "futureType": 1,
+        "id": 106,
+        "indexOrigin": [
+          "BITGET",
+          "BYBIT",
+          "BINANCE",
+          "OKX",
+          "MEXC",
+          "KUCOIN"
+        ],
+        "initialMarginRate": "0.005",
+        "isHidden": false,
+        "isHot": false,
+        "isMaxLeverage": false,
+        "isNew": false,
+        "isZeroFeeRate": true,
+        "isZeroFeeSymbol": true,
+        "leverageFeeRates": [],
+        "limitMaxVol": 17500000,
+        "liquidationFeeRate": 0,
+        "maintenanceMarginRate": "0.004",
+        "makerFeeRate": 0,
+        "marketOrderMaxLevel": 20,
+        "marketOrderPriceLimitRate1": "0.2",
+        "marketOrderPriceLimitRate2": "0.005",
+        "maxLeverage": 200,
+        "maxNumOrders": [
+          200,
+          50
+        ],
+        "maxVol": 17500000,
+        "minLeverage": 1,
+        "minVol": 1,
+        "openingCountdownOption": 1,
+        "openingTime": 0,
+        "positionOpenType": 3,
+        "preMarket": false,
+        "priceCoefficientVariation": "0.4",
+        "priceScale": 5,
+        "priceUnit": "0.00001",
+        "quoteCoin": "USDT",
+        "quoteCoinName": "USDT",
+        "regularMaxLeverage": 200,
+        "riskBaseVol": 17500000,
+        "riskIncrImr": "0.095",
+        "riskIncrMmr": "0.056",
+        "riskIncrVol": 0,
+        "riskLevelLimit": 1,
+        "riskLimitMode": "INCREASE",
+        "riskLimitType": "BY_VOLUME",
+        "riskLongShortSwitch": 0,
+        "settleCoin": "USDT",
+        "showAppraisalCountdown": 0,
+        "showBeforeOpen": true,
+        "state": 0,
+        "stopOnlyFair": false,
+        "symbol": "HBAR_USDT",
+        "tagIdList": [
+          8
+        ],
+        "takerFeeRate": 0,
+        "tempMaxLeverageLimited": false,
+        "threshold": 0,
+        "tieredFeeRates": [],
+        "triggerProtect": "0.1",
+        "type": 1,
+        "typeLabel": 0,
+        "vid": "128f589271cb4951b03e71e6323eb7be",
+        "volScale": 0,
+        "volUnit": 1
+      },
+      "first_seen_at": 1794337313,
+      "kind": "CONFIRMADA",
+      "plan": {
+        "atr": "0.000487533273663897353255690514",
+        "detected_at": 1794336396,
+        "entry_started_at": 1794336300,
+        "expires_at": 1794338100,
+        "family": "40c1a74c6dbc6aa58767",
+        "formed_at": 1794335400,
+        "id": "78897cd421e8f194e55a",
+        "last_bar": 1794337200,
+        "level": "0.06589",
+        "lower": "0.06502",
+        "observations": [],
+        "preparation_expires_at": 1794337200,
+        "reaction_at": 1794336300,
+        "reaction_extreme": null,
+        "reason": "",
+        "revision": 2,
+        "side": "LONG",
+        "status": "ATIVO",
+        "stop": "0.06564",
+        "strategy": "ROMPIMENTO",
+        "symbol": "HBAR_USDT",
+        "upper": "0.06589",
+        "variants": {
+          "CONFIRMADA": {
+            "entry_high": "0.06609",
+            "entry_low": "0.06595",
+            "financial": {
+              "assumptions": [
+                "FUNDING_FUTURO_MANTIDO_POR_6H",
+                "DESLIZAMENTO_ESTIMADO",
+                "TAXA_SIMULADA_NAO_PESSOAL"
+              ],
+              "mode": "paper",
+              "reasons": [
+                "RETORNO_RISCO_INSUFICIENTE"
+              ],
+              "status": "BLOQUEADA"
+            },
+            "kind": "CONFIRMADA",
+            "reason": "",
+            "reference": "0.06597",
+            "status": "VALIDA",
+            "stop": "0.06564",
+            "target": "0.06676",
+            "target_origin": "PROJECAO_DA_FAIXA",
+            "triggered_at": 1794337200
+          }
+        }
+      },
+      "plan_id": "78897cd421e8f194e55a",
+      "side": "LONG",
+      "signal": 1794337200,
+      "structure_1h": "INDEFINIDA",
+      "symbol": "HBAR_USDT",
       "timely_capture": true
     },
     "08ca8804b0815ff0cf28": {
@@ -2334,7 +2508,10 @@
     "35467142391d4087a12f": {
       "aligned": false,
       "baseline": {
-        "outcome": "AGUARDANDO_CANDLE",
+        "outcome": "BLOQUEADA",
+        "reasons": [
+          "RETORNO_RISCO_INSUFICIENTE"
+        ],
         "window_complete": false
       },
       "cohort": "PROSPECTIVA",
@@ -2505,7 +2682,10 @@
     "3a4ed50be1d69d6b0eea": {
       "aligned": false,
       "baseline": {
-        "outcome": "AGUARDANDO_CANDLE",
+        "outcome": "BLOQUEADA",
+        "reasons": [
+          "RETORNO_RISCO_INSUFICIENTE"
+        ],
         "window_complete": false
       },
       "cohort": "PROSPECTIVA",
@@ -3462,7 +3642,10 @@
     "55b95bd7d6f76709bd8b": {
       "aligned": false,
       "baseline": {
-        "outcome": "AGUARDANDO_CANDLE",
+        "outcome": "BLOQUEADA",
+        "reasons": [
+          "RETORNO_RISCO_INSUFICIENTE"
+        ],
         "window_complete": false
       },
       "cohort": "PROSPECTIVA",
@@ -3649,7 +3832,10 @@
     "63481a81d30f65ff6ced": {
       "aligned": false,
       "baseline": {
-        "outcome": "AGUARDANDO_CANDLE",
+        "outcome": "BLOQUEADA",
+        "reasons": [
+          "RETORNO_RISCO_INSUFICIENTE"
+        ],
         "window_complete": false
       },
       "cohort": "PROSPECTIVA",
@@ -3868,7 +4054,10 @@
     "6abe498d7c70585975fc": {
       "aligned": false,
       "baseline": {
-        "outcome": "AGUARDANDO_CANDLE",
+        "outcome": "BLOQUEADA",
+        "reasons": [
+          "RETORNO_RISCO_INSUFICIENTE"
+        ],
         "window_complete": false
       },
       "cohort": "PROSPECTIVA",
@@ -4277,7 +4466,10 @@
     "80e2b8c004c23f7d57aa": {
       "aligned": false,
       "baseline": {
-        "outcome": "AGUARDANDO_CANDLE",
+        "outcome": "BLOQUEADA",
+        "reasons": [
+          "RETORNO_RISCO_INSUFICIENTE"
+        ],
         "window_complete": false
       },
       "cohort": "PROSPECTIVA",
@@ -4447,10 +4639,232 @@
       "symbol": "BNB_USDT",
       "timely_capture": true
     },
-    "8d7c14b1adffcb86ee19": {
+    "8cc8a025a53d15a64910": {
       "aligned": false,
       "baseline": {
         "outcome": "AGUARDANDO_CANDLE",
+        "window_complete": false
+      },
+      "cohort": "PROSPECTIVA",
+      "contract": {
+        "amountScale": 4,
+        "apiAllowed": true,
+        "appraisal": 0,
+        "askLimitPriceRate": "0.2",
+        "automaticDelivery": 0,
+        "baseCoin": "ETH",
+        "baseCoinIconUrl": "https://public.mocortech.com/coin/F20260804122808443J4xIQYfgHkrjvT.png",
+        "baseCoinId": "93c38b0169214f8689763ce9a63a73ff",
+        "baseCoinName": "ETH",
+        "bidLimitPriceRate": "0.2",
+        "conceptPlate": [
+          "mc-trade-zone-mainly",
+          "mc-trade-zone-layer2",
+          "mc-trade-zone-0fees"
+        ],
+        "conceptPlateId": [
+          50,
+          5,
+          45
+        ],
+        "contractSize": "0.01",
+        "countryConfigContractMaxLeverage": 0,
+        "createTime": 1591243107000,
+        "depthStepList": [
+          "0.01",
+          "0.1",
+          "1",
+          "10"
+        ],
+        "displayName": "ETH_USDT永续",
+        "displayNameEn": "ETH_USDT PERPETUAL",
+        "feeRateMode": "NORMAL",
+        "feeRateType": "BASE",
+        "fn": "ETH_USDT永续",
+        "futureType": 1,
+        "id": 11,
+        "indexOrigin": [
+          "BITGET",
+          "BYBIT",
+          "BINANCE",
+          "HTX",
+          "UPBIT",
+          "OKX",
+          "MEXC",
+          "KUCOIN"
+        ],
+        "initialMarginRate": "0.002",
+        "isHidden": false,
+        "isHot": false,
+        "isMaxLeverage": true,
+        "isNew": false,
+        "isZeroFeeRate": false,
+        "isZeroFeeSymbol": false,
+        "leverageFeeRates": [],
+        "limitMaxVol": 200000,
+        "liquidationFeeRate": "0.0001",
+        "maintenanceMarginRate": "0.001",
+        "makerFeeRate": 0,
+        "marketOrderMaxLevel": 20,
+        "marketOrderPriceLimitRate1": "0.2",
+        "marketOrderPriceLimitRate2": "0.005",
+        "maxLeverage": 500,
+        "maxNumOrders": [
+          200,
+          50
+        ],
+        "maxVol": 70000,
+        "minLeverage": 1,
+        "minVol": 1,
+        "openingCountdownOption": 1,
+        "openingTime": 0,
+        "positionOpenType": 3,
+        "preMarket": false,
+        "priceCoefficientVariation": "0.004",
+        "priceScale": 2,
+        "priceUnit": "0.01",
+        "quoteCoin": "USDT",
+        "quoteCoinName": "USDT",
+        "regularMaxLeverage": 500,
+        "riskBaseVol": 4800000,
+        "riskIncrImr": 0,
+        "riskIncrMmr": 0,
+        "riskIncrVol": 0,
+        "riskLevelLimit": 1,
+        "riskLimitCustom": [
+          {
+            "imr": "0.002",
+            "level": 1,
+            "maxLeverage": 500,
+            "maxVol": 37000,
+            "mmr": "0.001"
+          },
+          {
+            "imr": "0.005",
+            "level": 2,
+            "maxLeverage": 200,
+            "maxVol": 107000,
+            "mmr": "0.004"
+          },
+          {
+            "imr": "0.01",
+            "level": 3,
+            "maxLeverage": 100,
+            "maxVol": 150000,
+            "mmr": "0.005"
+          },
+          {
+            "imr": "0.02",
+            "level": 4,
+            "maxLeverage": 50,
+            "maxVol": 860000,
+            "mmr": "0.01"
+          },
+          {
+            "imr": "0.05",
+            "level": 5,
+            "maxLeverage": 20,
+            "maxVol": 3400000,
+            "mmr": "0.02"
+          },
+          {
+            "imr": "0.1",
+            "level": 6,
+            "maxLeverage": 10,
+            "maxVol": 4800000,
+            "mmr": "0.05"
+          }
+        ],
+        "riskLimitMode": "CUSTOM",
+        "riskLimitType": "BY_VOLUME",
+        "riskLongShortSwitch": 0,
+        "settleCoin": "USDT",
+        "showAppraisalCountdown": 0,
+        "showBeforeOpen": true,
+        "state": 0,
+        "stopOnlyFair": false,
+        "symbol": "ETH_USDT",
+        "tagIdList": [
+          5,
+          8
+        ],
+        "takerFeeRate": "0.0002",
+        "tempMaxLeverageLimited": false,
+        "threshold": 0,
+        "tieredFeeRates": [],
+        "triggerProtect": "0.1",
+        "type": 1,
+        "typeLabel": 0,
+        "vid": "128f589271cb4951b03e71e6323eb7be",
+        "volScale": 0,
+        "volUnit": 1
+      },
+      "first_seen_at": 1794337313,
+      "kind": "CONFIRMADA",
+      "plan": {
+        "atr": "14.68286215737610049535539373",
+        "detected_at": 1794336395,
+        "entry_started_at": 1794336300,
+        "expires_at": 1794338100,
+        "family": "a464a078587ab2cc8413",
+        "formed_at": 1794335400,
+        "id": "dcfcdff263c85be5548d",
+        "last_bar": 1794337200,
+        "level": "2032.55",
+        "lower": "2008.59",
+        "observations": [],
+        "preparation_expires_at": 1794337200,
+        "reaction_at": 1794336300,
+        "reaction_extreme": null,
+        "reason": "",
+        "revision": 2,
+        "side": "LONG",
+        "status": "ATIVO",
+        "stop": "2025.20",
+        "strategy": "ROMPIMENTO",
+        "symbol": "ETH_USDT",
+        "upper": "2032.55",
+        "variants": {
+          "CONFIRMADA": {
+            "entry_high": "2046.83",
+            "entry_low": "2039.49",
+            "financial": {
+              "assumptions": [
+                "FUNDING_FUTURO_MANTIDO_POR_6H",
+                "DESLIZAMENTO_ESTIMADO",
+                "TAXA_SIMULADA_NAO_PESSOAL"
+              ],
+              "mode": "paper",
+              "reasons": [
+                "RETORNO_RISCO_INSUFICIENTE"
+              ],
+              "status": "BLOQUEADA"
+            },
+            "kind": "CONFIRMADA",
+            "reason": "",
+            "reference": "2043.16",
+            "status": "VALIDA",
+            "stop": "2025.20",
+            "target": "2056.51",
+            "target_origin": "PROJECAO_DA_FAIXA",
+            "triggered_at": 1794337200
+          }
+        }
+      },
+      "plan_id": "dcfcdff263c85be5548d",
+      "side": "LONG",
+      "signal": 1794337200,
+      "structure_1h": "BAIXA",
+      "symbol": "ETH_USDT",
+      "timely_capture": true
+    },
+    "8d7c14b1adffcb86ee19": {
+      "aligned": false,
+      "baseline": {
+        "outcome": "BLOQUEADA",
+        "reasons": [
+          "RETORNO_RISCO_INSUFICIENTE"
+        ],
         "window_complete": false
       },
       "cohort": "PROSPECTIVA",
@@ -5202,7 +5616,10 @@
     "9a6d11371a1740850659": {
       "aligned": false,
       "baseline": {
-        "outcome": "AGUARDANDO_CANDLE",
+        "outcome": "BLOQUEADA",
+        "reasons": [
+          "RETORNO_RISCO_INSUFICIENTE"
+        ],
         "window_complete": false
       },
       "cohort": "PROSPECTIVA",
@@ -5556,10 +5973,200 @@
       "symbol": "XLM_USDT",
       "timely_capture": false
     },
-    "a1dfe9cb99a29121a105": {
+    "9b733773c652682f5ad8": {
       "aligned": false,
       "baseline": {
         "outcome": "AGUARDANDO_CANDLE",
+        "window_complete": false
+      },
+      "cohort": "PROSPECTIVA",
+      "contract": {
+        "amountScale": 4,
+        "apiAllowed": true,
+        "appraisal": 0,
+        "askLimitPriceRate": "0.2",
+        "automaticDelivery": 0,
+        "baseCoin": "SUI",
+        "baseCoinIconUrl": "https://public.mocortech.com/coin/F20230701204625023Ffq5nn4ft0F4k9.png",
+        "baseCoinId": "0c03efabdc2e45bc8086372dda899ac5",
+        "baseCoinName": "SUI",
+        "bidLimitPriceRate": "0.2",
+        "conceptPlate": [
+          "mc-trade-zone-mainly",
+          "mc-trade-zone-layer2"
+        ],
+        "conceptPlateId": [
+          50,
+          5
+        ],
+        "contractSize": 1,
+        "countryConfigContractMaxLeverage": 0,
+        "createTime": 1683115171000,
+        "depthStepList": [
+          "0.0001",
+          "0.001",
+          "0.01"
+        ],
+        "displayName": "SUI_USDT永续",
+        "displayNameEn": "SUI_USDT PERPETUAL",
+        "feeRateMode": "NORMAL",
+        "feeRateType": "BASE",
+        "fn": "SUI_USDT永续",
+        "futureType": 1,
+        "id": 397,
+        "indexOrigin": [
+          "BITGET",
+          "BYBIT",
+          "BINANCE",
+          "HTX",
+          "OKX",
+          "MEXC",
+          "KUCOIN"
+        ],
+        "initialMarginRate": "0.00333333",
+        "isHidden": false,
+        "isHot": false,
+        "isMaxLeverage": true,
+        "isNew": false,
+        "isZeroFeeRate": false,
+        "isZeroFeeSymbol": false,
+        "leverageFeeRates": [],
+        "limitMaxVol": 600000,
+        "liquidationFeeRate": "0.0002",
+        "maintenanceMarginRate": "0.0023",
+        "makerFeeRate": 0,
+        "marketOrderMaxLevel": 20,
+        "marketOrderPriceLimitRate1": "0.2",
+        "marketOrderPriceLimitRate2": "0.005",
+        "maxLeverage": 300,
+        "maxNumOrders": [
+          200,
+          50
+        ],
+        "maxVol": 600000,
+        "minLeverage": 1,
+        "minVol": 1,
+        "openingCountdownOption": 1,
+        "openingTime": 0,
+        "positionOpenType": 3,
+        "preMarket": false,
+        "priceCoefficientVariation": "0.4",
+        "priceScale": 4,
+        "priceUnit": "0.0001",
+        "quoteCoin": "USDT",
+        "quoteCoinName": "USDT",
+        "regularMaxLeverage": 300,
+        "riskBaseVol": 2800000,
+        "riskIncrImr": 0,
+        "riskIncrMmr": 0,
+        "riskIncrVol": 0,
+        "riskLevelLimit": 1,
+        "riskLimitCustom": [
+          {
+            "imr": "0.00333333",
+            "level": 1,
+            "maxLeverage": 300,
+            "maxVol": 130000,
+            "mmr": "0.0023"
+          },
+          {
+            "imr": "0.005",
+            "level": 2,
+            "maxLeverage": 200,
+            "maxVol": 2800000,
+            "mmr": "0.004"
+          }
+        ],
+        "riskLimitMode": "CUSTOM",
+        "riskLimitType": "BY_VOLUME",
+        "riskLongShortSwitch": 0,
+        "settleCoin": "USDT",
+        "showAppraisalCountdown": 0,
+        "showBeforeOpen": true,
+        "state": 0,
+        "stopOnlyFair": false,
+        "symbol": "SUI_USDT",
+        "tagIdList": [
+          5,
+          8
+        ],
+        "takerFeeRate": "0.0002",
+        "tempMaxLeverageLimited": false,
+        "threshold": 0,
+        "tieredFeeRates": [],
+        "triggerProtect": "0.1",
+        "type": 1,
+        "typeLabel": 0,
+        "vid": "128f589271cb4951b03e71e6323eb7be",
+        "volScale": 0,
+        "volUnit": 1
+      },
+      "first_seen_at": 1794337313,
+      "kind": "CONFIRMADA",
+      "plan": {
+        "atr": "0.007319207229281129088574686686",
+        "detected_at": 1794336398,
+        "entry_started_at": 1794336300,
+        "expires_at": 1794338100,
+        "family": "520f7e265510d345d244",
+        "formed_at": 1794335400,
+        "id": "533bace04ea749d81086",
+        "last_bar": 1794337200,
+        "level": "0.8149",
+        "lower": "0.8027",
+        "observations": [],
+        "preparation_expires_at": 1794337200,
+        "reaction_at": 1794336300,
+        "reaction_extreme": null,
+        "reason": "",
+        "revision": 2,
+        "side": "LONG",
+        "status": "ATIVO",
+        "stop": "0.8112",
+        "strategy": "ROMPIMENTO",
+        "symbol": "SUI_USDT",
+        "upper": "0.8149",
+        "variants": {
+          "CONFIRMADA": {
+            "entry_high": "0.8187",
+            "entry_low": "0.8158",
+            "financial": {
+              "assumptions": [
+                "FUNDING_FUTURO_MANTIDO_POR_6H",
+                "DESLIZAMENTO_ESTIMADO",
+                "TAXA_SIMULADA_NAO_PESSOAL"
+              ],
+              "mode": "paper",
+              "reasons": [
+                "RETORNO_RISCO_INSUFICIENTE"
+              ],
+              "status": "BLOQUEADA"
+            },
+            "kind": "CONFIRMADA",
+            "reason": "",
+            "reference": "0.8169",
+            "status": "VALIDA",
+            "stop": "0.8112",
+            "target": "0.8271",
+            "target_origin": "PROJECAO_DA_FAIXA",
+            "triggered_at": 1794337200
+          }
+        }
+      },
+      "plan_id": "533bace04ea749d81086",
+      "side": "LONG",
+      "signal": 1794337200,
+      "structure_1h": "BAIXA",
+      "symbol": "SUI_USDT",
+      "timely_capture": true
+    },
+    "a1dfe9cb99a29121a105": {
+      "aligned": false,
+      "baseline": {
+        "outcome": "BLOQUEADA",
+        "reasons": [
+          "RETORNO_RISCO_INSUFICIENTE"
+        ],
         "window_complete": false
       },
       "cohort": "PROSPECTIVA",
@@ -5949,10 +6556,374 @@
       "symbol": "XRP_USDT",
       "timely_capture": true
     },
-    "aa3a897afe8b50abd0d3": {
+    "a706f8f3166e2190be0f": {
       "aligned": false,
       "baseline": {
         "outcome": "AGUARDANDO_CANDLE",
+        "window_complete": false
+      },
+      "cohort": "PROSPECTIVA",
+      "contract": {
+        "amountScale": 4,
+        "apiAllowed": true,
+        "appraisal": 0,
+        "askLimitPriceRate": "0.2",
+        "automaticDelivery": 0,
+        "baseCoin": "LINK",
+        "baseCoinIconUrl": "https://public.mocortech.com/coin/F20210422163936008oJUHyB4eiST9Es.png",
+        "baseCoinId": "8dee1f9303ee479ba80b98889997c29c",
+        "baseCoinName": "LINK",
+        "bidLimitPriceRate": "0.2",
+        "conceptPlate": [
+          "mc-trade-zone-mainly",
+          "mc-trade-zone-ai",
+          "mc-trade-zone-TON",
+          "mc-trade-zone-web3",
+          "mc-trade-zone-0fees"
+        ],
+        "conceptPlateId": [
+          50,
+          23,
+          42,
+          19,
+          45
+        ],
+        "contractSize": "0.1",
+        "countryConfigContractMaxLeverage": 0,
+        "createTime": 1592820127000,
+        "depthStepList": [
+          "0.001",
+          "0.01",
+          "0.1"
+        ],
+        "displayName": "LINK_USDT永续",
+        "displayNameEn": "LINK_USDT PERPETUAL",
+        "feeRateMode": "NORMAL",
+        "feeRateType": "BASE",
+        "fn": "LINK_USDT永续",
+        "futureType": 1,
+        "id": 18,
+        "indexOrigin": [
+          "BITGET",
+          "BYBIT",
+          "BINANCE",
+          "HTX",
+          "OKX",
+          "MEXC",
+          "KUCOIN"
+        ],
+        "initialMarginRate": "0.00333333",
+        "isHidden": false,
+        "isHot": false,
+        "isMaxLeverage": true,
+        "isNew": false,
+        "isZeroFeeRate": false,
+        "isZeroFeeSymbol": false,
+        "leverageFeeRates": [],
+        "limitMaxVol": 850000,
+        "liquidationFeeRate": "0.0002",
+        "maintenanceMarginRate": "0.0023",
+        "makerFeeRate": 0,
+        "marketOrderMaxLevel": 20,
+        "marketOrderPriceLimitRate1": "0.2",
+        "marketOrderPriceLimitRate2": "0.005",
+        "maxLeverage": 300,
+        "maxNumOrders": [
+          200,
+          50
+        ],
+        "maxVol": 850000,
+        "minLeverage": 1,
+        "minVol": 1,
+        "openingCountdownOption": 1,
+        "openingTime": 0,
+        "positionOpenType": 3,
+        "preMarket": false,
+        "priceCoefficientVariation": "0.4",
+        "priceScale": 3,
+        "priceUnit": "0.001",
+        "quoteCoin": "USDT",
+        "quoteCoinName": "USDT",
+        "regularMaxLeverage": 300,
+        "riskBaseVol": 1700000,
+        "riskIncrImr": 0,
+        "riskIncrMmr": 0,
+        "riskIncrVol": 0,
+        "riskLevelLimit": 1,
+        "riskLimitCustom": [
+          {
+            "imr": "0.00333333",
+            "level": 1,
+            "maxLeverage": 300,
+            "maxVol": 420000,
+            "mmr": "0.0023"
+          },
+          {
+            "imr": "0.005",
+            "level": 2,
+            "maxLeverage": 200,
+            "maxVol": 1700000,
+            "mmr": "0.004"
+          }
+        ],
+        "riskLimitMode": "CUSTOM",
+        "riskLimitType": "BY_VOLUME",
+        "riskLongShortSwitch": 0,
+        "settleCoin": "USDT",
+        "showAppraisalCountdown": 0,
+        "showBeforeOpen": true,
+        "state": 0,
+        "stopOnlyFair": false,
+        "symbol": "LINK_USDT",
+        "tagIdList": [
+          5,
+          8
+        ],
+        "takerFeeRate": "0.0002",
+        "tempMaxLeverageLimited": false,
+        "threshold": 0,
+        "tieredFeeRates": [],
+        "triggerProtect": "0.1",
+        "type": 1,
+        "typeLabel": 0,
+        "vid": "128f589271cb4951b03e71e6323eb7be",
+        "volScale": 0,
+        "volUnit": 1
+      },
+      "first_seen_at": 1794337313,
+      "kind": "CONFIRMADA",
+      "plan": {
+        "atr": "0.09302158933580047186027188157",
+        "detected_at": 1794336397,
+        "entry_started_at": 1794336300,
+        "expires_at": 1794338100,
+        "family": "e1fd941039ea0a402cab",
+        "formed_at": 1794335400,
+        "id": "872b5a01096f5e1b0c00",
+        "last_bar": 1794337200,
+        "level": "10.272",
+        "lower": "10.127",
+        "observations": [],
+        "preparation_expires_at": 1794337200,
+        "reaction_at": 1794336300,
+        "reaction_extreme": null,
+        "reason": "",
+        "revision": 2,
+        "side": "LONG",
+        "status": "ATIVO",
+        "stop": "10.225",
+        "strategy": "ROMPIMENTO",
+        "symbol": "LINK_USDT",
+        "upper": "10.272",
+        "variants": {
+          "CONFIRMADA": {
+            "entry_high": "10.308",
+            "entry_low": "10.283",
+            "financial": {
+              "assumptions": [
+                "FUNDING_FUTURO_MANTIDO_POR_6H",
+                "DESLIZAMENTO_ESTIMADO",
+                "TAXA_SIMULADA_NAO_PESSOAL"
+              ],
+              "mode": "paper",
+              "reasons": [
+                "RETORNO_RISCO_INSUFICIENTE"
+              ],
+              "status": "BLOQUEADA"
+            },
+            "kind": "CONFIRMADA",
+            "reason": "",
+            "reference": "10.285",
+            "status": "VALIDA",
+            "stop": "10.225",
+            "target": "10.417",
+            "target_origin": "PROJECAO_DA_FAIXA",
+            "triggered_at": 1794337200
+          }
+        }
+      },
+      "plan_id": "872b5a01096f5e1b0c00",
+      "side": "LONG",
+      "signal": 1794337200,
+      "structure_1h": "BAIXA",
+      "symbol": "LINK_USDT",
+      "timely_capture": true
+    },
+    "a9b286aa3b0f9480a3a4": {
+      "aligned": false,
+      "baseline": {
+        "outcome": "AGUARDANDO_CANDLE",
+        "window_complete": false
+      },
+      "cohort": "PROSPECTIVA",
+      "contract": {
+        "amountScale": 4,
+        "apiAllowed": true,
+        "appraisal": 0,
+        "askLimitPriceRate": "0.2",
+        "automaticDelivery": 0,
+        "baseCoin": "ARB",
+        "baseCoinIconUrl": "https://public.mocortech.com/coin/F20250226183511539vySwkQrG3PPOoF.jpg",
+        "baseCoinId": "4be902988b78471ea7c69c3123ce6c81",
+        "baseCoinName": "ARB",
+        "bidLimitPriceRate": "0.2",
+        "conceptPlate": [
+          "mc-trade-zone-mainly",
+          "mc-trade-zone-layer2"
+        ],
+        "conceptPlateId": [
+          50,
+          5
+        ],
+        "contractSize": 1,
+        "countryConfigContractMaxLeverage": 0,
+        "createTime": 1679578751000,
+        "depthStepList": [
+          "0.00001",
+          "0.0001"
+        ],
+        "displayName": "ARB_USDT永续",
+        "displayNameEn": "ARB_USDT PERPETUAL",
+        "feeRateMode": "NORMAL",
+        "feeRateType": "BASE",
+        "fn": "ARB_USDT永续",
+        "futureType": 1,
+        "id": 342,
+        "indexOrigin": [
+          "BITGET",
+          "BYBIT",
+          "BINANCE",
+          "OKX",
+          "MEXC",
+          "KUCOIN"
+        ],
+        "initialMarginRate": "0.005",
+        "isHidden": false,
+        "isHot": false,
+        "isMaxLeverage": false,
+        "isNew": false,
+        "isZeroFeeRate": true,
+        "isZeroFeeSymbol": true,
+        "leverageFeeRates": [],
+        "limitMaxVol": 6400000,
+        "liquidationFeeRate": 0,
+        "maintenanceMarginRate": "0.004",
+        "makerFeeRate": 0,
+        "marketOrderMaxLevel": 20,
+        "marketOrderPriceLimitRate1": "0.2",
+        "marketOrderPriceLimitRate2": "0.005",
+        "maxLeverage": 200,
+        "maxNumOrders": [
+          200,
+          50
+        ],
+        "maxVol": 6400000,
+        "minLeverage": 1,
+        "minVol": 1,
+        "openingCountdownOption": 1,
+        "openingTime": 0,
+        "positionOpenType": 3,
+        "preMarket": false,
+        "priceCoefficientVariation": "0.4",
+        "priceScale": 5,
+        "priceUnit": "0.00001",
+        "quoteCoin": "USDT",
+        "quoteCoinName": "USDT",
+        "regularMaxLeverage": 200,
+        "riskBaseVol": 6400000,
+        "riskIncrImr": "0.095",
+        "riskIncrMmr": "0.056",
+        "riskIncrVol": 0,
+        "riskLevelLimit": 1,
+        "riskLimitMode": "INCREASE",
+        "riskLimitType": "BY_VOLUME",
+        "riskLongShortSwitch": 0,
+        "settleCoin": "USDT",
+        "showAppraisalCountdown": 0,
+        "showBeforeOpen": true,
+        "state": 0,
+        "stopOnlyFair": false,
+        "symbol": "ARB_USDT",
+        "tagIdList": [
+          8
+        ],
+        "takerFeeRate": 0,
+        "tempMaxLeverageLimited": false,
+        "threshold": 0,
+        "tieredFeeRates": [],
+        "triggerProtect": "0.1",
+        "type": 1,
+        "typeLabel": 0,
+        "vid": "128f589271cb4951b03e71e6323eb7be",
+        "volScale": 0,
+        "volUnit": 1
+      },
+      "first_seen_at": 1794337313,
+      "kind": "CONFIRMADA",
+      "plan": {
+        "atr": "0.001777626309732489872183245041",
+        "detected_at": 1794336390,
+        "entry_started_at": 1794336300,
+        "expires_at": 1794338100,
+        "family": "15b3ef49b0fb4d18cca1",
+        "formed_at": 1794335400,
+        "id": "5063208d26180908ce95",
+        "last_bar": 1794337200,
+        "level": "0.15872",
+        "lower": "0.15557",
+        "observations": [],
+        "preparation_expires_at": 1794337200,
+        "reaction_at": 1794336300,
+        "reaction_extreme": null,
+        "reason": "",
+        "revision": 2,
+        "side": "LONG",
+        "status": "ATIVO",
+        "stop": "0.15783",
+        "strategy": "ROMPIMENTO",
+        "symbol": "ARB_USDT",
+        "upper": "0.15872",
+        "variants": {
+          "CONFIRMADA": {
+            "entry_high": "0.15992",
+            "entry_low": "0.15904",
+            "financial": {
+              "assumptions": [
+                "FUNDING_FUTURO_MANTIDO_POR_6H",
+                "DESLIZAMENTO_ESTIMADO",
+                "TAXA_SIMULADA_NAO_PESSOAL"
+              ],
+              "mode": "paper",
+              "reasons": [
+                "RETORNO_RISCO_INSUFICIENTE"
+              ],
+              "status": "BLOQUEADA"
+            },
+            "kind": "CONFIRMADA",
+            "reason": "",
+            "reference": "0.15948",
+            "status": "VALIDA",
+            "stop": "0.15783",
+            "target": "0.15948",
+            "target_origin": "PIVO_CONHECIDO",
+            "triggered_at": 1794337200
+          }
+        }
+      },
+      "plan_id": "5063208d26180908ce95",
+      "side": "LONG",
+      "signal": 1794337200,
+      "structure_1h": "BAIXA",
+      "symbol": "ARB_USDT",
+      "timely_capture": true
+    },
+    "aa3a897afe8b50abd0d3": {
+      "aligned": false,
+      "baseline": {
+        "outcome": "BLOQUEADA",
+        "reasons": [
+          "RETORNO_RISCO_INSUFICIENTE"
+        ],
         "window_complete": false
       },
       "cohort": "PROSPECTIVA",
@@ -6145,7 +7116,10 @@
     "b17dff60254ea647b3b7": {
       "aligned": false,
       "baseline": {
-        "outcome": "AGUARDANDO_CANDLE",
+        "outcome": "BLOQUEADA",
+        "reasons": [
+          "RETORNO_RISCO_INSUFICIENTE"
+        ],
         "window_complete": false
       },
       "cohort": "PROSPECTIVA",
@@ -7064,6 +8038,225 @@
       "symbol": "BNB_USDT",
       "timely_capture": true
     },
+    "d55e19944947c2788103": {
+      "aligned": false,
+      "baseline": {
+        "outcome": "AGUARDANDO_CANDLE",
+        "window_complete": false
+      },
+      "cohort": "PROSPECTIVA",
+      "contract": {
+        "amountScale": 4,
+        "apiAllowed": true,
+        "appraisal": 0,
+        "askLimitPriceRate": "0.1",
+        "automaticDelivery": 0,
+        "baseCoin": "BTC",
+        "baseCoinIconUrl": "https://public.mocortech.com/coin/F20250612182226438Ba037qttKoGcrm.png",
+        "baseCoinId": "febc9973be4d4d53bb374476239eb219",
+        "baseCoinName": "BTC",
+        "bidLimitPriceRate": "0.1",
+        "conceptPlate": [
+          "mc-trade-zone-mainly",
+          "mc-trade-zone-layer2",
+          "mc-trade-zone-pow"
+        ],
+        "conceptPlateId": [
+          50,
+          5,
+          12
+        ],
+        "contractSize": "0.0001",
+        "countryConfigContractMaxLeverage": 0,
+        "createTime": 1591242684000,
+        "depthStepList": [
+          "0.1",
+          "1",
+          "10",
+          "100"
+        ],
+        "displayName": "BTC_USDT永续",
+        "displayNameEn": "BTC_USDT PERPETUAL",
+        "feeRateMode": "NORMAL",
+        "feeRateType": "BASE",
+        "fn": "BTC_USDT永续",
+        "futureType": 1,
+        "id": 10,
+        "indexOrigin": [
+          "BITGET",
+          "BYBIT",
+          "BINANCE",
+          "HTX",
+          "UPBIT",
+          "OKX",
+          "MEXC",
+          "KUCOIN"
+        ],
+        "initialMarginRate": "0.002",
+        "isHidden": false,
+        "isHot": false,
+        "isMaxLeverage": true,
+        "isNew": false,
+        "isZeroFeeRate": false,
+        "isZeroFeeSymbol": false,
+        "leverageFeeRates": [],
+        "limitMaxVol": 2500000,
+        "liquidationFeeRate": "0.0004",
+        "maintenanceMarginRate": "0.001",
+        "makerFeeRate": 0,
+        "marketOrderMaxLevel": 20,
+        "marketOrderPriceLimitRate1": "0.1",
+        "marketOrderPriceLimitRate2": "0.005",
+        "maxLeverage": 500,
+        "maxNumOrders": [
+          200,
+          50
+        ],
+        "maxVol": 400000,
+        "minLeverage": 1,
+        "minVol": 1,
+        "openingCountdownOption": 1,
+        "openingTime": 0,
+        "positionOpenType": 3,
+        "preMarket": false,
+        "priceCoefficientVariation": "0.004",
+        "priceScale": 1,
+        "priceUnit": "0.1",
+        "quoteCoin": "USDT",
+        "quoteCoinName": "USDT",
+        "regularMaxLeverage": 500,
+        "riskBaseVol": 19000000,
+        "riskIncrImr": 0,
+        "riskIncrMmr": 0,
+        "riskIncrVol": 0,
+        "riskLevelLimit": 1,
+        "riskLimitCustom": [
+          {
+            "imr": "0.002",
+            "level": 1,
+            "maxLeverage": 500,
+            "maxVol": 120000,
+            "mmr": "0.001"
+          },
+          {
+            "imr": "0.005",
+            "level": 2,
+            "maxLeverage": 200,
+            "maxVol": 310000,
+            "mmr": "0.004"
+          },
+          {
+            "imr": "0.01",
+            "level": 3,
+            "maxLeverage": 100,
+            "maxVol": 480000,
+            "mmr": "0.005"
+          },
+          {
+            "imr": "0.02",
+            "level": 4,
+            "maxLeverage": 50,
+            "maxVol": 2800000,
+            "mmr": "0.01"
+          },
+          {
+            "imr": "0.05",
+            "level": 5,
+            "maxLeverage": 20,
+            "maxVol": 17500000,
+            "mmr": "0.02"
+          },
+          {
+            "imr": "0.1",
+            "level": 6,
+            "maxLeverage": 10,
+            "maxVol": 19000000,
+            "mmr": "0.05"
+          }
+        ],
+        "riskLimitMode": "CUSTOM",
+        "riskLimitType": "BY_VOLUME",
+        "riskLongShortSwitch": 0,
+        "settleCoin": "USDT",
+        "showAppraisalCountdown": 0,
+        "showBeforeOpen": true,
+        "state": 0,
+        "stopOnlyFair": false,
+        "symbol": "BTC_USDT",
+        "tagIdList": [
+          5,
+          8
+        ],
+        "takerFeeRate": "0.0002",
+        "tempMaxLeverageLimited": false,
+        "threshold": 0,
+        "tieredFeeRates": [],
+        "triggerProtect": "0.1",
+        "type": 1,
+        "typeLabel": 0,
+        "vid": "128f589271cb4951b03e71e6323eb7be",
+        "volScale": 0,
+        "volUnit": 1
+      },
+      "first_seen_at": 1794337313,
+      "kind": "CONFIRMADA",
+      "plan": {
+        "atr": "364.2861832977069787679864429",
+        "detected_at": 1794336393,
+        "entry_started_at": 1794336300,
+        "expires_at": 1794338100,
+        "family": "ddd1073ba5badb452db3",
+        "formed_at": 1794335400,
+        "id": "57225fc898165acea450",
+        "last_bar": 1794337200,
+        "level": "73389.0",
+        "lower": "72691.2",
+        "observations": [],
+        "preparation_expires_at": 1794337200,
+        "reaction_at": 1794336300,
+        "reaction_extreme": null,
+        "reason": "",
+        "revision": 2,
+        "side": "LONG",
+        "status": "ATIVO",
+        "stop": "73206.8",
+        "strategy": "ROMPIMENTO",
+        "symbol": "BTC_USDT",
+        "upper": "73389.0",
+        "variants": {
+          "CONFIRMADA": {
+            "entry_high": "73546.7",
+            "entry_low": "73425.6",
+            "financial": {
+              "assumptions": [
+                "FUNDING_FUTURO_MANTIDO_POR_6H",
+                "DESLIZAMENTO_ESTIMADO",
+                "TAXA_SIMULADA_NAO_PESSOAL"
+              ],
+              "mode": "paper",
+              "reasons": [
+                "RETORNO_RISCO_INSUFICIENTE"
+              ],
+              "status": "BLOQUEADA"
+            },
+            "kind": "CONFIRMADA",
+            "reason": "",
+            "reference": "73455.7",
+            "status": "VALIDA",
+            "stop": "73206.8",
+            "target": "74086.8",
+            "target_origin": "PROJECAO_DA_FAIXA",
+            "triggered_at": 1794337200
+          }
+        }
+      },
+      "plan_id": "57225fc898165acea450",
+      "side": "LONG",
+      "signal": 1794337200,
+      "structure_1h": "BAIXA",
+      "symbol": "BTC_USDT",
+      "timely_capture": true
+    },
     "dd5dfd60218f9e63ac8c": {
       "aligned": false,
       "baseline": {
@@ -7848,7 +9041,10 @@
     "f719b65e1723d88d8d67": {
       "aligned": false,
       "baseline": {
-        "outcome": "AGUARDANDO_CANDLE",
+        "outcome": "BLOQUEADA",
+        "reasons": [
+          "RETORNO_RISCO_INSUFICIENTE"
+        ],
         "window_complete": false
       },
       "cohort": "PROSPECTIVA",
@@ -8392,7 +9588,7 @@
     }
   },
   "diagnostics": [],
-  "last_update": 1794336411,
+  "last_update": 1794337313,
   "protocol": {
     "calculation_hash": "6330537db92e28356c9f6cd5f422a1a91a6e939cca5aba3d9248dbe58d0cbfa8",
     "config_fingerprint": "9e786afdec21907bc113",
