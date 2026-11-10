@@ -19,19 +19,19 @@
       "ANTECIPADA": {
         "all": {
           "avoided_stops": 1,
-          "candidates": 30,
+          "candidates": 35,
           "capture_late": 0,
           "models": {
             "ATUAL": {
-              "candidates": 30,
+              "candidates": 35,
               "closed_r_independent": "-1",
               "entries": 2,
-              "marked_r_independent": "-0.8554187606220215883647146087",
+              "marked_r_independent": "-0.6840080436137253044966283907",
               "open": 1,
               "outcomes": {
                 "ABERTO": 1,
-                "AGUARDANDO_CANDLE": 1,
-                "BLOQUEADA": 27,
+                "AGUARDANDO_CANDLE": 5,
+                "BLOQUEADA": 28,
                 "STOP": 1
               },
               "stops": 1,
@@ -53,8 +53,8 @@
           "removed_winners": 0,
           "structure_counts": {
             "ALTA": 1,
-            "BAIXA": 18,
-            "INDEFINIDA": 11
+            "BAIXA": 22,
+            "INDEFINIDA": 12
           }
         },
         "complete": {
@@ -137,18 +137,18 @@
       "CONFIRMADA": {
         "all": {
           "avoided_stops": 0,
-          "candidates": 21,
+          "candidates": 22,
           "capture_late": 0,
           "models": {
             "ATUAL": {
-              "candidates": 21,
+              "candidates": 22,
               "closed_r_independent": "0",
               "entries": 0,
               "marked_r_independent": "0",
               "open": 0,
               "outcomes": {
-                "AGUARDANDO_CANDLE": 2,
-                "BLOQUEADA": 19
+                "AGUARDANDO_CANDLE": 1,
+                "BLOQUEADA": 21
               },
               "stops": 0,
               "targets": 0
@@ -160,8 +160,7 @@
               "marked_r_independent": "0",
               "open": 0,
               "outcomes": {
-                "AGUARDANDO_CANDLE": 1,
-                "BLOQUEADA": 2
+                "BLOQUEADA": 3
               },
               "stops": 0,
               "targets": 0
@@ -170,7 +169,7 @@
           "removed_winners": 0,
           "structure_counts": {
             "ALTA": 1,
-            "BAIXA": 15,
+            "BAIXA": 16,
             "INDEFINIDA": 5
           }
         },
@@ -457,5 +456,5 @@
       }
     }
   },
-  "updated_at": "2026-11-10T21:01:42+00:00"
+  "updated_at": "2026-11-10T21:16:47+00:00"
 }

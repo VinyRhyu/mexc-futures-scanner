@@ -1,6 +1,6 @@
 ## Experimento paralelo: rompimento a favor da estrutura de 1h
 
-Atualização: 2026-11-10T21:01:42+00:00.
+Atualização: 2026-11-10T21:16:47+00:00.
 Coleta prospectiva: 2026-11-10T13:30:00+00:00 até 2026-11-24T13:30:00+00:00.
 
 LONG somente em ALTA; SHORT somente em BAIXA. INDEFINIDA/DESCONHECIDA são excluídas.
@@ -240,27 +240,27 @@ ANTECIPADA e CONFIRMADA são simulações independentes, não carteiras somávei
   "PROSPECTIVA": {
     "ANTECIPADA": {
       "all": {
-        "candidates": 30,
+        "candidates": 35,
         "structure_counts": {
-          "BAIXA": 18,
+          "BAIXA": 22,
           "ALTA": 1,
-          "INDEFINIDA": 11
+          "INDEFINIDA": 12
         },
         "capture_late": 0,
         "models": {
           "ATUAL": {
-            "candidates": 30,
+            "candidates": 35,
             "entries": 2,
             "targets": 0,
             "stops": 1,
             "open": 1,
             "closed_r_independent": "-1",
-            "marked_r_independent": "-0.8554187606220215883647146087",
+            "marked_r_independent": "-0.6840080436137253044966283907",
             "outcomes": {
-              "BLOQUEADA": 27,
+              "BLOQUEADA": 28,
               "ABERTO": 1,
               "STOP": 1,
-              "AGUARDANDO_CANDLE": 1
+              "AGUARDANDO_CANDLE": 5
             }
           },
           "FILTRO_1H": {
@@ -358,16 +358,16 @@ ANTECIPADA e CONFIRMADA são simulações independentes, não carteiras somávei
     },
     "CONFIRMADA": {
       "all": {
-        "candidates": 21,
+        "candidates": 22,
         "structure_counts": {
-          "BAIXA": 15,
+          "BAIXA": 16,
           "INDEFINIDA": 5,
           "ALTA": 1
         },
         "capture_late": 0,
         "models": {
           "ATUAL": {
-            "candidates": 21,
+            "candidates": 22,
             "entries": 0,
             "targets": 0,
             "stops": 0,
@@ -375,8 +375,8 @@ ANTECIPADA e CONFIRMADA são simulações independentes, não carteiras somávei
             "closed_r_independent": "0",
             "marked_r_independent": "0",
             "outcomes": {
-              "BLOQUEADA": 19,
-              "AGUARDANDO_CANDLE": 2
+              "BLOQUEADA": 21,
+              "AGUARDANDO_CANDLE": 1
             }
           },
           "FILTRO_1H": {
@@ -388,8 +388,7 @@ ANTECIPADA e CONFIRMADA são simulações independentes, não carteiras somávei
             "closed_r_independent": "0",
             "marked_r_independent": "0",
             "outcomes": {
-              "BLOQUEADA": 2,
-              "AGUARDANDO_CANDLE": 1
+              "BLOQUEADA": 3
             }
           }
         },
