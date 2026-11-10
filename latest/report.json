@@ -29,8 +29,7 @@
               "marked_r_independent": "0",
               "open": 0,
               "outcomes": {
-                "AGUARDANDO_CANDLE": 1,
-                "BLOQUEADA": 6
+                "BLOQUEADA": 7
               },
               "stops": 0,
               "targets": 0
@@ -251,17 +250,17 @@
         },
         "complete": {
           "avoided_stops": 0,
-          "candidates": 1,
-          "capture_late": 1,
+          "candidates": 2,
+          "capture_late": 2,
           "models": {
             "ATUAL": {
-              "candidates": 1,
+              "candidates": 2,
               "closed_r_independent": "0",
               "entries": 0,
               "marked_r_independent": "0",
               "open": 0,
               "outcomes": {
-                "BLOQUEADA": 1
+                "BLOQUEADA": 2
               },
               "stops": 0,
               "targets": 0
@@ -279,7 +278,7 @@
           },
           "removed_winners": 0,
           "structure_counts": {
-            "INDEFINIDA": 1
+            "INDEFINIDA": 2
           }
         },
         "timely_complete": {
@@ -351,17 +350,17 @@
         },
         "complete": {
           "avoided_stops": 0,
-          "candidates": 2,
-          "capture_late": 2,
+          "candidates": 3,
+          "capture_late": 3,
           "models": {
             "ATUAL": {
-              "candidates": 2,
+              "candidates": 3,
               "closed_r_independent": "0",
               "entries": 0,
               "marked_r_independent": "0",
               "open": 0,
               "outcomes": {
-                "BLOQUEADA": 2
+                "BLOQUEADA": 3
               },
               "stops": 0,
               "targets": 0
@@ -382,7 +381,7 @@
           "removed_winners": 0,
           "structure_counts": {
             "BAIXA": 1,
-            "INDEFINIDA": 1
+            "INDEFINIDA": 2
           }
         },
         "timely_complete": {
@@ -417,5 +416,5 @@
       }
     }
   },
-  "updated_at": "2026-11-10T15:16:44+00:00"
+  "updated_at": "2026-11-10T15:31:38+00:00"
 }

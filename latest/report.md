@@ -1,6 +1,6 @@
 ## Experimento paralelo: rompimento a favor da estrutura de 1h
 
-Atualização: 2026-11-10T15:16:44+00:00.
+Atualização: 2026-11-10T15:31:38+00:00.
 Coleta prospectiva: 2026-11-10T13:30:00+00:00 até 2026-11-24T13:30:00+00:00.
 
 LONG somente em ALTA; SHORT somente em BAIXA. INDEFINIDA/DESCONHECIDA são excluídas.
@@ -8,10 +8,10 @@ ANTECIPADA e CONFIRMADA são simulações independentes, não carteiras somávei
 
 | Amostra com 4h completas | Tipo | Candidatos | Regra | Entradas | Alvos | Stops | Abertas | R encerradas |
 | --- | --- | ---: | --- | ---: | ---: | ---: | ---: | ---: |
-| RESERVADA_PRELIMINAR | ANTECIPADA | 1 | ATUAL | 0 | 0 | 0 | 0 | 0.000 |
-| RESERVADA_PRELIMINAR | ANTECIPADA | 1 | FILTRO_1H | 0 | 0 | 0 | 0 | 0.000 |
-| RESERVADA_PRELIMINAR | CONFIRMADA | 2 | ATUAL | 0 | 0 | 0 | 0 | 0.000 |
-| RESERVADA_PRELIMINAR | CONFIRMADA | 2 | FILTRO_1H | 0 | 0 | 0 | 0 | 0.000 |
+| RESERVADA_PRELIMINAR | ANTECIPADA | 2 | ATUAL | 0 | 0 | 0 | 0 | 0.000 |
+| RESERVADA_PRELIMINAR | ANTECIPADA | 2 | FILTRO_1H | 0 | 0 | 0 | 0 | 0.000 |
+| RESERVADA_PRELIMINAR | CONFIRMADA | 3 | ATUAL | 0 | 0 | 0 | 0 | 0.000 |
+| RESERVADA_PRELIMINAR | CONFIRMADA | 3 | FILTRO_1H | 0 | 0 | 0 | 0 | 0.000 |
 | PROSPECTIVA | ANTECIPADA | 0 | ATUAL | 0 | 0 | 0 | 0 | 0.000 |
 | PROSPECTIVA | ANTECIPADA | 0 | FILTRO_1H | 0 | 0 | 0 | 0 | 0.000 |
 | PROSPECTIVA | CONFIRMADA | 0 | ATUAL | 0 | 0 | 0 | 0 | 0.000 |
@@ -69,14 +69,14 @@ ANTECIPADA e CONFIRMADA são simulações independentes, não carteiras somávei
         "avoided_stops": 0
       },
       "complete": {
-        "candidates": 1,
+        "candidates": 2,
         "structure_counts": {
-          "INDEFINIDA": 1
+          "INDEFINIDA": 2
         },
-        "capture_late": 1,
+        "capture_late": 2,
         "models": {
           "ATUAL": {
-            "candidates": 1,
+            "candidates": 2,
             "entries": 0,
             "targets": 0,
             "stops": 0,
@@ -84,7 +84,7 @@ ANTECIPADA e CONFIRMADA são simulações independentes, não carteiras somávei
             "closed_r_independent": "0",
             "marked_r_independent": "0",
             "outcomes": {
-              "BLOQUEADA": 1
+              "BLOQUEADA": 2
             }
           },
           "FILTRO_1H": {
@@ -169,15 +169,15 @@ ANTECIPADA e CONFIRMADA são simulações independentes, não carteiras somávei
         "avoided_stops": 0
       },
       "complete": {
-        "candidates": 2,
+        "candidates": 3,
         "structure_counts": {
-          "INDEFINIDA": 1,
+          "INDEFINIDA": 2,
           "BAIXA": 1
         },
-        "capture_late": 2,
+        "capture_late": 3,
         "models": {
           "ATUAL": {
-            "candidates": 2,
+            "candidates": 3,
             "entries": 0,
             "targets": 0,
             "stops": 0,
@@ -185,7 +185,7 @@ ANTECIPADA e CONFIRMADA são simulações independentes, não carteiras somávei
             "closed_r_independent": "0",
             "marked_r_independent": "0",
             "outcomes": {
-              "BLOQUEADA": 2
+              "BLOQUEADA": 3
             }
           },
           "FILTRO_1H": {
@@ -255,8 +255,7 @@ ANTECIPADA e CONFIRMADA são simulações independentes, não carteiras somávei
             "closed_r_independent": "0",
             "marked_r_independent": "0",
             "outcomes": {
-              "BLOQUEADA": 6,
-              "AGUARDANDO_CANDLE": 1
+              "BLOQUEADA": 7
             }
           },
           "FILTRO_1H": {
