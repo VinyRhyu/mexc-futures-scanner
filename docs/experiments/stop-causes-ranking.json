@@ -1,0 +1,5382 @@
+{
+  "kind": "STOP_PATH_DIAGNOSIS",
+  "diagnosis": {
+    "stops": 33,
+    "stopped_within_5min": 0,
+    "reached_05R_on_close_before_stop": 8,
+    "reached_1R_on_close_before_stop": 5,
+    "returned_inside_before_stop": 33,
+    "tp_original_after_stop": 7
+  },
+  "ranking": [
+    {
+      "variant": "SL_ESTRUTURAL",
+      "target_changed": false,
+      "stops_to_target": 7,
+      "stops_to_target_financially_valid": 0,
+      "original_targets_lost": 0,
+      "outcomes": {
+        "ABERTO": 24,
+        "STOP": 8,
+        "ALVO": 25
+      },
+      "closed_net_r": "10.15417974866437162786789630",
+      "financially_valid_entries": 0,
+      "admitted_closed_net_r": "0",
+      "blocks": {
+        "RETORNO_RISCO_INSUFICIENTE": 57
+      }
+    },
+    {
+      "variant": "TP_1R",
+      "target_changed": true,
+      "stops_to_target": 6,
+      "stops_to_target_financially_valid": 0,
+      "original_targets_lost": 0,
+      "outcomes": {
+        "STOP": 27,
+        "ALVO": 28,
+        "ABERTO": 2
+      },
+      "closed_net_r": "1.174761511070164254624971909",
+      "financially_valid_entries": 0,
+      "admitted_closed_net_r": "0",
+      "blocks": {
+        "RETORNO_RISCO_INSUFICIENTE": 57
+      }
+    },
+    {
+      "variant": "TP_1_5R",
+      "target_changed": true,
+      "stops_to_target": 1,
+      "stops_to_target_financially_valid": 0,
+      "original_targets_lost": 0,
+      "outcomes": {
+        "STOP": 32,
+        "ALVO": 20,
+        "ABERTO": 5
+      },
+      "closed_net_r": "-1.907778950443905616731168924",
+      "financially_valid_entries": 0,
+      "admitted_closed_net_r": "0",
+      "blocks": {
+        "RETORNO_RISCO_INSUFICIENTE": 51,
+        "PRECO_FORA_DO_PLANO": 6
+      }
+    },
+    {
+      "variant": "PROTEGER_ZERO_APOS_1R",
+      "target_changed": false,
+      "stops_to_target": 0,
+      "stops_to_target_financially_valid": 0,
+      "original_targets_lost": 1,
+      "outcomes": {
+        "STOP": 28,
+        "PROTECAO": 7,
+        "ALVO": 17,
+        "ABERTO": 5
+      },
+      "closed_net_r": "17.04864577024506507659131873",
+      "financially_valid_entries": 57,
+      "admitted_closed_net_r": "17.04864577024506507659131873",
+      "blocks": {}
+    },
+    {
+      "variant": "ENTRADA_RECUO_025R",
+      "target_changed": false,
+      "stops_to_target": 0,
+      "stops_to_target_financially_valid": 0,
+      "original_targets_lost": 18,
+      "outcomes": {
+        "SEM_RECUO": 27,
+        "RECUO_FORA_FAIXA": 29,
+        "STOP": 1
+      },
+      "closed_net_r": "-1",
+      "financially_valid_entries": 1,
+      "admitted_closed_net_r": "-1",
+      "blocks": {}
+    }
+  ],
+  "cases": [
+    {
+      "id": "749eceac357a4859ad79",
+      "symbol": "BTC_USDT",
+      "side": "LONG",
+      "signal": 1793336880,
+      "baseline": {
+        "outcome": "STOP",
+        "net_r": "-1",
+        "exited_at": 1793346180,
+        "ambiguous": false
+      },
+      "diagnostic": {
+        "minutes_to_stop": 155,
+        "best_close_r_before_stop": "0.3302076539487994047542913250",
+        "best_wick_r_before_stop": "0.4817875879401463874583237167",
+        "returned_inside_before_stop": true,
+        "original_tp_after_stop_within_4h": false
+      },
+      "variants": {
+        "TP_1R": {
+          "path": {
+            "outcome": "STOP",
+            "net_r": "-1",
+            "exited_at": 1793346180,
+            "ambiguous": false
+          },
+          "finance": {
+            "status": "BLOQUEADA",
+            "reasons": [
+              "RETORNO_RISCO_INSUFICIENTE"
+            ],
+            "rr": null
+          },
+          "target_changed": true,
+          "target": "78970.1",
+          "stop": "78223.2"
+        },
+        "TP_1_5R": {
+          "path": {
+            "outcome": "STOP",
+            "net_r": "-1",
+            "exited_at": 1793346180,
+            "ambiguous": false
+          },
+          "finance": {
+            "status": "BLOQUEADA",
+            "reasons": [
+              "RETORNO_RISCO_INSUFICIENTE"
+            ],
+            "rr": null
+          },
+          "target_changed": true,
+          "target": "79156.8",
+          "stop": "78223.2"
+        },
+        "SL_ESTRUTURAL": {
+          "path": {
+            "outcome": "ABERTO"
+          },
+          "finance": {
+            "status": "BLOQUEADA",
+            "reasons": [
+              "RETORNO_RISCO_INSUFICIENTE"
+            ],
+            "rr": null
+          },
+          "target_changed": false,
+          "stop": "77235.1",
+          "target": "79575.8"
+        },
+        "PROTEGER_ZERO_APOS_1R": {
+          "path": {
+            "outcome": "STOP",
+            "net_r": "-1",
+            "exited_at": 1793346180,
+            "ambiguous": false
+          },
+          "finance": {
+            "status": "VIAVEL_SIMULADO",
+            "reasons": [],
+            "rr": "2.000591806989929690061514536"
+          },
+          "target_changed": false
+        },
+        "ENTRADA_RECUO_025R": {
+          "path": {
+            "outcome": "SEM_RECUO"
+          },
+          "finance": {
+            "status": "SEM_ENTRADA"
+          }
+        }
+      }
+    },
+    {
+      "id": "cd175928b6cbe3745d66",
+      "symbol": "BTC_USDT",
+      "side": "LONG",
+      "signal": 1793336880,
+      "baseline": {
+        "outcome": "STOP",
+        "net_r": "-1",
+        "exited_at": 1793346180,
+        "ambiguous": false
+      },
+      "diagnostic": {
+        "minutes_to_stop": 155,
+        "best_close_r_before_stop": "0.3371603378989192252239875698",
+        "best_wick_r_before_stop": "0.4919318616720865629492998325",
+        "returned_inside_before_stop": true,
+        "original_tp_after_stop_within_4h": false
+      },
+      "variants": {
+        "TP_1R": {
+          "path": {
+            "outcome": "STOP",
+            "net_r": "-1",
+            "exited_at": 1793346180,
+            "ambiguous": false
+          },
+          "finance": {
+            "status": "BLOQUEADA",
+            "reasons": [
+              "RETORNO_RISCO_INSUFICIENTE"
+            ],
+            "rr": null
+          },
+          "target_changed": true,
+          "target": "78962.4",
+          "stop": "78230.9"
+        },
+        "TP_1_5R": {
+          "path": {
+            "outcome": "STOP",
+            "net_r": "-1",
+            "exited_at": 1793346180,
+            "ambiguous": false
+          },
+          "finance": {
+            "status": "BLOQUEADA",
+            "reasons": [
+              "RETORNO_RISCO_INSUFICIENTE"
+            ],
+            "rr": null
+          },
+          "target_changed": true,
+          "target": "79145.2",
+          "stop": "78230.9"
+        },
+        "SL_ESTRUTURAL": {
+          "path": {
+            "outcome": "ABERTO"
+          },
+          "finance": {
+            "status": "BLOQUEADA",
+            "reasons": [
+              "RETORNO_RISCO_INSUFICIENTE"
+            ],
+            "rr": null
+          },
+          "target_changed": false,
+          "stop": "77236.7",
+          "target": "79562.4"
+        },
+        "PROTEGER_ZERO_APOS_1R": {
+          "path": {
+            "outcome": "STOP",
+            "net_r": "-1",
+            "exited_at": 1793346180,
+            "ambiguous": false
+          },
+          "finance": {
+            "status": "VIAVEL_SIMULADO",
+            "reasons": [],
+            "rr": "2.000368225578489419964429517"
+          },
+          "target_changed": false
+        },
+        "ENTRADA_RECUO_025R": {
+          "path": {
+            "outcome": "SEM_RECUO"
+          },
+          "finance": {
+            "status": "SEM_ENTRADA"
+          }
+        }
+      }
+    },
+    {
+      "id": "8c0cdce1a4c4af727983",
+      "symbol": "ZEC_USDT",
+      "side": "SHORT",
+      "signal": 1792919700,
+      "baseline": {
+        "outcome": "STOP",
+        "net_r": "-1",
+        "exited_at": 1792920120,
+        "ambiguous": false
+      },
+      "diagnostic": {
+        "minutes_to_stop": 7,
+        "best_close_r_before_stop": "0.3387391427292402973195167749",
+        "best_wick_r_before_stop": "0.3938186960301004695520911793",
+        "returned_inside_before_stop": true,
+        "original_tp_after_stop_within_4h": false
+      },
+      "variants": {
+        "TP_1R": {
+          "path": {
+            "outcome": "STOP",
+            "net_r": "-1",
+            "exited_at": 1792920120,
+            "ambiguous": false
+          },
+          "finance": {
+            "status": "BLOQUEADA",
+            "reasons": [
+              "RETORNO_RISCO_INSUFICIENTE"
+            ],
+            "rr": null
+          },
+          "target_changed": true,
+          "target": "1172.45",
+          "stop": "1185.53"
+        },
+        "TP_1_5R": {
+          "path": {
+            "outcome": "STOP",
+            "net_r": "-1",
+            "exited_at": 1792920120,
+            "ambiguous": false
+          },
+          "finance": {
+            "status": "BLOQUEADA",
+            "reasons": [
+              "RETORNO_RISCO_INSUFICIENTE"
+            ],
+            "rr": null
+          },
+          "target_changed": true,
+          "target": "1169.18",
+          "stop": "1185.53"
+        },
+        "SL_ESTRUTURAL": {
+          "path": {
+            "outcome": "STOP",
+            "net_r": "-1",
+            "exited_at": 1792928640,
+            "ambiguous": false
+          },
+          "finance": {
+            "status": "BLOQUEADA",
+            "reasons": [
+              "RETORNO_RISCO_INSUFICIENTE"
+            ],
+            "rr": null
+          },
+          "target_changed": false,
+          "stop": "1201.48",
+          "target": "1164.10"
+        },
+        "PROTEGER_ZERO_APOS_1R": {
+          "path": {
+            "outcome": "STOP",
+            "net_r": "-1",
+            "exited_at": 1792920120,
+            "ambiguous": false
+          },
+          "finance": {
+            "status": "VIAVEL_SIMULADO",
+            "reasons": [],
+            "rr": "2.002688078706944539336111761"
+          },
+          "target_changed": false
+        },
+        "ENTRADA_RECUO_025R": {
+          "path": {
+            "outcome": "RECUO_FORA_FAIXA"
+          },
+          "finance": {
+            "status": "SEM_ENTRADA"
+          }
+        }
+      }
+    },
+    {
+      "id": "20c721a880786a40efe8",
+      "symbol": "SOL_USDT",
+      "side": "LONG",
+      "signal": 1793336940,
+      "baseline": {
+        "outcome": "STOP",
+        "net_r": "-1",
+        "exited_at": 1793346300,
+        "ambiguous": false
+      },
+      "diagnostic": {
+        "minutes_to_stop": 156,
+        "best_close_r_before_stop": "0.8852496734137856221488114767",
+        "best_wick_r_before_stop": "1.008872602817968285896274524",
+        "returned_inside_before_stop": true,
+        "original_tp_after_stop_within_4h": false
+      },
+      "variants": {
+        "TP_1R": {
+          "path": {
+            "outcome": "ALVO",
+            "net_r": "1.008872602817968285896274524",
+            "exited_at": 1793339400,
+            "ambiguous": false
+          },
+          "finance": {
+            "status": "BLOQUEADA",
+            "reasons": [
+              "RETORNO_RISCO_INSUFICIENTE"
+            ],
+            "rr": null
+          },
+          "target_changed": true,
+          "target": "98.53",
+          "stop": "97.23"
+        },
+        "TP_1_5R": {
+          "path": {
+            "outcome": "STOP",
+            "net_r": "-1",
+            "exited_at": 1793346300,
+            "ambiguous": false
+          },
+          "finance": {
+            "status": "BLOQUEADA",
+            "reasons": [
+              "RETORNO_RISCO_INSUFICIENTE"
+            ],
+            "rr": null
+          },
+          "target_changed": true,
+          "target": "98.85",
+          "stop": "97.23"
+        },
+        "SL_ESTRUTURAL": {
+          "path": {
+            "outcome": "ABERTO"
+          },
+          "finance": {
+            "status": "BLOQUEADA",
+            "reasons": [
+              "RETORNO_RISCO_INSUFICIENTE"
+            ],
+            "rr": null
+          },
+          "target_changed": false,
+          "stop": "95.25",
+          "target": "99.87"
+        },
+        "PROTEGER_ZERO_APOS_1R": {
+          "path": {
+            "outcome": "STOP",
+            "net_r": "-1",
+            "exited_at": 1793346300,
+            "ambiguous": false
+          },
+          "finance": {
+            "status": "VIAVEL_SIMULADO",
+            "reasons": [],
+            "rr": "2.269145274364178394332062062"
+          },
+          "target_changed": false
+        },
+        "ENTRADA_RECUO_025R": {
+          "path": {
+            "outcome": "SEM_RECUO"
+          },
+          "finance": {
+            "status": "SEM_ENTRADA"
+          }
+        }
+      }
+    },
+    {
+      "id": "edd05b668945b8509344",
+      "symbol": "XRP_USDT",
+      "side": "LONG",
+      "signal": 1793372880,
+      "baseline": {
+        "outcome": "STOP",
+        "net_r": "-1",
+        "exited_at": 1793374500,
+        "ambiguous": false
+      },
+      "diagnostic": {
+        "minutes_to_stop": 27,
+        "best_close_r_before_stop": "1.018628746666258251113635037",
+        "best_wick_r_before_stop": "1.031909198946957318555172110",
+        "returned_inside_before_stop": true,
+        "original_tp_after_stop_within_4h": false
+      },
+      "variants": {
+        "TP_1R": {
+          "path": {
+            "outcome": "ALVO",
+            "net_r": "1.005348294385559183672097965",
+            "exited_at": 1793373540,
+            "ambiguous": false
+          },
+          "finance": {
+            "status": "BLOQUEADA",
+            "reasons": [
+              "RETORNO_RISCO_INSUFICIENTE"
+            ],
+            "rr": null
+          },
+          "target_changed": true,
+          "target": "1.2615",
+          "stop": "1.2464"
+        },
+        "TP_1_5R": {
+          "path": {
+            "outcome": "STOP",
+            "net_r": "-1",
+            "exited_at": 1793374500,
+            "ambiguous": false
+          },
+          "finance": {
+            "status": "BLOQUEADA",
+            "reasons": [
+              "RETORNO_RISCO_INSUFICIENTE"
+            ],
+            "rr": null
+          },
+          "target_changed": true,
+          "target": "1.2653",
+          "stop": "1.2464"
+        },
+        "SL_ESTRUTURAL": {
+          "path": {
+            "outcome": "ABERTO"
+          },
+          "finance": {
+            "status": "BLOQUEADA",
+            "reasons": [
+              "RETORNO_RISCO_INSUFICIENTE"
+            ],
+            "rr": null
+          },
+          "target_changed": false,
+          "stop": "1.2278",
+          "target": "1.2720"
+        },
+        "PROTEGER_ZERO_APOS_1R": {
+          "path": {
+            "outcome": "PROTECAO",
+            "net_r": "0.009314373333129125556817518690",
+            "exited_at": 1793373960,
+            "ambiguous": false
+          },
+          "finance": {
+            "status": "VIAVEL_SIMULADO",
+            "reasons": [],
+            "rr": "2.009553570588179927148141525"
+          },
+          "target_changed": false
+        },
+        "ENTRADA_RECUO_025R": {
+          "path": {
+            "outcome": "SEM_RECUO"
+          },
+          "finance": {
+            "status": "SEM_ENTRADA"
+          }
+        }
+      }
+    },
+    {
+      "id": "3563d5fc5fd4360c5509",
+      "symbol": "LINK_USDT",
+      "side": "LONG",
+      "signal": 1793327040,
+      "baseline": {
+        "outcome": "ALVO",
+        "net_r": "3.214411954302814442090421770",
+        "exited_at": 1793335620,
+        "ambiguous": false
+      },
+      "diagnostic": {},
+      "variants": {
+        "TP_1R": {
+          "path": {
+            "outcome": "ALVO",
+            "net_r": "1.006426560852861658299570364",
+            "exited_at": 1793330760,
+            "ambiguous": false
+          },
+          "finance": {
+            "status": "BLOQUEADA",
+            "reasons": [
+              "RETORNO_RISCO_INSUFICIENTE"
+            ],
+            "rr": null
+          },
+          "target_changed": true,
+          "target": "10.795",
+          "stop": "10.576"
+        },
+        "TP_1_5R": {
+          "path": {
+            "outcome": "ALVO",
+            "net_r": "1.501161877227539875414532920",
+            "exited_at": 1793331180,
+            "ambiguous": false
+          },
+          "finance": {
+            "status": "BLOQUEADA",
+            "reasons": [
+              "RETORNO_RISCO_INSUFICIENTE"
+            ],
+            "rr": null
+          },
+          "target_changed": true,
+          "target": "10.849",
+          "stop": "10.576"
+        },
+        "SL_ESTRUTURAL": {
+          "path": {
+            "outcome": "ALVO",
+            "net_r": "0.7971175892378677309772571830",
+            "exited_at": 1793335620,
+            "ambiguous": false
+          },
+          "finance": {
+            "status": "BLOQUEADA",
+            "reasons": [
+              "RETORNO_RISCO_INSUFICIENTE"
+            ],
+            "rr": null
+          },
+          "target_changed": false,
+          "stop": "10.245",
+          "target": "11.036"
+        },
+        "PROTEGER_ZERO_APOS_1R": {
+          "path": {
+            "outcome": "ALVO",
+            "net_r": "3.214411954302814442090421770",
+            "exited_at": 1793335620,
+            "ambiguous": false
+          },
+          "finance": {
+            "status": "VIAVEL_SIMULADO",
+            "reasons": [],
+            "rr": "2.169351279788172992056487202"
+          },
+          "target_changed": false
+        },
+        "ENTRADA_RECUO_025R": {
+          "path": {
+            "outcome": "SEM_RECUO"
+          },
+          "finance": {
+            "status": "SEM_ENTRADA"
+          }
+        }
+      }
+    },
+    {
+      "id": "575703333e48defb373e",
+      "symbol": "LINK_USDT",
+      "side": "LONG",
+      "signal": 1793326620,
+      "baseline": {
+        "outcome": "ALVO",
+        "net_r": "2.959728705905394867890501740",
+        "exited_at": 1793333940,
+        "ambiguous": false
+      },
+      "diagnostic": {},
+      "variants": {
+        "TP_1R": {
+          "path": {
+            "outcome": "ALVO",
+            "net_r": "1.006380393394028203149874766",
+            "exited_at": 1793330760,
+            "ambiguous": false
+          },
+          "finance": {
+            "status": "BLOQUEADA",
+            "reasons": [
+              "RETORNO_RISCO_INSUFICIENTE"
+            ],
+            "rr": null
+          },
+          "target_changed": true,
+          "target": "10.793",
+          "stop": "10.566"
+        },
+        "TP_1_5R": {
+          "path": {
+            "outcome": "ALVO",
+            "net_r": "1.501346481632202561636187483",
+            "exited_at": 1793331180,
+            "ambiguous": false
+          },
+          "finance": {
+            "status": "BLOQUEADA",
+            "reasons": [
+              "RETORNO_RISCO_INSUFICIENTE"
+            ],
+            "rr": null
+          },
+          "target_changed": true,
+          "target": "10.849",
+          "stop": "10.566"
+        },
+        "SL_ESTRUTURAL": {
+          "path": {
+            "outcome": "ALVO",
+            "net_r": "0.7713218264261437426892190113",
+            "exited_at": 1793333940,
+            "ambiguous": false
+          },
+          "finance": {
+            "status": "BLOQUEADA",
+            "reasons": [
+              "RETORNO_RISCO_INSUFICIENTE"
+            ],
+            "rr": null
+          },
+          "target_changed": false,
+          "stop": "10.245",
+          "target": "11.014"
+        },
+        "PROTEGER_ZERO_APOS_1R": {
+          "path": {
+            "outcome": "ALVO",
+            "net_r": "2.959728705905394867890501740",
+            "exited_at": 1793333940,
+            "ambiguous": false
+          },
+          "finance": {
+            "status": "VIAVEL_SIMULADO",
+            "reasons": [],
+            "rr": "2.243723297565839434676498380"
+          },
+          "target_changed": false
+        },
+        "ENTRADA_RECUO_025R": {
+          "path": {
+            "outcome": "SEM_RECUO"
+          },
+          "finance": {
+            "status": "SEM_ENTRADA"
+          }
+        }
+      }
+    },
+    {
+      "id": "5eec1b10716029478f6f",
+      "symbol": "LINK_USDT",
+      "side": "LONG",
+      "signal": 1793335680,
+      "baseline": {
+        "outcome": "ABERTO"
+      },
+      "diagnostic": {},
+      "variants": {
+        "TP_1R": {
+          "path": {
+            "outcome": "ALVO",
+            "net_r": "1.004045047531086832886523637",
+            "exited_at": 1793341860,
+            "ambiguous": false
+          },
+          "finance": {
+            "status": "BLOQUEADA",
+            "reasons": [
+              "RETORNO_RISCO_INSUFICIENTE"
+            ],
+            "rr": null
+          },
+          "target_changed": true,
+          "target": "11.167",
+          "stop": "10.963"
+        },
+        "TP_1_5R": {
+          "path": {
+            "outcome": "ABERTO"
+          },
+          "finance": {
+            "status": "BLOQUEADA",
+            "reasons": [
+              "RETORNO_RISCO_INSUFICIENTE"
+            ],
+            "rr": null
+          },
+          "target_changed": true,
+          "target": "11.218",
+          "stop": "10.963"
+        },
+        "SL_ESTRUTURAL": {
+          "path": {
+            "outcome": "ABERTO"
+          },
+          "finance": {
+            "status": "BLOQUEADA",
+            "reasons": [
+              "RETORNO_RISCO_INSUFICIENTE"
+            ],
+            "rr": null
+          },
+          "target_changed": false,
+          "stop": "10.653",
+          "target": "11.38"
+        },
+        "PROTEGER_ZERO_APOS_1R": {
+          "path": {
+            "outcome": "ABERTO"
+          },
+          "finance": {
+            "status": "VIAVEL_SIMULADO",
+            "reasons": [],
+            "rr": "2.264673804031691906528933908"
+          },
+          "target_changed": false
+        },
+        "ENTRADA_RECUO_025R": {
+          "path": {
+            "outcome": "SEM_RECUO"
+          },
+          "finance": {
+            "status": "SEM_ENTRADA"
+          }
+        }
+      }
+    },
+    {
+      "id": "97e0b716bbc50721c0ed",
+      "symbol": "TAO_USDT",
+      "side": "LONG",
+      "signal": 1793335680,
+      "baseline": {
+        "outcome": "STOP",
+        "net_r": "-1",
+        "exited_at": 1793339940,
+        "ambiguous": false
+      },
+      "diagnostic": {
+        "minutes_to_stop": 71,
+        "best_close_r_before_stop": "0.3792058864530291071366526302",
+        "best_wick_r_before_stop": "0.4529370187476878958829516702",
+        "returned_inside_before_stop": true,
+        "original_tp_after_stop_within_4h": false
+      },
+      "variants": {
+        "TP_1R": {
+          "path": {
+            "outcome": "STOP",
+            "net_r": "-1",
+            "exited_at": 1793339940,
+            "ambiguous": false
+          },
+          "finance": {
+            "status": "BLOQUEADA",
+            "reasons": [
+              "RETORNO_RISCO_INSUFICIENTE"
+            ],
+            "rr": null
+          },
+          "target_changed": true,
+          "target": "241.15",
+          "stop": "236.53"
+        },
+        "TP_1_5R": {
+          "path": {
+            "outcome": "STOP",
+            "net_r": "-1",
+            "exited_at": 1793339940,
+            "ambiguous": false
+          },
+          "finance": {
+            "status": "BLOQUEADA",
+            "reasons": [
+              "RETORNO_RISCO_INSUFICIENTE"
+            ],
+            "rr": null
+          },
+          "target_changed": true,
+          "target": "242.30",
+          "stop": "236.53"
+        },
+        "SL_ESTRUTURAL": {
+          "path": {
+            "outcome": "ABERTO"
+          },
+          "finance": {
+            "status": "BLOQUEADA",
+            "reasons": [
+              "RETORNO_RISCO_INSUFICIENTE"
+            ],
+            "rr": null
+          },
+          "target_changed": false,
+          "stop": "231.56",
+          "target": "243.85"
+        },
+        "PROTEGER_ZERO_APOS_1R": {
+          "path": {
+            "outcome": "STOP",
+            "net_r": "-1",
+            "exited_at": 1793339940,
+            "ambiguous": false
+          },
+          "finance": {
+            "status": "VIAVEL_SIMULADO",
+            "reasons": [],
+            "rr": "2.009826804626005313387827931"
+          },
+          "target_changed": false
+        },
+        "ENTRADA_RECUO_025R": {
+          "path": {
+            "outcome": "RECUO_FORA_FAIXA"
+          },
+          "finance": {
+            "status": "SEM_ENTRADA"
+          }
+        }
+      }
+    },
+    {
+      "id": "27813bbd6ab936066d7d",
+      "symbol": "TAO_USDT",
+      "side": "SHORT",
+      "signal": 1793346240,
+      "baseline": {
+        "outcome": "ALVO",
+        "net_r": "2.080431517234186414870759916",
+        "exited_at": 1793355780,
+        "ambiguous": false
+      },
+      "diagnostic": {},
+      "variants": {
+        "TP_1R": {
+          "path": {
+            "outcome": "ALVO",
+            "net_r": "1.006006814650488330651724703",
+            "exited_at": 1793350080,
+            "ambiguous": false
+          },
+          "finance": {
+            "status": "BLOQUEADA",
+            "reasons": [
+              "RETORNO_RISCO_INSUFICIENTE"
+            ],
+            "rr": null
+          },
+          "target_changed": true,
+          "target": "233.57",
+          "stop": "236.80"
+        },
+        "TP_1_5R": {
+          "path": {
+            "outcome": "ALVO",
+            "net_r": "1.502850607752776462082492432",
+            "exited_at": 1793351340,
+            "ambiguous": false
+          },
+          "finance": {
+            "status": "BLOQUEADA",
+            "reasons": [
+              "RETORNO_RISCO_INSUFICIENTE"
+            ],
+            "rr": null
+          },
+          "target_changed": true,
+          "target": "232.77",
+          "stop": "236.80"
+        },
+        "SL_ESTRUTURAL": {
+          "path": {
+            "outcome": "ALVO",
+            "net_r": "0.7172844386056479131040456316",
+            "exited_at": 1793355780,
+            "ambiguous": false
+          },
+          "finance": {
+            "status": "BLOQUEADA",
+            "reasons": [
+              "RETORNO_RISCO_INSUFICIENTE"
+            ],
+            "rr": null
+          },
+          "target_changed": false,
+          "stop": "239.86",
+          "target": "231.84"
+        },
+        "PROTEGER_ZERO_APOS_1R": {
+          "path": {
+            "outcome": "ALVO",
+            "net_r": "2.080431517234186414870759916",
+            "exited_at": 1793355780,
+            "ambiguous": false
+          },
+          "finance": {
+            "status": "VIAVEL_SIMULADO",
+            "reasons": [],
+            "rr": "2.012365098090619128763053262"
+          },
+          "target_changed": false
+        },
+        "ENTRADA_RECUO_025R": {
+          "path": {
+            "outcome": "SEM_RECUO"
+          },
+          "finance": {
+            "status": "SEM_ENTRADA"
+          }
+        }
+      }
+    },
+    {
+      "id": "e15d246b130b51d85c5f",
+      "symbol": "SUI_USDT",
+      "side": "LONG",
+      "signal": 1793330760,
+      "baseline": {
+        "outcome": "ALVO",
+        "net_r": "2.232478707428698856755834188",
+        "exited_at": 1793336220,
+        "ambiguous": false
+      },
+      "diagnostic": {},
+      "variants": {
+        "TP_1R": {
+          "path": {
+            "outcome": "ALVO",
+            "net_r": "1.003076969521390439104434956",
+            "exited_at": 1793332080,
+            "ambiguous": false
+          },
+          "finance": {
+            "status": "BLOQUEADA",
+            "reasons": [
+              "RETORNO_RISCO_INSUFICIENTE"
+            ],
+            "rr": null
+          },
+          "target_changed": true,
+          "target": "0.8837",
+          "stop": "0.8648"
+        },
+        "TP_1_5R": {
+          "path": {
+            "outcome": "ALVO",
+            "net_r": "1.501196639190730918670088093",
+            "exited_at": 1793333880,
+            "ambiguous": false
+          },
+          "finance": {
+            "status": "BLOQUEADA",
+            "reasons": [
+              "RETORNO_RISCO_INSUFICIENTE"
+            ],
+            "rr": null
+          },
+          "target_changed": true,
+          "target": "0.8884",
+          "stop": "0.8648"
+        },
+        "SL_ESTRUTURAL": {
+          "path": {
+            "outcome": "ALVO",
+            "net_r": "0.7083966278872469324725229022",
+            "exited_at": 1793336220,
+            "ambiguous": false
+          },
+          "finance": {
+            "status": "BLOQUEADA",
+            "reasons": [
+              "RETORNO_RISCO_INSUFICIENTE"
+            ],
+            "rr": null
+          },
+          "target_changed": false,
+          "stop": "0.8445",
+          "target": "0.8953"
+        },
+        "PROTEGER_ZERO_APOS_1R": {
+          "path": {
+            "outcome": "ALVO",
+            "net_r": "2.232478707428698856755834188",
+            "exited_at": 1793336220,
+            "ambiguous": false
+          },
+          "finance": {
+            "status": "VIAVEL_SIMULADO",
+            "reasons": [],
+            "rr": "2.005201627135220615637613404"
+          },
+          "target_changed": false
+        },
+        "ENTRADA_RECUO_025R": {
+          "path": {
+            "outcome": "SEM_RECUO"
+          },
+          "finance": {
+            "status": "SEM_ENTRADA"
+          }
+        }
+      }
+    },
+    {
+      "id": "e0e152f661760088d57e",
+      "symbol": "SUI_USDT",
+      "side": "LONG",
+      "signal": 1793335740,
+      "baseline": {
+        "outcome": "STOP",
+        "net_r": "-1",
+        "exited_at": 1793346120,
+        "ambiguous": false
+      },
+      "diagnostic": {
+        "minutes_to_stop": 173,
+        "best_close_r_before_stop": "1.162770234841643900944065097",
+        "best_wick_r_before_stop": "1.269135984096150978039674856",
+        "returned_inside_before_stop": true,
+        "original_tp_after_stop_within_4h": false
+      },
+      "variants": {
+        "TP_1R": {
+          "path": {
+            "outcome": "ALVO",
+            "net_r": "1.009130819251800345139295446",
+            "exited_at": 1793337120,
+            "ambiguous": false
+          },
+          "finance": {
+            "status": "BLOQUEADA",
+            "reasons": [
+              "RETORNO_RISCO_INSUFICIENTE"
+            ],
+            "rr": null
+          },
+          "target_changed": true,
+          "target": "0.9027",
+          "stop": "0.8857"
+        },
+        "TP_1_5R": {
+          "path": {
+            "outcome": "STOP",
+            "net_r": "-1",
+            "exited_at": 1793346120,
+            "ambiguous": false
+          },
+          "finance": {
+            "status": "BLOQUEADA",
+            "reasons": [
+              "RETORNO_RISCO_INSUFICIENTE"
+            ],
+            "rr": null
+          },
+          "target_changed": true,
+          "target": "0.9069",
+          "stop": "0.8857"
+        },
+        "SL_ESTRUTURAL": {
+          "path": {
+            "outcome": "ABERTO"
+          },
+          "finance": {
+            "status": "BLOQUEADA",
+            "reasons": [
+              "RETORNO_RISCO_INSUFICIENTE"
+            ],
+            "rr": null
+          },
+          "target_changed": false,
+          "stop": "0.8631",
+          "target": "0.9131"
+        },
+        "PROTEGER_ZERO_APOS_1R": {
+          "path": {
+            "outcome": "PROTECAO",
+            "net_r": "0.004565409625900172569647722859",
+            "exited_at": 1793339700,
+            "ambiguous": false
+          },
+          "finance": {
+            "status": "VIAVEL_SIMULADO",
+            "reasons": [],
+            "rr": "2.020001323422370249465116792"
+          },
+          "target_changed": false
+        },
+        "ENTRADA_RECUO_025R": {
+          "path": {
+            "outcome": "SEM_RECUO"
+          },
+          "finance": {
+            "status": "SEM_ENTRADA"
+          }
+        }
+      }
+    },
+    {
+      "id": "d05a1148311a7e40b6a4",
+      "symbol": "HYPE_USDT",
+      "side": "LONG",
+      "signal": 1793336880,
+      "baseline": {
+        "outcome": "STOP",
+        "net_r": "-1",
+        "exited_at": 1793339880,
+        "ambiguous": false
+      },
+      "diagnostic": {
+        "minutes_to_stop": 50,
+        "best_close_r_before_stop": "0.3276673928125480989788494552",
+        "best_wick_r_before_stop": "0.3882361607328285779468626603",
+        "returned_inside_before_stop": true,
+        "original_tp_after_stop_within_4h": false
+      },
+      "variants": {
+        "TP_1R": {
+          "path": {
+            "outcome": "STOP",
+            "net_r": "-1",
+            "exited_at": 1793339880,
+            "ambiguous": false
+          },
+          "finance": {
+            "status": "BLOQUEADA",
+            "reasons": [
+              "RETORNO_RISCO_INSUFICIENTE"
+            ],
+            "rr": null
+          },
+          "target_changed": true,
+          "target": "94.146",
+          "stop": "92.494"
+        },
+        "TP_1_5R": {
+          "path": {
+            "outcome": "STOP",
+            "net_r": "-1",
+            "exited_at": 1793339880,
+            "ambiguous": false
+          },
+          "finance": {
+            "status": "BLOQUEADA",
+            "reasons": [
+              "RETORNO_RISCO_INSUFICIENTE"
+            ],
+            "rr": null
+          },
+          "target_changed": true,
+          "target": "94.558",
+          "stop": "92.494"
+        },
+        "SL_ESTRUTURAL": {
+          "path": {
+            "outcome": "ABERTO"
+          },
+          "finance": {
+            "status": "BLOQUEADA",
+            "reasons": [
+              "RETORNO_RISCO_INSUFICIENTE"
+            ],
+            "rr": null
+          },
+          "target_changed": false,
+          "stop": "90.493",
+          "target": "95.099"
+        },
+        "PROTEGER_ZERO_APOS_1R": {
+          "path": {
+            "outcome": "STOP",
+            "net_r": "-1",
+            "exited_at": 1793339880,
+            "ambiguous": false
+          },
+          "finance": {
+            "status": "VIAVEL_SIMULADO",
+            "reasons": [],
+            "rr": "2.000252661009150201437216967"
+          },
+          "target_changed": false
+        },
+        "ENTRADA_RECUO_025R": {
+          "path": {
+            "outcome": "RECUO_FORA_FAIXA"
+          },
+          "finance": {
+            "status": "SEM_ENTRADA"
+          }
+        }
+      }
+    },
+    {
+      "id": "c5dc4f2f23e98d884ffd",
+      "symbol": "HYPE_USDT",
+      "side": "LONG",
+      "signal": 1793336880,
+      "baseline": {
+        "outcome": "STOP",
+        "net_r": "-1",
+        "exited_at": 1793339880,
+        "ambiguous": false
+      },
+      "diagnostic": {
+        "minutes_to_stop": 50,
+        "best_close_r_before_stop": "0.3337315046279978629274250761",
+        "best_wick_r_before_stop": "0.3954212134452040545521903432",
+        "returned_inside_before_stop": true,
+        "original_tp_after_stop_within_4h": false
+      },
+      "variants": {
+        "TP_1R": {
+          "path": {
+            "outcome": "STOP",
+            "net_r": "-1",
+            "exited_at": 1793339880,
+            "ambiguous": false
+          },
+          "finance": {
+            "status": "BLOQUEADA",
+            "reasons": [
+              "RETORNO_RISCO_INSUFICIENTE"
+            ],
+            "rr": null
+          },
+          "target_changed": true,
+          "target": "94.131",
+          "stop": "92.509"
+        },
+        "TP_1_5R": {
+          "path": {
+            "outcome": "STOP",
+            "net_r": "-1",
+            "exited_at": 1793339880,
+            "ambiguous": false
+          },
+          "finance": {
+            "status": "BLOQUEADA",
+            "reasons": [
+              "RETORNO_RISCO_INSUFICIENTE"
+            ],
+            "rr": null
+          },
+          "target_changed": true,
+          "target": "94.536",
+          "stop": "92.509"
+        },
+        "SL_ESTRUTURAL": {
+          "path": {
+            "outcome": "ABERTO"
+          },
+          "finance": {
+            "status": "BLOQUEADA",
+            "reasons": [
+              "RETORNO_RISCO_INSUFICIENTE"
+            ],
+            "rr": null
+          },
+          "target_changed": false,
+          "stop": "90.496",
+          "target": "95.102"
+        },
+        "PROTEGER_ZERO_APOS_1R": {
+          "path": {
+            "outcome": "STOP",
+            "net_r": "-1",
+            "exited_at": 1793339880,
+            "ambiguous": false
+          },
+          "finance": {
+            "status": "VIAVEL_SIMULADO",
+            "reasons": [],
+            "rr": "2.000192684831535095967236168"
+          },
+          "target_changed": false
+        },
+        "ENTRADA_RECUO_025R": {
+          "path": {
+            "outcome": "RECUO_FORA_FAIXA"
+          },
+          "finance": {
+            "status": "SEM_ENTRADA"
+          }
+        }
+      }
+    },
+    {
+      "id": "7332d02cdaa14acb74e5",
+      "symbol": "HYPE_USDT",
+      "side": "SHORT",
+      "signal": 1793427180,
+      "baseline": {
+        "outcome": "STOP",
+        "net_r": "-1",
+        "exited_at": 1793429100,
+        "ambiguous": false
+      },
+      "diagnostic": {
+        "minutes_to_stop": 32,
+        "best_close_r_before_stop": "0.0002035765900620486758796848581",
+        "best_wick_r_before_stop": "0.1367859977630747233900229191",
+        "returned_inside_before_stop": true,
+        "original_tp_after_stop_within_4h": true
+      },
+      "variants": {
+        "TP_1R": {
+          "path": {
+            "outcome": "STOP",
+            "net_r": "-1",
+            "exited_at": 1793429100,
+            "ambiguous": false
+          },
+          "finance": {
+            "status": "BLOQUEADA",
+            "reasons": [
+              "RETORNO_RISCO_INSUFICIENTE"
+            ],
+            "rr": null
+          },
+          "target_changed": true,
+          "target": "87.627",
+          "stop": "88.579"
+        },
+        "TP_1_5R": {
+          "path": {
+            "outcome": "STOP",
+            "net_r": "-1",
+            "exited_at": 1793429100,
+            "ambiguous": false
+          },
+          "finance": {
+            "status": "BLOQUEADA",
+            "reasons": [
+              "RETORNO_RISCO_INSUFICIENTE"
+            ],
+            "rr": null
+          },
+          "target_changed": true,
+          "target": "87.389",
+          "stop": "88.579"
+        },
+        "SL_ESTRUTURAL": {
+          "path": {
+            "outcome": "ALVO",
+            "net_r": "0.6454210471269851844714132891",
+            "exited_at": 1793435520,
+            "ambiguous": false
+          },
+          "finance": {
+            "status": "BLOQUEADA",
+            "reasons": [
+              "RETORNO_RISCO_INSUFICIENTE"
+            ],
+            "rr": null
+          },
+          "target_changed": false,
+          "stop": "89.586",
+          "target": "87.146"
+        },
+        "PROTEGER_ZERO_APOS_1R": {
+          "path": {
+            "outcome": "STOP",
+            "net_r": "-1",
+            "exited_at": 1793429100,
+            "ambiguous": false
+          },
+          "finance": {
+            "status": "VIAVEL_SIMULADO",
+            "reasons": [],
+            "rr": "2.003714675397354655156813924"
+          },
+          "target_changed": false
+        },
+        "ENTRADA_RECUO_025R": {
+          "path": {
+            "outcome": "RECUO_FORA_FAIXA"
+          },
+          "finance": {
+            "status": "SEM_ENTRADA"
+          }
+        }
+      }
+    },
+    {
+      "id": "502dbf28cb8661c4de3b",
+      "symbol": "HYPE_USDT",
+      "side": "LONG",
+      "signal": 1793447040,
+      "baseline": {
+        "outcome": "STOP",
+        "net_r": "-1",
+        "exited_at": 1793447820,
+        "ambiguous": false
+      },
+      "diagnostic": {
+        "minutes_to_stop": 13,
+        "best_close_r_before_stop": "0.4308461199541251883120779245",
+        "best_wick_r_before_stop": "0.6942047536268409838419821222",
+        "returned_inside_before_stop": true,
+        "original_tp_after_stop_within_4h": false
+      },
+      "variants": {
+        "TP_1R": {
+          "path": {
+            "outcome": "STOP",
+            "net_r": "-1",
+            "exited_at": 1793447820,
+            "ambiguous": false
+          },
+          "finance": {
+            "status": "BLOQUEADA",
+            "reasons": [
+              "RETORNO_RISCO_INSUFICIENTE"
+            ],
+            "rr": null
+          },
+          "target_changed": true,
+          "target": "88.930",
+          "stop": "87.965"
+        },
+        "TP_1_5R": {
+          "path": {
+            "outcome": "STOP",
+            "net_r": "-1",
+            "exited_at": 1793447820,
+            "ambiguous": false
+          },
+          "finance": {
+            "status": "BLOQUEADA",
+            "reasons": [
+              "RETORNO_RISCO_INSUFICIENTE"
+            ],
+            "rr": null
+          },
+          "target_changed": true,
+          "target": "89.171",
+          "stop": "87.965"
+        },
+        "SL_ESTRUTURAL": {
+          "path": {
+            "outcome": "STOP",
+            "net_r": "-1",
+            "exited_at": 1793455500,
+            "ambiguous": false
+          },
+          "finance": {
+            "status": "BLOQUEADA",
+            "reasons": [
+              "RETORNO_RISCO_INSUFICIENTE"
+            ],
+            "rr": null
+          },
+          "target_changed": false,
+          "stop": "86.838",
+          "target": "89.551"
+        },
+        "PROTEGER_ZERO_APOS_1R": {
+          "path": {
+            "outcome": "STOP",
+            "net_r": "-1",
+            "exited_at": 1793447820,
+            "ambiguous": false
+          },
+          "finance": {
+            "status": "VIAVEL_SIMULADO",
+            "reasons": [],
+            "rr": "2.001080193374308971664997644"
+          },
+          "target_changed": false
+        },
+        "ENTRADA_RECUO_025R": {
+          "path": {
+            "outcome": "RECUO_FORA_FAIXA"
+          },
+          "finance": {
+            "status": "SEM_ENTRADA"
+          }
+        }
+      }
+    },
+    {
+      "id": "ff91850bf372a0993a82",
+      "symbol": "HYPE_USDT",
+      "side": "LONG",
+      "signal": 1793447040,
+      "baseline": {
+        "outcome": "STOP",
+        "net_r": "-1",
+        "exited_at": 1793447820,
+        "ambiguous": false
+      },
+      "diagnostic": {
+        "minutes_to_stop": 13,
+        "best_close_r_before_stop": "0.4381142247492459787357471970",
+        "best_wick_r_before_stop": "0.7059155539914076199372719683",
+        "returned_inside_before_stop": true,
+        "original_tp_after_stop_within_4h": false
+      },
+      "variants": {
+        "TP_1R": {
+          "path": {
+            "outcome": "STOP",
+            "net_r": "-1",
+            "exited_at": 1793447820,
+            "ambiguous": false
+          },
+          "finance": {
+            "status": "BLOQUEADA",
+            "reasons": [
+              "RETORNO_RISCO_INSUFICIENTE"
+            ],
+            "rr": null
+          },
+          "target_changed": true,
+          "target": "88.922",
+          "stop": "87.973"
+        },
+        "TP_1_5R": {
+          "path": {
+            "outcome": "STOP",
+            "net_r": "-1",
+            "exited_at": 1793447820,
+            "ambiguous": false
+          },
+          "finance": {
+            "status": "BLOQUEADA",
+            "reasons": [
+              "RETORNO_RISCO_INSUFICIENTE"
+            ],
+            "rr": null
+          },
+          "target_changed": true,
+          "target": "89.159",
+          "stop": "87.973"
+        },
+        "SL_ESTRUTURAL": {
+          "path": {
+            "outcome": "STOP",
+            "net_r": "-1",
+            "exited_at": 1793455500,
+            "ambiguous": false
+          },
+          "finance": {
+            "status": "BLOQUEADA",
+            "reasons": [
+              "RETORNO_RISCO_INSUFICIENTE"
+            ],
+            "rr": null
+          },
+          "target_changed": false,
+          "stop": "86.839",
+          "target": "89.551"
+        },
+        "PROTEGER_ZERO_APOS_1R": {
+          "path": {
+            "outcome": "STOP",
+            "net_r": "-1",
+            "exited_at": 1793447820,
+            "ambiguous": false
+          },
+          "finance": {
+            "status": "VIAVEL_SIMULADO",
+            "reasons": [],
+            "rr": "2.002943641156125729434887937"
+          },
+          "target_changed": false
+        },
+        "ENTRADA_RECUO_025R": {
+          "path": {
+            "outcome": "RECUO_FORA_FAIXA"
+          },
+          "finance": {
+            "status": "SEM_ENTRADA"
+          }
+        }
+      }
+    },
+    {
+      "id": "db5a091d3a5700f4620f",
+      "symbol": "HYPE_USDT",
+      "side": "SHORT",
+      "signal": 1793676180,
+      "baseline": {
+        "outcome": "STOP",
+        "net_r": "-1",
+        "exited_at": 1793678100,
+        "ambiguous": false
+      },
+      "diagnostic": {
+        "minutes_to_stop": 32,
+        "best_close_r_before_stop": "0.1479542755772309038705862183",
+        "best_wick_r_before_stop": "0.3816449673911671950156698413",
+        "returned_inside_before_stop": true,
+        "original_tp_after_stop_within_4h": false
+      },
+      "variants": {
+        "TP_1R": {
+          "path": {
+            "outcome": "STOP",
+            "net_r": "-1",
+            "exited_at": 1793678100,
+            "ambiguous": false
+          },
+          "finance": {
+            "status": "BLOQUEADA",
+            "reasons": [
+              "RETORNO_RISCO_INSUFICIENTE"
+            ],
+            "rr": null
+          },
+          "target_changed": true,
+          "target": "82.279",
+          "stop": "83.255"
+        },
+        "TP_1_5R": {
+          "path": {
+            "outcome": "STOP",
+            "net_r": "-1",
+            "exited_at": 1793678100,
+            "ambiguous": false
+          },
+          "finance": {
+            "status": "BLOQUEADA",
+            "reasons": [
+              "RETORNO_RISCO_INSUFICIENTE"
+            ],
+            "rr": null
+          },
+          "target_changed": true,
+          "target": "82.035",
+          "stop": "83.255"
+        },
+        "SL_ESTRUTURAL": {
+          "path": {
+            "outcome": "ABERTO"
+          },
+          "finance": {
+            "status": "BLOQUEADA",
+            "reasons": [
+              "RETORNO_RISCO_INSUFICIENTE"
+            ],
+            "rr": null
+          },
+          "target_changed": false,
+          "stop": "84.698",
+          "target": "81.424"
+        },
+        "PROTEGER_ZERO_APOS_1R": {
+          "path": {
+            "outcome": "STOP",
+            "net_r": "-1",
+            "exited_at": 1793678100,
+            "ambiguous": false
+          },
+          "finance": {
+            "status": "VIAVEL_SIMULADO",
+            "reasons": [],
+            "rr": "2.004895819531591285651129567"
+          },
+          "target_changed": false
+        },
+        "ENTRADA_RECUO_025R": {
+          "path": {
+            "outcome": "RECUO_FORA_FAIXA"
+          },
+          "finance": {
+            "status": "SEM_ENTRADA"
+          }
+        }
+      }
+    },
+    {
+      "id": "e6034a4c47f0f5e2320e",
+      "symbol": "HYPE_USDT",
+      "side": "SHORT",
+      "signal": 1793875620,
+      "baseline": {
+        "outcome": "ALVO",
+        "net_r": "2.583037347612873274966676050",
+        "exited_at": 1793889420,
+        "ambiguous": false
+      },
+      "diagnostic": {},
+      "variants": {
+        "TP_1R": {
+          "path": {
+            "outcome": "ALVO",
+            "net_r": "1.001943644577990843443418611",
+            "exited_at": 1793881260,
+            "ambiguous": false
+          },
+          "finance": {
+            "status": "BLOQUEADA",
+            "reasons": [
+              "RETORNO_RISCO_INSUFICIENTE"
+            ],
+            "rr": null
+          },
+          "target_changed": true,
+          "target": "81.900",
+          "stop": "82.761"
+        },
+        "TP_1_5R": {
+          "path": {
+            "outcome": "ALVO",
+            "net_r": "1.501848271272843376939742654",
+            "exited_at": 1793882040,
+            "ambiguous": false
+          },
+          "finance": {
+            "status": "BLOQUEADA",
+            "reasons": [
+              "RETORNO_RISCO_INSUFICIENTE"
+            ],
+            "rr": null
+          },
+          "target_changed": true,
+          "target": "81.685",
+          "stop": "82.761"
+        },
+        "SL_ESTRUTURAL": {
+          "path": {
+            "outcome": "ALVO",
+            "net_r": "0.6406374899248987137797453312",
+            "exited_at": 1793889420,
+            "ambiguous": false
+          },
+          "finance": {
+            "status": "BLOQUEADA",
+            "reasons": [
+              "RETORNO_RISCO_INSUFICIENTE"
+            ],
+            "rr": null
+          },
+          "target_changed": false,
+          "stop": "84.065",
+          "target": "81.220"
+        },
+        "PROTEGER_ZERO_APOS_1R": {
+          "path": {
+            "outcome": "ALVO",
+            "net_r": "2.583037347612873274966676050",
+            "exited_at": 1793889420,
+            "ambiguous": false
+          },
+          "finance": {
+            "status": "VIAVEL_SIMULADO",
+            "reasons": [],
+            "rr": "2.041173881561200005679156077"
+          },
+          "target_changed": false
+        },
+        "ENTRADA_RECUO_025R": {
+          "path": {
+            "outcome": "RECUO_FORA_FAIXA"
+          },
+          "finance": {
+            "status": "SEM_ENTRADA"
+          }
+        }
+      }
+    },
+    {
+      "id": "c95ae9bc74f148b75e15",
+      "symbol": "HYPE_USDT",
+      "side": "SHORT",
+      "signal": 1793875620,
+      "baseline": {
+        "outcome": "ALVO",
+        "net_r": "2.756059219185563402216616093",
+        "exited_at": 1793889420,
+        "ambiguous": false
+      },
+      "diagnostic": {},
+      "variants": {
+        "TP_1R": {
+          "path": {
+            "outcome": "ALVO",
+            "net_r": "1.002073837439068471326822449",
+            "exited_at": 1793881260,
+            "ambiguous": false
+          },
+          "finance": {
+            "status": "BLOQUEADA",
+            "reasons": [
+              "RETORNO_RISCO_INSUFICIENTE"
+            ],
+            "rr": null
+          },
+          "target_changed": true,
+          "target": "81.927",
+          "stop": "82.734"
+        },
+        "TP_1_5R": {
+          "path": {
+            "outcome": "ALVO",
+            "net_r": "1.500731633381141287605250345",
+            "exited_at": 1793882040,
+            "ambiguous": false
+          },
+          "finance": {
+            "status": "BLOQUEADA",
+            "reasons": [
+              "RETORNO_RISCO_INSUFICIENTE"
+            ],
+            "rr": null
+          },
+          "target_changed": true,
+          "target": "81.726",
+          "stop": "82.734"
+        },
+        "SL_ESTRUTURAL": {
+          "path": {
+            "outcome": "ALVO",
+            "net_r": "0.6406374899248987137797453312",
+            "exited_at": 1793889420,
+            "ambiguous": false
+          },
+          "finance": {
+            "status": "BLOQUEADA",
+            "reasons": [
+              "RETORNO_RISCO_INSUFICIENTE"
+            ],
+            "rr": null
+          },
+          "target_changed": false,
+          "stop": "84.065",
+          "target": "81.220"
+        },
+        "PROTEGER_ZERO_APOS_1R": {
+          "path": {
+            "outcome": "ALVO",
+            "net_r": "2.756059219185563402216616093",
+            "exited_at": 1793889420,
+            "ambiguous": false
+          },
+          "finance": {
+            "status": "VIAVEL_SIMULADO",
+            "reasons": [],
+            "rr": "2.169250797326738306153387927"
+          },
+          "target_changed": false
+        },
+        "ENTRADA_RECUO_025R": {
+          "path": {
+            "outcome": "RECUO_FORA_FAIXA"
+          },
+          "finance": {
+            "status": "SEM_ENTRADA"
+          }
+        }
+      }
+    },
+    {
+      "id": "a099b184ee9138c07605",
+      "symbol": "NEAR_USDT",
+      "side": "LONG",
+      "signal": 1793335740,
+      "baseline": {
+        "outcome": "STOP",
+        "net_r": "-1",
+        "exited_at": 1793340120,
+        "ambiguous": false
+      },
+      "diagnostic": {
+        "minutes_to_stop": 73,
+        "best_close_r_before_stop": "1.105850800791888231361477407",
+        "best_wick_r_before_stop": "1.295377372863158172184010374",
+        "returned_inside_before_stop": true,
+        "original_tp_after_stop_within_4h": true
+      },
+      "variants": {
+        "TP_1R": {
+          "path": {
+            "outcome": "ALVO",
+            "net_r": "1.000558260752293819793403537",
+            "exited_at": 1793337120,
+            "ambiguous": false
+          },
+          "finance": {
+            "status": "BLOQUEADA",
+            "reasons": [
+              "RETORNO_RISCO_INSUFICIENTE"
+            ],
+            "rr": null
+          },
+          "target_changed": true,
+          "target": "4.273",
+          "stop": "4.178"
+        },
+        "TP_1_5R": {
+          "path": {
+            "outcome": "STOP",
+            "net_r": "-1",
+            "exited_at": 1793340120,
+            "ambiguous": false
+          },
+          "finance": {
+            "status": "BLOQUEADA",
+            "reasons": [
+              "RETORNO_RISCO_INSUFICIENTE"
+            ],
+            "rr": null
+          },
+          "target_changed": true,
+          "target": "4.297",
+          "stop": "4.178"
+        },
+        "SL_ESTRUTURAL": {
+          "path": {
+            "outcome": "ALVO",
+            "net_r": "0.7271470380049663966070701458",
+            "exited_at": 1793348100,
+            "ambiguous": false
+          },
+          "finance": {
+            "status": "BLOQUEADA",
+            "reasons": [
+              "RETORNO_RISCO_INSUFICIENTE"
+            ],
+            "rr": null
+          },
+          "target_changed": false,
+          "stop": "4.046",
+          "target": "4.356"
+        },
+        "PROTEGER_ZERO_APOS_1R": {
+          "path": {
+            "outcome": "PROTECAO",
+            "net_r": "0.01080838438010635105350915555",
+            "exited_at": 1793339520,
+            "ambiguous": false
+          },
+          "finance": {
+            "status": "VIAVEL_SIMULADO",
+            "reasons": [],
+            "rr": "2.232000755797475345741008554"
+          },
+          "target_changed": false
+        },
+        "ENTRADA_RECUO_025R": {
+          "path": {
+            "outcome": "SEM_RECUO"
+          },
+          "finance": {
+            "status": "SEM_ENTRADA"
+          }
+        }
+      }
+    },
+    {
+      "id": "860be863ea3d656ed68b",
+      "symbol": "NEAR_USDT",
+      "side": "SHORT",
+      "signal": 1793644200,
+      "baseline": {
+        "outcome": "STOP",
+        "net_r": "-1",
+        "exited_at": 1793649960,
+        "ambiguous": false
+      },
+      "diagnostic": {
+        "minutes_to_stop": 96,
+        "best_close_r_before_stop": "1.401228002377951927486575719",
+        "best_wick_r_before_stop": "1.557151898636260494206483233",
+        "returned_inside_before_stop": true,
+        "original_tp_after_stop_within_4h": false
+      },
+      "variants": {
+        "TP_1R": {
+          "path": {
+            "outcome": "ALVO",
+            "net_r": "1.027010651358011367358797685",
+            "exited_at": 1793647320,
+            "ambiguous": false
+          },
+          "finance": {
+            "status": "BLOQUEADA",
+            "reasons": [
+              "RETORNO_RISCO_INSUFICIENTE"
+            ],
+            "rr": null
+          },
+          "target_changed": true,
+          "target": "3.860",
+          "stop": "3.925"
+        },
+        "TP_1_5R": {
+          "path": {
+            "outcome": "ALVO",
+            "net_r": "1.525967119384598780862501731",
+            "exited_at": 1793648220,
+            "ambiguous": false
+          },
+          "finance": {
+            "status": "BLOQUEADA",
+            "reasons": [
+              "RETORNO_RISCO_INSUFICIENTE"
+            ],
+            "rr": null
+          },
+          "target_changed": true,
+          "target": "3.844",
+          "stop": "3.925"
+        },
+        "SL_ESTRUTURAL": {
+          "path": {
+            "outcome": "ABERTO"
+          },
+          "finance": {
+            "status": "BLOQUEADA",
+            "reasons": [
+              "RETORNO_RISCO_INSUFICIENTE"
+            ],
+            "rr": null
+          },
+          "target_changed": false,
+          "stop": "4.003",
+          "target": "3.787"
+        },
+        "PROTEGER_ZERO_APOS_1R": {
+          "path": {
+            "outcome": "PROTECAO",
+            "net_r": "0.02909771530483654035138959395",
+            "exited_at": 1793649600,
+            "ambiguous": false
+          },
+          "finance": {
+            "status": "VIAVEL_SIMULADO",
+            "reasons": [],
+            "rr": "2.478909789022307099270874799"
+          },
+          "target_changed": false
+        },
+        "ENTRADA_RECUO_025R": {
+          "path": {
+            "outcome": "RECUO_FORA_FAIXA"
+          },
+          "finance": {
+            "status": "SEM_ENTRADA"
+          }
+        }
+      }
+    },
+    {
+      "id": "0dfe0655f44a137054e0",
+      "symbol": "NEAR_USDT",
+      "side": "SHORT",
+      "signal": 1793644500,
+      "baseline": {
+        "outcome": "STOP",
+        "net_r": "-1",
+        "exited_at": 1793649840,
+        "ambiguous": false
+      },
+      "diagnostic": {
+        "minutes_to_stop": 89,
+        "best_close_r_before_stop": "1.087415309263043348410001470",
+        "best_wick_r_before_stop": "1.238677288195147938874494330",
+        "returned_inside_before_stop": true,
+        "original_tp_after_stop_within_4h": false
+      },
+      "variants": {
+        "TP_1R": {
+          "path": {
+            "outcome": "ALVO",
+            "net_r": "1.026910517690201512224204326",
+            "exited_at": 1793648220,
+            "ambiguous": false
+          },
+          "finance": {
+            "status": "BLOQUEADA",
+            "reasons": [
+              "RETORNO_RISCO_INSUFICIENTE"
+            ],
+            "rr": null
+          },
+          "target_changed": true,
+          "target": "3.850",
+          "stop": "3.917"
+        },
+        "TP_1_5R": {
+          "path": {
+            "outcome": "STOP",
+            "net_r": "-1",
+            "exited_at": 1793649840,
+            "ambiguous": false
+          },
+          "finance": {
+            "status": "BLOQUEADA",
+            "reasons": [
+              "RETORNO_RISCO_INSUFICIENTE"
+            ],
+            "rr": null
+          },
+          "target_changed": true,
+          "target": "3.834",
+          "stop": "3.917"
+        },
+        "SL_ESTRUTURAL": {
+          "path": {
+            "outcome": "ABERTO"
+          },
+          "finance": {
+            "status": "BLOQUEADA",
+            "reasons": [
+              "RETORNO_RISCO_INSUFICIENTE"
+            ],
+            "rr": null
+          },
+          "target_changed": false,
+          "stop": "4.003",
+          "target": "3.799"
+        },
+        "PROTEGER_ZERO_APOS_1R": {
+          "path": {
+            "outcome": "PROTECAO",
+            "net_r": "0.02858145673831121515855144880",
+            "exited_at": 1793649600,
+            "ambiguous": false
+          },
+          "finance": {
+            "status": "VIAVEL_SIMULADO",
+            "reasons": [],
+            "rr": "2.052313196699274088474344922"
+          },
+          "target_changed": false
+        },
+        "ENTRADA_RECUO_025R": {
+          "path": {
+            "outcome": "RECUO_FORA_FAIXA"
+          },
+          "finance": {
+            "status": "SEM_ENTRADA"
+          }
+        }
+      }
+    },
+    {
+      "id": "23fc09306e576e1d7509",
+      "symbol": "ARB_USDT",
+      "side": "LONG",
+      "signal": 1793330700,
+      "baseline": {
+        "outcome": "ALVO",
+        "net_r": "2.234181233801796654936209438",
+        "exited_at": 1793334600,
+        "ambiguous": false
+      },
+      "diagnostic": {},
+      "variants": {
+        "TP_1R": {
+          "path": {
+            "outcome": "ALVO",
+            "net_r": "1.004454528934193364085939690",
+            "exited_at": 1793333580,
+            "ambiguous": false
+          },
+          "finance": {
+            "status": "BLOQUEADA",
+            "reasons": [
+              "RETORNO_RISCO_INSUFICIENTE"
+            ],
+            "rr": null
+          },
+          "target_changed": true,
+          "target": "0.15846",
+          "stop": "0.15520"
+        },
+        "TP_1_5R": {
+          "path": {
+            "outcome": "ALVO",
+            "net_r": "1.502493844405572696880298938",
+            "exited_at": 1793333880,
+            "ambiguous": false
+          },
+          "finance": {
+            "status": "BLOQUEADA",
+            "reasons": [
+              "RETORNO_RISCO_INSUFICIENTE"
+            ],
+            "rr": null
+          },
+          "target_changed": true,
+          "target": "0.15927",
+          "stop": "0.15520"
+        },
+        "SL_ESTRUTURAL": {
+          "path": {
+            "outcome": "ALVO",
+            "net_r": "0.7316443988101370836473730276",
+            "exited_at": 1793334600,
+            "ambiguous": false
+          },
+          "finance": {
+            "status": "BLOQUEADA",
+            "reasons": [
+              "RETORNO_RISCO_INSUFICIENTE"
+            ],
+            "rr": null
+          },
+          "target_changed": false,
+          "stop": "0.15186",
+          "target": "0.16046"
+        },
+        "PROTEGER_ZERO_APOS_1R": {
+          "path": {
+            "outcome": "ALVO",
+            "net_r": "2.234181233801796654936209438",
+            "exited_at": 1793334600,
+            "ambiguous": false
+          },
+          "finance": {
+            "status": "VIAVEL_SIMULADO",
+            "reasons": [],
+            "rr": "2.004133705244867163564863505"
+          },
+          "target_changed": false
+        },
+        "ENTRADA_RECUO_025R": {
+          "path": {
+            "outcome": "SEM_RECUO"
+          },
+          "finance": {
+            "status": "SEM_ENTRADA"
+          }
+        }
+      }
+    },
+    {
+      "id": "7d9c94bedc0f067d2385",
+      "symbol": "ARB_USDT",
+      "side": "LONG",
+      "signal": 1793331240,
+      "baseline": {
+        "outcome": "ALVO",
+        "net_r": "2.241374729983016601884225974",
+        "exited_at": 1793334840,
+        "ambiguous": false
+      },
+      "diagnostic": {},
+      "variants": {
+        "TP_1R": {
+          "path": {
+            "outcome": "ALVO",
+            "net_r": "1.002350942412716740413122530",
+            "exited_at": 1793334120,
+            "ambiguous": false
+          },
+          "finance": {
+            "status": "BLOQUEADA",
+            "reasons": [
+              "RETORNO_RISCO_INSUFICIENTE"
+            ],
+            "rr": null
+          },
+          "target_changed": true,
+          "target": "0.15952",
+          "stop": "0.15590"
+        },
+        "TP_1_5R": {
+          "path": {
+            "outcome": "ALVO",
+            "net_r": "1.500172999918640791897048021",
+            "exited_at": 1793334600,
+            "ambiguous": false
+          },
+          "finance": {
+            "status": "BLOQUEADA",
+            "reasons": [
+              "PRECO_FORA_DO_PLANO"
+            ],
+            "rr": "2.010039721681640052251339607"
+          },
+          "target_changed": true,
+          "target": "0.16042",
+          "stop": "0.15590"
+        },
+        "SL_ESTRUTURAL": {
+          "path": {
+            "outcome": "ALVO",
+            "net_r": "0.6941096165445193126628359137",
+            "exited_at": 1793334840,
+            "ambiguous": false
+          },
+          "finance": {
+            "status": "BLOQUEADA",
+            "reasons": [
+              "RETORNO_RISCO_INSUFICIENTE"
+            ],
+            "rr": null
+          },
+          "target_changed": false,
+          "stop": "0.15187",
+          "target": "0.16176"
+        },
+        "PROTEGER_ZERO_APOS_1R": {
+          "path": {
+            "outcome": "ALVO",
+            "net_r": "2.241374729983016601884225974",
+            "exited_at": 1793334840,
+            "ambiguous": false
+          },
+          "finance": {
+            "status": "VIAVEL_SIMULADO",
+            "reasons": [],
+            "rr": "2.001492720935001025220422391"
+          },
+          "target_changed": false
+        },
+        "ENTRADA_RECUO_025R": {
+          "path": {
+            "outcome": "SEM_RECUO"
+          },
+          "finance": {
+            "status": "SEM_ENTRADA"
+          }
+        }
+      }
+    },
+    {
+      "id": "b19ebad5d77fd9f0641c",
+      "symbol": "ARB_USDT",
+      "side": "SHORT",
+      "signal": 1793352840,
+      "baseline": {
+        "outcome": "STOP",
+        "net_r": "-1",
+        "exited_at": 1793355900,
+        "ambiguous": false
+      },
+      "diagnostic": {
+        "minutes_to_stop": 51,
+        "best_close_r_before_stop": "0",
+        "best_wick_r_before_stop": "0",
+        "returned_inside_before_stop": true,
+        "original_tp_after_stop_within_4h": false
+      },
+      "variants": {
+        "TP_1R": {
+          "path": {
+            "outcome": "STOP",
+            "net_r": "-1",
+            "exited_at": 1793355900,
+            "ambiguous": false
+          },
+          "finance": {
+            "status": "BLOQUEADA",
+            "reasons": [
+              "RETORNO_RISCO_INSUFICIENTE"
+            ],
+            "rr": null
+          },
+          "target_changed": true,
+          "target": "0.15992",
+          "stop": "0.16245"
+        },
+        "TP_1_5R": {
+          "path": {
+            "outcome": "STOP",
+            "net_r": "-1",
+            "exited_at": 1793355900,
+            "ambiguous": false
+          },
+          "finance": {
+            "status": "BLOQUEADA",
+            "reasons": [
+              "RETORNO_RISCO_INSUFICIENTE"
+            ],
+            "rr": null
+          },
+          "target_changed": true,
+          "target": "0.15928",
+          "stop": "0.16245"
+        },
+        "SL_ESTRUTURAL": {
+          "path": {
+            "outcome": "STOP",
+            "net_r": "-1",
+            "exited_at": 1793362260,
+            "ambiguous": false
+          },
+          "finance": {
+            "status": "BLOQUEADA",
+            "reasons": [
+              "RETORNO_RISCO_INSUFICIENTE"
+            ],
+            "rr": null
+          },
+          "target_changed": false,
+          "stop": "0.16577",
+          "target": "0.15775"
+        },
+        "PROTEGER_ZERO_APOS_1R": {
+          "path": {
+            "outcome": "STOP",
+            "net_r": "-1",
+            "exited_at": 1793355900,
+            "ambiguous": false
+          },
+          "finance": {
+            "status": "VIAVEL_SIMULADO",
+            "reasons": [],
+            "rr": "2.017397105614287180539874782"
+          },
+          "target_changed": false
+        },
+        "ENTRADA_RECUO_025R": {
+          "path": {
+            "outcome": "RECUO_FORA_FAIXA"
+          },
+          "finance": {
+            "status": "SEM_ENTRADA"
+          }
+        }
+      }
+    },
+    {
+      "id": "cc39ee066675d01522ce",
+      "symbol": "AVAX_USDT",
+      "side": "LONG",
+      "signal": 1793327280,
+      "baseline": {
+        "outcome": "ALVO",
+        "net_r": "2.648761553787003347082957618",
+        "exited_at": 1793337000,
+        "ambiguous": false
+      },
+      "diagnostic": {},
+      "variants": {
+        "TP_1R": {
+          "path": {
+            "outcome": "ALVO",
+            "net_r": "1.003655188495753283080236842",
+            "exited_at": 1793331600,
+            "ambiguous": false
+          },
+          "finance": {
+            "status": "BLOQUEADA",
+            "reasons": [
+              "RETORNO_RISCO_INSUFICIENTE"
+            ],
+            "rr": null
+          },
+          "target_changed": true,
+          "target": "8.431",
+          "stop": "8.241"
+        },
+        "TP_1_5R": {
+          "path": {
+            "outcome": "ALVO",
+            "net_r": "1.509841762431522533542612465",
+            "exited_at": 1793333820,
+            "ambiguous": false
+          },
+          "finance": {
+            "status": "BLOQUEADA",
+            "reasons": [
+              "PRECO_FORA_DO_PLANO"
+            ],
+            "rr": "2.013589566213343266411751440"
+          },
+          "target_changed": true,
+          "target": "8.479",
+          "stop": "8.241"
+        },
+        "SL_ESTRUTURAL": {
+          "path": {
+            "outcome": "ALVO",
+            "net_r": "0.7221219881432212118647011857",
+            "exited_at": 1793337000,
+            "ambiguous": false
+          },
+          "finance": {
+            "status": "BLOQUEADA",
+            "reasons": [
+              "RETORNO_RISCO_INSUFICIENTE"
+            ],
+            "rr": null
+          },
+          "target_changed": false,
+          "stop": "7.988",
+          "target": "8.587"
+        },
+        "PROTEGER_ZERO_APOS_1R": {
+          "path": {
+            "outcome": "ALVO",
+            "net_r": "2.648761553787003347082957618",
+            "exited_at": 1793337000,
+            "ambiguous": false
+          },
+          "finance": {
+            "status": "VIAVEL_SIMULADO",
+            "reasons": [],
+            "rr": "2.008203581041463317030564646"
+          },
+          "target_changed": false
+        },
+        "ENTRADA_RECUO_025R": {
+          "path": {
+            "outcome": "SEM_RECUO"
+          },
+          "finance": {
+            "status": "SEM_ENTRADA"
+          }
+        }
+      }
+    },
+    {
+      "id": "d869e0d560520c488df0",
+      "symbol": "AVAX_USDT",
+      "side": "LONG",
+      "signal": 1793327160,
+      "baseline": {
+        "outcome": "ALVO",
+        "net_r": "2.904398030238558245007568529",
+        "exited_at": 1793336580,
+        "ambiguous": false
+      },
+      "diagnostic": {},
+      "variants": {
+        "TP_1R": {
+          "path": {
+            "outcome": "ALVO",
+            "net_r": "1.004646152838901546690453096",
+            "exited_at": 1793331180,
+            "ambiguous": false
+          },
+          "finance": {
+            "status": "BLOQUEADA",
+            "reasons": [
+              "RETORNO_RISCO_INSUFICIENTE"
+            ],
+            "rr": null
+          },
+          "target_changed": true,
+          "target": "8.402",
+          "stop": "8.230"
+        },
+        "TP_1_5R": {
+          "path": {
+            "outcome": "ALVO",
+            "net_r": "1.505807691048626933363066369",
+            "exited_at": 1793331840,
+            "ambiguous": false
+          },
+          "finance": {
+            "status": "BLOQUEADA",
+            "reasons": [
+              "RETORNO_RISCO_INSUFICIENTE"
+            ],
+            "rr": null
+          },
+          "target_changed": true,
+          "target": "8.445",
+          "stop": "8.230"
+        },
+        "SL_ESTRUTURAL": {
+          "path": {
+            "outcome": "ALVO",
+            "net_r": "0.7602160029023426015266744208",
+            "exited_at": 1793336580,
+            "ambiguous": false
+          },
+          "finance": {
+            "status": "BLOQUEADA",
+            "reasons": [
+              "RETORNO_RISCO_INSUFICIENTE"
+            ],
+            "rr": null
+          },
+          "target_changed": false,
+          "stop": "7.988",
+          "target": "8.565"
+        },
+        "PROTEGER_ZERO_APOS_1R": {
+          "path": {
+            "outcome": "ALVO",
+            "net_r": "2.904398030238558245007568529",
+            "exited_at": 1793336580,
+            "ambiguous": false
+          },
+          "finance": {
+            "status": "VIAVEL_SIMULADO",
+            "reasons": [],
+            "rr": "2.221389396709323583180987203"
+          },
+          "target_changed": false
+        },
+        "ENTRADA_RECUO_025R": {
+          "path": {
+            "outcome": "SEM_RECUO"
+          },
+          "finance": {
+            "status": "SEM_ENTRADA"
+          }
+        }
+      }
+    },
+    {
+      "id": "58927fcd0bdb97ef12db",
+      "symbol": "AVAX_USDT",
+      "side": "LONG",
+      "signal": 1793925300,
+      "baseline": {
+        "outcome": "ABERTO"
+      },
+      "diagnostic": {},
+      "variants": {
+        "TP_1R": {
+          "path": {
+            "outcome": "ABERTO"
+          },
+          "finance": {
+            "status": "BLOQUEADA",
+            "reasons": [
+              "RETORNO_RISCO_INSUFICIENTE"
+            ],
+            "rr": null
+          },
+          "target_changed": true,
+          "target": "8.364",
+          "stop": "8.230"
+        },
+        "TP_1_5R": {
+          "path": {
+            "outcome": "ABERTO"
+          },
+          "finance": {
+            "status": "BLOQUEADA",
+            "reasons": [
+              "PRECO_FORA_DO_PLANO"
+            ],
+            "rr": "2.040035992320666805098669231"
+          },
+          "target_changed": true,
+          "target": "8.397",
+          "stop": "8.230"
+        },
+        "SL_ESTRUTURAL": {
+          "path": {
+            "outcome": "ABERTO"
+          },
+          "finance": {
+            "status": "BLOQUEADA",
+            "reasons": [
+              "RETORNO_RISCO_INSUFICIENTE"
+            ],
+            "rr": null
+          },
+          "target_changed": false,
+          "stop": "8.070",
+          "target": "8.437"
+        },
+        "PROTEGER_ZERO_APOS_1R": {
+          "path": {
+            "outcome": "ABERTO"
+          },
+          "finance": {
+            "status": "VIAVEL_SIMULADO",
+            "reasons": [],
+            "rr": "2.091953404535794032982701568"
+          },
+          "target_changed": false
+        },
+        "ENTRADA_RECUO_025R": {
+          "path": {
+            "outcome": "SEM_RECUO"
+          },
+          "finance": {
+            "status": "SEM_ENTRADA"
+          }
+        }
+      }
+    },
+    {
+      "id": "bb39799f82912fd4de59",
+      "symbol": "WLD_USDT",
+      "side": "LONG",
+      "signal": 1793331300,
+      "baseline": {
+        "outcome": "ALVO",
+        "net_r": "2.645833424247866024178820731",
+        "exited_at": 1793338200,
+        "ambiguous": false
+      },
+      "diagnostic": {},
+      "variants": {
+        "TP_1R": {
+          "path": {
+            "outcome": "ALVO",
+            "net_r": "1.018929261814678497260314706",
+            "exited_at": 1793335620,
+            "ambiguous": false
+          },
+          "finance": {
+            "status": "BLOQUEADA",
+            "reasons": [
+              "RETORNO_RISCO_INSUFICIENTE"
+            ],
+            "rr": null
+          },
+          "target_changed": true,
+          "target": "0.3916",
+          "stop": "0.3813"
+        },
+        "TP_1_5R": {
+          "path": {
+            "outcome": "ALVO",
+            "net_r": "1.508960636041542210187575557",
+            "exited_at": 1793336520,
+            "ambiguous": false
+          },
+          "finance": {
+            "status": "BLOQUEADA",
+            "reasons": [
+              "RETORNO_RISCO_INSUFICIENTE"
+            ],
+            "rr": null
+          },
+          "target_changed": true,
+          "target": "0.3941",
+          "stop": "0.3813"
+        },
+        "SL_ESTRUTURAL": {
+          "path": {
+            "outcome": "ALVO",
+            "net_r": "0.7295694726376009576919854144",
+            "exited_at": 1793338200,
+            "ambiguous": false
+          },
+          "finance": {
+            "status": "BLOQUEADA",
+            "reasons": [
+              "RETORNO_RISCO_INSUFICIENTE"
+            ],
+            "rr": null
+          },
+          "target_changed": false,
+          "stop": "0.3679",
+          "target": "0.3999"
+        },
+        "PROTEGER_ZERO_APOS_1R": {
+          "path": {
+            "outcome": "ALVO",
+            "net_r": "2.645833424247866024178820731",
+            "exited_at": 1793338200,
+            "ambiguous": false
+          },
+          "finance": {
+            "status": "VIAVEL_SIMULADO",
+            "reasons": [],
+            "rr": "2.067121181121590316598137503"
+          },
+          "target_changed": false
+        },
+        "ENTRADA_RECUO_025R": {
+          "path": {
+            "outcome": "SEM_RECUO"
+          },
+          "finance": {
+            "status": "SEM_ENTRADA"
+          }
+        }
+      }
+    },
+    {
+      "id": "50fd3bdb48f13d642761",
+      "symbol": "WLD_USDT",
+      "side": "LONG",
+      "signal": 1793357700,
+      "baseline": {
+        "outcome": "STOP",
+        "net_r": "-1",
+        "exited_at": 1793361780,
+        "ambiguous": false
+      },
+      "diagnostic": {
+        "minutes_to_stop": 68,
+        "best_close_r_before_stop": "0.4371756445080680539018672415",
+        "best_wick_r_before_stop": "0.5155670432994172204783327274",
+        "returned_inside_before_stop": true,
+        "original_tp_after_stop_within_4h": false
+      },
+      "variants": {
+        "TP_1R": {
+          "path": {
+            "outcome": "STOP",
+            "net_r": "-1",
+            "exited_at": 1793361780,
+            "ambiguous": false
+          },
+          "finance": {
+            "status": "BLOQUEADA",
+            "reasons": [
+              "RETORNO_RISCO_INSUFICIENTE"
+            ],
+            "rr": null
+          },
+          "target_changed": true,
+          "target": "0.4097",
+          "stop": "0.4020"
+        },
+        "TP_1_5R": {
+          "path": {
+            "outcome": "STOP",
+            "net_r": "-1",
+            "exited_at": 1793361780,
+            "ambiguous": false
+          },
+          "finance": {
+            "status": "BLOQUEADA",
+            "reasons": [
+              "RETORNO_RISCO_INSUFICIENTE"
+            ],
+            "rr": null
+          },
+          "target_changed": true,
+          "target": "0.4116",
+          "stop": "0.4020"
+        },
+        "SL_ESTRUTURAL": {
+          "path": {
+            "outcome": "ABERTO"
+          },
+          "finance": {
+            "status": "BLOQUEADA",
+            "reasons": [
+              "RETORNO_RISCO_INSUFICIENTE"
+            ],
+            "rr": null
+          },
+          "target_changed": false,
+          "stop": "0.3934",
+          "target": "0.4143"
+        },
+        "PROTEGER_ZERO_APOS_1R": {
+          "path": {
+            "outcome": "STOP",
+            "net_r": "-1",
+            "exited_at": 1793361780,
+            "ambiguous": false
+          },
+          "finance": {
+            "status": "VIAVEL_SIMULADO",
+            "reasons": [],
+            "rr": "2.009710306734046303913503349"
+          },
+          "target_changed": false
+        },
+        "ENTRADA_RECUO_025R": {
+          "path": {
+            "outcome": "RECUO_FORA_FAIXA"
+          },
+          "finance": {
+            "status": "SEM_ENTRADA"
+          }
+        }
+      }
+    },
+    {
+      "id": "3193ae6d486d7bce2146",
+      "symbol": "ENA_USDT",
+      "side": "LONG",
+      "signal": 1793117940,
+      "baseline": {
+        "outcome": "STOP",
+        "net_r": "-1",
+        "exited_at": 1793119680,
+        "ambiguous": false
+      },
+      "diagnostic": {
+        "minutes_to_stop": 29,
+        "best_close_r_before_stop": "0",
+        "best_wick_r_before_stop": "0.09046617971588062927021142422",
+        "returned_inside_before_stop": true,
+        "original_tp_after_stop_within_4h": false
+      },
+      "variants": {
+        "TP_1R": {
+          "path": {
+            "outcome": "STOP",
+            "net_r": "-1",
+            "exited_at": 1793119680,
+            "ambiguous": false
+          },
+          "finance": {
+            "status": "BLOQUEADA",
+            "reasons": [
+              "RETORNO_RISCO_INSUFICIENTE"
+            ],
+            "rr": null
+          },
+          "target_changed": true,
+          "target": "0.21926",
+          "stop": "0.21300"
+        },
+        "TP_1_5R": {
+          "path": {
+            "outcome": "STOP",
+            "net_r": "-1",
+            "exited_at": 1793119680,
+            "ambiguous": false
+          },
+          "finance": {
+            "status": "BLOQUEADA",
+            "reasons": [
+              "PRECO_FORA_DO_PLANO"
+            ],
+            "rr": "2.002274641436589759195391699"
+          },
+          "target_changed": true,
+          "target": "0.22082",
+          "stop": "0.21300"
+        },
+        "SL_ESTRUTURAL": {
+          "path": {
+            "outcome": "ABERTO"
+          },
+          "finance": {
+            "status": "BLOQUEADA",
+            "reasons": [
+              "RETORNO_RISCO_INSUFICIENTE"
+            ],
+            "rr": null
+          },
+          "target_changed": false,
+          "stop": "0.20543",
+          "target": "0.22309"
+        },
+        "PROTEGER_ZERO_APOS_1R": {
+          "path": {
+            "outcome": "STOP",
+            "net_r": "-1",
+            "exited_at": 1793119680,
+            "ambiguous": false
+          },
+          "finance": {
+            "status": "VIAVEL_SIMULADO",
+            "reasons": [],
+            "rr": "2.006651540852819151093519996"
+          },
+          "target_changed": false
+        },
+        "ENTRADA_RECUO_025R": {
+          "path": {
+            "outcome": "STOP",
+            "net_r": "-1",
+            "exited_at": 1793119680,
+            "ambiguous": false
+          },
+          "finance": {
+            "status": "VIAVEL_SIMULADO",
+            "reasons": [],
+            "rr": "2.006651540852819151093519996"
+          },
+          "target_changed": false,
+          "entry_at": 1793118120,
+          "entry_mid": "0.21491"
+        }
+      }
+    },
+    {
+      "id": "702ceed2c04a6c3a03a2",
+      "symbol": "ENA_USDT",
+      "side": "SHORT",
+      "signal": 1793386080,
+      "baseline": {
+        "outcome": "STOP",
+        "net_r": "-1",
+        "exited_at": 1793386620,
+        "ambiguous": false
+      },
+      "diagnostic": {
+        "minutes_to_stop": 9,
+        "best_close_r_before_stop": "0.2763985137826694594673320140",
+        "best_wick_r_before_stop": "0.3011349190885351466663113166",
+        "returned_inside_before_stop": true,
+        "original_tp_after_stop_within_4h": false
+      },
+      "variants": {
+        "TP_1R": {
+          "path": {
+            "outcome": "STOP",
+            "net_r": "-1",
+            "exited_at": 1793386620,
+            "ambiguous": false
+          },
+          "finance": {
+            "status": "BLOQUEADA",
+            "reasons": [
+              "RETORNO_RISCO_INSUFICIENTE"
+            ],
+            "rr": null
+          },
+          "target_changed": true,
+          "target": "0.18094",
+          "stop": "0.18499"
+        },
+        "TP_1_5R": {
+          "path": {
+            "outcome": "STOP",
+            "net_r": "-1",
+            "exited_at": 1793386620,
+            "ambiguous": false
+          },
+          "finance": {
+            "status": "BLOQUEADA",
+            "reasons": [
+              "RETORNO_RISCO_INSUFICIENTE"
+            ],
+            "rr": null
+          },
+          "target_changed": true,
+          "target": "0.17993",
+          "stop": "0.18499"
+        },
+        "SL_ESTRUTURAL": {
+          "path": {
+            "outcome": "ABERTO"
+          },
+          "finance": {
+            "status": "BLOQUEADA",
+            "reasons": [
+              "RETORNO_RISCO_INSUFICIENTE"
+            ],
+            "rr": null
+          },
+          "target_changed": false,
+          "stop": "0.19106",
+          "target": "0.17662"
+        },
+        "PROTEGER_ZERO_APOS_1R": {
+          "path": {
+            "outcome": "STOP",
+            "net_r": "-1",
+            "exited_at": 1793386620,
+            "ambiguous": false
+          },
+          "finance": {
+            "status": "VIAVEL_SIMULADO",
+            "reasons": [],
+            "rr": "2.120890944803269062826928637"
+          },
+          "target_changed": false
+        },
+        "ENTRADA_RECUO_025R": {
+          "path": {
+            "outcome": "RECUO_FORA_FAIXA"
+          },
+          "finance": {
+            "status": "SEM_ENTRADA"
+          }
+        }
+      }
+    },
+    {
+      "id": "7aaa2d6afb5a5cba9c76",
+      "symbol": "ENA_USDT",
+      "side": "LONG",
+      "signal": 1793569440,
+      "baseline": {
+        "outcome": "STOP",
+        "net_r": "-1",
+        "exited_at": 1793570760,
+        "ambiguous": false
+      },
+      "diagnostic": {
+        "minutes_to_stop": 22,
+        "best_close_r_before_stop": "0",
+        "best_wick_r_before_stop": "0",
+        "returned_inside_before_stop": true,
+        "original_tp_after_stop_within_4h": true
+      },
+      "variants": {
+        "TP_1R": {
+          "path": {
+            "outcome": "STOP",
+            "net_r": "-1",
+            "exited_at": 1793570760,
+            "ambiguous": false
+          },
+          "finance": {
+            "status": "BLOQUEADA",
+            "reasons": [
+              "RETORNO_RISCO_INSUFICIENTE"
+            ],
+            "rr": null
+          },
+          "target_changed": true,
+          "target": "0.18421",
+          "stop": "0.18202"
+        },
+        "TP_1_5R": {
+          "path": {
+            "outcome": "STOP",
+            "net_r": "-1",
+            "exited_at": 1793570760,
+            "ambiguous": false
+          },
+          "finance": {
+            "status": "BLOQUEADA",
+            "reasons": [
+              "RETORNO_RISCO_INSUFICIENTE"
+            ],
+            "rr": null
+          },
+          "target_changed": true,
+          "target": "0.18475",
+          "stop": "0.18202"
+        },
+        "SL_ESTRUTURAL": {
+          "path": {
+            "outcome": "ALVO",
+            "net_r": "0.7283138897380109048641241326",
+            "exited_at": 1793581800,
+            "ambiguous": false
+          },
+          "finance": {
+            "status": "BLOQUEADA",
+            "reasons": [
+              "RETORNO_RISCO_INSUFICIENTE"
+            ],
+            "rr": null
+          },
+          "target_changed": false,
+          "stop": "0.17957",
+          "target": "0.18569"
+        },
+        "PROTEGER_ZERO_APOS_1R": {
+          "path": {
+            "outcome": "STOP",
+            "net_r": "-1",
+            "exited_at": 1793570760,
+            "ambiguous": false
+          },
+          "finance": {
+            "status": "VIAVEL_SIMULADO",
+            "reasons": [],
+            "rr": "2.000929641826026043064675575"
+          },
+          "target_changed": false
+        },
+        "ENTRADA_RECUO_025R": {
+          "path": {
+            "outcome": "RECUO_FORA_FAIXA"
+          },
+          "finance": {
+            "status": "SEM_ENTRADA"
+          }
+        }
+      }
+    },
+    {
+      "id": "60b2adc9f6d34c64f478",
+      "symbol": "ENA_USDT",
+      "side": "LONG",
+      "signal": 1793569440,
+      "baseline": {
+        "outcome": "STOP",
+        "net_r": "-1",
+        "exited_at": 1793570760,
+        "ambiguous": false
+      },
+      "diagnostic": {
+        "minutes_to_stop": 22,
+        "best_close_r_before_stop": "0",
+        "best_wick_r_before_stop": "0",
+        "returned_inside_before_stop": true,
+        "original_tp_after_stop_within_4h": true
+      },
+      "variants": {
+        "TP_1R": {
+          "path": {
+            "outcome": "STOP",
+            "net_r": "-1",
+            "exited_at": 1793570760,
+            "ambiguous": false
+          },
+          "finance": {
+            "status": "BLOQUEADA",
+            "reasons": [
+              "RETORNO_RISCO_INSUFICIENTE"
+            ],
+            "rr": null
+          },
+          "target_changed": true,
+          "target": "0.18421",
+          "stop": "0.18202"
+        },
+        "TP_1_5R": {
+          "path": {
+            "outcome": "STOP",
+            "net_r": "-1",
+            "exited_at": 1793570760,
+            "ambiguous": false
+          },
+          "finance": {
+            "status": "BLOQUEADA",
+            "reasons": [
+              "RETORNO_RISCO_INSUFICIENTE"
+            ],
+            "rr": null
+          },
+          "target_changed": true,
+          "target": "0.18475",
+          "stop": "0.18202"
+        },
+        "SL_ESTRUTURAL": {
+          "path": {
+            "outcome": "ALVO",
+            "net_r": "0.6577128321506738580967988004",
+            "exited_at": 1793581740,
+            "ambiguous": false
+          },
+          "finance": {
+            "status": "BLOQUEADA",
+            "reasons": [
+              "RETORNO_RISCO_INSUFICIENTE"
+            ],
+            "rr": null
+          },
+          "target_changed": false,
+          "stop": "0.17957",
+          "target": "0.18544"
+        },
+        "PROTEGER_ZERO_APOS_1R": {
+          "path": {
+            "outcome": "STOP",
+            "net_r": "-1",
+            "exited_at": 1793570760,
+            "ambiguous": false
+          },
+          "finance": {
+            "status": "VIAVEL_SIMULADO",
+            "reasons": [],
+            "rr": "2.019040483998642994458894040"
+          },
+          "target_changed": false
+        },
+        "ENTRADA_RECUO_025R": {
+          "path": {
+            "outcome": "RECUO_FORA_FAIXA"
+          },
+          "finance": {
+            "status": "SEM_ENTRADA"
+          }
+        }
+      }
+    },
+    {
+      "id": "5583cb6a9b06d839064c",
+      "symbol": "ENA_USDT",
+      "side": "LONG",
+      "signal": 1793574900,
+      "baseline": {
+        "outcome": "STOP",
+        "net_r": "-1",
+        "exited_at": 1793575680,
+        "ambiguous": false
+      },
+      "diagnostic": {
+        "minutes_to_stop": 13,
+        "best_close_r_before_stop": "0",
+        "best_wick_r_before_stop": "0",
+        "returned_inside_before_stop": true,
+        "original_tp_after_stop_within_4h": true
+      },
+      "variants": {
+        "TP_1R": {
+          "path": {
+            "outcome": "STOP",
+            "net_r": "-1",
+            "exited_at": 1793575680,
+            "ambiguous": false
+          },
+          "finance": {
+            "status": "BLOQUEADA",
+            "reasons": [
+              "RETORNO_RISCO_INSUFICIENTE"
+            ],
+            "rr": null
+          },
+          "target_changed": true,
+          "target": "0.18444",
+          "stop": "0.18247"
+        },
+        "TP_1_5R": {
+          "path": {
+            "outcome": "STOP",
+            "net_r": "-1",
+            "exited_at": 1793575680,
+            "ambiguous": false
+          },
+          "finance": {
+            "status": "BLOQUEADA",
+            "reasons": [
+              "RETORNO_RISCO_INSUFICIENTE"
+            ],
+            "rr": null
+          },
+          "target_changed": true,
+          "target": "0.18493",
+          "stop": "0.18247"
+        },
+        "SL_ESTRUTURAL": {
+          "path": {
+            "outcome": "ALVO",
+            "net_r": "0.6537338255366379254260978539",
+            "exited_at": 1793581740,
+            "ambiguous": false
+          },
+          "finance": {
+            "status": "BLOQUEADA",
+            "reasons": [
+              "RETORNO_RISCO_INSUFICIENTE"
+            ],
+            "rr": null
+          },
+          "target_changed": false,
+          "stop": "0.18041",
+          "target": "0.18544"
+        },
+        "PROTEGER_ZERO_APOS_1R": {
+          "path": {
+            "outcome": "STOP",
+            "net_r": "-1",
+            "exited_at": 1793575680,
+            "ambiguous": false
+          },
+          "finance": {
+            "status": "VIAVEL_SIMULADO",
+            "reasons": [],
+            "rr": "2.020470145668618143030460945"
+          },
+          "target_changed": false
+        },
+        "ENTRADA_RECUO_025R": {
+          "path": {
+            "outcome": "RECUO_FORA_FAIXA"
+          },
+          "finance": {
+            "status": "SEM_ENTRADA"
+          }
+        }
+      }
+    },
+    {
+      "id": "f2a2e83512dab8e162bf",
+      "symbol": "ENA_USDT",
+      "side": "SHORT",
+      "signal": 1793633760,
+      "baseline": {
+        "outcome": "STOP",
+        "net_r": "-1",
+        "exited_at": 1793634360,
+        "ambiguous": false
+      },
+      "diagnostic": {
+        "minutes_to_stop": 10,
+        "best_close_r_before_stop": "0",
+        "best_wick_r_before_stop": "0",
+        "returned_inside_before_stop": true,
+        "original_tp_after_stop_within_4h": true
+      },
+      "variants": {
+        "TP_1R": {
+          "path": {
+            "outcome": "STOP",
+            "net_r": "-1",
+            "exited_at": 1793634360,
+            "ambiguous": false
+          },
+          "finance": {
+            "status": "BLOQUEADA",
+            "reasons": [
+              "RETORNO_RISCO_INSUFICIENTE"
+            ],
+            "rr": null
+          },
+          "target_changed": true,
+          "target": "0.17429",
+          "stop": "0.17685"
+        },
+        "TP_1_5R": {
+          "path": {
+            "outcome": "STOP",
+            "net_r": "-1",
+            "exited_at": 1793634360,
+            "ambiguous": false
+          },
+          "finance": {
+            "status": "BLOQUEADA",
+            "reasons": [
+              "RETORNO_RISCO_INSUFICIENTE"
+            ],
+            "rr": null
+          },
+          "target_changed": true,
+          "target": "0.17365",
+          "stop": "0.17685"
+        },
+        "SL_ESTRUTURAL": {
+          "path": {
+            "outcome": "ALVO",
+            "net_r": "0.7946365446453534524309162250",
+            "exited_at": 1793637000,
+            "ambiguous": false
+          },
+          "finance": {
+            "status": "BLOQUEADA",
+            "reasons": [
+              "RETORNO_RISCO_INSUFICIENTE"
+            ],
+            "rr": null
+          },
+          "target_changed": false,
+          "stop": "0.18111",
+          "target": "0.17117"
+        },
+        "PROTEGER_ZERO_APOS_1R": {
+          "path": {
+            "outcome": "STOP",
+            "net_r": "-1",
+            "exited_at": 1793634360,
+            "ambiguous": false
+          },
+          "finance": {
+            "status": "VIAVEL_SIMULADO",
+            "reasons": [],
+            "rr": "2.245002808565439574742091491"
+          },
+          "target_changed": false
+        },
+        "ENTRADA_RECUO_025R": {
+          "path": {
+            "outcome": "RECUO_FORA_FAIXA"
+          },
+          "finance": {
+            "status": "SEM_ENTRADA"
+          }
+        }
+      }
+    },
+    {
+      "id": "092c5ccff0b2b13c6f23",
+      "symbol": "ENA_USDT",
+      "side": "SHORT",
+      "signal": 1793634720,
+      "baseline": {
+        "outcome": "ALVO",
+        "net_r": "2.727772660171873282147786259",
+        "exited_at": 1793638920,
+        "ambiguous": false
+      },
+      "diagnostic": {},
+      "variants": {
+        "TP_1R": {
+          "path": {
+            "outcome": "ALVO",
+            "net_r": "1.002982324868469226228661273",
+            "exited_at": 1793636580,
+            "ambiguous": false
+          },
+          "finance": {
+            "status": "BLOQUEADA",
+            "reasons": [
+              "RETORNO_RISCO_INSUFICIENTE"
+            ],
+            "rr": null
+          },
+          "target_changed": true,
+          "target": "0.17328",
+          "stop": "0.17652"
+        },
+        "TP_1_5R": {
+          "path": {
+            "outcome": "ALVO",
+            "net_r": "1.503727906085586532785826592",
+            "exited_at": 1793636580,
+            "ambiguous": false
+          },
+          "finance": {
+            "status": "BLOQUEADA",
+            "reasons": [
+              "PRECO_FORA_DO_PLANO"
+            ],
+            "rr": "2.021234600293384536488210951"
+          },
+          "target_changed": true,
+          "target": "0.17247",
+          "stop": "0.17652"
+        },
+        "SL_ESTRUTURAL": {
+          "path": {
+            "outcome": "ALVO",
+            "net_r": "0.7108094396238569570552966321",
+            "exited_at": 1793638920,
+            "ambiguous": false
+          },
+          "finance": {
+            "status": "BLOQUEADA",
+            "reasons": [
+              "RETORNO_RISCO_INSUFICIENTE"
+            ],
+            "rr": null
+          },
+          "target_changed": false,
+          "stop": "0.18111",
+          "target": "0.17049"
+        },
+        "PROTEGER_ZERO_APOS_1R": {
+          "path": {
+            "outcome": "ALVO",
+            "net_r": "2.727772660171873282147786259",
+            "exited_at": 1793638920,
+            "ambiguous": false
+          },
+          "finance": {
+            "status": "VIAVEL_SIMULADO",
+            "reasons": [],
+            "rr": "2.699277654362761684786606447"
+          },
+          "target_changed": false
+        },
+        "ENTRADA_RECUO_025R": {
+          "path": {
+            "outcome": "SEM_RECUO"
+          },
+          "finance": {
+            "status": "SEM_ENTRADA"
+          }
+        }
+      }
+    },
+    {
+      "id": "3f40f57a1445865c42d5",
+      "symbol": "ENA_USDT",
+      "side": "SHORT",
+      "signal": 1793636640,
+      "baseline": {
+        "outcome": "ABERTO"
+      },
+      "diagnostic": {},
+      "variants": {
+        "TP_1R": {
+          "path": {
+            "outcome": "ALVO",
+            "net_r": "1.001766131217162567008833425",
+            "exited_at": 1793638680,
+            "ambiguous": false
+          },
+          "finance": {
+            "status": "BLOQUEADA",
+            "reasons": [
+              "RETORNO_RISCO_INSUFICIENTE"
+            ],
+            "rr": null
+          },
+          "target_changed": true,
+          "target": "0.17073",
+          "stop": "0.17422"
+        },
+        "TP_1_5R": {
+          "path": {
+            "outcome": "ALVO",
+            "net_r": "1.500773734128031172538256084",
+            "exited_at": 1793640780,
+            "ambiguous": false
+          },
+          "finance": {
+            "status": "BLOQUEADA",
+            "reasons": [
+              "RETORNO_RISCO_INSUFICIENTE"
+            ],
+            "rr": null
+          },
+          "target_changed": true,
+          "target": "0.16986",
+          "stop": "0.17422"
+        },
+        "SL_ESTRUTURAL": {
+          "path": {
+            "outcome": "ABERTO"
+          },
+          "finance": {
+            "status": "BLOQUEADA",
+            "reasons": [
+              "RETORNO_RISCO_INSUFICIENTE"
+            ],
+            "rr": null
+          },
+          "target_changed": false,
+          "stop": "0.17903",
+          "target": "0.16787"
+        },
+        "PROTEGER_ZERO_APOS_1R": {
+          "path": {
+            "outcome": "ABERTO"
+          },
+          "finance": {
+            "status": "VIAVEL_SIMULADO",
+            "reasons": [],
+            "rr": "2.001530265245975969167989118"
+          },
+          "target_changed": false
+        },
+        "ENTRADA_RECUO_025R": {
+          "path": {
+            "outcome": "SEM_RECUO"
+          },
+          "finance": {
+            "status": "SEM_ENTRADA"
+          }
+        }
+      }
+    },
+    {
+      "id": "b7564dfb69f31b7e5998",
+      "symbol": "ENA_USDT",
+      "side": "LONG",
+      "signal": 1793906280,
+      "baseline": {
+        "outcome": "STOP",
+        "net_r": "-1",
+        "exited_at": 1793906940,
+        "ambiguous": false
+      },
+      "diagnostic": {
+        "minutes_to_stop": 11,
+        "best_close_r_before_stop": "0",
+        "best_wick_r_before_stop": "0",
+        "returned_inside_before_stop": true,
+        "original_tp_after_stop_within_4h": false
+      },
+      "variants": {
+        "TP_1R": {
+          "path": {
+            "outcome": "STOP",
+            "net_r": "-1",
+            "exited_at": 1793906940,
+            "ambiguous": false
+          },
+          "finance": {
+            "status": "BLOQUEADA",
+            "reasons": [
+              "RETORNO_RISCO_INSUFICIENTE"
+            ],
+            "rr": null
+          },
+          "target_changed": true,
+          "target": "0.16635",
+          "stop": "0.16305"
+        },
+        "TP_1_5R": {
+          "path": {
+            "outcome": "STOP",
+            "net_r": "-1",
+            "exited_at": 1793906940,
+            "ambiguous": false
+          },
+          "finance": {
+            "status": "BLOQUEADA",
+            "reasons": [
+              "RETORNO_RISCO_INSUFICIENTE"
+            ],
+            "rr": null
+          },
+          "target_changed": true,
+          "target": "0.16718",
+          "stop": "0.16305"
+        },
+        "SL_ESTRUTURAL": {
+          "path": {
+            "outcome": "STOP",
+            "net_r": "-1",
+            "exited_at": 1793920260,
+            "ambiguous": false
+          },
+          "finance": {
+            "status": "BLOQUEADA",
+            "reasons": [
+              "RETORNO_RISCO_INSUFICIENTE"
+            ],
+            "rr": null
+          },
+          "target_changed": false,
+          "stop": "0.15953",
+          "target": "0.16851"
+        },
+        "PROTEGER_ZERO_APOS_1R": {
+          "path": {
+            "outcome": "STOP",
+            "net_r": "-1",
+            "exited_at": 1793906940,
+            "ambiguous": false
+          },
+          "finance": {
+            "status": "VIAVEL_SIMULADO",
+            "reasons": [],
+            "rr": "2.010635057280974769882789219"
+          },
+          "target_changed": false
+        },
+        "ENTRADA_RECUO_025R": {
+          "path": {
+            "outcome": "RECUO_FORA_FAIXA"
+          },
+          "finance": {
+            "status": "SEM_ENTRADA"
+          }
+        }
+      }
+    },
+    {
+      "id": "3a2869d9c347b97c58b3",
+      "symbol": "ENA_USDT",
+      "side": "LONG",
+      "signal": 1793906280,
+      "baseline": {
+        "outcome": "STOP",
+        "net_r": "-1",
+        "exited_at": 1793906880,
+        "ambiguous": false
+      },
+      "diagnostic": {
+        "minutes_to_stop": 10,
+        "best_close_r_before_stop": "0",
+        "best_wick_r_before_stop": "0",
+        "returned_inside_before_stop": true,
+        "original_tp_after_stop_within_4h": false
+      },
+      "variants": {
+        "TP_1R": {
+          "path": {
+            "outcome": "STOP",
+            "net_r": "-1",
+            "exited_at": 1793906880,
+            "ambiguous": false
+          },
+          "finance": {
+            "status": "BLOQUEADA",
+            "reasons": [
+              "RETORNO_RISCO_INSUFICIENTE"
+            ],
+            "rr": null
+          },
+          "target_changed": true,
+          "target": "0.16634",
+          "stop": "0.16306"
+        },
+        "TP_1_5R": {
+          "path": {
+            "outcome": "STOP",
+            "net_r": "-1",
+            "exited_at": 1793906880,
+            "ambiguous": false
+          },
+          "finance": {
+            "status": "BLOQUEADA",
+            "reasons": [
+              "RETORNO_RISCO_INSUFICIENTE"
+            ],
+            "rr": null
+          },
+          "target_changed": true,
+          "target": "0.16716",
+          "stop": "0.16306"
+        },
+        "SL_ESTRUTURAL": {
+          "path": {
+            "outcome": "STOP",
+            "net_r": "-1",
+            "exited_at": 1793920260,
+            "ambiguous": false
+          },
+          "finance": {
+            "status": "BLOQUEADA",
+            "reasons": [
+              "RETORNO_RISCO_INSUFICIENTE"
+            ],
+            "rr": null
+          },
+          "target_changed": false,
+          "stop": "0.15953",
+          "target": "0.16851"
+        },
+        "PROTEGER_ZERO_APOS_1R": {
+          "path": {
+            "outcome": "STOP",
+            "net_r": "-1",
+            "exited_at": 1793906880,
+            "ambiguous": false
+          },
+          "finance": {
+            "status": "VIAVEL_SIMULADO",
+            "reasons": [],
+            "rr": "2.005094540365623772167210408"
+          },
+          "target_changed": false
+        },
+        "ENTRADA_RECUO_025R": {
+          "path": {
+            "outcome": "RECUO_FORA_FAIXA"
+          },
+          "finance": {
+            "status": "SEM_ENTRADA"
+          }
+        }
+      }
+    },
+    {
+      "id": "b705a49ee8fb51611c62",
+      "symbol": "XLM_USDT",
+      "side": "LONG",
+      "signal": 1793327220,
+      "baseline": {
+        "outcome": "ALVO",
+        "net_r": "3.174800758736270709240625973",
+        "exited_at": 1793338200,
+        "ambiguous": false
+      },
+      "diagnostic": {},
+      "variants": {
+        "TP_1R": {
+          "path": {
+            "outcome": "ALVO",
+            "net_r": "1.004481193313788008927278101",
+            "exited_at": 1793331300,
+            "ambiguous": false
+          },
+          "finance": {
+            "status": "BLOQUEADA",
+            "reasons": [
+              "RETORNO_RISCO_INSUFICIENTE"
+            ],
+            "rr": null
+          },
+          "target_changed": true,
+          "target": "0.16441",
+          "stop": "0.16163"
+        },
+        "TP_1_5R": {
+          "path": {
+            "outcome": "ALVO",
+            "net_r": "1.501996309639872083085487414",
+            "exited_at": 1793332140,
+            "ambiguous": false
+          },
+          "finance": {
+            "status": "BLOQUEADA",
+            "reasons": [
+              "RETORNO_RISCO_INSUFICIENTE"
+            ],
+            "rr": null
+          },
+          "target_changed": true,
+          "target": "0.16510",
+          "stop": "0.16163"
+        },
+        "SL_ESTRUTURAL": {
+          "path": {
+            "outcome": "ALVO",
+            "net_r": "0.7839045238496110383612191620",
+            "exited_at": 1793338200,
+            "ambiguous": false
+          },
+          "finance": {
+            "status": "BLOQUEADA",
+            "reasons": [
+              "RETORNO_RISCO_INSUFICIENTE"
+            ],
+            "rr": null
+          },
+          "target_changed": false,
+          "stop": "0.15740",
+          "target": "0.16742"
+        },
+        "PROTEGER_ZERO_APOS_1R": {
+          "path": {
+            "outcome": "ALVO",
+            "net_r": "3.174800758736270709240625973",
+            "exited_at": 1793338200,
+            "ambiguous": false
+          },
+          "finance": {
+            "status": "VIAVEL_SIMULADO",
+            "reasons": [],
+            "rr": "2.127428806192834129781391225"
+          },
+          "target_changed": false
+        },
+        "ENTRADA_RECUO_025R": {
+          "path": {
+            "outcome": "SEM_RECUO"
+          },
+          "finance": {
+            "status": "SEM_ENTRADA"
+          }
+        }
+      }
+    },
+    {
+      "id": "4bc695584ee61e6bdd24",
+      "symbol": "XLM_USDT",
+      "side": "LONG",
+      "signal": 1793330820,
+      "baseline": {
+        "outcome": "ALVO",
+        "net_r": "2.389755840950982384852293130",
+        "exited_at": 1793337120,
+        "ambiguous": false
+      },
+      "diagnostic": {},
+      "variants": {
+        "TP_1R": {
+          "path": {
+            "outcome": "ALVO",
+            "net_r": "1.002003449689170804476522117",
+            "exited_at": 1793333880,
+            "ambiguous": false
+          },
+          "finance": {
+            "status": "BLOQUEADA",
+            "reasons": [
+              "RETORNO_RISCO_INSUFICIENTE"
+            ],
+            "rr": null
+          },
+          "target_changed": true,
+          "target": "0.16539",
+          "stop": "0.16275"
+        },
+        "TP_1_5R": {
+          "path": {
+            "outcome": "ALVO",
+            "net_r": "1.502504312111463505595652646",
+            "exited_at": 1793335800,
+            "ambiguous": false
+          },
+          "finance": {
+            "status": "BLOQUEADA",
+            "reasons": [
+              "RETORNO_RISCO_INSUFICIENTE"
+            ],
+            "rr": null
+          },
+          "target_changed": true,
+          "target": "0.16605",
+          "stop": "0.16275"
+        },
+        "SL_ESTRUTURAL": {
+          "path": {
+            "outcome": "ALVO",
+            "net_r": "0.7180568276281627953076369079",
+            "exited_at": 1793337120,
+            "ambiguous": false
+          },
+          "finance": {
+            "status": "BLOQUEADA",
+            "reasons": [
+              "RETORNO_RISCO_INSUFICIENTE"
+            ],
+            "rr": null
+          },
+          "target_changed": false,
+          "stop": "0.15968",
+          "target": "0.16722"
+        },
+        "PROTEGER_ZERO_APOS_1R": {
+          "path": {
+            "outcome": "ALVO",
+            "net_r": "2.389755840950982384852293130",
+            "exited_at": 1793337120,
+            "ambiguous": false
+          },
+          "finance": {
+            "status": "VIAVEL_SIMULADO",
+            "reasons": [],
+            "rr": "2.015050871622059490635733264"
+          },
+          "target_changed": false
+        },
+        "ENTRADA_RECUO_025R": {
+          "path": {
+            "outcome": "SEM_RECUO"
+          },
+          "finance": {
+            "status": "SEM_ENTRADA"
+          }
+        }
+      }
+    },
+    {
+      "id": "50aeec03c60e5b431e3d",
+      "symbol": "INJ_USDT",
+      "side": "LONG",
+      "signal": 1793331240,
+      "baseline": {
+        "outcome": "ALVO",
+        "net_r": "2.354486085383985953334637464",
+        "exited_at": 1793334720,
+        "ambiguous": false
+      },
+      "diagnostic": {},
+      "variants": {
+        "TP_1R": {
+          "path": {
+            "outcome": "ALVO",
+            "net_r": "1.004509977851406240407283362",
+            "exited_at": 1793332800,
+            "ambiguous": false
+          },
+          "finance": {
+            "status": "BLOQUEADA",
+            "reasons": [
+              "RETORNO_RISCO_INSUFICIENTE"
+            ],
+            "rr": null
+          },
+          "target_changed": true,
+          "target": "7.261",
+          "stop": "7.114"
+        },
+        "TP_1_5R": {
+          "path": {
+            "outcome": "ALVO",
+            "net_r": "1.509046502888835022006395501",
+            "exited_at": 1793333700,
+            "ambiguous": false
+          },
+          "finance": {
+            "status": "BLOQUEADA",
+            "reasons": [
+              "RETORNO_RISCO_INSUFICIENTE"
+            ],
+            "rr": null
+          },
+          "target_changed": true,
+          "target": "7.298",
+          "stop": "7.114"
+        },
+        "SL_ESTRUTURAL": {
+          "path": {
+            "outcome": "ALVO",
+            "net_r": "0.7463878964927236167849636761",
+            "exited_at": 1793334720,
+            "ambiguous": false
+          },
+          "finance": {
+            "status": "BLOQUEADA",
+            "reasons": [
+              "RETORNO_RISCO_INSUFICIENTE"
+            ],
+            "rr": null
+          },
+          "target_changed": false,
+          "stop": "6.956",
+          "target": "7.360"
+        },
+        "PROTEGER_ZERO_APOS_1R": {
+          "path": {
+            "outcome": "PROTECAO",
+            "net_r": "0.009073050074857563198224277684",
+            "exited_at": 1793333100,
+            "ambiguous": false
+          },
+          "finance": {
+            "status": "VIAVEL_SIMULADO",
+            "reasons": [],
+            "rr": "2.013702190045870097648636523"
+          },
+          "target_changed": false
+        },
+        "ENTRADA_RECUO_025R": {
+          "path": {
+            "outcome": "SEM_RECUO"
+          },
+          "finance": {
+            "status": "SEM_ENTRADA"
+          }
+        }
+      }
+    },
+    {
+      "id": "fea502a2643da9e92228",
+      "symbol": "INJ_USDT",
+      "side": "LONG",
+      "signal": 1793334780,
+      "baseline": {
+        "outcome": "STOP",
+        "net_r": "-1",
+        "exited_at": 1793346180,
+        "ambiguous": false
+      },
+      "diagnostic": {
+        "minutes_to_stop": 190,
+        "best_close_r_before_stop": "0.7917476600520368190930129713",
+        "best_wick_r_before_stop": "0.8433087437945414757575601072",
+        "returned_inside_before_stop": true,
+        "original_tp_after_stop_within_4h": false
+      },
+      "variants": {
+        "TP_1R": {
+          "path": {
+            "outcome": "STOP",
+            "net_r": "-1",
+            "exited_at": 1793346180,
+            "ambiguous": false
+          },
+          "finance": {
+            "status": "BLOQUEADA",
+            "reasons": [
+              "RETORNO_RISCO_INSUFICIENTE"
+            ],
+            "rr": null
+          },
+          "target_changed": true,
+          "target": "7.453",
+          "stop": "7.297"
+        },
+        "TP_1_5R": {
+          "path": {
+            "outcome": "STOP",
+            "net_r": "-1",
+            "exited_at": 1793346180,
+            "ambiguous": false
+          },
+          "finance": {
+            "status": "BLOQUEADA",
+            "reasons": [
+              "RETORNO_RISCO_INSUFICIENTE"
+            ],
+            "rr": null
+          },
+          "target_changed": true,
+          "target": "7.491",
+          "stop": "7.297"
+        },
+        "SL_ESTRUTURAL": {
+          "path": {
+            "outcome": "ABERTO"
+          },
+          "finance": {
+            "status": "BLOQUEADA",
+            "reasons": [
+              "RETORNO_RISCO_INSUFICIENTE"
+            ],
+            "rr": null
+          },
+          "target_changed": false,
+          "stop": "7.038",
+          "target": "7.599"
+        },
+        "PROTEGER_ZERO_APOS_1R": {
+          "path": {
+            "outcome": "STOP",
+            "net_r": "-1",
+            "exited_at": 1793346180,
+            "ambiguous": false
+          },
+          "finance": {
+            "status": "VIAVEL_SIMULADO",
+            "reasons": [],
+            "rr": "2.023975889853178984576479382"
+          },
+          "target_changed": false
+        },
+        "ENTRADA_RECUO_025R": {
+          "path": {
+            "outcome": "RECUO_FORA_FAIXA"
+          },
+          "finance": {
+            "status": "SEM_ENTRADA"
+          }
+        }
+      }
+    },
+    {
+      "id": "2bbdd2bca208e00cbe53",
+      "symbol": "INJ_USDT",
+      "side": "LONG",
+      "signal": 1793429340,
+      "baseline": {
+        "outcome": "STOP",
+        "net_r": "-1",
+        "exited_at": 1793429820,
+        "ambiguous": false
+      },
+      "diagnostic": {
+        "minutes_to_stop": 8,
+        "best_close_r_before_stop": "0",
+        "best_wick_r_before_stop": "0.01606032268012433144179108269",
+        "returned_inside_before_stop": true,
+        "original_tp_after_stop_within_4h": false
+      },
+      "variants": {
+        "TP_1R": {
+          "path": {
+            "outcome": "STOP",
+            "net_r": "-1",
+            "exited_at": 1793429820,
+            "ambiguous": false
+          },
+          "finance": {
+            "status": "BLOQUEADA",
+            "reasons": [
+              "RETORNO_RISCO_INSUFICIENTE"
+            ],
+            "rr": null
+          },
+          "target_changed": true,
+          "target": "7.219",
+          "stop": "7.134"
+        },
+        "TP_1_5R": {
+          "path": {
+            "outcome": "STOP",
+            "net_r": "-1",
+            "exited_at": 1793429820,
+            "ambiguous": false
+          },
+          "finance": {
+            "status": "BLOQUEADA",
+            "reasons": [
+              "RETORNO_RISCO_INSUFICIENTE"
+            ],
+            "rr": null
+          },
+          "target_changed": true,
+          "target": "7.240",
+          "stop": "7.134"
+        },
+        "SL_ESTRUTURAL": {
+          "path": {
+            "outcome": "ABERTO"
+          },
+          "finance": {
+            "status": "BLOQUEADA",
+            "reasons": [
+              "RETORNO_RISCO_INSUFICIENTE"
+            ],
+            "rr": null
+          },
+          "target_changed": false,
+          "stop": "7.036",
+          "target": "7.269"
+        },
+        "PROTEGER_ZERO_APOS_1R": {
+          "path": {
+            "outcome": "STOP",
+            "net_r": "-1",
+            "exited_at": 1793429820,
+            "ambiguous": false
+          },
+          "finance": {
+            "status": "VIAVEL_SIMULADO",
+            "reasons": [],
+            "rr": "2.026446837146702557200538358"
+          },
+          "target_changed": false
+        },
+        "ENTRADA_RECUO_025R": {
+          "path": {
+            "outcome": "RECUO_FORA_FAIXA"
+          },
+          "finance": {
+            "status": "SEM_ENTRADA"
+          }
+        }
+      }
+    },
+    {
+      "id": "69e7ba838770785ee257",
+      "symbol": "INJ_USDT",
+      "side": "LONG",
+      "signal": 1793429340,
+      "baseline": {
+        "outcome": "STOP",
+        "net_r": "-1",
+        "exited_at": 1793429820,
+        "ambiguous": false
+      },
+      "diagnostic": {
+        "minutes_to_stop": 8,
+        "best_close_r_before_stop": "0",
+        "best_wick_r_before_stop": "0.01644900122649546500139366901",
+        "returned_inside_before_stop": true,
+        "original_tp_after_stop_within_4h": false
+      },
+      "variants": {
+        "TP_1R": {
+          "path": {
+            "outcome": "STOP",
+            "net_r": "-1",
+            "exited_at": 1793429820,
+            "ambiguous": false
+          },
+          "finance": {
+            "status": "BLOQUEADA",
+            "reasons": [
+              "RETORNO_RISCO_INSUFICIENTE"
+            ],
+            "rr": null
+          },
+          "target_changed": true,
+          "target": "7.218",
+          "stop": "7.135"
+        },
+        "TP_1_5R": {
+          "path": {
+            "outcome": "STOP",
+            "net_r": "-1",
+            "exited_at": 1793429820,
+            "ambiguous": false
+          },
+          "finance": {
+            "status": "BLOQUEADA",
+            "reasons": [
+              "RETORNO_RISCO_INSUFICIENTE"
+            ],
+            "rr": null
+          },
+          "target_changed": true,
+          "target": "7.239",
+          "stop": "7.135"
+        },
+        "SL_ESTRUTURAL": {
+          "path": {
+            "outcome": "STOP",
+            "net_r": "-1",
+            "exited_at": 1793436000,
+            "ambiguous": false
+          },
+          "finance": {
+            "status": "BLOQUEADA",
+            "reasons": [
+              "RETORNO_RISCO_INSUFICIENTE"
+            ],
+            "rr": null
+          },
+          "target_changed": false,
+          "stop": "7.037",
+          "target": "7.269"
+        },
+        "PROTEGER_ZERO_APOS_1R": {
+          "path": {
+            "outcome": "STOP",
+            "net_r": "-1",
+            "exited_at": 1793429820,
+            "ambiguous": false
+          },
+          "finance": {
+            "status": "VIAVEL_SIMULADO",
+            "reasons": [],
+            "rr": "2.003947852457986774694265744"
+          },
+          "target_changed": false
+        },
+        "ENTRADA_RECUO_025R": {
+          "path": {
+            "outcome": "RECUO_FORA_FAIXA"
+          },
+          "finance": {
+            "status": "SEM_ENTRADA"
+          }
+        }
+      }
+    },
+    {
+      "id": "166b339ecc45c281c498",
+      "symbol": "ONDO_USDT",
+      "side": "LONG",
+      "signal": 1793335680,
+      "baseline": {
+        "outcome": "STOP",
+        "net_r": "-1",
+        "exited_at": 1793346180,
+        "ambiguous": false
+      },
+      "diagnostic": {
+        "minutes_to_stop": 175,
+        "best_close_r_before_stop": "0.5958389338119285273697340158",
+        "best_wick_r_before_stop": "0.8950587339016651262515591438",
+        "returned_inside_before_stop": true,
+        "original_tp_after_stop_within_4h": false
+      },
+      "variants": {
+        "TP_1R": {
+          "path": {
+            "outcome": "STOP",
+            "net_r": "-1",
+            "exited_at": 1793346180,
+            "ambiguous": false
+          },
+          "finance": {
+            "status": "BLOQUEADA",
+            "reasons": [
+              "RETORNO_RISCO_INSUFICIENTE"
+            ],
+            "rr": null
+          },
+          "target_changed": true,
+          "target": "0.3972",
+          "stop": "0.3891"
+        },
+        "TP_1_5R": {
+          "path": {
+            "outcome": "STOP",
+            "net_r": "-1",
+            "exited_at": 1793346180,
+            "ambiguous": false
+          },
+          "finance": {
+            "status": "BLOQUEADA",
+            "reasons": [
+              "RETORNO_RISCO_INSUFICIENTE"
+            ],
+            "rr": null
+          },
+          "target_changed": true,
+          "target": "0.3992",
+          "stop": "0.3891"
+        },
+        "SL_ESTRUTURAL": {
+          "path": {
+            "outcome": "ABERTO"
+          },
+          "finance": {
+            "status": "BLOQUEADA",
+            "reasons": [
+              "RETORNO_RISCO_INSUFICIENTE"
+            ],
+            "rr": null
+          },
+          "target_changed": false,
+          "stop": "0.3761",
+          "target": "0.4043"
+        },
+        "PROTEGER_ZERO_APOS_1R": {
+          "path": {
+            "outcome": "STOP",
+            "net_r": "-1",
+            "exited_at": 1793346180,
+            "ambiguous": false
+          },
+          "finance": {
+            "status": "VIAVEL_SIMULADO",
+            "reasons": [],
+            "rr": "2.119712814109567660371468706"
+          },
+          "target_changed": false
+        },
+        "ENTRADA_RECUO_025R": {
+          "path": {
+            "outcome": "SEM_RECUO"
+          },
+          "finance": {
+            "status": "SEM_ENTRADA"
+          }
+        }
+      }
+    },
+    {
+      "id": "1c35fded736d1fce7503",
+      "symbol": "AAVE_USDT",
+      "side": "LONG",
+      "signal": 1793329440,
+      "baseline": {
+        "outcome": "ALVO",
+        "net_r": "2.893011352069150325241495700",
+        "exited_at": 1793337060,
+        "ambiguous": false
+      },
+      "diagnostic": {},
+      "variants": {
+        "TP_1R": {
+          "path": {
+            "outcome": "ALVO",
+            "net_r": "1.003421046678860986089190770",
+            "exited_at": 1793331360,
+            "ambiguous": false
+          },
+          "finance": {
+            "status": "BLOQUEADA",
+            "reasons": [
+              "RETORNO_RISCO_INSUFICIENTE"
+            ],
+            "rr": null
+          },
+          "target_changed": true,
+          "target": "123.63",
+          "stop": "120.99"
+        },
+        "TP_1_5R": {
+          "path": {
+            "outcome": "ALVO",
+            "net_r": "1.504276308348576232611488462",
+            "exited_at": 1793332140,
+            "ambiguous": false
+          },
+          "finance": {
+            "status": "BLOQUEADA",
+            "reasons": [
+              "RETORNO_RISCO_INSUFICIENTE"
+            ],
+            "rr": null
+          },
+          "target_changed": true,
+          "target": "124.29",
+          "stop": "120.99"
+        },
+        "SL_ESTRUTURAL": {
+          "path": {
+            "outcome": "ALVO",
+            "net_r": "0.7896550611913499985474774400",
+            "exited_at": 1793337060,
+            "ambiguous": false
+          },
+          "finance": {
+            "status": "BLOQUEADA",
+            "reasons": [
+              "RETORNO_RISCO_INSUFICIENTE"
+            ],
+            "rr": null
+          },
+          "target_changed": false,
+          "stop": "117.48",
+          "target": "126.12"
+        },
+        "PROTEGER_ZERO_APOS_1R": {
+          "path": {
+            "outcome": "ALVO",
+            "net_r": "2.893011352069150325241495700",
+            "exited_at": 1793337060,
+            "ambiguous": false
+          },
+          "finance": {
+            "status": "VIAVEL_SIMULADO",
+            "reasons": [],
+            "rr": "2.006757422606394211141300522"
+          },
+          "target_changed": false
+        },
+        "ENTRADA_RECUO_025R": {
+          "path": {
+            "outcome": "RECUO_FORA_FAIXA"
+          },
+          "finance": {
+            "status": "SEM_ENTRADA"
+          }
+        }
+      }
+    },
+    {
+      "id": "4cc95118dbc0dbf7435b",
+      "symbol": "AAVE_USDT",
+      "side": "LONG",
+      "signal": 1793329440,
+      "baseline": {
+        "outcome": "ALVO",
+        "net_r": "2.960408449739305596199082251",
+        "exited_at": 1793337060,
+        "ambiguous": false
+      },
+      "diagnostic": {},
+      "variants": {
+        "TP_1R": {
+          "path": {
+            "outcome": "ALVO",
+            "net_r": "1.003500745162236948665418080",
+            "exited_at": 1793331300,
+            "ambiguous": false
+          },
+          "finance": {
+            "status": "BLOQUEADA",
+            "reasons": [
+              "RETORNO_RISCO_INSUFICIENTE"
+            ],
+            "rr": null
+          },
+          "target_changed": true,
+          "target": "123.60",
+          "stop": "121.02"
+        },
+        "TP_1_5R": {
+          "path": {
+            "outcome": "ALVO",
+            "net_r": "1.500493178070698827404126441",
+            "exited_at": 1793332140,
+            "ambiguous": false
+          },
+          "finance": {
+            "status": "BLOQUEADA",
+            "reasons": [
+              "RETORNO_RISCO_INSUFICIENTE"
+            ],
+            "rr": null
+          },
+          "target_changed": true,
+          "target": "124.24",
+          "stop": "121.02"
+        },
+        "SL_ESTRUTURAL": {
+          "path": {
+            "outcome": "ALVO",
+            "net_r": "0.7896550611913499985474774400",
+            "exited_at": 1793337060,
+            "ambiguous": false
+          },
+          "finance": {
+            "status": "BLOQUEADA",
+            "reasons": [
+              "RETORNO_RISCO_INSUFICIENTE"
+            ],
+            "rr": null
+          },
+          "target_changed": false,
+          "stop": "117.48",
+          "target": "126.12"
+        },
+        "PROTEGER_ZERO_APOS_1R": {
+          "path": {
+            "outcome": "ALVO",
+            "net_r": "2.960408449739305596199082251",
+            "exited_at": 1793337060,
+            "ambiguous": false
+          },
+          "finance": {
+            "status": "VIAVEL_SIMULADO",
+            "reasons": [],
+            "rr": "2.006740491092922484352431391"
+          },
+          "target_changed": false
+        },
+        "ENTRADA_RECUO_025R": {
+          "path": {
+            "outcome": "RECUO_FORA_FAIXA"
+          },
+          "finance": {
+            "status": "SEM_ENTRADA"
+          }
+        }
+      }
+    },
+    {
+      "id": "a53d422b16f0556e5a94",
+      "symbol": "AAVE_USDT",
+      "side": "LONG",
+      "signal": 1793400060,
+      "baseline": {
+        "outcome": "STOP",
+        "net_r": "-1",
+        "exited_at": 1793400960,
+        "ambiguous": false
+      },
+      "diagnostic": {
+        "minutes_to_stop": 15,
+        "best_close_r_before_stop": "0.01402542893582467521948416085",
+        "best_wick_r_before_stop": "0.3564236257193498902286606307",
+        "returned_inside_before_stop": true,
+        "original_tp_after_stop_within_4h": true
+      },
+      "variants": {
+        "TP_1R": {
+          "path": {
+            "outcome": "STOP",
+            "net_r": "-1",
+            "exited_at": 1793400960,
+            "ambiguous": false
+          },
+          "finance": {
+            "status": "BLOQUEADA",
+            "reasons": [
+              "RETORNO_RISCO_INSUFICIENTE"
+            ],
+            "rr": null
+          },
+          "target_changed": true,
+          "target": "129.90",
+          "stop": "128.38"
+        },
+        "TP_1_5R": {
+          "path": {
+            "outcome": "STOP",
+            "net_r": "-1",
+            "exited_at": 1793400960,
+            "ambiguous": false
+          },
+          "finance": {
+            "status": "BLOQUEADA",
+            "reasons": [
+              "RETORNO_RISCO_INSUFICIENTE"
+            ],
+            "rr": null
+          },
+          "target_changed": true,
+          "target": "130.28",
+          "stop": "128.38"
+        },
+        "SL_ESTRUTURAL": {
+          "path": {
+            "outcome": "ALVO",
+            "net_r": "0.7019793171030635158376995930",
+            "exited_at": 1793406960,
+            "ambiguous": false
+          },
+          "finance": {
+            "status": "BLOQUEADA",
+            "reasons": [
+              "RETORNO_RISCO_INSUFICIENTE"
+            ],
+            "rr": null
+          },
+          "target_changed": false,
+          "stop": "126.56",
+          "target": "130.95"
+        },
+        "PROTEGER_ZERO_APOS_1R": {
+          "path": {
+            "outcome": "STOP",
+            "net_r": "-1",
+            "exited_at": 1793400960,
+            "ambiguous": false
+          },
+          "finance": {
+            "status": "VIAVEL_SIMULADO",
+            "reasons": [],
+            "rr": "2.000186931611070090007570730"
+          },
+          "target_changed": false
+        },
+        "ENTRADA_RECUO_025R": {
+          "path": {
+            "outcome": "RECUO_FORA_FAIXA"
+          },
+          "finance": {
+            "status": "SEM_ENTRADA"
+          }
+        }
+      }
+    },
+    {
+      "id": "4eea637c0610f0b94466",
+      "symbol": "ONE_USDT",
+      "side": "LONG",
+      "signal": 1793251740,
+      "baseline": {
+        "outcome": "STOP",
+        "net_r": "-1",
+        "exited_at": 1793253960,
+        "ambiguous": false
+      },
+      "diagnostic": {
+        "minutes_to_stop": 37,
+        "best_close_r_before_stop": "0.3346429928117654817232617645",
+        "best_wick_r_before_stop": "0.4030862232123688397603521114",
+        "returned_inside_before_stop": true,
+        "original_tp_after_stop_within_4h": false
+      },
+      "variants": {
+        "TP_1R": {
+          "path": {
+            "outcome": "STOP",
+            "net_r": "-1",
+            "exited_at": 1793253960,
+            "ambiguous": false
+          },
+          "finance": {
+            "status": "BLOQUEADA",
+            "reasons": [
+              "RETORNO_RISCO_INSUFICIENTE"
+            ],
+            "rr": null
+          },
+          "target_changed": true,
+          "target": "0.0012413",
+          "stop": "0.0012179"
+        },
+        "TP_1_5R": {
+          "path": {
+            "outcome": "STOP",
+            "net_r": "-1",
+            "exited_at": 1793253960,
+            "ambiguous": false
+          },
+          "finance": {
+            "status": "BLOQUEADA",
+            "reasons": [
+              "RETORNO_RISCO_INSUFICIENTE"
+            ],
+            "rr": null
+          },
+          "target_changed": true,
+          "target": "0.0012472",
+          "stop": "0.0012179"
+        },
+        "SL_ESTRUTURAL": {
+          "path": {
+            "outcome": "ABERTO"
+          },
+          "finance": {
+            "status": "BLOQUEADA",
+            "reasons": [
+              "RETORNO_RISCO_INSUFICIENTE"
+            ],
+            "rr": null
+          },
+          "target_changed": false,
+          "stop": "0.0011876",
+          "target": "0.0012600"
+        },
+        "PROTEGER_ZERO_APOS_1R": {
+          "path": {
+            "outcome": "STOP",
+            "net_r": "-1",
+            "exited_at": 1793253960,
+            "ambiguous": false
+          },
+          "finance": {
+            "status": "VIAVEL_SIMULADO",
+            "reasons": [],
+            "rr": "2.172977474188545808919811008"
+          },
+          "target_changed": false
+        },
+        "ENTRADA_RECUO_025R": {
+          "path": {
+            "outcome": "SEM_RECUO"
+          },
+          "finance": {
+            "status": "SEM_ENTRADA"
+          }
+        }
+      }
+    },
+    {
+      "id": "3fe60c8c8c234f353599",
+      "symbol": "ONE_USDT",
+      "side": "SHORT",
+      "signal": 1793676960,
+      "baseline": {
+        "outcome": "STOP",
+        "net_r": "-1",
+        "exited_at": 1793677560,
+        "ambiguous": false
+      },
+      "diagnostic": {
+        "minutes_to_stop": 10,
+        "best_close_r_before_stop": "0",
+        "best_wick_r_before_stop": "0",
+        "returned_inside_before_stop": true,
+        "original_tp_after_stop_within_4h": false
+      },
+      "variants": {
+        "TP_1R": {
+          "path": {
+            "outcome": "STOP",
+            "net_r": "-1",
+            "exited_at": 1793677560,
+            "ambiguous": false
+          },
+          "finance": {
+            "status": "BLOQUEADA",
+            "reasons": [
+              "RETORNO_RISCO_INSUFICIENTE"
+            ],
+            "rr": null
+          },
+          "target_changed": true,
+          "target": "0.0010680",
+          "stop": "0.0010809"
+        },
+        "TP_1_5R": {
+          "path": {
+            "outcome": "STOP",
+            "net_r": "-1",
+            "exited_at": 1793677560,
+            "ambiguous": false
+          },
+          "finance": {
+            "status": "BLOQUEADA",
+            "reasons": [
+              "RETORNO_RISCO_INSUFICIENTE"
+            ],
+            "rr": null
+          },
+          "target_changed": true,
+          "target": "0.0010648",
+          "stop": "0.0010809"
+        },
+        "SL_ESTRUTURAL": {
+          "path": {
+            "outcome": "STOP",
+            "net_r": "-1",
+            "exited_at": 1793680020,
+            "ambiguous": false
+          },
+          "finance": {
+            "status": "BLOQUEADA",
+            "reasons": [
+              "RETORNO_RISCO_INSUFICIENTE"
+            ],
+            "rr": null
+          },
+          "target_changed": false,
+          "stop": "0.0010968",
+          "target": "0.0010586"
+        },
+        "PROTEGER_ZERO_APOS_1R": {
+          "path": {
+            "outcome": "STOP",
+            "net_r": "-1",
+            "exited_at": 1793677560,
+            "ambiguous": false
+          },
+          "finance": {
+            "status": "VIAVEL_SIMULADO",
+            "reasons": [],
+            "rr": "2.005818275850922843197465818"
+          },
+          "target_changed": false
+        },
+        "ENTRADA_RECUO_025R": {
+          "path": {
+            "outcome": "RECUO_FORA_FAIXA"
+          },
+          "finance": {
+            "status": "SEM_ENTRADA"
+          }
+        }
+      }
+    },
+    {
+      "id": "1abbf84c632eff679950",
+      "symbol": "DOT_USDT",
+      "side": "LONG",
+      "signal": 1793334780,
+      "baseline": {
+        "outcome": "ALVO",
+        "net_r": "2.310244270921939714852304138",
+        "exited_at": 1793337120,
+        "ambiguous": false
+      },
+      "diagnostic": {},
+      "variants": {
+        "TP_1R": {
+          "path": {
+            "outcome": "ALVO",
+            "net_r": "1.008052590816617841730258025",
+            "exited_at": 1793336580,
+            "ambiguous": false
+          },
+          "finance": {
+            "status": "BLOQUEADA",
+            "reasons": [
+              "RETORNO_RISCO_INSUFICIENTE"
+            ],
+            "rr": null
+          },
+          "target_changed": true,
+          "target": "0.9452",
+          "stop": "0.9287"
+        },
+        "TP_1_5R": {
+          "path": {
+            "outcome": "ALVO",
+            "net_r": "1.507023234595292578160200928",
+            "exited_at": 1793336940,
+            "ambiguous": false
+          },
+          "finance": {
+            "status": "BLOQUEADA",
+            "reasons": [
+              "RETORNO_RISCO_INSUFICIENTE"
+            ],
+            "rr": null
+          },
+          "target_changed": true,
+          "target": "0.9493",
+          "stop": "0.9287"
+        },
+        "SL_ESTRUTURAL": {
+          "path": {
+            "outcome": "ALVO",
+            "net_r": "0.7937095033371010713335996471",
+            "exited_at": 1793337120,
+            "ambiguous": false
+          },
+          "finance": {
+            "status": "BLOQUEADA",
+            "reasons": [
+              "RETORNO_RISCO_INSUFICIENTE"
+            ],
+            "rr": null
+          },
+          "target_changed": false,
+          "stop": "0.9130",
+          "target": "0.9559"
+        },
+        "PROTEGER_ZERO_APOS_1R": {
+          "path": {
+            "outcome": "ALVO",
+            "net_r": "2.310244270921939714852304138",
+            "exited_at": 1793337120,
+            "ambiguous": false
+          },
+          "finance": {
+            "status": "VIAVEL_SIMULADO",
+            "reasons": [],
+            "rr": "2.014065954535677141659662887"
+          },
+          "target_changed": false
+        },
+        "ENTRADA_RECUO_025R": {
+          "path": {
+            "outcome": "SEM_RECUO"
+          },
+          "finance": {
+            "status": "SEM_ENTRADA"
+          }
+        }
+      }
+    },
+    {
+      "id": "32b507cb79b6dc84d90e",
+      "symbol": "DOT_USDT",
+      "side": "LONG",
+      "signal": 1793925240,
+      "baseline": {
+        "outcome": "ABERTO"
+      },
+      "diagnostic": {},
+      "variants": {
+        "TP_1R": {
+          "path": {
+            "outcome": "ALVO",
+            "net_r": "1.001031248941259928577999027",
+            "exited_at": 1793927700,
+            "ambiguous": false
+          },
+          "finance": {
+            "status": "BLOQUEADA",
+            "reasons": [
+              "RETORNO_RISCO_INSUFICIENTE"
+            ],
+            "rr": null
+          },
+          "target_changed": true,
+          "target": "0.9277",
+          "stop": "0.9151"
+        },
+        "TP_1_5R": {
+          "path": {
+            "outcome": "ABERTO"
+          },
+          "finance": {
+            "status": "BLOQUEADA",
+            "reasons": [
+              "RETORNO_RISCO_INSUFICIENTE"
+            ],
+            "rr": null
+          },
+          "target_changed": true,
+          "target": "0.9309",
+          "stop": "0.9151"
+        },
+        "SL_ESTRUTURAL": {
+          "path": {
+            "outcome": "ABERTO"
+          },
+          "finance": {
+            "status": "BLOQUEADA",
+            "reasons": [
+              "RETORNO_RISCO_INSUFICIENTE"
+            ],
+            "rr": null
+          },
+          "target_changed": false,
+          "stop": "0.8937",
+          "target": "0.9380"
+        },
+        "PROTEGER_ZERO_APOS_1R": {
+          "path": {
+            "outcome": "PROTECAO",
+            "net_r": "0.0005156244706299642889995135318",
+            "exited_at": 1793928000,
+            "ambiguous": false
+          },
+          "finance": {
+            "status": "VIAVEL_SIMULADO",
+            "reasons": [],
+            "rr": "2.010644875279210921652560321"
+          },
+          "target_changed": false
+        },
+        "ENTRADA_RECUO_025R": {
+          "path": {
+            "outcome": "SEM_RECUO"
+          },
+          "finance": {
+            "status": "SEM_ENTRADA"
+          }
+        }
+      }
+    },
+    {
+      "id": "68eeb7b106aa1747bd56",
+      "symbol": "DOT_USDT",
+      "side": "LONG",
+      "signal": 1793925180,
+      "baseline": {
+        "outcome": "ABERTO"
+      },
+      "diagnostic": {},
+      "variants": {
+        "TP_1R": {
+          "path": {
+            "outcome": "ABERTO"
+          },
+          "finance": {
+            "status": "BLOQUEADA",
+            "reasons": [
+              "RETORNO_RISCO_INSUFICIENTE"
+            ],
+            "rr": null
+          },
+          "target_changed": true,
+          "target": "0.9289",
+          "stop": "0.9139"
+        },
+        "TP_1_5R": {
+          "path": {
+            "outcome": "ABERTO"
+          },
+          "finance": {
+            "status": "BLOQUEADA",
+            "reasons": [
+              "PRECO_FORA_DO_PLANO"
+            ],
+            "rr": "2.030683119606419872570368578"
+          },
+          "target_changed": true,
+          "target": "0.9327",
+          "stop": "0.9139"
+        },
+        "SL_ESTRUTURAL": {
+          "path": {
+            "outcome": "ABERTO"
+          },
+          "finance": {
+            "status": "BLOQUEADA",
+            "reasons": [
+              "RETORNO_RISCO_INSUFICIENTE"
+            ],
+            "rr": null
+          },
+          "target_changed": false,
+          "stop": "0.8937",
+          "target": "0.9380"
+        },
+        "PROTEGER_ZERO_APOS_1R": {
+          "path": {
+            "outcome": "ABERTO"
+          },
+          "finance": {
+            "status": "VIAVEL_SIMULADO",
+            "reasons": [],
+            "rr": "2.010474240617555227246024663"
+          },
+          "target_changed": false
+        },
+        "ENTRADA_RECUO_025R": {
+          "path": {
+            "outcome": "SEM_RECUO"
+          },
+          "finance": {
+            "status": "SEM_ENTRADA"
+          }
+        }
+      }
+    },
+    {
+      "id": "219272d094a9e632288a",
+      "symbol": "BNB_USDT",
+      "side": "SHORT",
+      "signal": 1793350200,
+      "baseline": {
+        "outcome": "ABERTO"
+      },
+      "diagnostic": {},
+      "variants": {
+        "TP_1R": {
+          "path": {
+            "outcome": "ALVO",
+            "net_r": "1.001192313812198978037017896",
+            "exited_at": 1793361420,
+            "ambiguous": false
+          },
+          "finance": {
+            "status": "BLOQUEADA",
+            "reasons": [
+              "RETORNO_RISCO_INSUFICIENTE"
+            ],
+            "rr": null
+          },
+          "target_changed": true,
+          "target": "700.35",
+          "stop": "707.65"
+        },
+        "TP_1_5R": {
+          "path": {
+            "outcome": "ABERTO"
+          },
+          "finance": {
+            "status": "BLOQUEADA",
+            "reasons": [
+              "RETORNO_RISCO_INSUFICIENTE"
+            ],
+            "rr": null
+          },
+          "target_changed": true,
+          "target": "698.53",
+          "stop": "707.65"
+        },
+        "SL_ESTRUTURAL": {
+          "path": {
+            "outcome": "ABERTO"
+          },
+          "finance": {
+            "status": "BLOQUEADA",
+            "reasons": [
+              "RETORNO_RISCO_INSUFICIENTE"
+            ],
+            "rr": null
+          },
+          "target_changed": false,
+          "stop": "716.37",
+          "target": "695.6"
+        },
+        "PROTEGER_ZERO_APOS_1R": {
+          "path": {
+            "outcome": "ABERTO"
+          },
+          "finance": {
+            "status": "VIAVEL_SIMULADO",
+            "reasons": [],
+            "rr": "2.007439520231744347041947802"
+          },
+          "target_changed": false
+        },
+        "ENTRADA_RECUO_025R": {
+          "path": {
+            "outcome": "RECUO_FORA_FAIXA"
+          },
+          "finance": {
+            "status": "SEM_ENTRADA"
+          }
+        }
+      }
+    }
+  ],
+  "limitations": [
+    "Contrafactuais retrospectivos independentes, não uma estratégia validada nem causas comprovadas dos movimentos.",
+    "Todos os57sinais:33stops,18alvos,6abertas; não escolhe apenas as perdedoras para calcular o efeito dos ajustes.",
+    "TP1R e1,5R mudam a definição de sucesso e não satisfazem o RR mínimo atual de2. Não são recuperação do TP original.",
+    "SL estrutural usa oito candles15m fechados antes da entrada e buffer0,1ATR; volume hipotético reduzido para comparar em1R de risco.",
+    "Recuo exige fechamento0,25da distância original ao SL melhor, em até15min, entrada seguinte dentro da faixa original; prazo final comum de4h.",
+    "Proteção no zero líquido só ativa após fechamento conhecido em+1R, valendo a partir do minuto seguinte; não conta como TP.",
+    "Stop primeiro em ambiguidade; MFE exclui minuto do stop por ordem intrabar desconhecida. Retomar alvo após stop não prova que bastava ampliar SL.",
+    "Mesmo universo, custos e fills hipotéticos anteriores. Gate financeiro recalculado com referência1USDT. SomaR não é carteira.",
+    "Hipóteses fixas para esta auditoria, sem ajustes após resultados; mesmo histórico já explorado, sem validação fora da amostra."
+  ],
+  "source_run": "https://github.com/VinyRhyu/mexc-futures-scanner/actions/runs/42903408245"
+}
