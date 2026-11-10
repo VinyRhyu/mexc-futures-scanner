@@ -1,6 +1,6 @@
 ## Experimento paralelo: rompimento a favor da estrutura de 1h
 
-Atualização: 2026-11-10T17:01:36+00:00.
+Atualização: 2026-11-10T17:16:39+00:00.
 Coleta prospectiva: 2026-11-10T13:30:00+00:00 até 2026-11-24T13:30:00+00:00.
 
 LONG somente em ALTA; SHORT somente em BAIXA. INDEFINIDA/DESCONHECIDA são excluídas.
@@ -8,10 +8,10 @@ ANTECIPADA e CONFIRMADA são simulações independentes, não carteiras somávei
 
 | Amostra com 4h completas | Tipo | Candidatos | Regra | Entradas | Alvos | Stops | Abertas | R encerradas |
 | --- | --- | ---: | --- | ---: | ---: | ---: | ---: | ---: |
-| RESERVADA_PRELIMINAR | ANTECIPADA | 7 | ATUAL | 0 | 0 | 0 | 0 | 0.000 |
-| RESERVADA_PRELIMINAR | ANTECIPADA | 7 | FILTRO_1H | 0 | 0 | 0 | 0 | 0.000 |
-| RESERVADA_PRELIMINAR | CONFIRMADA | 5 | ATUAL | 0 | 0 | 0 | 0 | 0.000 |
-| RESERVADA_PRELIMINAR | CONFIRMADA | 5 | FILTRO_1H | 0 | 0 | 0 | 0 | 0.000 |
+| RESERVADA_PRELIMINAR | ANTECIPADA | 8 | ATUAL | 0 | 0 | 0 | 0 | 0.000 |
+| RESERVADA_PRELIMINAR | ANTECIPADA | 8 | FILTRO_1H | 0 | 0 | 0 | 0 | 0.000 |
+| RESERVADA_PRELIMINAR | CONFIRMADA | 6 | ATUAL | 0 | 0 | 0 | 0 | 0.000 |
+| RESERVADA_PRELIMINAR | CONFIRMADA | 6 | FILTRO_1H | 0 | 0 | 0 | 0 | 0.000 |
 | PROSPECTIVA | ANTECIPADA | 0 | ATUAL | 0 | 0 | 0 | 0 | 0.000 |
 | PROSPECTIVA | ANTECIPADA | 0 | FILTRO_1H | 0 | 0 | 0 | 0 | 0.000 |
 | PROSPECTIVA | CONFIRMADA | 0 | ATUAL | 0 | 0 | 0 | 0 | 0.000 |
@@ -69,16 +69,16 @@ ANTECIPADA e CONFIRMADA são simulações independentes, não carteiras somávei
         "avoided_stops": 0
       },
       "complete": {
-        "candidates": 7,
+        "candidates": 8,
         "structure_counts": {
-          "INDEFINIDA": 4,
+          "INDEFINIDA": 5,
           "BAIXA": 2,
           "ALTA": 1
         },
-        "capture_late": 7,
+        "capture_late": 8,
         "models": {
           "ATUAL": {
-            "candidates": 7,
+            "candidates": 8,
             "entries": 0,
             "targets": 0,
             "stops": 0,
@@ -86,7 +86,7 @@ ANTECIPADA e CONFIRMADA são simulações independentes, não carteiras somávei
             "closed_r_independent": "0",
             "marked_r_independent": "0",
             "outcomes": {
-              "BLOQUEADA": 7
+              "BLOQUEADA": 8
             }
           },
           "FILTRO_1H": {
@@ -171,15 +171,15 @@ ANTECIPADA e CONFIRMADA são simulações independentes, não carteiras somávei
         "avoided_stops": 0
       },
       "complete": {
-        "candidates": 5,
+        "candidates": 6,
         "structure_counts": {
           "INDEFINIDA": 4,
-          "BAIXA": 1
+          "BAIXA": 2
         },
-        "capture_late": 5,
+        "capture_late": 6,
         "models": {
           "ATUAL": {
-            "candidates": 5,
+            "candidates": 6,
             "entries": 0,
             "targets": 0,
             "stops": 0,
@@ -187,7 +187,7 @@ ANTECIPADA e CONFIRMADA são simulações independentes, não carteiras somávei
             "closed_r_independent": "0",
             "marked_r_independent": "0",
             "outcomes": {
-              "BLOQUEADA": 5
+              "BLOQUEADA": 6
             }
           },
           "FILTRO_1H": {
@@ -252,13 +252,13 @@ ANTECIPADA e CONFIRMADA são simulações independentes, não carteiras somávei
             "candidates": 8,
             "entries": 1,
             "targets": 0,
-            "stops": 0,
-            "open": 1,
-            "closed_r_independent": "0",
-            "marked_r_independent": "-0.6149840539969981400191240011",
+            "stops": 1,
+            "open": 0,
+            "closed_r_independent": "-1",
+            "marked_r_independent": "-1",
             "outcomes": {
               "BLOQUEADA": 7,
-              "ABERTO": 1
+              "STOP": 1
             }
           },
           "FILTRO_1H": {
@@ -275,7 +275,7 @@ ANTECIPADA e CONFIRMADA são simulações independentes, não carteiras somávei
           }
         },
         "removed_winners": 0,
-        "avoided_stops": 0
+        "avoided_stops": 1
       },
       "complete": {
         "candidates": 0,

@@ -1405,7 +1405,7 @@
         "reasons": [
           "RETORNO_RISCO_INSUFICIENTE"
         ],
-        "window_complete": false
+        "window_complete": true
       },
       "cohort": "RESERVADA_PRELIMINAR",
       "contract": {
@@ -2517,7 +2517,7 @@
         "reasons": [
           "RETORNO_RISCO_INSUFICIENTE"
         ],
-        "window_complete": false
+        "window_complete": true
       },
       "cohort": "RESERVADA_PRELIMINAR",
       "contract": {
@@ -5223,9 +5223,10 @@
         "ambiguous": false,
         "entered_at": "2026-11-10T16:45:00+00:00",
         "entry_net_rr": "2.705500289566462987677216983",
-        "mark_to_market_r": "-0.6149840539969981400191240011",
-        "marked_at": "2026-11-10T17:00:00+00:00",
-        "outcome": "ABERTO",
+        "exited_at": "2026-11-10T17:15:00+00:00",
+        "net_r": "-1",
+        "net_usdt": "-0.080994652205280",
+        "outcome": "STOP",
         "planned_loss_usdt": "0.09998042208",
         "quantity": "1804",
         "window_complete": false,
@@ -5416,7 +5417,7 @@
     }
   },
   "diagnostics": [],
-  "last_update": 1794330096,
+  "last_update": 1794330999,
   "protocol": {
     "calculation_hash": "6330537db92e28356c9f6cd5f422a1a91a6e939cca5aba3d9248dbe58d0cbfa8",
     "config_fingerprint": "9e786afdec21907bc113",
