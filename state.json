@@ -418,7 +418,10 @@
     "0ee737f7cc24929e018c": {
       "aligned": true,
       "baseline": {
-        "outcome": "AGUARDANDO_CANDLE",
+        "outcome": "BLOQUEADA",
+        "reasons": [
+          "RETORNO_RISCO_INSUFICIENTE"
+        ],
         "window_complete": false
       },
       "cohort": "PROSPECTIVA",
@@ -637,7 +640,10 @@
     "1018e8d10eaaf849f2b5": {
       "aligned": false,
       "baseline": {
-        "outcome": "AGUARDANDO_CANDLE",
+        "outcome": "BLOQUEADA",
+        "reasons": [
+          "RETORNO_RISCO_INSUFICIENTE"
+        ],
         "window_complete": false
       },
       "cohort": "PROSPECTIVA",
@@ -3495,7 +3501,10 @@
     "a54f2ad3680809d0ddc9": {
       "aligned": false,
       "baseline": {
-        "outcome": "AGUARDANDO_CANDLE",
+        "outcome": "BLOQUEADA",
+        "reasons": [
+          "RETORNO_RISCO_INSUFICIENTE"
+        ],
         "window_complete": false
       },
       "cohort": "PROSPECTIVA",
@@ -4078,7 +4087,10 @@
     "d4f88c3bfc1f9830002b": {
       "aligned": false,
       "baseline": {
-        "outcome": "AGUARDANDO_CANDLE",
+        "outcome": "BLOQUEADA",
+        "reasons": [
+          "RETORNO_RISCO_INSUFICIENTE"
+        ],
         "window_complete": false
       },
       "cohort": "PROSPECTIVA",
@@ -4639,7 +4651,10 @@
     "f42ecfc763c9cf77c030": {
       "aligned": true,
       "baseline": {
-        "outcome": "AGUARDANDO_CANDLE",
+        "outcome": "BLOQUEADA",
+        "reasons": [
+          "RETORNO_RISCO_INSUFICIENTE"
+        ],
         "window_complete": false
       },
       "cohort": "PROSPECTIVA",
@@ -5033,7 +5048,7 @@
     }
   },
   "diagnostics": [],
-  "last_update": 1794319307,
+  "last_update": 1794320200,
   "protocol": {
     "calculation_hash": "6330537db92e28356c9f6cd5f422a1a91a6e939cca5aba3d9248dbe58d0cbfa8",
     "config_fingerprint": "9e786afdec21907bc113",
