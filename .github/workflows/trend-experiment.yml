@@ -1,0 +1,32 @@
+name: Iniciar teste paralelo de tendência 1h
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'scripts/trend_experiment.py'
+      - 'tests/test_trend_experiment.py'
+      - '.github/workflows/trend-experiment.yml'
+  workflow_dispatch:
+permissions:
+  contents: write
+concurrency:
+  group: scanner-state
+  cancel-in-progress: false
+jobs:
+  experiment:
+    runs-on: ubuntu-latest
+    timeout-minutes: 8
+    steps:
+      - uses: actions/checkout@v7.0.1
+      - uses: actions/setup-python@v7
+        with:
+          python-version: '3.12'
+      - name: Verificar isolamento e dados conhecidos na entrada
+        run: python -m unittest tests.test_trend_experiment -q
+      - uses: actions/checkout@v7.0.1
+        with:
+          ref: scanner-state
+          path: source-state
+          persist-credentials: false
+      - name: Registrar protocolo e comparar apenas sinais novos
+        run: python -m scripts.trend_experiment --bootstrap-report source-state/latest/report.json

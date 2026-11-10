@@ -31,3 +31,6 @@ jobs:
           python-version: '3.12'
       - name: Coletar, persistir e notificar
         run: python -m scripts.run_round --limit "$SCAN_LIMIT"
+      - name: Acompanhar filtro de tendência em simulação separada
+        continue-on-error: true
+        run: python -m scripts.trend_experiment
