@@ -1,6 +1,6 @@
 ## Experimento paralelo: rompimento a favor da estrutura de 1h
 
-Atualização: 2026-11-10T20:16:42+00:00.
+Atualização: 2026-11-10T20:31:45+00:00.
 Coleta prospectiva: 2026-11-10T13:30:00+00:00 até 2026-11-24T13:30:00+00:00.
 
 LONG somente em ALTA; SHORT somente em BAIXA. INDEFINIDA/DESCONHECIDA são excluídas.
@@ -240,27 +240,27 @@ ANTECIPADA e CONFIRMADA são simulações independentes, não carteiras somávei
   "PROSPECTIVA": {
     "ANTECIPADA": {
       "all": {
-        "candidates": 26,
+        "candidates": 27,
         "structure_counts": {
-          "BAIXA": 15,
+          "BAIXA": 16,
           "ALTA": 1,
           "INDEFINIDA": 10
         },
         "capture_late": 0,
         "models": {
           "ATUAL": {
-            "candidates": 26,
+            "candidates": 27,
             "entries": 2,
             "targets": 0,
             "stops": 1,
             "open": 1,
             "closed_r_independent": "-1",
-            "marked_r_independent": "-0.8646343905687041842716009645",
+            "marked_r_independent": "-1.052633241481029140772082623",
             "outcomes": {
-              "BLOQUEADA": 21,
+              "BLOQUEADA": 24,
               "ABERTO": 1,
               "STOP": 1,
-              "AGUARDANDO_CANDLE": 3
+              "AGUARDANDO_CANDLE": 1
             }
           },
           "FILTRO_1H": {
@@ -356,16 +356,16 @@ ANTECIPADA e CONFIRMADA são simulações independentes, não carteiras somávei
     },
     "CONFIRMADA": {
       "all": {
-        "candidates": 16,
+        "candidates": 18,
         "structure_counts": {
-          "BAIXA": 11,
+          "BAIXA": 13,
           "INDEFINIDA": 4,
           "ALTA": 1
         },
         "capture_late": 0,
         "models": {
           "ATUAL": {
-            "candidates": 16,
+            "candidates": 18,
             "entries": 0,
             "targets": 0,
             "stops": 0,
@@ -373,8 +373,8 @@ ANTECIPADA e CONFIRMADA são simulações independentes, não carteiras somávei
             "closed_r_independent": "0",
             "marked_r_independent": "0",
             "outcomes": {
-              "BLOQUEADA": 15,
-              "AGUARDANDO_CANDLE": 1
+              "BLOQUEADA": 16,
+              "AGUARDANDO_CANDLE": 2
             }
           },
           "FILTRO_1H": {
