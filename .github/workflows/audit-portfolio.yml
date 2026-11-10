@@ -1,0 +1,39 @@
+name: Simular carteira cronológica de 50 USDT
+on:
+  push:
+    branches: [main]
+    paths: ['scripts/audit_portfolio.py', 'tests/test_audit_portfolio.py', '.github/workflows/audit-portfolio.yml']
+  workflow_dispatch:
+permissions:
+  contents: read
+  actions: read
+jobs:
+  audit:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v7.0.1
+        with:
+          persist-credentials: false
+      - uses: actions/setup-python@v7
+        with:
+          python-version: '3.12'
+      - run: python -m unittest tests.test_audit_portfolio -q
+      - uses: actions/download-artifact@v8.0.2
+        with:
+          name: early-trigger-history-42879077420
+          run-id: 42879077420
+          github-token: ${{ github.token }}
+          path: reports/early-trigger-source/
+      - uses: actions/download-artifact@v8.0.2
+        with:
+          name: sustained-trigger-history-42890505005
+          run-id: 42890505005
+          github-token: ${{ github.token }}
+          path: reports/sustained-source/
+      - run: python -m scripts.audit_portfolio
+      - uses: actions/upload-artifact@v7.0.2
+        with:
+          name: portfolio-history-${{ github.run_id }}
+          path: reports/portfolio-history/
+          retention-days: 30
