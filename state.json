@@ -399,7 +399,10 @@
     "06ed5080d1df72349c87": {
       "aligned": false,
       "baseline": {
-        "outcome": "AGUARDANDO_CANDLE",
+        "outcome": "BLOQUEADA",
+        "reasons": [
+          "RETORNO_RISCO_INSUFICIENTE"
+        ],
         "window_complete": false
       },
       "cohort": "PROSPECTIVA",
@@ -4642,7 +4645,10 @@
     "8cc8a025a53d15a64910": {
       "aligned": false,
       "baseline": {
-        "outcome": "AGUARDANDO_CANDLE",
+        "outcome": "BLOQUEADA",
+        "reasons": [
+          "RETORNO_RISCO_INSUFICIENTE"
+        ],
         "window_complete": false
       },
       "cohort": "PROSPECTIVA",
@@ -5976,7 +5982,10 @@
     "9b733773c652682f5ad8": {
       "aligned": false,
       "baseline": {
-        "outcome": "AGUARDANDO_CANDLE",
+        "outcome": "BLOQUEADA",
+        "reasons": [
+          "RETORNO_RISCO_INSUFICIENTE"
+        ],
         "window_complete": false
       },
       "cohort": "PROSPECTIVA",
@@ -6559,7 +6568,10 @@
     "a706f8f3166e2190be0f": {
       "aligned": false,
       "baseline": {
-        "outcome": "AGUARDANDO_CANDLE",
+        "outcome": "BLOQUEADA",
+        "reasons": [
+          "RETORNO_RISCO_INSUFICIENTE"
+        ],
         "window_complete": false
       },
       "cohort": "PROSPECTIVA",
@@ -6752,7 +6764,10 @@
     "a9b286aa3b0f9480a3a4": {
       "aligned": false,
       "baseline": {
-        "outcome": "AGUARDANDO_CANDLE",
+        "outcome": "BLOQUEADA",
+        "reasons": [
+          "RETORNO_RISCO_INSUFICIENTE"
+        ],
         "window_complete": false
       },
       "cohort": "PROSPECTIVA",
@@ -8041,7 +8056,10 @@
     "d55e19944947c2788103": {
       "aligned": false,
       "baseline": {
-        "outcome": "AGUARDANDO_CANDLE",
+        "outcome": "BLOQUEADA",
+        "reasons": [
+          "RETORNO_RISCO_INSUFICIENTE"
+        ],
         "window_complete": false
       },
       "cohort": "PROSPECTIVA",
@@ -8264,7 +8282,7 @@
         "reasons": [
           "RETORNO_RISCO_INSUFICIENTE"
         ],
-        "window_complete": false
+        "window_complete": true
       },
       "cohort": "PROSPECTIVA",
       "contract": {
@@ -9588,7 +9606,7 @@
     }
   },
   "diagnostics": [],
-  "last_update": 1794337313,
+  "last_update": 1794338201,
   "protocol": {
     "calculation_hash": "6330537db92e28356c9f6cd5f422a1a91a6e939cca5aba3d9248dbe58d0cbfa8",
     "config_fingerprint": "9e786afdec21907bc113",
