@@ -1,6 +1,6 @@
 ## Experimento paralelo: rompimento a favor da estrutura de 1h
 
-Atualização: 2026-11-10T15:31:38+00:00.
+Atualização: 2026-11-10T15:46:40+00:00.
 Coleta prospectiva: 2026-11-10T13:30:00+00:00 até 2026-11-24T13:30:00+00:00.
 
 LONG somente em ALTA; SHORT somente em BAIXA. INDEFINIDA/DESCONHECIDA são excluídas.
@@ -10,8 +10,8 @@ ANTECIPADA e CONFIRMADA são simulações independentes, não carteiras somávei
 | --- | --- | ---: | --- | ---: | ---: | ---: | ---: | ---: |
 | RESERVADA_PRELIMINAR | ANTECIPADA | 2 | ATUAL | 0 | 0 | 0 | 0 | 0.000 |
 | RESERVADA_PRELIMINAR | ANTECIPADA | 2 | FILTRO_1H | 0 | 0 | 0 | 0 | 0.000 |
-| RESERVADA_PRELIMINAR | CONFIRMADA | 3 | ATUAL | 0 | 0 | 0 | 0 | 0.000 |
-| RESERVADA_PRELIMINAR | CONFIRMADA | 3 | FILTRO_1H | 0 | 0 | 0 | 0 | 0.000 |
+| RESERVADA_PRELIMINAR | CONFIRMADA | 4 | ATUAL | 0 | 0 | 0 | 0 | 0.000 |
+| RESERVADA_PRELIMINAR | CONFIRMADA | 4 | FILTRO_1H | 0 | 0 | 0 | 0 | 0.000 |
 | PROSPECTIVA | ANTECIPADA | 0 | ATUAL | 0 | 0 | 0 | 0 | 0.000 |
 | PROSPECTIVA | ANTECIPADA | 0 | FILTRO_1H | 0 | 0 | 0 | 0 | 0.000 |
 | PROSPECTIVA | CONFIRMADA | 0 | ATUAL | 0 | 0 | 0 | 0 | 0.000 |
@@ -169,15 +169,15 @@ ANTECIPADA e CONFIRMADA são simulações independentes, não carteiras somávei
         "avoided_stops": 0
       },
       "complete": {
-        "candidates": 3,
+        "candidates": 4,
         "structure_counts": {
-          "INDEFINIDA": 2,
+          "INDEFINIDA": 3,
           "BAIXA": 1
         },
-        "capture_late": 3,
+        "capture_late": 4,
         "models": {
           "ATUAL": {
-            "candidates": 3,
+            "candidates": 4,
             "entries": 0,
             "targets": 0,
             "stops": 0,
@@ -185,7 +185,7 @@ ANTECIPADA e CONFIRMADA são simulações independentes, não carteiras somávei
             "closed_r_independent": "0",
             "marked_r_independent": "0",
             "outcomes": {
-              "BLOQUEADA": 3
+              "BLOQUEADA": 4
             }
           },
           "FILTRO_1H": {
