@@ -1,6 +1,6 @@
 # MEXC Futures Scanner — rodada
 
-Modo: **paper**. Análise: 11/11/2026 03:57:43 BRT.
+Modo: **paper**. Análise: 11/11/2026 03:58:45 BRT.
 
 Fonte: OK
 Cobertura: 33/33 contratos selecionados.
@@ -665,7 +665,7 @@ Cobertura: 33/33 contratos selecionados.
 | ARB_USDT | ROMPIMENTO | LONG | EXPIRADO | — | PRAZO_ENCERRADO |
 | DASH_USDT | ROMPIMENTO | LONG | EXPIRADO | — | PRAZO_ENCERRADO |
 | ZEC_USDT | ROMPIMENTO_M1_VOLUME | SHORT | EXPIRADO | — | PRAZO_ENCERRADO |
-| ONE_USDT | ROMPIMENTO_M1_VOLUME | SHORT | POSSIVEL | — | aguardando gatilho |
+| ONE_USDT | ROMPIMENTO_M1_VOLUME | SHORT | POSSIVEL | ANTECIPADA | aguardando gatilho |
 | XLM_USDT | CONTINUACAO | SHORT | EXPIRADO | — | MODELO_SUBSTITUIDO |
 | NEAR_USDT | ROMPIMENTO | SHORT | EXPIRADO | — | PRAZO_ENCERRADO |
 | AVAX_USDT | ROMPIMENTO | LONG | EXPIRADO | — | PRAZO_ENCERRADO |
