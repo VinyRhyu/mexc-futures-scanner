@@ -1,5 +1,5 @@
 {
-  "analyzed_at": 1794424864,
+  "analyzed_at": 1794424954,
   "analyzed_symbols": 30,
   "config_fingerprint": "9e786afdec21907bc113",
   "diagnostics": [],
@@ -31996,7 +31996,7 @@
       "family": "90370453f286c3b558bf",
       "formed_at": 1794423600,
       "id": "90370453f286c3b558bf",
-      "last_bar": 1794424800,
+      "last_bar": 1794424920,
       "level": "8.089",
       "lower": "7.923",
       "observations": [],
@@ -53782,21 +53782,23 @@
       "atr": "0.06339267758033193000133826876",
       "detected_at": 1794423600,
       "entry_started_at": 1794424800,
-      "expires_at": 1794426600,
+      "expires_at": 1794424980,
       "family": "f7b385fa36ccaa47e128",
       "formed_at": 1794423600,
       "id": "f7b385fa36ccaa47e128",
-      "last_bar": 1794424800,
+      "last_bar": 1794424920,
       "level": "7.923",
       "lower": "7.923",
-      "observations": [],
+      "observations": [
+        "VOLUME_M1_PERCENT=61.51809355692850838481906443"
+      ],
       "preparation_expires_at": 1794425400,
       "reaction_at": 1794424800,
       "reaction_extreme": null,
       "reason": "",
-      "revision": 0,
+      "revision": 1,
       "side": "SHORT",
-      "status": "POSSIVEL",
+      "status": "ATIVO",
       "stop": "7.955",
       "strategy": "ROMPIMENTO_M1_VOLUME",
       "symbol": "INJ_USDT",
@@ -53805,15 +53807,46 @@
         "ANTECIPADA": {
           "entry_high": "7.915",
           "entry_low": "7.888",
-          "financial": {},
+          "financial": {
+            "assumptions": [],
+            "mode": "paper",
+            "reasons": [
+              "PLANO_NAO_ATUAL"
+            ],
+            "status": "BLOQUEADA"
+          },
           "kind": "ANTECIPADA",
           "reason": "",
           "reference": "7.903",
-          "status": "AGUARDANDO_CONFIRMACAO",
+          "status": "ENCERRADA",
           "stop": "7.955",
           "target": "7.869",
           "target_origin": "PIVO_CONHECIDO",
           "triggered_at": 1794424800
+        },
+        "CONFIRMADA": {
+          "entry_high": "7.915",
+          "entry_low": "7.888",
+          "financial": {
+            "assumptions": [
+              "FUNDING_FUTURO_MANTIDO_POR_6H",
+              "DESLIZAMENTO_ESTIMADO",
+              "TAXA_SIMULADA_NAO_PESSOAL"
+            ],
+            "mode": "paper",
+            "reasons": [
+              "RETORNO_RISCO_INSUFICIENTE"
+            ],
+            "status": "BLOQUEADA"
+          },
+          "kind": "CONFIRMADA",
+          "reason": "",
+          "reference": "7.903",
+          "status": "VALIDA",
+          "stop": "7.955",
+          "target": "7.869",
+          "target_origin": "PIVO_CONHECIDO",
+          "triggered_at": 1794424860
         }
       }
     },
