@@ -1,5 +1,5 @@
 {
-  "analyzed_at": 1794424794,
+  "analyzed_at": 1794424864,
   "analyzed_symbols": 30,
   "config_fingerprint": "9e786afdec21907bc113",
   "diagnostics": [],
@@ -31996,7 +31996,7 @@
       "family": "90370453f286c3b558bf",
       "formed_at": 1794423600,
       "id": "90370453f286c3b558bf",
-      "last_bar": 1794424740,
+      "last_bar": 1794424800,
       "level": "8.089",
       "lower": "7.923",
       "observations": [],
@@ -53781,17 +53781,17 @@
     {
       "atr": "0.06339267758033193000133826876",
       "detected_at": 1794423600,
-      "entry_started_at": 0,
-      "expires_at": 1794425400,
+      "entry_started_at": 1794424800,
+      "expires_at": 1794426600,
       "family": "f7b385fa36ccaa47e128",
       "formed_at": 1794423600,
       "id": "f7b385fa36ccaa47e128",
-      "last_bar": 1794424740,
+      "last_bar": 1794424800,
       "level": "7.923",
       "lower": "7.923",
       "observations": [],
       "preparation_expires_at": 1794425400,
-      "reaction_at": 0,
+      "reaction_at": 1794424800,
       "reaction_extreme": null,
       "reason": "",
       "revision": 0,
@@ -53801,7 +53801,21 @@
       "strategy": "ROMPIMENTO_M1_VOLUME",
       "symbol": "INJ_USDT",
       "upper": "8.089",
-      "variants": {}
+      "variants": {
+        "ANTECIPADA": {
+          "entry_high": "7.915",
+          "entry_low": "7.888",
+          "financial": {},
+          "kind": "ANTECIPADA",
+          "reason": "",
+          "reference": "7.903",
+          "status": "AGUARDANDO_CONFIRMACAO",
+          "stop": "7.955",
+          "target": "7.869",
+          "target_origin": "PIVO_CONHECIDO",
+          "triggered_at": 1794424800
+        }
+      }
     },
     {
       "atr": "0.04815006100718500060631834558",
