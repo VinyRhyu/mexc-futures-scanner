@@ -118,13 +118,17 @@
   "model_activated_at": 1794349620,
   "outbox": {
     "0003800da88688291cd0": {
-      "attempts": 0,
+      "attempts": 1,
       "category": "INFO",
       "created_at": 1794411469,
       "expires_at": 1794415069,
       "id": "0003800da88688291cd0",
       "quote_at": 0,
-      "status": "PENDING",
+      "sent_at": 1794411472,
+      "status": "SENT",
+      "telegram_ids": [
+        1834
+      ],
       "text": "⚪ ATUALIZAÇÃO DOS PLANOS ACOMPANHADOS\n🧪 SIMULAÇÃO\n\n• DOT/USDT • LONG: candle ambíguo\n  Plano: d48424c63bad4b35d9be\n\nSem novas entradas por esses planos.\nA expiração não encerra posições já abertas.\nAnálise: 11/11/2026 12:37:49 BRT"
     },
     "001606261b85e60cdc46": {
