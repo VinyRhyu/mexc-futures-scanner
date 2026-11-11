@@ -27462,13 +27462,17 @@
       "text": "SIMULAÇÃO | GATILHO CUMPRIDO\nID eefe4fde2c859a39502a/r1 | AAVE_USDT | SHORT | CONTINUACAO\nFormação: 08/11/2026 20:15:00 BRT | Análise: 08/11/2026 20:37:36 BRT\nModalidade: ANTECIPADA | Gatilho: 08/11/2026 20:30:00 BRT\nFaixa: 127.17 a 127.61\nSL: 129.29 | Alvo: 127.45 (PIVO_CONHECIDO)\nSituação financeira: BLOQUEADA\nBloqueios: RETORNO_RISCO_INSUFICIENTE\nHipóteses: FUNDING_FUTURO_MANTIDO_POR_6H, DESLIZAMENTO_ESTIMADO, TAXA_SIMULADA_NAO_PESSOAL\nPlano expira: 08/11/2026 21:00:00 BRT.\nA validade de entrada não encerra uma posição já aberta."
     },
     "f1749de3cc087b2106f3": {
-      "attempts": 0,
+      "attempts": 1,
       "category": "INFO",
       "created_at": 1794436501,
       "expires_at": 1794440101,
       "id": "f1749de3cc087b2106f3",
       "quote_at": 0,
-      "status": "PENDING",
+      "sent_at": 1794436504,
+      "status": "SENT",
+      "telegram_ids": [
+        2059
+      ],
       "text": "⚪ ATUALIZAÇÃO DOS PLANOS ACOMPANHADOS\n🧪 SIMULAÇÃO\n\n• XRP/USDT • SHORT: janela expirou\n  Plano: 82fb8ff767f051e8fd93\n\nSem novas entradas por esses planos.\nA expiração não encerra posições já abertas.\nAnálise: 11/11/2026 19:35:01 BRT"
     },
     "f1821f54d631104c91f2": {
