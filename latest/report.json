@@ -1,5 +1,5 @@
 {
-  "analyzed_at": 1794481501,
+  "analyzed_at": 1794481560,
   "analyzed_symbols": 31,
   "config_fingerprint": "9e786afdec21907bc113",
   "diagnostics": [],
@@ -118,15 +118,11 @@
     },
     {
       "reason": "CLASSIFICACAO_PENDENTE",
-      "symbol": "KIMCHI_USDT"
+      "symbol": "MAGMA_USDT"
     },
     {
       "reason": "CLASSIFICACAO_PENDENTE",
-      "symbol": "ON_USDT"
-    },
-    {
-      "reason": "VOLUME_FINANCEIRO_INSUFICIENTE",
-      "symbol": "OP_USDT"
+      "symbol": "KIMCHI_USDT"
     },
     {
       "reason": "VOLUME_FINANCEIRO_INSUFICIENTE",
@@ -134,11 +130,15 @@
     },
     {
       "reason": "CLASSIFICACAO_PENDENTE",
-      "symbol": "PIEVERSE_USDT"
+      "symbol": "ON_USDT"
     },
     {
       "reason": "CLASSIFICACAO_PENDENTE",
-      "symbol": "PYBOBO_USDT"
+      "symbol": "PIEVERSE_USDT"
+    },
+    {
+      "reason": "NAO_CRIPTO",
+      "symbol": "NVD_USDT"
     },
     {
       "reason": "NAO_CRIPTO",
@@ -147,10 +147,6 @@
     {
       "reason": "CLASSIFICACAO_PENDENTE",
       "symbol": "OPG_USDT"
-    },
-    {
-      "reason": "NAO_CRIPTO",
-      "symbol": "NVD_USDT"
     },
     {
       "reason": "CLASSIFICACAO_PENDENTE",
@@ -162,10 +158,6 @@
     },
     {
       "reason": "CLASSIFICACAO_PENDENTE",
-      "symbol": "ASTER_USDT"
-    },
-    {
-      "reason": "CLASSIFICACAO_PENDENTE",
       "symbol": "BEAT_USDT"
     },
     {
@@ -173,8 +165,20 @@
       "symbol": "FARTCOIN_USDT"
     },
     {
+      "reason": "VOLUME_FINANCEIRO_INSUFICIENTE",
+      "symbol": "RENDER_USDT"
+    },
+    {
+      "reason": "VOLUME_FINANCEIRO_INSUFICIENTE",
+      "symbol": "OP_USDT"
+    },
+    {
       "reason": "CLASSIFICACAO_PENDENTE",
-      "symbol": "LIT_USDT"
+      "symbol": "ASTER_USDT"
+    },
+    {
+      "reason": "CLASSIFICACAO_PENDENTE",
+      "symbol": "PYBOBO_USDT"
     },
     {
       "reason": "VOLUME_FINANCEIRO_INSUFICIENTE",
@@ -182,27 +186,27 @@
     },
     {
       "reason": "CLASSIFICACAO_PENDENTE",
-      "symbol": "MAGMA_USDT"
-    },
-    {
-      "reason": "NAO_CRIPTO",
-      "symbol": "SOXS_USDT"
+      "symbol": "LIT_USDT"
     },
     {
       "reason": "CLASSIFICACAO_PENDENTE",
       "symbol": "ARX_USDT"
     },
     {
+      "reason": "NAO_CRIPTO",
+      "symbol": "SOXS_USDT"
+    },
+    {
       "reason": "VOLUME_FINANCEIRO_INSUFICIENTE",
       "symbol": "PYTH_USDT"
     },
     {
-      "reason": "VOLUME_FINANCEIRO_INSUFICIENTE",
-      "symbol": "RENDER_USDT"
-    },
-    {
       "reason": "CLASSIFICACAO_PENDENTE",
       "symbol": "VVV_USDT"
+    },
+    {
+      "reason": "VOLUME_FINANCEIRO_INSUFICIENTE",
+      "symbol": "JUP_USDT"
     },
     {
       "reason": "CLASSIFICACAO_PENDENTE",
@@ -214,14 +218,6 @@
     },
     {
       "reason": "CLASSIFICACAO_PENDENTE",
-      "symbol": "LYN_USDT"
-    },
-    {
-      "reason": "VOLUME_FINANCEIRO_INSUFICIENTE",
-      "symbol": "JUP_USDT"
-    },
-    {
-      "reason": "CLASSIFICACAO_PENDENTE",
       "symbol": "CYBER_USDT"
     },
     {
@@ -230,39 +226,11 @@
     },
     {
       "reason": "CLASSIFICACAO_PENDENTE",
-      "symbol": "JAGENT_USDT"
+      "symbol": "LYN_USDT"
     },
     {
       "reason": "CLASSIFICACAO_PENDENTE",
       "symbol": "BR_USDT"
-    },
-    {
-      "reason": "NAO_CRIPTO",
-      "symbol": "CLXSTOCK_USDT"
-    },
-    {
-      "reason": "NAO_CRIPTO",
-      "symbol": "FRHCSTOCK_USDT"
-    },
-    {
-      "reason": "CLASSIFICACAO_PENDENTE",
-      "symbol": "CC_USDT"
-    },
-    {
-      "reason": "CLASSIFICACAO_PENDENTE",
-      "symbol": "USELESS_USDT"
-    },
-    {
-      "reason": "VOLUME_FINANCEIRO_INSUFICIENTE",
-      "symbol": "SEI_USDT"
-    },
-    {
-      "reason": "FORA_USDT",
-      "symbol": "BTC_USDC"
-    },
-    {
-      "reason": "CLASSIFICACAO_PENDENTE",
-      "symbol": "PRL_USDT"
     },
     {
       "reason": "CLASSIFICACAO_PENDENTE",
@@ -270,11 +238,35 @@
     },
     {
       "reason": "CLASSIFICACAO_PENDENTE",
-      "symbol": "XPL_USDT"
+      "symbol": "PRL_USDT"
+    },
+    {
+      "reason": "CLASSIFICACAO_PENDENTE",
+      "symbol": "CC_USDT"
+    },
+    {
+      "reason": "FORA_USDT",
+      "symbol": "BTC_USDC"
+    },
+    {
+      "reason": "VOLUME_FINANCEIRO_INSUFICIENTE",
+      "symbol": "SEI_USDT"
+    },
+    {
+      "reason": "CLASSIFICACAO_PENDENTE",
+      "symbol": "USELESS_USDT"
+    },
+    {
+      "reason": "CLASSIFICACAO_PENDENTE",
+      "symbol": "JAGENT_USDT"
     },
     {
       "reason": "VOLUME_FINANCEIRO_INSUFICIENTE",
       "symbol": "ATOM_USDT"
+    },
+    {
+      "reason": "CLASSIFICACAO_PENDENTE",
+      "symbol": "XPL_USDT"
     },
     {
       "reason": "VOLUME_FINANCEIRO_INSUFICIENTE",
@@ -282,7 +274,11 @@
     },
     {
       "reason": "CLASSIFICACAO_PENDENTE",
-      "symbol": "GANG_USDT"
+      "symbol": "HANA_USDT"
+    },
+    {
+      "reason": "CLASSIFICACAO_PENDENTE",
+      "symbol": "EVAA_USDT"
     },
     {
       "reason": "CLASSIFICACAO_PENDENTE",
@@ -294,11 +290,7 @@
     },
     {
       "reason": "CLASSIFICACAO_PENDENTE",
-      "symbol": "EVAA_USDT"
-    },
-    {
-      "reason": "CLASSIFICACAO_PENDENTE",
-      "symbol": "HANA_USDT"
+      "symbol": "B2_USDT"
     },
     {
       "reason": "CLASSIFICACAO_PENDENTE",
@@ -306,7 +298,7 @@
     },
     {
       "reason": "CLASSIFICACAO_PENDENTE",
-      "symbol": "BLUAI_USDT"
+      "symbol": "GANG_USDT"
     },
     {
       "reason": "CLASSIFICACAO_PENDENTE",
@@ -314,19 +306,15 @@
     },
     {
       "reason": "CLASSIFICACAO_PENDENTE",
-      "symbol": "B2_USDT"
-    },
-    {
-      "reason": "CLASSIFICACAO_PENDENTE",
-      "symbol": "PENGU_USDT"
+      "symbol": "BLUAI_USDT"
     },
     {
       "reason": "CLASSIFICACAO_PENDENTE",
       "symbol": "SPX_USDT"
     },
     {
-      "reason": "VOLUME_FINANCEIRO_INSUFICIENTE",
-      "symbol": "KAS_USDT"
+      "reason": "CLASSIFICACAO_PENDENTE",
+      "symbol": "PENGU_USDT"
     },
     {
       "reason": "VOLUME_FINANCEIRO_INSUFICIENTE",
@@ -334,11 +322,15 @@
     },
     {
       "reason": "CLASSIFICACAO_PENDENTE",
-      "symbol": "ICNT_USDT"
+      "symbol": "PLAY_USDT"
     },
     {
       "reason": "CLASSIFICACAO_PENDENTE",
       "symbol": "LAB_USDT"
+    },
+    {
+      "reason": "CLASSIFICACAO_PENDENTE",
+      "symbol": "ICNT_USDT"
     },
     {
       "reason": "CLASSIFICACAO_PENDENTE",
@@ -353,16 +345,16 @@
       "symbol": "KITE_USDT"
     },
     {
-      "reason": "NAO_CRIPTO",
-      "symbol": "KORU_USDT"
-    },
-    {
       "reason": "CLASSIFICACAO_PENDENTE",
       "symbol": "RAY_USDT"
     },
     {
-      "reason": "CLASSIFICACAO_PENDENTE",
-      "symbol": "PLAY_USDT"
+      "reason": "NAO_CRIPTO",
+      "symbol": "KORU_USDT"
+    },
+    {
+      "reason": "VOLUME_FINANCEIRO_INSUFICIENTE",
+      "symbol": "STRK_USDT"
     },
     {
       "reason": "CLASSIFICACAO_PENDENTE",
@@ -370,19 +362,7 @@
     },
     {
       "reason": "VOLUME_FINANCEIRO_INSUFICIENTE",
-      "symbol": "STRK_USDT"
-    },
-    {
-      "reason": "VOLUME_FINANCEIRO_INSUFICIENTE",
-      "symbol": "XMR_USDT"
-    },
-    {
-      "reason": "CLASSIFICACAO_PENDENTE",
-      "symbol": "EDGE_USDT"
-    },
-    {
-      "reason": "VOLUME_FINANCEIRO_INSUFICIENTE",
-      "symbol": "VIRTUAL_USDT"
+      "symbol": "PENDLE_USDT"
     },
     {
       "reason": "VOLUME_FINANCEIRO_INSUFICIENTE",
@@ -390,7 +370,11 @@
     },
     {
       "reason": "VOLUME_FINANCEIRO_INSUFICIENTE",
-      "symbol": "PENDLE_USDT"
+      "symbol": "VIRTUAL_USDT"
+    },
+    {
+      "reason": "CLASSIFICACAO_PENDENTE",
+      "symbol": "EDGE_USDT"
     },
     {
       "reason": "CLASSIFICACAO_PENDENTE",
@@ -405,8 +389,12 @@
       "symbol": "MUU_USDT"
     },
     {
+      "reason": "VOLUME_FINANCEIRO_INSUFICIENTE",
+      "symbol": "XMR_USDT"
+    },
+    {
       "reason": "CLASSIFICACAO_PENDENTE",
-      "symbol": "SIREN_USDT"
+      "symbol": "KNTQ_USDT"
     },
     {
       "reason": "FORA_USDT",
@@ -414,15 +402,11 @@
     },
     {
       "reason": "CLASSIFICACAO_PENDENTE",
-      "symbol": "KNTQ_USDT"
-    },
-    {
-      "reason": "CLASSIFICACAO_PENDENTE",
-      "symbol": "IRYS_USDT"
-    },
-    {
-      "reason": "CLASSIFICACAO_PENDENTE",
       "symbol": "BLESS_USDT"
+    },
+    {
+      "reason": "CLASSIFICACAO_PENDENTE",
+      "symbol": "SIREN_USDT"
     },
     {
       "reason": "CLASSIFICACAO_PENDENTE",
@@ -431,6 +415,10 @@
     {
       "reason": "VOLUME_FINANCEIRO_INSUFICIENTE",
       "symbol": "JTO_USDT"
+    },
+    {
+      "reason": "CLASSIFICACAO_PENDENTE",
+      "symbol": "IRYS_USDT"
     },
     {
       "reason": "VOLUME_FINANCEIRO_INSUFICIENTE",
@@ -442,31 +430,11 @@
     },
     {
       "reason": "VOLUME_FINANCEIRO_INSUFICIENTE",
-      "symbol": "AR_USDT"
-    },
-    {
-      "reason": "CLASSIFICACAO_PENDENTE",
-      "symbol": "SKYAI_USDT"
+      "symbol": "KAS_USDT"
     },
     {
       "reason": "VOLUME_FINANCEIRO_INSUFICIENTE",
-      "symbol": "BAT_USDT"
-    },
-    {
-      "reason": "CLASSIFICACAO_PENDENTE",
-      "symbol": "MERL_USDT"
-    },
-    {
-      "reason": "CLASSIFICACAO_PENDENTE",
-      "symbol": "APR_USDT"
-    },
-    {
-      "reason": "CLASSIFICACAO_PENDENTE",
-      "symbol": "NGAS_USDT"
-    },
-    {
-      "reason": "NAO_CRIPTO",
-      "symbol": "MVLL_USDT"
+      "symbol": "AR_USDT"
     },
     {
       "reason": "VOLUME_FINANCEIRO_INSUFICIENTE",
@@ -474,15 +442,27 @@
     },
     {
       "reason": "CLASSIFICACAO_PENDENTE",
+      "symbol": "MERL_USDT"
+    },
+    {
+      "reason": "VOLUME_FINANCEIRO_INSUFICIENTE",
+      "symbol": "BAT_USDT"
+    },
+    {
+      "reason": "CLASSIFICACAO_PENDENTE",
       "symbol": "JASMY_USDT"
     },
     {
       "reason": "CLASSIFICACAO_PENDENTE",
-      "symbol": "CAP_USDT"
+      "symbol": "SKYAI_USDT"
     },
     {
       "reason": "CLASSIFICACAO_PENDENTE",
-      "symbol": "TA_USDT"
+      "symbol": "APR_USDT"
+    },
+    {
+      "reason": "NAO_CRIPTO",
+      "symbol": "MVLL_USDT"
     },
     {
       "reason": "CLASSIFICACAO_PENDENTE",
@@ -490,15 +470,27 @@
     },
     {
       "reason": "CLASSIFICACAO_PENDENTE",
+      "symbol": "NGAS_USDT"
+    },
+    {
+      "reason": "CLASSIFICACAO_PENDENTE",
+      "symbol": "CAP_USDT"
+    },
+    {
+      "reason": "VOLUME_FINANCEIRO_INSUFICIENTE",
+      "symbol": "1000BONK_USDT"
+    },
+    {
+      "reason": "CLASSIFICACAO_PENDENTE",
+      "symbol": "TA_USDT"
+    },
+    {
+      "reason": "CLASSIFICACAO_PENDENTE",
       "symbol": "LIGHT_USDT"
     },
     {
-      "reason": "CLASSIFICACAO_PENDENTE",
-      "symbol": "CATE_USDT"
-    },
-    {
-      "reason": "CLASSIFICACAO_PENDENTE",
-      "symbol": "ESPORTS_USDT"
+      "reason": "VOLUME_FINANCEIRO_INSUFICIENTE",
+      "symbol": "FLOKI_USDT"
     },
     {
       "reason": "CLASSIFICACAO_PENDENTE",
@@ -513,16 +505,8 @@
       "symbol": "GALA_USDT"
     },
     {
-      "reason": "VOLUME_FINANCEIRO_INSUFICIENTE",
-      "symbol": "FLOKI_USDT"
-    },
-    {
       "reason": "CLASSIFICACAO_PENDENTE",
-      "symbol": "USUAL_USDT"
-    },
-    {
-      "reason": "VOLUME_FINANCEIRO_INSUFICIENTE",
-      "symbol": "HOT_USDT"
+      "symbol": "CATE_USDT"
     },
     {
       "reason": "VOLUME_FINANCEIRO_INSUFICIENTE",
@@ -530,23 +514,11 @@
     },
     {
       "reason": "CLASSIFICACAO_PENDENTE",
-      "symbol": "AIO_USDT"
-    },
-    {
-      "reason": "CLASSIFICACAO_PENDENTE",
-      "symbol": "NES_USDT"
+      "symbol": "ESPORTS_USDT"
     },
     {
       "reason": "VOLUME_FINANCEIRO_INSUFICIENTE",
-      "symbol": "ORDI_USDT"
-    },
-    {
-      "reason": "CLASSIFICACAO_PENDENTE",
-      "symbol": "PARTI_USDT"
-    },
-    {
-      "reason": "NAO_CRIPTO",
-      "symbol": "NVDL_USDT"
+      "symbol": "HOT_USDT"
     },
     {
       "reason": "VOLUME_FINANCEIRO_INSUFICIENTE",
@@ -554,11 +526,15 @@
     },
     {
       "reason": "VOLUME_FINANCEIRO_INSUFICIENTE",
-      "symbol": "1000BONK_USDT"
+      "symbol": "ORDI_USDT"
+    },
+    {
+      "reason": "NAO_CRIPTO",
+      "symbol": "NVDL_USDT"
     },
     {
       "reason": "CLASSIFICACAO_PENDENTE",
-      "symbol": "0G_USDT"
+      "symbol": "AIO_USDT"
     },
     {
       "reason": "VOLUME_FINANCEIRO_INSUFICIENTE",
@@ -566,15 +542,15 @@
     },
     {
       "reason": "CLASSIFICACAO_PENDENTE",
-      "symbol": "DOS_USDT"
+      "symbol": "USUAL_USDT"
     },
     {
       "reason": "CLASSIFICACAO_PENDENTE",
-      "symbol": "CT_USDT"
+      "symbol": "PARTI_USDT"
     },
     {
       "reason": "CLASSIFICACAO_PENDENTE",
-      "symbol": "BMT_USDT"
+      "symbol": "0G_USDT"
     },
     {
       "reason": "CLASSIFICACAO_PENDENTE",
@@ -582,11 +558,27 @@
     },
     {
       "reason": "CLASSIFICACAO_PENDENTE",
+      "symbol": "NES_USDT"
+    },
+    {
+      "reason": "CLASSIFICACAO_PENDENTE",
+      "symbol": "BMT_USDT"
+    },
+    {
+      "reason": "CLASSIFICACAO_PENDENTE",
+      "symbol": "DOS_USDT"
+    },
+    {
+      "reason": "CLASSIFICACAO_PENDENTE",
       "symbol": "BEAMX_USDT"
     },
     {
       "reason": "VOLUME_FINANCEIRO_INSUFICIENTE",
-      "symbol": "LUNC_USDT"
+      "symbol": "ETC_USDT"
+    },
+    {
+      "reason": "CLASSIFICACAO_PENDENTE",
+      "symbol": "CT_USDT"
     },
     {
       "reason": "VOLUME_FINANCEIRO_INSUFICIENTE",
@@ -597,40 +589,44 @@
       "symbol": "EIGEN_USDT"
     },
     {
-      "reason": "VOLUME_FINANCEIRO_INSUFICIENTE",
-      "symbol": "ETC_USDT"
-    },
-    {
-      "reason": "VOLUME_FINANCEIRO_INSUFICIENTE",
-      "symbol": "ZEN_USDT"
-    },
-    {
-      "reason": "CLASSIFICACAO_PENDENTE",
-      "symbol": "CLANKER_USDT"
-    },
-    {
       "reason": "CLASSIFICACAO_PENDENTE",
       "symbol": "CRO_USDT"
     },
     {
-      "reason": "CLASSIFICACAO_PENDENTE",
-      "symbol": "CORE_USDT"
+      "reason": "VOLUME_FINANCEIRO_INSUFICIENTE",
+      "symbol": "LUNC_USDT"
     },
     {
-      "reason": "VOLUME_FINANCEIRO_INSUFICIENTE",
-      "symbol": "CHZ_USDT"
+      "reason": "CLASSIFICACAO_PENDENTE",
+      "symbol": "WLFI_USDT"
+    },
+    {
+      "reason": "CLASSIFICACAO_PENDENTE",
+      "symbol": "BULLA_USDT"
     },
     {
       "reason": "CLASSIFICACAO_PENDENTE",
       "symbol": "BIRB_USDT"
     },
     {
+      "reason": "CLASSIFICACAO_PENDENTE",
+      "symbol": "CLANKER_USDT"
+    },
+    {
       "reason": "VOLUME_FINANCEIRO_INSUFICIENTE",
-      "symbol": "MINA_USDT"
+      "symbol": "ZEN_USDT"
+    },
+    {
+      "reason": "FORA_USDT",
+      "symbol": "XRP_USD"
     },
     {
       "reason": "CLASSIFICACAO_PENDENTE",
-      "symbol": "PHA_USDT"
+      "symbol": "CORE_USDT"
+    },
+    {
+      "reason": "CLASSIFICACAO_PENDENTE",
+      "symbol": "PIPPIN_USDT"
     },
     {
       "reason": "CLASSIFICACAO_PENDENTE",
@@ -641,8 +637,12 @@
       "symbol": "ZEST_USDT"
     },
     {
-      "reason": "FORA_USDT",
-      "symbol": "XRP_USD"
+      "reason": "VOLUME_FINANCEIRO_INSUFICIENTE",
+      "symbol": "CHZ_USDT"
+    },
+    {
+      "reason": "VOLUME_FINANCEIRO_INSUFICIENTE",
+      "symbol": "MINA_USDT"
     },
     {
       "reason": "FORA_USDT",
@@ -650,39 +650,11 @@
     },
     {
       "reason": "CLASSIFICACAO_PENDENTE",
-      "symbol": "BULLA_USDT"
+      "symbol": "SXT_USDT"
     },
     {
       "reason": "VOLUME_FINANCEIRO_INSUFICIENTE",
       "symbol": "STX_USDT"
-    },
-    {
-      "reason": "CLASSIFICACAO_PENDENTE",
-      "symbol": "PIPPIN_USDT"
-    },
-    {
-      "reason": "CLASSIFICACAO_PENDENTE",
-      "symbol": "WLFI_USDT"
-    },
-    {
-      "reason": "VOLUME_FINANCEIRO_INSUFICIENTE",
-      "symbol": "AXS_USDT"
-    },
-    {
-      "reason": "VOLUME_FINANCEIRO_INSUFICIENTE",
-      "symbol": "TRB_USDT"
-    },
-    {
-      "reason": "VOLUME_FINANCEIRO_INSUFICIENTE",
-      "symbol": "DOGS_USDT"
-    },
-    {
-      "reason": "CLASSIFICACAO_PENDENTE",
-      "symbol": "OPENLEDGER_USDT"
-    },
-    {
-      "reason": "CLASSIFICACAO_PENDENTE",
-      "symbol": "MET_USDT"
     },
     {
       "reason": "CLASSIFICACAO_PENDENTE",
@@ -694,11 +666,23 @@
     },
     {
       "reason": "CLASSIFICACAO_PENDENTE",
-      "symbol": "PEAQ_USDT"
+      "symbol": "MET_USDT"
     },
     {
       "reason": "VOLUME_FINANCEIRO_INSUFICIENTE",
-      "symbol": "POPCAT_USDT"
+      "symbol": "DOGS_USDT"
+    },
+    {
+      "reason": "VOLUME_FINANCEIRO_INSUFICIENTE",
+      "symbol": "AXS_USDT"
+    },
+    {
+      "reason": "CLASSIFICACAO_PENDENTE",
+      "symbol": "RT_USDT"
+    },
+    {
+      "reason": "CLASSIFICACAO_PENDENTE",
+      "symbol": "PHA_USDT"
     },
     {
       "reason": "CLASSIFICACAO_PENDENTE",
@@ -706,19 +690,27 @@
     },
     {
       "reason": "CLASSIFICACAO_PENDENTE",
-      "symbol": "PLUME_USDT"
-    },
-    {
-      "reason": "CLASSIFICACAO_PENDENTE",
-      "symbol": "ALLO_USDT"
+      "symbol": "PEAQ_USDT"
     },
     {
       "reason": "VOLUME_FINANCEIRO_INSUFICIENTE",
       "symbol": "ZIL_USDT"
     },
     {
+      "reason": "VOLUME_FINANCEIRO_INSUFICIENTE",
+      "symbol": "POPCAT_USDT"
+    },
+    {
       "reason": "CLASSIFICACAO_PENDENTE",
-      "symbol": "RT_USDT"
+      "symbol": "OPENLEDGER_USDT"
+    },
+    {
+      "reason": "VOLUME_FINANCEIRO_INSUFICIENTE",
+      "symbol": "TRB_USDT"
+    },
+    {
+      "reason": "CLASSIFICACAO_PENDENTE",
+      "symbol": "PLUME_USDT"
     },
     {
       "reason": "VOLUME_FINANCEIRO_INSUFICIENTE",
@@ -726,7 +718,15 @@
     },
     {
       "reason": "CLASSIFICACAO_PENDENTE",
-      "symbol": "ACT_USDT"
+      "symbol": "ALLO_USDT"
+    },
+    {
+      "reason": "VOLUME_FINANCEIRO_INSUFICIENTE",
+      "symbol": "RSR_USDT"
+    },
+    {
+      "reason": "CLASSIFICACAO_PENDENTE",
+      "symbol": "ELSA_USDT"
     },
     {
       "reason": "CLASSIFICACAO_PENDENTE",
@@ -734,11 +734,15 @@
     },
     {
       "reason": "CLASSIFICACAO_PENDENTE",
-      "symbol": "MOVR_USDT"
+      "symbol": "US_USDT"
+    },
+    {
+      "reason": "VOLUME_FINANCEIRO_INSUFICIENTE",
+      "symbol": "MAGIC_USDT"
     },
     {
       "reason": "CLASSIFICACAO_PENDENTE",
-      "symbol": "MNT_USDT"
+      "symbol": "AXIS_USDT"
     },
     {
       "reason": "VOLUME_FINANCEIRO_INSUFICIENTE",
@@ -750,23 +754,23 @@
     },
     {
       "reason": "FORA_USDT",
+      "symbol": "SOL_USDC"
+    },
+    {
+      "reason": "CLASSIFICACAO_PENDENTE",
+      "symbol": "CYS_USDT"
+    },
+    {
+      "reason": "FORA_USDT",
       "symbol": "ETH_USD"
     },
     {
       "reason": "CLASSIFICACAO_PENDENTE",
-      "symbol": "AEON1_USDT"
+      "symbol": "MOVR_USDT"
     },
     {
-      "reason": "VOLUME_FINANCEIRO_INSUFICIENTE",
-      "symbol": "RSR_USDT"
-    },
-    {
-      "reason": "VOLUME_FINANCEIRO_INSUFICIENTE",
-      "symbol": "MAGIC_USDT"
-    },
-    {
-      "reason": "FORA_USDT",
-      "symbol": "SOL_USDC"
+      "reason": "CLASSIFICACAO_PENDENTE",
+      "symbol": "ACT_USDT"
     },
     {
       "reason": "CLASSIFICACAO_PENDENTE",
@@ -774,19 +778,7 @@
     },
     {
       "reason": "CLASSIFICACAO_PENDENTE",
-      "symbol": "RECALL_USDT"
-    },
-    {
-      "reason": "CLASSIFICACAO_PENDENTE",
-      "symbol": "CYS_USDT"
-    },
-    {
-      "reason": "CLASSIFICACAO_PENDENTE",
-      "symbol": "US_USDT"
-    },
-    {
-      "reason": "VOLUME_FINANCEIRO_INSUFICIENTE",
-      "symbol": "EGLD_USDT"
+      "symbol": "AEON1_USDT"
     },
     {
       "reason": "VOLUME_FINANCEIRO_INSUFICIENTE",
@@ -794,15 +786,11 @@
     },
     {
       "reason": "CLASSIFICACAO_PENDENTE",
-      "symbol": "AXIS_USDT"
+      "symbol": "RECALL_USDT"
     },
     {
-      "reason": "CLASSIFICACAO_PENDENTE",
-      "symbol": "SXT_USDT"
-    },
-    {
-      "reason": "CLASSIFICACAO_PENDENTE",
-      "symbol": "ELSA_USDT"
+      "reason": "VOLUME_FINANCEIRO_INSUFICIENTE",
+      "symbol": "EGLD_USDT"
     },
     {
       "reason": "NAO_CRIPTO",
@@ -814,47 +802,27 @@
     },
     {
       "reason": "VOLUME_FINANCEIRO_INSUFICIENTE",
-      "symbol": "VET_USDT"
+      "symbol": "CAKE_USDT"
+    },
+    {
+      "reason": "CLASSIFICACAO_PENDENTE",
+      "symbol": "MNT_USDT"
     },
     {
       "reason": "CLASSIFICACAO_PENDENTE",
       "symbol": "MUBARAK_USDT"
     },
     {
-      "reason": "VOLUME_FINANCEIRO_INSUFICIENTE",
-      "symbol": "CAKE_USDT"
-    },
-    {
-      "reason": "FORA_USDT",
-      "symbol": "SOL_USD"
-    },
-    {
-      "reason": "CLASSIFICACAO_PENDENTE",
-      "symbol": "RED_USDT"
-    },
-    {
       "reason": "CLASSIFICACAO_PENDENTE",
       "symbol": "RE_USDT"
     },
     {
+      "reason": "VOLUME_FINANCEIRO_INSUFICIENTE",
+      "symbol": "VET_USDT"
+    },
+    {
       "reason": "CLASSIFICACAO_PENDENTE",
       "symbol": "RAVE_USDT"
-    },
-    {
-      "reason": "NAO_CRIPTO",
-      "symbol": "RAM_USDT"
-    },
-    {
-      "reason": "VOLUME_FINANCEIRO_INSUFICIENTE",
-      "symbol": "GRT_USDT"
-    },
-    {
-      "reason": "CLASSIFICACAO_PENDENTE",
-      "symbol": "BARD_USDT"
-    },
-    {
-      "reason": "CLASSIFICACAO_PENDENTE",
-      "symbol": "BATON_USDT"
     },
     {
       "reason": "CLASSIFICACAO_PENDENTE",
@@ -862,23 +830,31 @@
     },
     {
       "reason": "CLASSIFICACAO_PENDENTE",
+      "symbol": "FLUID_USDT"
+    },
+    {
+      "reason": "CLASSIFICACAO_PENDENTE",
+      "symbol": "BARD_USDT"
+    },
+    {
+      "reason": "VOLUME_FINANCEIRO_INSUFICIENTE",
+      "symbol": "GRT_USDT"
+    },
+    {
+      "reason": "FORA_USDT",
+      "symbol": "SOL_USD"
+    },
+    {
+      "reason": "CLASSIFICACAO_PENDENTE",
       "symbol": "STAR_USDT"
     },
     {
       "reason": "CLASSIFICACAO_PENDENTE",
-      "symbol": "HNT_USDT"
+      "symbol": "MONAD_USDT"
     },
     {
-      "reason": "VOLUME_FINANCEIRO_INSUFICIENTE",
-      "symbol": "SAGA_USDT"
-    },
-    {
-      "reason": "VOLUME_FINANCEIRO_INSUFICIENTE",
-      "symbol": "S_USDT"
-    },
-    {
-      "reason": "CLASSIFICACAO_PENDENTE",
-      "symbol": "SYN_USDT"
+      "reason": "NAO_CRIPTO",
+      "symbol": "RAM_USDT"
     },
     {
       "reason": "CLASSIFICACAO_PENDENTE",
@@ -886,27 +862,19 @@
     },
     {
       "reason": "CLASSIFICACAO_PENDENTE",
-      "symbol": "TRADOOR_USDT"
-    },
-    {
-      "reason": "CLASSIFICACAO_PENDENTE",
-      "symbol": "MONAD_USDT"
-    },
-    {
-      "reason": "CLASSIFICACAO_PENDENTE",
-      "symbol": "TLM_USDT"
-    },
-    {
-      "reason": "CLASSIFICACAO_PENDENTE",
-      "symbol": "FLUID_USDT"
+      "symbol": "RED_USDT"
     },
     {
       "reason": "CLASSIFICACAO_PENDENTE",
       "symbol": "BANK_USDT"
     },
     {
+      "reason": "VOLUME_FINANCEIRO_INSUFICIENTE",
+      "symbol": "SAGA_USDT"
+    },
+    {
       "reason": "CLASSIFICACAO_PENDENTE",
-      "symbol": "COPPER_USDT"
+      "symbol": "HNT_USDT"
     },
     {
       "reason": "VOLUME_FINANCEIRO_INSUFICIENTE",
@@ -914,19 +882,23 @@
     },
     {
       "reason": "VOLUME_FINANCEIRO_INSUFICIENTE",
-      "symbol": "XTZ_USDT"
+      "symbol": "S_USDT"
     },
     {
       "reason": "CLASSIFICACAO_PENDENTE",
-      "symbol": "PTB_USDT"
+      "symbol": "TRADOOR_USDT"
+    },
+    {
+      "reason": "CLASSIFICACAO_PENDENTE",
+      "symbol": "ZAMA_USDT"
     },
     {
       "reason": "VOLUME_FINANCEIRO_INSUFICIENTE",
       "symbol": "FLOW_USDT"
     },
     {
-      "reason": "CLASSIFICACAO_PENDENTE",
-      "symbol": "RLC_USDT"
+      "reason": "NAO_CRIPTO",
+      "symbol": "SKDD_USDT"
     },
     {
       "reason": "CLASSIFICACAO_PENDENTE",
@@ -934,11 +906,43 @@
     },
     {
       "reason": "CLASSIFICACAO_PENDENTE",
-      "symbol": "ZAMA_USDT"
+      "symbol": "COPPER_USDT"
     },
     {
       "reason": "CLASSIFICACAO_PENDENTE",
-      "symbol": "GTC_USDT"
+      "symbol": "TLM_USDT"
+    },
+    {
+      "reason": "CLASSIFICACAO_PENDENTE",
+      "symbol": "RLC_USDT"
+    },
+    {
+      "reason": "FORA_USDT",
+      "symbol": "XRP_USDC"
+    },
+    {
+      "reason": "VOLUME_FINANCEIRO_INSUFICIENTE",
+      "symbol": "XTZ_USDT"
+    },
+    {
+      "reason": "VOLUME_FINANCEIRO_INSUFICIENTE",
+      "symbol": "ROSE_USDT"
+    },
+    {
+      "reason": "CLASSIFICACAO_PENDENTE",
+      "symbol": "BATON_USDT"
+    },
+    {
+      "reason": "CLASSIFICACAO_PENDENTE",
+      "symbol": "SYN_USDT"
+    },
+    {
+      "reason": "CLASSIFICACAO_PENDENTE",
+      "symbol": "CHIP_USDT"
+    },
+    {
+      "reason": "CLASSIFICACAO_PENDENTE",
+      "symbol": "BILL_USDT"
     },
     {
       "reason": "CLASSIFICACAO_PENDENTE",
@@ -949,16 +953,20 @@
       "symbol": "COTI_USDT"
     },
     {
-      "reason": "NAO_CRIPTO",
-      "symbol": "SKDD_USDT"
-    },
-    {
-      "reason": "FORA_USDT",
-      "symbol": "XRP_USDC"
+      "reason": "VOLUME_FINANCEIRO_INSUFICIENTE",
+      "symbol": "CFX_USDT"
     },
     {
       "reason": "CLASSIFICACAO_PENDENTE",
-      "symbol": "HOME_USDT"
+      "symbol": "POWER_USDT"
+    },
+    {
+      "reason": "CLASSIFICACAO_PENDENTE",
+      "symbol": "PTB_USDT"
+    },
+    {
+      "reason": "CLASSIFICACAO_PENDENTE",
+      "symbol": "GTC_USDT"
     },
     {
       "reason": "VOLUME_FINANCEIRO_INSUFICIENTE",
@@ -966,7 +974,7 @@
     },
     {
       "reason": "CLASSIFICACAO_PENDENTE",
-      "symbol": "CHIP_USDT"
+      "symbol": "O_USDT"
     },
     {
       "reason": "CLASSIFICACAO_PENDENTE",
@@ -974,51 +982,19 @@
     },
     {
       "reason": "CLASSIFICACAO_PENDENTE",
-      "symbol": "POWER_USDT"
-    },
-    {
-      "reason": "VOLUME_FINANCEIRO_INSUFICIENTE",
-      "symbol": "CFX_USDT"
-    },
-    {
-      "reason": "CLASSIFICACAO_PENDENTE",
-      "symbol": "BILL_USDT"
-    },
-    {
-      "reason": "CLASSIFICACAO_PENDENTE",
-      "symbol": "O_USDT"
+      "symbol": "TRUTH_USDT"
     },
     {
       "reason": "VOLUME_FINANCEIRO_INSUFICIENTE",
       "symbol": "DYDX_USDT"
     },
     {
-      "reason": "VOLUME_FINANCEIRO_INSUFICIENTE",
-      "symbol": "ROSE_USDT"
+      "reason": "CLASSIFICACAO_PENDENTE",
+      "symbol": "HOME_USDT"
     },
     {
       "reason": "CLASSIFICACAO_PENDENTE",
-      "symbol": "ACE_USDT"
-    },
-    {
-      "reason": "CLASSIFICACAO_PENDENTE",
-      "symbol": "B_USDT"
-    },
-    {
-      "reason": "CLASSIFICACAO_PENDENTE",
-      "symbol": "RITUAL_USDT"
-    },
-    {
-      "reason": "CLASSIFICACAO_PENDENTE",
-      "symbol": "TST_USDT"
-    },
-    {
-      "reason": "CLASSIFICACAO_PENDENTE",
-      "symbol": "COAI_USDT"
-    },
-    {
-      "reason": "VOLUME_FINANCEIRO_INSUFICIENTE",
-      "symbol": "ATH_USDT"
+      "symbol": "SOONNETWORK_USDT"
     },
     {
       "reason": "NAO_CRIPTO",
@@ -1026,7 +1002,39 @@
     },
     {
       "reason": "CLASSIFICACAO_PENDENTE",
-      "symbol": "SOONNETWORK_USDT"
+      "symbol": "ACE_USDT"
+    },
+    {
+      "reason": "VOLUME_FINANCEIRO_INSUFICIENTE",
+      "symbol": "ATH_USDT"
+    },
+    {
+      "reason": "CLASSIFICACAO_PENDENTE",
+      "symbol": "RITUAL_USDT"
+    },
+    {
+      "reason": "VOLUME_FINANCEIRO_INSUFICIENTE",
+      "symbol": "IO_USDT"
+    },
+    {
+      "reason": "CLASSIFICACAO_PENDENTE",
+      "symbol": "TST_USDT"
+    },
+    {
+      "reason": "CLASSIFICACAO_PENDENTE",
+      "symbol": "TURBO_USDT"
+    },
+    {
+      "reason": "CLASSIFICACAO_PENDENTE",
+      "symbol": "XVG_USDT"
+    },
+    {
+      "reason": "CLASSIFICACAO_PENDENTE",
+      "symbol": "UB_USDT"
+    },
+    {
+      "reason": "FORA_USDT",
+      "symbol": "ZEC_USDC"
     },
     {
       "reason": "CLASSIFICACAO_PENDENTE",
@@ -1042,23 +1050,15 @@
     },
     {
       "reason": "CLASSIFICACAO_PENDENTE",
-      "symbol": "TURBO_USDT"
-    },
-    {
-      "reason": "FORA_PERPETUO_REGULAR",
-      "symbol": "PREDICT_USDT"
-    },
-    {
-      "reason": "VOLUME_FINANCEIRO_INSUFICIENTE",
-      "symbol": "IO_USDT"
-    },
-    {
-      "reason": "CLASSIFICACAO_PENDENTE",
       "symbol": "NXPC_USDT"
     },
     {
-      "reason": "FORA_USDT",
-      "symbol": "ZEC_USDC"
+      "reason": "CLASSIFICACAO_PENDENTE",
+      "symbol": "B_USDT"
+    },
+    {
+      "reason": "CLASSIFICACAO_PENDENTE",
+      "symbol": "COAI_USDT"
     },
     {
       "reason": "CLASSIFICACAO_PENDENTE",
@@ -1066,19 +1066,11 @@
     },
     {
       "reason": "CLASSIFICACAO_PENDENTE",
-      "symbol": "UB_USDT"
+      "symbol": "JST_USDT"
     },
     {
-      "reason": "CLASSIFICACAO_PENDENTE",
-      "symbol": "XPD_USDT"
-    },
-    {
-      "reason": "VOLUME_FINANCEIRO_INSUFICIENTE",
-      "symbol": "BRETT_USDT"
-    },
-    {
-      "reason": "CLASSIFICACAO_PENDENTE",
-      "symbol": "TUT_USDT"
+      "reason": "FORA_PERPETUO_REGULAR",
+      "symbol": "PREDICT_USDT"
     },
     {
       "reason": "CLASSIFICACAO_PENDENTE",
@@ -1086,23 +1078,43 @@
     },
     {
       "reason": "CLASSIFICACAO_PENDENTE",
+      "symbol": "XPD_USDT"
+    },
+    {
+      "reason": "CLASSIFICACAO_PENDENTE",
       "symbol": "PEOPLE_USDT"
+    },
+    {
+      "reason": "CLASSIFICACAO_PENDENTE",
+      "symbol": "TUT_USDT"
     },
     {
       "reason": "VOLUME_FINANCEIRO_INSUFICIENTE",
       "symbol": "THETA_USDT"
     },
     {
+      "reason": "VOLUME_FINANCEIRO_INSUFICIENTE",
+      "symbol": "OKB_USDT"
+    },
+    {
       "reason": "CLASSIFICACAO_PENDENTE",
       "symbol": "NIULAI_USDT"
     },
     {
-      "reason": "CLASSIFICACAO_PENDENTE",
-      "symbol": "JST_USDT"
+      "reason": "VOLUME_FINANCEIRO_INSUFICIENTE",
+      "symbol": "BRETT_USDT"
+    },
+    {
+      "reason": "VOLUME_FINANCEIRO_INSUFICIENTE",
+      "symbol": "DODO_USDT"
     },
     {
       "reason": "CLASSIFICACAO_PENDENTE",
-      "symbol": "XVG_USDT"
+      "symbol": "ARKM_USDT"
+    },
+    {
+      "reason": "FORA_USDT",
+      "symbol": "XAU_USDC"
     },
     {
       "reason": "VOLUME_FINANCEIRO_INSUFICIENTE",
@@ -1110,11 +1122,11 @@
     },
     {
       "reason": "VOLUME_FINANCEIRO_INSUFICIENTE",
-      "symbol": "NOT_USDT"
+      "symbol": "YFI_USDT"
     },
     {
       "reason": "CLASSIFICACAO_PENDENTE",
-      "symbol": "ARKM_USDT"
+      "symbol": "BLUR_USDT"
     },
     {
       "reason": "CLASSIFICACAO_PENDENTE",
@@ -1125,60 +1137,8 @@
       "symbol": "KAITO_USDT"
     },
     {
-      "reason": "CLASSIFICACAO_PENDENTE",
-      "symbol": "HAJIMI_USDT"
-    },
-    {
-      "reason": "FORA_USDT",
-      "symbol": "XAU_USDC"
-    },
-    {
       "reason": "VOLUME_FINANCEIRO_INSUFICIENTE",
-      "symbol": "YFI_USDT"
-    },
-    {
-      "reason": "VOLUME_FINANCEIRO_INSUFICIENTE",
-      "symbol": "OKB_USDT"
-    },
-    {
-      "reason": "CLASSIFICACAO_PENDENTE",
-      "symbol": "BLUR_USDT"
-    },
-    {
-      "reason": "CLASSIFICACAO_PENDENTE",
-      "symbol": "DEXE_USDT"
-    },
-    {
-      "reason": "CLASSIFICACAO_PENDENTE",
-      "symbol": "JELLYJELLY_USDT"
-    },
-    {
-      "reason": "CLASSIFICACAO_PENDENTE",
-      "symbol": "SOLV_USDT"
-    },
-    {
-      "reason": "VOLUME_FINANCEIRO_INSUFICIENTE",
-      "symbol": "1INCH_USDT"
-    },
-    {
-      "reason": "CLASSIFICACAO_PENDENTE",
-      "symbol": "KMNO_USDT"
-    },
-    {
-      "reason": "CLASSIFICACAO_PENDENTE",
-      "symbol": "COLLECT_USDT"
-    },
-    {
-      "reason": "VOLUME_FINANCEIRO_INSUFICIENTE",
-      "symbol": "DODO_USDT"
-    },
-    {
-      "reason": "VOLUME_FINANCEIRO_INSUFICIENTE",
-      "symbol": "DYM_USDT"
-    },
-    {
-      "reason": "CLASSIFICACAO_PENDENTE",
-      "symbol": "BAN_USDT"
+      "symbol": "NOT_USDT"
     },
     {
       "reason": "CLASSIFICACAO_PENDENTE",
@@ -1186,23 +1146,35 @@
     },
     {
       "reason": "CLASSIFICACAO_PENDENTE",
+      "symbol": "LUNANEW_USDT"
+    },
+    {
+      "reason": "CLASSIFICACAO_PENDENTE",
+      "symbol": "DEXE_USDT"
+    },
+    {
+      "reason": "CLASSIFICACAO_PENDENTE",
+      "symbol": "HAJIMI_USDT"
+    },
+    {
+      "reason": "VOLUME_FINANCEIRO_INSUFICIENTE",
+      "symbol": "1INCH_USDT"
+    },
+    {
+      "reason": "VOLUME_FINANCEIRO_INSUFICIENTE",
+      "symbol": "DYM_USDT"
+    },
+    {
+      "reason": "CLASSIFICACAO_PENDENTE",
+      "symbol": "SOLV_USDT"
+    },
+    {
+      "reason": "CLASSIFICACAO_PENDENTE",
       "symbol": "MELANIA_USDT"
     },
     {
       "reason": "CLASSIFICACAO_PENDENTE",
-      "symbol": "FOGO_USDT"
-    },
-    {
-      "reason": "NAO_CRIPTO",
-      "symbol": "SOXX_USDT"
-    },
-    {
-      "reason": "CLASSIFICACAO_PENDENTE",
-      "symbol": "OG_USDT"
-    },
-    {
-      "reason": "CLASSIFICACAO_PENDENTE",
-      "symbol": "TRUTH_USDT"
+      "symbol": "JELLYJELLY_USDT"
     },
     {
       "reason": "CLASSIFICACAO_PENDENTE",
@@ -1210,11 +1182,7 @@
     },
     {
       "reason": "CLASSIFICACAO_PENDENTE",
-      "symbol": "STABLE_USDT"
-    },
-    {
-      "reason": "CLASSIFICACAO_PENDENTE",
-      "symbol": "ACU_USDT"
+      "symbol": "FOGO_USDT"
     },
     {
       "reason": "VOLUME_FINANCEIRO_INSUFICIENTE",
@@ -1222,7 +1190,39 @@
     },
     {
       "reason": "CLASSIFICACAO_PENDENTE",
-      "symbol": "LUNANEW_USDT"
+      "symbol": "OG_USDT"
+    },
+    {
+      "reason": "CLASSIFICACAO_PENDENTE",
+      "symbol": "KMNO_USDT"
+    },
+    {
+      "reason": "CLASSIFICACAO_PENDENTE",
+      "symbol": "TOSHI_USDT"
+    },
+    {
+      "reason": "VOLUME_FINANCEIRO_INSUFICIENTE",
+      "symbol": "KAVA_USDT"
+    },
+    {
+      "reason": "CLASSIFICACAO_PENDENTE",
+      "symbol": "BAN_USDT"
+    },
+    {
+      "reason": "CLASSIFICACAO_PENDENTE",
+      "symbol": "GIGGLE_USDT"
+    },
+    {
+      "reason": "CLASSIFICACAO_PENDENTE",
+      "symbol": "COLLECT_USDT"
+    },
+    {
+      "reason": "CLASSIFICACAO_PENDENTE",
+      "symbol": "ACU_USDT"
+    },
+    {
+      "reason": "CLASSIFICACAO_PENDENTE",
+      "symbol": "DUSK_USDT"
     },
     {
       "reason": "CLASSIFICACAO_PENDENTE",
@@ -1234,35 +1234,31 @@
     },
     {
       "reason": "CLASSIFICACAO_PENDENTE",
-      "symbol": "TOSHI_USDT"
-    },
-    {
-      "reason": "CLASSIFICACAO_PENDENTE",
-      "symbol": "GIGGLE_USDT"
-    },
-    {
-      "reason": "CLASSIFICACAO_PENDENTE",
       "symbol": "FOLKS_USDT"
+    },
+    {
+      "reason": "CLASSIFICACAO_PENDENTE",
+      "symbol": "STABLE_USDT"
+    },
+    {
+      "reason": "NAO_CRIPTO",
+      "symbol": "SOXX_USDT"
     },
     {
       "reason": "NAO_CRIPTO",
       "symbol": "TQQQ_USDT"
     },
     {
-      "reason": "VOLUME_FINANCEIRO_INSUFICIENTE",
-      "symbol": "KAVA_USDT"
-    },
-    {
-      "reason": "CLASSIFICACAO_PENDENTE",
-      "symbol": "DOOD_USDT"
-    },
-    {
-      "reason": "VOLUME_FINANCEIRO_INSUFICIENTE",
-      "symbol": "MANA_USDT"
-    },
-    {
       "reason": "CLASSIFICACAO_PENDENTE",
       "symbol": "GRVT_USDT"
+    },
+    {
+      "reason": "CLASSIFICACAO_PENDENTE",
+      "symbol": "MEME_USDT"
+    },
+    {
+      "reason": "CLASSIFICACAO_PENDENTE",
+      "symbol": "1000RATS_USDT"
     },
     {
       "reason": "VOLUME_FINANCEIRO_INSUFICIENTE",
@@ -1274,7 +1270,7 @@
     },
     {
       "reason": "CLASSIFICACAO_PENDENTE",
-      "symbol": "EPIC_USDT"
+      "symbol": "DOOD_USDT"
     },
     {
       "reason": "CLASSIFICACAO_PENDENTE",
@@ -1286,11 +1282,11 @@
     },
     {
       "reason": "CLASSIFICACAO_PENDENTE",
-      "symbol": "MEME_USDT"
+      "symbol": "MOCA_USDT"
     },
     {
       "reason": "CLASSIFICACAO_PENDENTE",
-      "symbol": "1000RATS_USDT"
+      "symbol": "EPIC_USDT"
     },
     {
       "reason": "CLASSIFICACAO_PENDENTE",
@@ -1299,18 +1295,6 @@
     {
       "reason": "VOLUME_FINANCEIRO_INSUFICIENTE",
       "symbol": "CELR_USDT"
-    },
-    {
-      "reason": "VOLUME_FINANCEIRO_INSUFICIENTE",
-      "symbol": "CELO_USDT"
-    },
-    {
-      "reason": "CLASSIFICACAO_PENDENTE",
-      "symbol": "DUSK_USDT"
-    },
-    {
-      "reason": "CLASSIFICACAO_PENDENTE",
-      "symbol": "MOCA_USDT"
     },
     {
       "reason": "CLASSIFICACAO_PENDENTE",
@@ -1322,7 +1306,11 @@
     },
     {
       "reason": "VOLUME_FINANCEIRO_INSUFICIENTE",
-      "symbol": "SATS_USDT"
+      "symbol": "MANA_USDT"
+    },
+    {
+      "reason": "VOLUME_FINANCEIRO_INSUFICIENTE",
+      "symbol": "CELO_USDT"
     },
     {
       "reason": "CLASSIFICACAO_PENDENTE",
@@ -1333,12 +1321,8 @@
       "symbol": "MOVE_USDT"
     },
     {
-      "reason": "NAO_CRIPTO",
-      "symbol": "JP225_USDT"
-    },
-    {
-      "reason": "NAO_CRIPTO",
-      "symbol": "DRAM_USDT"
+      "reason": "CLASSIFICACAO_PENDENTE",
+      "symbol": "ALICE_USDT"
     },
     {
       "reason": "CLASSIFICACAO_PENDENTE",
@@ -1346,7 +1330,23 @@
     },
     {
       "reason": "CLASSIFICACAO_PENDENTE",
+      "symbol": "ALPINE_USDT"
+    },
+    {
+      "reason": "CLASSIFICACAO_PENDENTE",
+      "symbol": "FLR_USDT"
+    },
+    {
+      "reason": "VOLUME_FINANCEIRO_INSUFICIENTE",
+      "symbol": "SATS_USDT"
+    },
+    {
+      "reason": "CLASSIFICACAO_PENDENTE",
       "symbol": "PORTAL_USDT"
+    },
+    {
+      "reason": "CLASSIFICACAO_PENDENTE",
+      "symbol": "RLS_USDT"
     },
     {
       "reason": "CLASSIFICACAO_PENDENTE",
@@ -1354,31 +1354,11 @@
     },
     {
       "reason": "CLASSIFICACAO_PENDENTE",
-      "symbol": "RLS_USDT"
-    },
-    {
-      "reason": "VOLUME_FINANCEIRO_INSUFICIENTE",
-      "symbol": "COMP_USDT"
-    },
-    {
-      "reason": "CLASSIFICACAO_PENDENTE",
-      "symbol": "FLR_USDT"
-    },
-    {
-      "reason": "CLASSIFICACAO_PENDENTE",
-      "symbol": "BB_USDT"
-    },
-    {
-      "reason": "CLASSIFICACAO_PENDENTE",
-      "symbol": "ARCSOL_USDT"
-    },
-    {
-      "reason": "CLASSIFICACAO_PENDENTE",
-      "symbol": "4_USDT"
-    },
-    {
-      "reason": "CLASSIFICACAO_PENDENTE",
       "symbol": "SKR_USDT"
+    },
+    {
+      "reason": "CLASSIFICACAO_PENDENTE",
+      "symbol": "OPN_USDT"
     },
     {
       "reason": "CLASSIFICACAO_PENDENTE",
@@ -1386,7 +1366,7 @@
     },
     {
       "reason": "NAO_CRIPTO",
-      "symbol": "UVXY_USDT"
+      "symbol": "JP225_USDT"
     },
     {
       "reason": "VOLUME_FINANCEIRO_INSUFICIENTE",
@@ -1394,7 +1374,15 @@
     },
     {
       "reason": "VOLUME_FINANCEIRO_INSUFICIENTE",
+      "symbol": "COMP_USDT"
+    },
+    {
+      "reason": "VOLUME_FINANCEIRO_INSUFICIENTE",
       "symbol": "API3_USDT"
+    },
+    {
+      "reason": "CLASSIFICACAO_PENDENTE",
+      "symbol": "BB_USDT"
     },
     {
       "reason": "CLASSIFICACAO_PENDENTE",
@@ -1406,39 +1394,11 @@
     },
     {
       "reason": "CLASSIFICACAO_PENDENTE",
+      "symbol": "ARCSOL_USDT"
+    },
+    {
+      "reason": "CLASSIFICACAO_PENDENTE",
       "symbol": "GRIFFAIN_USDT"
-    },
-    {
-      "reason": "CLASSIFICACAO_PENDENTE",
-      "symbol": "COOKIE_USDT"
-    },
-    {
-      "reason": "CLASSIFICACAO_PENDENTE",
-      "symbol": "OPN_USDT"
-    },
-    {
-      "reason": "CLASSIFICACAO_PENDENTE",
-      "symbol": "UP_USDT"
-    },
-    {
-      "reason": "CLASSIFICACAO_PENDENTE",
-      "symbol": "ALICE_USDT"
-    },
-    {
-      "reason": "CLASSIFICACAO_PENDENTE",
-      "symbol": "DGAI_USDT"
-    },
-    {
-      "reason": "CLASSIFICACAO_PENDENTE",
-      "symbol": "ALPINE_USDT"
-    },
-    {
-      "reason": "CLASSIFICACAO_PENDENTE",
-      "symbol": "VELO_USDT"
-    },
-    {
-      "reason": "CLASSIFICACAO_PENDENTE",
-      "symbol": "MANTA_USDT"
     },
     {
       "reason": "CLASSIFICACAO_PENDENTE",
@@ -1446,11 +1406,43 @@
     },
     {
       "reason": "CLASSIFICACAO_PENDENTE",
-      "symbol": "FF_USDT"
+      "symbol": "4_USDT"
     },
     {
       "reason": "CLASSIFICACAO_PENDENTE",
       "symbol": "GWEI_USDT"
+    },
+    {
+      "reason": "CLASSIFICACAO_PENDENTE",
+      "symbol": "KAT_USDT"
+    },
+    {
+      "reason": "NAO_CRIPTO",
+      "symbol": "UVXY_USDT"
+    },
+    {
+      "reason": "CLASSIFICACAO_PENDENTE",
+      "symbol": "MANTA_USDT"
+    },
+    {
+      "reason": "CLASSIFICACAO_PENDENTE",
+      "symbol": "COOKIE_USDT"
+    },
+    {
+      "reason": "CLASSIFICACAO_PENDENTE",
+      "symbol": "AIA_USDT"
+    },
+    {
+      "reason": "CLASSIFICACAO_PENDENTE",
+      "symbol": "FF_USDT"
+    },
+    {
+      "reason": "CLASSIFICACAO_PENDENTE",
+      "symbol": "UP_USDT"
+    },
+    {
+      "reason": "NAO_CRIPTO",
+      "symbol": "DRAM_USDT"
     },
     {
       "reason": "NAO_CRIPTO",
@@ -1458,11 +1450,19 @@
     },
     {
       "reason": "CLASSIFICACAO_PENDENTE",
-      "symbol": "LINEA_USDT"
+      "symbol": "VELO_USDT"
     },
     {
       "reason": "CLASSIFICACAO_PENDENTE",
-      "symbol": "KAT_USDT"
+      "symbol": "1000000BABYDOGE_USDT"
+    },
+    {
+      "reason": "CLASSIFICACAO_PENDENTE",
+      "symbol": "KOMA_USDT"
+    },
+    {
+      "reason": "CLASSIFICACAO_PENDENTE",
+      "symbol": "LINEA_USDT"
     },
     {
       "reason": "VOLUME_FINANCEIRO_INSUFICIENTE",
@@ -1471,6 +1471,18 @@
     {
       "reason": "CLASSIFICACAO_PENDENTE",
       "symbol": "BICO_USDT"
+    },
+    {
+      "reason": "CLASSIFICACAO_PENDENTE",
+      "symbol": "ORDER_USDT"
+    },
+    {
+      "reason": "CLASSIFICACAO_PENDENTE",
+      "symbol": "BASED_USDT"
+    },
+    {
+      "reason": "CLASSIFICACAO_PENDENTE",
+      "symbol": "C98_USDT"
     },
     {
       "reason": "VOLUME_FINANCEIRO_INSUFICIENTE",
@@ -1482,47 +1494,11 @@
     },
     {
       "reason": "CLASSIFICACAO_PENDENTE",
-      "symbol": "1000000BABYDOGE_USDT"
-    },
-    {
-      "reason": "CLASSIFICACAO_PENDENTE",
-      "symbol": "BIO_USDT"
-    },
-    {
-      "reason": "CLASSIFICACAO_PENDENTE",
-      "symbol": "BTR_USDT"
-    },
-    {
-      "reason": "CLASSIFICACAO_PENDENTE",
-      "symbol": "AIA_USDT"
-    },
-    {
-      "reason": "CLASSIFICACAO_PENDENTE",
-      "symbol": "BASED_USDT"
-    },
-    {
-      "reason": "CLASSIFICACAO_PENDENTE",
-      "symbol": "ALUMINUM_USDT"
-    },
-    {
-      "reason": "CLASSIFICACAO_PENDENTE",
-      "symbol": "C98_USDT"
-    },
-    {
-      "reason": "CLASSIFICACAO_PENDENTE",
-      "symbol": "XAI_USDT"
-    },
-    {
-      "reason": "CLASSIFICACAO_PENDENTE",
-      "symbol": "ORDER_USDT"
-    },
-    {
-      "reason": "CLASSIFICACAO_PENDENTE",
       "symbol": "THE_USDT"
     },
     {
       "reason": "CLASSIFICACAO_PENDENTE",
-      "symbol": "BANANAS31_USDT"
+      "symbol": "BIO_USDT"
     },
     {
       "reason": "CLASSIFICACAO_PENDENTE",
@@ -1533,8 +1509,12 @@
       "symbol": "FORM_USDT"
     },
     {
+      "reason": "FORA_USDT",
+      "symbol": "SUI_USDC"
+    },
+    {
       "reason": "CLASSIFICACAO_PENDENTE",
-      "symbol": "HYPER_USDT"
+      "symbol": "DGAI_USDT"
     },
     {
       "reason": "CLASSIFICACAO_PENDENTE",
@@ -1550,35 +1530,39 @@
     },
     {
       "reason": "CLASSIFICACAO_PENDENTE",
+      "symbol": "BANANAS31_USDT"
+    },
+    {
+      "reason": "CLASSIFICACAO_PENDENTE",
+      "symbol": "HYPER_USDT"
+    },
+    {
+      "reason": "CLASSIFICACAO_PENDENTE",
       "symbol": "M_USDT"
     },
     {
-      "reason": "NAO_CRIPTO",
-      "symbol": "SQQQ_USDT"
+      "reason": "CLASSIFICACAO_PENDENTE",
+      "symbol": "NOM_USDT"
     },
     {
       "reason": "VOLUME_FINANCEIRO_INSUFICIENTE",
       "symbol": "ILV_USDT"
     },
     {
+      "reason": "VOLUME_FINANCEIRO_INSUFICIENTE",
+      "symbol": "ALT_USDT"
+    },
+    {
       "reason": "CLASSIFICACAO_PENDENTE",
-      "symbol": "BANANA_USDT"
+      "symbol": "XAI_USDT"
     },
     {
       "reason": "VOLUME_FINANCEIRO_INSUFICIENTE",
       "symbol": "HMSTR_USDT"
     },
     {
-      "reason": "VOLUME_FINANCEIRO_INSUFICIENTE",
-      "symbol": "ME_USDT"
-    },
-    {
       "reason": "CLASSIFICACAO_PENDENTE",
-      "symbol": "KOMA_USDT"
-    },
-    {
-      "reason": "CLASSIFICACAO_PENDENTE",
-      "symbol": "SONIC_USDT"
+      "symbol": "AVAAI_USDT"
     },
     {
       "reason": "CLASSIFICACAO_PENDENTE",
@@ -1587,6 +1571,14 @@
     {
       "reason": "CLASSIFICACAO_PENDENTE",
       "symbol": "HEMI_USDT"
+    },
+    {
+      "reason": "CLASSIFICACAO_PENDENTE",
+      "symbol": "ALUMINUM_USDT"
+    },
+    {
+      "reason": "VOLUME_FINANCEIRO_INSUFICIENTE",
+      "symbol": "ONT_USDT"
     },
     {
       "reason": "VOLUME_FINANCEIRO_INSUFICIENTE",
@@ -1598,7 +1590,31 @@
     },
     {
       "reason": "VOLUME_FINANCEIRO_INSUFICIENTE",
+      "symbol": "RVN_USDT"
+    },
+    {
+      "reason": "VOLUME_FINANCEIRO_INSUFICIENTE",
+      "symbol": "CKB_USDT"
+    },
+    {
+      "reason": "VOLUME_FINANCEIRO_INSUFICIENTE",
       "symbol": "MEW_USDT"
+    },
+    {
+      "reason": "CLASSIFICACAO_PENDENTE",
+      "symbol": "BANANA_USDT"
+    },
+    {
+      "reason": "VOLUME_FINANCEIRO_INSUFICIENTE",
+      "symbol": "ME_USDT"
+    },
+    {
+      "reason": "CLASSIFICACAO_PENDENTE",
+      "symbol": "SONIC_USDT"
+    },
+    {
+      "reason": "FORA_USDT",
+      "symbol": "ENA_USDC"
     },
     {
       "reason": "CLASSIFICACAO_PENDENTE",
@@ -1606,43 +1622,23 @@
     },
     {
       "reason": "CLASSIFICACAO_PENDENTE",
-      "symbol": "TAC_USDT"
-    },
-    {
-      "reason": "CLASSIFICACAO_PENDENTE",
-      "symbol": "NOM_USDT"
+      "symbol": "BTR_USDT"
     },
     {
       "reason": "CLASSIFICACAO_PENDENTE",
       "symbol": "2Z_USDT"
     },
     {
-      "reason": "VOLUME_FINANCEIRO_INSUFICIENTE",
-      "symbol": "ONT_USDT"
+      "reason": "CLASSIFICACAO_PENDENTE",
+      "symbol": "CTR_USDT"
+    },
+    {
+      "reason": "NAO_CRIPTO",
+      "symbol": "SQQQ_USDT"
     },
     {
       "reason": "CLASSIFICACAO_PENDENTE",
       "symbol": "SLP_USDT"
-    },
-    {
-      "reason": "VOLUME_FINANCEIRO_INSUFICIENTE",
-      "symbol": "RVN_USDT"
-    },
-    {
-      "reason": "VOLUME_FINANCEIRO_INSUFICIENTE",
-      "symbol": "ALT_USDT"
-    },
-    {
-      "reason": "VOLUME_FINANCEIRO_INSUFICIENTE",
-      "symbol": "CKB_USDT"
-    },
-    {
-      "reason": "CLASSIFICACAO_PENDENTE",
-      "symbol": "CGPT_USDT"
-    },
-    {
-      "reason": "CLASSIFICACAO_PENDENTE",
-      "symbol": "NMR_USDT"
     },
     {
       "reason": "CLASSIFICACAO_PENDENTE",
@@ -1654,15 +1650,7 @@
     },
     {
       "reason": "CLASSIFICACAO_PENDENTE",
-      "symbol": "AVAAI_USDT"
-    },
-    {
-      "reason": "FORA_USDT",
-      "symbol": "ENA_USDC"
-    },
-    {
-      "reason": "FORA_USDT",
-      "symbol": "SUI_USDC"
+      "symbol": "TAC_USDT"
     },
     {
       "reason": "FORA_USDT",
@@ -1670,31 +1658,11 @@
     },
     {
       "reason": "FORA_USDT",
-      "symbol": "ADA_USD"
-    },
-    {
-      "reason": "CLASSIFICACAO_PENDENTE",
-      "symbol": "BABY_USDT"
-    },
-    {
-      "reason": "CLASSIFICACAO_PENDENTE",
-      "symbol": "CAT_USDT"
-    },
-    {
-      "reason": "CLASSIFICACAO_PENDENTE",
-      "symbol": "FHE_USDT"
-    },
-    {
-      "reason": "CLASSIFICACAO_PENDENTE",
-      "symbol": "SENT_USDT"
-    },
-    {
-      "reason": "FORA_USDT",
       "symbol": "BTC_USD1"
     },
     {
-      "reason": "CLASSIFICACAO_PENDENTE",
-      "symbol": "CTR_USDT"
+      "reason": "FORA_USDT",
+      "symbol": "ADA_USD"
     },
     {
       "reason": "VOLUME_FINANCEIRO_INSUFICIENTE",
@@ -1702,15 +1670,43 @@
     },
     {
       "reason": "CLASSIFICACAO_PENDENTE",
+      "symbol": "CGPT_USDT"
+    },
+    {
+      "reason": "CLASSIFICACAO_PENDENTE",
+      "symbol": "NMR_USDT"
+    },
+    {
+      "reason": "CLASSIFICACAO_PENDENTE",
+      "symbol": "CAT_USDT"
+    },
+    {
+      "reason": "CLASSIFICACAO_PENDENTE",
       "symbol": "PUFFER_USDT"
     },
     {
       "reason": "CLASSIFICACAO_PENDENTE",
-      "symbol": "GOAT_USDT"
+      "symbol": "SOMI_USDT"
     },
     {
       "reason": "CLASSIFICACAO_PENDENTE",
-      "symbol": "CHILLGUY_USDT"
+      "symbol": "SENT_USDT"
+    },
+    {
+      "reason": "NAO_CRIPTO",
+      "symbol": "EWY_USDT"
+    },
+    {
+      "reason": "CLASSIFICACAO_PENDENTE",
+      "symbol": "BABY_USDT"
+    },
+    {
+      "reason": "CLASSIFICACAO_PENDENTE",
+      "symbol": "LQTY_USDT"
+    },
+    {
+      "reason": "CLASSIFICACAO_PENDENTE",
+      "symbol": "VTHO_USDT"
     },
     {
       "reason": "FORA_USDT",
@@ -1726,15 +1722,7 @@
     },
     {
       "reason": "CLASSIFICACAO_PENDENTE",
-      "symbol": "SOMI_USDT"
-    },
-    {
-      "reason": "NAO_CRIPTO",
-      "symbol": "EWY_USDT"
-    },
-    {
-      "reason": "CLASSIFICACAO_PENDENTE",
-      "symbol": "SLX_USDT"
+      "symbol": "FHE_USDT"
     },
     {
       "reason": "CLASSIFICACAO_PENDENTE",
@@ -1742,11 +1730,7 @@
     },
     {
       "reason": "CLASSIFICACAO_PENDENTE",
-      "symbol": "EDEN_USDT"
-    },
-    {
-      "reason": "CLASSIFICACAO_PENDENTE",
-      "symbol": "WOO_USDT"
+      "symbol": "UMA_USDT"
     },
     {
       "reason": "CLASSIFICACAO_PENDENTE",
@@ -1754,11 +1738,11 @@
     },
     {
       "reason": "CLASSIFICACAO_PENDENTE",
-      "symbol": "SAFE_USDT"
+      "symbol": "G_USDT"
     },
     {
       "reason": "CLASSIFICACAO_PENDENTE",
-      "symbol": "G_USDT"
+      "symbol": "GOAT_USDT"
     },
     {
       "reason": "FORA_USDT",
@@ -1766,11 +1750,11 @@
     },
     {
       "reason": "CLASSIFICACAO_PENDENTE",
-      "symbol": "LA_USDT"
+      "symbol": "IN_USDT"
     },
     {
       "reason": "CLASSIFICACAO_PENDENTE",
-      "symbol": "IN_USDT"
+      "symbol": "BSV_USDT"
     },
     {
       "reason": "CLASSIFICACAO_PENDENTE",
@@ -1778,7 +1762,15 @@
     },
     {
       "reason": "CLASSIFICACAO_PENDENTE",
+      "symbol": "EDEN_USDT"
+    },
+    {
+      "reason": "CLASSIFICACAO_PENDENTE",
       "symbol": "XEC_USDT"
+    },
+    {
+      "reason": "CLASSIFICACAO_PENDENTE",
+      "symbol": "WOO_USDT"
     },
     {
       "reason": "CLASSIFICACAO_PENDENTE",
@@ -1786,11 +1778,7 @@
     },
     {
       "reason": "CLASSIFICACAO_PENDENTE",
-      "symbol": "CNPY_USDT"
-    },
-    {
-      "reason": "CLASSIFICACAO_PENDENTE",
-      "symbol": "HOOKED_USDT"
+      "symbol": "SSV_USDT"
     },
     {
       "reason": "CLASSIFICACAO_PENDENTE",
@@ -1798,11 +1786,11 @@
     },
     {
       "reason": "CLASSIFICACAO_PENDENTE",
-      "symbol": "METIS_USDT"
+      "symbol": "CHILLGUY_USDT"
     },
     {
       "reason": "CLASSIFICACAO_PENDENTE",
-      "symbol": "VTHO_USDT"
+      "symbol": "LA_USDT"
     },
     {
       "reason": "CLASSIFICACAO_PENDENTE",
@@ -1811,6 +1799,10 @@
     {
       "reason": "CLASSIFICACAO_PENDENTE",
       "symbol": "LEAD_USDT"
+    },
+    {
+      "reason": "CLASSIFICACAO_PENDENTE",
+      "symbol": "SLX_USDT"
     },
     {
       "reason": "CLASSIFICACAO_PENDENTE",
@@ -1826,7 +1818,11 @@
     },
     {
       "reason": "CLASSIFICACAO_PENDENTE",
-      "symbol": "T_USDT"
+      "symbol": "METIS_USDT"
+    },
+    {
+      "reason": "CLASSIFICACAO_PENDENTE",
+      "symbol": "SAFE_USDT"
     },
     {
       "reason": "CLASSIFICACAO_PENDENTE",
@@ -1834,11 +1830,7 @@
     },
     {
       "reason": "CLASSIFICACAO_PENDENTE",
-      "symbol": "ZORA_USDT"
-    },
-    {
-      "reason": "CLASSIFICACAO_PENDENTE",
-      "symbol": "TRUST_USDT"
+      "symbol": "GUA_USDT"
     },
     {
       "reason": "CLASSIFICACAO_PENDENTE",
@@ -1846,11 +1838,11 @@
     },
     {
       "reason": "CLASSIFICACAO_PENDENTE",
-      "symbol": "BSV_USDT"
+      "symbol": "KNC_USDT"
     },
     {
-      "reason": "CLASSIFICACAO_PENDENTE",
-      "symbol": "KNC_USDT"
+      "reason": "VOLUME_FINANCEIRO_INSUFICIENTE",
+      "symbol": "BAND_USDT"
     },
     {
       "reason": "CLASSIFICACAO_PENDENTE",
@@ -1858,23 +1850,15 @@
     },
     {
       "reason": "CLASSIFICACAO_PENDENTE",
-      "symbol": "UMA_USDT"
-    },
-    {
-      "reason": "CLASSIFICACAO_PENDENTE",
-      "symbol": "LQTY_USDT"
+      "symbol": "T_USDT"
     },
     {
       "reason": "CLASSIFICACAO_PENDENTE",
       "symbol": "ID_USDT"
     },
     {
-      "reason": "VOLUME_FINANCEIRO_INSUFICIENTE",
-      "symbol": "SUPER_USDT"
-    },
-    {
       "reason": "CLASSIFICACAO_PENDENTE",
-      "symbol": "DNA_USDT"
+      "symbol": "HOOKED_USDT"
     },
     {
       "reason": "CLASSIFICACAO_PENDENTE",
@@ -1882,19 +1866,23 @@
     },
     {
       "reason": "CLASSIFICACAO_PENDENTE",
+      "symbol": "LUMIA_USDT"
+    },
+    {
+      "reason": "CLASSIFICACAO_PENDENTE",
       "symbol": "SCR_USDT"
     },
     {
       "reason": "CLASSIFICACAO_PENDENTE",
-      "symbol": "FLOCK_USDT"
-    },
-    {
-      "reason": "FORA_USDT",
-      "symbol": "DOGE_USDC"
+      "symbol": "ZORA_USDT"
     },
     {
       "reason": "FORA_USDT",
       "symbol": "HYPE_USDC"
+    },
+    {
+      "reason": "FORA_USDT",
+      "symbol": "TAO_USDC"
     },
     {
       "reason": "CLASSIFICACAO_PENDENTE",
@@ -1905,12 +1893,12 @@
       "symbol": "AT_USDT"
     },
     {
-      "reason": "FORA_USDT",
-      "symbol": "XAUT_USDC"
+      "reason": "CLASSIFICACAO_PENDENTE",
+      "symbol": "TRUST_USDT"
     },
     {
-      "reason": "CLASSIFICACAO_PENDENTE",
-      "symbol": "GUA_USDT"
+      "reason": "FORA_USDT",
+      "symbol": "XAUT_USDC"
     },
     {
       "reason": "CLASSIFICACAO_PENDENTE",
@@ -1918,27 +1906,31 @@
     },
     {
       "reason": "CLASSIFICACAO_PENDENTE",
-      "symbol": "HIVE_USDT"
-    },
-    {
-      "reason": "CLASSIFICACAO_PENDENTE",
       "symbol": "FLUX_USDT"
     },
     {
-      "reason": "VOLUME_FINANCEIRO_INSUFICIENTE",
-      "symbol": "GMX_USDT"
-    },
-    {
       "reason": "CLASSIFICACAO_PENDENTE",
-      "symbol": "SSV_USDT"
+      "symbol": "CNPY_USDT"
     },
     {
       "reason": "CLASSIFICACAO_PENDENTE",
       "symbol": "TNSR_USDT"
     },
     {
+      "reason": "CLASSIFICACAO_PENDENTE",
+      "symbol": "FLOCK_USDT"
+    },
+    {
       "reason": "FORA_USDT",
       "symbol": "AVAX_USDC"
+    },
+    {
+      "reason": "FORA_USDT",
+      "symbol": "DOGE_USDC"
+    },
+    {
+      "reason": "CLASSIFICACAO_PENDENTE",
+      "symbol": "BAS_USDT"
     },
     {
       "reason": "CLASSIFICACAO_PENDENTE",
@@ -1954,31 +1946,31 @@
     },
     {
       "reason": "VOLUME_FINANCEIRO_INSUFICIENTE",
-      "symbol": "BAND_USDT"
-    },
-    {
-      "reason": "VOLUME_FINANCEIRO_INSUFICIENTE",
       "symbol": "ACH_USDT"
     },
     {
-      "reason": "CLASSIFICACAO_PENDENTE",
-      "symbol": "LPT_USDT"
+      "reason": "VOLUME_FINANCEIRO_INSUFICIENTE",
+      "symbol": "SFP_USDT"
     },
     {
       "reason": "CLASSIFICACAO_PENDENTE",
       "symbol": "SPELL_USDT"
     },
     {
+      "reason": "VOLUME_FINANCEIRO_INSUFICIENTE",
+      "symbol": "GMX_USDT"
+    },
+    {
+      "reason": "VOLUME_FINANCEIRO_INSUFICIENTE",
+      "symbol": "SUPER_USDT"
+    },
+    {
+      "reason": "CLASSIFICACAO_PENDENTE",
+      "symbol": "DNA_USDT"
+    },
+    {
       "reason": "CLASSIFICACAO_PENDENTE",
       "symbol": "BIGTIME_USDT"
-    },
-    {
-      "reason": "CLASSIFICACAO_PENDENTE",
-      "symbol": "LUMIA_USDT"
-    },
-    {
-      "reason": "CLASSIFICACAO_PENDENTE",
-      "symbol": "COW_USDT"
     },
     {
       "reason": "FORA_USDT",
@@ -1997,14 +1989,6 @@
       "symbol": "AAVE_USDC"
     },
     {
-      "reason": "FORA_USDT",
-      "symbol": "TAO_USDC"
-    },
-    {
-      "reason": "CLASSIFICACAO_PENDENTE",
-      "symbol": "BAS_USDT"
-    },
-    {
       "reason": "CLASSIFICACAO_PENDENTE",
       "symbol": "CARDS_USDT"
     },
@@ -2015,6 +1999,22 @@
     {
       "reason": "VOLUME_FINANCEIRO_INSUFICIENTE",
       "symbol": "KSM_USDT"
+    },
+    {
+      "reason": "CLASSIFICACAO_PENDENTE",
+      "symbol": "LPT_USDT"
+    },
+    {
+      "reason": "CLASSIFICACAO_PENDENTE",
+      "symbol": "HIVE_USDT"
+    },
+    {
+      "reason": "CLASSIFICACAO_PENDENTE",
+      "symbol": "FIDA_USDT"
+    },
+    {
+      "reason": "CLASSIFICACAO_PENDENTE",
+      "symbol": "COW_USDT"
     },
     {
       "reason": "CLASSIFICACAO_PENDENTE",
@@ -2034,6 +2034,10 @@
     },
     {
       "reason": "CLASSIFICACAO_PENDENTE",
+      "symbol": "BIANRENSHENG_USDT"
+    },
+    {
+      "reason": "CLASSIFICACAO_PENDENTE",
       "symbol": "YB_USDT"
     },
     {
@@ -2041,8 +2045,8 @@
       "symbol": "MANTRA_USDT"
     },
     {
-      "reason": "NAO_CRIPTO",
-      "symbol": "SKUU_USDT"
+      "reason": "CLASSIFICACAO_PENDENTE",
+      "symbol": "NICKEL_USDT"
     },
     {
       "reason": "CLASSIFICACAO_PENDENTE",
@@ -2050,7 +2054,11 @@
     },
     {
       "reason": "CLASSIFICACAO_PENDENTE",
-      "symbol": "FIDA_USDT"
+      "symbol": "USDC_USDT"
+    },
+    {
+      "reason": "CLASSIFICACAO_PENDENTE",
+      "symbol": "CETUS_USDT"
     },
     {
       "reason": "CLASSIFICACAO_PENDENTE",
@@ -2059,6 +2067,10 @@
     {
       "reason": "VOLUME_FINANCEIRO_INSUFICIENTE",
       "symbol": "AXL_USDT"
+    },
+    {
+      "reason": "CLASSIFICACAO_PENDENTE",
+      "symbol": "DEEP_USDT"
     },
     {
       "reason": "FORA_USDT",
@@ -2082,15 +2094,11 @@
     },
     {
       "reason": "CLASSIFICACAO_PENDENTE",
-      "symbol": "BIANRENSHENG_USDT"
-    },
-    {
-      "reason": "CLASSIFICACAO_PENDENTE",
       "symbol": "ZKP_USDT"
     },
     {
       "reason": "CLASSIFICACAO_PENDENTE",
-      "symbol": "NICKEL_USDT"
+      "symbol": "TRIA_USDT"
     },
     {
       "reason": "NAO_CRIPTO",
@@ -2102,11 +2110,7 @@
     },
     {
       "reason": "CLASSIFICACAO_PENDENTE",
-      "symbol": "USDC_USDT"
-    },
-    {
-      "reason": "CLASSIFICACAO_PENDENTE",
-      "symbol": "CETUS_USDT"
+      "symbol": "TWT_USDT"
     },
     {
       "reason": "CLASSIFICACAO_PENDENTE",
@@ -2126,15 +2130,7 @@
     },
     {
       "reason": "CLASSIFICACAO_PENDENTE",
-      "symbol": "DEEP_USDT"
-    },
-    {
-      "reason": "CLASSIFICACAO_PENDENTE",
       "symbol": "LAYER_USDT"
-    },
-    {
-      "reason": "FORA_USDT",
-      "symbol": "PEPE_USDC"
     },
     {
       "reason": "FORA_USDT",
@@ -2146,11 +2142,11 @@
     },
     {
       "reason": "CLASSIFICACAO_PENDENTE",
-      "symbol": "TURTLE_USDT"
+      "symbol": "XAN_USDT"
     },
     {
       "reason": "CLASSIFICACAO_PENDENTE",
-      "symbol": "TRIA_USDT"
+      "symbol": "TURTLE_USDT"
     },
     {
       "reason": "CLASSIFICACAO_PENDENTE",
@@ -2161,20 +2157,32 @@
       "symbol": "EWT_USDT"
     },
     {
+      "reason": "NAO_CRIPTO",
+      "symbol": "SKUU_USDT"
+    },
+    {
       "reason": "CLASSIFICACAO_PENDENTE",
       "symbol": "CP_USDT"
     },
     {
       "reason": "CLASSIFICACAO_PENDENTE",
-      "symbol": "TWT_USDT"
+      "symbol": "POWR_USDT"
     },
     {
       "reason": "CLASSIFICACAO_PENDENTE",
       "symbol": "DATA_USDT"
     },
     {
+      "reason": "FORA_USDT",
+      "symbol": "PEPE_USDC"
+    },
+    {
       "reason": "CLASSIFICACAO_PENDENTE",
-      "symbol": "KERNEL_USDT"
+      "symbol": "WCT_USDT"
+    },
+    {
+      "reason": "FORA_USDT",
+      "symbol": "FARTCOIN_USDC"
     },
     {
       "reason": "FORA_USDT",
@@ -2205,12 +2213,8 @@
       "symbol": "ASTR_USDT"
     },
     {
-      "reason": "NAO_CRIPTO",
-      "symbol": "BWET_USDT"
-    },
-    {
       "reason": "CLASSIFICACAO_PENDENTE",
-      "symbol": "POWR_USDT"
+      "symbol": "ARK_USDT"
     },
     {
       "reason": "CLASSIFICACAO_PENDENTE",
@@ -2218,31 +2222,15 @@
     },
     {
       "reason": "CLASSIFICACAO_PENDENTE",
-      "symbol": "WCT_USDT"
-    },
-    {
-      "reason": "FORA_USDT",
-      "symbol": "FARTCOIN_USDC"
-    },
-    {
-      "reason": "CLASSIFICACAO_PENDENTE",
-      "symbol": "XAN_USDT"
+      "symbol": "KERNEL_USDT"
     },
     {
       "reason": "FORA_USDT",
       "symbol": "SPX500_USDC"
     },
     {
-      "reason": "VOLUME_FINANCEIRO_INSUFICIENTE",
-      "symbol": "SFP_USDT"
-    },
-    {
-      "reason": "CLASSIFICACAO_PENDENTE",
-      "symbol": "ARK_USDT"
-    },
-    {
-      "reason": "CLASSIFICACAO_PENDENTE",
-      "symbol": "CATI_USDT"
+      "reason": "NAO_CRIPTO",
+      "symbol": "BWET_USDT"
     },
     {
       "reason": "CLASSIFICACAO_PENDENTE",
@@ -2251,6 +2239,10 @@
     {
       "reason": "CLASSIFICACAO_PENDENTE",
       "symbol": "ANIME_USDT"
+    },
+    {
+      "reason": "CLASSIFICACAO_PENDENTE",
+      "symbol": "BROCCOLIF3B_USDT"
     },
     {
       "reason": "FORA_USDT",
@@ -2263,10 +2255,6 @@
     {
       "reason": "CLASSIFICACAO_PENDENTE",
       "symbol": "TREE_USDT"
-    },
-    {
-      "reason": "CLASSIFICACAO_PENDENTE",
-      "symbol": "HOLO_USDT"
     },
     {
       "reason": "CLASSIFICACAO_PENDENTE",
@@ -2290,11 +2278,7 @@
     },
     {
       "reason": "CLASSIFICACAO_PENDENTE",
-      "symbol": "BNT_USDT"
-    },
-    {
-      "reason": "CLASSIFICACAO_PENDENTE",
-      "symbol": "AUCTION_USDT"
+      "symbol": "CATI_USDT"
     },
     {
       "reason": "CLASSIFICACAO_PENDENTE",
@@ -2310,7 +2294,7 @@
     },
     {
       "reason": "CLASSIFICACAO_PENDENTE",
-      "symbol": "PROVE_USDT"
+      "symbol": "HOLO_USDT"
     },
     {
       "reason": "FORA_USDT",
@@ -2323,10 +2307,6 @@
     {
       "reason": "CLASSIFICACAO_PENDENTE",
       "symbol": "FRAX_USDT"
-    },
-    {
-      "reason": "CLASSIFICACAO_PENDENTE",
-      "symbol": "AZTEC_USDT"
     },
     {
       "reason": "CLASSIFICACAO_PENDENTE",
@@ -2358,7 +2338,23 @@
     },
     {
       "reason": "CLASSIFICACAO_PENDENTE",
+      "symbol": "BNT_USDT"
+    },
+    {
+      "reason": "FORA_USDT",
+      "symbol": "BNB_USDC"
+    },
+    {
+      "reason": "CLASSIFICACAO_PENDENTE",
+      "symbol": "PROVE_USDT"
+    },
+    {
+      "reason": "CLASSIFICACAO_PENDENTE",
       "symbol": "SAPIEN_USDT"
+    },
+    {
+      "reason": "CLASSIFICACAO_PENDENTE",
+      "symbol": "AZTEC_USDT"
     },
     {
       "reason": "CLASSIFICACAO_PENDENTE",
@@ -2389,12 +2385,12 @@
       "symbol": "ETHW_USDT"
     },
     {
-      "reason": "VOLUME_FINANCEIRO_INSUFICIENTE",
-      "symbol": "GAS_USDT"
+      "reason": "CLASSIFICACAO_PENDENTE",
+      "symbol": "AUCTION_USDT"
     },
     {
-      "reason": "CLASSIFICACAO_PENDENTE",
-      "symbol": "BROCCOLIF3B_USDT"
+      "reason": "VOLUME_FINANCEIRO_INSUFICIENTE",
+      "symbol": "GAS_USDT"
     },
     {
       "reason": "FORA_USDT",
@@ -2403,10 +2399,6 @@
     {
       "reason": "FORA_USDT",
       "symbol": "HBAR_USDC"
-    },
-    {
-      "reason": "FORA_USDT",
-      "symbol": "BNB_USDC"
     },
     {
       "reason": "CLASSIFICACAO_PENDENTE",
@@ -2442,15 +2434,19 @@
     },
     {
       "reason": "CLASSIFICACAO_PENDENTE",
-      "symbol": "XVS_USDT"
+      "symbol": "STEEM_USDT"
     },
     {
-      "reason": "VOLUME_FINANCEIRO_INSUFICIENTE",
-      "symbol": "ZETA_USDT"
+      "reason": "CLASSIFICACAO_PENDENTE",
+      "symbol": "DOLO_USDT"
     },
     {
       "reason": "CLASSIFICACAO_PENDENTE",
       "symbol": "CROSS_USDT"
+    },
+    {
+      "reason": "CLASSIFICACAO_PENDENTE",
+      "symbol": "ALL_USDT"
     },
     {
       "reason": "CLASSIFICACAO_PENDENTE",
@@ -2477,16 +2473,12 @@
       "symbol": "SILVER_USD1"
     },
     {
-      "reason": "FORA_USDT",
-      "symbol": "USOIL_USD1"
-    },
-    {
-      "reason": "CLASSIFICACAO_PENDENTE",
-      "symbol": "PHAROS_USDT"
-    },
-    {
       "reason": "CLASSIFICACAO_PENDENTE",
       "symbol": "SUN_USDT"
+    },
+    {
+      "reason": "CLASSIFICACAO_PENDENTE",
+      "symbol": "MTL_USDT"
     },
     {
       "reason": "CLASSIFICACAO_PENDENTE",
@@ -2494,15 +2486,27 @@
     },
     {
       "reason": "CLASSIFICACAO_PENDENTE",
-      "symbol": "STEEM_USDT"
+      "symbol": "XVS_USDT"
+    },
+    {
+      "reason": "VOLUME_FINANCEIRO_INSUFICIENTE",
+      "symbol": "ZETA_USDT"
+    },
+    {
+      "reason": "CLASSIFICACAO_PENDENTE",
+      "symbol": "BROCCOLI_USDT"
     },
     {
       "reason": "FORA_USDT",
       "symbol": "ONDO_USDC"
     },
     {
+      "reason": "FORA_USDT",
+      "symbol": "USOIL_USD1"
+    },
+    {
       "reason": "CLASSIFICACAO_PENDENTE",
-      "symbol": "DOLO_USDT"
+      "symbol": "PHAROS_USDT"
     },
     {
       "reason": "NAO_CRIPTO",
@@ -2513,8 +2517,8 @@
       "symbol": "HK1810_USDT"
     },
     {
-      "reason": "CLASSIFICACAO_PENDENTE",
-      "symbol": "MTL_USDT"
+      "reason": "NAO_CRIPTO",
+      "symbol": "TBT_USDT"
     },
     {
       "reason": "NAO_CRIPTO",
@@ -2545,12 +2549,8 @@
       "symbol": "ASR_USDT"
     },
     {
-      "reason": "CLASSIFICACAO_PENDENTE",
-      "symbol": "BROCCOLI_USDT"
-    },
-    {
-      "reason": "CLASSIFICACAO_PENDENTE",
-      "symbol": "ALL_USDT"
+      "reason": "FORA_USDT",
+      "symbol": "WLFI_USDC"
     },
     {
       "reason": "NAO_CRIPTO",
@@ -2559,10 +2559,6 @@
     {
       "reason": "NAO_CRIPTO",
       "symbol": "TMF_USDT"
-    },
-    {
-      "reason": "NAO_CRIPTO",
-      "symbol": "TBT_USDT"
     },
     {
       "reason": "CLASSIFICACAO_PENDENTE",
@@ -2581,6 +2577,10 @@
       "symbol": "EWZS_USDT"
     },
     {
+      "reason": "NAO_CRIPTO",
+      "symbol": "FRHCSTOCK_USDT"
+    },
+    {
       "reason": "CLASSIFICACAO_PENDENTE",
       "symbol": "OL_USDT"
     },
@@ -2589,24 +2589,16 @@
       "symbol": "XLM_USDC"
     },
     {
-      "reason": "FORA_USDT",
-      "symbol": "WLFI_USDC"
-    },
-    {
       "reason": "CLASSIFICACAO_PENDENTE",
       "symbol": "WET_USDT"
-    },
-    {
-      "reason": "FORA_USDT",
-      "symbol": "UKOIL_USD1"
     },
     {
       "reason": "NAO_CRIPTO",
       "symbol": "INDA_USDT"
     },
     {
-      "reason": "CLASSIFICACAO_PENDENTE",
-      "symbol": "CTK_USDT"
+      "reason": "NAO_CRIPTO",
+      "symbol": "HK0700_USDT"
     },
     {
       "reason": "NAO_CRIPTO",
@@ -2615,6 +2607,10 @@
     {
       "reason": "NAO_CRIPTO",
       "symbol": "KODEX200_USDT"
+    },
+    {
+      "reason": "NAO_CRIPTO",
+      "symbol": "IGV_USDT"
     },
     {
       "reason": "FORA_USDT",
@@ -2641,6 +2637,10 @@
       "symbol": "HYPE_USD1"
     },
     {
+      "reason": "FORA_USDT",
+      "symbol": "UKOIL_USD1"
+    },
+    {
       "reason": "NAO_CRIPTO",
       "symbol": "XLK_USDT"
     },
@@ -2657,16 +2657,12 @@
       "symbol": "NAS100_USD1"
     },
     {
-      "reason": "NAO_CRIPTO",
-      "symbol": "HK0700_USDT"
+      "reason": "CLASSIFICACAO_PENDENTE",
+      "symbol": "CTK_USDT"
     },
     {
       "reason": "NAO_CRIPTO",
       "symbol": "VGT_USDT"
-    },
-    {
-      "reason": "NAO_CRIPTO",
-      "symbol": "IGV_USDT"
     },
     {
       "reason": "NAO_CRIPTO",
@@ -2727,6 +2723,10 @@
     {
       "reason": "NAO_CRIPTO",
       "symbol": "IBB_USDT"
+    },
+    {
+      "reason": "NAO_CRIPTO",
+      "symbol": "CLXSTOCK_USDT"
     },
     {
       "reason": "FORA_USDT",
@@ -3544,7 +3544,7 @@
       "family": "03f6e955bb48c930000d",
       "formed_at": 1794480300,
       "id": "03f6e955bb48c930000d",
-      "last_bar": 1794481440,
+      "last_bar": 1794481500,
       "level": "71.883",
       "lower": "71.09",
       "observations": [],
@@ -5091,7 +5091,7 @@
       "family": "0ace9bfa313e3461fad2",
       "formed_at": 1794480300,
       "id": "0ace9bfa313e3461fad2",
-      "last_bar": 1794481440,
+      "last_bar": 1794481500,
       "level": "0.8376",
       "lower": "0.8376",
       "observations": [],
@@ -5602,7 +5602,7 @@
       "family": "0c6892dfcce0d2c5b2d4",
       "formed_at": 1794481200,
       "id": "0c6892dfcce0d2c5b2d4",
-      "last_bar": 1794481440,
+      "last_bar": 1794481500,
       "level": "71.09",
       "lower": "71.09",
       "observations": [],
@@ -6850,7 +6850,7 @@
       "family": "11e27a3b61560eba7fc7",
       "formed_at": 1794481200,
       "id": "11e27a3b61560eba7fc7",
-      "last_bar": 1794481440,
+      "last_bar": 1794481500,
       "level": "0.8454",
       "lower": "0.8376",
       "observations": [],
@@ -8053,7 +8053,7 @@
       "family": "16fa31760c49ae09a36f",
       "formed_at": 1794480300,
       "id": "16fa31760c49ae09a36f",
-      "last_bar": 1794481440,
+      "last_bar": 1794481500,
       "level": "71.09",
       "lower": "71.09",
       "observations": [],
@@ -14531,7 +14531,7 @@
       "family": "34ae73ff24cbb3dcc53b",
       "formed_at": 1794481200,
       "id": "34ae73ff24cbb3dcc53b",
-      "last_bar": 1794481440,
+      "last_bar": 1794481500,
       "level": "71.883",
       "lower": "71.09",
       "observations": [],
@@ -14809,7 +14809,7 @@
       "family": "35cc038e9af6dc3646fb",
       "formed_at": 1794480300,
       "id": "35cc038e9af6dc3646fb",
-      "last_bar": 1794481440,
+      "last_bar": 1794481500,
       "level": "0.06625",
       "lower": "0.06555",
       "observations": [],
@@ -15288,7 +15288,7 @@
       "family": "38cfc3cf11ef1b111654",
       "formed_at": 1794481200,
       "id": "38cfc3cf11ef1b111654",
-      "last_bar": 1794481440,
+      "last_bar": 1794481500,
       "level": "0.06625",
       "lower": "0.06555",
       "observations": [],
@@ -17540,7 +17540,7 @@
       "family": "4357827c8a909a12c6fd",
       "formed_at": 1794480300,
       "id": "4357827c8a909a12c6fd",
-      "last_bar": 1794481440,
+      "last_bar": 1794481500,
       "level": "0.0015843",
       "lower": "0.0015843",
       "observations": [],
@@ -18836,7 +18836,7 @@
       "family": "47e643302edd1cb1fa91",
       "formed_at": 1794480300,
       "id": "47e643302edd1cb1fa91",
-      "last_bar": 1794481440,
+      "last_bar": 1794481500,
       "level": "0.4086",
       "lower": "0.4009",
       "observations": [],
@@ -20798,7 +20798,7 @@
       "family": "520950efd35c69301800",
       "formed_at": 1794481200,
       "id": "520950efd35c69301800",
-      "last_bar": 1794481440,
+      "last_bar": 1794481500,
       "level": "0.0015843",
       "lower": "0.0015843",
       "observations": [],
@@ -23887,7 +23887,7 @@
       "family": "61ad4e15a583fc5c2784",
       "formed_at": 1794481200,
       "id": "61ad4e15a583fc5c2784",
-      "last_bar": 1794481440,
+      "last_bar": 1794481500,
       "level": "166.55",
       "lower": "163.42",
       "observations": [],
@@ -27347,7 +27347,7 @@
       "family": "6fefca15dca0b84f64e7",
       "formed_at": 1794481200,
       "id": "6fefca15dca0b84f64e7",
-      "last_bar": 1794481440,
+      "last_bar": 1794481500,
       "level": "163.42",
       "lower": "163.42",
       "observations": [],
@@ -30342,7 +30342,7 @@
       "family": "80deaf0449e383148d08",
       "formed_at": 1794481200,
       "id": "80deaf0449e383148d08",
-      "last_bar": 1794481440,
+      "last_bar": 1794481500,
       "level": "0.8376",
       "lower": "0.8376",
       "observations": [],
@@ -34778,7 +34778,7 @@
       "family": "9654f403f6f852c86764",
       "formed_at": 1794481200,
       "id": "9654f403f6f852c86764",
-      "last_bar": 1794481440,
+      "last_bar": 1794481500,
       "level": "0.06555",
       "lower": "0.06555",
       "observations": [],
@@ -36044,7 +36044,7 @@
       "family": "9ccba4d342eee58da206",
       "formed_at": 1794480300,
       "id": "9ccba4d342eee58da206",
-      "last_bar": 1794481440,
+      "last_bar": 1794481500,
       "level": "166.55",
       "lower": "163.42",
       "observations": [],
@@ -43657,7 +43657,7 @@
       "family": "be3dbd3c9e81ed396510",
       "formed_at": 1794481200,
       "id": "be3dbd3c9e81ed396510",
-      "last_bar": 1794481440,
+      "last_bar": 1794481500,
       "level": "0.0017422",
       "lower": "0.0015843",
       "observations": [],
@@ -43971,7 +43971,7 @@
       "family": "c0039d4c25068b310043",
       "formed_at": 1794480300,
       "id": "c0039d4c25068b310043",
-      "last_bar": 1794481440,
+      "last_bar": 1794481500,
       "level": "7.361",
       "lower": "7.361",
       "observations": [],
@@ -44445,7 +44445,7 @@
       "family": "c213c7b6420400f9c6cb",
       "formed_at": 1794480300,
       "id": "c213c7b6420400f9c6cb",
-      "last_bar": 1794481440,
+      "last_bar": 1794481500,
       "level": "0.06555",
       "lower": "0.06555",
       "observations": [],
@@ -45070,7 +45070,7 @@
       "family": "c5895fe29ecc00422181",
       "formed_at": 1794480300,
       "id": "c5895fe29ecc00422181",
-      "last_bar": 1794481440,
+      "last_bar": 1794481500,
       "level": "163.42",
       "lower": "163.42",
       "observations": [],
@@ -46481,7 +46481,7 @@
       "family": "cc44b68e31e048d4ae2a",
       "formed_at": 1794480300,
       "id": "cc44b68e31e048d4ae2a",
-      "last_bar": 1794481440,
+      "last_bar": 1794481500,
       "level": "0.0017382",
       "lower": "0.0015843",
       "observations": [],
@@ -48221,7 +48221,7 @@
       "family": "d5c720b2aa577b7579de",
       "formed_at": 1794480300,
       "id": "d5c720b2aa577b7579de",
-      "last_bar": 1794481440,
+      "last_bar": 1794481500,
       "level": "0.8454",
       "lower": "0.8376",
       "observations": [],
@@ -50347,7 +50347,7 @@
       "family": "de848b12946341609581",
       "formed_at": 1794480300,
       "id": "de848b12946341609581",
-      "last_bar": 1794481440,
+      "last_bar": 1794481500,
       "level": "0.4009",
       "lower": "0.4009",
       "observations": [],
