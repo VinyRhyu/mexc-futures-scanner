@@ -1,6 +1,6 @@
 # MEXC Futures Scanner — rodada
 
-Modo: **paper**. Análise: 12/11/2026 17:00:15 BRT.
+Modo: **paper**. Análise: 12/11/2026 17:01:23 BRT.
 
 Fonte: OK
 Cobertura: 31/31 contratos selecionados.
@@ -1712,7 +1712,7 @@ Cobertura: 31/31 contratos selecionados.
 | XRP_USDT | ROMPIMENTO_M1_VOLUME | SHORT | EXPIRADO | — | PRAZO_ENCERRADO |
 | LINK_USDT | ROMPIMENTO_M1_VOLUME | SHORT | EXPIRADO | — | PRAZO_ENCERRADO |
 | NEAR_USDT | ROMPIMENTO_M1_VOLUME | LONG | EXPIRADO | — | PRAZO_ENCERRADO |
-| INJ_USDT | ROMPIMENTO_M1_VOLUME | LONG | POSSIVEL | ANTECIPADA | aguardando gatilho |
+| INJ_USDT | ROMPIMENTO_M1_VOLUME | LONG | INVALIDADO | ANTECIPADA | VOLUME_M1_INSUFICIENTE |
 | SOL_USDT | ROMPIMENTO_M1_VOLUME | SHORT | EXPIRADO | — | PRAZO_ENCERRADO |
 | ARB_USDT | ROMPIMENTO_M1_VOLUME | SHORT | EXPIRADO | — | PRAZO_ENCERRADO |
 | HBAR_USDT | ROMPIMENTO_M1_VOLUME | LONG | EXPIRADO | — | PRAZO_ENCERRADO |
@@ -1721,6 +1721,26 @@ Cobertura: 31/31 contratos selecionados.
 | ZEC_USDT | ROMPIMENTO_M1_VOLUME | LONG | EXPIRADO | — | PRAZO_ENCERRADO |
 | ENA_USDT | ROMPIMENTO_M1_VOLUME | LONG | EXPIRADO | — | PRAZO_ENCERRADO |
 | AVAX_USDT | ROMPIMENTO_M1_VOLUME | SHORT | EXPIRADO | — | PRAZO_ENCERRADO |
+| BNB_USDT | ROMPIMENTO_M1_VOLUME | LONG | POSSIVEL | — | aguardando gatilho |
+| BNB_USDT | ROMPIMENTO_M1_VOLUME | SHORT | POSSIVEL | — | aguardando gatilho |
+| ICP_USDT | ROMPIMENTO_M1_VOLUME | LONG | POSSIVEL | — | aguardando gatilho |
+| ICP_USDT | ROMPIMENTO_M1_VOLUME | SHORT | POSSIVEL | — | aguardando gatilho |
+| INJ_USDT | ROMPIMENTO_M1_VOLUME | LONG | POSSIVEL | — | aguardando gatilho |
+| INJ_USDT | ROMPIMENTO_M1_VOLUME | SHORT | POSSIVEL | — | aguardando gatilho |
+| LINK_USDT | ROMPIMENTO_M1_VOLUME | LONG | POSSIVEL | — | aguardando gatilho |
+| LINK_USDT | ROMPIMENTO_M1_VOLUME | SHORT | POSSIVEL | — | aguardando gatilho |
+| NEAR_USDT | ROMPIMENTO_M1_VOLUME | LONG | POSSIVEL | — | aguardando gatilho |
+| NEAR_USDT | ROMPIMENTO_M1_VOLUME | SHORT | POSSIVEL | — | aguardando gatilho |
+| ONDO_USDT | ROMPIMENTO_M1_VOLUME | LONG | POSSIVEL | — | aguardando gatilho |
+| ONDO_USDT | ROMPIMENTO_M1_VOLUME | SHORT | POSSIVEL | — | aguardando gatilho |
+| SOL_USDT | ROMPIMENTO_M1_VOLUME | LONG | POSSIVEL | — | aguardando gatilho |
+| SOL_USDT | ROMPIMENTO_M1_VOLUME | SHORT | POSSIVEL | — | aguardando gatilho |
+| UNI_USDT | ROMPIMENTO_M1_VOLUME | LONG | POSSIVEL | — | aguardando gatilho |
+| UNI_USDT | ROMPIMENTO_M1_VOLUME | SHORT | POSSIVEL | — | aguardando gatilho |
+| WLD_USDT | ROMPIMENTO_M1_VOLUME | LONG | POSSIVEL | — | aguardando gatilho |
+| WLD_USDT | ROMPIMENTO_M1_VOLUME | SHORT | POSSIVEL | — | aguardando gatilho |
+| XRP_USDT | ROMPIMENTO_M1_VOLUME | LONG | POSSIVEL | — | aguardando gatilho |
+| XRP_USDT | ROMPIMENTO_M1_VOLUME | SHORT | POSSIVEL | — | aguardando gatilho |
 
 ## Diagnósticos
 
