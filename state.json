@@ -3560,13 +3560,17 @@
       "text": "SIMULAÇÃO | EXPIRADO\nID 0c2e269a680fc0895bdc/r2 | BTC_USDT | SHORT | CONTINUACAO\nFormação: 08/11/2026 20:30:00 BRT | Análise: 08/11/2026 21:33:10 BRT\nRegião: 75555.20674438139414121129128 a 75712.79325561860585878870872\nAntecipada: reação fechada de 15m recuperando a região\nConfirmada: fechamento posterior além do extremo da reação\nEstado: EXPIRADO | Motivo: PRAZO_ENCERRADO\nPlano expira: 08/11/2026 21:00:00 BRT.\nA validade de entrada não encerra uma posição já aberta."
     },
     "1c03b049ce51ce76a9b1": {
-      "attempts": 0,
+      "attempts": 1,
       "category": "INFO",
       "created_at": 1794462234,
       "expires_at": 1794462300,
       "id": "1c03b049ce51ce76a9b1",
       "quote_at": 0,
-      "status": "PENDING",
+      "sent_at": 1794462236,
+      "status": "SENT",
+      "telegram_ids": [
+        2222
+      ],
       "text": "🟠 ENTRADA BLOQUEADA\nLINK/USDT • SHORT\n🧪 SIMULAÇÃO • Confirmada\nRompimento • 2 fechamentos M1 • volume ≥50%\n\nVolume do segundo M1: 150.2% do primeiro.\nMotivo: A relação entre ganho e perda ficou abaixo do mínimo.\nSem entrada liberada nesta análise.\n\n📍 Faixa do plano: 10.025 a 10.037\n🛑 Stop: 10.071\n🎯 Alvo: 10.015\n\nEstimativas de taxas, deslizamento e funding; ganho não garantido.\n\n⏱ Nova entrada até 02:45:00 BRT (1min 06s).\nGatilho M1 (segundo fechamento): 02:43:00 BRT\nAnálise: 12/11/2026 02:43:54 BRT\nA validade se aplica a novas entradas.\nPlano: bc954d65facdd92457a2 • revisão 1"
     },
     "1c1c70ca06832422091f": {
