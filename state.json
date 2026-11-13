@@ -9031,7 +9031,7 @@
       "text": "⚪ ATUALIZAÇÃO DOS PLANOS ACOMPANHADOS\n🧪 SIMULAÇÃO\n\n• INJ/USDT • SHORT: plano invalidado\n  Plano: 24b96dcab70b1377ce69\n• INJ/USDT • SHORT: plano invalidado\n  Plano: ccdac31dd381b2a762c7\n\nSem novas entradas por esses planos.\nA expiração não encerra posições já abertas.\nAnálise: 12/11/2026 12:04:55 BRT"
     },
     "2d4ab7810b32d9522fa8": {
-      "attempts": 0,
+      "attempts": 1,
       "category": "INFO",
       "created_at": 1794599604,
       "expires_at": 1794599640,
@@ -9042,7 +9042,11 @@
         "e809bb3e7fbe40f4545f"
       ],
       "quote_at": 0,
-      "status": "PENDING",
+      "sent_at": 1794599608,
+      "status": "SENT",
+      "telegram_ids": [
+        3527
+      ],
       "text": "🟡 MOVIMENTO DETECTADO\nHBAR/USDT • BAIXA (SHORT)\n🧪 SIMULAÇÃO • acompanhamento\n\nRompimento observado no M1 fechado às 16:52:00 BRT.\nPreço de referência do primeiro gatilho: 0.06289.\n\nPrimeiro fechamento além da região identificado.\nFalta o segundo fechamento sustentar o nível, com volume de pelo menos 50% do primeiro.\nApós confirmar, o plano ainda precisa passar pela avaliação financeira.\n\nFaixa em estudo: 0.0628 a 0.06291\nStop do plano: 0.06316 • Alvo do plano: 0.0629\n\nMovimento observado, sem entrada liberada. Aguarde o alerta de confirmação e viabilidade.\nAlerta válido até 16:54:00 BRT.\nAnálise: 13/11/2026 16:53:24 BRT\nPlano: e809bb3e7fbe40f4545f",
       "watch_stage": 1,
       "watch_symbol": "HBAR_USDT"
