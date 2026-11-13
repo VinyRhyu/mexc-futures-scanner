@@ -1,5 +1,6 @@
 from __future__ import annotations
 
+from dataclasses import replace
 from decimal import Decimal, ROUND_CEILING
 
 from .config import Config
@@ -53,6 +54,30 @@ def _funding_cost_rate(side: str, funding: dict, now: int, config: Config) -> tu
 
 def evaluate(plan: Plan, variant: Variant, contract: Contract, balance: Decimal,
              ticker: dict, depth: dict, funding: dict, now: int, config: Config) -> dict:
+    result = _evaluate_band(plan, variant, contract, balance, ticker, depth, funding, now, config)
+    # O melhor preço pode exigir mais contratos para usar o orçamento de risco.
+    # Seu custo/lote inviável não prova que a cotação atual também é inviável.
+    if result.get('reasons') not in (["CUSTO_RELATIVO_ELEVADO"], ["QUANTIDADE_ACIMA_DO_CONTRATO"]):
+        return result
+    sign = 1 if plan.side == 'LONG' else -1
+    current = D(ticker['ask1'] if sign == 1 else ticker['bid1'])
+    low, high = floor_step(current, contract.tick), ceil_step(current, contract.tick)
+    if not variant.entry_low <= low <= high <= variant.entry_high:
+        return result
+    if (low, high) == (variant.entry_low, variant.entry_high):
+        return result
+    narrowed = replace(variant, entry_low=low, entry_high=high)
+    # Uma única tentativa, com todos os controles e o livro novamente avaliados.
+    retry = _evaluate_band(plan, narrowed, contract, balance, ticker, depth, funding, now, config)
+    if retry.get('status') in {'VIAVEL_SIMULADO', 'VIAVEL_REAL'}:
+        retry['range_adjustment'] = 'FAIXA_RESTRITA_A_COTACAO_ATUAL'
+        retry['original_entry_low'], retry['original_entry_high'] = variant.entry_low, variant.entry_high
+        return retry
+    return result
+
+
+def _evaluate_band(plan: Plan, variant: Variant, contract: Contract, balance: Decimal,
+                   ticker: dict, depth: dict, funding: dict, now: int, config: Config) -> dict:
     result = {"status": "BLOQUEADA", "reasons": [], "assumptions": [], "mode": config.mode}
 
     def blocked(reason: str) -> dict:
