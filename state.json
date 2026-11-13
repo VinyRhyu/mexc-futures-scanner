@@ -17533,7 +17533,7 @@
       "text": "🟠 ENTRADA BLOQUEADA\nONDO/USDT • LONG\n🧪 SIMULAÇÃO • Confirmada\nRompimento • 2 fechamentos M1 • volume ≥50%\n\nVolume do segundo M1: 327.1% do primeiro.\nMotivo: A relação entre ganho e perda ficou abaixo do mínimo.\nSem entrada liberada nesta análise.\n\n📍 Faixa do plano: 0.3513 a 0.352\n🛑 Stop: 0.3495\n🎯 Alvo: 0.3554\n\nEstimativas de taxas, deslizamento e funding; ganho não garantido.\n\n⏱ Nova entrada até 15:36:00 BRT (41s).\nGatilho M1 (segundo fechamento): 15:34:00 BRT\nAnálise: 12/11/2026 15:35:19 BRT\nA validade se aplica a novas entradas.\nPlano: 9c894e7a41248d710aa6 • revisão 1"
     },
     "577bf6b66d98bfd9bba6": {
-      "attempts": 0,
+      "attempts": 1,
       "category": "INFO",
       "created_at": 1794601947,
       "expires_at": 1794601980,
@@ -17544,7 +17544,11 @@
         "6ade07c63a4137b4d3e5"
       ],
       "quote_at": 0,
-      "status": "PENDING",
+      "sent_at": 1794601950,
+      "status": "SENT",
+      "telegram_ids": [
+        3541
+      ],
       "text": "🟡 MOVIMENTO DETECTADO\nICP/USDT • BAIXA (SHORT)\n🧪 SIMULAÇÃO • acompanhamento\n\nRompimento observado no M1 fechado às 17:31:00 BRT.\nPreço de referência do primeiro gatilho: 2.565.\n\nPrimeiro fechamento além da região identificado.\nFalta o segundo fechamento sustentar o nível, com volume de pelo menos 50% do primeiro.\nApós confirmar, o plano ainda precisa passar pela avaliação financeira.\n\nFaixa em estudo: 2.561 a 2.565\nStop do plano: 2.578 • Alvo do plano: 2.56\n\nMovimento observado, sem entrada liberada. Aguarde o alerta de confirmação e viabilidade.\nAlerta válido até 17:33:00 BRT.\nAnálise: 13/11/2026 17:32:27 BRT\nPlano: 6ade07c63a4137b4d3e5",
       "watch_stage": 1,
       "watch_symbol": "ICP_USDT"
