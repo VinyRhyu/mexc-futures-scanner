@@ -1,13 +1,8 @@
 {
-  "analyzed_at": 1794541989,
+  "analyzed_at": 1794542053,
   "analyzed_symbols": 30,
   "config_fingerprint": "9e786afdec21907bc113",
-  "diagnostics": [
-    {
-      "reason": "LACUNA_M1_REINICIO_APENAS_FUTURO",
-      "symbol": "DOT_USDT"
-    }
-  ],
+  "diagnostics": [],
   "excluded": [
     {
       "reason": "CLASSIFICACAO_PENDENTE",
@@ -33016,17 +33011,17 @@
       "family": "b0f101f895c7b588a44e",
       "formed_at": 1794541500,
       "id": "b0f101f895c7b588a44e",
-      "last_bar": 1794541920,
+      "last_bar": 1794541980,
       "level": "71.16",
       "lower": "71.16",
       "observations": [],
       "preparation_expires_at": 1794543300,
       "reaction_at": 1794541920,
       "reaction_extreme": null,
-      "reason": "",
+      "reason": "ALVO_JA_ATINGIDO",
       "revision": 0,
       "side": "SHORT",
-      "status": "POSSIVEL",
+      "status": "EVENTO_PASSADO",
       "stop": "71.434",
       "strategy": "ROMPIMENTO_M1_VOLUME",
       "symbol": "HYPE_USDT",
@@ -33039,7 +33034,7 @@
           "kind": "ANTECIPADA",
           "reason": "",
           "reference": "70.925",
-          "status": "AGUARDANDO_CONFIRMACAO",
+          "status": "ENCERRADA",
           "stop": "71.434",
           "target": "70.891",
           "target_origin": "PIVO_CONHECIDO",
@@ -40832,7 +40827,7 @@
       "family": "dc65055bb68d7fce28b7",
       "formed_at": 1794541500,
       "id": "dc65055bb68d7fce28b7",
-      "last_bar": 1794541920,
+      "last_bar": 1794541980,
       "level": "72.95",
       "lower": "71.16",
       "observations": [],

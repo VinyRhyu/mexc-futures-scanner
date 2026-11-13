@@ -1,6 +1,6 @@
 # MEXC Futures Scanner — rodada
 
-Modo: **paper**. Análise: 13/11/2026 00:53:09 BRT.
+Modo: **paper**. Análise: 13/11/2026 00:54:13 BRT.
 
 Fonte: OK
 Cobertura: 30/30 contratos selecionados.
@@ -1074,7 +1074,7 @@ Cobertura: 30/30 contratos selecionados.
 | WLD_USDT | ROMPIMENTO_M1_VOLUME | LONG | EXPIRADO | — | PRAZO_ENCERRADO |
 | XLM_USDT | ROMPIMENTO_M1_VOLUME | SHORT | INVALIDADO | ANTECIPADA | SEGUNDO_M1_NAO_SUSTENTOU |
 | HYPE_USDT | ROMPIMENTO_M1_VOLUME | SHORT | EXPIRADO | — | PRAZO_ENCERRADO |
-| HYPE_USDT | ROMPIMENTO_M1_VOLUME | SHORT | POSSIVEL | ANTECIPADA | aguardando gatilho |
+| HYPE_USDT | ROMPIMENTO_M1_VOLUME | SHORT | EVENTO_PASSADO | ANTECIPADA | ALVO_JA_ATINGIDO |
 | QNT_USDT | ROMPIMENTO_M1_VOLUME | SHORT | EXPIRADO | — | PRAZO_ENCERRADO |
 | AAVE_USDT | ROMPIMENTO_M1_VOLUME | SHORT | EXPIRADO | — | PRAZO_ENCERRADO |
 | QNT_USDT | ROMPIMENTO_M1_VOLUME | LONG | EXPIRADO | — | PRAZO_ENCERRADO |
@@ -1563,6 +1563,5 @@ Cobertura: 30/30 contratos selecionados.
 
 ## Diagnósticos
 
-- DOT_USDT: LACUNA_M1_REINICIO_APENAS_FUTURO
 
 Os parâmetros e os custos simulados não demonstram rentabilidade. Sinal técnico e viabilidade para o saldo são avaliações separadas.
