@@ -41942,7 +41942,7 @@
       "text": "⚪ ATUALIZAÇÃO DOS PLANOS ACOMPANHADOS\n🧪 SIMULAÇÃO\n\n• ETH/USDT • LONG: janela expirou\n  Plano: 274551eaaddcc95d24ef\n• FET/USDT • LONG: janela expirou\n  Plano: 986f19353dbf177f9896\n• LINK/USDT • LONG: janela expirou\n  Plano: ffaab70baf2b1540c15a\n\nSem novas entradas por esses planos.\nA expiração não encerra posições já abertas.\nAnálise: 12/11/2026 23:30:04 BRT"
     },
     "d1dd595edc1a4fb5bb69": {
-      "attempts": 0,
+      "attempts": 1,
       "category": "INFO",
       "created_at": 1794605634,
       "expires_at": 1794605700,
@@ -41953,7 +41953,11 @@
         "9b02ed951c353a79f680"
       ],
       "quote_at": 0,
-      "status": "PENDING",
+      "sent_at": 1794605637,
+      "status": "SENT",
+      "telegram_ids": [
+        3573
+      ],
       "text": "🟡 MOVIMENTO DETECTADO\nNEAR/USDT • BAIXA (SHORT)\n🧪 SIMULAÇÃO • acompanhamento\n\nRompimento observado no M1 fechado às 18:33:00 BRT.\nPreço de referência do primeiro gatilho: 3.497.\n\nConfirmação técnica identificada; entrada bloqueada.\nCondição pendente: A relação entre ganho e perda ficou abaixo do mínimo.\n\nFaixa em estudo: 3.491 a 3.499\n🛑 Stop do plano: 3.517 (-5.72% bruto em 10x)\n🎯 Alvo do plano: 3.475 (+6.29% bruto em 10x)\nCenário indicativo sobre a margem em 10x; custos e liquidação ainda não validados.\nMovimento sem alavancagem: TP +0.63% • SL -0.57%.\nPercentuais sobre a referência do primeiro gatilho, na direção da operação, antes de custos.\n\nMovimento observado, sem entrada liberada. Aguarde o alerta de confirmação e viabilidade.\nAlerta válido até 18:35:00 BRT.\nAnálise: 13/11/2026 18:33:54 BRT\nPlano: 9b02ed951c353a79f680",
       "watch_stage": 0,
       "watch_symbol": "NEAR_USDT"
