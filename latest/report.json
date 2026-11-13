@@ -1,8 +1,13 @@
 {
-  "analyzed_at": 1794541925,
-  "analyzed_symbols": 29,
+  "analyzed_at": 1794541989,
+  "analyzed_symbols": 30,
   "config_fingerprint": "9e786afdec21907bc113",
-  "diagnostics": [],
+  "diagnostics": [
+    {
+      "reason": "LACUNA_M1_REINICIO_APENAS_FUTURO",
+      "symbol": "DOT_USDT"
+    }
+  ],
   "excluded": [
     {
       "reason": "CLASSIFICACAO_PENDENTE",
@@ -99,10 +104,6 @@
     {
       "reason": "VOLUME_FINANCEIRO_INSUFICIENTE",
       "symbol": "LTC_USDT"
-    },
-    {
-      "reason": "VOLUME_FINANCEIRO_INSUFICIENTE",
-      "symbol": "DOT_USDT"
     },
     {
       "reason": "CLASSIFICACAO_PENDENTE",
@@ -33010,17 +33011,17 @@
     {
       "atr": "0.547306865182847248998394449",
       "detected_at": 1794541500,
-      "entry_started_at": 0,
-      "expires_at": 1794543300,
+      "entry_started_at": 1794541920,
+      "expires_at": 1794543720,
       "family": "b0f101f895c7b588a44e",
       "formed_at": 1794541500,
       "id": "b0f101f895c7b588a44e",
-      "last_bar": 1794541860,
+      "last_bar": 1794541920,
       "level": "71.16",
       "lower": "71.16",
       "observations": [],
       "preparation_expires_at": 1794543300,
-      "reaction_at": 0,
+      "reaction_at": 1794541920,
       "reaction_extreme": null,
       "reason": "",
       "revision": 0,
@@ -33030,7 +33031,21 @@
       "strategy": "ROMPIMENTO_M1_VOLUME",
       "symbol": "HYPE_USDT",
       "upper": "72.95",
-      "variants": {}
+      "variants": {
+        "ANTECIPADA": {
+          "entry_high": "71.061",
+          "entry_low": "70.789",
+          "financial": {},
+          "kind": "ANTECIPADA",
+          "reason": "",
+          "reference": "70.925",
+          "status": "AGUARDANDO_CONFIRMACAO",
+          "stop": "71.434",
+          "target": "70.891",
+          "target_origin": "PIVO_CONHECIDO",
+          "triggered_at": 1794541920
+        }
+      }
     },
     {
       "atr": "1.079953801864117338851393679",
@@ -40817,7 +40832,7 @@
       "family": "dc65055bb68d7fce28b7",
       "formed_at": 1794541500,
       "id": "dc65055bb68d7fce28b7",
-      "last_bar": 1794541860,
+      "last_bar": 1794541920,
       "level": "72.95",
       "lower": "71.16",
       "observations": [],
@@ -47029,7 +47044,7 @@
       }
     }
   ],
-  "selected_symbols": 29,
+  "selected_symbols": 30,
   "signal_model": "m1_volume50_v1",
   "source_status": "OK"
 }
