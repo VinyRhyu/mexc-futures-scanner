@@ -10,6 +10,8 @@ SL, TP e faixa permanecem fixados no primeiro fechamento M1, usando a função a
 
 A configuração ativa usa retorno/risco líquido mínimo de **1:1**, incluindo custos estimados. Esse é um piso para liberar o plano; o TP técnico pode oferecer mais que 1R e não há lucro mínimo fixo de 10% ou 60%. A biblioteca mantém o padrão conservador de 2 para chamadas sem arquivo de configuração; o workflow carrega explicitamente `config/default.toml`, com mínimo 1.
 
+No Telegram, planos ainda não liberados são agrupados por moeda em `AGUARDANDO ENTRADA`. Sem gatilho, os sentidos são cenários alternativos na mesma mensagem; com primeiro M1, o aviso destaca o lado e a confirmação pendente. Isso não muda os planos calculados. Entradas confirmadas e financeiramente viáveis mantêm seu alerta próprio. Detalhes em `telegram-waiting-entry.md`.
+
 Gatilhos com mais de120segundos não são liberados como entradas atuais. O prazo de nova entrada expira no máximo120segundos após o segundo fechamento. Toque em SL/TP enquanto espera cancela a tentativa. A cotação, livro e funding são avaliados ao analisar o sinal, sem simular retrospectivamente uma execução perdida.
 
 ## Agendamento

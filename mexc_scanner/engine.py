@@ -15,6 +15,7 @@ from .reporting import brt, closed_plans_message, daily_message, plan_message
 from .state import queue_message
 from .strategies import process_symbol
 from .minute_breakout import MODEL,prepare_model,process_minutes,validate_minute_ohlc
+from .watch_notifications import STRATEGY as WATCH_STRATEGY, queue_waiting_entries
 
 
 def run_scan(client: MexcClient, config: Config, state: dict, assets: set[str],
@@ -127,7 +128,7 @@ def run_scan(client: MexcClient, config: Config, state: dict, assets: set[str],
         state["source_status"] = report["source_status"]
         state["last_success"] = server + int(time.monotonic() - wall_start)
         report["analyzed_at"] = state["last_success"]
-        _queue_transitions(state, previous_plans, config, report["analyzed_at"])
+        _queue_transitions(state, previous_plans, config, report["analyzed_at"], watch_symbols=good_symbols)
     except (SourceError, DataError, KeyError, ValueError, TypeError) as exc:
         report["error"] = str(exc)
         state["source_status"] = "FALHA"
@@ -135,7 +136,7 @@ def run_scan(client: MexcClient, config: Config, state: dict, assets: set[str],
             for v in p.get("variants", {}).values():
                 v["financial"] = {"status": "BLOQUEADA", "reasons": ["FALHA_DA_FONTE_NESTA_RODADA"]}
         for message in state["outbox"].values():
-            if message["status"] == "PENDING" and message["category"] == "ENTRY":
+            if message["status"] == "PENDING" and (message["category"] == "ENTRY" or message.get('watch_symbol')):
                 message["status"] = "EXPIRED"
         error_key = stable_id("SOURCE_ERROR", str(exc), started // 86400)
         queue_message(state, error_key, "⚠️ FALHA NA COLETA\n" +
@@ -149,12 +150,18 @@ def run_scan(client: MexcClient, config: Config, state: dict, assets: set[str],
     return jsonable(report), jsonable(snapshot)
 
 
-def _queue_transitions(state: dict, previous: dict, config: Config, now: int) -> None:
+def _queue_transitions(state: dict, previous: dict, config: Config, now: int, *, watch_symbols=None) -> None:
     viable = []
     closed = []
     observations_queued = 0
+    watch_plans = []
+    notified_watch_ids = {pid for m in state['outbox'].values()
+                          if m['status'] == 'SENT' or m.get('attempts', 0) > 0
+                          for pid in m.get('plan_ids', [])}
 
     def was_notified(p: Plan) -> bool:
+        if p.id in notified_watch_ids:
+            return True
         ids = [stable_id(p.id, "POSSIVEL")]
         for kind in p.variants:
             ids += [stable_id(p.id, kind, "OBSERVACAO"), stable_id(p.id, kind, "GATILHO", config.mode)]
@@ -164,7 +171,9 @@ def _queue_transitions(state: dict, previous: dict, config: Config, now: int) ->
     for row in state["plans"].values():
         p = Plan.from_dict(row)
         old = previous.get(p.id)
-        if old is None and p.status == "POSSIVEL" and observations_queued < config.max_alerts:
+        if p.strategy == WATCH_STRATEGY:
+            watch_plans.append(p)
+        if p.strategy != WATCH_STRATEGY and old is None and p.status == "POSSIVEL" and observations_queued < config.max_alerts:
             queue_message(state, stable_id(p.id, "POSSIVEL"), plan_message(p, config.mode, now), now, p.expires_at)
             observations_queued += 1
         if p.terminal:
@@ -177,11 +186,13 @@ def _queue_transitions(state: dict, previous: dict, config: Config, now: int) ->
             f = v.financial
             if f.get("status") in {"VIAVEL_SIMULADO", "VIAVEL_REAL"}:
                 viable.append((p, v))
-            elif (old is None or not old.get("variants", {}).get(v.kind)) and observations_queued < config.max_alerts:
+            elif p.strategy != WATCH_STRATEGY and (old is None or not old.get("variants", {}).get(v.kind)) and observations_queued < config.max_alerts:
                 # Não esconder sinal técnico apenas porque a banca não comporta.
                 queue_message(state, stable_id(p.id, v.kind, "OBSERVACAO"),
                               plan_message(p, config.mode, now, v), now, p.expires_at, "INFO")
                 observations_queued += 1
+    queue_waiting_entries(state, watch_plans, config, now, {p.symbol for p, v in viable},
+                          limit=max(0, config.max_alerts - observations_queued), verified_symbols=watch_symbols)
     viable.sort(key=lambda pair: (-D(pair[1].financial["net_rr"]),
                                  D(pair[1].financial["costs_usdt"]) / D(pair[1].financial["loss_usdt"]),
                                  abs(D(pair[1].financial["entry_vwap"]) - pair[1].reference), pair[0].symbol, pair[1].kind))

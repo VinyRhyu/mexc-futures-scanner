@@ -101,6 +101,41 @@ def _remaining(expires: int, now: int) -> str:
     return f"{seconds // 60}min {seconds % 60:02d}s" if seconds >= 60 else f"{seconds}s"
 
 
+def waiting_entries_message(plans: list[Plan], mode: str, now: int, stage: int) -> str:
+    """One conditional watch per asset, never an executable indication."""
+    lines = ['👀 AGUARDANDO ENTRADA', plans[0].symbol.replace('_', '/'),
+             _mode(mode) + ' • acompanhamento', '']
+    if stage == 2:
+        if len(plans) > 1:
+            lines.append('Direção indefinida: cenários alternativos para a mesma consolidação.')
+        p = plans[0]
+        lines += [f'Região em análise: ≈ {approximate(p.lower)} a {approximate(p.upper)}', '']
+        for p in plans:
+            threshold = p.level + (1 if p.side == 'LONG' else -1) * p.atr * D('.10')
+            direction = 'acima' if p.side == 'LONG' else 'abaixo'
+            lines.append(f'{p.side} somente se houver rompimento {direction} de ≈ {approximate(threshold)}.')
+        lines += ['', 'São necessários dois fechamentos M1 além do gatilho e volume do segundo de pelo menos 50% do primeiro.',
+                  'Os valores acima são regiões de atenção; viabilidade financeira ainda não avaliada.']
+    else:
+        for p in plans:
+            v = p.variants['CONFIRMADA' if stage == 0 else 'ANTECIPADA']
+            if stage == 1:
+                lines += [f'Possível {p.side} • primeiro fechamento M1 identificado.',
+                          'Falta o segundo fechamento sustentar o nível, com volume de pelo menos 50% do primeiro.']
+            else:
+                reasons = v.financial.get('reasons') or ['AVALIACAO_FINANCEIRA_PENDENTE']
+                lines += [f'{p.side} • confirmação técnica identificada, entrada bloqueada.',
+                          'Condição pendente: ' + ' '.join(friendly(r) for r in reasons)]
+            lines += [f'Faixa em estudo: {number(v.entry_low)} a {number(v.entry_high)}',
+                      f'Stop do plano: {number(v.stop)} • Alvo do plano: {number(v.target)}', '']
+        if stage == 1:
+            lines.append('Após confirmar, o plano ainda precisa passar pela avaliação financeira.')
+    lines += ['', 'Sem entrada liberada. Aguarde o alerta de confirmação e viabilidade.',
+              f'Acompanhamento até {clock(min(p.expires_at for p in plans), now)}.',
+              f'Análise: {brt(now)}', 'Planos: ' + ', '.join(p.id for p in plans)]
+    return '\n'.join(lines)
+
+
 def plan_message(plan: Plan, mode: str, now: int, variant: Variant | None = None,
                  *, restriction: str = "") -> str:
     terminal = plan.status if plan.terminal else ("EXPIRADO" if now >= plan.expires_at else "")
