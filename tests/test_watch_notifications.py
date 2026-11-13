@@ -83,7 +83,7 @@ class WatchNotificationsTests(unittest.TestCase):
         self.assertIn('Falta o segundo fechamento', m['text'])
         self.assertNotIn('SHORT somente se', m['text'])
         self.assertIn('Stop do plano:', m['text'])
-        self.assertEqual(m['expires_at'], NOW - 5 + 120)
+        self.assertEqual(m['expires_at'], NOW - 5 + 60)
         self.assertEqual(self.pending(state, 'ENTRY'), [])
 
     def test_blocked_confirmation_remains_information_not_an_entry(self):
@@ -202,6 +202,19 @@ class WatchNotificationsTests(unittest.TestCase):
         state = self.state(p)
         _queue_transitions(state, {}, Config(), NOW)
         self.assertEqual(self.pending(state), [])
+
+    def test_first_notice_stops_at_next_candle_deadline_but_confirmation_keeps_two_minutes(self):
+        first = candidate()
+        first.variants['ANTECIPADA'].triggered_at = NOW - 60
+        state = self.state(first)
+        _queue_transitions(state, {}, Config(), NOW)
+        self.assertEqual(self.pending(state), [])
+        confirmed = candidate(phase='blocked')
+        confirmed.variants['CONFIRMADA'].triggered_at = NOW - 90
+        state = self.state(confirmed)
+        _queue_transitions(state, {}, Config(), NOW)
+        self.assertEqual(len(self.pending(state)), 1)
+        self.assertEqual(self.pending(state)[0]['expires_at'], NOW + 30)
 
     def test_overlapping_formations_do_not_repeat_the_same_observed_movement(self):
         p = candidate()

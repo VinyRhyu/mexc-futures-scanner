@@ -16,6 +16,8 @@ Modelo em uso: rompimento de consolidação com dois fechamentos consecutivos de
 
 🕒 Aguardando confirmação: falta o segundo fechamento M1 sustentar o nível, com pelo menos 50% do volume do primeiro. Faixa, stop e alvo ainda são de estudo. O movimento observado não libera entrada: a confirmação e a viabilidade financeira ainda precisam passar. Avisos repetidos do mesmo movimento não são reenviados a cada minuto.
 
+O aviso do primeiro candle só é enviado antes de fechar o M1 seguinte. Ele pode encerrar já na próxima coleta se o volume ou rompimento não confirmar. A atualização mostra o motivo. Prazo de nova entrada encerrado não é ordem para fechar uma posição já aberta; alvo de plano alcançado não comprova lucro de operação executada.
+
 🟢 Gatilho válido para simular: o plano cumpriu as condições dentro do prazo. Você pode registrar uma operação de teste (paper).
 
 ✅ Entrada validada: o gatilho e as verificações para uso real passaram. A decisão de operar continua manual.

@@ -126,7 +126,7 @@ def main(argv=None) -> int:
                 return 1 if report["source_status"] == "FALHA" else 0
             if args.command == "notify":
                 result = drain_outbox(state, now, os.environ.get("TELEGRAM_BOT_TOKEN", ""),
-                                      os.environ.get("TELEGRAM_CHAT_ID", ""))
+                                      os.environ.get("TELEGRAM_CHAT_ID", ""), clock=time.time)
                 atomic_json(path, state)
                 print(json.dumps(result))
                 return 1 if result["failed"] else 0

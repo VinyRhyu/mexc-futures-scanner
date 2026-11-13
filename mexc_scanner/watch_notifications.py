@@ -6,6 +6,12 @@ from .minute_breakout import STRATEGY, MAX_SIGNAL_AGE
 from .reporting import movement_message
 from .state import queue_message
 
+FIRST_CANDLE_NOTICE_AGE = 60
+
+
+def notice_age(stage):
+    return FIRST_CANDLE_NOTICE_AGE if stage == 1 else MAX_SIGNAL_AGE
+
 def phase(plan):
     confirmed = plan.variants.get('CONFIRMADA')
     first = plan.variants.get('ANTECIPADA')
@@ -27,7 +33,7 @@ def grouped_candidates(plans, now, viable_symbols, verified_symbols=None):
         if stage == 2:
             continue  # A consolidation alone is not an observed movement.
         variant = p.variants['CONFIRMADA' if stage == 0 else 'ANTECIPADA']
-        if not 0 <= now - variant.triggered_at < MAX_SIGNAL_AGE:
+        if not 0 <= now - variant.triggered_at < notice_age(stage):
             continue
         groups[p.symbol].append(p)
     result = []
@@ -78,7 +84,7 @@ def queue_waiting_entries(state, plans, config, now, viable_symbols, *, limit, v
             continue
         p = chosen[0]
         v = p.variants['CONFIRMADA' if stage == 0 else 'ANTECIPADA']
-        expires = min(p.expires_at, v.triggered_at + MAX_SIGNAL_AGE)
+        expires = min(p.expires_at, v.triggered_at + notice_age(stage))
         queue_message(state, event_id, movement_message(p, config.mode, now, stage, expires,
                                                        illustrative_leverage=config.minimum_leverage), now, expires)
         state['outbox'][event_id].update(watch_symbol=symbol, watch_stage=stage,

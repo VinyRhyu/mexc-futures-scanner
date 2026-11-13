@@ -145,7 +145,9 @@ def movement_message(plan: Plan, mode: str, now: int, stage: int, expires_at: in
         raise ValueError('Alerta de movimento exige um gatilho observado')
     v = plan.variants['CONFIRMADA' if stage == 0 else 'ANTECIPADA']
     direction = 'ALTA (LONG)' if plan.side == 'LONG' else 'BAIXA (SHORT)'
-    lines = ['🟡 MOVIMENTO DETECTADO', f"{plan.symbol.replace('_', '/')} • {direction}",
+    title = ('🟡 MOVIMENTO DETECTADO • AINDA SEM CONFIRMAÇÃO' if stage == 1 else
+             '🟡 MOVIMENTO DETECTADO • ENTRADA BLOQUEADA')
+    lines = [title, f"{plan.symbol.replace('_', '/')} • {direction}",
              _mode(mode) + ' • acompanhamento', '',
              f'Rompimento observado no M1 fechado às {clock(v.triggered_at, now)}.',
              f'Preço de referência do primeiro gatilho: {number(v.reference)}.']
@@ -277,13 +279,23 @@ def plan_message(plan: Plan, mode: str, now: int, variant: Variant | None = None
 
 
 def closed_plans_message(plans: list[Plan], mode: str, now: int) -> str:
-    labels = {"EXPIRADO": "janela expirou", "INVALIDADO": "plano invalidado",
-              "AMBIGUO": "candle ambíguo", "EVENTO_PASSADO": "movimento encerrado"}
+    labels = {"EXPIRADO": "prazo para nova entrada encerrado", "INVALIDADO": "plano invalidado",
+              "AMBIGUO": "candle ambíguo", "EVENTO_PASSADO": "acompanhamento encerrado"}
     lines = ["⚪ ATUALIZAÇÃO DOS PLANOS ACOMPANHADOS", _mode(mode), ""]
     for p in plans:
-        lines.append(f"• {_identity(p)}: {labels[p.status]}\n  Plano: {p.id}")
+        if p.reason in {'VOLUME_M1_INSUFICIENTE', 'SEGUNDO_M1_NAO_SUSTENTOU', 'SEGUNDO_M1_INDISPONIVEL'}:
+            label = 'confirmação não aprovada'
+        elif p.reason == 'ALVO_JA_ATINGIDO':
+            label = 'alvo do plano alcançado durante o acompanhamento'
+        elif p.reason == 'STOP_ANTES_DA_ENTRADA':
+            label = 'preço tocou o stop do plano'
+        else:
+            label = labels[p.status]
+        reason = p.reason or ('PRAZO_ENCERRADO' if p.status == 'EXPIRADO' else p.status)
+        lines.append(f"• {_identity(p)}: {label}\n  Motivo: {friendly(reason)}\n  Plano: {p.id}")
     lines += ["", "Sem novas entradas por esses planos.",
-              "A expiração não encerra posições já abertas.", f"Análise: {brt(now)}"]
+              "Avisos de movimento não equivalem a entradas liberadas.",
+              "A expiração não encerra uma posição já aberta.", f"Análise: {brt(now)}"]
     return "\n".join(lines)
 
 

@@ -35,17 +35,31 @@ O ID do aviso usa ativo/lado/horário do movimento/etapa. Formações sobreposta
 do mesmo evento não produzem vários avisos; uma mudança de etapa ou outro
 movimento pode gerar atualização. O limite de observações por rodada permanece.
 
-O gatilho precisa ter menos de 120s no momento da geração do aviso, e a validade
-da mensagem também termina no máximo 120s após o horário observado. Mensagens
+O aviso do primeiro M1 só é gerado e válido nos 60s seguintes ao candle:
+depois disso, o segundo M1 já deveria estar disponível para validação. Alertas
+de confirmação técnica mantêm até 120s. Isso não altera a janela de nova
+entrada do modelo, que continua em 120s após a confirmação. Mensagens
 pendentes antigas, neutras, substituídas ou sem coleta validada são expiradas.
 Na falha da fonte, acompanhamentos pendentes não são entregues. Mensagens já
 enviadas mantêm seu histórico; encerramentos continuam sendo reconhecidos.
+
+No envio, ENTRY tem prioridade, seguido por movimento recente e depois por
+resumos/atualizações. Alertas de movimento não ficam atrás de resumos antigos.
+O horário é rechecado antes de cada envio, para que o tempo gasto entregando
+mensagens anteriores não permita enviar um alerta que já venceu. O registro
+de envio usa o horário observado após a resposta do Telegram.
 
 O cron e a fila do GitHub podem atrasar a entrega. Não há garantia de notificar
 todo primeiro candle: uma rodada pode já receber a confirmação ou invalidação.
 O processamento continua por candles fechados, sem promessa de alerta intrabar.
 
 ## Separação da entrada
+
+O primeiro aviso destaca `AINDA SEM CONFIRMAÇÃO` no título. Nas atualizações,
+o motivo efetivo é informado: volume insuficiente, perda do rompimento,
+prazo de nova entrada encerrado ou toque em alvo/stop. Expiração da janela
+para nova entrada não é uma ordem de encerrar uma posição já aberta. Toque
+no alvo de um plano observado não comprova lucro de uma operação executada.
 
 O alerta é categoria INFO, com texto explícito de que não existe entrada
 liberada. A regra de entrada continua exigindo o segundo fechamento M1,

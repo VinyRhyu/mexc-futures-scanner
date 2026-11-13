@@ -35,17 +35,19 @@ def send_text(token: str, chat_id: str, text: str, transport=None) -> list[int]:
     return ids
 
 
-def drain_outbox(state: dict, now: int, token: str, chat_id: str, transport=None) -> dict:
+def drain_outbox(state: dict, now: int, token: str, chat_id: str, transport=None, *, clock=None) -> dict:
     counts = {"sent": 0, "expired": 0, "failed": 0, "configuration": "OK"}
     configured = bool(token and chat_id)
     if not configured:
         counts["configuration"] = "TELEGRAM_NAO_CONFIGURADO"
     # Indicações com cotação recente chegam antes de resumos e acompanhamentos.
-    messages = sorted(state["outbox"].values(), key=lambda m: (m["category"] != "ENTRY", m["created_at"]))
+    messages = sorted(state["outbox"].values(), key=lambda m: (
+        0 if m["category"] == "ENTRY" else 1 if m.get('movement_at') is not None else 2, m["created_at"]))
     for message in messages:
         if message["status"] != "PENDING":
             continue
-        if now >= message["expires_at"] or (message["category"] == "ENTRY" and now - message["quote_at"] > 60):
+        current = int(clock()) if clock else now
+        if current >= message["expires_at"] or (message["category"] == "ENTRY" and current - message["quote_at"] > 60):
             message["status"] = "EXPIRED"
             counts["expired"] += 1
             pending = state["wallet"].get("pending")
@@ -57,7 +59,7 @@ def drain_outbox(state: dict, now: int, token: str, chat_id: str, transport=None
         message["attempts"] += 1
         try:
             message["telegram_ids"] = send_text(token, chat_id, message["text"], transport)
-            message["status"], message["sent_at"] = "SENT", now
+            message["status"], message["sent_at"] = "SENT", int(clock()) if clock else now
             counts["sent"] += 1
         except TelegramError as exc:
             message["last_error"] = str(exc)
