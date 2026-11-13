@@ -1,55 +1,65 @@
-# Telegram: aguardando entrada por moeda
+# Telegram: movimento detectado
 
-Mudança de apresentação solicitada em 13/11/2026. O cálculo dos sinais,
-os dois sentidos da análise, TP, SL, RR mínimo 1:1, volume e confirmação
-continuam iguais. O modo permanece paper.
+A apresentação foi ajustada em 13/11/2026 para avisar quando o rompimento já
+foi observado, em vez de anunciar toda consolidação como possível entrada.
+A análise dos dois lados, TP, SL, RR mínimo 1:1, volume e confirmação continuam
+iguais. O modo permanece paper; nenhum primeiro gatilho libera uma entrada.
 
-## Acompanhamento
+## Quando chega o aviso
 
-Os planos M1 ainda não liberados são reunidos em um aviso `AGUARDANDO ENTRADA`
-por ativo, em vez de alertas individuais de LONG e SHORT para a mesma moeda.
-Isso não exige escolher artificialmente uma direção antes do gatilho.
+- MOVIMENTO DETECTADO • ALTA (LONG) ou BAIXA (SHORT) exige um primeiro
+  candle M1 fechado além do gatilho da região monitorada pelo modelo atual.
+- O aviso mostra horário do candle da etapa, referência do primeiro gatilho,
+  faixa/SL/TP em estudo e a confirmação que ainda falta.
+- Se a confirmação técnica já foi identificada, mas o financeiro bloqueou a
+  entrada, a condição pendente aparece explicitamente no aviso informativo.
+- Planos sem primeiro rompimento continuam na análise e nos relatórios, mas
+  não geram mais acompanhamentos neutros de LONG/SHORT no Telegram.
+- Uma entrada confirmada e financeiramente viável mantém seu próprio alerta
+  ENTRY, com prioridade sobre o acompanhamento do mesmo ativo.
 
-- Sem primeiro gatilho, o aviso informa a região, a direção indefinida e as
-  condições alternativas de alta/baixa da consolidação mais recente.
-- Com primeiro M1, mostra o lado, a faixa/SL/TP já congelados e o segundo
-  fechamento/volume que faltam. Os níveis são de estudo, sem entrada liberada.
-- Com confirmação técnica bloqueada pelo financeiro, informa a condição
-  pendente. O aviso não recebe categoria ENTRY nem título de entrada válida.
-- Havendo entrada financeiramente viável, o alerta ENTRY original tem
-  prioridade e o acompanhamento pendente do mesmo ativo é retirado.
+O movimento é o rompimento das regiões monitoradas pela estratégia. Não é
+um detector de toda oscilação do mercado nem de eventos anteriores ao primeiro
+fechamento M1. O candle observado pode ter revertido após fechar; o aviso não
+afirma que o preço atual ainda seja igual à referência.
 
-Entre formações sobrepostas, a apresentação usa no máximo o plano mais recente
-de cada lado na etapa técnica mais avançada disponível. Todos os planos
-permanecem na análise e no relatório completo. A seleção visual não estima
-qual lado terá lucro.
+## Direção, repetição e validade
 
-## Repetição, validade e entrega
+Cada ativo apresenta somente a direção do gatilho observado mais recente.
+Entre contextos no mesmo horário, considera-se a formação mais recente e a
+etapa técnica disponível. Se ainda houver contextos opostos exatamente
+empatados, não é emitida uma direção arbitrária. Todos os planos continuam
+sendo processados normalmente e podem aparecer no relatório completo.
 
-A combinação ativo/etapa/planos tem um ID estável. Mensagens já registradas não
-são reenviadas em cada rodada; uma etapa ou formação diferente pode produzir
-novo aviso. O limite atual de observações por rodada é preservado e os ativos
-seguintes são considerados nas próximas rodadas sem ficarem presos aos IDs já
-enviados.
+O ID do aviso usa ativo/lado/horário do movimento/etapa. Formações sobrepostas
+do mesmo evento não produzem vários avisos; uma mudança de etapa ou outro
+movimento pode gerar atualização. O limite de observações por rodada permanece.
 
-Avisos antigos ainda pendentes do formato individual são expirados. Mensagens
-já enviadas mantêm seu histórico. Avisos agrupados pendentes que foram
-substituídos ou perderam seus planos ativos também expiram. O vencimento do
-grupo é o menor vencimento dos planos apresentados.
+O gatilho precisa ter menos de 120s no momento da geração do aviso, e a validade
+da mensagem também termina no máximo 120s após o horário observado. Mensagens
+pendentes antigas, neutras, substituídas ou sem coleta validada são expiradas.
+Na falha da fonte, acompanhamentos pendentes não são entregues. Mensagens já
+enviadas mantêm seu histórico; encerramentos continuam sendo reconhecidos.
 
-Novos acompanhamentos só usam símbolos com coleta validada naquela rodada.
-Planos encerrados ou fora do prazo não são apresentados como oportunidades.
-As atualizações de encerramento reconhecem quais planos foram mostrados em
-avisos agrupados. Nenhum plano é reaberto por causa de uma notificação.
+O cron e a fila do GitHub podem atrasar a entrega. Não há garantia de notificar
+todo primeiro candle: uma rodada pode já receber a confirmação ou invalidação.
+O processamento continua por candles fechados, sem promessa de alerta intrabar.
 
-Alertas de confirmação viável e seus IDs permanecem independentes dos avisos
-de acompanhamento; não houve mudança de regras ou migração de configuração.
-Metadados `watch_symbol`, `watch_stage` e `plan_ids` na outbox permitem auditar
-a apresentação. `/ajuda` explica o novo formato.
+## Separação da entrada
+
+O alerta é categoria INFO, com texto explícito de que não existe entrada
+liberada. A regra de entrada continua exigindo o segundo fechamento M1,
+volume do segundo de pelo menos 50% do primeiro e aprovação dos filtros
+financeiros. Nenhuma configuração de risco ou cálculo de estratégia foi mudado.
+
+Metadados watch_symbol, watch_stage, movement_at, movement_side e plan_ids
+na outbox permitem auditar a apresentação. Não há migração de configuração
+ou reinicialização de saldo/diário. /ajuda explica o formato.
 
 ## Verificação
 
-Testes cobrem agrupamento LONG/SHORT, primeiro gatilho, bloqueio financeiro,
-prioridade de ENTRY, não alteração dos planos, símbolos sem dados válidos,
-deduplicação, limite por rodada, substituição de avisos, encerramento e
-tamanho de mensagem. Demonstração e replay mantêm os fluxos anteriores.
+Testes cobrem ausência de aviso sem rompimento, sinal de primeiro M1, direção
+mais recente, conflitos empatados, idade do gatilho, deduplicação entre
+formações, expiração dos avisos neutros, bloqueios financeiros, prioridade de
+ENTRY, fontes inválidas e não alteração dos planos calculados. Demonstração
+e replay também passam.

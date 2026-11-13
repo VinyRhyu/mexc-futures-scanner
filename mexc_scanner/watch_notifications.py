@@ -1,9 +1,9 @@
-"""Telegram-only grouping of conditional M1 plans; never changes a plan."""
+"""Telegram-only alerts for a fresh observed M1 breakout; never changes a plan."""
 from collections import defaultdict
 
 from .models import stable_id
-from .minute_breakout import STRATEGY
-from .reporting import waiting_entries_message
+from .minute_breakout import STRATEGY, MAX_SIGNAL_AGE
+from .reporting import movement_message
 from .state import queue_message
 
 def phase(plan):
@@ -23,22 +23,31 @@ def grouped_candidates(plans, now, viable_symbols, verified_symbols=None):
                 or p.symbol in viable_symbols
                 or (verified_symbols is not None and p.symbol not in verified_symbols)):
             continue
+        stage = phase(p)
+        if stage == 2:
+            continue  # A consolidation alone is not an observed movement.
+        variant = p.variants['CONFIRMADA' if stage == 0 else 'ANTECIPADA']
+        if not 0 <= now - variant.triggered_at < MAX_SIGNAL_AGE:
+            continue
         groups[p.symbol].append(p)
     result = []
     for symbol, candidates in groups.items():
+        def recency(p):
+            v = p.variants['CONFIRMADA' if phase(p) == 0 else 'ANTECIPADA']
+            return v.triggered_at, p.formed_at
+        latest = max(map(recency, candidates))
+        candidates = [p for p in candidates if recency(p) == latest]
         stage = min(map(phase, candidates))
         candidates = [p for p in candidates if phase(p) == stage]
-        if stage == 2:
-            latest = max(p.formed_at for p in candidates)
-            candidates = [p for p in candidates if p.formed_at == latest]
-        sides = {}
-        for p in candidates:
-            recency = (p.entry_started_at, p.formed_at, p.id)
-            if p.side not in sides or recency > (sides[p.side].entry_started_at, sides[p.side].formed_at, sides[p.side].id):
-                sides[p.side] = p
-        chosen = [sides[s] for s in ('LONG', 'SHORT') if s in sides]
+        if len({p.side for p in candidates}) != 1:
+            continue  # Do not invent a direction for tied contradictory contexts.
+        chosen = [max(candidates, key=lambda p: p.id)]
         result.append((stage, symbol, chosen))
-    return sorted(result, key=lambda x: (x[0], -max(p.formed_at for p in x[2]), x[1]))
+    def notification_order(group):
+        stage, symbol, chosen = group
+        v = chosen[0].variants['CONFIRMADA' if stage == 0 else 'ANTECIPADA']
+        return -v.triggered_at, stage, symbol
+    return sorted(result, key=notification_order)
 
 
 def queue_waiting_entries(state, plans, config, now, viable_symbols, *, limit, verified_symbols=None):
@@ -53,7 +62,8 @@ def queue_waiting_entries(state, plans, config, now, viable_symbols, *, limit, v
             if m and m['status'] == 'PENDING' and m['category'] == 'INFO':
                 m['status'] = 'EXPIRED'
     groups = grouped_candidates(plans, now, viable_symbols, verified_symbols)
-    wanted = {symbol: stable_id('WAITING_ENTRY_V1', symbol, stage, sorted(p.id for p in chosen), config.mode)
+    wanted = {symbol: stable_id('MOVEMENT_V1', symbol, chosen[0].side, stage,
+                               chosen[0].variants['CONFIRMADA' if stage == 0 else 'ANTECIPADA'].triggered_at, config.mode)
               for stage, symbol, chosen in groups}
     for event_id, m in state['outbox'].items():
         symbol = m.get('watch_symbol')
@@ -66,9 +76,12 @@ def queue_waiting_entries(state, plans, config, now, viable_symbols, *, limit, v
         event_id = wanted[symbol]
         if event_id in state['outbox']:
             continue
-        expires = min(p.expires_at for p in chosen)
-        queue_message(state, event_id, waiting_entries_message(chosen, config.mode, now, stage), now, expires)
+        p = chosen[0]
+        v = p.variants['CONFIRMADA' if stage == 0 else 'ANTECIPADA']
+        expires = min(p.expires_at, v.triggered_at + MAX_SIGNAL_AGE)
+        queue_message(state, event_id, movement_message(p, config.mode, now, stage, expires), now, expires)
         state['outbox'][event_id].update(watch_symbol=symbol, watch_stage=stage,
+                                        movement_at=v.triggered_at, movement_side=p.side,
                                         plan_ids=[p.id for p in chosen])
         count += 1
     return count
