@@ -56,7 +56,26 @@ Metadados watch_symbol, watch_stage, movement_at, movement_side e plan_ids
 na outbox permitem auditar a apresentação. Não há migração de configuração
 ou reinicialização de saldo/diário. /ajuda explica o formato.
 
+## Percentuais de TP e SL
+
+Os níveis mostram seu retorno percentual na direção da operação, sem
+alavancagem e antes de custos: um TP abaixo da entrada de SHORT aparece como
+potencial positivo; o SL acima dela aparece como risco negativo. A referência
+é declarada na mensagem. No alerta de movimento, usa-se o preço do primeiro
+gatilho; na entrada viável, usa-se o pior preço admissível do financeiro.
+
+Nas entradas viáveis, também aparece o ROI líquido estimado sobre a margem:
+ganho líquido estimado dividido pela margem, e perda líquida estimada dividida
+pela margem, com sinal negativo para o SL. Esses valores já usam os custos
+assumidos pelo avaliador e são distintos da variação sem alavancagem e do
+retorno sobre o saldo total. Sem margem validada, não é inventado um ROI.
+O cálculo de TP, SL, quantidade, alavancagem e viabilidade não é alterado.
+
 ## Verificação
+
+Testes verificam simetria LONG/SHORT, denominador da pior entrada, separação
+entre margem e saldo, referências inválidas, pequenas variações e preservação
+dos níveis e do estado.
 
 Testes cobrem ausência de aviso sem rompimento, sinal de primeiro M1, direção
 mais recente, conflitos empatados, idade do gatilho, deduplicação entre

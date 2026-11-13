@@ -75,6 +75,32 @@ def money(value) -> str:
     return fixed(value, 4 if abs(D(value)) < 1 else 2) + " USDT"
 
 
+def signed_percent(value) -> str:
+    value = D(value)
+    places = max(2, 1 - value.copy_abs().adjusted()) if value else 2
+    rounded = value.quantize(Decimal(1).scaleb(-places), rounding=ROUND_HALF_UP)
+    if not rounded:
+        rounded = abs(rounded)
+    return format(rounded, f'+.{places}f') + '%'
+
+
+def price_return_percent(side: str, reference, level) -> str:
+    entry = D(reference)
+    if entry <= 0:
+        return 'indisponível'
+    sign = 1 if side == 'LONG' else -1
+    return signed_percent(sign * (D(level) - entry) / entry * 100)
+
+
+def margin_return_line(financial: dict) -> str | None:
+    margin = financial.get('margin_usdt')
+    gain, loss = financial.get('gain_usdt'), financial.get('loss_usdt')
+    if margin is None or D(margin) <= 0 or gain is None or loss is None:
+        return None
+    return ('ROI líquido estimado sobre a margem: TP ' + signed_percent(D(gain) / D(margin) * 100)
+            + ' • SL ' + signed_percent(-D(loss) / D(margin) * 100) + '.')
+
+
 def approximate(value) -> str:
     """Somente regiões de atenção: seis algarismos significativos, nunca preços de ordem."""
     d = D(value)
@@ -120,7 +146,9 @@ def movement_message(plan: Plan, mode: str, now: int, stage: int, expires_at: in
         lines += ['', 'Confirmação técnica identificada; entrada bloqueada.',
                   'Condição pendente: ' + ' '.join(friendly(r) for r in reasons)]
     lines += ['', f'Faixa em estudo: {number(v.entry_low)} a {number(v.entry_high)}',
-              f'Stop do plano: {number(v.stop)} • Alvo do plano: {number(v.target)}',
+              f'🛑 Stop do plano: {number(v.stop)} ({price_return_percent(plan.side, v.reference, v.stop)} sem alavancagem)',
+              f'🎯 Alvo do plano: {number(v.target)} ({price_return_percent(plan.side, v.reference, v.target)} sem alavancagem)',
+              'Percentuais sobre a referência do primeiro gatilho, na direção da operação, antes de custos.',
               '', 'Movimento observado, sem entrada liberada. Aguarde o alerta de confirmação e viabilidade.',
               f'Alerta válido até {clock(expires_at, now)}.',
               f'Análise: {brt(now)}', f'Plano: {plan.id}']
@@ -180,8 +208,12 @@ def plan_message(plan: Plan, mode: str, now: int, variant: Variant | None = None
     elif not viable:
         reasons = f.get("reasons") or [variant.reason or "AVALIACAO_FINANCEIRA_PENDENTE"]
         lines += ["Motivo: " + " ".join(friendly(r) for r in reasons), "Sem entrada liberada nesta análise.", ""]
+    price_base = (f.get('worst_entry') or variant.reference) if viable and not restriction else variant.reference
+    base_label = 'pior entrada' if viable and not restriction and f.get('worst_entry') else 'referência do gatilho'
     lines += [f"📍 {'Entrada' if viable and not restriction else 'Faixa do plano'}: {number(f.get('entry_low', variant.entry_low))} a {number(f.get('entry_high', variant.entry_high))}",
-              f"🛑 Stop: {number(variant.stop)}", f"🎯 Alvo: {number(variant.target)}"]
+              f"🛑 Stop: {number(variant.stop)} ({price_return_percent(plan.side, price_base, variant.stop)} sem alavancagem)",
+              f"🎯 Alvo: {number(variant.target)} ({price_return_percent(plan.side, price_base, variant.target)} sem alavancagem)",
+              f"Base dos percentuais: {number(price_base)} ({base_label}); na direção da operação, antes de custos."]
     if viable and not restriction:
         lines += ["", f"Margem isolada estimada: {money(f.get('margin_usdt'))} • {f.get('leverage', 'indisponível')}x",
                   f"Quantidade: {number(f.get('contracts'))} contratos"]
@@ -191,6 +223,9 @@ def plan_message(plan: Plan, mode: str, now: int, variant: Variant | None = None
                   f"Ganho projetado: +{money(f.get('gain_usdt'))}{gain_pct}",
                   f"Retorno/risco líquido: {fixed(f.get('net_rr'))}:1 (pior entrada)",
                   f"Custos estimados: {money(f.get('costs_usdt'))}"]
+        margin_line = margin_return_line(f)
+        if margin_line:
+            lines.append(margin_line)
         if f.get("daily_goal_reachable_in_one_trade"):
             lines.append("🎯 Projeção alcança a meta diária de 60% nesta entrada (sem garantia).")
         if f.get("fee_rate") is not None:
