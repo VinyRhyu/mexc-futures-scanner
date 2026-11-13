@@ -26,7 +26,7 @@ Modelo em uso: rompimento de consolidação com dois fechamentos consecutivos de
 
 Cada entrada busca retorno/risco líquido mínimo de 1:1, com custos estimados e risco planejado até 10% do saldo. O TP continua técnico e pode oferecer mais que 1:1; não existe lucro mínimo fixo de 10% ou 60%. 30% segue como teto absoluto. Ganhos menores podem somar para a meta diária de 60%; se um plano projetar 60%, ele também pode contribuir sozinho. Meta não é obrigação de operar; projeções não garantem lucro.
 
-TP e SL mostram percentuais na direção da operação, sem alavancagem e antes de custos. No movimento detectado, a base é a referência do primeiro gatilho; na entrada viável, é o pior preço permitido. Entradas viáveis também mostram o ROI líquido estimado sobre a margem, separado dos percentuais da banca.
+No movimento detectado, TP e SL mostram um cenário indicativo bruto em 10x, sobre a referência do primeiro gatilho; custos e liquidação ainda precisam ser validados. Nas entradas viáveis, os percentuais principais são o ROI líquido estimado sobre a margem, com alavancagem de pelo menos 10x e teto 20x. A variação sem alavancagem fica separada. Quantidade e risco sobre o saldo não aumentam apenas para mostrar um ROI maior; limites de contrato e liquidação podem bloquear o plano.
 
 O scanner não executa ordens. Atualmente opera em modo paper. Confira sempre horário, preço e validade do alerta antes de agir."""
 

@@ -2,10 +2,11 @@
 from __future__ import annotations
 
 import argparse
+from dataclasses import replace
 import os
 import time
 
-from mexc_scanner.config import Config
+from mexc_scanner.config import load_config
 from mexc_scanner.demo import DemoClient
 from mexc_scanner.engine import run_scan
 from mexc_scanner.models import Plan
@@ -15,7 +16,7 @@ from mexc_scanner.telegram import send_text
 
 
 def preview_message(now: int) -> str:
-    config = Config()
+    config = replace(load_config('config/default.toml'), mode='paper')
     client = DemoClient(now)
     report, _ = run_scan(client, config, initial_state(config), {"DEMO"}, now=client.now)
     for row in report["plans"]:

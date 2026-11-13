@@ -115,7 +115,7 @@ Uma posição registrada impede outra posição no mesmo diário. Em modo real, 
 
 ## Configuração e limites iniciais
 
-O arquivo `config/default.toml` começa com saldo de **USDT 1**, risco planejado de até **10% por entrada** (limite absoluto de **30%**), meta de **60% acumulados no dia**, retorno/risco líquido mínimo de **1:1** e alavancagem limitada a **20x**. O TP continua técnico e pode oferecer mais que 1:1. São hipóteses iniciais; não demonstram rentabilidade.
+O arquivo `config/default.toml` começa com saldo de **USDT 1**, risco planejado de até **10% por entrada** (limite absoluto de **30%**), meta de **60% acumulados no dia**, retorno/risco líquido mínimo de **1:1** e alavancagem entre **10x e 20x**, sujeita a margem, contrato e distância da liquidação. O TP continua técnico e pode oferecer mais que 1:1. A quantidade é dimensionada pelo risco; aumentar alavancagem reduz a margem, sem aumentar por si só o lucro ou a perda em USDT da mesma posição. São hipóteses iniciais; não demonstram rentabilidade.
 
 A taxa padrão de 0,06% por execução é uma **hipótese de simulação**, não a taxa pessoal da conta. Taxas de execução manual devem ser verificadas antes de avaliar uso real. O programa não afasta o alvo ou aproxima o stop apenas para viabilizar o saldo.
 

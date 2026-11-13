@@ -39,9 +39,9 @@ class PercentageMessagesTests(unittest.TestCase):
         v.reference = D(99)
         self.assertEqual(v.financial['worst_entry'], D('100.05'))
         text = plan_message(p, 'paper', NOW, v)
-        self.assertIn('Base dos percentuais: 100.05 (pior entrada)', text)
-        self.assertIn('Stop: 98 (-2.05% sem alavancagem)', text)
-        self.assertIn('Alvo: 106 (+5.95% sem alavancagem)', text)
+        self.assertIn('Base dos percentuais sem alavancagem: 100.05 (pior entrada)', text)
+        self.assertIn('Movimento sem alavancagem: TP +5.95% • SL -2.05%.', text)
+        self.assertIn('líquido sobre a margem)', text)
 
     def test_net_margin_roi_uses_margin_not_wallet_or_gross_price_move(self):
         line = margin_return_line({'margin_usdt': '5', 'gain_usdt': '2', 'loss_usdt': '1',

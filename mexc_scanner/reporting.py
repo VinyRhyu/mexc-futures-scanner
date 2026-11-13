@@ -18,6 +18,7 @@ def number(value) -> str:
 
 
 REASONS = {
+    'POLITICA_ALAVANCAGEM_ATUALIZADA':'A alavancagem de referência mudou; aguardar nova avaliação financeira.',
     'POLITICA_RR_ATUALIZADA':'A regra de retorno/risco mudou; aguardar nova avaliação financeira.',
     'MODELO_SUBSTITUIDO':'Este plano pertence ao modelo anterior.',
     'GATILHO_M1_ATRASADO':'O gatilho M1 chegou atrasado; não liberar entrada retroativa.',
@@ -84,12 +85,22 @@ def signed_percent(value) -> str:
     return format(rounded, f'+.{places}f') + '%'
 
 
-def price_return_percent(side: str, reference, level) -> str:
+def _price_return_value(side: str, reference, level):
     entry = D(reference)
     if entry <= 0:
-        return 'indisponível'
+        return None
     sign = 1 if side == 'LONG' else -1
-    return signed_percent(sign * (D(level) - entry) / entry * 100)
+    return sign * (D(level) - entry) / entry * 100
+
+
+def price_return_percent(side: str, reference, level) -> str:
+    value = _price_return_value(side, reference, level)
+    return 'indisponível' if value is None else signed_percent(value)
+
+
+def leveraged_return_percent(side: str, reference, level, leverage: int) -> str:
+    value = _price_return_value(side, reference, level)
+    return 'indisponível' if value is None else signed_percent(value * leverage)
 
 
 def margin_return_line(financial: dict) -> str | None:
@@ -127,7 +138,8 @@ def _remaining(expires: int, now: int) -> str:
     return f"{seconds // 60}min {seconds % 60:02d}s" if seconds >= 60 else f"{seconds}s"
 
 
-def movement_message(plan: Plan, mode: str, now: int, stage: int, expires_at: int) -> str:
+def movement_message(plan: Plan, mode: str, now: int, stage: int, expires_at: int, *,
+                     illustrative_leverage: int = 1) -> str:
     """An observed closed-candle movement, distinct from an executable entry."""
     if stage not in (0, 1):
         raise ValueError('Alerta de movimento exige um gatilho observado')
@@ -145,10 +157,20 @@ def movement_message(plan: Plan, mode: str, now: int, stage: int, expires_at: in
         reasons = v.financial.get('reasons') or ['AVALIACAO_FINANCEIRA_PENDENTE']
         lines += ['', 'Confirmação técnica identificada; entrada bloqueada.',
                   'Condição pendente: ' + ' '.join(friendly(r) for r in reasons)]
+    if illustrative_leverage > 1:
+        stop_pct = leveraged_return_percent(plan.side, v.reference, v.stop, illustrative_leverage) + f' bruto em {illustrative_leverage}x'
+        target_pct = leveraged_return_percent(plan.side, v.reference, v.target, illustrative_leverage) + f' bruto em {illustrative_leverage}x'
+    else:
+        stop_pct = price_return_percent(plan.side, v.reference, v.stop) + ' sem alavancagem'
+        target_pct = price_return_percent(plan.side, v.reference, v.target) + ' sem alavancagem'
     lines += ['', f'Faixa em estudo: {number(v.entry_low)} a {number(v.entry_high)}',
-              f'🛑 Stop do plano: {number(v.stop)} ({price_return_percent(plan.side, v.reference, v.stop)} sem alavancagem)',
-              f'🎯 Alvo do plano: {number(v.target)} ({price_return_percent(plan.side, v.reference, v.target)} sem alavancagem)',
-              'Percentuais sobre a referência do primeiro gatilho, na direção da operação, antes de custos.',
+              f'🛑 Stop do plano: {number(v.stop)} ({stop_pct})',
+              f'🎯 Alvo do plano: {number(v.target)} ({target_pct})']
+    if illustrative_leverage > 1:
+        lines += [f'Cenário indicativo sobre a margem em {illustrative_leverage}x; custos e liquidação ainda não validados.',
+                  'Movimento sem alavancagem: TP ' + price_return_percent(plan.side, v.reference, v.target)
+                  + ' • SL ' + price_return_percent(plan.side, v.reference, v.stop) + '.']
+    lines += ['Percentuais sobre a referência do primeiro gatilho, na direção da operação, antes de custos.',
               '', 'Movimento observado, sem entrada liberada. Aguarde o alerta de confirmação e viabilidade.',
               f'Alerta válido até {clock(expires_at, now)}.',
               f'Análise: {brt(now)}', f'Plano: {plan.id}']
@@ -210,10 +232,20 @@ def plan_message(plan: Plan, mode: str, now: int, variant: Variant | None = None
         lines += ["Motivo: " + " ".join(friendly(r) for r in reasons), "Sem entrada liberada nesta análise.", ""]
     price_base = (f.get('worst_entry') or variant.reference) if viable and not restriction else variant.reference
     base_label = 'pior entrada' if viable and not restriction and f.get('worst_entry') else 'referência do gatilho'
+    margin_line = margin_return_line(f) if viable and not restriction else None
+    if margin_line:
+        stop_pct = signed_percent(-D(f['loss_usdt']) / D(f['margin_usdt']) * 100) + ' líquido sobre a margem'
+        target_pct = signed_percent(D(f['gain_usdt']) / D(f['margin_usdt']) * 100) + ' líquido sobre a margem'
+    else:
+        stop_pct = price_return_percent(plan.side, price_base, variant.stop) + ' sem alavancagem'
+        target_pct = price_return_percent(plan.side, price_base, variant.target) + ' sem alavancagem'
     lines += [f"📍 {'Entrada' if viable and not restriction else 'Faixa do plano'}: {number(f.get('entry_low', variant.entry_low))} a {number(f.get('entry_high', variant.entry_high))}",
-              f"🛑 Stop: {number(variant.stop)} ({price_return_percent(plan.side, price_base, variant.stop)} sem alavancagem)",
-              f"🎯 Alvo: {number(variant.target)} ({price_return_percent(plan.side, price_base, variant.target)} sem alavancagem)",
-              f"Base dos percentuais: {number(price_base)} ({base_label}); na direção da operação, antes de custos."]
+              f"🛑 Stop: {number(variant.stop)} ({stop_pct})",
+              f"🎯 Alvo: {number(variant.target)} ({target_pct})"]
+    if margin_line:
+        lines.append('Movimento sem alavancagem: TP ' + price_return_percent(plan.side, price_base, variant.target)
+                     + ' • SL ' + price_return_percent(plan.side, price_base, variant.stop) + '.')
+    lines.append(f"Base dos percentuais sem alavancagem: {number(price_base)} ({base_label}); na direção da operação, antes de custos.")
     if viable and not restriction:
         lines += ["", f"Margem isolada estimada: {money(f.get('margin_usdt'))} • {f.get('leverage', 'indisponível')}x",
                   f"Quantidade: {number(f.get('contracts'))} contratos"]
@@ -273,6 +305,8 @@ def markdown_report(report: dict) -> str:
              f"Cobertura: {report.get('analyzed_symbols', 0)}/{report.get('selected_symbols', 0)} contratos selecionados.", ""]
     if report.get("minimum_rr") is not None:
         lines += [f"Retorno/risco líquido mínimo: **{number(report['minimum_rr'])}:1**.", ""]
+    if report.get('minimum_leverage') is not None:
+        lines += [f"Alavancagem de simulação: **{report['minimum_leverage']}x a {report['max_leverage']}x**.", ""]
     if report.get("error"):
         lines += ["**Falha de coleta:** " + report["error"], "", "Nenhuma entrada nova foi liberada com essa falha.", ""]
     lines += ["## Sinais e observações", "", "| Ativo | Padrão | Lado | Estado | Modalidade | Financeiro / motivo |", "| --- | --- | --- | --- | --- | --- |"]

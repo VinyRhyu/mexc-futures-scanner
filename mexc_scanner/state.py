@@ -56,8 +56,33 @@ def _migrate_paper_rr_one(data: dict, config: Config, at: int | None) -> bool:
     return True
 
 
+def _migrate_paper_leverage_ten(data: dict, config: Config, at: int | None) -> bool:
+    previous = replace(config, minimum_leverage=1)
+    if (config.mode != 'paper' or config.minimum_leverage != 10 or data.get('mode') != 'paper'
+            or data.get('config_fingerprint') != previous.fingerprint
+            or type(at) is not int or at <= 0):
+        return False
+    migrations = data.setdefault('config_migrations', [])
+    if not isinstance(migrations, list):
+        raise DataError('Histórico de migração inválido')
+    for p in data['plans'].values():
+        if p['status'] in {'EXPIRADO', 'INVALIDADO', 'AMBIGUO', 'EVENTO_PASSADO'}:
+            continue
+        for v in p.get('variants', {}).values():
+            v['financial'] = {'status': 'BLOQUEADA', 'reasons': ['POLITICA_ALAVANCAGEM_ATUALIZADA']}
+    for message in data['outbox'].values():
+        if message['status'] == 'PENDING' and (message['category'] == 'ENTRY' or message.get('watch_symbol')):
+            message['status'] = 'EXPIRED'
+    migrations.append({'name': 'paper_minimum_leverage_1_to_10', 'at': at,
+        'from_fingerprint': previous.fingerprint, 'to_fingerprint': config.fingerprint,
+        'from_minimum_leverage': 1, 'to_minimum_leverage': 10})
+    data['config_fingerprint'] = config.fingerprint
+    return True
+
+
 def load_state(path: str | Path, config: Config, initialize: bool = False, *,
-               migrate_rr_one: bool = False, migration_at: int | None = None) -> dict:
+               migrate_rr_one: bool = False, migrate_leverage_ten: bool = False,
+               migration_at: int | None = None) -> dict:
     p = Path(path)
     if not p.exists():
         if initialize and config.mode == "paper":
@@ -71,7 +96,10 @@ def load_state(path: str | Path, config: Config, initialize: bool = False, *,
     if data.get("schema_version") != 1 or not required <= data.keys():
         raise DataError("Esquema de estado incompatível/incompleto")
     if data.get("config_fingerprint") != config.fingerprint or data.get("mode") != config.mode:
-        if not migrate_rr_one or not _migrate_paper_rr_one(data, config, migration_at):
+        migrated = migrate_rr_one and _migrate_paper_rr_one(data, config, migration_at)
+        if not migrated:
+            migrated = migrate_leverage_ten and _migrate_paper_leverage_ten(data, config, migration_at)
+        if not migrated:
             raise DataError("Configuração mudou. Migrar o estado explicitamente antes de prosseguir")
     if D(data["wallet"]["balance"]) < 0:
         raise DataError("Saldo negativo no estado")

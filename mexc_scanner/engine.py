@@ -32,6 +32,8 @@ def run_scan(client: MexcClient, config: Config, state: dict, assets: set[str],
     snapshot = {"schema_version": 1, "source": "MEXC_LIVE", "captured_at": started, "market": {}, "contracts": []}
     report['signal_model']=snapshot['signal_model']=signal_model
     report['minimum_rr']=snapshot['minimum_rr']=config.minimum_rr
+    report['minimum_leverage']=snapshot['minimum_leverage']=config.minimum_leverage
+    report['max_leverage']=snapshot['max_leverage']=config.max_leverage
     previous_plans = state["plans"]
     try:
         server = client.server_time()

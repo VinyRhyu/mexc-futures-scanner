@@ -79,7 +79,8 @@ def queue_waiting_entries(state, plans, config, now, viable_symbols, *, limit, v
         p = chosen[0]
         v = p.variants['CONFIRMADA' if stage == 0 else 'ANTECIPADA']
         expires = min(p.expires_at, v.triggered_at + MAX_SIGNAL_AGE)
-        queue_message(state, event_id, movement_message(p, config.mode, now, stage, expires), now, expires)
+        queue_message(state, event_id, movement_message(p, config.mode, now, stage, expires,
+                                                       illustrative_leverage=config.minimum_leverage), now, expires)
         state['outbox'][event_id].update(watch_symbol=symbol, watch_stage=stage,
                                         movement_at=v.triggered_at, movement_side=p.side,
                                         plan_ids=[p.id for p in chosen])

@@ -175,7 +175,7 @@ def evaluate(plan: Plan, variant: Variant, contract: Contract, balance: Decimal,
     available_margin = balance - costs
     if available_margin <= 0:
         return blocked("CUSTOS_CONSOMEM_SALDO")
-    leverage = max(1, int((notional / available_margin).to_integral_value(rounding=ROUND_CEILING)))
+    leverage = max(config.minimum_leverage, int((notional / available_margin).to_integral_value(rounding=ROUND_CEILING)))
     try:
         mmr, tier_leverage = contract.margin_tier(volume)
     except DataError:

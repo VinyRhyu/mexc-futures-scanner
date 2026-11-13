@@ -17,6 +17,7 @@ class Config:
     atr_period: int = 14
     ttl_seconds: int = 1800
     max_leverage: int = 20
+    minimum_leverage: int = 1
     risk_fraction: str = "0.30"
     gain_fraction: str = "0.60"
     minimum_rr: str = "2"
@@ -44,6 +45,8 @@ class Config:
             raise DataError("mode deve ser paper ou real")
         if not 1 <= self.universe_size <= 50 or not 1 <= self.max_leverage <= 20:
             raise DataError("Universo/alavancagem acima da especificação")
+        if type(self.minimum_leverage) is not int or not 1 <= self.minimum_leverage <= self.max_leverage:
+            raise DataError("Alavancagem mínima deve ficar entre 1 e o teto configurado")
         if not 0 < D(self.risk_fraction) <= D("0.30"):
             raise DataError("Risco deve ser positivo e no máximo 30%")
         if D(self.gain_fraction) <= 0 or D(self.minimum_rr) < 1:
@@ -67,7 +70,11 @@ class Config:
 
     @property
     def fingerprint(self) -> str:
-        return stable_id(asdict(self))
+        values = asdict(self)
+        # Preserve fingerprints of configurations written before the new floor.
+        if self.minimum_leverage == 1:
+            values.pop('minimum_leverage')
+        return stable_id(values)
 
 
 def load_config(path: str | Path) -> Config:

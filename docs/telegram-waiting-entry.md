@@ -58,18 +58,21 @@ ou reinicialização de saldo/diário. /ajuda explica o formato.
 
 ## Percentuais de TP e SL
 
-Os níveis mostram seu retorno percentual na direção da operação, sem
-alavancagem e antes de custos: um TP abaixo da entrada de SHORT aparece como
-potencial positivo; o SL acima dela aparece como risco negativo. A referência
-é declarada na mensagem. No alerta de movimento, usa-se o preço do primeiro
-gatilho; na entrada viável, usa-se o pior preço admissível do financeiro.
+Nos avisos de movimento, os percentuais principais do TP e SL são um cenário
+bruto indicativo em 10x, ainda sem validação de custos, margem e liquidação.
+A base é o primeiro gatilho e a variação sem alavancagem aparece separada.
+Os sinais seguem o lado da operação: TP abaixo da entrada de SHORT é positivo;
+SL acima dela é negativo. Os preços técnicos não são deslocados.
 
-Nas entradas viáveis, também aparece o ROI líquido estimado sobre a margem:
+Nas entradas viáveis, os percentuais ao lado do TP e SL mostram o ROI líquido
+estimado sobre a margem, usando a alavancagem proposta (piso 10x, teto 20x):
 ganho líquido estimado dividido pela margem, e perda líquida estimada dividida
 pela margem, com sinal negativo para o SL. Esses valores já usam os custos
 assumidos pelo avaliador e são distintos da variação sem alavancagem e do
-retorno sobre o saldo total. Sem margem validada, não é inventado um ROI.
-O cálculo de TP, SL, quantidade, alavancagem e viabilidade não é alterado.
+retorno sobre o saldo total. A referência do movimento sem alavancagem é o pior
+preço admissível do financeiro. Sem margem validada, não é inventado um ROI
+líquido. A alavancagem muda a margem necessária; a quantidade e o risco em
+USDT continuam definidos pelo plano e não aumentam para inflar o percentual.
 
 ## Verificação
 
