@@ -30,6 +30,7 @@ def run_scan(client: MexcClient, config: Config, state: dict, assets: set[str],
               "execution": "MANUAL_SEM_ENVIO_DE_ORDENS", "config_fingerprint": config.fingerprint}
     snapshot = {"schema_version": 1, "source": "MEXC_LIVE", "captured_at": started, "market": {}, "contracts": []}
     report['signal_model']=snapshot['signal_model']=signal_model
+    report['minimum_rr']=snapshot['minimum_rr']=config.minimum_rr
     previous_plans = state["plans"]
     try:
         server = client.server_time()

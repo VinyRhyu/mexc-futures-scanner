@@ -46,7 +46,7 @@ class Config:
             raise DataError("Universo/alavancagem acima da especificação")
         if not 0 < D(self.risk_fraction) <= D("0.30"):
             raise DataError("Risco deve ser positivo e no máximo 30%")
-        if D(self.gain_fraction) <= 0 or D(self.minimum_rr) < 2:
+        if D(self.gain_fraction) <= 0 or D(self.minimum_rr) < 1:
             raise DataError("Ganho/retorno-risco inválido")
         for field in ("taker_fee", "slippage_rate", "minimum_turnover", "max_cost_fraction"):
             if D(getattr(self, field)) < 0:

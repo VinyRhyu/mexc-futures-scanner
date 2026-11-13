@@ -2,7 +2,7 @@ name: Scanner MEXC
 on:
   push:
     branches: [main]
-    paths: ['mexc_scanner/minute_breakout.py', '.github/workflows/scan.yml']
+    paths: ['mexc_scanner/minute_breakout.py', 'config/default.toml', 'mexc_scanner/config.py', 'mexc_scanner/state.py', 'mexc_scanner/cli.py', 'scripts/run_round.py', '.github/workflows/scan.yml']
   schedule:
     - cron: '2,17,32,47 * * * *'
   workflow_dispatch:

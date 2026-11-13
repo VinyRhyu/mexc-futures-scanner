@@ -11,7 +11,8 @@ max_leverage = 20
 risk_fraction = "0.30"
 # Meta diária aspiracional, não filtro de entrada.
 gain_fraction = "0.60"
-minimum_rr = "2"
+# Piso líquido; TP continua técnico e pode oferecer mais que 1:1.
+minimum_rr = "1"
 # 0,06% por execução, hipótese de simulação, não taxa pessoal da conta.
 taker_fee = "0.0006"
 fees_verified = false

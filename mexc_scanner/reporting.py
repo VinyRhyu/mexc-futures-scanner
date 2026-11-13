@@ -18,6 +18,7 @@ def number(value) -> str:
 
 
 REASONS = {
+    'POLITICA_RR_ATUALIZADA':'A regra de retorno/risco mudou; aguardar nova avaliação financeira.',
     'MODELO_SUBSTITUIDO':'Este plano pertence ao modelo anterior.',
     'GATILHO_M1_ATRASADO':'O gatilho M1 chegou atrasado; não liberar entrada retroativa.',
     'SEGUNDO_M1_NAO_SUSTENTOU':'O segundo fechamento M1 perdeu o nível do gatilho.',
@@ -209,6 +210,8 @@ def markdown_report(report: dict) -> str:
     lines = ["# MEXC Futures Scanner — rodada", "", f"Modo: **{report['mode']}**. Análise: {brt(report['analyzed_at'])}.",
              "", f"Fonte: {report.get('source_status', 'DESCONHECIDA')}",
              f"Cobertura: {report.get('analyzed_symbols', 0)}/{report.get('selected_symbols', 0)} contratos selecionados.", ""]
+    if report.get("minimum_rr") is not None:
+        lines += [f"Retorno/risco líquido mínimo: **{number(report['minimum_rr'])}:1**.", ""]
     if report.get("error"):
         lines += ["**Falha de coleta:** " + report["error"], "", "Nenhuma entrada nova foi liberada com essa falha.", ""]
     lines += ["## Sinais e observações", "", "| Ativo | Padrão | Lado | Estado | Modalidade | Financeiro / motivo |", "| --- | --- | --- | --- | --- | --- |"]

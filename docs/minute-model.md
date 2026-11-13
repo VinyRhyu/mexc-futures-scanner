@@ -8,6 +8,8 @@ Gatilho: primeiro M1 fecha além da borda por0,10ATR; o M1 imediatamente seguint
 
 SL, TP e faixa permanecem fixados no primeiro fechamento M1, usando a função anterior de projeção e pivôs H1/H2 conhecidos. Não há TP aumentado nem proteção no zero. Permanecem os filtros financeiros e de liquidação existentes; mode=paper não foi alterado. O programa não envia ordens à exchange.
 
+A configuração ativa usa retorno/risco líquido mínimo de **1:1**, incluindo custos estimados. Esse é um piso para liberar o plano; o TP técnico pode oferecer mais que 1R e não há lucro mínimo fixo de 10% ou 60%. A biblioteca mantém o padrão conservador de 2 para chamadas sem arquivo de configuração; o workflow carrega explicitamente `config/default.toml`, com mínimo 1.
+
 Gatilhos com mais de120segundos não são liberados como entradas atuais. O prazo de nova entrada expira no máximo120segundos após o segundo fechamento. Toque em SL/TP enquanto espera cancela a tentativa. A cotação, livro e funding são avaliados ao analisar o sinal, sem simular retrospectivamente uma execução perdida.
 
 ## Agendamento
@@ -17,6 +19,10 @@ No cron-job.org, mudar a expressão do disparo existente para `* * * * *` e mant
 Não foi criado um worker contínuo ou nova assinatura. Uma rodada é executada após a implantação; as demais dependem do agendamento. Frequência de1min pode aumentar o consumo de minutos do GitHub Actions.
 
 ## Migração e validação
+
+Na mudança financeira de 2:1 para 1:1, `scripts.run_round` passa `scan --migrate-rr-one`. Essa migração aceita apenas modo paper e apenas a mudança do mínimo 2 para 1, com os demais parâmetros idênticos. Saldo, posição, diário, níveis dos planos, cursores e IDs enviados são preservados. Avaliações financeiras de planos ainda ativos são descartadas e refeitas com cotação atual; indicações pendentes da política antiga expiram. Planos encerrados não são reabertos. O histórico da migração fica em `config_migrations` no estado. Mudanças de taxas, saldo inicial, risco, modo ou outro parâmetro continuam exigindo sua própria migração.
+
+O relatório JSON e seu cabeçalho Markdown informam `minimum_rr`. O modo continua paper, com verificações pessoais de uso real pendentes.
 
 A primeira rodada do novo modelo encerra planos anteriores para novas entradas e expira seus alertas ENTRY pendentes, preservando wallet, posição registrada, diário e mensagens já enviadas. Novos símbolos e mudanças de modelo começam a observar formações futuras, sem apresentar sinais anteriores à ativação como entradas novas. Lacunas M1 reiniciam a observação a partir do momento atual.
 

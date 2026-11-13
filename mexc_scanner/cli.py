@@ -53,6 +53,8 @@ def main(argv=None) -> int:
     scan.add_argument("--output", default=".scanner-state/latest")
     scan.add_argument("--init", action="store_true", help="Criar estado novo, somente paper")
     scan.add_argument("--limit", type=int, default=0)
+    scan.add_argument("--migrate-rr-one", action="store_true",
+                      help="Migrar somente paper de RR mínimo 2 para 1, preservando diário e níveis")
     scan.add_argument('--model',choices=['legacy','m1_volume50_v1'],
                       default=os.environ.get('SCANNER_STRATEGY','legacy'))
     demo = sub.add_parser("demo", help="Executar exemplo SINTÉTICO sem conexão à MEXC")
@@ -104,7 +106,8 @@ def main(argv=None) -> int:
             return 0
         path = Path(args.state)
         with state_lock(path):
-            state = load_state(path, config, getattr(args, "init", False))
+            state = load_state(path, config, getattr(args, "init", False),
+                               migrate_rr_one=getattr(args, "migrate_rr_one", False), migration_at=now)
             if config.mode == "real" and os.environ.get("REPOSITORY_IS_PRIVATE", "").lower() != "true":
                 raise DataError("Modo real exige destino privado confirmado")
             if args.command == "scan":

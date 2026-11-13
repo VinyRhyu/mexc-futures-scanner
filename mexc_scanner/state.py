@@ -2,6 +2,7 @@ from __future__ import annotations
 
 import json
 import os
+from dataclasses import replace
 from pathlib import Path
 import tempfile
 
@@ -26,7 +27,37 @@ def initial_state(config: Config) -> dict:
             "last_summary_date": "", "last_success": 0, "source_status": "NAO_TESTADO"}
 
 
-def load_state(path: str | Path, config: Config, initialize: bool = False) -> dict:
+def _migrate_paper_rr_one(data: dict, config: Config, at: int | None) -> bool:
+    """Allow only the explicit paper transition 2 -> 1, with all else identical."""
+    previous = replace(config, minimum_rr="2")
+    if (config.mode != "paper" or config.minimum_rr != "1" or data.get("mode") != "paper"
+            or data.get("config_fingerprint") != previous.fingerprint
+            or type(at) is not int or at <= 0):
+        return False
+    migrations = data.setdefault("config_migrations", [])
+    if not isinstance(migrations, list):
+        raise DataError("Histórico de migração inválido")
+    observation_ids = set()
+    for p in data["plans"].values():
+        if p["status"] in {"EXPIRADO", "INVALIDADO", "AMBIGUO", "EVENTO_PASSADO"}:
+            continue
+        for kind, v in p.get("variants", {}).items():
+            v["financial"] = {"status": "BLOQUEADA", "reasons": ["POLITICA_RR_ATUALIZADA"]}
+            observation_ids.add(stable_id(p["id"], kind, "OBSERVACAO"))
+    # Never deliver old financial decisions after changing the rule. Sent IDs,
+    # frozen price levels, cursors, wallet, recorded positions and journal remain.
+    for event_id, m in data["outbox"].items():
+        if m["status"] == "PENDING" and (m["category"] == "ENTRY" or event_id in observation_ids):
+            m["status"] = "EXPIRED"
+    migrations.append({"name": "paper_minimum_rr_2_to_1", "at": at,
+        "from_fingerprint": previous.fingerprint, "to_fingerprint": config.fingerprint,
+        "from_minimum_rr": "2", "to_minimum_rr": "1"})
+    data["config_fingerprint"] = config.fingerprint
+    return True
+
+
+def load_state(path: str | Path, config: Config, initialize: bool = False, *,
+               migrate_rr_one: bool = False, migration_at: int | None = None) -> dict:
     p = Path(path)
     if not p.exists():
         if initialize and config.mode == "paper":
@@ -40,7 +71,8 @@ def load_state(path: str | Path, config: Config, initialize: bool = False) -> di
     if data.get("schema_version") != 1 or not required <= data.keys():
         raise DataError("Esquema de estado incompatível/incompleto")
     if data.get("config_fingerprint") != config.fingerprint or data.get("mode") != config.mode:
-        raise DataError("Configuração mudou. Migrar o estado explicitamente antes de prosseguir")
+        if not migrate_rr_one or not _migrate_paper_rr_one(data, config, migration_at):
+            raise DataError("Configuração mudou. Migrar o estado explicitamente antes de prosseguir")
     if D(data["wallet"]["balance"]) < 0:
         raise DataError("Saldo negativo no estado")
     return data

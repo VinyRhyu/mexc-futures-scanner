@@ -14,7 +14,7 @@ def run(limit: int) -> int:
     restore(directory)
     marker = directory / "round-complete.marker"
     marker.unlink(missing_ok=True)
-    args = ["scan", "--limit", str(limit)]
+    args = ["scan", "--limit", str(limit), "--migrate-rr-one"]
     if (directory / "new-state.marker").exists():
         args.append("--init")
     outcome = main(args)

@@ -115,7 +115,7 @@ Uma posição registrada impede outra posição no mesmo diário. Em modo real, 
 
 ## Configuração e limites iniciais
 
-O arquivo `config/default.toml` começa com saldo de **USDT 1**, risco planejado de até **10% por entrada** (limite absoluto de **30%**), meta de **60% acumulados no dia**, retorno/risco líquido mínimo de 2 e alavancagem limitada a **20x**. São hipóteses iniciais; não demonstram rentabilidade.
+O arquivo `config/default.toml` começa com saldo de **USDT 1**, risco planejado de até **10% por entrada** (limite absoluto de **30%**), meta de **60% acumulados no dia**, retorno/risco líquido mínimo de **1:1** e alavancagem limitada a **20x**. O TP continua técnico e pode oferecer mais que 1:1. São hipóteses iniciais; não demonstram rentabilidade.
 
 A taxa padrão de 0,06% por execução é uma **hipótese de simulação**, não a taxa pessoal da conta. Taxas de execução manual devem ser verificadas antes de avaliar uso real. O programa não afasta o alvo ou aproxima o stop apenas para viabilizar o saldo.
 
@@ -155,4 +155,4 @@ Envie `/ajuda` em conversa privada com o bot. O comando é consultado ao fim de 
 
 ### Regra de exposição e meta diária
 
-Cada sinal financeiramente viável é dimensionado para perda estimada de até 10% do saldo antes da operação, incluindo custos estimados, com ganho/perda líquido mínimo de 2:1. O teto de 30% permanece como limite de proteção para perdas reais e pausa; não é uma instrução de dimensionar uma entrada em 30%. A meta diária de 60% é aspiracional e não bloqueia sinais de 20%/10%, nem obriga novas operações. Se o ganho projetado para uma entrada alcançar 60%, o alerta destaca essa possibilidade. O scanner não controla automaticamente o resultado acumulado do dia nem interrompe novas entradas quando a meta diária for alcançada. Nenhuma projeção garante execução ou lucro.
+Cada sinal financeiramente viável é dimensionado para perda estimada de até 10% do saldo antes da operação, incluindo custos estimados, com ganho/perda líquido mínimo de **1:1**. O TP permanece técnico; não é deslocado para exatamente 1R e não há lucro mínimo percentual fixo. O teto de 30% permanece como limite de proteção para perdas reais e pausa; não é uma instrução de dimensionar uma entrada em 30%. A meta diária de 60% é aspiracional e não bloqueia sinais de 20%/10%, nem obriga novas operações. Se o ganho projetado para uma entrada alcançar 60%, o alerta destaca essa possibilidade. O scanner não controla automaticamente o resultado acumulado do dia nem interrompe novas entradas quando a meta diária for alcançada. Nenhuma projeção garante execução ou lucro.
