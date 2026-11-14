@@ -1,0 +1,53 @@
+{
+  "name": "M5_CONFIRMED_PIVOT_BREAK_RETEST_V1",
+  "cohort": "26 symbols from the frozen 61-event baseline, not its trigger timestamps",
+  "day_start_brt": "2026-11-14T00:00:00-03:00",
+  "signal_cutoff": 1794687304,
+  "price_cutoff": 1794687420,
+  "warmup_hours": 6,
+  "structure_timeframe_seconds": 300,
+  "pivots": {
+    "left": 2,
+    "right": 2,
+    "known_only_after_right_bars_close": true,
+    "max_age_seconds": 7200
+  },
+  "atr": {
+    "period": 14,
+    "method": "Wilder",
+    "value": "last M5 ATR before breakout, frozen"
+  },
+  "breakout": {
+    "buffer_atr": "0.10",
+    "must_cross_threshold_on_close": true,
+    "each_pivot_side_used_once": true
+  },
+  "retest": {
+    "max_wait_bars": 6,
+    "zone_atr_each_side": "0.20",
+    "must_be_a_later_M5_candle": true,
+    "reaction": "touch zone and close back on breakout side of pivot",
+    "cancel": "close beyond opposite outer edge of retest zone"
+  },
+  "stop": "extreme of all post-break waiting M5 bars through reaction, plus 0.10 frozen ATR; rounded away from entry",
+  "target": "impulse extreme from breakout through candle BEFORE reaction, known at reaction close; rounded conservatively",
+  "entry_band": "reaction close +/- 0.25 frozen ATR, financial gate may narrow it",
+  "entry_delays_seconds": [
+    0,
+    60
+  ],
+  "entry_expiry_seconds": 120,
+  "pending_entry_cancel": "SL or TP touched after reaction and before delayed entry cancels attempt",
+  "holding_horizon_seconds": 14400,
+  "outcomes": "M1 after entry only, SL first if same-minute ambiguity, adverse gap priced at opening",
+  "finance": "same public contract parameters and config/default.toml as frozen baseline; bank1 risk<=10% RR>=1 floor10x cap20x fee0.06% per side, synthetic spread0.02%, slippage max0.02% or2ticks, funding0",
+  "comparison": "all day and a common mature cohort: signals <= price_cutoff-4h; independent overlapping plans, no wallet simulation",
+  "excluded": [
+    "H1 EMA filter",
+    "TOTAL3",
+    "RSI",
+    "50% retracement requirement",
+    "three-wave requirement"
+  ],
+  "status": "Exploratory single-day protocol fixed before running outcomes; no parameter sweep; production unchanged"
+}

@@ -1,4 +1,4 @@
-name: Coletar H1 para teste de filtro único
+name: Coletar M1 completo para estrutura e reteste
 on:
   push:
     branches: ['audit/tp-hype-link-2026-11-14']
@@ -16,7 +16,7 @@ jobs:
       - uses: actions/setup-python@v7
         with:
           python-version: '3.12'
-      - name: Buscar H1 histórico sem ordens ou Telegram
+      - name: Ler M1 histórico com aquecimento sem ordens ou Telegram
         run: |
           python - <<'PY'
           import json
@@ -24,25 +24,28 @@ jobs:
           from mexc_scanner.mexc import MexcClient
           from mexc_scanner.market import parse_candles
           from mexc_scanner.models import jsonable
-          cohort = json.loads(Path('config/audit-telegram-tp-2026-11-14.json').read_text())
+          cohort = json.loads(Path('config/audit-day-confirmed-2026-11-14.json').read_text())
+          first = json.loads(Path('config/audit-telegram-tp-2026-11-14.json').read_text())['day_start']
+          cutoff = cohort['price_cutoff']
           client = MexcClient()
           captured = client.server_time()
-          cutoff = 1794687420
-          assert captured >= cutoff
-          output = Path('reports/h1-filter')
+          assert captured >= cutoff+10
+          start = first - 21600
+          output = Path('reports/structure-retest-source')
           output.mkdir(parents=True, exist_ok=True)
-          for symbol in sorted({c['symbol'] for c in cohort['cases']}):
-              raw = client.candles(symbol, 'Min60', 280, cutoff)
-              bars = parse_candles(raw, 3600, cutoff, 280)
-              assert bars[0].ts < cohort['day_start'] - 240*3600
-              record = dict(symbol=symbol, captured_at=captured, historical_cutoff=cutoff,
-                            candles=jsonable(bars), raw=jsonable(raw))
+          for symbol in sorted({r['symbol'] for r in cohort['records']}):
+              raw = client._get('/api/v1/contract/kline/'+symbol,
+                                dict(interval='Min1', start=start, end=cutoff+10))
+              bars = parse_candles(raw, 60, cutoff+10)
+              assert bars[0].ts == start and bars[-1].end == cutoff
+              record = dict(symbol=symbol, captured_at=captured, day_start=first,
+                            price_cutoff=cutoff, candles=jsonable(bars))
               (output / (symbol+'.json')).write_text(json.dumps(record))
-              print(json.dumps(dict(symbol=symbol, count=len(bars), first=bars[0].ts,
+              print(json.dumps(dict(symbol=symbol, candles=len(bars), first=bars[0].ts,
                                     last=bars[-1].end)), flush=True)
           PY
       - uses: actions/upload-artifact@v7.0.2
         with:
-          name: h1-filter-source-2026-11-14
-          path: reports/h1-filter/
+          name: structure-retest-source-2026-11-14
+          path: reports/structure-retest-source/
           retention-days: 14
