@@ -1,0 +1,39 @@
+{
+  "name": "RELATIVE_MOMENTUM_7D_LAST_WEEK_10X_100_V1",
+  "evaluation_start_utc": 1794009600,
+  "evaluation_end_utc": 1794614400,
+  "warmup_start_utc": 1791417600,
+  "reference_equity_usdt": 100,
+  "leverage": 10,
+  "portfolio_risk_fraction": "0.02",
+  "period_note": "Seven completed daily01UTC-to01UTC cycles; freeze before collecting; current incomplete cycle excluded",
+  "ranking": "Unchanged7-day return top/bottom20%, positive LONG/negative SHORT, historical previous24h turnover proxy>=5M, fixed26 current survivors",
+  "volatility_stop": "Unchanged2*simpleATR14 daily known at decision; no TP; exit after24h or SL/liquidation",
+  "entry": "Daily01UTC following00UTC decision, one-hour execution delay",
+  "sizing": "Prior equal margin slots now multiplied by L to form desired notional, then jointly reduced so modeled stop risk<=2%equity and initial margin+two execution fees<=equity; current min/step/max lots",
+  "margin": "Isolated per position, fixed leverage10, no automatic margin addition",
+  "liquidation": "Threshold estimated from entry notional, current MMR tier and liquidation fee: entry*(1-sign/L+sign*(MMR+liq_fee)); historical fair-price H1 used to test crossing",
+  "liquidation_charge": "Conservative loss of allocated initial isolated margin, entry fees and previously held funding; liquidation charges absorbed in forfeited margin, no double exit fee",
+  "ambiguity": "If Fair liquidation and Last stop both touched in same H1, count liquidation first and flag ordering uncertain",
+  "funding": "Historical signed settlements; debit available cash, no margin topups; assert cash available beyond locked margin sufficient; H1 marks",
+  "stop_validity": "Report stops behind liquidation and 1.5x buffer violations as diagnostics; do not secretly move stops or exclude cases to improve results",
+  "control": "Same100USD period at1x for paired interpretation, same risk cap and ranks; no parameter optimization",
+  "costs": {
+    "fee_per_execution": "0.0006",
+    "spread_total": "0.0002",
+    "slippage_each_execution": "max(0.0002*mid,2*tick)"
+  },
+  "excluded": [
+    "fixed TP",
+    "TP-based RR gate",
+    "H1 EMA filter",
+    "live production changes",
+    "full-margin10x exposure assumption"
+  ],
+  "limitations": [
+    "Fixed surviving/currently liquid universe",
+    "Current contract/MMR/lot rules applied retrospectively",
+    "H1 execution and liquidation ordering cannot prove actual fills",
+    "Only seven completed cycles, not broad validation"
+  ]
+}
