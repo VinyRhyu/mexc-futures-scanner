@@ -1,0 +1,29 @@
+{
+  "experiment": "M5_RETEST_WITH_NEAREST_ACTIVE_M15_TARGET_V1",
+  "frozen_setup_source": "structure-retest-results.json",
+  "setups_expected": 264,
+  "only_changed_variable": "target policy",
+  "target": "nearest active confirmed M15 HIGH above reaction reference for LONG or LOW below for SHORT; one tick before it",
+  "pivots": {
+    "left": 2,
+    "right": 2,
+    "availability": "second right neighbour end + 10s <= original M5 reaction signal",
+    "max_pivot_age_seconds": 21600,
+    "active": "no later available M15 close beyond the pivot level"
+  },
+  "level_selection": "nearest eligible pivot by price, not by outcome or RR; no level hopping for RR",
+  "no_target": "no trade; no fallback to original TP",
+  "reference_is_fixed": "M5 reaction close; same target for immediate and delayed scenarios",
+  "unchanged": [
+    "264 setup IDs, directions, signal timestamps, M5 stops and original entry bands",
+    "M1 price source and next-minute entry candidates",
+    "existing financial validator and contract parameters",
+    "initial reference bank1 USDT, planned risk<=10%, minimum net RR1, leverage10-20",
+    "fee0.06% per execution, spread0.02%, slippage max0.02% or2ticks, funding0",
+    "entry delays0/60s, entry TTL120s, maximum holding4h",
+    "price cutoff2026-11-14T17:17:00-03:00, mature signal cutoff13:17BRT"
+  ],
+  "scope": "same26 assets; experimental audit branch only; no production changes",
+  "comparisons": "full day and mature4h subset; count open/censored, no wallet claims",
+  "qualification": "exploratory on one already-inspected day; not out-of-sample; no parameter sweep"
+}
