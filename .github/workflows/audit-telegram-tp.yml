@@ -1,4 +1,4 @@
-name: Validar TP dos alertas de hoje
+name: Validar parâmetros públicos dos contratos
 on:
   push:
     branches: ['audit/tp-hype-link-2026-11-14']
@@ -8,7 +8,7 @@ permissions:
 jobs:
   prices:
     runs-on: ubuntu-latest
-    timeout-minutes: 6
+    timeout-minutes: 4
     steps:
       - uses: actions/checkout@v7.0.1
         with:
@@ -16,36 +16,27 @@ jobs:
       - uses: actions/setup-python@v7
         with:
           python-version: '3.12'
-      - name: Coletar candles públicos dos avisos enviados hoje sem ordens ou Telegram
+      - name: Ler catálogo público sem ordens ou Telegram
         run: |
           python - <<'PY'
           import json
           from pathlib import Path
           from mexc_scanner.mexc import MexcClient
-          from mexc_scanner.market import parse_candles
-          from mexc_scanner.models import jsonable
+          from mexc_scanner.models import jsonable, Contract
           cohort = json.loads(Path('config/audit-telegram-tp-2026-11-14.json').read_text())
+          symbols = {case['symbol'] for case in cohort['cases']}
           client = MexcClient()
           now = client.server_time()
-          start = cohort['day_start']
-          assert start < now < start + 86400
-          output = Path('reports/target-validation')
+          contracts = [c for c in client.contracts() if c['symbol'] in symbols]
+          for row in contracts:
+              Contract.from_api(row)
+          output = Path('reports/contract-validation')
           output.mkdir(parents=True, exist_ok=True)
-          (output / 'cohort.json').write_text(json.dumps(cohort))
-          for symbol in sorted({case['symbol'] for case in cohort['cases']}):
-              raw = client._get('/api/v1/contract/kline/' + symbol,
-                                dict(interval='Min1', start=start, end=now))
-              candles = parse_candles(raw, 60, now)
-              assert candles and candles[0].ts <= start
-              assert candles[-1].end >= ((now-10)//60)*60
-              record = dict(source='MEXC_PUBLIC_FUTURES', captured_at=now, symbol=symbol,
-                            candles=jsonable(candles), raw=jsonable(raw))
-              (output / (symbol + '.json')).write_text(json.dumps(record))
-              print(json.dumps(dict(symbol=symbol, candles=len(candles),
-                                    first=candles[0].ts, last=candles[-1].end)), flush=True)
+          (output / 'contracts.json').write_text(json.dumps(jsonable(dict(captured_at=now, contracts=contracts))))
+          print(json.dumps(dict(contracts=len(contracts), captured_at=now)), flush=True)
           PY
       - uses: actions/upload-artifact@v7.0.2
         with:
-          name: telegram-tp-all-2026-11-14
-          path: reports/target-validation/
+          name: mexc-contracts-2026-11-14
+          path: reports/contract-validation/
           retention-days: 14
