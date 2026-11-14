@@ -1,0 +1,507 @@
+{
+  "experiment": "M5_CONFIRMED_PIVOT_BREAK_RETEST_V1",
+  "protocol": {
+    "name": "M5_CONFIRMED_PIVOT_BREAK_RETEST_V1",
+    "cohort": "26 symbols from the frozen 61-event baseline, not its trigger timestamps",
+    "day_start_brt": "2026-11-14T00:00:00-03:00",
+    "signal_cutoff": 1794687304,
+    "price_cutoff": 1794687420,
+    "warmup_hours": 6,
+    "structure_timeframe_seconds": 300,
+    "pivots": {
+      "left": 2,
+      "right": 2,
+      "known_only_after_right_bars_close": true,
+      "max_age_seconds": 7200
+    },
+    "atr": {
+      "period": 14,
+      "method": "Wilder",
+      "value": "last M5 ATR before breakout, frozen"
+    },
+    "breakout": {
+      "buffer_atr": "0.10",
+      "must_cross_threshold_on_close": true,
+      "each_pivot_side_used_once": true
+    },
+    "retest": {
+      "max_wait_bars": 6,
+      "zone_atr_each_side": "0.20",
+      "must_be_a_later_M5_candle": true,
+      "reaction": "touch zone and close back on breakout side of pivot",
+      "cancel": "close beyond opposite outer edge of retest zone"
+    },
+    "stop": "extreme of all post-break waiting M5 bars through reaction, plus 0.10 frozen ATR; rounded away from entry",
+    "target": "impulse extreme from breakout through candle BEFORE reaction, known at reaction close; rounded conservatively",
+    "entry_band": "reaction close +/- 0.25 frozen ATR, financial gate may narrow it",
+    "entry_delays_seconds": [
+      0,
+      60
+    ],
+    "entry_expiry_seconds": 120,
+    "pending_entry_cancel": "SL or TP touched after reaction and before delayed entry cancels attempt",
+    "holding_horizon_seconds": 14400,
+    "outcomes": "M1 after entry only, SL first if same-minute ambiguity, adverse gap priced at opening",
+    "finance": "same public contract parameters and config/default.toml as frozen baseline; bank1 risk<=10% RR>=1 floor10x cap20x fee0.06% per side, synthetic spread0.02%, slippage max0.02% or2ticks, funding0",
+    "comparison": "all day and a common mature cohort: signals <= price_cutoff-4h; independent overlapping plans, no wallet simulation",
+    "excluded": [
+      "H1 EMA filter",
+      "TOTAL3",
+      "RSI",
+      "50% retracement requirement",
+      "three-wave requirement"
+    ],
+    "status": "Exploratory single-day protocol fixed before running outcomes; no parameter sweep; production unchanged"
+  },
+  "symbols": [
+    "AAVE_USDT",
+    "ADA_USDT",
+    "ARB_USDT",
+    "AVAX_USDT",
+    "BNB_USDT",
+    "BTC_USDT",
+    "DOGE_USDT",
+    "DOT_USDT",
+    "ENA_USDT",
+    "ETH_USDT",
+    "FET_USDT",
+    "HYPE_USDT",
+    "ICP_USDT",
+    "INJ_USDT",
+    "LINK_USDT",
+    "ONDO_USDT",
+    "PEPE_USDT",
+    "QNT_USDT",
+    "SOL_USDT",
+    "SUI_USDT",
+    "TAO_USDT",
+    "TIA_USDT",
+    "UNI_USDT",
+    "WLD_USDT",
+    "XLM_USDT",
+    "XRP_USDT"
+  ],
+  "source_overlap_m1_checked": 26962,
+  "causal_prefix_checks": 52,
+  "mature_signal_cutoff": 1794673020,
+  "summary": {
+    "all_day": {
+      "0": {
+        "baseline": {
+          "candidates": 61,
+          "entries": 12,
+          "targets": 2,
+          "stops": 10,
+          "open_or_censored": 0,
+          "ambiguous_stops": 0,
+          "win_rate_closed": "16.66666666666666666666666667",
+          "net_r_sum": "-7.697916492887831687967484574",
+          "mean_r_closed": "-0.6414930410739859739972903812",
+          "blocked": {
+            "RETORNO_RISCO_INSUFICIENTE": 30,
+            "PRECO_FORA_DO_PLANO": 9,
+            "LOTE_MINIMO_OU_META_EXCEDE_RISCO": 1,
+            "CUSTO_RELATIVO_ELEVADO": 9
+          },
+          "cancelled_before_entry": 0
+        },
+        "structure_retest": {
+          "candidates": 264,
+          "entries": 2,
+          "targets": 0,
+          "stops": 2,
+          "open_or_censored": 0,
+          "ambiguous_stops": 0,
+          "win_rate_closed": "0",
+          "net_r_sum": "-2",
+          "mean_r_closed": "-1",
+          "blocked": {
+            "RETORNO_RISCO_INSUFICIENTE": 214,
+            "CUSTO_RELATIVO_ELEVADO": 44,
+            "PRECO_FORA_DO_PLANO": 3,
+            "LOTE_MINIMO_OU_META_EXCEDE_RISCO": 1
+          },
+          "cancelled_before_entry": 0
+        }
+      },
+      "60": {
+        "baseline": {
+          "candidates": 61,
+          "entries": 8,
+          "targets": 1,
+          "stops": 7,
+          "open_or_censored": 0,
+          "ambiguous_stops": 0,
+          "win_rate_closed": "12.500",
+          "net_r_sum": "-5.860452680119022406740681957",
+          "mean_r_closed": "-0.7325565850148778008425852446",
+          "blocked": {
+            "RETORNO_RISCO_INSUFICIENTE": 27,
+            "PRECO_FORA_DO_PLANO": 13,
+            "LOTE_MINIMO_OU_META_EXCEDE_RISCO": 1,
+            "CUSTO_RELATIVO_ELEVADO": 9
+          },
+          "cancelled_before_entry": 3
+        },
+        "structure_retest": {
+          "candidates": 264,
+          "entries": 1,
+          "targets": 0,
+          "stops": 1,
+          "open_or_censored": 0,
+          "ambiguous_stops": 0,
+          "win_rate_closed": "0",
+          "net_r_sum": "-1",
+          "mean_r_closed": "-1",
+          "blocked": {
+            "RETORNO_RISCO_INSUFICIENTE": 111,
+            "CUSTO_RELATIVO_ELEVADO": 37,
+            "PRECO_FORA_DO_PLANO": 4,
+            "LOTE_MINIMO_OU_META_EXCEDE_RISCO": 1
+          },
+          "cancelled_before_entry": 110
+        }
+      }
+    },
+    "mature_4h": {
+      "0": {
+        "baseline": {
+          "candidates": 54,
+          "entries": 8,
+          "targets": 2,
+          "stops": 6,
+          "open_or_censored": 0,
+          "ambiguous_stops": 0,
+          "win_rate_closed": "25.00",
+          "net_r_sum": "-3.697916492887831687967484574",
+          "mean_r_closed": "-0.4622395616109789609959355718",
+          "blocked": {
+            "RETORNO_RISCO_INSUFICIENTE": 30,
+            "PRECO_FORA_DO_PLANO": 8,
+            "CUSTO_RELATIVO_ELEVADO": 8
+          },
+          "cancelled_before_entry": 0
+        },
+        "structure_retest": {
+          "candidates": 210,
+          "entries": 1,
+          "targets": 0,
+          "stops": 1,
+          "open_or_censored": 0,
+          "ambiguous_stops": 0,
+          "win_rate_closed": "0",
+          "net_r_sum": "-1",
+          "mean_r_closed": "-1",
+          "blocked": {
+            "RETORNO_RISCO_INSUFICIENTE": 174,
+            "CUSTO_RELATIVO_ELEVADO": 31,
+            "PRECO_FORA_DO_PLANO": 3,
+            "LOTE_MINIMO_OU_META_EXCEDE_RISCO": 1
+          },
+          "cancelled_before_entry": 0
+        }
+      },
+      "60": {
+        "baseline": {
+          "candidates": 54,
+          "entries": 5,
+          "targets": 1,
+          "stops": 4,
+          "open_or_censored": 0,
+          "ambiguous_stops": 0,
+          "win_rate_closed": "20.0",
+          "net_r_sum": "-2.860452680119022406740681957",
+          "mean_r_closed": "-0.5720905360238044813481363914",
+          "blocked": {
+            "RETORNO_RISCO_INSUFICIENTE": 27,
+            "PRECO_FORA_DO_PLANO": 11,
+            "CUSTO_RELATIVO_ELEVADO": 8
+          },
+          "cancelled_before_entry": 3
+        },
+        "structure_retest": {
+          "candidates": 210,
+          "entries": 0,
+          "targets": 0,
+          "stops": 0,
+          "open_or_censored": 0,
+          "ambiguous_stops": 0,
+          "win_rate_closed": null,
+          "net_r_sum": "0",
+          "mean_r_closed": null,
+          "blocked": {
+            "RETORNO_RISCO_INSUFICIENTE": 94,
+            "CUSTO_RELATIVO_ELEVADO": 25,
+            "PRECO_FORA_DO_PLANO": 4,
+            "LOTE_MINIMO_OU_META_EXCEDE_RISCO": 1
+          },
+          "cancelled_before_entry": 86
+        }
+      }
+    }
+  },
+  "diagnostics_finance": {
+    "rr_failures_immediate": {
+      "GANHO_LIQUIDO_MENOR_QUE_RISCO": 102,
+      "GEOMETRIA_SEM_ESPACO": 60,
+      "TP_NAO_COBRE_CUSTOS": 52
+    },
+    "median_target_distance_from_reaction_percent": "0.1629737945038681502102543438",
+    "targets_not_beyond_reaction_close": 63
+  },
+  "generation_diagnostics": {
+    "AAVE_USDT": {
+      "breakouts": 17,
+      "retest_REACTION": 10,
+      "retest_EXPIRED": 1,
+      "retest_CANCELLED": 5
+    },
+    "ADA_USDT": {
+      "breakouts": 14,
+      "retest_REACTION": 9,
+      "retest_CANCELLED": 2,
+      "retest_EXPIRED": 2
+    },
+    "ARB_USDT": {
+      "breakouts": 19,
+      "retest_REACTION": 6,
+      "retest_CANCELLED": 7,
+      "retest_EXPIRED": 6
+    },
+    "AVAX_USDT": {
+      "breakouts": 19,
+      "retest_REACTION": 12,
+      "retest_CANCELLED": 4,
+      "retest_EXPIRED": 2
+    },
+    "BNB_USDT": {
+      "breakouts": 19,
+      "retest_REACTION": 13,
+      "retest_CANCELLED": 4,
+      "retest_EXPIRED": 2
+    },
+    "BTC_USDT": {
+      "breakouts": 16,
+      "retest_REACTION": 14,
+      "retest_CANCELLED": 2
+    },
+    "DOGE_USDT": {
+      "breakouts": 14,
+      "retest_REACTION": 6,
+      "retest_CANCELLED": 6,
+      "retest_EXPIRED": 2
+    },
+    "DOT_USDT": {
+      "breakouts": 15,
+      "retest_REACTION": 13,
+      "retest_EXPIRED": 1,
+      "retest_CANCELLED": 1
+    },
+    "ENA_USDT": {
+      "breakouts": 17,
+      "retest_REACTION": 10,
+      "retest_EXPIRED": 5,
+      "retest_CANCELLED": 2
+    },
+    "ETH_USDT": {
+      "breakouts": 16,
+      "retest_REACTION": 8,
+      "retest_CANCELLED": 6,
+      "retest_EXPIRED": 2
+    },
+    "FET_USDT": {
+      "breakouts": 17,
+      "retest_REACTION": 11,
+      "retest_CANCELLED": 3,
+      "retest_EXPIRED": 3
+    },
+    "HYPE_USDT": {
+      "breakouts": 20,
+      "retest_EXPIRED": 4,
+      "retest_REACTION": 9,
+      "retest_CANCELLED": 6
+    },
+    "ICP_USDT": {
+      "breakouts": 13,
+      "retest_REACTION": 10,
+      "retest_CANCELLED": 1,
+      "retest_EXPIRED": 1
+    },
+    "INJ_USDT": {
+      "breakouts": 18,
+      "retest_REACTION": 8,
+      "retest_EXPIRED": 4,
+      "retest_CANCELLED": 6
+    },
+    "LINK_USDT": {
+      "breakouts": 18,
+      "retest_REACTION": 14,
+      "retest_CANCELLED": 3,
+      "retest_EXPIRED": 1
+    },
+    "ONDO_USDT": {
+      "breakouts": 15,
+      "retest_REACTION": 9,
+      "retest_EXPIRED": 5
+    },
+    "PEPE_USDT": {
+      "breakouts": 16,
+      "retest_REACTION": 9,
+      "retest_CANCELLED": 4,
+      "retest_EXPIRED": 3
+    },
+    "QNT_USDT": {
+      "breakouts": 17,
+      "retest_REACTION": 9,
+      "retest_CANCELLED": 5,
+      "retest_EXPIRED": 3
+    },
+    "SOL_USDT": {
+      "breakouts": 19,
+      "retest_REACTION": 12,
+      "retest_CANCELLED": 7
+    },
+    "SUI_USDT": {
+      "breakouts": 19,
+      "retest_REACTION": 13,
+      "retest_EXPIRED": 2,
+      "retest_CANCELLED": 3
+    },
+    "TAO_USDT": {
+      "breakouts": 21,
+      "retest_REACTION": 15,
+      "retest_CANCELLED": 2,
+      "retest_EXPIRED": 3
+    },
+    "TIA_USDT": {
+      "breakouts": 15,
+      "retest_CANCELLED": 3,
+      "retest_REACTION": 11
+    },
+    "UNI_USDT": {
+      "breakouts": 14,
+      "retest_REACTION": 7,
+      "retest_EXPIRED": 6,
+      "retest_CANCELLED": 1
+    },
+    "WLD_USDT": {
+      "breakouts": 14,
+      "retest_REACTION": 7,
+      "retest_CANCELLED": 2,
+      "retest_EXPIRED": 4
+    },
+    "XLM_USDT": {
+      "breakouts": 19,
+      "retest_REACTION": 8,
+      "retest_CANCELLED": 6,
+      "retest_EXPIRED": 4
+    },
+    "XRP_USDT": {
+      "breakouts": 19,
+      "retest_REACTION": 11,
+      "retest_CANCELLED": 4,
+      "retest_EXPIRED": 3
+    }
+  },
+  "limitations": [
+    "Exploratory single previously inspected day; parameters not optimized after results.",
+    "Market structure break need not be reversal of a previous trend; three-wave rules unspecified.",
+    "Zero delay is idealized; synthetic spread/depth and funding zero, no historical fills proven.",
+    "Use mature cohort for fair four-hour comparison; later open positions are censored.",
+    "Independent overlapping plans; sums of R are not a wallet simulation.",
+    "No RSI, 50% retracement, TOTAL3 or H1 EMA filter; no production changes."
+  ],
+  "eligible_records": [
+    {
+      "plan_id": "152f9371315a8d15b38b",
+      "symbol": "HYPE_USDT",
+      "side": "LONG",
+      "confirmed_at": 1794669900,
+      "delay": 0,
+      "entry_at": 1794669900,
+      "stop": "66.991",
+      "target": "68.153",
+      "reference": "67.373",
+      "break_at": 1794669600,
+      "level": "67.354",
+      "entry_open": "67.373",
+      "financial_status": "VIAVEL_SIMULADO",
+      "outcome": "STOP",
+      "window_complete": true,
+      "ambiguous": false,
+      "net_usdt": "-0.049623388984",
+      "net_r": "-1",
+      "exited_at": "2026-11-14T15:40:00+00:00",
+      "status": "VIAVEL_SIMULADO",
+      "net_rr": "1.024328124215424270658402004",
+      "leverage": 10,
+      "financial_band": [
+        "67.289",
+        "67.457"
+      ]
+    },
+    {
+      "plan_id": "1c0b3fe46ff70d267830",
+      "symbol": "INJ_USDT",
+      "side": "LONG",
+      "confirmed_at": 1794678900,
+      "delay": 0,
+      "entry_at": 1794678900,
+      "stop": "7.224",
+      "target": "7.474",
+      "reference": "7.279",
+      "break_at": 1794677700,
+      "level": "7.256",
+      "entry_open": "7.279",
+      "financial_status": "VIAVEL_SIMULADO",
+      "outcome": "STOP",
+      "window_complete": false,
+      "ambiguous": false,
+      "net_usdt": "-0.06843013674",
+      "net_r": "-1",
+      "exited_at": "2026-11-14T18:05:00+00:00",
+      "status": "VIAVEL_SIMULADO",
+      "net_rr": "1.914973994488558274979407928",
+      "leverage": 10,
+      "financial_band": [
+        "7.261",
+        "7.297"
+      ]
+    },
+    {
+      "plan_id": "1c0b3fe46ff70d267830",
+      "symbol": "INJ_USDT",
+      "side": "LONG",
+      "confirmed_at": 1794678900,
+      "delay": 60,
+      "entry_at": 1794678960,
+      "stop": "7.224",
+      "target": "7.474",
+      "reference": "7.279",
+      "break_at": 1794677700,
+      "level": "7.256",
+      "entry_open": "7.261",
+      "financial_status": "VIAVEL_SIMULADO",
+      "outcome": "STOP",
+      "window_complete": false,
+      "ambiguous": false,
+      "net_usdt": "-0.05041753566",
+      "net_r": "-1",
+      "exited_at": "2026-11-14T18:05:00+00:00",
+      "status": "VIAVEL_SIMULADO",
+      "net_rr": "1.914973994488558274979407928",
+      "leverage": 10,
+      "financial_band": [
+        "7.261",
+        "7.297"
+      ]
+    }
+  ],
+  "provenance": {
+    "new_m1_collection_run": 43650715883,
+    "old_m1_collection_run": 43636700606,
+    "public_contract_run": 43639547648,
+    "baseline_state_sha": "8b5e1f2493a87255c302c9c831fedf56e96847c9",
+    "production_main_sha": "20c500deb4fbea15573dbced9eaddb6bf5839cae"
+  }
+}
