@@ -34901,7 +34901,7 @@
       "text": "⚪ ATUALIZAÇÃO DOS PLANOS ACOMPANHADOS\n🧪 SIMULAÇÃO\n\n• AAVE/USDT • SHORT: janela expirou\n  Plano: 11c39483a62124f6f635\n• DOGE/USDT • SHORT: janela expirou\n  Plano: 140f5355c559b79ba1d1\n• HBAR/USDT • SHORT: janela expirou\n  Plano: d6f38ade97bede9a71f0\n\nSem novas entradas por esses planos.\nA expiração não encerra posições já abertas.\nAnálise: 11/11/2026 07:45:58 BRT"
     },
     "a55e268ed1a49f8e7ec3": {
-      "attempts": 0,
+      "attempts": 1,
       "category": "INFO",
       "created_at": 1794658313,
       "expires_at": 1794658320,
@@ -34912,7 +34912,11 @@
         "4e23d4e96083c5de2600"
       ],
       "quote_at": 0,
-      "status": "PENDING",
+      "sent_at": 1794658318,
+      "status": "SENT",
+      "telegram_ids": [
+        3714
+      ],
       "text": "🟡 MOVIMENTO DETECTADO • AINDA SEM CONFIRMAÇÃO\nPEPE/USDT • ALTA (LONG)\n🧪 SIMULAÇÃO • acompanhamento\n\nRompimento observado no M1 fechado às 09:11:00 BRT.\nPreço de referência do primeiro gatilho: 0.0000043373.\n\nPrimeiro fechamento além da região identificado.\nFalta o segundo fechamento sustentar o nível, com volume de pelo menos 50% do primeiro.\nApós confirmar, o plano ainda precisa passar pela avaliação financeira.\n\nFaixa em estudo: 0.0000043301 a 0.0000043445\n🛑 Stop do plano: 0.0000043002 (-8.55% bruto em 10x)\n🎯 Alvo do plano: 0.0000043565 (+4.43% bruto em 10x)\nCenário indicativo sobre a margem em 10x; custos e liquidação ainda não validados.\nMovimento sem alavancagem: TP +0.44% • SL -0.86%.\nPercentuais sobre a referência do primeiro gatilho, na direção da operação, antes de custos.\n\nMovimento observado, sem entrada liberada. Aguarde o alerta de confirmação e viabilidade.\nAlerta válido até 09:12:00 BRT.\nAnálise: 14/11/2026 09:11:53 BRT\nPlano: 4e23d4e96083c5de2600",
       "watch_stage": 1,
       "watch_symbol": "PEPE_USDT"
