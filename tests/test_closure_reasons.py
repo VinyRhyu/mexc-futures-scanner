@@ -47,18 +47,20 @@ class ClosureReasonTests(unittest.TestCase):
         text = movement_message(p, 'paper', NOW, 1, NOW + 60, illustrative_leverage=10)
         self.assertIn('AINDA SEM CONFIRMAÇÃO', text.splitlines()[0])
 
-    def test_delivery_prioritizes_entry_then_fresh_movement_then_summary(self):
+    def test_delivery_prioritizes_entry_then_movement_then_preparation_then_summary(self):
         state = initial_state(Config())
         queue_message(state, 'summary', 'summary', NOW - 10, NOW + 120)
         queue_message(state, 'movement', 'movement', NOW, NOW + 60)
         state['outbox']['movement']['movement_at'] = NOW
         queue_message(state, 'entry', 'entry', NOW, NOW + 60, 'ENTRY', NOW)
+        queue_message(state, 'preparation', 'preparation', NOW - 5, NOW + 120)
+        state['outbox']['preparation']['watch_stage'] = 2
         sent = []
         def send(payload):
             sent.append(payload['text'])
             return {'ok': True, 'result': {'message_id': len(sent)}}
         drain_outbox(state, NOW, 'token', 'chat', send)
-        self.assertEqual(sent, ['entry', 'movement', 'summary'])
+        self.assertEqual(sent, ['entry', 'movement', 'preparation', 'summary'])
 
     def test_expiry_is_rechecked_after_an_earlier_delivery_consumes_time(self):
         state = initial_state(Config())

@@ -42,7 +42,8 @@ def drain_outbox(state: dict, now: int, token: str, chat_id: str, transport=None
         counts["configuration"] = "TELEGRAM_NAO_CONFIGURADO"
     # Indicações com cotação recente chegam antes de resumos e acompanhamentos.
     messages = sorted(state["outbox"].values(), key=lambda m: (
-        0 if m["category"] == "ENTRY" else 1 if m.get('movement_at') is not None else 2, m["created_at"]))
+        0 if m["category"] == "ENTRY" else 1 if m.get('movement_at') is not None
+        else 2 if m.get('watch_stage') == 2 else 3, m["created_at"]))
     for message in messages:
         if message["status"] != "PENDING":
             continue

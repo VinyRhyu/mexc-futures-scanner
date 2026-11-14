@@ -138,6 +138,28 @@ def _remaining(expires: int, now: int) -> str:
     return f"{seconds // 60}min {seconds % 60:02d}s" if seconds >= 60 else f"{seconds}s"
 
 
+def preparation_message(plans: list[Plan], mode: str, now: int) -> str:
+    """Conditional scenarios from an existing consolidation, with no entry yet."""
+    p = plans[0]
+    lines = ['👀 PLANO EM PREPARAÇÃO • AGUARDANDO GATILHO',
+             p.symbol.replace('_', '/'), _mode(mode) + ' • acompanhamento', '',
+             f'Região em análise: {number(p.lower)} a {number(p.upper)}']
+    if len({p.side for p in plans}) > 1:
+        lines.append('Direção indefinida: cenários alternativos, não duas entradas.')
+    for p in plans:
+        threshold = p.level + (1 if p.side == 'LONG' else -1) * p.atr * D('.10')
+        direction = 'acima' if p.side == 'LONG' else 'abaixo'
+        lines.append(f'{p.side} somente se houver fechamento M1 {direction} de ≈ {approximate(threshold)}.')
+    lines += ['', 'Confirmação: dois fechamentos M1 consecutivos além do gatilho; '
+              'volume do segundo de pelo menos 50% do primeiro.',
+              'TP, SL e percentuais serão definidos no primeiro gatilho. '
+              'A confirmação ainda precisa passar pela avaliação financeira.',
+              '', 'Sem rompimento observado neste plano e sem entrada liberada.',
+              f'Preparação até {clock(min(p.expires_at for p in plans), now)}.',
+              f'Análise: {brt(now)}', 'Planos: ' + ', '.join(p.id for p in plans)]
+    return '\n'.join(lines)
+
+
 def movement_message(plan: Plan, mode: str, now: int, stage: int, expires_at: int, *,
                      illustrative_leverage: int = 1) -> str:
     """An observed closed-candle movement, distinct from an executable entry."""

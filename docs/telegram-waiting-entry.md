@@ -1,20 +1,25 @@
-# Telegram: movimento detectado
+# Telegram: preparação e movimento detectado
 
-A apresentação foi ajustada em 13/11/2026 para avisar quando o rompimento já
-foi observado, em vez de anunciar toda consolidação como possível entrada.
+A apresentação voltou a incluir planos em preparação em 14/11/2026, antes
+do primeiro rompimento. Eles são distintos dos avisos de movimento detectado.
 A análise dos dois lados, TP, SL, RR mínimo 1:1, volume e confirmação continuam
 iguais. O modo permanece paper; nenhum primeiro gatilho libera uma entrada.
 
 ## Quando chega o aviso
 
+- PLANO EM PREPARAÇÃO • AGUARDANDO GATILHO mostra a região e os limiares
+  condicionais do modelo. LONG e SHORT da formação mais recente são agrupados
+  em uma única mensagem por ativo: são cenários alternativos, não duas entradas.
+  TP, SL e percentuais só são apresentados após a definição no primeiro gatilho.
+  A preparação mantém seu prazo original, sem o limite de 60s do primeiro M1.
 - MOVIMENTO DETECTADO • ALTA (LONG) ou BAIXA (SHORT) exige um primeiro
   candle M1 fechado além do gatilho da região monitorada pelo modelo atual.
 - O aviso mostra horário do candle da etapa, referência do primeiro gatilho,
   faixa/SL/TP em estudo e a confirmação que ainda falta.
 - Se a confirmação técnica já foi identificada, mas o financeiro bloqueou a
   entrada, a condição pendente aparece explicitamente no aviso informativo.
-- Planos sem primeiro rompimento continuam na análise e nos relatórios, mas
-  não geram mais acompanhamentos neutros de LONG/SHORT no Telegram.
+- Planos sem primeiro rompimento voltam a gerar acompanhamento no Telegram.
+  Apenas ativos com coleta validada nesta rodada podem gerar preparação.
 - Uma entrada confirmada e financeiramente viável mantém seu próprio alerta
   ENTRY, com prioridade sobre o acompanhamento do mesmo ativo.
 
@@ -25,7 +30,9 @@ afirma que o preço atual ainda seja igual à referência.
 
 ## Direção, repetição e validade
 
-Cada ativo apresenta somente a direção do gatilho observado mais recente.
+Quando existe movimento elegível, cada ativo apresenta somente a direção
+do gatilho observado mais recente, com prioridade sobre a preparação.
+Um movimento envelhecido não é substituído por preparação do lado oposto.
 Entre contextos no mesmo horário, considera-se a formação mais recente e a
 etapa técnica disponível. Se ainda houver contextos opostos exatamente
 empatados, não é emitida uma direção arbitrária. Todos os planos continuam
@@ -34,17 +41,21 @@ sendo processados normalmente e podem aparecer no relatório completo.
 O ID do aviso usa ativo/lado/horário do movimento/etapa. Formações sobrepostas
 do mesmo evento não produzem vários avisos; uma mudança de etapa ou outro
 movimento pode gerar atualização. O limite de observações por rodada permanece.
+Preparações usam um ID próprio baseado nos planos da formação selecionada:
+não se repetem a cada coleta; uma nova formação pode gerar novo aviso.
+Uma mudança de etapa substitui a preparação pendente do ativo. Histórico de
+envios, encerramentos e planos calculados são preservados.
 
 O aviso do primeiro M1 só é gerado e válido nos 60s seguintes ao candle:
 depois disso, o segundo M1 já deveria estar disponível para validação. Alertas
 de confirmação técnica mantêm até 120s. Isso não altera a janela de nova
 entrada do modelo, que continua em 120s após a confirmação. Mensagens
-pendentes antigas, neutras, substituídas ou sem coleta validada são expiradas.
+pendentes antigas, substituídas ou sem coleta validada são expiradas.
 Na falha da fonte, acompanhamentos pendentes não são entregues. Mensagens já
 enviadas mantêm seu histórico; encerramentos continuam sendo reconhecidos.
 
-No envio, ENTRY tem prioridade, seguido por movimento recente e depois por
-resumos/atualizações. Alertas de movimento não ficam atrás de resumos antigos.
+No envio, ENTRY tem prioridade, seguido por movimento recente, preparação e
+resumos/atualizações. Alertas não ficam atrás de resumos antigos.
 O horário é rechecado antes de cada envio, para que o tempo gasto entregando
 mensagens anteriores não permita enviar um alerta que já venceu. O registro
 de envio usa o horário observado após a resposta do Telegram.
@@ -94,8 +105,8 @@ Testes verificam simetria LONG/SHORT, denominador da pior entrada, separação
 entre margem e saldo, referências inválidas, pequenas variações e preservação
 dos níveis e do estado.
 
-Testes cobrem ausência de aviso sem rompimento, sinal de primeiro M1, direção
+Testes cobrem preparação sem rompimento, sinal de primeiro M1, direção
 mais recente, conflitos empatados, idade do gatilho, deduplicação entre
-formações, expiração dos avisos neutros, bloqueios financeiros, prioridade de
+formações, substituição das preparações pendentes, bloqueios financeiros, prioridade de
 ENTRY, fontes inválidas e não alteração dos planos calculados. Demonstração
 e replay também passam.

@@ -41,12 +41,71 @@ class WatchNotificationsTests(unittest.TestCase):
         return [m for m in state['outbox'].values() if m['status'] == 'PENDING'
                 and (category is None or m['category'] == category)]
 
-    def test_untriggered_consolidations_are_not_movements(self):
+    def test_untriggered_consolidations_share_one_preparation_without_changing_analysis(self):
         state = self.state(candidate(phase='possible'), candidate('SHORT', phase='possible'))
         before = deepcopy(state['plans'])
         _queue_transitions(state, {}, Config(), NOW)
-        self.assertEqual(self.pending(state), [])
+        messages = self.pending(state)
+        self.assertEqual(len(messages), 1)
+        m = messages[0]
+        self.assertIn('PLANO EM PREPARAÇÃO', m['text'])
+        self.assertIn('LONG somente se', m['text'])
+        self.assertIn('SHORT somente se', m['text'])
+        self.assertIn('não duas entradas', m['text'])
+        self.assertIn('TP, SL e percentuais serão definidos no primeiro gatilho', m['text'])
+        self.assertNotIn('MOVIMENTO DETECTADO', m['text'])
+        self.assertNotIn('movement_at', m)
+        self.assertEqual(m['watch_stage'], 2)
+        self.assertEqual(self.pending(state, 'ENTRY'), [])
         self.assertEqual(state['plans'], before)
+
+    def test_preparation_is_not_repeated_and_keeps_its_original_deadline(self):
+        p = candidate(phase='possible')
+        state = self.state(p)
+        _queue_transitions(state, {}, Config(), NOW)
+        m = self.pending(state)[0]
+        self.assertEqual(m['expires_at'], p.expires_at)
+        m['status'] = 'SENT'
+        _queue_transitions(state, deepcopy(state['plans']), Config(), NOW + 120)
+        self.assertEqual(self.pending(state), [])
+
+    def test_preparation_uses_only_the_latest_formation_per_asset(self):
+        old = candidate(phase='possible')
+        fresh = candidate('SHORT', phase='possible')
+        fresh.formed_at = old.formed_at + 60
+        state = self.state(old, fresh)
+        _queue_transitions(state, {}, Config(), NOW)
+        self.assertEqual(self.pending(state)[0]['plan_ids'], [fresh.id])
+        self.assertNotIn('LONG somente se', self.pending(state)[0]['text'])
+
+    def test_preparation_requires_verified_source(self):
+        state = self.state(candidate(phase='possible'))
+        _queue_transitions(state, {}, Config(), NOW, watch_symbols=set())
+        self.assertEqual(self.pending(state), [])
+
+    def test_movement_retires_pending_preparation(self):
+        p = candidate(phase='possible')
+        state = self.state(p)
+        _queue_transitions(state, {}, Config(), NOW)
+        old_id = self.pending(state)[0]['id']
+        state['plans'][p.id] = jsonable(candidate())
+        _queue_transitions(state, {}, Config(), NOW + 1)
+        self.assertEqual(state['outbox'][old_id]['status'], 'EXPIRED')
+        self.assertEqual(len(self.pending(state)), 1)
+        self.assertEqual(self.pending(state)[0]['watch_stage'], 1)
+
+    def test_stale_movement_does_not_fall_back_to_opposite_preparation(self):
+        p = candidate()
+        p.variants['ANTECIPADA'].triggered_at = NOW - 90
+        state = self.state(p, candidate('SHORT', phase='possible'))
+        _queue_transitions(state, {}, Config(), NOW)
+        self.assertEqual(self.pending(state), [])
+
+    def test_movement_has_priority_over_preparation_at_the_round_limit(self):
+        state = self.state(candidate(symbol='PREP_USDT', phase='possible'),
+                           candidate(symbol='MOVE_USDT'))
+        _queue_transitions(state, {}, replace(Config(), max_alerts=1), NOW)
+        self.assertEqual(self.pending(state)[0]['watch_symbol'], 'MOVE_USDT')
 
     def test_existing_active_plans_also_get_the_new_watch(self):
         state = self.state(candidate(), candidate('SHORT', phase='possible'))
@@ -166,7 +225,7 @@ class WatchNotificationsTests(unittest.TestCase):
         self.assertEqual(self.pending(state), [])
 
     def test_all_watch_stages_fit_a_single_telegram_message(self):
-        for phase in ('waiting', 'blocked'):
+        for phase in ('possible', 'waiting', 'blocked'):
             state = self.state(candidate(phase=phase))
             _queue_transitions(state, {}, Config(), NOW)
             self.assertLess(len(self.pending(state)[0]['text']), 3500)
@@ -228,13 +287,14 @@ class WatchNotificationsTests(unittest.TestCase):
         _queue_transitions(state, {}, Config(), NOW + 1)
         self.assertEqual(self.pending(state), [])
 
-    def test_pending_neutral_watches_are_retired(self):
+    def test_old_pending_neutral_watches_are_replaced_by_the_restored_format(self):
         state = self.state(candidate(phase='possible'))
         queue_message(state, 'old-neutral', 'old neutral watch', NOW, NOW + 500)
         state['outbox']['old-neutral'].update(watch_symbol='TEST_USDT', watch_stage=2, plan_ids=[])
         _queue_transitions(state, {}, Config(), NOW)
         self.assertEqual(state['outbox']['old-neutral']['status'], 'EXPIRED')
-        self.assertEqual(self.pending(state), [])
+        self.assertEqual(len(self.pending(state)), 1)
+        self.assertIn('PLANO EM PREPARAÇÃO', self.pending(state)[0]['text'])
 
 
 if __name__ == '__main__':

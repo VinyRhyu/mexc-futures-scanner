@@ -12,7 +12,9 @@ HELP = """📖 GUIA DOS ALERTAS — MEXC SCANNER
 
 Modelo em uso: rompimento de consolidação com dois fechamentos consecutivos de 1 minuto. O volume do segundo deve ser pelo menos 50% do primeiro. TP, SL e faixa ficam fixados no primeiro gatilho; apenas a confirmação pode liberar uma entrada. Gatilhos atrasados não são entradas atuais.
 
-🟡 Movimento detectado: um rompimento foi observado em candle M1 fechado, com direção e horário identificados. O aviso mostra somente o lado observado mais recente por moeda. Uma consolidação sem rompimento fica apenas na análise interna.
+👀 Plano em preparação: uma consolidação está em acompanhamento, ainda sem rompimento nesse plano. Uma única mensagem por moeda agrupa os gatilhos condicionais de LONG e SHORT, quando ambos existem. São cenários alternativos, não duas entradas. TP, SL e percentuais são definidos no primeiro gatilho. O mesmo plano não é reenviado a cada coleta; uma nova formação pode gerar novo aviso.
+
+🟡 Movimento detectado: um rompimento foi observado em candle M1 fechado, com direção e horário identificados. O aviso mostra somente o lado observado mais recente por moeda e tem prioridade sobre a preparação.
 
 🕒 Aguardando confirmação: falta o segundo fechamento M1 sustentar o nível, com pelo menos 50% do volume do primeiro. Faixa, stop e alvo ainda são de estudo. O movimento observado não libera entrada: a confirmação e a viabilidade financeira ainda precisam passar. Avisos repetidos do mesmo movimento não são reenviados a cada minuto.
 
