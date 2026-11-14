@@ -15704,13 +15704,17 @@
       "text": "👀 POSSÍVEL ENTRADA • AGUARDAR GATILHO\nAAVE/USDT • LONG\n🧪 SIMULAÇÃO\nRompimento • 2 fechamentos M1 • volume ≥50%\n\nRegião de atenção ≈ 123.11 a 125.07\nDois fechamentos consecutivos de1min além do gatilho.\nVolume do segundo candle pelo menos50% do primeiro. Apenas a confirmação pode liberar entrada.\nPreparação até 09:00:00 BRT.\nAnálise: 11/11/2026 08:31:01 BRT\nPlano: 0eece50cab5bbcfdbc14 • revisão 0"
     },
     "4a2007105fc81b86f219": {
-      "attempts": 0,
+      "attempts": 1,
       "category": "ENTRY",
       "created_at": 1794649486,
       "expires_at": 1794649500,
       "id": "4a2007105fc81b86f219",
       "quote_at": 1794649484,
-      "status": "PENDING",
+      "sent_at": 1794649489,
+      "status": "SENT",
+      "telegram_ids": [
+        3689
+      ],
       "text": "🟢 GATILHO VÁLIDO PARA SIMULAR\nQNT/USDT • LONG\n🧪 SIMULAÇÃO • Confirmada\nRompimento • 2 fechamentos M1 • volume ≥50%\n\nVolume do segundo M1: 62.3% do primeiro.\n📍 Entrada: 157.23 a 157.36\n🛑 Stop: 156.51 (-10.50% líquido sobre a margem)\n🎯 Alvo: 158.73 (+10.65% líquido sobre a margem)\nMovimento sem alavancagem: TP +0.87% • SL -0.54%.\nBase dos percentuais sem alavancagem: 157.36 (pior entrada); na direção da operação, antes de custos.\n\nMargem isolada estimada: 0.9442 USDT • 15x\nQuantidade: 9 contratos\nPerda planejada: -0.0991 USDT (-9.91% da banca)\nGanho projetado: +0.1005 USDT (+10.05% da banca)\nRetorno/risco líquido: 1.01:1 (pior entrada)\nCustos estimados: 0.0228 USDT\nROI líquido estimado sobre a margem: TP +10.65% • SL -10.50%.\nTaxa por execução: 0.06%\nDisparo do stop: último preço (Last)\n\nEstimativas de taxas, deslizamento e funding; ganho não garantido.\nFalta validar para uso real: taxa pessoal da conta; regras de margem da conta.\n\n⏱ Nova entrada até 06:45:00 BRT (14s).\nGatilho M1 (segundo fechamento): 06:43:00 BRT\nCotação: 06:44:44 BRT\nAnálise: 14/11/2026 06:44:46 BRT\nA validade se aplica a novas entradas.\nPlano: c74d5e9f363beb529a79 • revisão 1"
     },
     "4a22fbc2274343f6883c": {
@@ -45403,7 +45407,7 @@
       "text": "👀 POSSÍVEL ENTRADA • AGUARDAR GATILHO\nAAVE/USDT • SHORT\n🧪 SIMULAÇÃO\nRompimento • 2 fechamentos M1 • volume ≥50%\n\nRegião de atenção ≈ 122.64 a 124.34\nDois fechamentos consecutivos de1min além do gatilho.\nVolume do segundo candle pelo menos50% do primeiro. Apenas a confirmação pode liberar entrada.\nPreparação até 07:45:00 BRT.\nAnálise: 11/11/2026 07:15:59 BRT\nPlano: 11c39483a62124f6f635 • revisão 0"
     },
     "da512392e254e03dde6b": {
-      "attempts": 0,
+      "attempts": 1,
       "category": "INFO",
       "created_at": 1794649486,
       "expires_at": 1794649500,
@@ -45414,7 +45418,11 @@
         "0e47382abd1ee05e5ff8"
       ],
       "quote_at": 0,
-      "status": "PENDING",
+      "sent_at": 1794649490,
+      "status": "SENT",
+      "telegram_ids": [
+        3690
+      ],
       "text": "🟡 MOVIMENTO DETECTADO • ENTRADA BLOQUEADA\nARB/USDT • ALTA (LONG)\n🧪 SIMULAÇÃO • acompanhamento\n\nRompimento observado no M1 fechado às 06:43:00 BRT.\nPreço de referência do primeiro gatilho: 0.13979.\n\nConfirmação técnica identificada; entrada bloqueada.\nCondição pendente: O preço está fora da faixa permitida.\n\nFaixa em estudo: 0.13962 a 0.14\n🛑 Stop do plano: 0.13908 (-5.08% bruto em 10x)\n🎯 Alvo do plano: 0.14092 (+8.08% bruto em 10x)\nCenário indicativo sobre a margem em 10x; custos e liquidação ainda não validados.\nMovimento sem alavancagem: TP +0.81% • SL -0.51%.\nPercentuais sobre a referência do primeiro gatilho, na direção da operação, antes de custos.\n\nMovimento observado, sem entrada liberada. Aguarde o alerta de confirmação e viabilidade.\nAlerta válido até 06:45:00 BRT.\nAnálise: 14/11/2026 06:44:46 BRT\nPlano: 0e47382abd1ee05e5ff8",
       "watch_stage": 0,
       "watch_symbol": "ARB_USDT"
