@@ -28213,7 +28213,7 @@
       "text": "⚪ ATUALIZAÇÃO DOS PLANOS ACOMPANHADOS\n🧪 SIMULAÇÃO\n\n• ADA/USDT • SHORT: janela expirou\n  Plano: 84107d25a56e189689f7\n• HBAR/USDT • LONG: janela expirou\n  Plano: b431862493cd27523695\n• ADA/USDT • LONG: janela expirou\n  Plano: defa5715da56ddd0cdc0\n• ONDO/USDT • LONG: janela expirou\n  Plano: f23221f54c86e02a1bcd\n\nSem novas entradas por esses planos.\nA expiração não encerra posições já abertas.\nAnálise: 11/11/2026 02:30:56 BRT"
     },
     "83dd1c718fc92bdafaa8": {
-      "attempts": 0,
+      "attempts": 1,
       "category": "INFO",
       "created_at": 1794661650,
       "expires_at": 1794661680,
@@ -28224,7 +28224,11 @@
         "ce229ba75168714d4bfd"
       ],
       "quote_at": 0,
-      "status": "PENDING",
+      "sent_at": 1794661654,
+      "status": "SENT",
+      "telegram_ids": [
+        3732
+      ],
       "text": "🟡 MOVIMENTO DETECTADO • ENTRADA BLOQUEADA\nSOL/USDT • BAIXA (SHORT)\n🧪 SIMULAÇÃO • acompanhamento\n\nRompimento observado no M1 fechado às 10:06:00 BRT.\nPreço de referência do primeiro gatilho: 75.39.\n\nConfirmação técnica identificada; entrada bloqueada.\nCondição pendente: A relação entre ganho e perda ficou abaixo do mínimo.\n\nFaixa em estudo: 75.31 a 75.41\n🛑 Stop do plano: 75.63 (-3.18% bruto em 10x)\n🎯 Alvo do plano: 75 (+5.17% bruto em 10x)\nCenário indicativo sobre a margem em 10x; custos e liquidação ainda não validados.\nMovimento sem alavancagem: TP +0.52% • SL -0.32%.\nPercentuais sobre a referência do primeiro gatilho, na direção da operação, antes de custos.\n\nMovimento observado, sem entrada liberada. Aguarde o alerta de confirmação e viabilidade.\nAlerta válido até 10:08:00 BRT.\nAnálise: 14/11/2026 10:07:30 BRT\nPlano: ce229ba75168714d4bfd",
       "watch_stage": 0,
       "watch_symbol": "SOL_USDT"
