@@ -1,8 +1,13 @@
 {
-  "analyzed_at": 1794689544,
-  "analyzed_symbols": 33,
+  "analyzed_at": 1794689652,
+  "analyzed_symbols": 34,
   "config_fingerprint": "a0c2766956c79181fa62",
-  "diagnostics": [],
+  "diagnostics": [
+    {
+      "reason": "LACUNA_M1_REINICIO_APENAS_FUTURO",
+      "symbol": "JUP_USDT"
+    }
+  ],
   "excluded": [
     {
       "reason": "CLASSIFICACAO_PENDENTE",
@@ -203,10 +208,6 @@
     {
       "reason": "CLASSIFICACAO_PENDENTE",
       "symbol": "CC_USDT"
-    },
-    {
-      "reason": "VOLUME_FINANCEIRO_INSUFICIENTE",
-      "symbol": "JUP_USDT"
     },
     {
       "reason": "CLASSIFICACAO_PENDENTE",
@@ -12723,7 +12724,7 @@
       "family": "39c82a891037199504a7",
       "formed_at": 1794689100,
       "id": "39c82a891037199504a7",
-      "last_bar": 1794689460,
+      "last_bar": 1794689580,
       "level": "45.69",
       "lower": "44.91",
       "observations": [],
@@ -15889,27 +15890,41 @@
     {
       "atr": "336.7168075949601510465797202",
       "detected_at": 1794689100,
-      "entry_started_at": 0,
-      "expires_at": 1794690900,
+      "entry_started_at": 1794689520,
+      "expires_at": 1794691320,
       "family": "4c8c4aaad9429462f286",
       "formed_at": 1794689100,
       "id": "4c8c4aaad9429462f286",
-      "last_bar": 1794689460,
+      "last_bar": 1794689580,
       "level": "65300.0",
       "lower": "65300.0",
       "observations": [],
       "preparation_expires_at": 1794690900,
-      "reaction_at": 0,
+      "reaction_at": 1794689520,
       "reaction_extreme": null,
-      "reason": "",
+      "reason": "VOLUME_M1_INSUFICIENTE",
       "revision": 0,
       "side": "SHORT",
-      "status": "POSSIVEL",
+      "status": "INVALIDADO",
       "stop": "65468.4",
       "strategy": "ROMPIMENTO_M1_VOLUME",
       "symbol": "BTC_USDT",
       "upper": "65857.3",
-      "variants": {}
+      "variants": {
+        "ANTECIPADA": {
+          "entry_high": "65266.2",
+          "entry_low": "65173.9",
+          "financial": {},
+          "kind": "ANTECIPADA",
+          "reason": "",
+          "reference": "65258.0",
+          "status": "ENCERRADA",
+          "stop": "65468.4",
+          "target": "65013.7",
+          "target_origin": "PIVO_CONHECIDO",
+          "triggered_at": 1794689520
+        }
+      }
     },
     {
       "atr": "12.29713630733826699574373126",
@@ -19339,7 +19354,7 @@
       "family": "622314ae9acedca0d46d",
       "formed_at": 1794689100,
       "id": "622314ae9acedca0d46d",
-      "last_bar": 1794689460,
+      "last_bar": 1794689580,
       "level": "65857.3",
       "lower": "65300.0",
       "observations": [],
@@ -35107,7 +35122,7 @@
       "family": "c521bb48aa83f1b548d8",
       "formed_at": 1794688200,
       "id": "c521bb48aa83f1b548d8",
-      "last_bar": 1794689460,
+      "last_bar": 1794689580,
       "level": "7.337",
       "lower": "7.108",
       "observations": [],
@@ -38016,27 +38031,41 @@
     {
       "atr": "0.3733734786757937786503695669",
       "detected_at": 1794689100,
-      "entry_started_at": 0,
-      "expires_at": 1794690900,
+      "entry_started_at": 1794689520,
+      "expires_at": 1794691320,
       "family": "d4e93b82195ab3ac76c8",
       "formed_at": 1794689100,
       "id": "d4e93b82195ab3ac76c8",
-      "last_bar": 1794689460,
+      "last_bar": 1794689580,
       "level": "44.91",
       "lower": "44.91",
       "observations": [],
       "preparation_expires_at": 1794690900,
-      "reaction_at": 0,
+      "reaction_at": 1794689520,
       "reaction_extreme": null,
-      "reason": "",
+      "reason": "SEGUNDO_M1_NAO_SUSTENTOU",
       "revision": 0,
       "side": "SHORT",
-      "status": "POSSIVEL",
+      "status": "INVALIDADO",
       "stop": "45.10",
       "strategy": "ROMPIMENTO_M1_VOLUME",
       "symbol": "LTC_USDT",
       "upper": "45.69",
-      "variants": {}
+      "variants": {
+        "ANTECIPADA": {
+          "entry_high": "44.86",
+          "entry_low": "44.76",
+          "financial": {},
+          "kind": "ANTECIPADA",
+          "reason": "",
+          "reference": "44.85",
+          "status": "ENCERRADA",
+          "stop": "45.10",
+          "target": "44.13",
+          "target_origin": "PROJECAO_DA_FAIXA",
+          "triggered_at": 1794689520
+        }
+      }
     },
     {
       "atr": "0.04946593532582772467646270251",
@@ -44585,7 +44614,7 @@
       "variants": {}
     }
   ],
-  "selected_symbols": 33,
+  "selected_symbols": 34,
   "signal_model": "m1_volume50_v1",
   "source_status": "OK"
 }
