@@ -38443,7 +38443,7 @@
       "text": "⚪ ATUALIZAÇÃO DOS PLANOS ACOMPANHADOS\n🧪 SIMULAÇÃO\n\n• ADA/USDT • SHORT: plano invalidado\n  Plano: 19378eef8ceba4fdb563\n\nSem novas entradas por esses planos.\nA expiração não encerra posições já abertas.\nAnálise: 11/11/2026 12:26:46 BRT"
     },
     "bafe5b5cd5f61b3272ba": {
-      "attempts": 0,
+      "attempts": 1,
       "category": "INFO",
       "created_at": 1794632554,
       "expires_at": 1794632580,
@@ -38454,7 +38454,11 @@
         "0d68c655e0a94fffadc1"
       ],
       "quote_at": 0,
-      "status": "PENDING",
+      "sent_at": 1794632558,
+      "status": "SENT",
+      "telegram_ids": [
+        3627
+      ],
       "text": "🟡 MOVIMENTO DETECTADO • AINDA SEM CONFIRMAÇÃO\nFET/USDT • BAIXA (SHORT)\n🧪 SIMULAÇÃO • acompanhamento\n\nRompimento observado no M1 fechado às 02:02:00 BRT.\nPreço de referência do primeiro gatilho: 0.1421.\n\nPrimeiro fechamento além da região identificado.\nFalta o segundo fechamento sustentar o nível, com volume de pelo menos 50% do primeiro.\nApós confirmar, o plano ainda precisa passar pela avaliação financeira.\n\nFaixa em estudo: 0.1418 a 0.1424\n🛑 Stop do plano: 0.1435 (-9.85% bruto em 10x)\n🎯 Alvo do plano: 0.1421 (+0.00% bruto em 10x)\nCenário indicativo sobre a margem em 10x; custos e liquidação ainda não validados.\nMovimento sem alavancagem: TP +0.00% • SL -0.99%.\nPercentuais sobre a referência do primeiro gatilho, na direção da operação, antes de custos.\n\nMovimento observado, sem entrada liberada. Aguarde o alerta de confirmação e viabilidade.\nAlerta válido até 02:03:00 BRT.\nAnálise: 14/11/2026 02:02:34 BRT\nPlano: 0d68c655e0a94fffadc1",
       "watch_stage": 1,
       "watch_symbol": "FET_USDT"
