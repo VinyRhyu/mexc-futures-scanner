@@ -1,0 +1,55 @@
+name: Validar TP dos alertas HYPE e LINK
+on:
+  push:
+    branches: ['audit/tp-hype-link-2026-11-14']
+    paths: ['.github/workflows/audit-telegram-tp.yml']
+permissions:
+  contents: read
+jobs:
+  prices:
+    runs-on: ubuntu-latest
+    timeout-minutes: 4
+    steps:
+      - uses: actions/checkout@v7.0.1
+        with:
+          persist-credentials: false
+      - uses: actions/setup-python@v7
+        with:
+          python-version: '3.12'
+      - name: Coletar candles públicos M1 sem ordens ou Telegram
+        run: |
+          python - <<'PY'
+          import json
+          from pathlib import Path
+          from mexc_scanner.mexc import MexcClient
+          from mexc_scanner.market import parse_candles
+          from mexc_scanner.models import jsonable
+          client = MexcClient()
+          now = client.server_time()
+          start = 1794674400
+          assert start < now < start + 86400
+          output = Path('reports/target-validation')
+          output.mkdir(parents=True, exist_ok=True)
+          cases = [
+              dict(symbol='HYPE_USDT', side='SHORT', sent_at=1794674908, expires_at=1794674940,
+                   entry_low='65.483', entry_high='65.684', target='63.230', stop='66.102'),
+              dict(symbol='LINK_USDT', side='SHORT', sent_at=1794676247, expires_at=1794676320,
+                   entry_low='9.000', entry_high='9.031', target='8.721', stop='9.086'),
+          ]
+          for case in cases:
+              raw = client._get('/api/v1/contract/kline/' + case['symbol'],
+                                dict(interval='Min1', start=start, end=now))
+              candles = parse_candles(raw, 60, now)
+              assert candles and candles[0].ts <= start
+              assert candles[-1].end >= ((now-10)//60)*60
+              record = dict(source='MEXC_PUBLIC_FUTURES', captured_at=now, case=case,
+                            candles=jsonable(candles), raw=jsonable(raw))
+              (output / (case['symbol'] + '.json')).write_text(json.dumps(record))
+              print(json.dumps(dict(symbol=case['symbol'], candles=len(candles),
+                                    first=candles[0].ts, last=candles[-1].end)))
+          PY
+      - uses: actions/upload-artifact@v7.0.2
+        with:
+          name: telegram-tp-hype-link-2026-11-14
+          path: reports/target-validation/
+          retention-days: 14
