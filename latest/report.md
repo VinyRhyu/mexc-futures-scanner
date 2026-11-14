@@ -1,6 +1,6 @@
 # MEXC Futures Scanner — rodada
 
-Modo: **paper**. Análise: 14/11/2026 15:30:14 BRT.
+Modo: **paper**. Análise: 14/11/2026 15:32:00 BRT.
 
 Fonte: OK
 Cobertura: 32/32 contratos selecionados.
@@ -1591,6 +1591,10 @@ Alavancagem de simulação: **10x a 20x**.
 | AVAX_USDT | ROMPIMENTO_M1_VOLUME | SHORT | EXPIRADO | — | PRAZO_ENCERRADO |
 | ONDO_USDT | ROMPIMENTO_M1_VOLUME | LONG | INVALIDADO | ANTECIPADA | SEGUNDO_M1_NAO_SUSTENTOU |
 | ADA_USDT | ROMPIMENTO_M1_VOLUME | SHORT | EXPIRADO | — | PRAZO_ENCERRADO |
+| BNB_USDT | ROMPIMENTO_M1_VOLUME | LONG | POSSIVEL | — | aguardando gatilho |
+| BNB_USDT | ROMPIMENTO_M1_VOLUME | SHORT | POSSIVEL | — | aguardando gatilho |
+| QNT_USDT | ROMPIMENTO_M1_VOLUME | LONG | POSSIVEL | — | aguardando gatilho |
+| QNT_USDT | ROMPIMENTO_M1_VOLUME | SHORT | POSSIVEL | — | aguardando gatilho |
 
 ## Diagnósticos
 
