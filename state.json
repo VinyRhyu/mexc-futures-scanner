@@ -8702,13 +8702,17 @@
       "text": "⚪ ATUALIZAÇÃO DOS PLANOS ACOMPANHADOS\n🧪 SIMULAÇÃO\n\n• ZEC/USDT • LONG: janela expirou\n  Plano: a39cf2cc683e50740a27\n\nSem novas entradas por esses planos.\nA expiração não encerra posições já abertas.\nAnálise: 12/11/2026 03:27:47 BRT"
     },
     "296ce35bfea7d43c8d94": {
-      "attempts": 0,
+      "attempts": 1,
       "category": "INFO",
       "created_at": 1794658412,
       "expires_at": 1794662012,
       "id": "296ce35bfea7d43c8d94",
       "quote_at": 0,
-      "status": "PENDING",
+      "sent_at": 1794658417,
+      "status": "SENT",
+      "telegram_ids": [
+        3716
+      ],
       "text": "⚪ ATUALIZAÇÃO DOS PLANOS ACOMPANHADOS\n🧪 SIMULAÇÃO\n\n• PEPE/USDT • LONG: confirmação não aprovada\n  Motivo: O volume do segundo candle M1 foi menor que50% do primeiro.\n  Plano: 4e23d4e96083c5de2600\n\nSem novas entradas por esses planos.\nAvisos de movimento não equivalem a entradas liberadas.\nA expiração não encerra uma posição já aberta.\nAnálise: 14/11/2026 09:13:32 BRT"
     },
     "296e9a246434f7d4c0b3": {
@@ -31637,7 +31641,7 @@
       "text": "👀 POSSÍVEL ENTRADA • AGUARDAR GATILHO\nETH/USDT • SHORT\n🧪 SIMULAÇÃO\nRompimento de consolidação\n\nRegião de atenção ≈ 2107.25 a 2126.02\n\nAntecipada: Primeiro fechamento de 15m abaixo da faixa, com a tolerância do plano.\nConfirmada: O candle de 15m imediatamente seguinte mantém o rompimento.\nCada modalidade é avaliada de forma independente.\n\nPreparação válida até 01:30:00 BRT (13min 31s).\nAnálise: 10/11/2026 01:16:29 BRT\nPlano: 926253cc3e2dbab83cf0 • revisão 0"
     },
     "94b5a9bbc48cc6894ee4": {
-      "attempts": 0,
+      "attempts": 1,
       "category": "INFO",
       "created_at": 1794658412,
       "expires_at": 1794658500,
@@ -31648,7 +31652,11 @@
         "f5c33aa86e7b5d6e26da"
       ],
       "quote_at": 0,
-      "status": "PENDING",
+      "sent_at": 1794658416,
+      "status": "SENT",
+      "telegram_ids": [
+        3715
+      ],
       "text": "🟡 MOVIMENTO DETECTADO • ENTRADA BLOQUEADA\nBNB/USDT • BAIXA (SHORT)\n🧪 SIMULAÇÃO • acompanhamento\n\nRompimento observado no M1 fechado às 09:13:00 BRT.\nPreço de referência do primeiro gatilho: 616.15.\n\nConfirmação técnica identificada; entrada bloqueada.\nCondição pendente: A relação entre ganho e perda ficou abaixo do mínimo.\n\nFaixa em estudo: 615.61 a 616.33\n🛑 Stop do plano: 617.66 (-2.45% bruto em 10x)\n🎯 Alvo do plano: 614.17 (+3.21% bruto em 10x)\nCenário indicativo sobre a margem em 10x; custos e liquidação ainda não validados.\nMovimento sem alavancagem: TP +0.32% • SL -0.25%.\nPercentuais sobre a referência do primeiro gatilho, na direção da operação, antes de custos.\n\nMovimento observado, sem entrada liberada. Aguarde o alerta de confirmação e viabilidade.\nAlerta válido até 09:15:00 BRT.\nAnálise: 14/11/2026 09:13:32 BRT\nPlano: f5c33aa86e7b5d6e26da",
       "watch_stage": 0,
       "watch_symbol": "BNB_USDT"
