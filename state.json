@@ -42036,7 +42036,7 @@
       "text": "🟠 ENTRADA BLOQUEADA\nINJ/USDT • LONG\n🧪 SIMULAÇÃO • Confirmada\nRompimento • 2 fechamentos M1 • volume ≥50%\n\nVolume do segundo M1: 99.5% do primeiro.\nMotivo: A relação entre ganho e perda ficou abaixo do mínimo.\nSem entrada liberada nesta análise.\n\n📍 Faixa do plano: 8.032 a 8.058\n🛑 Stop: 7.987\n🎯 Alvo: 8.076\n\nEstimativas de taxas, deslizamento e funding; ganho não garantido.\n\n⏱ Nova entrada até 13:28:00 BRT (53s).\nGatilho M1 (segundo fechamento): 13:26:00 BRT\nAnálise: 11/11/2026 13:27:07 BRT\nA validade se aplica a novas entradas.\nPlano: 6e2e72f6fff449eb5d04 • revisão 1"
     },
     "c63da5d66aacab83c203": {
-      "attempts": 0,
+      "attempts": 1,
       "category": "INFO",
       "created_at": 1794670006,
       "expires_at": 1794670020,
@@ -42047,7 +42047,11 @@
         "f006091bc1733da6ae6a"
       ],
       "quote_at": 0,
-      "status": "PENDING",
+      "sent_at": 1794670009,
+      "status": "SENT",
+      "telegram_ids": [
+        3739
+      ],
       "text": "🟡 MOVIMENTO DETECTADO • AINDA SEM CONFIRMAÇÃO\nXLM/USDT • BAIXA (SHORT)\n🧪 SIMULAÇÃO • acompanhamento\n\nRompimento observado no M1 fechado às 12:26:00 BRT.\nPreço de referência do primeiro gatilho: 0.1391.\n\nPrimeiro fechamento além da região identificado.\nFalta o segundo fechamento sustentar o nível, com volume de pelo menos 50% do primeiro.\nApós confirmar, o plano ainda precisa passar pela avaliação financeira.\n\nFaixa em estudo: 0.13886 a 0.13914\n🛑 Stop do plano: 0.13974 (-4.60% bruto em 10x)\n🎯 Alvo do plano: 0.13593 (+22.79% bruto em 10x)\nCenário indicativo sobre a margem em 10x; custos e liquidação ainda não validados.\nMovimento sem alavancagem: TP +2.28% • SL -0.46%.\nPercentuais sobre a referência do primeiro gatilho, na direção da operação, antes de custos.\n\nMovimento observado, sem entrada liberada. Aguarde o alerta de confirmação e viabilidade.\nAlerta válido até 12:27:00 BRT.\nAnálise: 14/11/2026 12:26:46 BRT\nPlano: f006091bc1733da6ae6a",
       "watch_stage": 1,
       "watch_symbol": "XLM_USDT"
