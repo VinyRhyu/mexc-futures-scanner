@@ -19739,13 +19739,17 @@
       "text": "⚪ ATUALIZAÇÃO DOS PLANOS ACOMPANHADOS\n🧪 SIMULAÇÃO\n\n• HYPE/USDT • SHORT: janela expirou\n  Plano: 035dd5e75b9a8abda1ce\n• ETH/USDT • SHORT: janela expirou\n  Plano: 05df6569216ffd323793\n• ETH/USDT • LONG: janela expirou\n  Plano: 0982485fac1360b06088\n• HOT/USDT • LONG: janela expirou\n  Plano: 219fa5954ccdacbbff3d\n• HOT/USDT • SHORT: janela expirou\n  Plano: 47dd0a2dba3b4e648562\n• PEPE/USDT • LONG: janela expirou\n  Plano: 6f71a4c925067513c8be\n\nSem novas entradas por esses planos.\nA expiração não encerra posições já abertas.\nAnálise: 09/11/2026 10:31:31 BRT"
     },
     "5cb57799a04d00d32957": {
-      "attempts": 0,
+      "attempts": 1,
       "category": "INFO",
       "created_at": 1794649916,
       "expires_at": 1794653516,
       "id": "5cb57799a04d00d32957",
       "quote_at": 0,
-      "status": "PENDING",
+      "sent_at": 1794649921,
+      "status": "SENT",
+      "telegram_ids": [
+        3701
+      ],
       "text": "⚪ ATUALIZAÇÃO DOS PLANOS ACOMPANHADOS\n🧪 SIMULAÇÃO\n\n• SUI/USDT • LONG: prazo para nova entrada encerrado\n  Motivo: A janela para uma nova entrada terminou.\n  Plano: 96487398c61651b28380\n• ADA/USDT • LONG: prazo para nova entrada encerrado\n  Motivo: A janela para uma nova entrada terminou.\n  Plano: cdc7ea9ebaa6217ec286\n• BNB/USDT • LONG: prazo para nova entrada encerrado\n  Motivo: A janela para uma nova entrada terminou.\n  Plano: dd70100a9e988e8fe0db\n\nSem novas entradas por esses planos.\nAvisos de movimento não equivalem a entradas liberadas.\nA expiração não encerra uma posição já aberta.\nAnálise: 14/11/2026 06:51:56 BRT"
     },
     "5ce6ae47156059e6486e": {
@@ -34596,7 +34600,7 @@
       "text": "🟠 ENTRADA BLOQUEADA\nLTC/USDT • LONG\n🧪 SIMULAÇÃO • Confirmada\nRompimento • 2 fechamentos M1 • volume ≥50%\n\nVolume do segundo M1: 482.0% do primeiro.\nMotivo: A relação entre ganho e perda ficou abaixo do mínimo.\nSem entrada liberada nesta análise.\n\n📍 Faixa do plano: 49.67 a 49.74\n🛑 Stop: 49.48\n🎯 Alvo: 49.82\n\nEstimativas de taxas, deslizamento e funding; ganho não garantido.\n\n⏱ Nova entrada até 15:23:00 BRT (21s).\nGatilho M1 (segundo fechamento): 15:21:00 BRT\nAnálise: 13/11/2026 15:22:39 BRT\nA validade se aplica a novas entradas.\nPlano: c2a914261c4e981aece3 • revisão 1"
     },
     "a4a013cb852630fdea79": {
-      "attempts": 0,
+      "attempts": 1,
       "category": "INFO",
       "created_at": 1794649916,
       "expires_at": 1794649920,
@@ -34607,7 +34611,11 @@
         "55a3f15da06ff4fdc93a"
       ],
       "quote_at": 0,
-      "status": "PENDING",
+      "sent_at": 1794649920,
+      "status": "SENT",
+      "telegram_ids": [
+        3700
+      ],
       "text": "🟡 MOVIMENTO DETECTADO • AINDA SEM CONFIRMAÇÃO\nAVAX/USDT • ALTA (LONG)\n🧪 SIMULAÇÃO • acompanhamento\n\nRompimento observado no M1 fechado às 06:51:00 BRT.\nPreço de referência do primeiro gatilho: 8.067.\n\nPrimeiro fechamento além da região identificado.\nFalta o segundo fechamento sustentar o nível, com volume de pelo menos 50% do primeiro.\nApós confirmar, o plano ainda precisa passar pela avaliação financeira.\n\nFaixa em estudo: 8.066 a 8.078\n🛑 Stop do plano: 8.036 (-3.84% bruto em 10x)\n🎯 Alvo do plano: 8.099 (+3.97% bruto em 10x)\nCenário indicativo sobre a margem em 10x; custos e liquidação ainda não validados.\nMovimento sem alavancagem: TP +0.40% • SL -0.38%.\nPercentuais sobre a referência do primeiro gatilho, na direção da operação, antes de custos.\n\nMovimento observado, sem entrada liberada. Aguarde o alerta de confirmação e viabilidade.\nAlerta válido até 06:52:00 BRT.\nAnálise: 14/11/2026 06:51:56 BRT\nPlano: 55a3f15da06ff4fdc93a",
       "watch_stage": 1,
       "watch_symbol": "AVAX_USDT"
@@ -50944,7 +50952,7 @@
         "4224b266fac0bf7f0508"
       ],
       "quote_at": 0,
-      "status": "PENDING",
+      "status": "EXPIRED",
       "text": "🟡 MOVIMENTO DETECTADO • ENTRADA BLOQUEADA\nBTC/USDT • ALTA (LONG)\n🧪 SIMULAÇÃO • acompanhamento\n\nRompimento observado no M1 fechado às 06:50:00 BRT.\nPreço de referência do primeiro gatilho: 67379.2.\n\nConfirmação técnica identificada; entrada bloqueada.\nCondição pendente: Os custos estão altos demais em relação ao risco.\n\nFaixa em estudo: 67363 a 67442.4\n🛑 Stop do plano: 67211.1 (-2.49% bruto em 10x)\n🎯 Alvo do plano: 67737.2 (+5.31% bruto em 10x)\nCenário indicativo sobre a margem em 10x; custos e liquidação ainda não validados.\nMovimento sem alavancagem: TP +0.53% • SL -0.25%.\nPercentuais sobre a referência do primeiro gatilho, na direção da operação, antes de custos.\n\nMovimento observado, sem entrada liberada. Aguarde o alerta de confirmação e viabilidade.\nAlerta válido até 06:52:00 BRT.\nAnálise: 14/11/2026 06:51:56 BRT\nPlano: 4224b266fac0bf7f0508",
       "watch_stage": 0,
       "watch_symbol": "BTC_USDT"
@@ -51815,7 +51823,7 @@
         "052eaca3f78927e7b237"
       ],
       "quote_at": 0,
-      "status": "PENDING",
+      "status": "EXPIRED",
       "text": "🟡 MOVIMENTO DETECTADO • AINDA SEM CONFIRMAÇÃO\nWLD/USDT • ALTA (LONG)\n🧪 SIMULAÇÃO • acompanhamento\n\nRompimento observado no M1 fechado às 06:51:00 BRT.\nPreço de referência do primeiro gatilho: 0.2831.\n\nPrimeiro fechamento além da região identificado.\nFalta o segundo fechamento sustentar o nível, com volume de pelo menos 50% do primeiro.\nApós confirmar, o plano ainda precisa passar pela avaliação financeira.\n\nFaixa em estudo: 0.283 a 0.2836\n🛑 Stop do plano: 0.2815 (-5.65% bruto em 10x)\n🎯 Alvo do plano: 0.2861 (+10.60% bruto em 10x)\nCenário indicativo sobre a margem em 10x; custos e liquidação ainda não validados.\nMovimento sem alavancagem: TP +1.06% • SL -0.57%.\nPercentuais sobre a referência do primeiro gatilho, na direção da operação, antes de custos.\n\nMovimento observado, sem entrada liberada. Aguarde o alerta de confirmação e viabilidade.\nAlerta válido até 06:52:00 BRT.\nAnálise: 14/11/2026 06:51:56 BRT\nPlano: 052eaca3f78927e7b237",
       "watch_stage": 1,
       "watch_symbol": "WLD_USDT"
