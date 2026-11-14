@@ -5069,7 +5069,7 @@
       "text": "🟠 ENTRADA BLOQUEADA\nWLD/USDT • SHORT\n🧪 SIMULAÇÃO • Confirmada\nRompimento de consolidação\n\nMotivo: A relação entre ganho e perda ficou abaixo do mínimo.\nSem entrada liberada nesta análise.\n\n📍 Faixa do plano: 0.3181 a 0.3193\n🛑 Stop: 0.322\n🎯 Alvo: 0.3147\n\nEstimativas de taxas, deslizamento e funding; ganho não garantido.\n\n⏱ Nova entrada até 14:00:00 BRT (13min 28s).\nGatilho 15m: 13:45:00 BRT\nAnálise: 09/11/2026 13:46:32 BRT\nA validade se aplica a novas entradas.\nPlano: cf403cdf8fada25342a5 • revisão 2"
     },
     "18cb33edf43b37a1eeee": {
-      "attempts": 0,
+      "attempts": 1,
       "category": "INFO",
       "created_at": 1794640946,
       "expires_at": 1794640980,
@@ -5080,7 +5080,11 @@
         "f0adfed29bd99ccba4a0"
       ],
       "quote_at": 0,
-      "status": "PENDING",
+      "sent_at": 1794640950,
+      "status": "SENT",
+      "telegram_ids": [
+        3677
+      ],
       "text": "🟡 MOVIMENTO DETECTADO • ENTRADA BLOQUEADA\nBNB/USDT • BAIXA (SHORT)\n🧪 SIMULAÇÃO • acompanhamento\n\nRompimento observado no M1 fechado às 04:21:00 BRT.\nPreço de referência do primeiro gatilho: 615.91.\n\nConfirmação técnica identificada; entrada bloqueada.\nCondição pendente: A relação entre ganho e perda ficou abaixo do mínimo.\n\nFaixa em estudo: 615.2 a 616.62\n🛑 Stop do plano: 618.78 (-4.66% bruto em 10x)\n🎯 Alvo do plano: 613.17 (+4.45% bruto em 10x)\nCenário indicativo sobre a margem em 10x; custos e liquidação ainda não validados.\nMovimento sem alavancagem: TP +0.44% • SL -0.47%.\nPercentuais sobre a referência do primeiro gatilho, na direção da operação, antes de custos.\n\nMovimento observado, sem entrada liberada. Aguarde o alerta de confirmação e viabilidade.\nAlerta válido até 04:23:00 BRT.\nAnálise: 14/11/2026 04:22:26 BRT\nPlano: f0adfed29bd99ccba4a0",
       "watch_stage": 0,
       "watch_symbol": "BNB_USDT"
