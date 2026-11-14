@@ -12478,7 +12478,7 @@
       "text": "⚪ ATUALIZAÇÃO DOS PLANOS ACOMPANHADOS\n🧪 SIMULAÇÃO\n\n• AVAX/USDT • LONG: janela expirou\n  Plano: 255d565a2949abb18147\n• TAO/USDT • SHORT: janela expirou\n  Plano: 2c8d896acb0f54ebf76b\n• ADA/USDT • SHORT: janela expirou\n  Plano: 2eb1e63b680377049b73\n• XLM/USDT • LONG: janela expirou\n  Plano: 786cfd4ecd4bf13f8d4a\n• XRP/USDT • LONG: janela expirou\n  Plano: c74d0598f7363dca7c8a\n• ADA/USDT • LONG: janela expirou\n  Plano: d6dcaaaf81dea5dde7c7\n\nSem novas entradas por esses planos.\nA expiração não encerra posições já abertas.\nAnálise: 10/11/2026 16:01:39 BRT"
     },
     "3cdef544c08106016471": {
-      "attempts": 0,
+      "attempts": 1,
       "category": "INFO",
       "created_at": 1794622546,
       "expires_at": 1794622560,
@@ -12489,7 +12489,11 @@
         "25a70132a2226652144f"
       ],
       "quote_at": 0,
-      "status": "PENDING",
+      "sent_at": 1794622550,
+      "status": "SENT",
+      "telegram_ids": [
+        3618
+      ],
       "text": "🟡 MOVIMENTO DETECTADO • ENTRADA BLOQUEADA\nBNB/USDT • BAIXA (SHORT)\n🧪 SIMULAÇÃO • acompanhamento\n\nRompimento observado no M1 fechado às 23:14:00 BRT.\nPreço de referência do primeiro gatilho: 629.8.\n\nConfirmação técnica identificada; entrada bloqueada.\nCondição pendente: A relação entre ganho e perda ficou abaixo do mínimo.\n\nFaixa em estudo: 629.3 a 629.97\n🛑 Stop do plano: 631.2 (-2.22% bruto em 10x)\n🎯 Alvo do plano: 629.21 (+0.94% bruto em 10x)\nCenário indicativo sobre a margem em 10x; custos e liquidação ainda não validados.\nMovimento sem alavancagem: TP +0.094% • SL -0.22%.\nPercentuais sobre a referência do primeiro gatilho, na direção da operação, antes de custos.\n\nMovimento observado, sem entrada liberada. Aguarde o alerta de confirmação e viabilidade.\nAlerta válido até 23:16:00 BRT.\nAnálise: 13/11/2026 23:15:46 BRT\nPlano: 25a70132a2226652144f",
       "watch_stage": 0,
       "watch_symbol": "BNB_USDT"
@@ -27208,7 +27212,7 @@
       "text": "🟠 ENTRADA BLOQUEADA\nETH/USDT • LONG\n🧪 SIMULAÇÃO • Antecipada\nRompimento de consolidação\n\nMotivo: A relação entre ganho e perda ficou abaixo do mínimo.\nSem entrada liberada nesta análise.\n\n📍 Faixa do plano: 2049.94 a 2054.1\n🛑 Stop: 2042.47\n🎯 Alvo: 2073.85\n\nEstimativas de taxas, deslizamento e funding; ganho não garantido.\n\n⏱ Nova entrada até 18:00:00 BRT (28min 25s).\nGatilho 15m: 17:30:00 BRT\nAnálise: 10/11/2026 17:31:35 BRT\nA validade se aplica a novas entradas.\nPlano: 4d5010b87c35ee939d04 • revisão 1"
     },
     "849f2133d481ba24acac": {
-      "attempts": 0,
+      "attempts": 1,
       "category": "INFO",
       "created_at": 1794622546,
       "expires_at": 1794622560,
@@ -27219,7 +27223,11 @@
         "49b9bcd288fdf567c0b0"
       ],
       "quote_at": 0,
-      "status": "PENDING",
+      "sent_at": 1794622551,
+      "status": "SENT",
+      "telegram_ids": [
+        3619
+      ],
       "text": "🟡 MOVIMENTO DETECTADO • AINDA SEM CONFIRMAÇÃO\nETH/USDT • BAIXA (SHORT)\n🧪 SIMULAÇÃO • acompanhamento\n\nRompimento observado no M1 fechado às 23:15:00 BRT.\nPreço de referência do primeiro gatilho: 1921.53.\n\nPrimeiro fechamento além da região identificado.\nFalta o segundo fechamento sustentar o nível, com volume de pelo menos 50% do primeiro.\nApós confirmar, o plano ainda precisa passar pela avaliação financeira.\n\nFaixa em estudo: 1919.63 a 1922.04\n🛑 Stop do plano: 1926.63 (-2.65% bruto em 10x)\n🎯 Alvo do plano: 1915.31 (+3.24% bruto em 10x)\nCenário indicativo sobre a margem em 10x; custos e liquidação ainda não validados.\nMovimento sem alavancagem: TP +0.32% • SL -0.27%.\nPercentuais sobre a referência do primeiro gatilho, na direção da operação, antes de custos.\n\nMovimento observado, sem entrada liberada. Aguarde o alerta de confirmação e viabilidade.\nAlerta válido até 23:16:00 BRT.\nAnálise: 13/11/2026 23:15:46 BRT\nPlano: 49b9bcd288fdf567c0b0",
       "watch_stage": 1,
       "watch_symbol": "ETH_USDT"
