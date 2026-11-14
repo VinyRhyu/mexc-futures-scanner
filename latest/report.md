@@ -1,6 +1,6 @@
 # MEXC Futures Scanner — rodada
 
-Modo: **paper**. Análise: 14/11/2026 10:26:39 BRT.
+Modo: **paper**. Análise: 14/11/2026 10:28:21 BRT.
 
 Fonte: OK
 Cobertura: 30/30 contratos selecionados.
