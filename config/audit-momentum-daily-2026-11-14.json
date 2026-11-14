@@ -1,0 +1,48 @@
+{
+  "name": "RELATIVE_MOMENTUM_7D_DAILY_V1",
+  "evaluation_start_utc": 1783036800,
+  "evaluation_end_utc": 1790812800,
+  "validation_start_utc": 1788220800,
+  "warmup_start_utc": 1780444800,
+  "evaluation_days": 90,
+  "first_segment_days": 60,
+  "validation_days": 30,
+  "universe": "Fixed 26 currently listed/liquid symbols from previous audit; survival and current-universe selection bias explicitly retained, no whole-market claim",
+  "data": "Hourly OHLCV, current contract rules, historical funding settlements; only complete histories used",
+  "eligibility": "At decision: seven complete prior UTC days, 14-day ATR, prior24h notional proxy >=5000000USDT (vol * current contractSize * H1 close)",
+  "ranking": "Prior7day close-to-close return; choose top floor(N*0.20) positive-return names for LONG and bottom floor(N*0.20) negative-return names for SHORT, min1; ties symbol",
+  "entry": "01:00 UTC after 00:00 UTC decision; weights and side fixed from information available at 00:00",
+  "sizing": "Half nominal budget per tail, equal slots; absent-sign slots stay cash; no redistribution; per-name cap20%; scale down to gross<=1x equity and expected aggregate stop risk including modeled trading costs<=2%equity",
+  "reference_equity_usdt": 1000,
+  "leverage": "No leverage amplification in primary replay; not a validation of bot floor10x or a1USDT account",
+  "rounding": "Current contract min/step/max rules; floor quantity, skip below minimum; no post-skip redistribution",
+  "stop": "2*ATR14 simple mean of daily true ranges known at decision, fixed from entry mid; close at stop with adverse gap; skip nonpositive LONG stop",
+  "exit": "Stop or next daily01:00UTC exit, whichever first; flatten and reopen each day even if rank persists; no fixed TP and no prospective TP-based RR gate",
+  "costs": {
+    "fee_per_execution": "0.0006",
+    "spread_total": "0.0002",
+    "slippage_each_execution": "max(0.0002*mid,2*current_tick)",
+    "funding": "Observed signed funding settlements during holding using H1 marks; conservative intrahour stop/funding ordering; separately report costs"
+  },
+  "intrabar": "H1 stop timing coarse; stop at open for adverse gap, otherwise assume hour-end for timestamp; ignore funding credits if intrahour ordering with stop unknown; do not charge settlements at hour-end after an intrahour stop",
+  "funding_coverage": "Require history before entry start and after end and no unexplained gap above8h across test; report coverage exclusions; do not fill missing funding with zero",
+  "validation": "Rules frozen before fetching results; last30days untouched by this model's rule selection; dates precede Oct/Nov intraday samples; no reoptimization after split",
+  "metrics": [
+    "net return",
+    "hourly-marked maximum drawdown",
+    "trade win rate after trading costs and funding",
+    "profit factor",
+    "fees and funding separately",
+    "per-side performance",
+    "lot feasibility at1USDT"
+  ],
+  "comparison": "BTC buy-and-hold1x contextual benchmark with same execution costs/funding, different risk exposure explicitly noted",
+  "exclude": [
+    "EMA trend filter",
+    "RSI",
+    "candlestick patterns",
+    "TP targets",
+    "parameter grid",
+    "production changes"
+  ]
+}

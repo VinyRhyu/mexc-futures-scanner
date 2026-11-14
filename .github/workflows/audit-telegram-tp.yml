@@ -1,4 +1,4 @@
-name: Coletar M1 completo para estrutura e reteste
+name: Coletar histórico para momentum diário
 on:
   push:
     branches: ['audit/tp-hype-link-2026-11-14']
@@ -8,7 +8,7 @@ permissions:
 jobs:
   prices:
     runs-on: ubuntu-latest
-    timeout-minutes: 6
+    timeout-minutes: 14
     steps:
       - uses: actions/checkout@v7.0.1
         with:
@@ -16,36 +16,69 @@ jobs:
       - uses: actions/setup-python@v7
         with:
           python-version: '3.12'
-      - name: Ler M1 histórico com aquecimento sem ordens ou Telegram
+      - name: Buscar preços e funding públicos, sem ordens ou Telegram
         run: |
           python - <<'PY'
-          import json
+          import json,gzip
           from pathlib import Path
+          from concurrent.futures import ThreadPoolExecutor,as_completed
           from mexc_scanner.mexc import MexcClient
           from mexc_scanner.market import parse_candles
-          from mexc_scanner.models import jsonable
-          cohort = json.loads(Path('config/audit-day-confirmed-2026-11-14.json').read_text())
-          first = json.loads(Path('config/audit-telegram-tp-2026-11-14.json').read_text())['day_start']
-          cutoff = cohort['price_cutoff']
-          client = MexcClient()
-          captured = client.server_time()
-          assert captured >= cutoff+10
-          start = first - 21600
-          output = Path('reports/structure-retest-source')
-          output.mkdir(parents=True, exist_ok=True)
-          for symbol in sorted({r['symbol'] for r in cohort['records']}):
-              raw = client._get('/api/v1/contract/kline/'+symbol,
-                                dict(interval='Min1', start=start, end=cutoff+10))
-              bars = parse_candles(raw, 60, cutoff+10)
-              assert bars[0].ts == start and bars[-1].end == cutoff
-              record = dict(symbol=symbol, captured_at=captured, day_start=first,
-                            price_cutoff=cutoff, candles=jsonable(bars))
-              (output / (symbol+'.json')).write_text(json.dumps(record))
-              print(json.dumps(dict(symbol=symbol, candles=len(bars), first=bars[0].ts,
-                                    last=bars[-1].end)), flush=True)
+          from mexc_scanner.models import jsonable,seconds,Contract
+          p=json.loads(Path('config/audit-momentum-daily-2026-11-14.json').read_text())
+          old=json.loads(Path('config/audit-day-confirmed-2026-11-14.json').read_text())
+          symbols=sorted({r['symbol'] for r in old['records']})
+          client=MexcClient()
+          captured=client.server_time()
+          catalog={r['symbol']:r for r in client.contracts()}
+          start=p['warmup_start_utc'];end=p['evaluation_end_utc']+3600
+          out=Path('reports/momentum-daily-source');out.mkdir(parents=True,exist_ok=True)
+          manifest=dict(captured_at=captured,start=start,end=end,symbols=symbols,ok={},errors={})
+          def collect(symbol):
+              row=catalog[symbol];Contract.from_api(row)
+              cursor=start;bars=[]
+              while cursor<end:
+                  chunk=min(cursor+1800*3600,end)
+                  raw=client._get('/api/v1/contract/kline/'+symbol,dict(interval='Min60',start=cursor,end=chunk))
+                  part=[c for c in parse_candles(raw,3600,chunk+10) if cursor<=c.ts and c.end<=chunk]
+                  assert len(part)==(chunk-cursor)//3600, ('hourly_coverage',symbol,cursor,len(part))
+                  bars.extend(part);cursor=chunk
+              assert all(a.end==b.ts for a,b in zip(bars,bars[1:]))
+              funding={};pages=0
+              for page in range(1,7):
+                  data=client._get('/api/v1/contract/funding_rate/history',dict(symbol=symbol,page_num=page,page_size=1000))
+                  items=data.get('resultList',[])
+                  if not items:break
+                  for f in items:
+                      ts=seconds(f['settleTime'])
+                      assert f.get('symbol',symbol)==symbol
+                      if ts in funding:assert str(funding[ts]['fundingRate'])==str(f['fundingRate'])
+                      funding[ts]=f
+                  pages=page
+                  if min(funding)<=start or page>=int(data.get('totalPage',page)):break
+              keep=[dict(ts=t,rate=f['fundingRate'],cycle=f.get('collectCycle')) for t,f in sorted(funding.items()) if start-86400<=t<=end+86400]
+              record=jsonable(dict(symbol=symbol,contract=row,hourly=bars,funding=keep,
+                                   funding_earliest=min(funding) if funding else None,
+                                   funding_latest=max(funding) if funding else None,funding_pages=pages))
+              with gzip.open(out/(symbol+'.json.gz'),'wt') as f:json.dump(record,f)
+              return dict(symbol=symbol,hours=len(bars),funding=len(keep),funding_pages=pages,
+                          earliest=record['funding_earliest'],latest=record['funding_latest'])
+          with ThreadPoolExecutor(max_workers=4) as pool:
+              futures={pool.submit(collect,s):s for s in symbols}
+              for future in as_completed(futures):
+                  symbol=futures[future]
+                  try:
+                      result=future.result();manifest['ok'][symbol]=result
+                      print(json.dumps(result),flush=True)
+                  except Exception as exc:
+                      manifest['errors'][symbol]=type(exc).__name__+': '+str(exc)[:180]
+                      print(json.dumps(dict(symbol=symbol,error=manifest['errors'][symbol])),flush=True)
+          (out/'manifest.json').write_text(json.dumps(manifest,indent=2))
+          assert len(manifest['ok'])>=20,manifest['errors']
           PY
       - uses: actions/upload-artifact@v7.0.2
+        if: always()
         with:
-          name: structure-retest-source-2026-11-14
-          path: reports/structure-retest-source/
-          retention-days: 14
+          name: momentum-daily-source-2026-11-14
+          path: reports/momentum-daily-source/
+          retention-days: 30
