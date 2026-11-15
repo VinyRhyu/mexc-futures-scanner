@@ -7882,13 +7882,17 @@
       "text": "🟠 ENTRADA BLOQUEADA\nLTC/USDT • LONG\n🧪 SIMULAÇÃO • Confirmada\nRompimento • 2 fechamentos M1 • volume ≥50%\n\nVolume do segundo M1: 482.0% do primeiro.\nMotivo: A relação entre ganho e perda ficou abaixo do mínimo.\nSem entrada liberada nesta análise.\n\n📍 Faixa do plano: 49.68 a 49.74\n🛑 Stop: 49.47\n🎯 Alvo: 49.81\n\nEstimativas de taxas, deslizamento e funding; ganho não garantido.\n\n⏱ Nova entrada até 15:23:00 BRT (21s).\nGatilho M1 (segundo fechamento): 15:21:00 BRT\nAnálise: 13/11/2026 15:22:39 BRT\nA validade se aplica a novas entradas.\nPlano: b7571c6de1eeaa8116e5 • revisão 1"
     },
     "190eb521350a7f5e375b": {
-      "attempts": 0,
+      "attempts": 1,
       "category": "INFO",
       "created_at": 1794772748,
       "expires_at": 1794776348,
       "id": "190eb521350a7f5e375b",
       "quote_at": 0,
-      "status": "PENDING",
+      "sent_at": 1794772756,
+      "status": "SENT",
+      "telegram_ids": [
+        5494
+      ],
       "text": "⚪ ATUALIZAÇÃO DOS PLANOS ACOMPANHADOS\n🧪 SIMULAÇÃO\n\n• SEI/USDT • LONG: confirmação não aprovada\n  Motivo: O segundo fechamento M1 perdeu o nível do gatilho.\n  Plano: 9219ff97911d6ad1f4de\n\nSem novas entradas por esses planos.\nAvisos de movimento não equivalem a entradas liberadas.\nA expiração não encerra uma posição já aberta.\nAnálise: 15/11/2026 16:59:08 BRT"
     },
     "190f483669fb74e4fb87": {
@@ -40525,7 +40529,7 @@
       "watch_symbol": "AAVE_USDT"
     },
     "75267d372706a7b454d5": {
-      "attempts": 0,
+      "attempts": 1,
       "category": "INFO",
       "created_at": 1794772748,
       "expires_at": 1794773700,
@@ -40534,7 +40538,11 @@
         "1ab65b6375bc4eacd313"
       ],
       "quote_at": 0,
-      "status": "PENDING",
+      "sent_at": 1794772756,
+      "status": "SENT",
+      "telegram_ids": [
+        5493
+      ],
       "text": "👀 PLANO EM PREPARAÇÃO • AGUARDANDO GATILHO\nSEI/USDT\n🧪 SIMULAÇÃO • acompanhamento\n\nRegião em análise: 0.03868 a 0.03942\nSHORT somente se houver fechamento M1 abaixo de ≈ 0.0386533.\n\nConfirmação: dois fechamentos M1 consecutivos além do gatilho; volume do segundo de pelo menos 50% do primeiro.\nTP, SL e percentuais serão definidos no primeiro gatilho. A confirmação ainda precisa passar pela avaliação financeira.\n\nSem rompimento observado neste plano e sem entrada liberada.\nPreparação até 17:15:00 BRT.\nAnálise: 15/11/2026 16:59:08 BRT\nPlanos: 1ab65b6375bc4eacd313",
       "watch_stage": 2,
       "watch_symbol": "SEI_USDT"
