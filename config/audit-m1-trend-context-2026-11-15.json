@@ -1,0 +1,29 @@
+{
+  "name": "M1_VOLUME50_H1_H2_STRUCTURE_STRATIFICATION_V1",
+  "frozen_at_utc": "2026-11-15T12:12:01.466254+00:00",
+  "source_run": 42879077420,
+  "source_artifact": 13792493410,
+  "source_zip_sha256": "5a7e790fcd10db9cabe7bb8303343f94c30b06b2bf761e4181dd39a70486548c",
+  "period_brt": "2026-10-25T00:00:00-03:00 to2026-11-08T00:00:00-03:00 exclusive",
+  "signal_model": "m1_volume50_v1 unmodified process_minutes; original formations including overlapping setups; no future activation restriction for historical replay",
+  "primary": "All historical CONFIRMADA variants from production signal generator; hypothetical immediate next-M1-open entry, active paper config/default.toml and frozen historical contracts. Financially blocked cases retained in counts; entered cases grouped by trend. No portfolio simulation.",
+  "compatibility": "Reprice confirmations with original archived paper config and require all28 original volume-retained entries and outcomes to reproduce before interpretation. Original minRR2 vs active minRR1, original leverage minimum1 versus active10 must be disclosed.",
+  "context": "Last240 completed H1 candles known at second trigger close. structure() from production with confirmed pivots; H2 aggregated from those closed H1 bars. No EMA or added confirmation.",
+  "joint_groups": {
+    "A_FAVOR": "H1 and H2 both ALTA for LONG or both BAIXA for SHORT",
+    "CONTRA": "H1 and H2 both opposite side",
+    "MISTO": "One known trend aligned and other known opposite",
+    "SEM_DIRECAO": "At least one timeframe INDEFINIDA or DESCONHECIDA"
+  },
+  "individual_groups": "For H1 and H2 separately: aligned, opposite, no defined structure.",
+  "primary_outcomes": "TP, SL with SL priority within sameM1, open/censored after4h. TP hit rate only among TP+SL, open counts explicit. Net R and net_usdt descriptive independent signals, not wallet ROI.",
+  "dependence": "Report full formations and deduplicate exact symbol/side/signal/stop/target entries; group stats both. Also two calendar weeks without choosing best subset.",
+  "scope": "Classify first, no deployment or new filtering policy. Keep entry time, target and stop fixed within each reconstructed cohort; no trend-conditioned level changes.",
+  "limitations": [
+    "Retrospective source31 liquid survivors, frozen contracts and synthetic book/spread, funding zero per existing4h replay.",
+    "Source contains no historical Fair-price M1 or order book; liquidation clearance estimated at entry only, not realized liquidation engine.",
+    "Historical immediate-next-open latency does not reproduce GitHub queue or Telegram delivery.",
+    "Open trades after4h are not losses or wins; overlapping formations correlated.",
+    "No parameter sweep and no prospective validation."
+  ]
+}
