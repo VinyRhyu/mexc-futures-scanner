@@ -14,18 +14,29 @@ def liquidation_level(entry,sign,leverage,mmr,liq_fee):
     return entry*(1-D(sign)/leverage+sign*(mmr+liq_fee))
 
 
-def prepare_week(signals,market,at,equity,leverage,risk_fraction):
+def prepare_week(signals,market,at,equity,leverage,risk_fraction,stop_buffer=None):
     candidates=[];skips=Counter()
     for s in signals:
         c=market[s['symbol']]['contract'];mid=market[s['symbol']]['hourly'][at].open;sign=s['sign']
         if leverage>c.max_leverage:skips['LEVERAGE_CAP']+=1;continue
         stop=mid-sign*2*s['atr14']
         if stop<=0:skips['INVALID_STOP']+=1;continue
-        entry=fill(mid,sign,c.tick);stop_fill=fill(stop,-sign,c.tick)
+        entry=fill(mid,sign,c.tick)
+        original_stop=stop
+        if stop_buffer is not None:
+            if stop_buffer <= 1:raise ValueError('Liquidation buffer must exceed one')
+            initial_mmr,_=c.margin_tier(c.min_volume)
+            liq_fee=c.liquidation_fee if c.liquidation_fee is not None else FEE
+            initial_liq=liquidation_level(entry,sign,leverage,initial_mmr,liq_fee)
+            safe_distance=sign*(entry-initial_liq)/stop_buffer
+            if safe_distance<=0:raise ValueError('No safe liquidation distance')
+            stop=entry-sign*min(sign*(entry-original_stop),safe_distance)
+        stop_fill=fill(stop,-sign,c.tick)
         unit_risk=sign*(entry-stop_fill)+FEE*(entry+stop_fill)
         if unit_risk<=0:skips['INVALID_RISK']+=1;continue
         candidates.append(dict(s,contract=c,entry_mid=mid,entry_fill=entry,stop=stop,
-                               unit_risk=unit_risk,intended_notional=equity*s['weight']*leverage))
+                               original_stop=original_stop,unit_risk=unit_risk,
+                               intended_notional=equity*s['weight']*leverage))
     gross=sum((s['intended_notional'] for s in candidates),D(0))
     risk=sum((s['intended_notional']/s['entry_fill']*s['unit_risk'] for s in candidates),D(0))
     scale=min(D(1),equity/(gross/leverage+2*FEE*gross) if gross else D(1),
@@ -36,6 +47,8 @@ def prepare_week(signals,market,at,equity,leverage,risk_fraction):
         if n<c.min_volume:skips['MIN_LOT']+=1;continue
         if n>c.max_volume:skips['MAX_LOT']+=1;continue
         mmr,tier=c.margin_tier(n)
+        if stop_buffer is not None and mmr!=c.margin_tier(c.min_volume)[0]:
+            raise ValueError('Sizing changed margin tier; recalculate capped stop before proceeding')
         if leverage>tier:skips['TIER_LEVERAGE']+=1;continue
         qty=n*c.size;notional=qty*s['entry_fill'];margin=notional/leverage
         liq_fee=c.liquidation_fee if c.liquidation_fee is not None else FEE
@@ -49,6 +62,10 @@ def prepare_week(signals,market,at,equity,leverage,risk_fraction):
             leverage=leverage,liquidation_price=liq,maintenance_rate=mmr,liquidation_fee_rate=liq_fee,
             stop_before_liquidation=s['sign']*(s['stop']-liq)>0,
             has_1_5_liquidation_buffer=liq_distance>=D('1.5')*stop_distance))
+        if stop_buffer is not None:
+            positions[-1].update(original_stop=s['original_stop'],stop_buffer=stop_buffer,
+                                stop_adjusted=s['stop']!=s['original_stop'])
+            assert positions[-1]['has_1_5_liquidation_buffer']
     assert sum((t['planned_risk'] for t in positions),D(0))<=equity*risk_fraction+D('1E-18')
     assert sum((t['isolated_margin']+2*t['entry_fee'] for t in positions),D(0))<=equity+D('1E-18')
     return positions,dict(skips)
@@ -102,7 +119,8 @@ def simulate_week(market,p,leverage):
         prefix={s:dict(m,hourly={t:b for t,b in m['hourly'].items() if b.end<=day},
                         daily={t:b for t,b in m['daily'].items() if b.end<=day}) for s,m in market.items()}
         assert jsonable(select(prefix,day))==jsonable((signals,ranking));checks+=1
-        active,skip=prepare_week(signals,market,at,cash,D(leverage),D(p['portfolio_risk_fraction']))
+        buffer=D(p['liquidation_stop_buffer']) if p.get('liquidation_stop_buffer') else None
+        active,skip=prepare_week(signals,market,at,cash,D(leverage),D(p['portfolio_risk_fraction']),buffer)
         skips.update(skip);notional=sum((t['initial_notional'] for t in active),D(0))
         margin=sum((t['isolated_margin'] for t in active),D(0));risk=sum((t['planned_risk'] for t in active),D(0))
         cash-=sum((t['entry_fee'] for t in active),D(0));day_trades=[]
