@@ -25386,7 +25386,7 @@
       "text": "🟠 ENTRADA BLOQUEADA\nDOT/USDT • SHORT\n🧪 SIMULAÇÃO • Confirmada\nContinuação após correção\n\nMotivo: O preço está fora da faixa permitida.\nSem entrada liberada nesta análise.\n\n📍 Faixa do plano: 0.869 a 0.8703\n🛑 Stop: 0.8807\n🎯 Alvo: 0.8412\n\nEstimativas de taxas, deslizamento e funding; ganho não garantido.\n\n⏱ Nova entrada até 02:15:00 BRT (13min 29s).\nGatilho 15m: 02:00:00 BRT\nCotação: 02:01:27 BRT\nAnálise: 09/11/2026 02:01:31 BRT\nA validade se aplica a novas entradas.\nPlano: 0b5e63e523bdbdeefb61 • revisão 2"
     },
     "483e22a32c3cec290701": {
-      "attempts": 0,
+      "attempts": 1,
       "category": "INFO",
       "created_at": 1794776746,
       "expires_at": 1794776760,
@@ -25397,7 +25397,11 @@
         "43d0d97ccb96e1cb3d59"
       ],
       "quote_at": 0,
-      "status": "PENDING",
+      "sent_at": 1794776751,
+      "status": "SENT",
+      "telegram_ids": [
+        5602
+      ],
       "text": "🟡 MOVIMENTO DETECTADO • ENTRADA BLOQUEADA\nTAO/USDT • ALTA (LONG)\n🧪 SIMULAÇÃO • acompanhamento\n\nRompimento observado no M1 fechado às 18:04:00 BRT.\nPreço de referência do primeiro gatilho: 193.54.\n\nConfirmação técnica identificada; entrada bloqueada.\nCondição pendente: O preço está fora da faixa permitida.\n\nFaixa em estudo: 193.43 a 193.84\n🛑 Stop do plano: 192.68 (-4.44% bruto em 10x)\n🎯 Alvo do plano: 195.11 (+8.11% bruto em 10x)\nCenário indicativo sobre a margem em 10x; custos e liquidação ainda não validados.\nMovimento sem alavancagem: TP +0.81% • SL -0.44%.\nPercentuais sobre a referência do primeiro gatilho, na direção da operação, antes de custos.\n\nMovimento observado, sem entrada liberada. Aguarde o alerta de confirmação e viabilidade.\nAlerta válido até 18:06:00 BRT.\nAnálise: 15/11/2026 18:05:46 BRT\nPlano: 43d0d97ccb96e1cb3d59",
       "watch_stage": 0,
       "watch_symbol": "TAO_USDT"
@@ -39339,7 +39343,7 @@
       "text": "👀 POSSÍVEL ENTRADA • AGUARDAR GATILHO\nHYPE/USDT • LONG\n🧪 SIMULAÇÃO\nRompimento de consolidação\n\nRegião de atenção ≈ 70.375 a 72.358\n\nAntecipada: Primeiro fechamento de 15m acima da faixa, com a tolerância do plano.\nConfirmada: O candle de 15m imediatamente seguinte mantém o rompimento.\nCada modalidade é avaliada de forma independente.\n\nPreparação válida até 15:30:00 BRT (13min 30s).\nAnálise: 10/11/2026 15:16:30 BRT\nPlano: c44f5da723a857e427f3 • revisão 0"
     },
     "6f4e9db16a7ccc3be515": {
-      "attempts": 0,
+      "attempts": 1,
       "category": "INFO",
       "created_at": 1794776746,
       "expires_at": 1794778200,
@@ -39348,7 +39352,11 @@
         "60f9fb48787e1dc86f6f"
       ],
       "quote_at": 0,
-      "status": "PENDING",
+      "sent_at": 1794776751,
+      "status": "SENT",
+      "telegram_ids": [
+        5603
+      ],
       "text": "👀 PLANO EM PREPARAÇÃO • AGUARDANDO GATILHO\nJUP/USDT\n🧪 SIMULAÇÃO • acompanhamento\n\nRegião em análise: 0.2609 a 0.2664\nSHORT somente se houver fechamento M1 abaixo de ≈ 0.260691.\n\nConfirmação: dois fechamentos M1 consecutivos além do gatilho; volume do segundo de pelo menos 50% do primeiro.\nTP, SL e percentuais serão definidos no primeiro gatilho. A confirmação ainda precisa passar pela avaliação financeira.\n\nSem rompimento observado neste plano e sem entrada liberada.\nPreparação até 18:30:00 BRT.\nAnálise: 15/11/2026 18:05:46 BRT\nPlanos: 60f9fb48787e1dc86f6f",
       "watch_stage": 2,
       "watch_symbol": "JUP_USDT"
@@ -63241,13 +63249,17 @@
       "watch_symbol": "APT_USDT"
     },
     "b400db9b657bc7b3e5ab": {
-      "attempts": 0,
+      "attempts": 1,
       "category": "INFO",
       "created_at": 1794776746,
       "expires_at": 1794780346,
       "id": "b400db9b657bc7b3e5ab",
       "quote_at": 0,
-      "status": "PENDING",
+      "sent_at": 1794776752,
+      "status": "SENT",
+      "telegram_ids": [
+        5604
+      ],
       "text": "⚪ ATUALIZAÇÃO DOS PLANOS ACOMPANHADOS\n🧪 SIMULAÇÃO\n\n• JUP/USDT • LONG: alvo do plano alcançado durante o acompanhamento\n  Motivo: O movimento já alcançou o alvo do plano.\n  Plano: 0d622e837c7ed950d82a\n\nSem novas entradas por esses planos.\nAvisos de movimento não equivalem a entradas liberadas.\nA expiração não encerra uma posição já aberta.\nAnálise: 15/11/2026 18:05:46 BRT"
     },
     "b407d067f2e99aa1c7c3": {
