@@ -1,0 +1,4443 @@
+{
+  "experiment": "RELATIVE_MOMENTUM_7D_LAST_WEEK_10X_100_V1",
+  "protocol": {
+    "name": "RELATIVE_MOMENTUM_7D_LAST_WEEK_10X_100_V1",
+    "evaluation_start_utc": 1794009600,
+    "evaluation_end_utc": 1794614400,
+    "warmup_start_utc": 1791417600,
+    "reference_equity_usdt": 100,
+    "leverage": 10,
+    "portfolio_risk_fraction": "0.02",
+    "period_note": "Seven completed daily01UTC-to01UTC cycles; freeze before collecting; current incomplete cycle excluded",
+    "ranking": "Unchanged7-day return top/bottom20%, positive LONG/negative SHORT, historical previous24h turnover proxy>=5M, fixed26 current survivors",
+    "volatility_stop": "Unchanged2*simpleATR14 daily known at decision; no TP; exit after24h or SL/liquidation",
+    "entry": "Daily01UTC following00UTC decision, one-hour execution delay",
+    "sizing": "Prior equal margin slots now multiplied by L to form desired notional, then jointly reduced so modeled stop risk<=2%equity and initial margin+two execution fees<=equity; current min/step/max lots",
+    "margin": "Isolated per position, fixed leverage10, no automatic margin addition",
+    "liquidation": "Threshold estimated from entry notional, current MMR tier and liquidation fee: entry*(1-sign/L+sign*(MMR+liq_fee)); historical fair-price H1 used to test crossing",
+    "liquidation_charge": "Conservative loss of allocated initial isolated margin, entry fees and previously held funding; liquidation charges absorbed in forfeited margin, no double exit fee",
+    "ambiguity": "If Fair liquidation and Last stop both touched in same H1, count liquidation first and flag ordering uncertain",
+    "funding": "Historical signed settlements; debit available cash, no margin topups; assert cash available beyond locked margin sufficient; H1 marks",
+    "stop_validity": "Report stops behind liquidation and 1.5x buffer violations as diagnostics; do not secretly move stops or exclude cases to improve results",
+    "control": "Same100USD period at1x for paired interpretation, same risk cap and ranks; no parameter optimization",
+    "costs": {
+      "fee_per_execution": "0.0006",
+      "spread_total": "0.0002",
+      "slippage_each_execution": "max(0.0002*mid,2*tick)"
+    },
+    "excluded": [
+      "fixed TP",
+      "TP-based RR gate",
+      "H1 EMA filter",
+      "live production changes",
+      "full-margin10x exposure assumption"
+    ],
+    "limitations": [
+      "Fixed surviving/currently liquid universe",
+      "Current contract/MMR/lot rules applied retrospectively",
+      "H1 execution and liquidation ordering cannot prove actual fills",
+      "Only seven completed cycles, not broad validation"
+    ]
+  },
+  "complete_symbols": [
+    "AAVE_USDT",
+    "ADA_USDT",
+    "ARB_USDT",
+    "AVAX_USDT",
+    "BNB_USDT",
+    "BTC_USDT",
+    "DOGE_USDT",
+    "DOT_USDT",
+    "ENA_USDT",
+    "ETH_USDT",
+    "FET_USDT",
+    "HYPE_USDT",
+    "ICP_USDT",
+    "INJ_USDT",
+    "LINK_USDT",
+    "ONDO_USDT",
+    "PEPE_USDT",
+    "QNT_USDT",
+    "SOL_USDT",
+    "SUI_USDT",
+    "TAO_USDT",
+    "TIA_USDT",
+    "UNI_USDT",
+    "WLD_USDT",
+    "XLM_USDT",
+    "XRP_USDT"
+  ],
+  "excluded": {},
+  "primary10x": {
+    "leverage": 10,
+    "summary": {
+      "start_balance": "100",
+      "end_balance": "100.1288575867464",
+      "net_pnl": "0.1288575867464",
+      "return_pct": "0.128857586746400",
+      "days": 7,
+      "trades": 31,
+      "winning_trades": 20,
+      "losing_trades": 11,
+      "win_rate_pct": "64.51612903225806451612903226",
+      "profit_factor": "1.229928206430256774187014600",
+      "h1_fair_mark_max_drawdown_pct": "0.3712434572232150029756060501",
+      "trading_fees": "0.0501340176636",
+      "modeled_execution_impact": "0.037713238",
+      "signed_funding_cash": "0.00169580481",
+      "liquidations": 2,
+      "liquidation_stop_order_ambiguous": 0,
+      "stops": 0,
+      "timed_exits": 29,
+      "positions_with_stop_beyond_liquidation": 31,
+      "positions_without_1_5_liquidation_buffer": 31,
+      "mean_initial_notional": "6.216614664571428571428571429",
+      "mean_initial_margin": "0.6216614664571428571428571429"
+    },
+    "days": [
+      {
+        "decision_at": 1794009600,
+        "entry_at": 1794013200,
+        "exit_at": 1794099600,
+        "start_equity": "100",
+        "end_equity": "100.0661176142776",
+        "eligible": 24,
+        "selected": [
+          {
+            "symbol": "ARB_USDT",
+            "sign": 1,
+            "weight": "0.125",
+            "return7": "0.011972003929273084479371316",
+            "atr14": "0.01248",
+            "turnover_proxy": "26684444.076660"
+          },
+          {
+            "symbol": "PEPE_USDT",
+            "sign": 1,
+            "weight": "0.125",
+            "return7": "0.013162973044343781104633448",
+            "atr14": "5.084357142857142857142857143E-7",
+            "turnover_proxy": "96304123.42600000000"
+          },
+          {
+            "symbol": "AAVE_USDT",
+            "sign": 1,
+            "weight": "0.125",
+            "return7": "0.013953488372093023255813953",
+            "atr14": "9.418571428571428571428571429",
+            "turnover_proxy": "18763204.81280"
+          },
+          {
+            "symbol": "INJ_USDT",
+            "sign": 1,
+            "weight": "0.125",
+            "return7": "0.155431754874651810584958217",
+            "atr14": "0.6113571428571428571428571429",
+            "turnover_proxy": "33295281.2440"
+          },
+          {
+            "symbol": "WLD_USDT",
+            "sign": -1,
+            "weight": "0.125",
+            "return7": "-0.1561886051080550098231827112",
+            "atr14": "0.03312857142857142857142857143",
+            "turnover_proxy": "32013556.43890"
+          },
+          {
+            "symbol": "ENA_USDT",
+            "sign": -1,
+            "weight": "0.125",
+            "return7": "-0.1381253291205897840968931016",
+            "atr14": "0.02020714285714285714285714286",
+            "turnover_proxy": "32896212.768000"
+          },
+          {
+            "symbol": "HYPE_USDT",
+            "sign": -1,
+            "weight": "0.125",
+            "return7": "-0.1270111111111111111111111111",
+            "atr14": "5.761857142857142857142857143",
+            "turnover_proxy": "34571272.39900"
+          },
+          {
+            "symbol": "ONDO_USDT",
+            "sign": -1,
+            "weight": "0.125",
+            "return7": "-0.1076330363592583674452203227",
+            "atr14": "0.02912142857142857142857142857",
+            "turnover_proxy": "11527552.10100"
+          }
+        ],
+        "entries": 3,
+        "initial_notional": "4.000110798",
+        "initial_margin": "0.4000110798",
+        "planned_stop_risk": "0.6611675474652571428571428581",
+        "net_pnl": "0.0661176142776"
+      },
+      {
+        "decision_at": 1794096000,
+        "entry_at": 1794099600,
+        "exit_at": 1794186000,
+        "start_equity": "100.0661176142776",
+        "end_equity": "100.1466309146342",
+        "eligible": 23,
+        "selected": [
+          {
+            "symbol": "UNI_USDT",
+            "sign": 1,
+            "weight": "0.125",
+            "return7": "0.018630910374029640084685956",
+            "atr14": "0.5826428571428571428571428571",
+            "turnover_proxy": "16960403.93820"
+          },
+          {
+            "symbol": "ARB_USDT",
+            "sign": 1,
+            "weight": "0.125",
+            "return7": "0.03240966796875",
+            "atr14": "0.01222071428571428571428571429",
+            "turnover_proxy": "16823217.175090"
+          },
+          {
+            "symbol": "INJ_USDT",
+            "sign": 1,
+            "weight": "0.125",
+            "return7": "0.143667820069204152249134948",
+            "atr14": "0.6109285714285714285714285714",
+            "turnover_proxy": "21485092.8720"
+          },
+          {
+            "symbol": "ENA_USDT",
+            "sign": -1,
+            "weight": "0.125",
+            "return7": "-0.1589126748622297583721916066",
+            "atr14": "0.01962928571428571428571428571",
+            "turnover_proxy": "27302267.809400"
+          },
+          {
+            "symbol": "WLD_USDT",
+            "sign": -1,
+            "weight": "0.125",
+            "return7": "-0.1586743660557368817474265629",
+            "atr14": "0.0324",
+            "turnover_proxy": "24872411.65450"
+          },
+          {
+            "symbol": "HYPE_USDT",
+            "sign": -1,
+            "weight": "0.125",
+            "return7": "-0.1163363806711714269490659247",
+            "atr14": "5.763571428571428571428571429",
+            "turnover_proxy": "23447196.84200"
+          },
+          {
+            "symbol": "ONDO_USDT",
+            "sign": -1,
+            "weight": "0.125",
+            "return7": "-0.1108127898462289480107395655",
+            "atr14": "0.02845",
+            "turnover_proxy": "9201787.24500"
+          }
+        ],
+        "entries": 4,
+        "initial_notional": "5.835281207",
+        "initial_margin": "0.5835281207",
+        "planned_stop_risk": "1.116793587653114285714285715",
+        "net_pnl": "0.0805133003566"
+      },
+      {
+        "decision_at": 1794182400,
+        "entry_at": 1794186000,
+        "exit_at": 1794272400,
+        "start_equity": "100.1466309146342",
+        "end_equity": "100.1333304572330",
+        "eligible": 23,
+        "selected": [
+          {
+            "symbol": "PEPE_USDT",
+            "sign": 1,
+            "weight": "0.125",
+            "return7": "0.012496676415846849242222813",
+            "atr14": "5.060714285714285714285714286E-7",
+            "turnover_proxy": "66421869.88100000000"
+          },
+          {
+            "symbol": "ARB_USDT",
+            "sign": 1,
+            "weight": "0.125",
+            "return7": "0.013311351285339195212798437",
+            "atr14": "0.012465",
+            "turnover_proxy": "20106408.478240"
+          },
+          {
+            "symbol": "INJ_USDT",
+            "sign": 1,
+            "weight": "0.125",
+            "return7": "0.120144786300988444939440345",
+            "atr14": "0.6049285714285714285714285714",
+            "turnover_proxy": "18077614.7390"
+          },
+          {
+            "symbol": "WLD_USDT",
+            "sign": -1,
+            "weight": "0.125",
+            "return7": "-0.2053047691915327722519765366",
+            "atr14": "0.03187857142857142857142857143",
+            "turnover_proxy": "30123867.34150"
+          },
+          {
+            "symbol": "ENA_USDT",
+            "sign": -1,
+            "weight": "0.125",
+            "return7": "-0.1881755650180150671470684573",
+            "atr14": "0.01903714285714285714285714286",
+            "turnover_proxy": "34453092.265900"
+          },
+          {
+            "symbol": "HYPE_USDT",
+            "sign": -1,
+            "weight": "0.125",
+            "return7": "-0.1519062251052691476044156140",
+            "atr14": "5.921071428571428571428571429",
+            "turnover_proxy": "36540435.93550"
+          },
+          {
+            "symbol": "TIA_USDT",
+            "sign": -1,
+            "weight": "0.125",
+            "return7": "-0.1324335723323492197385069591",
+            "atr14": "0.04006428571428571428571428571",
+            "turnover_proxy": "7398413.68320"
+          }
+        ],
+        "entries": 4,
+        "initial_notional": "5.423019536",
+        "initial_margin": "0.5423019536",
+        "planned_stop_risk": "1.087656935586342857142857143",
+        "net_pnl": "-0.0133004574012"
+      },
+      {
+        "decision_at": 1794268800,
+        "entry_at": 1794272400,
+        "exit_at": 1794358800,
+        "start_equity": "100.1333304572330",
+        "end_equity": "99.9855087217746",
+        "eligible": 24,
+        "selected": [
+          {
+            "symbol": "AAVE_USDT",
+            "sign": 1,
+            "weight": "0.125",
+            "return7": "0.039497590646970534797377360",
+            "atr14": "9.502142857142857142857142857",
+            "turnover_proxy": "14156532.77790"
+          },
+          {
+            "symbol": "PEPE_USDT",
+            "sign": 1,
+            "weight": "0.125",
+            "return7": "0.073678702250130821559392988",
+            "atr14": "5.217428571428571428571428571E-7",
+            "turnover_proxy": "84231861.92500000000"
+          },
+          {
+            "symbol": "ARB_USDT",
+            "sign": 1,
+            "weight": "0.125",
+            "return7": "0.122358532982208234311773396",
+            "atr14": "0.01344928571428571428571428571",
+            "turnover_proxy": "30764325.251120"
+          },
+          {
+            "symbol": "INJ_USDT",
+            "sign": 1,
+            "weight": "0.125",
+            "return7": "0.162584156997564818793869073",
+            "atr14": "0.6004285714285714285714285714",
+            "turnover_proxy": "19948524.3700"
+          },
+          {
+            "symbol": "WLD_USDT",
+            "sign": -1,
+            "weight": "0.125",
+            "return7": "-0.1566966649020645844362096347",
+            "atr14": "0.03162142857142857142857142857",
+            "turnover_proxy": "28376110.09920"
+          },
+          {
+            "symbol": "XRP_USDT",
+            "sign": -1,
+            "weight": "0.125",
+            "return7": "-0.1211903047756179505639548836",
+            "atr14": "0.05832857142857142857142857143",
+            "turnover_proxy": "290313249.30950"
+          },
+          {
+            "symbol": "HYPE_USDT",
+            "sign": -1,
+            "weight": "0.125",
+            "return7": "-0.1062663495838287752675386445",
+            "atr14": "5.823428571428571428571428571",
+            "turnover_proxy": "48201153.95150"
+          },
+          {
+            "symbol": "ENA_USDT",
+            "sign": -1,
+            "weight": "0.125",
+            "return7": "-0.1015886042558180432616214315",
+            "atr14": "0.01903",
+            "turnover_proxy": "25507278.227800"
+          }
+        ],
+        "entries": 4,
+        "initial_notional": "5.086937274",
+        "initial_margin": "0.5086937274",
+        "planned_stop_risk": "0.7850256362610857142857142849",
+        "net_pnl": "-0.1478217354584"
+      },
+      {
+        "decision_at": 1794355200,
+        "entry_at": 1794358800,
+        "exit_at": 1794445200,
+        "start_equity": "99.9855087217746",
+        "end_equity": "99.9538986618384",
+        "eligible": 24,
+        "selected": [
+          {
+            "symbol": "ARB_USDT",
+            "sign": 1,
+            "weight": "0.125",
+            "return7": "0.016782773907536415452818239",
+            "atr14": "0.01453",
+            "turnover_proxy": "33443960.072990"
+          },
+          {
+            "symbol": "PEPE_USDT",
+            "sign": 1,
+            "weight": "0.125",
+            "return7": "0.105534449122086456515042612",
+            "atr14": "5.356214285714285714285714286E-7",
+            "turnover_proxy": "73461173.60000000000"
+          },
+          {
+            "symbol": "INJ_USDT",
+            "sign": 1,
+            "weight": "0.125",
+            "return7": "0.105916425320645428216797683",
+            "atr14": "0.5998571428571428571428571429",
+            "turnover_proxy": "16133621.4760"
+          },
+          {
+            "symbol": "WLD_USDT",
+            "sign": -1,
+            "weight": "0.125",
+            "return7": "-0.1744895253248475205515778308",
+            "atr14": "0.0314",
+            "turnover_proxy": "29625526.30130"
+          },
+          {
+            "symbol": "XRP_USDT",
+            "sign": -1,
+            "weight": "0.125",
+            "return7": "-0.1731401722787783868441660141",
+            "atr14": "0.0606",
+            "turnover_proxy": "297763326.30230"
+          },
+          {
+            "symbol": "HYPE_USDT",
+            "sign": -1,
+            "weight": "0.125",
+            "return7": "-0.1508505239415441003712231568",
+            "atr14": "5.837",
+            "turnover_proxy": "40423375.10710"
+          },
+          {
+            "symbol": "ENA_USDT",
+            "sign": -1,
+            "weight": "0.125",
+            "return7": "-0.1415579958819492107069320522",
+            "atr14": "0.01851428571428571428571428571",
+            "turnover_proxy": "34087194.725600"
+          }
+        ],
+        "entries": 4,
+        "initial_notional": "5.576698817",
+        "initial_margin": "0.5576698817",
+        "planned_stop_risk": "1.078870961813200000000000000",
+        "net_pnl": "-0.0316100599362"
+      },
+      {
+        "decision_at": 1794441600,
+        "entry_at": 1794445200,
+        "exit_at": 1794531600,
+        "start_equity": "99.9538986618384",
+        "end_equity": "100.1459380295704",
+        "eligible": 25,
+        "selected": [
+          {
+            "symbol": "ENA_USDT",
+            "sign": -1,
+            "weight": "0.1",
+            "return7": "-0.1948927702852089321246959982",
+            "atr14": "0.01797428571428571428571428571",
+            "turnover_proxy": "32227654.500700"
+          },
+          {
+            "symbol": "XRP_USDT",
+            "sign": -1,
+            "weight": "0.1",
+            "return7": "-0.1943465604412440631224145856",
+            "atr14": "0.06084285714285714285714285714",
+            "turnover_proxy": "254650528.82880"
+          },
+          {
+            "symbol": "UNI_USDT",
+            "sign": -1,
+            "weight": "0.1",
+            "return7": "-0.1826166754063974829575249082",
+            "atr14": "0.6387142857142857142857142857",
+            "turnover_proxy": "40897868.57930"
+          },
+          {
+            "symbol": "WLD_USDT",
+            "sign": -1,
+            "weight": "0.1",
+            "return7": "-0.1819637139807897545357524013",
+            "atr14": "0.03052142857142857142857142857",
+            "turnover_proxy": "21898853.28770"
+          },
+          {
+            "symbol": "QNT_USDT",
+            "sign": -1,
+            "weight": "0.1",
+            "return7": "-0.1623105967734026381601529937",
+            "atr14": "16.015",
+            "turnover_proxy": "33059015.43550"
+          }
+        ],
+        "entries": 5,
+        "initial_notional": "7.902271090",
+        "initial_margin": "0.790227109",
+        "planned_stop_risk": "1.568547956376857142857142857",
+        "net_pnl": "0.1920393677320"
+      },
+      {
+        "decision_at": 1794528000,
+        "entry_at": 1794531600,
+        "exit_at": 1794618000,
+        "start_equity": "100.1459380295704",
+        "end_equity": "100.1288575867464",
+        "eligible": 24,
+        "selected": [
+          {
+            "symbol": "AVAX_USDT",
+            "sign": 1,
+            "weight": "0.125",
+            "return7": "0.022513153064970023247277621",
+            "atr14": "0.5547142857142857142857142857",
+            "turnover_proxy": "18503373.91620"
+          },
+          {
+            "symbol": "FET_USDT",
+            "sign": 1,
+            "weight": "0.125",
+            "return7": "0.034916201117318435754189944",
+            "atr14": "0.01052142857142857142857142857",
+            "turnover_proxy": "7552646.03100"
+          },
+          {
+            "symbol": "TIA_USDT",
+            "sign": 1,
+            "weight": "0.125",
+            "return7": "0.062318137730358874878758487",
+            "atr14": "0.03695714285714285714285714286",
+            "turnover_proxy": "9269833.34450"
+          },
+          {
+            "symbol": "XRP_USDT",
+            "sign": -1,
+            "weight": "0.125",
+            "return7": "-0.1373052701358965860125952933",
+            "atr14": "0.05649285714285714285714285714",
+            "turnover_proxy": "258581012.00510"
+          },
+          {
+            "symbol": "QNT_USDT",
+            "sign": -1,
+            "weight": "0.125",
+            "return7": "-0.1318774515000530054065514682",
+            "atr14": "15.28928571428571428571428571",
+            "turnover_proxy": "40442513.62910"
+          },
+          {
+            "symbol": "ENA_USDT",
+            "sign": -1,
+            "weight": "0.125",
+            "return7": "-0.1230788454329626390103711108",
+            "atr14": "0.01556357142857142857142857143",
+            "turnover_proxy": "30703495.752100"
+          },
+          {
+            "symbol": "AAVE_USDT",
+            "sign": -1,
+            "weight": "0.125",
+            "return7": "-0.1150442477876106194690265487",
+            "atr14": "9.089285714285714285714285714",
+            "turnover_proxy": "10400906.95560"
+          }
+        ],
+        "entries": 7,
+        "initial_notional": "9.691983930",
+        "initial_margin": "0.969198393",
+        "planned_stop_risk": "1.587899943372571428571428571",
+        "net_pnl": "-0.0170804428240"
+      }
+    ],
+    "trades": [
+      {
+        "symbol": "ARB_USDT",
+        "sign": 1,
+        "opened_at": 1794013200,
+        "return7": "0.011972003929273084479371316",
+        "entry_mid": "0.16497",
+        "entry_fill": "0.165019491",
+        "quantity": "8",
+        "contracts": "8",
+        "entry_fee": "0.0007920935568",
+        "funding_cash": "-0.00003004080",
+        "stop": "0.14001",
+        "planned_risk": "0.2018758919424",
+        "initial_notional": "1.320155928",
+        "isolated_margin": "0.1320155928",
+        "leverage": "10",
+        "liquidation_price": "0.149177619864",
+        "maintenance_rate": "0.004",
+        "liquidation_fee_rate": "0",
+        "stop_before_liquidation": false,
+        "has_1_5_liquidation_buffer": false,
+        "closed_at": 1794099600,
+        "exit_mid": "0.16791",
+        "exit_fill": "0.167859627",
+        "exit_fee": "0.0008057262096",
+        "gross_pnl": "0.022721088",
+        "net_pnl": "0.0210932274336",
+        "reason": "TIME"
+      },
+      {
+        "symbol": "AAVE_USDT",
+        "sign": 1,
+        "opened_at": 1794013200,
+        "return7": "0.013953488372093023255813953",
+        "entry_mid": "130.73",
+        "entry_fill": "130.769219",
+        "quantity": "0.01",
+        "contracts": "1",
+        "entry_fee": "0.000784615314",
+        "funding_cash": "-0.0002019770",
+        "stop": "111.8928571428571428571428571",
+        "planned_risk": "0.1905550681925714285714285723",
+        "initial_notional": "1.30769219",
+        "isolated_margin": "0.130769219",
+        "leverage": "10",
+        "liquidation_price": "118.2415278198",
+        "maintenance_rate": "0.004",
+        "liquidation_fee_rate": "0.0002",
+        "stop_before_liquidation": false,
+        "has_1_5_liquidation_buffer": false,
+        "closed_at": 1794099600,
+        "exit_mid": "131.03",
+        "exit_fill": "130.990691",
+        "exit_fee": "0.000785944146",
+        "gross_pnl": "0.00221472",
+        "net_pnl": "0.000442183540",
+        "reason": "TIME"
+      },
+      {
+        "symbol": "WLD_USDT",
+        "sign": -1,
+        "opened_at": 1794013200,
+        "return7": "-0.1561886051080550098231827112",
+        "entry_mid": "0.3433",
+        "entry_fill": "0.34306567",
+        "quantity": "4",
+        "contracts": "4",
+        "entry_fee": "0.000823357608",
+        "funding_cash": "-0.0003291996",
+        "stop": "0.4095571428571428571428571429",
+        "planned_risk": "0.2687365873302857142857142858",
+        "initial_notional": "1.37226268",
+        "isolated_margin": "0.137226268",
+        "leverage": "10",
+        "liquidation_price": "0.376583185959",
+        "maintenance_rate": "0.0023",
+        "liquidation_fee_rate": "0",
+        "stop_before_liquidation": false,
+        "has_1_5_liquidation_buffer": false,
+        "closed_at": 1794099600,
+        "exit_mid": "0.3312",
+        "exit_fill": "0.33143312",
+        "exit_fee": "0.000795439488",
+        "gross_pnl": "0.04653020",
+        "net_pnl": "0.044582203304",
+        "reason": "TIME"
+      },
+      {
+        "symbol": "UNI_USDT",
+        "sign": 1,
+        "opened_at": 1794099600,
+        "return7": "0.018630910374029640084685956",
+        "entry_mid": "7.128",
+        "entry_fill": "7.1307128",
+        "quantity": "0.2",
+        "contracts": "2",
+        "entry_fee": "0.000855685536",
+        "funding_cash": "-0.0000336562",
+        "stop": "5.962714285714285714285714286",
+        "planned_risk": "0.2356898568405714285714285712",
+        "initial_notional": "1.42614256",
+        "isolated_margin": "0.142614256",
+        "leverage": "10",
+        "liquidation_price": "6.44759051376",
+        "maintenance_rate": "0.004",
+        "liquidation_fee_rate": "0.0002",
+        "stop_before_liquidation": false,
+        "has_1_5_liquidation_buffer": false,
+        "closed_at": 1794186000,
+        "exit_mid": "6.936",
+        "exit_fill": "6.9333064",
+        "exit_fee": "0.000831996768",
+        "gross_pnl": "-0.03948128",
+        "net_pnl": "-0.041202618504",
+        "reason": "TIME"
+      },
+      {
+        "symbol": "ARB_USDT",
+        "sign": 1,
+        "opened_at": 1794099600,
+        "return7": "0.03240966796875",
+        "entry_mid": "0.16791",
+        "entry_fill": "0.167960373",
+        "quantity": "9",
+        "contracts": "9",
+        "entry_fee": "0.0009069860142",
+        "funding_cash": "0.00020351367",
+        "stop": "0.1434685714285714285714285714",
+        "planned_risk": "0.2224950631665428571428571434",
+        "initial_notional": "1.511643357",
+        "isolated_margin": "0.1511643357",
+        "leverage": "10",
+        "liquidation_price": "0.151836177192",
+        "maintenance_rate": "0.004",
+        "liquidation_fee_rate": "0",
+        "stop_before_liquidation": false,
+        "has_1_5_liquidation_buffer": false,
+        "closed_at": 1794186000,
+        "exit_mid": "0.17074",
+        "exit_fill": "0.170688778",
+        "exit_fee": "0.0009217194012",
+        "gross_pnl": "0.024555645",
+        "net_pnl": "0.0229304532546",
+        "reason": "TIME"
+      },
+      {
+        "symbol": "ENA_USDT",
+        "sign": -1,
+        "opened_at": 1794099600,
+        "return7": "-0.1589126748622297583721916066",
+        "entry_mid": "0.15741",
+        "entry_fill": "0.157362777",
+        "quantity": "10",
+        "contracts": "1",
+        "entry_fee": "0.0009441766620",
+        "funding_cash": "0.00002097620",
+        "stop": "0.1966685714285714285714285714",
+        "planned_risk": "0.3957724920940000000000000000",
+        "initial_notional": "1.573627770",
+        "isolated_margin": "0.157362777",
+        "leverage": "10",
+        "liquidation_price": "0.1724381310366",
+        "maintenance_rate": "0.004",
+        "liquidation_fee_rate": "0.0002",
+        "stop_before_liquidation": false,
+        "has_1_5_liquidation_buffer": false,
+        "closed_at": 1794186000,
+        "exit_mid": "0.15218",
+        "exit_fill": "0.152225654",
+        "exit_fee": "0.0009133539240",
+        "gross_pnl": "0.051371230",
+        "net_pnl": "0.0495346756140",
+        "reason": "TIME"
+      },
+      {
+        "symbol": "WLD_USDT",
+        "sign": -1,
+        "opened_at": 1794099600,
+        "return7": "-0.1586743660557368817474265629",
+        "entry_mid": "0.3312",
+        "entry_fill": "0.33096688",
+        "quantity": "4",
+        "contracts": "4",
+        "entry_fee": "0.000794320512",
+        "funding_cash": "-0.0005317332",
+        "stop": "0.3960",
+        "planned_risk": "0.262836175552",
+        "initial_notional": "1.32386752",
+        "isolated_margin": "0.132386752",
+        "leverage": "10",
+        "liquidation_price": "0.363302344176",
+        "maintenance_rate": "0.0023",
+        "liquidation_fee_rate": "0",
+        "stop_before_liquidation": false,
+        "has_1_5_liquidation_buffer": false,
+        "closed_at": 1794186000,
+        "exit_mid": "0.3179",
+        "exit_fill": "0.31813179",
+        "exit_fee": "0.000763516296",
+        "gross_pnl": "0.05134036",
+        "net_pnl": "0.049250789992",
+        "reason": "TIME"
+      },
+      {
+        "symbol": "ARB_USDT",
+        "sign": 1,
+        "opened_at": 1794186000,
+        "return7": "0.013311351285339195212798437",
+        "entry_mid": "0.17074",
+        "entry_fill": "0.170791222",
+        "quantity": "8",
+        "contracts": "8",
+        "entry_fee": "0.0008197978656",
+        "funding_cash": "0.00002252032",
+        "stop": "0.145810",
+        "planned_risk": "0.20171919589920",
+        "initial_notional": "1.366329776",
+        "isolated_margin": "0.1366329776",
+        "leverage": "10",
+        "liquidation_price": "0.154395264688",
+        "maintenance_rate": "0.004",
+        "liquidation_fee_rate": "0",
+        "stop_before_liquidation": false,
+        "has_1_5_liquidation_buffer": false,
+        "closed_at": 1794272400,
+        "exit_mid": "0.17461",
+        "exit_fill": "0.174557617",
+        "exit_fee": "0.0008378765616",
+        "gross_pnl": "0.030131160",
+        "net_pnl": "0.0284960058928",
+        "reason": "TIME"
+      },
+      {
+        "symbol": "WLD_USDT",
+        "sign": -1,
+        "opened_at": 1794186000,
+        "return7": "-0.2053047691915327722519765366",
+        "entry_mid": "0.3179",
+        "entry_fill": "0.31766821",
+        "quantity": "4",
+        "contracts": "4",
+        "entry_fee": "0.000762403704",
+        "funding_cash": "0.0000301344",
+        "stop": "0.3816571428571428571428571429",
+        "planned_risk": "0.2585873467302857142857142858",
+        "initial_notional": "1.27067284",
+        "isolated_margin": "0.127067284",
+        "leverage": "10",
+        "liquidation_price": "0.348704394117",
+        "maintenance_rate": "0.0023",
+        "liquidation_fee_rate": "0",
+        "stop_before_liquidation": false,
+        "has_1_5_liquidation_buffer": false,
+        "closed_at": 1794272400,
+        "exit_mid": "0.3182",
+        "exit_fill": "0.31843182",
+        "exit_fee": "0.000764236368",
+        "gross_pnl": "-0.00305444",
+        "net_pnl": "-0.004550945672",
+        "reason": "TIME"
+      },
+      {
+        "symbol": "ENA_USDT",
+        "sign": -1,
+        "opened_at": 1794186000,
+        "return7": "-0.1881755650180150671470684573",
+        "entry_mid": "0.15218",
+        "entry_fill": "0.152134346",
+        "quantity": "10",
+        "contracts": "1",
+        "entry_fee": "0.0009128060760",
+        "funding_cash": "0.0004583800",
+        "stop": "0.1902542857142857142857142857",
+        "planned_risk": "0.3838248342480000000000000000",
+        "initial_notional": "1.521343460",
+        "isolated_margin": "0.152134346",
+        "leverage": "10",
+        "liquidation_price": "0.1667088163468",
+        "maintenance_rate": "0.004",
+        "liquidation_fee_rate": "0.0002",
+        "stop_before_liquidation": false,
+        "has_1_5_liquidation_buffer": false,
+        "closed_at": 1794272400,
+        "exit_mid": "0.15326",
+        "exit_fill": "0.153305978",
+        "exit_fee": "0.0009198358680",
+        "gross_pnl": "-0.011716320",
+        "net_pnl": "-0.0130905819440",
+        "reason": "TIME"
+      },
+      {
+        "symbol": "TIA_USDT",
+        "sign": -1,
+        "opened_at": 1794186000,
+        "return7": "-0.1324335723323492197385069591",
+        "entry_mid": "0.4218",
+        "entry_fill": "0.42155782",
+        "quantity": "3",
+        "contracts": "3",
+        "entry_fee": "0.000758804076",
+        "funding_cash": "0.0001315356",
+        "stop": "0.5019285714285714285714285714",
+        "planned_risk": "0.2435255587088571428571428572",
+        "initial_notional": "1.26467346",
+        "isolated_margin": "0.126467346",
+        "leverage": "10",
+        "liquidation_price": "0.462744019014",
+        "maintenance_rate": "0.0023",
+        "liquidation_fee_rate": "0",
+        "stop_before_liquidation": false,
+        "has_1_5_liquidation_buffer": false,
+        "closed_at": 1794272400,
+        "exit_mid": "0.4289",
+        "exit_fill": "0.42914289",
+        "exit_fee": "0.000772457202",
+        "gross_pnl": "-0.02275521",
+        "net_pnl": "-0.024154935678",
+        "reason": "TIME"
+      },
+      {
+        "symbol": "ARB_USDT",
+        "sign": 1,
+        "opened_at": 1794272400,
+        "return7": "0.122358532982208234311773396",
+        "entry_mid": "0.17461",
+        "entry_fill": "0.174662383",
+        "quantity": "8",
+        "contracts": "8",
+        "entry_fee": "0.0008383794384",
+        "funding_cash": "0.00022956784",
+        "stop": "0.1477114285714285714285714286",
+        "planned_risk": "0.2175093244482285714285714281",
+        "initial_notional": "1.397299064",
+        "isolated_margin": "0.1397299064",
+        "leverage": "10",
+        "liquidation_price": "0.157894794232",
+        "maintenance_rate": "0.004",
+        "liquidation_fee_rate": "0",
+        "stop_before_liquidation": false,
+        "has_1_5_liquidation_buffer": false,
+        "closed_at": 1794330000,
+        "exit_mid": null,
+        "exit_fill": null,
+        "exit_fee": "0",
+        "gross_pnl": "-0.1397299064",
+        "net_pnl": "-0.1403387179984",
+        "reason": "LIQUIDATION",
+        "forfeited_margin": "0.1397299064"
+      },
+      {
+        "symbol": "AAVE_USDT",
+        "sign": 1,
+        "opened_at": 1794272400,
+        "return7": "0.039497590646970534797377360",
+        "entry_mid": "131.8",
+        "entry_fill": "131.83954",
+        "quantity": "0.01",
+        "contracts": "1",
+        "entry_fee": "0.00079103724",
+        "funding_cash": "-0.0001776636",
+        "stop": "112.7957142857142857142857143",
+        "planned_risk": "0.1922442527791428571428571426",
+        "initial_notional": "1.3183954",
+        "isolated_margin": "0.13183954",
+        "leverage": "10",
+        "liquidation_price": "119.209312068",
+        "maintenance_rate": "0.004",
+        "liquidation_fee_rate": "0.0002",
+        "stop_before_liquidation": false,
+        "has_1_5_liquidation_buffer": false,
+        "closed_at": 1794358800,
+        "exit_mid": "124.16",
+        "exit_fill": "124.122752",
+        "exit_fee": "0.000744736512",
+        "gross_pnl": "-0.07716788",
+        "net_pnl": "-0.078881317352",
+        "reason": "TIME"
+      },
+      {
+        "symbol": "WLD_USDT",
+        "sign": -1,
+        "opened_at": 1794272400,
+        "return7": "-0.1566966649020645844362096347",
+        "entry_mid": "0.3182",
+        "entry_fill": "0.31796818",
+        "quantity": "4",
+        "contracts": "4",
+        "entry_fee": "0.000763123632",
+        "funding_cash": "0.0000432360",
+        "stop": "0.3814428571428571428571428571",
+        "planned_risk": "0.2565304437497142857142857142",
+        "initial_notional": "1.27187272",
+        "isolated_margin": "0.127187272",
+        "leverage": "10",
+        "liquidation_price": "0.349033671186",
+        "maintenance_rate": "0.0023",
+        "liquidation_fee_rate": "0",
+        "stop_before_liquidation": false,
+        "has_1_5_liquidation_buffer": false,
+        "closed_at": 1794358800,
+        "exit_mid": "0.3112",
+        "exit_fill": "0.31143112",
+        "exit_fee": "0.000747434688",
+        "gross_pnl": "0.02614824",
+        "net_pnl": "0.024680917680",
+        "reason": "TIME"
+      },
+      {
+        "symbol": "XRP_USDT",
+        "sign": -1,
+        "opened_at": 1794272400,
+        "return7": "-0.1211903047756179505639548836",
+        "entry_mid": "1.0997",
+        "entry_fill": "1.09937009",
+        "quantity": "1",
+        "contracts": "1",
+        "entry_fee": "0.000659622054",
+        "funding_cash": "0.0002532735",
+        "stop": "1.216357142857142857142857143",
+        "planned_risk": "0.1187416152840000000000000000",
+        "initial_notional": "1.09937009",
+        "isolated_margin": "0.109937009",
+        "leverage": "10",
+        "liquidation_price": "1.206558673775",
+        "maintenance_rate": "0.0023",
+        "liquidation_fee_rate": "0.0002",
+        "stop_before_liquidation": false,
+        "has_1_5_liquidation_buffer": false,
+        "closed_at": 1794358800,
+        "exit_mid": "1.0513",
+        "exit_fill": "1.05161539",
+        "exit_fee": "0.000630969234",
+        "gross_pnl": "0.04775470",
+        "net_pnl": "0.046717382212",
+        "reason": "TIME"
+      },
+      {
+        "symbol": "ARB_USDT",
+        "sign": 1,
+        "opened_at": 1794358800,
+        "return7": "0.016782773907536415452818239",
+        "entry_mid": "0.16131",
+        "entry_fill": "0.161358393",
+        "quantity": "9",
+        "contracts": "9",
+        "entry_fee": "0.0008713353222",
+        "funding_cash": "0.00025306398",
+        "stop": "0.13225",
+        "planned_risk": "0.2639178830772",
+        "initial_notional": "1.452225537",
+        "isolated_margin": "0.1452225537",
+        "leverage": "10",
+        "liquidation_price": "0.145867987272",
+        "maintenance_rate": "0.004",
+        "liquidation_fee_rate": "0",
+        "stop_before_liquidation": false,
+        "has_1_5_liquidation_buffer": false,
+        "closed_at": 1794445200,
+        "exit_mid": "0.1517",
+        "exit_fill": "0.15165449",
+        "exit_fee": "0.000818934246",
+        "gross_pnl": "-0.087335127",
+        "net_pnl": "-0.0887723325882",
+        "reason": "TIME"
+      },
+      {
+        "symbol": "WLD_USDT",
+        "sign": -1,
+        "opened_at": 1794358800,
+        "return7": "-0.1744895253248475205515778308",
+        "entry_mid": "0.3112",
+        "entry_fill": "0.31096888",
+        "quantity": "5",
+        "contracts": "5",
+        "entry_fee": "0.000932906640",
+        "funding_cash": "-0.0001236930",
+        "stop": "0.3740",
+        "planned_risk": "0.318398218840",
+        "initial_notional": "1.55484440",
+        "isolated_margin": "0.15548444",
+        "leverage": "10",
+        "liquidation_price": "0.341350539576",
+        "maintenance_rate": "0.0023",
+        "liquidation_fee_rate": "0",
+        "stop_before_liquidation": false,
+        "has_1_5_liquidation_buffer": false,
+        "closed_at": 1794445200,
+        "exit_mid": "0.308",
+        "exit_fill": "0.3082308",
+        "exit_fee": "0.00092469240",
+        "gross_pnl": "0.01369040",
+        "net_pnl": "0.011709107960",
+        "reason": "TIME"
+      },
+      {
+        "symbol": "XRP_USDT",
+        "sign": -1,
+        "opened_at": 1794358800,
+        "return7": "-0.1731401722787783868441660141",
+        "entry_mid": "1.0513",
+        "entry_fill": "1.05098461",
+        "quantity": "1",
+        "contracts": "1",
+        "entry_fee": "0.000630590766",
+        "funding_cash": "0.0002604755",
+        "stop": "1.1725",
+        "planned_risk": "0.123201441816",
+        "initial_notional": "1.05098461",
+        "isolated_margin": "0.105098461",
+        "leverage": "10",
+        "liquidation_price": "1.153455609475",
+        "maintenance_rate": "0.0023",
+        "liquidation_fee_rate": "0.0002",
+        "stop_before_liquidation": false,
+        "has_1_5_liquidation_buffer": false,
+        "closed_at": 1794445200,
+        "exit_mid": "1.0575",
+        "exit_fill": "1.05781725",
+        "exit_fee": "0.000634690350",
+        "gross_pnl": "-0.00683264",
+        "net_pnl": "-0.007837445616",
+        "reason": "TIME"
+      },
+      {
+        "symbol": "ENA_USDT",
+        "sign": -1,
+        "opened_at": 1794358800,
+        "return7": "-0.1415579958819492107069320522",
+        "entry_mid": "0.15191",
+        "entry_fill": "0.151864427",
+        "quantity": "10",
+        "contracts": "1",
+        "entry_fee": "0.0009111865620",
+        "funding_cash": "0.00037494030",
+        "stop": "0.1889385714285714285714285714",
+        "planned_risk": "0.3733534180800000000000000000",
+        "initial_notional": "1.518644270",
+        "isolated_margin": "0.151864427",
+        "leverage": "10",
+        "liquidation_price": "0.1664130391066",
+        "maintenance_rate": "0.004",
+        "liquidation_fee_rate": "0.0002",
+        "stop_before_liquidation": false,
+        "has_1_5_liquidation_buffer": false,
+        "closed_at": 1794445200,
+        "exit_mid": "0.14635",
+        "exit_fill": "0.146393905",
+        "exit_fee": "0.0008783634300",
+        "gross_pnl": "0.054705220",
+        "net_pnl": "0.0532906103080",
+        "reason": "TIME"
+      },
+      {
+        "symbol": "ENA_USDT",
+        "sign": -1,
+        "opened_at": 1794445200,
+        "return7": "-0.1948927702852089321246959982",
+        "entry_mid": "0.14635",
+        "entry_fill": "0.146306095",
+        "quantity": "10",
+        "contracts": "1",
+        "entry_fee": "0.0008778365700",
+        "funding_cash": "0.00024315700",
+        "stop": "0.1822985714285714285714285714",
+        "planned_risk": "0.3624436161360000000000000000",
+        "initial_notional": "1.463060950",
+        "isolated_margin": "0.146306095",
+        "leverage": "10",
+        "liquidation_price": "0.1603222189010",
+        "maintenance_rate": "0.004",
+        "liquidation_fee_rate": "0.0002",
+        "stop_before_liquidation": false,
+        "has_1_5_liquidation_buffer": false,
+        "closed_at": 1794531600,
+        "exit_mid": "0.14085",
+        "exit_fill": "0.140892255",
+        "exit_fee": "0.0008453535300",
+        "gross_pnl": "0.054138400",
+        "net_pnl": "0.0526583669000",
+        "reason": "TIME"
+      },
+      {
+        "symbol": "XRP_USDT",
+        "sign": -1,
+        "opened_at": 1794445200,
+        "return7": "-0.1943465604412440631224145856",
+        "entry_mid": "1.0575",
+        "entry_fill": "1.05718275",
+        "quantity": "1",
+        "contracts": "1",
+        "entry_fee": "0.000634309650",
+        "funding_cash": "0.0002327559",
+        "stop": "1.179185714285714285714285714",
+        "planned_risk": "0.1236987533320000000000000000",
+        "initial_notional": "1.05718275",
+        "isolated_margin": "0.105718275",
+        "leverage": "10",
+        "liquidation_price": "1.160258068125",
+        "maintenance_rate": "0.0023",
+        "liquidation_fee_rate": "0.0002",
+        "stop_before_liquidation": false,
+        "has_1_5_liquidation_buffer": false,
+        "closed_at": 1794531600,
+        "exit_mid": "1.0351",
+        "exit_fill": "1.03541053",
+        "exit_fee": "0.000621246318",
+        "gross_pnl": "0.02177222",
+        "net_pnl": "0.020749419932",
+        "reason": "TIME"
+      },
+      {
+        "symbol": "UNI_USDT",
+        "sign": -1,
+        "opened_at": 1794445200,
+        "return7": "-0.1826166754063974829575249082",
+        "entry_mid": "6.22",
+        "entry_fill": "6.217378",
+        "quantity": "0.3",
+        "contracts": "3",
+        "entry_fee": "0.00111912804",
+        "funding_cash": "0.0001795410",
+        "stop": "7.497428571428571428571428571",
+        "planned_risk": "0.3873092544222857142857142855",
+        "initial_notional": "1.8652134",
+        "isolated_margin": "0.18652134",
+        "leverage": "10",
+        "liquidation_price": "6.8130028124",
+        "maintenance_rate": "0.004",
+        "liquidation_fee_rate": "0.0002",
+        "stop_before_liquidation": false,
+        "has_1_5_liquidation_buffer": false,
+        "closed_at": 1794531600,
+        "exit_mid": "6.084",
+        "exit_fill": "6.0866084",
+        "exit_fee": "0.001095589512",
+        "gross_pnl": "0.03923088",
+        "net_pnl": "0.037195703448",
+        "reason": "TIME"
+      },
+      {
+        "symbol": "WLD_USDT",
+        "sign": -1,
+        "opened_at": 1794445200,
+        "return7": "-0.1819637139807897545357524013",
+        "entry_mid": "0.308",
+        "entry_fill": "0.3077692",
+        "quantity": "6",
+        "contracts": "6",
+        "entry_fee": "0.00110796912",
+        "funding_cash": "-0.000395130",
+        "stop": "0.3690428571428571428571428571",
+        "planned_risk": "0.3715007448325714285714285712",
+        "initial_notional": "1.8466152",
+        "isolated_margin": "0.18466152",
+        "leverage": "10",
+        "liquidation_price": "0.33783825084",
+        "maintenance_rate": "0.0023",
+        "liquidation_fee_rate": "0",
+        "stop_before_liquidation": false,
+        "has_1_5_liquidation_buffer": false,
+        "closed_at": 1794531600,
+        "exit_mid": "0.301",
+        "exit_fill": "0.3012301",
+        "exit_fee": "0.00108442836",
+        "gross_pnl": "0.0392346",
+        "net_pnl": "0.03664707252",
+        "reason": "TIME"
+      },
+      {
+        "symbol": "QNT_USDT",
+        "sign": -1,
+        "opened_at": 1794445200,
+        "return7": "-0.1623105967734026381601529937",
+        "entry_mid": "167.07",
+        "entry_fill": "167.019879",
+        "quantity": "0.01",
+        "contracts": "1",
+        "entry_fee": "0.001002119274",
+        "funding_cash": "0.0003533964",
+        "stop": "199.100",
+        "planned_risk": "0.3235955876540",
+        "initial_notional": "1.67019879",
+        "isolated_margin": "0.167019879",
+        "leverage": "10",
+        "liquidation_price": "183.0203834082",
+        "maintenance_rate": "0.004",
+        "liquidation_fee_rate": "0.0002",
+        "stop_before_liquidation": false,
+        "has_1_5_liquidation_buffer": false,
+        "closed_at": 1794531600,
+        "exit_mid": "162.33",
+        "exit_fill": "162.378699",
+        "exit_fee": "0.000974272194",
+        "gross_pnl": "0.04641180",
+        "net_pnl": "0.044788804932",
+        "reason": "TIME"
+      },
+      {
+        "symbol": "TIA_USDT",
+        "sign": 1,
+        "opened_at": 1794531600,
+        "return7": "0.062318137730358874878758487",
+        "entry_mid": "0.444",
+        "entry_fill": "0.4442444",
+        "quantity": "3",
+        "contracts": "3",
+        "entry_fee": "0.00079963992",
+        "funding_cash": "0.0000217845",
+        "stop": "0.3700857142857142857142857143",
+        "planned_risk": "0.2246524504474285714285714286",
+        "initial_notional": "1.3327332",
+        "isolated_margin": "0.13327332",
+        "leverage": "10",
+        "liquidation_price": "0.40084172212",
+        "maintenance_rate": "0.0023",
+        "liquidation_fee_rate": "0",
+        "stop_before_liquidation": false,
+        "has_1_5_liquidation_buffer": false,
+        "closed_at": 1794585600,
+        "exit_mid": null,
+        "exit_fill": null,
+        "exit_fee": "0",
+        "gross_pnl": "-0.13327332",
+        "net_pnl": "-0.13405117542",
+        "reason": "LIQUIDATION",
+        "forfeited_margin": "0.13327332"
+      },
+      {
+        "symbol": "AVAX_USDT",
+        "sign": 1,
+        "opened_at": 1794531600,
+        "return7": "0.022513153064970023247277621",
+        "entry_mid": "8.332",
+        "entry_fill": "8.3348332",
+        "quantity": "0.2",
+        "contracts": "2",
+        "entry_fee": "0.001000179984",
+        "funding_cash": "-0.0000828458",
+        "stop": "7.222571428571428571428571429",
+        "planned_risk": "0.2248633675988571428571428570",
+        "initial_notional": "1.66696664",
+        "isolated_margin": "0.166696664",
+        "leverage": "10",
+        "liquidation_price": "7.5346892128",
+        "maintenance_rate": "0.004",
+        "liquidation_fee_rate": "0",
+        "stop_before_liquidation": false,
+        "has_1_5_liquidation_buffer": false,
+        "closed_at": 1794618000,
+        "exit_mid": "8.227",
+        "exit_fill": "8.2241773",
+        "exit_fee": "0.000986901276",
+        "gross_pnl": "-0.02213118",
+        "net_pnl": "-0.024201107060",
+        "reason": "TIME"
+      },
+      {
+        "symbol": "FET_USDT",
+        "sign": 1,
+        "opened_at": 1794531600,
+        "return7": "0.034916201117318435754189944",
+        "entry_mid": "0.1479",
+        "entry_fill": "0.14811479",
+        "quantity": "10",
+        "contracts": "1",
+        "entry_fee": "0.000888688740",
+        "funding_cash": "-0.0002714340",
+        "stop": "0.1268571428571428571428571429",
+        "planned_risk": "0.2163518840542857142857142851",
+        "initial_notional": "1.48114790",
+        "isolated_margin": "0.14811479",
+        "leverage": "10",
+        "liquidation_price": "0.13389577016",
+        "maintenance_rate": "0.004",
+        "liquidation_fee_rate": "0",
+        "stop_before_liquidation": false,
+        "has_1_5_liquidation_buffer": false,
+        "closed_at": 1794618000,
+        "exit_mid": "0.1482",
+        "exit_fill": "0.14798518",
+        "exit_fee": "0.000887911080",
+        "gross_pnl": "-0.00129610",
+        "net_pnl": "-0.003344133820",
+        "reason": "TIME"
+      },
+      {
+        "symbol": "XRP_USDT",
+        "sign": -1,
+        "opened_at": 1794531600,
+        "return7": "-0.1373052701358965860125952933",
+        "entry_mid": "1.0351",
+        "entry_fill": "1.03478947",
+        "quantity": "1",
+        "contracts": "1",
+        "entry_fee": "0.000620873682",
+        "funding_cash": "0.0001577118",
+        "stop": "1.148085714285714285714285714",
+        "planned_risk": "0.1149506017660000000000000000",
+        "initial_notional": "1.03478947",
+        "isolated_margin": "0.103478947",
+        "leverage": "10",
+        "liquidation_price": "1.135681443325",
+        "maintenance_rate": "0.0023",
+        "liquidation_fee_rate": "0.0002",
+        "stop_before_liquidation": false,
+        "has_1_5_liquidation_buffer": false,
+        "closed_at": 1794618000,
+        "exit_mid": "1.0087",
+        "exit_fill": "1.00900261",
+        "exit_fee": "0.000605401566",
+        "gross_pnl": "0.02578686",
+        "net_pnl": "0.024718296552",
+        "reason": "TIME"
+      },
+      {
+        "symbol": "QNT_USDT",
+        "sign": -1,
+        "opened_at": 1794531600,
+        "return7": "-0.1318774515000530054065514682",
+        "entry_mid": "162.33",
+        "entry_fill": "162.281301",
+        "quantity": "0.01",
+        "contracts": "1",
+        "entry_fee": "0.000973687806",
+        "funding_cash": "0.0001704360",
+        "stop": "192.9085714285714285714285714",
+        "planned_risk": "0.3089829164700000000000000000",
+        "initial_notional": "1.62281301",
+        "isolated_margin": "0.162281301",
+        "leverage": "10",
+        "liquidation_price": "177.8278496358",
+        "maintenance_rate": "0.004",
+        "liquidation_fee_rate": "0.0002",
+        "stop_before_liquidation": false,
+        "has_1_5_liquidation_buffer": false,
+        "closed_at": 1794618000,
+        "exit_mid": "159.21",
+        "exit_fill": "159.257763",
+        "exit_fee": "0.000955546578",
+        "gross_pnl": "0.03023538",
+        "net_pnl": "0.028476581616",
+        "reason": "TIME"
+      },
+      {
+        "symbol": "ENA_USDT",
+        "sign": -1,
+        "opened_at": 1794531600,
+        "return7": "-0.1230788454329626390103711108",
+        "entry_mid": "0.14085",
+        "entry_fill": "0.140807745",
+        "quantity": "10",
+        "contracts": "1",
+        "entry_fee": "0.0008448464700",
+        "funding_cash": "0.00016683040",
+        "stop": "0.1719771428571428571428571429",
+        "planned_risk": "0.3140869288860000000000000000",
+        "initial_notional": "1.408077450",
+        "isolated_margin": "0.140807745",
+        "leverage": "10",
+        "liquidation_price": "0.1542971269710",
+        "maintenance_rate": "0.004",
+        "liquidation_fee_rate": "0.0002",
+        "stop_before_liquidation": false,
+        "has_1_5_liquidation_buffer": false,
+        "closed_at": 1794618000,
+        "exit_mid": "0.13433",
+        "exit_fill": "0.134370299",
+        "exit_fee": "0.0008062217940",
+        "gross_pnl": "0.064374460",
+        "net_pnl": "0.0628902221360",
+        "reason": "TIME"
+      },
+      {
+        "symbol": "AAVE_USDT",
+        "sign": -1,
+        "opened_at": 1794531600,
+        "return7": "-0.1150442477876106194690265487",
+        "entry_mid": "114.58",
+        "entry_fill": "114.545626",
+        "quantity": "0.01",
+        "contracts": "1",
+        "entry_fee": "0.000687273756",
+        "funding_cash": "0.0000659477",
+        "stop": "132.7585714285714285714285714",
+        "planned_risk": "0.1840117941500000000000000000",
+        "initial_notional": "1.14545626",
+        "isolated_margin": "0.114545626",
+        "leverage": "10",
+        "liquidation_price": "125.5190969708",
+        "maintenance_rate": "0.004",
+        "liquidation_fee_rate": "0.0002",
+        "stop_before_liquidation": false,
+        "has_1_5_liquidation_buffer": false,
+        "closed_at": 1794618000,
+        "exit_mid": "111.54",
+        "exit_fill": "111.573462",
+        "exit_fee": "0.000669440772",
+        "gross_pnl": "0.02972164",
+        "net_pnl": "0.028430873172",
+        "reason": "TIME"
+      }
+    ],
+    "hourly_equity": [
+      {
+        "ts": 1794013200,
+        "equity": "99.9958744955212"
+      },
+      {
+        "ts": 1794016800,
+        "equity": "99.9943344955212"
+      },
+      {
+        "ts": 1794020400,
+        "equity": "99.9852344955212"
+      },
+      {
+        "ts": 1794024000,
+        "equity": "100.0019344955212"
+      },
+      {
+        "ts": 1794027600,
+        "equity": "100.0129744955212"
+      },
+      {
+        "ts": 1794031200,
+        "equity": "100.0344544955212"
+      },
+      {
+        "ts": 1794034800,
+        "equity": "100.0216344955212"
+      },
+      {
+        "ts": 1794038400,
+        "equity": "100.0291881527212"
+      },
+      {
+        "ts": 1794042000,
+        "equity": "100.0243081527212"
+      },
+      {
+        "ts": 1794045600,
+        "equity": "100.0384681527212"
+      },
+      {
+        "ts": 1794049200,
+        "equity": "100.0312281527212"
+      },
+      {
+        "ts": 1794052800,
+        "equity": "100.0428481527212"
+      },
+      {
+        "ts": 1794056400,
+        "equity": "100.0352081527212"
+      },
+      {
+        "ts": 1794060000,
+        "equity": "100.0433081527212"
+      },
+      {
+        "ts": 1794063600,
+        "equity": "100.0497281527212"
+      },
+      {
+        "ts": 1794067200,
+        "equity": "100.0474355375212"
+      },
+      {
+        "ts": 1794070800,
+        "equity": "100.0469955375212"
+      },
+      {
+        "ts": 1794074400,
+        "equity": "100.0557355375212"
+      },
+      {
+        "ts": 1794078000,
+        "equity": "100.0691355375212"
+      },
+      {
+        "ts": 1794081600,
+        "equity": "100.0601555375212"
+      },
+      {
+        "ts": 1794085200,
+        "equity": "100.0562355375212"
+      },
+      {
+        "ts": 1794088800,
+        "equity": "100.0514955375212"
+      },
+      {
+        "ts": 1794092400,
+        "equity": "100.0578155375212"
+      },
+      {
+        "ts": 1794096000,
+        "equity": "100.0704532781212"
+      },
+      {
+        "ts": 1794099600,
+        "equity": "100.0700332781212"
+      },
+      {
+        "ts": 1794099600,
+        "equity": "100.0661176142776"
+      },
+      {
+        "ts": 1794099600,
+        "equity": "100.0595158185534"
+      },
+      {
+        "ts": 1794103200,
+        "equity": "100.0748058185534"
+      },
+      {
+        "ts": 1794106800,
+        "equity": "100.1039758185534"
+      },
+      {
+        "ts": 1794110400,
+        "equity": "100.1071665473534"
+      },
+      {
+        "ts": 1794114000,
+        "equity": "100.0894265473534"
+      },
+      {
+        "ts": 1794117600,
+        "equity": "100.0824865473534"
+      },
+      {
+        "ts": 1794121200,
+        "equity": "100.0968065473534"
+      },
+      {
+        "ts": 1794124800,
+        "equity": "100.1048085759734"
+      },
+      {
+        "ts": 1794128400,
+        "equity": "100.1098085759734"
+      },
+      {
+        "ts": 1794132000,
+        "equity": "100.1067585759734"
+      },
+      {
+        "ts": 1794135600,
+        "equity": "100.1137285759734"
+      },
+      {
+        "ts": 1794139200,
+        "equity": "100.0921588473734"
+      },
+      {
+        "ts": 1794142800,
+        "equity": "100.1016088473734"
+      },
+      {
+        "ts": 1794146400,
+        "equity": "100.1046988473734"
+      },
+      {
+        "ts": 1794150000,
+        "equity": "100.0870388473734"
+      },
+      {
+        "ts": 1794153600,
+        "equity": "100.1078641108734"
+      },
+      {
+        "ts": 1794157200,
+        "equity": "100.1132541108734"
+      },
+      {
+        "ts": 1794160800,
+        "equity": "100.1125841108734"
+      },
+      {
+        "ts": 1794164400,
+        "equity": "100.0921941108734"
+      },
+      {
+        "ts": 1794168000,
+        "equity": "100.0962010808734"
+      },
+      {
+        "ts": 1794171600,
+        "equity": "100.0983410808734"
+      },
+      {
+        "ts": 1794175200,
+        "equity": "100.1145710808734"
+      },
+      {
+        "ts": 1794178800,
+        "equity": "100.1261610808734"
+      },
+      {
+        "ts": 1794182400,
+        "equity": "100.1391349190234"
+      },
+      {
+        "ts": 1794186000,
+        "equity": "100.1521249190234"
+      },
+      {
+        "ts": 1794186000,
+        "equity": "100.1466309146342"
+      },
+      {
+        "ts": 1794186000,
+        "equity": "100.1402170869126"
+      },
+      {
+        "ts": 1794189600,
+        "equity": "100.1444370869126"
+      },
+      {
+        "ts": 1794193200,
+        "equity": "100.1308370869126"
+      },
+      {
+        "ts": 1794196800,
+        "equity": "100.1228570819126"
+      },
+      {
+        "ts": 1794200400,
+        "equity": "100.1518570819126"
+      },
+      {
+        "ts": 1794204000,
+        "equity": "100.1759370819126"
+      },
+      {
+        "ts": 1794207600,
+        "equity": "100.2024170819126"
+      },
+      {
+        "ts": 1794211200,
+        "equity": "100.2602463386726"
+      },
+      {
+        "ts": 1794214800,
+        "equity": "100.2012063386726"
+      },
+      {
+        "ts": 1794218400,
+        "equity": "100.2174263386726"
+      },
+      {
+        "ts": 1794222000,
+        "equity": "100.2165863386726"
+      },
+      {
+        "ts": 1794225600,
+        "equity": "100.2087604918726"
+      },
+      {
+        "ts": 1794229200,
+        "equity": "100.2056604918726"
+      },
+      {
+        "ts": 1794232800,
+        "equity": "100.1615804918726"
+      },
+      {
+        "ts": 1794236400,
+        "equity": "100.1297004918726"
+      },
+      {
+        "ts": 1794240000,
+        "equity": "100.1208055638326"
+      },
+      {
+        "ts": 1794243600,
+        "equity": "100.1606055638326"
+      },
+      {
+        "ts": 1794247200,
+        "equity": "100.1605055638326"
+      },
+      {
+        "ts": 1794250800,
+        "equity": "100.1111255638326"
+      },
+      {
+        "ts": 1794254400,
+        "equity": "100.0971736056326"
+      },
+      {
+        "ts": 1794258000,
+        "equity": "100.1104136056326"
+      },
+      {
+        "ts": 1794261600,
+        "equity": "100.1286936056326"
+      },
+      {
+        "ts": 1794265200,
+        "equity": "100.1338536056326"
+      },
+      {
+        "ts": 1794268800,
+        "equity": "100.1370796572326"
+      },
+      {
+        "ts": 1794272400,
+        "equity": "100.1390596572326"
+      },
+      {
+        "ts": 1794272400,
+        "equity": "100.1333304572330"
+      },
+      {
+        "ts": 1794272400,
+        "equity": "100.1281066408686"
+      },
+      {
+        "ts": 1794276000,
+        "equity": "100.1281066408686"
+      },
+      {
+        "ts": 1794279600,
+        "equity": "100.1185466408686"
+      },
+      {
+        "ts": 1794283200,
+        "equity": "100.0838666408686"
+      },
+      {
+        "ts": 1794286800,
+        "equity": "100.0559666408686"
+      },
+      {
+        "ts": 1794290400,
+        "equity": "100.0563266408686"
+      },
+      {
+        "ts": 1794294000,
+        "equity": "100.0378866408686"
+      },
+      {
+        "ts": 1794297600,
+        "equity": "100.0149049689486"
+      },
+      {
+        "ts": 1794301200,
+        "equity": "100.0233049689486"
+      },
+      {
+        "ts": 1794304800,
+        "equity": "100.0242249689486"
+      },
+      {
+        "ts": 1794308400,
+        "equity": "100.0060249689486"
+      },
+      {
+        "ts": 1794312000,
+        "equity": "99.9904849689486"
+      },
+      {
+        "ts": 1794315600,
+        "equity": "100.0129649689486"
+      },
+      {
+        "ts": 1794319200,
+        "equity": "100.0323249689486"
+      },
+      {
+        "ts": 1794322800,
+        "equity": "100.0195449689486"
+      },
+      {
+        "ts": 1794326400,
+        "equity": "100.0328519926086"
+      },
+      {
+        "ts": 1794330000,
+        "equity": "100.0029811502086"
+      },
+      {
+        "ts": 1794333600,
+        "equity": "99.9917811502086"
+      },
+      {
+        "ts": 1794337200,
+        "equity": "99.9744811502086"
+      },
+      {
+        "ts": 1794340800,
+        "equity": "99.9840811502086"
+      },
+      {
+        "ts": 1794344400,
+        "equity": "99.9922811502086"
+      },
+      {
+        "ts": 1794348000,
+        "equity": "99.9888811502086"
+      },
+      {
+        "ts": 1794351600,
+        "equity": "99.9937811502086"
+      },
+      {
+        "ts": 1794355200,
+        "equity": "99.9777442122086"
+      },
+      {
+        "ts": 1794358800,
+        "equity": "99.9892442122086"
+      },
+      {
+        "ts": 1794358800,
+        "equity": "99.9855087217746"
+      },
+      {
+        "ts": 1794358800,
+        "equity": "99.9799804454844"
+      },
+      {
+        "ts": 1794362400,
+        "equity": "99.9953404454844"
+      },
+      {
+        "ts": 1794366000,
+        "equity": "100.0164204454844"
+      },
+      {
+        "ts": 1794369600,
+        "equity": "99.9762574304844"
+      },
+      {
+        "ts": 1794373200,
+        "equity": "99.9881574304844"
+      },
+      {
+        "ts": 1794376800,
+        "equity": "99.9652774304844"
+      },
+      {
+        "ts": 1794380400,
+        "equity": "99.9626574304844"
+      },
+      {
+        "ts": 1794384000,
+        "equity": "99.9321323340644"
+      },
+      {
+        "ts": 1794387600,
+        "equity": "99.9596023340644"
+      },
+      {
+        "ts": 1794391200,
+        "equity": "99.9575323340644"
+      },
+      {
+        "ts": 1794394800,
+        "equity": "99.9425623340644"
+      },
+      {
+        "ts": 1794398400,
+        "equity": "99.9477087440644"
+      },
+      {
+        "ts": 1794402000,
+        "equity": "99.9401787440644"
+      },
+      {
+        "ts": 1794405600,
+        "equity": "99.9148487440644"
+      },
+      {
+        "ts": 1794409200,
+        "equity": "99.9305387440644"
+      },
+      {
+        "ts": 1794412800,
+        "equity": "99.8880367339444"
+      },
+      {
+        "ts": 1794416400,
+        "equity": "99.8984967339444"
+      },
+      {
+        "ts": 1794420000,
+        "equity": "99.9009267339444"
+      },
+      {
+        "ts": 1794423600,
+        "equity": "99.9311767339444"
+      },
+      {
+        "ts": 1794427200,
+        "equity": "99.9472821039444"
+      },
+      {
+        "ts": 1794430800,
+        "equity": "99.9293821039444"
+      },
+      {
+        "ts": 1794434400,
+        "equity": "99.9392821039444"
+      },
+      {
+        "ts": 1794438000,
+        "equity": "99.9946821039444"
+      },
+      {
+        "ts": 1794441600,
+        "equity": "99.9795952322644"
+      },
+      {
+        "ts": 1794445200,
+        "equity": "99.9593752322644"
+      },
+      {
+        "ts": 1794445200,
+        "equity": "99.9538986618384"
+      },
+      {
+        "ts": 1794445200,
+        "equity": "99.9449283891844"
+      },
+      {
+        "ts": 1794448800,
+        "equity": "100.0265283891844"
+      },
+      {
+        "ts": 1794452400,
+        "equity": "99.9833283891844"
+      },
+      {
+        "ts": 1794456000,
+        "equity": "100.0106003841844"
+      },
+      {
+        "ts": 1794459600,
+        "equity": "100.0033003841844"
+      },
+      {
+        "ts": 1794463200,
+        "equity": "100.0385003841844"
+      },
+      {
+        "ts": 1794466800,
+        "equity": "100.0817003841844"
+      },
+      {
+        "ts": 1794470400,
+        "equity": "100.0526637125844"
+      },
+      {
+        "ts": 1794474000,
+        "equity": "100.0872637125844"
+      },
+      {
+        "ts": 1794477600,
+        "equity": "100.0439637125844"
+      },
+      {
+        "ts": 1794481200,
+        "equity": "100.0551637125844"
+      },
+      {
+        "ts": 1794484800,
+        "equity": "100.1064594819844"
+      },
+      {
+        "ts": 1794488400,
+        "equity": "100.1560594819844"
+      },
+      {
+        "ts": 1794492000,
+        "equity": "100.1599594819844"
+      },
+      {
+        "ts": 1794495600,
+        "equity": "100.1790594819844"
+      },
+      {
+        "ts": 1794499200,
+        "equity": "100.1888540310844"
+      },
+      {
+        "ts": 1794502800,
+        "equity": "100.2204540310844"
+      },
+      {
+        "ts": 1794506400,
+        "equity": "100.2270540310844"
+      },
+      {
+        "ts": 1794510000,
+        "equity": "100.1824540310844"
+      },
+      {
+        "ts": 1794513600,
+        "equity": "100.1897763830844"
+      },
+      {
+        "ts": 1794517200,
+        "equity": "100.1814763830844"
+      },
+      {
+        "ts": 1794520800,
+        "equity": "100.1594763830844"
+      },
+      {
+        "ts": 1794524400,
+        "equity": "100.1713763830844"
+      },
+      {
+        "ts": 1794528000,
+        "equity": "100.1427421094844"
+      },
+      {
+        "ts": 1794531600,
+        "equity": "100.1532421094844"
+      },
+      {
+        "ts": 1794531600,
+        "equity": "100.1459380295704"
+      },
+      {
+        "ts": 1794531600,
+        "equity": "100.1348112892124"
+      },
+      {
+        "ts": 1794535200,
+        "equity": "100.1318112892124"
+      },
+      {
+        "ts": 1794538800,
+        "equity": "100.1096112892124"
+      },
+      {
+        "ts": 1794542400,
+        "equity": "100.0907635190124"
+      },
+      {
+        "ts": 1794546000,
+        "equity": "100.0962635190124"
+      },
+      {
+        "ts": 1794549600,
+        "equity": "100.1210635190124"
+      },
+      {
+        "ts": 1794553200,
+        "equity": "100.1358635190124"
+      },
+      {
+        "ts": 1794556800,
+        "equity": "100.1604274760124"
+      },
+      {
+        "ts": 1794560400,
+        "equity": "100.1640274760124"
+      },
+      {
+        "ts": 1794564000,
+        "equity": "100.1527274760124"
+      },
+      {
+        "ts": 1794567600,
+        "equity": "100.1837274760124"
+      },
+      {
+        "ts": 1794571200,
+        "equity": "100.1348864164124"
+      },
+      {
+        "ts": 1794574800,
+        "equity": "100.0981864164124"
+      },
+      {
+        "ts": 1794578400,
+        "equity": "100.0921864164124"
+      },
+      {
+        "ts": 1794582000,
+        "equity": "100.1041864164124"
+      },
+      {
+        "ts": 1794585600,
+        "equity": "100.0677723062124"
+      },
+      {
+        "ts": 1794589200,
+        "equity": "100.0987723062124"
+      },
+      {
+        "ts": 1794592800,
+        "equity": "100.0882723062124"
+      },
+      {
+        "ts": 1794596400,
+        "equity": "100.0775723062124"
+      },
+      {
+        "ts": 1794600000,
+        "equity": "100.0417791467124"
+      },
+      {
+        "ts": 1794603600,
+        "equity": "100.0758791467124"
+      },
+      {
+        "ts": 1794607200,
+        "equity": "100.1228791467124"
+      },
+      {
+        "ts": 1794610800,
+        "equity": "100.1474791467124"
+      },
+      {
+        "ts": 1794614400,
+        "equity": "100.1271995998124"
+      },
+      {
+        "ts": 1794618000,
+        "equity": "100.1372995998124"
+      },
+      {
+        "ts": 1794618000,
+        "equity": "100.1288575867464"
+      }
+    ],
+    "skips": {
+      "MIN_LOT": 18
+    },
+    "causal_checks": 7
+  },
+  "control1x": {
+    "leverage": 1,
+    "summary": {
+      "start_balance": "100",
+      "end_balance": "100.0928173271628",
+      "net_pnl": "0.0928173271628",
+      "return_pct": "0.092817327162800",
+      "days": 7,
+      "trades": 31,
+      "winning_trades": 20,
+      "losing_trades": 11,
+      "win_rate_pct": "64.51612903225806451612903226",
+      "profit_factor": "1.155612212403864623780954452",
+      "h1_fair_mark_max_drawdown_pct": "0.3393507456709332296240954635",
+      "trading_fees": "0.0515871454272",
+      "modeled_execution_impact": "0.038813632",
+      "signed_funding_cash": "0.00225810459",
+      "liquidations": 0,
+      "liquidation_stop_order_ambiguous": 0,
+      "stops": 0,
+      "timed_exits": 31,
+      "positions_with_stop_beyond_liquidation": 0,
+      "positions_without_1_5_liquidation_buffer": 0,
+      "mean_initial_notional": "6.216614664571428571428571429",
+      "mean_initial_margin": "6.216614664571428571428571429"
+    },
+    "days": [
+      {
+        "decision_at": 1794009600,
+        "entry_at": 1794013200,
+        "exit_at": 1794099600,
+        "start_equity": "100",
+        "end_equity": "100.0661176142776",
+        "eligible": 24,
+        "selected": [
+          {
+            "symbol": "ARB_USDT",
+            "sign": 1,
+            "weight": "0.125",
+            "return7": "0.011972003929273084479371316",
+            "atr14": "0.01248",
+            "turnover_proxy": "26684444.076660"
+          },
+          {
+            "symbol": "PEPE_USDT",
+            "sign": 1,
+            "weight": "0.125",
+            "return7": "0.013162973044343781104633448",
+            "atr14": "5.084357142857142857142857143E-7",
+            "turnover_proxy": "96304123.42600000000"
+          },
+          {
+            "symbol": "AAVE_USDT",
+            "sign": 1,
+            "weight": "0.125",
+            "return7": "0.013953488372093023255813953",
+            "atr14": "9.418571428571428571428571429",
+            "turnover_proxy": "18763204.81280"
+          },
+          {
+            "symbol": "INJ_USDT",
+            "sign": 1,
+            "weight": "0.125",
+            "return7": "0.155431754874651810584958217",
+            "atr14": "0.6113571428571428571428571429",
+            "turnover_proxy": "33295281.2440"
+          },
+          {
+            "symbol": "WLD_USDT",
+            "sign": -1,
+            "weight": "0.125",
+            "return7": "-0.1561886051080550098231827112",
+            "atr14": "0.03312857142857142857142857143",
+            "turnover_proxy": "32013556.43890"
+          },
+          {
+            "symbol": "ENA_USDT",
+            "sign": -1,
+            "weight": "0.125",
+            "return7": "-0.1381253291205897840968931016",
+            "atr14": "0.02020714285714285714285714286",
+            "turnover_proxy": "32896212.768000"
+          },
+          {
+            "symbol": "HYPE_USDT",
+            "sign": -1,
+            "weight": "0.125",
+            "return7": "-0.1270111111111111111111111111",
+            "atr14": "5.761857142857142857142857143",
+            "turnover_proxy": "34571272.39900"
+          },
+          {
+            "symbol": "ONDO_USDT",
+            "sign": -1,
+            "weight": "0.125",
+            "return7": "-0.1076330363592583674452203227",
+            "atr14": "0.02912142857142857142857142857",
+            "turnover_proxy": "11527552.10100"
+          }
+        ],
+        "entries": 3,
+        "initial_notional": "4.000110798",
+        "initial_margin": "4.000110798",
+        "planned_stop_risk": "0.6611675474652571428571428581",
+        "net_pnl": "0.0661176142776"
+      },
+      {
+        "decision_at": 1794096000,
+        "entry_at": 1794099600,
+        "exit_at": 1794186000,
+        "start_equity": "100.0661176142776",
+        "end_equity": "100.1466309146342",
+        "eligible": 23,
+        "selected": [
+          {
+            "symbol": "UNI_USDT",
+            "sign": 1,
+            "weight": "0.125",
+            "return7": "0.018630910374029640084685956",
+            "atr14": "0.5826428571428571428571428571",
+            "turnover_proxy": "16960403.93820"
+          },
+          {
+            "symbol": "ARB_USDT",
+            "sign": 1,
+            "weight": "0.125",
+            "return7": "0.03240966796875",
+            "atr14": "0.01222071428571428571428571429",
+            "turnover_proxy": "16823217.175090"
+          },
+          {
+            "symbol": "INJ_USDT",
+            "sign": 1,
+            "weight": "0.125",
+            "return7": "0.143667820069204152249134948",
+            "atr14": "0.6109285714285714285714285714",
+            "turnover_proxy": "21485092.8720"
+          },
+          {
+            "symbol": "ENA_USDT",
+            "sign": -1,
+            "weight": "0.125",
+            "return7": "-0.1589126748622297583721916066",
+            "atr14": "0.01962928571428571428571428571",
+            "turnover_proxy": "27302267.809400"
+          },
+          {
+            "symbol": "WLD_USDT",
+            "sign": -1,
+            "weight": "0.125",
+            "return7": "-0.1586743660557368817474265629",
+            "atr14": "0.0324",
+            "turnover_proxy": "24872411.65450"
+          },
+          {
+            "symbol": "HYPE_USDT",
+            "sign": -1,
+            "weight": "0.125",
+            "return7": "-0.1163363806711714269490659247",
+            "atr14": "5.763571428571428571428571429",
+            "turnover_proxy": "23447196.84200"
+          },
+          {
+            "symbol": "ONDO_USDT",
+            "sign": -1,
+            "weight": "0.125",
+            "return7": "-0.1108127898462289480107395655",
+            "atr14": "0.02845",
+            "turnover_proxy": "9201787.24500"
+          }
+        ],
+        "entries": 4,
+        "initial_notional": "5.835281207",
+        "initial_margin": "5.835281207",
+        "planned_stop_risk": "1.116793587653114285714285715",
+        "net_pnl": "0.0805133003566"
+      },
+      {
+        "decision_at": 1794182400,
+        "entry_at": 1794186000,
+        "exit_at": 1794272400,
+        "start_equity": "100.1466309146342",
+        "end_equity": "100.1333304572330",
+        "eligible": 23,
+        "selected": [
+          {
+            "symbol": "PEPE_USDT",
+            "sign": 1,
+            "weight": "0.125",
+            "return7": "0.012496676415846849242222813",
+            "atr14": "5.060714285714285714285714286E-7",
+            "turnover_proxy": "66421869.88100000000"
+          },
+          {
+            "symbol": "ARB_USDT",
+            "sign": 1,
+            "weight": "0.125",
+            "return7": "0.013311351285339195212798437",
+            "atr14": "0.012465",
+            "turnover_proxy": "20106408.478240"
+          },
+          {
+            "symbol": "INJ_USDT",
+            "sign": 1,
+            "weight": "0.125",
+            "return7": "0.120144786300988444939440345",
+            "atr14": "0.6049285714285714285714285714",
+            "turnover_proxy": "18077614.7390"
+          },
+          {
+            "symbol": "WLD_USDT",
+            "sign": -1,
+            "weight": "0.125",
+            "return7": "-0.2053047691915327722519765366",
+            "atr14": "0.03187857142857142857142857143",
+            "turnover_proxy": "30123867.34150"
+          },
+          {
+            "symbol": "ENA_USDT",
+            "sign": -1,
+            "weight": "0.125",
+            "return7": "-0.1881755650180150671470684573",
+            "atr14": "0.01903714285714285714285714286",
+            "turnover_proxy": "34453092.265900"
+          },
+          {
+            "symbol": "HYPE_USDT",
+            "sign": -1,
+            "weight": "0.125",
+            "return7": "-0.1519062251052691476044156140",
+            "atr14": "5.921071428571428571428571429",
+            "turnover_proxy": "36540435.93550"
+          },
+          {
+            "symbol": "TIA_USDT",
+            "sign": -1,
+            "weight": "0.125",
+            "return7": "-0.1324335723323492197385069591",
+            "atr14": "0.04006428571428571428571428571",
+            "turnover_proxy": "7398413.68320"
+          }
+        ],
+        "entries": 4,
+        "initial_notional": "5.423019536",
+        "initial_margin": "5.423019536",
+        "planned_stop_risk": "1.087656935586342857142857143",
+        "net_pnl": "-0.0133004574012"
+      },
+      {
+        "decision_at": 1794268800,
+        "entry_at": 1794272400,
+        "exit_at": 1794358800,
+        "start_equity": "100.1333304572330",
+        "end_equity": "100.0174844329410",
+        "eligible": 24,
+        "selected": [
+          {
+            "symbol": "AAVE_USDT",
+            "sign": 1,
+            "weight": "0.125",
+            "return7": "0.039497590646970534797377360",
+            "atr14": "9.502142857142857142857142857",
+            "turnover_proxy": "14156532.77790"
+          },
+          {
+            "symbol": "PEPE_USDT",
+            "sign": 1,
+            "weight": "0.125",
+            "return7": "0.073678702250130821559392988",
+            "atr14": "5.217428571428571428571428571E-7",
+            "turnover_proxy": "84231861.92500000000"
+          },
+          {
+            "symbol": "ARB_USDT",
+            "sign": 1,
+            "weight": "0.125",
+            "return7": "0.122358532982208234311773396",
+            "atr14": "0.01344928571428571428571428571",
+            "turnover_proxy": "30764325.251120"
+          },
+          {
+            "symbol": "INJ_USDT",
+            "sign": 1,
+            "weight": "0.125",
+            "return7": "0.162584156997564818793869073",
+            "atr14": "0.6004285714285714285714285714",
+            "turnover_proxy": "19948524.3700"
+          },
+          {
+            "symbol": "WLD_USDT",
+            "sign": -1,
+            "weight": "0.125",
+            "return7": "-0.1566966649020645844362096347",
+            "atr14": "0.03162142857142857142857142857",
+            "turnover_proxy": "28376110.09920"
+          },
+          {
+            "symbol": "XRP_USDT",
+            "sign": -1,
+            "weight": "0.125",
+            "return7": "-0.1211903047756179505639548836",
+            "atr14": "0.05832857142857142857142857143",
+            "turnover_proxy": "290313249.30950"
+          },
+          {
+            "symbol": "HYPE_USDT",
+            "sign": -1,
+            "weight": "0.125",
+            "return7": "-0.1062663495838287752675386445",
+            "atr14": "5.823428571428571428571428571",
+            "turnover_proxy": "48201153.95150"
+          },
+          {
+            "symbol": "ENA_USDT",
+            "sign": -1,
+            "weight": "0.125",
+            "return7": "-0.1015886042558180432616214315",
+            "atr14": "0.01903",
+            "turnover_proxy": "25507278.227800"
+          }
+        ],
+        "entries": 4,
+        "initial_notional": "5.086937274",
+        "initial_margin": "5.086937274",
+        "planned_stop_risk": "0.7850256362610857142857142849",
+        "net_pnl": "-0.1158460242920"
+      },
+      {
+        "decision_at": 1794355200,
+        "entry_at": 1794358800,
+        "exit_at": 1794445200,
+        "start_equity": "100.0174844329410",
+        "end_equity": "99.9858743730048",
+        "eligible": 24,
+        "selected": [
+          {
+            "symbol": "ARB_USDT",
+            "sign": 1,
+            "weight": "0.125",
+            "return7": "0.016782773907536415452818239",
+            "atr14": "0.01453",
+            "turnover_proxy": "33443960.072990"
+          },
+          {
+            "symbol": "PEPE_USDT",
+            "sign": 1,
+            "weight": "0.125",
+            "return7": "0.105534449122086456515042612",
+            "atr14": "5.356214285714285714285714286E-7",
+            "turnover_proxy": "73461173.60000000000"
+          },
+          {
+            "symbol": "INJ_USDT",
+            "sign": 1,
+            "weight": "0.125",
+            "return7": "0.105916425320645428216797683",
+            "atr14": "0.5998571428571428571428571429",
+            "turnover_proxy": "16133621.4760"
+          },
+          {
+            "symbol": "WLD_USDT",
+            "sign": -1,
+            "weight": "0.125",
+            "return7": "-0.1744895253248475205515778308",
+            "atr14": "0.0314",
+            "turnover_proxy": "29625526.30130"
+          },
+          {
+            "symbol": "XRP_USDT",
+            "sign": -1,
+            "weight": "0.125",
+            "return7": "-0.1731401722787783868441660141",
+            "atr14": "0.0606",
+            "turnover_proxy": "297763326.30230"
+          },
+          {
+            "symbol": "HYPE_USDT",
+            "sign": -1,
+            "weight": "0.125",
+            "return7": "-0.1508505239415441003712231568",
+            "atr14": "5.837",
+            "turnover_proxy": "40423375.10710"
+          },
+          {
+            "symbol": "ENA_USDT",
+            "sign": -1,
+            "weight": "0.125",
+            "return7": "-0.1415579958819492107069320522",
+            "atr14": "0.01851428571428571428571428571",
+            "turnover_proxy": "34087194.725600"
+          }
+        ],
+        "entries": 4,
+        "initial_notional": "5.576698817",
+        "initial_margin": "5.576698817",
+        "planned_stop_risk": "1.078870961813200000000000000",
+        "net_pnl": "-0.0316100599362"
+      },
+      {
+        "decision_at": 1794441600,
+        "entry_at": 1794445200,
+        "exit_at": 1794531600,
+        "start_equity": "99.9858743730048",
+        "end_equity": "100.1779137407368",
+        "eligible": 25,
+        "selected": [
+          {
+            "symbol": "ENA_USDT",
+            "sign": -1,
+            "weight": "0.1",
+            "return7": "-0.1948927702852089321246959982",
+            "atr14": "0.01797428571428571428571428571",
+            "turnover_proxy": "32227654.500700"
+          },
+          {
+            "symbol": "XRP_USDT",
+            "sign": -1,
+            "weight": "0.1",
+            "return7": "-0.1943465604412440631224145856",
+            "atr14": "0.06084285714285714285714285714",
+            "turnover_proxy": "254650528.82880"
+          },
+          {
+            "symbol": "UNI_USDT",
+            "sign": -1,
+            "weight": "0.1",
+            "return7": "-0.1826166754063974829575249082",
+            "atr14": "0.6387142857142857142857142857",
+            "turnover_proxy": "40897868.57930"
+          },
+          {
+            "symbol": "WLD_USDT",
+            "sign": -1,
+            "weight": "0.1",
+            "return7": "-0.1819637139807897545357524013",
+            "atr14": "0.03052142857142857142857142857",
+            "turnover_proxy": "21898853.28770"
+          },
+          {
+            "symbol": "QNT_USDT",
+            "sign": -1,
+            "weight": "0.1",
+            "return7": "-0.1623105967734026381601529937",
+            "atr14": "16.015",
+            "turnover_proxy": "33059015.43550"
+          }
+        ],
+        "entries": 5,
+        "initial_notional": "7.902271090",
+        "initial_margin": "7.902271090",
+        "planned_stop_risk": "1.568547956376857142857142857",
+        "net_pnl": "0.1920393677320"
+      },
+      {
+        "decision_at": 1794528000,
+        "entry_at": 1794531600,
+        "exit_at": 1794618000,
+        "start_equity": "100.1779137407368",
+        "end_equity": "100.0928173271628",
+        "eligible": 24,
+        "selected": [
+          {
+            "symbol": "AVAX_USDT",
+            "sign": 1,
+            "weight": "0.125",
+            "return7": "0.022513153064970023247277621",
+            "atr14": "0.5547142857142857142857142857",
+            "turnover_proxy": "18503373.91620"
+          },
+          {
+            "symbol": "FET_USDT",
+            "sign": 1,
+            "weight": "0.125",
+            "return7": "0.034916201117318435754189944",
+            "atr14": "0.01052142857142857142857142857",
+            "turnover_proxy": "7552646.03100"
+          },
+          {
+            "symbol": "TIA_USDT",
+            "sign": 1,
+            "weight": "0.125",
+            "return7": "0.062318137730358874878758487",
+            "atr14": "0.03695714285714285714285714286",
+            "turnover_proxy": "9269833.34450"
+          },
+          {
+            "symbol": "XRP_USDT",
+            "sign": -1,
+            "weight": "0.125",
+            "return7": "-0.1373052701358965860125952933",
+            "atr14": "0.05649285714285714285714285714",
+            "turnover_proxy": "258581012.00510"
+          },
+          {
+            "symbol": "QNT_USDT",
+            "sign": -1,
+            "weight": "0.125",
+            "return7": "-0.1318774515000530054065514682",
+            "atr14": "15.28928571428571428571428571",
+            "turnover_proxy": "40442513.62910"
+          },
+          {
+            "symbol": "ENA_USDT",
+            "sign": -1,
+            "weight": "0.125",
+            "return7": "-0.1230788454329626390103711108",
+            "atr14": "0.01556357142857142857142857143",
+            "turnover_proxy": "30703495.752100"
+          },
+          {
+            "symbol": "AAVE_USDT",
+            "sign": -1,
+            "weight": "0.125",
+            "return7": "-0.1150442477876106194690265487",
+            "atr14": "9.089285714285714285714285714",
+            "turnover_proxy": "10400906.95560"
+          }
+        ],
+        "entries": 7,
+        "initial_notional": "9.691983930",
+        "initial_margin": "9.691983930",
+        "planned_stop_risk": "1.587899943372571428571428571",
+        "net_pnl": "-0.0850964135740"
+      }
+    ],
+    "trades": [
+      {
+        "symbol": "ARB_USDT",
+        "sign": 1,
+        "opened_at": 1794013200,
+        "return7": "0.011972003929273084479371316",
+        "entry_mid": "0.16497",
+        "entry_fill": "0.165019491",
+        "quantity": "8",
+        "contracts": "8",
+        "entry_fee": "0.0007920935568",
+        "funding_cash": "-0.00003004080",
+        "stop": "0.14001",
+        "planned_risk": "0.2018758919424",
+        "initial_notional": "1.320155928",
+        "isolated_margin": "1.320155928",
+        "leverage": "1",
+        "liquidation_price": "0.000660077964",
+        "maintenance_rate": "0.004",
+        "liquidation_fee_rate": "0",
+        "stop_before_liquidation": true,
+        "has_1_5_liquidation_buffer": true,
+        "closed_at": 1794099600,
+        "exit_mid": "0.16791",
+        "exit_fill": "0.167859627",
+        "exit_fee": "0.0008057262096",
+        "gross_pnl": "0.022721088",
+        "net_pnl": "0.0210932274336",
+        "reason": "TIME"
+      },
+      {
+        "symbol": "AAVE_USDT",
+        "sign": 1,
+        "opened_at": 1794013200,
+        "return7": "0.013953488372093023255813953",
+        "entry_mid": "130.73",
+        "entry_fill": "130.769219",
+        "quantity": "0.01",
+        "contracts": "1",
+        "entry_fee": "0.000784615314",
+        "funding_cash": "-0.0002019770",
+        "stop": "111.8928571428571428571428571",
+        "planned_risk": "0.1905550681925714285714285723",
+        "initial_notional": "1.30769219",
+        "isolated_margin": "1.30769219",
+        "leverage": "1",
+        "liquidation_price": "0.5492307198",
+        "maintenance_rate": "0.004",
+        "liquidation_fee_rate": "0.0002",
+        "stop_before_liquidation": true,
+        "has_1_5_liquidation_buffer": true,
+        "closed_at": 1794099600,
+        "exit_mid": "131.03",
+        "exit_fill": "130.990691",
+        "exit_fee": "0.000785944146",
+        "gross_pnl": "0.00221472",
+        "net_pnl": "0.000442183540",
+        "reason": "TIME"
+      },
+      {
+        "symbol": "WLD_USDT",
+        "sign": -1,
+        "opened_at": 1794013200,
+        "return7": "-0.1561886051080550098231827112",
+        "entry_mid": "0.3433",
+        "entry_fill": "0.34306567",
+        "quantity": "4",
+        "contracts": "4",
+        "entry_fee": "0.000823357608",
+        "funding_cash": "-0.0003291996",
+        "stop": "0.4095571428571428571428571429",
+        "planned_risk": "0.2687365873302857142857142858",
+        "initial_notional": "1.37226268",
+        "isolated_margin": "1.37226268",
+        "leverage": "1",
+        "liquidation_price": "0.685342288959",
+        "maintenance_rate": "0.0023",
+        "liquidation_fee_rate": "0",
+        "stop_before_liquidation": true,
+        "has_1_5_liquidation_buffer": true,
+        "closed_at": 1794099600,
+        "exit_mid": "0.3312",
+        "exit_fill": "0.33143312",
+        "exit_fee": "0.000795439488",
+        "gross_pnl": "0.04653020",
+        "net_pnl": "0.044582203304",
+        "reason": "TIME"
+      },
+      {
+        "symbol": "UNI_USDT",
+        "sign": 1,
+        "opened_at": 1794099600,
+        "return7": "0.018630910374029640084685956",
+        "entry_mid": "7.128",
+        "entry_fill": "7.1307128",
+        "quantity": "0.2",
+        "contracts": "2",
+        "entry_fee": "0.000855685536",
+        "funding_cash": "-0.0000336562",
+        "stop": "5.962714285714285714285714286",
+        "planned_risk": "0.2356898568405714285714285712",
+        "initial_notional": "1.42614256",
+        "isolated_margin": "1.42614256",
+        "leverage": "1",
+        "liquidation_price": "0.02994899376",
+        "maintenance_rate": "0.004",
+        "liquidation_fee_rate": "0.0002",
+        "stop_before_liquidation": true,
+        "has_1_5_liquidation_buffer": true,
+        "closed_at": 1794186000,
+        "exit_mid": "6.936",
+        "exit_fill": "6.9333064",
+        "exit_fee": "0.000831996768",
+        "gross_pnl": "-0.03948128",
+        "net_pnl": "-0.041202618504",
+        "reason": "TIME"
+      },
+      {
+        "symbol": "ARB_USDT",
+        "sign": 1,
+        "opened_at": 1794099600,
+        "return7": "0.03240966796875",
+        "entry_mid": "0.16791",
+        "entry_fill": "0.167960373",
+        "quantity": "9",
+        "contracts": "9",
+        "entry_fee": "0.0009069860142",
+        "funding_cash": "0.00020351367",
+        "stop": "0.1434685714285714285714285714",
+        "planned_risk": "0.2224950631665428571428571434",
+        "initial_notional": "1.511643357",
+        "isolated_margin": "1.511643357",
+        "leverage": "1",
+        "liquidation_price": "0.000671841492",
+        "maintenance_rate": "0.004",
+        "liquidation_fee_rate": "0",
+        "stop_before_liquidation": true,
+        "has_1_5_liquidation_buffer": true,
+        "closed_at": 1794186000,
+        "exit_mid": "0.17074",
+        "exit_fill": "0.170688778",
+        "exit_fee": "0.0009217194012",
+        "gross_pnl": "0.024555645",
+        "net_pnl": "0.0229304532546",
+        "reason": "TIME"
+      },
+      {
+        "symbol": "ENA_USDT",
+        "sign": -1,
+        "opened_at": 1794099600,
+        "return7": "-0.1589126748622297583721916066",
+        "entry_mid": "0.15741",
+        "entry_fill": "0.157362777",
+        "quantity": "10",
+        "contracts": "1",
+        "entry_fee": "0.0009441766620",
+        "funding_cash": "0.00002097620",
+        "stop": "0.1966685714285714285714285714",
+        "planned_risk": "0.3957724920940000000000000000",
+        "initial_notional": "1.573627770",
+        "isolated_margin": "1.573627770",
+        "leverage": "1",
+        "liquidation_price": "0.3140646303366",
+        "maintenance_rate": "0.004",
+        "liquidation_fee_rate": "0.0002",
+        "stop_before_liquidation": true,
+        "has_1_5_liquidation_buffer": true,
+        "closed_at": 1794186000,
+        "exit_mid": "0.15218",
+        "exit_fill": "0.152225654",
+        "exit_fee": "0.0009133539240",
+        "gross_pnl": "0.051371230",
+        "net_pnl": "0.0495346756140",
+        "reason": "TIME"
+      },
+      {
+        "symbol": "WLD_USDT",
+        "sign": -1,
+        "opened_at": 1794099600,
+        "return7": "-0.1586743660557368817474265629",
+        "entry_mid": "0.3312",
+        "entry_fill": "0.33096688",
+        "quantity": "4",
+        "contracts": "4",
+        "entry_fee": "0.000794320512",
+        "funding_cash": "-0.0005317332",
+        "stop": "0.3960",
+        "planned_risk": "0.262836175552",
+        "initial_notional": "1.32386752",
+        "isolated_margin": "1.32386752",
+        "leverage": "1",
+        "liquidation_price": "0.661172536176",
+        "maintenance_rate": "0.0023",
+        "liquidation_fee_rate": "0",
+        "stop_before_liquidation": true,
+        "has_1_5_liquidation_buffer": true,
+        "closed_at": 1794186000,
+        "exit_mid": "0.3179",
+        "exit_fill": "0.31813179",
+        "exit_fee": "0.000763516296",
+        "gross_pnl": "0.05134036",
+        "net_pnl": "0.049250789992",
+        "reason": "TIME"
+      },
+      {
+        "symbol": "ARB_USDT",
+        "sign": 1,
+        "opened_at": 1794186000,
+        "return7": "0.013311351285339195212798437",
+        "entry_mid": "0.17074",
+        "entry_fill": "0.170791222",
+        "quantity": "8",
+        "contracts": "8",
+        "entry_fee": "0.0008197978656",
+        "funding_cash": "0.00002252032",
+        "stop": "0.145810",
+        "planned_risk": "0.20171919589920",
+        "initial_notional": "1.366329776",
+        "isolated_margin": "1.366329776",
+        "leverage": "1",
+        "liquidation_price": "0.000683164888",
+        "maintenance_rate": "0.004",
+        "liquidation_fee_rate": "0",
+        "stop_before_liquidation": true,
+        "has_1_5_liquidation_buffer": true,
+        "closed_at": 1794272400,
+        "exit_mid": "0.17461",
+        "exit_fill": "0.174557617",
+        "exit_fee": "0.0008378765616",
+        "gross_pnl": "0.030131160",
+        "net_pnl": "0.0284960058928",
+        "reason": "TIME"
+      },
+      {
+        "symbol": "WLD_USDT",
+        "sign": -1,
+        "opened_at": 1794186000,
+        "return7": "-0.2053047691915327722519765366",
+        "entry_mid": "0.3179",
+        "entry_fill": "0.31766821",
+        "quantity": "4",
+        "contracts": "4",
+        "entry_fee": "0.000762403704",
+        "funding_cash": "0.0000301344",
+        "stop": "0.3816571428571428571428571429",
+        "planned_risk": "0.2585873467302857142857142858",
+        "initial_notional": "1.27067284",
+        "isolated_margin": "1.27067284",
+        "leverage": "1",
+        "liquidation_price": "0.634605783117",
+        "maintenance_rate": "0.0023",
+        "liquidation_fee_rate": "0",
+        "stop_before_liquidation": true,
+        "has_1_5_liquidation_buffer": true,
+        "closed_at": 1794272400,
+        "exit_mid": "0.3182",
+        "exit_fill": "0.31843182",
+        "exit_fee": "0.000764236368",
+        "gross_pnl": "-0.00305444",
+        "net_pnl": "-0.004550945672",
+        "reason": "TIME"
+      },
+      {
+        "symbol": "ENA_USDT",
+        "sign": -1,
+        "opened_at": 1794186000,
+        "return7": "-0.1881755650180150671470684573",
+        "entry_mid": "0.15218",
+        "entry_fill": "0.152134346",
+        "quantity": "10",
+        "contracts": "1",
+        "entry_fee": "0.0009128060760",
+        "funding_cash": "0.0004583800",
+        "stop": "0.1902542857142857142857142857",
+        "planned_risk": "0.3838248342480000000000000000",
+        "initial_notional": "1.521343460",
+        "isolated_margin": "1.521343460",
+        "leverage": "1",
+        "liquidation_price": "0.3036297277468",
+        "maintenance_rate": "0.004",
+        "liquidation_fee_rate": "0.0002",
+        "stop_before_liquidation": true,
+        "has_1_5_liquidation_buffer": true,
+        "closed_at": 1794272400,
+        "exit_mid": "0.15326",
+        "exit_fill": "0.153305978",
+        "exit_fee": "0.0009198358680",
+        "gross_pnl": "-0.011716320",
+        "net_pnl": "-0.0130905819440",
+        "reason": "TIME"
+      },
+      {
+        "symbol": "TIA_USDT",
+        "sign": -1,
+        "opened_at": 1794186000,
+        "return7": "-0.1324335723323492197385069591",
+        "entry_mid": "0.4218",
+        "entry_fill": "0.42155782",
+        "quantity": "3",
+        "contracts": "3",
+        "entry_fee": "0.000758804076",
+        "funding_cash": "0.0001315356",
+        "stop": "0.5019285714285714285714285714",
+        "planned_risk": "0.2435255587088571428571428572",
+        "initial_notional": "1.26467346",
+        "isolated_margin": "1.26467346",
+        "leverage": "1",
+        "liquidation_price": "0.842146057014",
+        "maintenance_rate": "0.0023",
+        "liquidation_fee_rate": "0",
+        "stop_before_liquidation": true,
+        "has_1_5_liquidation_buffer": true,
+        "closed_at": 1794272400,
+        "exit_mid": "0.4289",
+        "exit_fill": "0.42914289",
+        "exit_fee": "0.000772457202",
+        "gross_pnl": "-0.02275521",
+        "net_pnl": "-0.024154935678",
+        "reason": "TIME"
+      },
+      {
+        "symbol": "AAVE_USDT",
+        "sign": 1,
+        "opened_at": 1794272400,
+        "return7": "0.039497590646970534797377360",
+        "entry_mid": "131.8",
+        "entry_fill": "131.83954",
+        "quantity": "0.01",
+        "contracts": "1",
+        "entry_fee": "0.00079103724",
+        "funding_cash": "-0.0001776636",
+        "stop": "112.7957142857142857142857143",
+        "planned_risk": "0.1922442527791428571428571426",
+        "initial_notional": "1.3183954",
+        "isolated_margin": "1.3183954",
+        "leverage": "1",
+        "liquidation_price": "0.553726068",
+        "maintenance_rate": "0.004",
+        "liquidation_fee_rate": "0.0002",
+        "stop_before_liquidation": true,
+        "has_1_5_liquidation_buffer": true,
+        "closed_at": 1794358800,
+        "exit_mid": "124.16",
+        "exit_fill": "124.122752",
+        "exit_fee": "0.000744736512",
+        "gross_pnl": "-0.07716788",
+        "net_pnl": "-0.078881317352",
+        "reason": "TIME"
+      },
+      {
+        "symbol": "ARB_USDT",
+        "sign": 1,
+        "opened_at": 1794272400,
+        "return7": "0.122358532982208234311773396",
+        "entry_mid": "0.17461",
+        "entry_fill": "0.174662383",
+        "quantity": "8",
+        "contracts": "8",
+        "entry_fee": "0.0008383794384",
+        "funding_cash": "0.00045563632",
+        "stop": "0.1477114285714285714285714286",
+        "planned_risk": "0.2175093244482285714285714281",
+        "initial_notional": "1.397299064",
+        "isolated_margin": "1.397299064",
+        "leverage": "1",
+        "liquidation_price": "0.000698649532",
+        "maintenance_rate": "0.004",
+        "liquidation_fee_rate": "0",
+        "stop_before_liquidation": true,
+        "has_1_5_liquidation_buffer": true,
+        "closed_at": 1794358800,
+        "exit_mid": "0.16131",
+        "exit_fill": "0.161261607",
+        "exit_fee": "0.0007740557136",
+        "gross_pnl": "-0.107206208",
+        "net_pnl": "-0.1083630068320",
+        "reason": "TIME"
+      },
+      {
+        "symbol": "WLD_USDT",
+        "sign": -1,
+        "opened_at": 1794272400,
+        "return7": "-0.1566966649020645844362096347",
+        "entry_mid": "0.3182",
+        "entry_fill": "0.31796818",
+        "quantity": "4",
+        "contracts": "4",
+        "entry_fee": "0.000763123632",
+        "funding_cash": "0.0000432360",
+        "stop": "0.3814428571428571428571428571",
+        "planned_risk": "0.2565304437497142857142857142",
+        "initial_notional": "1.27187272",
+        "isolated_margin": "1.27187272",
+        "leverage": "1",
+        "liquidation_price": "0.635205033186",
+        "maintenance_rate": "0.0023",
+        "liquidation_fee_rate": "0",
+        "stop_before_liquidation": true,
+        "has_1_5_liquidation_buffer": true,
+        "closed_at": 1794358800,
+        "exit_mid": "0.3112",
+        "exit_fill": "0.31143112",
+        "exit_fee": "0.000747434688",
+        "gross_pnl": "0.02614824",
+        "net_pnl": "0.024680917680",
+        "reason": "TIME"
+      },
+      {
+        "symbol": "XRP_USDT",
+        "sign": -1,
+        "opened_at": 1794272400,
+        "return7": "-0.1211903047756179505639548836",
+        "entry_mid": "1.0997",
+        "entry_fill": "1.09937009",
+        "quantity": "1",
+        "contracts": "1",
+        "entry_fee": "0.000659622054",
+        "funding_cash": "0.0002532735",
+        "stop": "1.216357142857142857142857143",
+        "planned_risk": "0.1187416152840000000000000000",
+        "initial_notional": "1.09937009",
+        "isolated_margin": "1.09937009",
+        "leverage": "1",
+        "liquidation_price": "2.195991754775",
+        "maintenance_rate": "0.0023",
+        "liquidation_fee_rate": "0.0002",
+        "stop_before_liquidation": true,
+        "has_1_5_liquidation_buffer": true,
+        "closed_at": 1794358800,
+        "exit_mid": "1.0513",
+        "exit_fill": "1.05161539",
+        "exit_fee": "0.000630969234",
+        "gross_pnl": "0.04775470",
+        "net_pnl": "0.046717382212",
+        "reason": "TIME"
+      },
+      {
+        "symbol": "ARB_USDT",
+        "sign": 1,
+        "opened_at": 1794358800,
+        "return7": "0.016782773907536415452818239",
+        "entry_mid": "0.16131",
+        "entry_fill": "0.161358393",
+        "quantity": "9",
+        "contracts": "9",
+        "entry_fee": "0.0008713353222",
+        "funding_cash": "0.00025306398",
+        "stop": "0.13225",
+        "planned_risk": "0.2639178830772",
+        "initial_notional": "1.452225537",
+        "isolated_margin": "1.452225537",
+        "leverage": "1",
+        "liquidation_price": "0.000645433572",
+        "maintenance_rate": "0.004",
+        "liquidation_fee_rate": "0",
+        "stop_before_liquidation": true,
+        "has_1_5_liquidation_buffer": true,
+        "closed_at": 1794445200,
+        "exit_mid": "0.1517",
+        "exit_fill": "0.15165449",
+        "exit_fee": "0.000818934246",
+        "gross_pnl": "-0.087335127",
+        "net_pnl": "-0.0887723325882",
+        "reason": "TIME"
+      },
+      {
+        "symbol": "WLD_USDT",
+        "sign": -1,
+        "opened_at": 1794358800,
+        "return7": "-0.1744895253248475205515778308",
+        "entry_mid": "0.3112",
+        "entry_fill": "0.31096888",
+        "quantity": "5",
+        "contracts": "5",
+        "entry_fee": "0.000932906640",
+        "funding_cash": "-0.0001236930",
+        "stop": "0.3740",
+        "planned_risk": "0.318398218840",
+        "initial_notional": "1.55484440",
+        "isolated_margin": "1.55484440",
+        "leverage": "1",
+        "liquidation_price": "0.621222531576",
+        "maintenance_rate": "0.0023",
+        "liquidation_fee_rate": "0",
+        "stop_before_liquidation": true,
+        "has_1_5_liquidation_buffer": true,
+        "closed_at": 1794445200,
+        "exit_mid": "0.308",
+        "exit_fill": "0.3082308",
+        "exit_fee": "0.00092469240",
+        "gross_pnl": "0.01369040",
+        "net_pnl": "0.011709107960",
+        "reason": "TIME"
+      },
+      {
+        "symbol": "XRP_USDT",
+        "sign": -1,
+        "opened_at": 1794358800,
+        "return7": "-0.1731401722787783868441660141",
+        "entry_mid": "1.0513",
+        "entry_fill": "1.05098461",
+        "quantity": "1",
+        "contracts": "1",
+        "entry_fee": "0.000630590766",
+        "funding_cash": "0.0002604755",
+        "stop": "1.1725",
+        "planned_risk": "0.123201441816",
+        "initial_notional": "1.05098461",
+        "isolated_margin": "1.05098461",
+        "leverage": "1",
+        "liquidation_price": "2.099341758475",
+        "maintenance_rate": "0.0023",
+        "liquidation_fee_rate": "0.0002",
+        "stop_before_liquidation": true,
+        "has_1_5_liquidation_buffer": true,
+        "closed_at": 1794445200,
+        "exit_mid": "1.0575",
+        "exit_fill": "1.05781725",
+        "exit_fee": "0.000634690350",
+        "gross_pnl": "-0.00683264",
+        "net_pnl": "-0.007837445616",
+        "reason": "TIME"
+      },
+      {
+        "symbol": "ENA_USDT",
+        "sign": -1,
+        "opened_at": 1794358800,
+        "return7": "-0.1415579958819492107069320522",
+        "entry_mid": "0.15191",
+        "entry_fill": "0.151864427",
+        "quantity": "10",
+        "contracts": "1",
+        "entry_fee": "0.0009111865620",
+        "funding_cash": "0.00037494030",
+        "stop": "0.1889385714285714285714285714",
+        "planned_risk": "0.3733534180800000000000000000",
+        "initial_notional": "1.518644270",
+        "isolated_margin": "1.518644270",
+        "leverage": "1",
+        "liquidation_price": "0.3030910234066",
+        "maintenance_rate": "0.004",
+        "liquidation_fee_rate": "0.0002",
+        "stop_before_liquidation": true,
+        "has_1_5_liquidation_buffer": true,
+        "closed_at": 1794445200,
+        "exit_mid": "0.14635",
+        "exit_fill": "0.146393905",
+        "exit_fee": "0.0008783634300",
+        "gross_pnl": "0.054705220",
+        "net_pnl": "0.0532906103080",
+        "reason": "TIME"
+      },
+      {
+        "symbol": "ENA_USDT",
+        "sign": -1,
+        "opened_at": 1794445200,
+        "return7": "-0.1948927702852089321246959982",
+        "entry_mid": "0.14635",
+        "entry_fill": "0.146306095",
+        "quantity": "10",
+        "contracts": "1",
+        "entry_fee": "0.0008778365700",
+        "funding_cash": "0.00024315700",
+        "stop": "0.1822985714285714285714285714",
+        "planned_risk": "0.3624436161360000000000000000",
+        "initial_notional": "1.463060950",
+        "isolated_margin": "1.463060950",
+        "leverage": "1",
+        "liquidation_price": "0.2919977044010",
+        "maintenance_rate": "0.004",
+        "liquidation_fee_rate": "0.0002",
+        "stop_before_liquidation": true,
+        "has_1_5_liquidation_buffer": true,
+        "closed_at": 1794531600,
+        "exit_mid": "0.14085",
+        "exit_fill": "0.140892255",
+        "exit_fee": "0.0008453535300",
+        "gross_pnl": "0.054138400",
+        "net_pnl": "0.0526583669000",
+        "reason": "TIME"
+      },
+      {
+        "symbol": "XRP_USDT",
+        "sign": -1,
+        "opened_at": 1794445200,
+        "return7": "-0.1943465604412440631224145856",
+        "entry_mid": "1.0575",
+        "entry_fill": "1.05718275",
+        "quantity": "1",
+        "contracts": "1",
+        "entry_fee": "0.000634309650",
+        "funding_cash": "0.0002327559",
+        "stop": "1.179185714285714285714285714",
+        "planned_risk": "0.1236987533320000000000000000",
+        "initial_notional": "1.05718275",
+        "isolated_margin": "1.05718275",
+        "leverage": "1",
+        "liquidation_price": "2.111722543125",
+        "maintenance_rate": "0.0023",
+        "liquidation_fee_rate": "0.0002",
+        "stop_before_liquidation": true,
+        "has_1_5_liquidation_buffer": true,
+        "closed_at": 1794531600,
+        "exit_mid": "1.0351",
+        "exit_fill": "1.03541053",
+        "exit_fee": "0.000621246318",
+        "gross_pnl": "0.02177222",
+        "net_pnl": "0.020749419932",
+        "reason": "TIME"
+      },
+      {
+        "symbol": "UNI_USDT",
+        "sign": -1,
+        "opened_at": 1794445200,
+        "return7": "-0.1826166754063974829575249082",
+        "entry_mid": "6.22",
+        "entry_fill": "6.217378",
+        "quantity": "0.3",
+        "contracts": "3",
+        "entry_fee": "0.00111912804",
+        "funding_cash": "0.0001795410",
+        "stop": "7.497428571428571428571428571",
+        "planned_risk": "0.3873092544222857142857142855",
+        "initial_notional": "1.8652134",
+        "isolated_margin": "1.8652134",
+        "leverage": "1",
+        "liquidation_price": "12.4086430124",
+        "maintenance_rate": "0.004",
+        "liquidation_fee_rate": "0.0002",
+        "stop_before_liquidation": true,
+        "has_1_5_liquidation_buffer": true,
+        "closed_at": 1794531600,
+        "exit_mid": "6.084",
+        "exit_fill": "6.0866084",
+        "exit_fee": "0.001095589512",
+        "gross_pnl": "0.03923088",
+        "net_pnl": "0.037195703448",
+        "reason": "TIME"
+      },
+      {
+        "symbol": "WLD_USDT",
+        "sign": -1,
+        "opened_at": 1794445200,
+        "return7": "-0.1819637139807897545357524013",
+        "entry_mid": "0.308",
+        "entry_fill": "0.3077692",
+        "quantity": "6",
+        "contracts": "6",
+        "entry_fee": "0.00110796912",
+        "funding_cash": "-0.000395130",
+        "stop": "0.3690428571428571428571428571",
+        "planned_risk": "0.3715007448325714285714285712",
+        "initial_notional": "1.8466152",
+        "isolated_margin": "1.8466152",
+        "leverage": "1",
+        "liquidation_price": "0.61483053084",
+        "maintenance_rate": "0.0023",
+        "liquidation_fee_rate": "0",
+        "stop_before_liquidation": true,
+        "has_1_5_liquidation_buffer": true,
+        "closed_at": 1794531600,
+        "exit_mid": "0.301",
+        "exit_fill": "0.3012301",
+        "exit_fee": "0.00108442836",
+        "gross_pnl": "0.0392346",
+        "net_pnl": "0.03664707252",
+        "reason": "TIME"
+      },
+      {
+        "symbol": "QNT_USDT",
+        "sign": -1,
+        "opened_at": 1794445200,
+        "return7": "-0.1623105967734026381601529937",
+        "entry_mid": "167.07",
+        "entry_fill": "167.019879",
+        "quantity": "0.01",
+        "contracts": "1",
+        "entry_fee": "0.001002119274",
+        "funding_cash": "0.0003533964",
+        "stop": "199.100",
+        "planned_risk": "0.3235955876540",
+        "initial_notional": "1.67019879",
+        "isolated_margin": "1.67019879",
+        "leverage": "1",
+        "liquidation_price": "333.3382745082",
+        "maintenance_rate": "0.004",
+        "liquidation_fee_rate": "0.0002",
+        "stop_before_liquidation": true,
+        "has_1_5_liquidation_buffer": true,
+        "closed_at": 1794531600,
+        "exit_mid": "162.33",
+        "exit_fill": "162.378699",
+        "exit_fee": "0.000974272194",
+        "gross_pnl": "0.04641180",
+        "net_pnl": "0.044788804932",
+        "reason": "TIME"
+      },
+      {
+        "symbol": "AVAX_USDT",
+        "sign": 1,
+        "opened_at": 1794531600,
+        "return7": "0.022513153064970023247277621",
+        "entry_mid": "8.332",
+        "entry_fill": "8.3348332",
+        "quantity": "0.2",
+        "contracts": "2",
+        "entry_fee": "0.001000179984",
+        "funding_cash": "-0.0000828458",
+        "stop": "7.222571428571428571428571429",
+        "planned_risk": "0.2248633675988571428571428570",
+        "initial_notional": "1.66696664",
+        "isolated_margin": "1.66696664",
+        "leverage": "1",
+        "liquidation_price": "0.0333393328",
+        "maintenance_rate": "0.004",
+        "liquidation_fee_rate": "0",
+        "stop_before_liquidation": true,
+        "has_1_5_liquidation_buffer": true,
+        "closed_at": 1794618000,
+        "exit_mid": "8.227",
+        "exit_fill": "8.2241773",
+        "exit_fee": "0.000986901276",
+        "gross_pnl": "-0.02213118",
+        "net_pnl": "-0.024201107060",
+        "reason": "TIME"
+      },
+      {
+        "symbol": "FET_USDT",
+        "sign": 1,
+        "opened_at": 1794531600,
+        "return7": "0.034916201117318435754189944",
+        "entry_mid": "0.1479",
+        "entry_fill": "0.14811479",
+        "quantity": "10",
+        "contracts": "1",
+        "entry_fee": "0.000888688740",
+        "funding_cash": "-0.0002714340",
+        "stop": "0.1268571428571428571428571429",
+        "planned_risk": "0.2163518840542857142857142851",
+        "initial_notional": "1.48114790",
+        "isolated_margin": "1.48114790",
+        "leverage": "1",
+        "liquidation_price": "0.00059245916",
+        "maintenance_rate": "0.004",
+        "liquidation_fee_rate": "0",
+        "stop_before_liquidation": true,
+        "has_1_5_liquidation_buffer": true,
+        "closed_at": 1794618000,
+        "exit_mid": "0.1482",
+        "exit_fill": "0.14798518",
+        "exit_fee": "0.000887911080",
+        "gross_pnl": "-0.00129610",
+        "net_pnl": "-0.003344133820",
+        "reason": "TIME"
+      },
+      {
+        "symbol": "TIA_USDT",
+        "sign": 1,
+        "opened_at": 1794531600,
+        "return7": "0.062318137730358874878758487",
+        "entry_mid": "0.444",
+        "entry_fill": "0.4442444",
+        "quantity": "3",
+        "contracts": "3",
+        "entry_fee": "0.00079963992",
+        "funding_cash": "0.0003580158",
+        "stop": "0.3700857142857142857142857143",
+        "planned_risk": "0.2246524504474285714285714286",
+        "initial_notional": "1.3327332",
+        "isolated_margin": "1.3327332",
+        "leverage": "1",
+        "liquidation_price": "0.00102176212",
+        "maintenance_rate": "0.0023",
+        "liquidation_fee_rate": "0",
+        "stop_before_liquidation": true,
+        "has_1_5_liquidation_buffer": true,
+        "closed_at": 1794618000,
+        "exit_mid": "0.3775",
+        "exit_fill": "0.37726225",
+        "exit_fee": "0.000679072050",
+        "gross_pnl": "-0.20094645",
+        "net_pnl": "-0.202067146170",
+        "reason": "TIME"
+      },
+      {
+        "symbol": "XRP_USDT",
+        "sign": -1,
+        "opened_at": 1794531600,
+        "return7": "-0.1373052701358965860125952933",
+        "entry_mid": "1.0351",
+        "entry_fill": "1.03478947",
+        "quantity": "1",
+        "contracts": "1",
+        "entry_fee": "0.000620873682",
+        "funding_cash": "0.0001577118",
+        "stop": "1.148085714285714285714285714",
+        "planned_risk": "0.1149506017660000000000000000",
+        "initial_notional": "1.03478947",
+        "isolated_margin": "1.03478947",
+        "leverage": "1",
+        "liquidation_price": "2.066991966325",
+        "maintenance_rate": "0.0023",
+        "liquidation_fee_rate": "0.0002",
+        "stop_before_liquidation": true,
+        "has_1_5_liquidation_buffer": true,
+        "closed_at": 1794618000,
+        "exit_mid": "1.0087",
+        "exit_fill": "1.00900261",
+        "exit_fee": "0.000605401566",
+        "gross_pnl": "0.02578686",
+        "net_pnl": "0.024718296552",
+        "reason": "TIME"
+      },
+      {
+        "symbol": "QNT_USDT",
+        "sign": -1,
+        "opened_at": 1794531600,
+        "return7": "-0.1318774515000530054065514682",
+        "entry_mid": "162.33",
+        "entry_fill": "162.281301",
+        "quantity": "0.01",
+        "contracts": "1",
+        "entry_fee": "0.000973687806",
+        "funding_cash": "0.0001704360",
+        "stop": "192.9085714285714285714285714",
+        "planned_risk": "0.3089829164700000000000000000",
+        "initial_notional": "1.62281301",
+        "isolated_margin": "1.62281301",
+        "leverage": "1",
+        "liquidation_price": "323.8810205358",
+        "maintenance_rate": "0.004",
+        "liquidation_fee_rate": "0.0002",
+        "stop_before_liquidation": true,
+        "has_1_5_liquidation_buffer": true,
+        "closed_at": 1794618000,
+        "exit_mid": "159.21",
+        "exit_fill": "159.257763",
+        "exit_fee": "0.000955546578",
+        "gross_pnl": "0.03023538",
+        "net_pnl": "0.028476581616",
+        "reason": "TIME"
+      },
+      {
+        "symbol": "ENA_USDT",
+        "sign": -1,
+        "opened_at": 1794531600,
+        "return7": "-0.1230788454329626390103711108",
+        "entry_mid": "0.14085",
+        "entry_fill": "0.140807745",
+        "quantity": "10",
+        "contracts": "1",
+        "entry_fee": "0.0008448464700",
+        "funding_cash": "0.00016683040",
+        "stop": "0.1719771428571428571428571429",
+        "planned_risk": "0.3140869288860000000000000000",
+        "initial_notional": "1.408077450",
+        "isolated_margin": "1.408077450",
+        "leverage": "1",
+        "liquidation_price": "0.2810240974710",
+        "maintenance_rate": "0.004",
+        "liquidation_fee_rate": "0.0002",
+        "stop_before_liquidation": true,
+        "has_1_5_liquidation_buffer": true,
+        "closed_at": 1794618000,
+        "exit_mid": "0.13433",
+        "exit_fill": "0.134370299",
+        "exit_fee": "0.0008062217940",
+        "gross_pnl": "0.064374460",
+        "net_pnl": "0.0628902221360",
+        "reason": "TIME"
+      },
+      {
+        "symbol": "AAVE_USDT",
+        "sign": -1,
+        "opened_at": 1794531600,
+        "return7": "-0.1150442477876106194690265487",
+        "entry_mid": "114.58",
+        "entry_fill": "114.545626",
+        "quantity": "0.01",
+        "contracts": "1",
+        "entry_fee": "0.000687273756",
+        "funding_cash": "0.0000659477",
+        "stop": "132.7585714285714285714285714",
+        "planned_risk": "0.1840117941500000000000000000",
+        "initial_notional": "1.14545626",
+        "isolated_margin": "1.14545626",
+        "leverage": "1",
+        "liquidation_price": "228.6101603708",
+        "maintenance_rate": "0.004",
+        "liquidation_fee_rate": "0.0002",
+        "stop_before_liquidation": true,
+        "has_1_5_liquidation_buffer": true,
+        "closed_at": 1794618000,
+        "exit_mid": "111.54",
+        "exit_fill": "111.573462",
+        "exit_fee": "0.000669440772",
+        "gross_pnl": "0.02972164",
+        "net_pnl": "0.028430873172",
+        "reason": "TIME"
+      }
+    ],
+    "hourly_equity": [
+      {
+        "ts": 1794013200,
+        "equity": "99.9958744955212"
+      },
+      {
+        "ts": 1794016800,
+        "equity": "99.9943344955212"
+      },
+      {
+        "ts": 1794020400,
+        "equity": "99.9852344955212"
+      },
+      {
+        "ts": 1794024000,
+        "equity": "100.0019344955212"
+      },
+      {
+        "ts": 1794027600,
+        "equity": "100.0129744955212"
+      },
+      {
+        "ts": 1794031200,
+        "equity": "100.0344544955212"
+      },
+      {
+        "ts": 1794034800,
+        "equity": "100.0216344955212"
+      },
+      {
+        "ts": 1794038400,
+        "equity": "100.0291881527212"
+      },
+      {
+        "ts": 1794042000,
+        "equity": "100.0243081527212"
+      },
+      {
+        "ts": 1794045600,
+        "equity": "100.0384681527212"
+      },
+      {
+        "ts": 1794049200,
+        "equity": "100.0312281527212"
+      },
+      {
+        "ts": 1794052800,
+        "equity": "100.0428481527212"
+      },
+      {
+        "ts": 1794056400,
+        "equity": "100.0352081527212"
+      },
+      {
+        "ts": 1794060000,
+        "equity": "100.0433081527212"
+      },
+      {
+        "ts": 1794063600,
+        "equity": "100.0497281527212"
+      },
+      {
+        "ts": 1794067200,
+        "equity": "100.0474355375212"
+      },
+      {
+        "ts": 1794070800,
+        "equity": "100.0469955375212"
+      },
+      {
+        "ts": 1794074400,
+        "equity": "100.0557355375212"
+      },
+      {
+        "ts": 1794078000,
+        "equity": "100.0691355375212"
+      },
+      {
+        "ts": 1794081600,
+        "equity": "100.0601555375212"
+      },
+      {
+        "ts": 1794085200,
+        "equity": "100.0562355375212"
+      },
+      {
+        "ts": 1794088800,
+        "equity": "100.0514955375212"
+      },
+      {
+        "ts": 1794092400,
+        "equity": "100.0578155375212"
+      },
+      {
+        "ts": 1794096000,
+        "equity": "100.0704532781212"
+      },
+      {
+        "ts": 1794099600,
+        "equity": "100.0700332781212"
+      },
+      {
+        "ts": 1794099600,
+        "equity": "100.0661176142776"
+      },
+      {
+        "ts": 1794099600,
+        "equity": "100.0595158185534"
+      },
+      {
+        "ts": 1794103200,
+        "equity": "100.0748058185534"
+      },
+      {
+        "ts": 1794106800,
+        "equity": "100.1039758185534"
+      },
+      {
+        "ts": 1794110400,
+        "equity": "100.1071665473534"
+      },
+      {
+        "ts": 1794114000,
+        "equity": "100.0894265473534"
+      },
+      {
+        "ts": 1794117600,
+        "equity": "100.0824865473534"
+      },
+      {
+        "ts": 1794121200,
+        "equity": "100.0968065473534"
+      },
+      {
+        "ts": 1794124800,
+        "equity": "100.1048085759734"
+      },
+      {
+        "ts": 1794128400,
+        "equity": "100.1098085759734"
+      },
+      {
+        "ts": 1794132000,
+        "equity": "100.1067585759734"
+      },
+      {
+        "ts": 1794135600,
+        "equity": "100.1137285759734"
+      },
+      {
+        "ts": 1794139200,
+        "equity": "100.0921588473734"
+      },
+      {
+        "ts": 1794142800,
+        "equity": "100.1016088473734"
+      },
+      {
+        "ts": 1794146400,
+        "equity": "100.1046988473734"
+      },
+      {
+        "ts": 1794150000,
+        "equity": "100.0870388473734"
+      },
+      {
+        "ts": 1794153600,
+        "equity": "100.1078641108734"
+      },
+      {
+        "ts": 1794157200,
+        "equity": "100.1132541108734"
+      },
+      {
+        "ts": 1794160800,
+        "equity": "100.1125841108734"
+      },
+      {
+        "ts": 1794164400,
+        "equity": "100.0921941108734"
+      },
+      {
+        "ts": 1794168000,
+        "equity": "100.0962010808734"
+      },
+      {
+        "ts": 1794171600,
+        "equity": "100.0983410808734"
+      },
+      {
+        "ts": 1794175200,
+        "equity": "100.1145710808734"
+      },
+      {
+        "ts": 1794178800,
+        "equity": "100.1261610808734"
+      },
+      {
+        "ts": 1794182400,
+        "equity": "100.1391349190234"
+      },
+      {
+        "ts": 1794186000,
+        "equity": "100.1521249190234"
+      },
+      {
+        "ts": 1794186000,
+        "equity": "100.1466309146342"
+      },
+      {
+        "ts": 1794186000,
+        "equity": "100.1402170869126"
+      },
+      {
+        "ts": 1794189600,
+        "equity": "100.1444370869126"
+      },
+      {
+        "ts": 1794193200,
+        "equity": "100.1308370869126"
+      },
+      {
+        "ts": 1794196800,
+        "equity": "100.1228570819126"
+      },
+      {
+        "ts": 1794200400,
+        "equity": "100.1518570819126"
+      },
+      {
+        "ts": 1794204000,
+        "equity": "100.1759370819126"
+      },
+      {
+        "ts": 1794207600,
+        "equity": "100.2024170819126"
+      },
+      {
+        "ts": 1794211200,
+        "equity": "100.2602463386726"
+      },
+      {
+        "ts": 1794214800,
+        "equity": "100.2012063386726"
+      },
+      {
+        "ts": 1794218400,
+        "equity": "100.2174263386726"
+      },
+      {
+        "ts": 1794222000,
+        "equity": "100.2165863386726"
+      },
+      {
+        "ts": 1794225600,
+        "equity": "100.2087604918726"
+      },
+      {
+        "ts": 1794229200,
+        "equity": "100.2056604918726"
+      },
+      {
+        "ts": 1794232800,
+        "equity": "100.1615804918726"
+      },
+      {
+        "ts": 1794236400,
+        "equity": "100.1297004918726"
+      },
+      {
+        "ts": 1794240000,
+        "equity": "100.1208055638326"
+      },
+      {
+        "ts": 1794243600,
+        "equity": "100.1606055638326"
+      },
+      {
+        "ts": 1794247200,
+        "equity": "100.1605055638326"
+      },
+      {
+        "ts": 1794250800,
+        "equity": "100.1111255638326"
+      },
+      {
+        "ts": 1794254400,
+        "equity": "100.0971736056326"
+      },
+      {
+        "ts": 1794258000,
+        "equity": "100.1104136056326"
+      },
+      {
+        "ts": 1794261600,
+        "equity": "100.1286936056326"
+      },
+      {
+        "ts": 1794265200,
+        "equity": "100.1338536056326"
+      },
+      {
+        "ts": 1794268800,
+        "equity": "100.1370796572326"
+      },
+      {
+        "ts": 1794272400,
+        "equity": "100.1390596572326"
+      },
+      {
+        "ts": 1794272400,
+        "equity": "100.1333304572330"
+      },
+      {
+        "ts": 1794272400,
+        "equity": "100.1281066408686"
+      },
+      {
+        "ts": 1794276000,
+        "equity": "100.1281066408686"
+      },
+      {
+        "ts": 1794279600,
+        "equity": "100.1185466408686"
+      },
+      {
+        "ts": 1794283200,
+        "equity": "100.0838666408686"
+      },
+      {
+        "ts": 1794286800,
+        "equity": "100.0559666408686"
+      },
+      {
+        "ts": 1794290400,
+        "equity": "100.0563266408686"
+      },
+      {
+        "ts": 1794294000,
+        "equity": "100.0378866408686"
+      },
+      {
+        "ts": 1794297600,
+        "equity": "100.0149049689486"
+      },
+      {
+        "ts": 1794301200,
+        "equity": "100.0233049689486"
+      },
+      {
+        "ts": 1794304800,
+        "equity": "100.0242249689486"
+      },
+      {
+        "ts": 1794308400,
+        "equity": "100.0060249689486"
+      },
+      {
+        "ts": 1794312000,
+        "equity": "99.9904849689486"
+      },
+      {
+        "ts": 1794315600,
+        "equity": "100.0129649689486"
+      },
+      {
+        "ts": 1794319200,
+        "equity": "100.0323249689486"
+      },
+      {
+        "ts": 1794322800,
+        "equity": "100.0195449689486"
+      },
+      {
+        "ts": 1794326400,
+        "equity": "100.0328519926086"
+      },
+      {
+        "ts": 1794330000,
+        "equity": "100.0018119926086"
+      },
+      {
+        "ts": 1794333600,
+        "equity": "99.9878919926086"
+      },
+      {
+        "ts": 1794337200,
+        "equity": "99.9930719926086"
+      },
+      {
+        "ts": 1794340800,
+        "equity": "100.0001919926086"
+      },
+      {
+        "ts": 1794344400,
+        "equity": "100.0079919926086"
+      },
+      {
+        "ts": 1794348000,
+        "equity": "100.0097919926086"
+      },
+      {
+        "ts": 1794351600,
+        "equity": "100.0255719926086"
+      },
+      {
+        "ts": 1794355200,
+        "equity": "100.0048811230886"
+      },
+      {
+        "ts": 1794358800,
+        "equity": "100.0225411230886"
+      },
+      {
+        "ts": 1794358800,
+        "equity": "100.0174844329410"
+      },
+      {
+        "ts": 1794358800,
+        "equity": "100.0119561566508"
+      },
+      {
+        "ts": 1794362400,
+        "equity": "100.0273161566508"
+      },
+      {
+        "ts": 1794366000,
+        "equity": "100.0483961566508"
+      },
+      {
+        "ts": 1794369600,
+        "equity": "100.0082331416508"
+      },
+      {
+        "ts": 1794373200,
+        "equity": "100.0201331416508"
+      },
+      {
+        "ts": 1794376800,
+        "equity": "99.9972531416508"
+      },
+      {
+        "ts": 1794380400,
+        "equity": "99.9946331416508"
+      },
+      {
+        "ts": 1794384000,
+        "equity": "99.9641080452308"
+      },
+      {
+        "ts": 1794387600,
+        "equity": "99.9915780452308"
+      },
+      {
+        "ts": 1794391200,
+        "equity": "99.9895080452308"
+      },
+      {
+        "ts": 1794394800,
+        "equity": "99.9745380452308"
+      },
+      {
+        "ts": 1794398400,
+        "equity": "99.9796844552308"
+      },
+      {
+        "ts": 1794402000,
+        "equity": "99.9721544552308"
+      },
+      {
+        "ts": 1794405600,
+        "equity": "99.9468244552308"
+      },
+      {
+        "ts": 1794409200,
+        "equity": "99.9625144552308"
+      },
+      {
+        "ts": 1794412800,
+        "equity": "99.9200124451108"
+      },
+      {
+        "ts": 1794416400,
+        "equity": "99.9304724451108"
+      },
+      {
+        "ts": 1794420000,
+        "equity": "99.9329024451108"
+      },
+      {
+        "ts": 1794423600,
+        "equity": "99.9631524451108"
+      },
+      {
+        "ts": 1794427200,
+        "equity": "99.9792578151108"
+      },
+      {
+        "ts": 1794430800,
+        "equity": "99.9613578151108"
+      },
+      {
+        "ts": 1794434400,
+        "equity": "99.9712578151108"
+      },
+      {
+        "ts": 1794438000,
+        "equity": "100.0266578151108"
+      },
+      {
+        "ts": 1794441600,
+        "equity": "100.0115709434308"
+      },
+      {
+        "ts": 1794445200,
+        "equity": "99.9913509434308"
+      },
+      {
+        "ts": 1794445200,
+        "equity": "99.9858743730048"
+      },
+      {
+        "ts": 1794445200,
+        "equity": "99.9769041003508"
+      },
+      {
+        "ts": 1794448800,
+        "equity": "100.0585041003508"
+      },
+      {
+        "ts": 1794452400,
+        "equity": "100.0153041003508"
+      },
+      {
+        "ts": 1794456000,
+        "equity": "100.0425760953508"
+      },
+      {
+        "ts": 1794459600,
+        "equity": "100.0352760953508"
+      },
+      {
+        "ts": 1794463200,
+        "equity": "100.0704760953508"
+      },
+      {
+        "ts": 1794466800,
+        "equity": "100.1136760953508"
+      },
+      {
+        "ts": 1794470400,
+        "equity": "100.0846394237508"
+      },
+      {
+        "ts": 1794474000,
+        "equity": "100.1192394237508"
+      },
+      {
+        "ts": 1794477600,
+        "equity": "100.0759394237508"
+      },
+      {
+        "ts": 1794481200,
+        "equity": "100.0871394237508"
+      },
+      {
+        "ts": 1794484800,
+        "equity": "100.1384351931508"
+      },
+      {
+        "ts": 1794488400,
+        "equity": "100.1880351931508"
+      },
+      {
+        "ts": 1794492000,
+        "equity": "100.1919351931508"
+      },
+      {
+        "ts": 1794495600,
+        "equity": "100.2110351931508"
+      },
+      {
+        "ts": 1794499200,
+        "equity": "100.2208297422508"
+      },
+      {
+        "ts": 1794502800,
+        "equity": "100.2524297422508"
+      },
+      {
+        "ts": 1794506400,
+        "equity": "100.2590297422508"
+      },
+      {
+        "ts": 1794510000,
+        "equity": "100.2144297422508"
+      },
+      {
+        "ts": 1794513600,
+        "equity": "100.2217520942508"
+      },
+      {
+        "ts": 1794517200,
+        "equity": "100.2134520942508"
+      },
+      {
+        "ts": 1794520800,
+        "equity": "100.1914520942508"
+      },
+      {
+        "ts": 1794524400,
+        "equity": "100.2033520942508"
+      },
+      {
+        "ts": 1794528000,
+        "equity": "100.1747178206508"
+      },
+      {
+        "ts": 1794531600,
+        "equity": "100.1852178206508"
+      },
+      {
+        "ts": 1794531600,
+        "equity": "100.1779137407368"
+      },
+      {
+        "ts": 1794531600,
+        "equity": "100.1667870003788"
+      },
+      {
+        "ts": 1794535200,
+        "equity": "100.1637870003788"
+      },
+      {
+        "ts": 1794538800,
+        "equity": "100.1415870003788"
+      },
+      {
+        "ts": 1794542400,
+        "equity": "100.1227392301788"
+      },
+      {
+        "ts": 1794546000,
+        "equity": "100.1282392301788"
+      },
+      {
+        "ts": 1794549600,
+        "equity": "100.1530392301788"
+      },
+      {
+        "ts": 1794553200,
+        "equity": "100.1678392301788"
+      },
+      {
+        "ts": 1794556800,
+        "equity": "100.1924031871788"
+      },
+      {
+        "ts": 1794560400,
+        "equity": "100.1960031871788"
+      },
+      {
+        "ts": 1794564000,
+        "equity": "100.1847031871788"
+      },
+      {
+        "ts": 1794567600,
+        "equity": "100.2157031871788"
+      },
+      {
+        "ts": 1794571200,
+        "equity": "100.1668621275788"
+      },
+      {
+        "ts": 1794574800,
+        "equity": "100.1301621275788"
+      },
+      {
+        "ts": 1794578400,
+        "equity": "100.1241621275788"
+      },
+      {
+        "ts": 1794582000,
+        "equity": "100.1361621275788"
+      },
+      {
+        "ts": 1794585600,
+        "equity": "100.1237468605788"
+      },
+      {
+        "ts": 1794589200,
+        "equity": "100.1361468605788"
+      },
+      {
+        "ts": 1794592800,
+        "equity": "100.1238468605788"
+      },
+      {
+        "ts": 1794596400,
+        "equity": "100.1116468605788"
+      },
+      {
+        "ts": 1794600000,
+        "equity": "100.0855905553788"
+      },
+      {
+        "ts": 1794603600,
+        "equity": "100.0989905553788"
+      },
+      {
+        "ts": 1794607200,
+        "equity": "100.1441905553788"
+      },
+      {
+        "ts": 1794610800,
+        "equity": "100.1309905553788"
+      },
+      {
+        "ts": 1794614400,
+        "equity": "100.1129516622788"
+      },
+      {
+        "ts": 1794618000,
+        "equity": "100.1029516622788"
+      },
+      {
+        "ts": 1794618000,
+        "equity": "100.0928173271628"
+      }
+    ],
+    "skips": {
+      "MIN_LOT": 18
+    },
+    "causal_checks": 7
+  },
+  "production_changed": false,
+  "limitations": [
+    "Same fixed26 current survivors; retrospective contract, MMR and lot rules.",
+    "Keep2% joint planned stop risk, not invest100%margin times10.",
+    "Fixed isolated margin; liquidation trigger is an approximation using current risk tier.",
+    "H1 Fair versus Last cannot order SL and liquidation within an hour: liquidation wins conservatively.",
+    "Full isolated-margin loss assumed for liquidation; no extra exit fee double-counted.",
+    "Actual funding events and Fair H1 valuation; historical fills and order book not observed.",
+    "Seven completed daily cycles, current incomplete cycle excluded; no live orders or Telegram changes."
+  ],
+  "provenance": {
+    "source_run_id": 43655552665,
+    "source_commit": "f37b36fb97f9bf234f62e67e22d8b487ff3d5474",
+    "artifact_id": 14137469430,
+    "artifact_name": "momentum-week10x-source-2026-11-14",
+    "artifact_digest": "sha256:252256f61674e6ce2124581c306e8d547a1a05f490f9e34350b6e5882dac1377",
+    "source_sha256": {
+      "AAVE_USDT.json.gz": "478f27d4f3ae6567e154cba2c77ab16ced2ff5562c71489f9d20ef0edcdf337f",
+      "ADA_USDT.json.gz": "9e019d99d8061d672d9c55fedf1f26580131c74ed36428b634f0091cd730b6e6",
+      "ARB_USDT.json.gz": "0bf309524f711292eb3c0e1186bc0c4647c087c7ae174a1110f1aff4c56f7fb6",
+      "AVAX_USDT.json.gz": "8d286c3233b2a9551a632617718c709254666e028385307dca6bfb068b94b1ff",
+      "BNB_USDT.json.gz": "0eb29a62a04962f651aabd7a2036ca10790357aca50d2b32b11564257dac7b11",
+      "BTC_USDT.json.gz": "f602b685aac47c5692957d0650d97e71a0dfb9d04d3eb7331f054a503a8a5424",
+      "DOGE_USDT.json.gz": "a956f1e1562b5d27794977e7ff5d72630ec66bea7874e4d980eb09bb8e59f1ff",
+      "DOT_USDT.json.gz": "830a6102b98bfef3774f9164778ee6af26f49cc330ad59b96a5c997c10b60cde",
+      "ENA_USDT.json.gz": "c7806f8d4497cbf64f87e846486ce3e15c7e96f846da7456badc4d3c3122482d",
+      "ETH_USDT.json.gz": "3d99deb87405501ce80c155d4e239c22d6e0fff88fbda4ea91647b33483e804f",
+      "FET_USDT.json.gz": "f8a7930b53277c9b2f084bfd121c9db5b010f3826deab51747333c138576c0a8",
+      "HYPE_USDT.json.gz": "666887d8df54c9b83847964e60da55e0f6959036662c81a4bf8c25ba801f7c0f",
+      "ICP_USDT.json.gz": "9b68c115f472d9dad495a1d79fd0e2e7cde53a2bc79aee16d43cb67274e9176b",
+      "INJ_USDT.json.gz": "da0d28553dfbe64af80bba687f04a81094a105a7d0363a05fced50704e772426",
+      "LINK_USDT.json.gz": "703ce8d98b61e2325f5bedcdb4905edc74e0e006f3b39786ffb3739a5f92829d",
+      "ONDO_USDT.json.gz": "9f2e0e55088b037837594724767666ceec1074bfa34d0dd7f4c4781a904f151a",
+      "PEPE_USDT.json.gz": "8621fb5c24f967b5471db78c6ad6d5364fb0a637b1755572334061c9dd547818",
+      "QNT_USDT.json.gz": "a455f974ef591e91df02d039f45e3e2f52d3b04179e4a6002d75fb79b56b00b5",
+      "SOL_USDT.json.gz": "b41e88306aeaabad72024c85a5cf88f912af27ec54529d7f196a04d1a0051be5",
+      "SUI_USDT.json.gz": "99fcb86e368ca8457098f92773d24017116749261f9e2b03232cc5b81e3bff85",
+      "TAO_USDT.json.gz": "0226c1842651be8e6654cc20efc1eabe15d12f3028d92d7fcd3b15bf825d106b",
+      "TIA_USDT.json.gz": "3d0d738bb758902ac13e47d7ab9b3f39bf57bcd4a67fa3508446293483905db5",
+      "UNI_USDT.json.gz": "eaf0f4b19173a80658b00ae3ae40fcf2fea3f3d044b985b8f6e41b83896fdd8d",
+      "WLD_USDT.json.gz": "f0537c912ed55c76ce312bfb39aef54a77abda0bba343ab6398bc1c054602f36",
+      "XLM_USDT.json.gz": "d315d4b9b4357b8da7813d493354aef0f7dd02a210bd3d672dff0971390fc1c5",
+      "XRP_USDT.json.gz": "e2b2e29feaa2b50c377d1127179d246ab218c7a1d928e7b828a00fde903098e6",
+      "manifest.json": "6a3c7a673d7bb864fea364a97a7f595cd2be706fdcfe96138b79496eb7b7cd68"
+    },
+    "test_count": 4,
+    "paired_entries_equal": 31
+  }
+}
