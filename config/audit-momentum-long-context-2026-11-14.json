@@ -1,0 +1,74 @@
+{
+  "name": "MOMENTUM_LONG_H1_EMA20_CONTEXT_PRIOR14_V1",
+  "evaluation_start_utc": 1794009600,
+  "evaluation_end_utc": 1794614400,
+  "warmup_start_utc": 1791417600,
+  "reference_equity_usdt": 100,
+  "leverage": 10,
+  "portfolio_risk_fraction": "0.02",
+  "period_note": "Top-level source start/end retain original complete-file bounds for loader checks; actual simulations use evaluation_windows overrides. Primary prior14 and explanatory known7 each reset100USD.",
+  "ranking": "Unchanged7-day return top/bottom20%, positive LONG/negative SHORT, historical previous24h turnover proxy>=5M, fixed26 current survivors",
+  "volatility_stop": "Both arms: smaller adverse distance between original2ATR14 daily stop and estimated liquidation distance/1.6 from entry fill. No TP;24h max holding.",
+  "entry": "Daily01UTC following00UTC decision, one-hour execution delay",
+  "sizing": "Prior equal margin slots now multiplied by L to form desired notional, then jointly reduced so modeled stop risk<=2%equity and initial margin+two execution fees<=equity; current min/step/max lots",
+  "margin": "Isolated per position, fixed leverage10, no automatic margin addition",
+  "liquidation": "Threshold estimated from entry notional, current MMR tier and liquidation fee: entry*(1-sign/L+sign*(MMR+liq_fee)); historical fair-price H1 used to test crossing",
+  "liquidation_charge": "Conservative loss of allocated initial isolated margin, entry fees and previously held funding; liquidation charges absorbed in forfeited margin, no double exit fee",
+  "ambiguity": "If Fair liquidation and Last stop both touched in same H1, count liquidation first and flag ordering uncertain",
+  "funding": "Historical signed settlements; debit available cash, no margin topups; assert cash available beyond locked margin sufficient; H1 marks",
+  "stop_validity": "Both arms require final1.5 liquidation buffer and unchanged margin tier after sizing; simulate Fair H1 liquidation if touched.",
+  "control": "Unfiltered daily momentum at100USD isolated10x and2% joint planned risk, separately reset for each window.",
+  "costs": {
+    "fee_per_execution": "0.0006",
+    "spread_total": "0.0002",
+    "slippage_each_execution": "max(0.0002*mid,2*tick)"
+  },
+  "excluded": [
+    "EMA slope",
+    "EMA length sweep",
+    "SHORT gate",
+    "redistribution of rejected budget",
+    "live production changes",
+    "full-margin10x assumption"
+  ],
+  "limitations": [
+    "Fixed surviving/currently liquid universe",
+    "Current contract/MMR/lot rules applied retrospectively",
+    "H1 execution and liquidation ordering cannot prove actual fills",
+    "Only seven completed cycles, not broad validation"
+  ],
+  "original_experiment": "RELATIVE_MOMENTUM_7D_LAST_WEEK_10X_100_V1",
+  "stop_adjustment": "Keep original 2ATR stop if closer; otherwise cap adverse distance from execution entry at estimated liquidation distance/1.6. Use minimum lot margin tier before sizing; assert resulting quantity is still in that same tier. No TP added; same ranks and 24h exit.",
+  "interpretation": "Exploratory same historical week reused after prior results; not out-of-sample or approval for live risk. Risk budget is planned per daily basket, not per trade; gaps/liquidation may exceed it.",
+  "frozen_at_utc": "2026-11-15T02:12:12.616410+00:00",
+  "liquidation_stop_buffer": "1.6",
+  "multiple_testing_note": "Hypothesis motivated by known week. Primary check on prior14 calendar days, frozen before performance inspected. Retrospective survivor universe and contract rules remain.",
+  "holding_hours": 24,
+  "filter_rule": "For LONG only: last completed H1 close strictly above recursive H1 EMA20 at original00UTC decision. Seed with simple average first20 available H1 closes, alpha2/21, chronological. SHORT always unchanged.",
+  "sizing_filter_order": "Prepare full unfiltered basket at2% risk with original slots, apply LONG gate afterwards before entry fees. Rejected budget is not redistributed. Both arms resize independently from evolving equity each day.",
+  "evaluation_windows": [
+    {
+      "name": "prior14_validation",
+      "start_utc": 1792800000,
+      "end_utc": 1794009600,
+      "role": "Earlier calendar period not used in preceding week loss diagnosis; not prospective and not fully independent of broader past research."
+    },
+    {
+      "name": "known7_diagnostic",
+      "start_utc": 1794009600,
+      "end_utc": 1794614400,
+      "role": "Already examined week; explanatory only, not independent validation."
+    }
+  ],
+  "comparisons": "Unfiltered versus filtered, same100USD reset per window,10x isolated,2% joint planned risk, same stop cap and24h exit. Also fixed-baseline-position removal attribution; never future outcomes in gate.",
+  "scope": "One fixed20-period filter, no EMA length/slope/other condition sweep; no live changes.",
+  "planned_metrics": [
+    "net wallet return",
+    "wins/losses",
+    "hourly drawdown",
+    "profit factor",
+    "gated baseline winners/losers/stops",
+    "LONG/SHORT breakdown",
+    "same-quantity removal attribution"
+  ]
+}

@@ -112,7 +112,7 @@ def summarize_week(days,trades,marks):
         mean_initial_margin=sum((d['initial_margin'] for d in days),D(0))/len(days)))
 
 
-def simulate_week(market,p,leverage):
+def simulate_week(market,p,leverage,position_gate=None):
     cash=D(p['reference_equity_usdt']);trades,days,marks=[],[],[];skips=Counter();checks=0
     holding=int(p.get('holding_hours',24))*HOUR
     if not 0<holding<=DAY:raise ValueError('Holding hours must be between1 and24')
@@ -123,6 +123,10 @@ def simulate_week(market,p,leverage):
         assert jsonable(select(prefix,day))==jsonable((signals,ranking));checks+=1
         buffer=D(p['liquidation_stop_buffer']) if p.get('liquidation_stop_buffer') else None
         active,skip=prepare_week(signals,market,at,cash,D(leverage),D(p['portfolio_risk_fraction']),buffer)
+        if position_gate is not None:
+            kept=[t for t in active if position_gate(t,market,day)]
+            skip['LONG_CONTEXT']=len(active)-len(kept)
+            active=kept
         skips.update(skip);notional=sum((t['initial_notional'] for t in active),D(0))
         margin=sum((t['isolated_margin'] for t in active),D(0));risk=sum((t['planned_risk'] for t in active),D(0))
         cash-=sum((t['entry_fee'] for t in active),D(0));day_trades=[]
