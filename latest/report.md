@@ -1,6 +1,6 @@
 # MEXC Futures Scanner — rodada
 
-Modo: **paper**. Análise: 15/11/2026 10:30:30 BRT.
+Modo: **paper**. Análise: 15/11/2026 10:32:17 BRT.
 
 Fonte: OK
 Cobertura: 36/36 contratos selecionados.
@@ -2064,6 +2064,22 @@ Alavancagem de simulação: **10x a 20x**.
 | ADA_USDT | ROMPIMENTO_M1_VOLUME | LONG | EXPIRADO | CONFIRMADA | PRECO_FORA_DO_PLANO |
 | ADA_USDT | ROMPIMENTO_M1_VOLUME | LONG | EXPIRADO | — | PRAZO_ENCERRADO |
 | ADA_USDT | ROMPIMENTO_M1_VOLUME | SHORT | EXPIRADO | — | PRAZO_ENCERRADO |
+| DOT_USDT | ROMPIMENTO_M1_VOLUME | LONG | POSSIVEL | — | aguardando gatilho |
+| DOT_USDT | ROMPIMENTO_M1_VOLUME | SHORT | POSSIVEL | — | aguardando gatilho |
+| ENA_USDT | ROMPIMENTO_M1_VOLUME | LONG | POSSIVEL | — | aguardando gatilho |
+| ENA_USDT | ROMPIMENTO_M1_VOLUME | SHORT | POSSIVEL | — | aguardando gatilho |
+| HBAR_USDT | ROMPIMENTO_M1_VOLUME | LONG | POSSIVEL | — | aguardando gatilho |
+| HBAR_USDT | ROMPIMENTO_M1_VOLUME | SHORT | POSSIVEL | — | aguardando gatilho |
+| ICP_USDT | ROMPIMENTO_M1_VOLUME | LONG | POSSIVEL | — | aguardando gatilho |
+| ICP_USDT | ROMPIMENTO_M1_VOLUME | SHORT | POSSIVEL | — | aguardando gatilho |
+| NEAR_USDT | ROMPIMENTO_M1_VOLUME | LONG | POSSIVEL | — | aguardando gatilho |
+| NEAR_USDT | ROMPIMENTO_M1_VOLUME | SHORT | POSSIVEL | — | aguardando gatilho |
+| OP_USDT | ROMPIMENTO_M1_VOLUME | LONG | POSSIVEL | — | aguardando gatilho |
+| OP_USDT | ROMPIMENTO_M1_VOLUME | SHORT | POSSIVEL | — | aguardando gatilho |
+| SHIB_USDT | ROMPIMENTO_M1_VOLUME | LONG | POSSIVEL | — | aguardando gatilho |
+| SHIB_USDT | ROMPIMENTO_M1_VOLUME | SHORT | POSSIVEL | — | aguardando gatilho |
+| SUI_USDT | ROMPIMENTO_M1_VOLUME | LONG | POSSIVEL | — | aguardando gatilho |
+| SUI_USDT | ROMPIMENTO_M1_VOLUME | SHORT | POSSIVEL | — | aguardando gatilho |
 
 ## Diagnósticos
 
