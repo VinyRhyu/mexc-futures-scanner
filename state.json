@@ -31710,13 +31710,17 @@
       "text": "🟠 ENTRADA BLOQUEADA\nARB/USDT • SHORT\n🧪 SIMULAÇÃO • Confirmada\nRompimento • 2 fechamentos M1 • volume ≥50%\n\nVolume do segundo M1: 159.9% do primeiro.\nMotivo: A relação entre ganho e perda ficou abaixo do mínimo.\nSem entrada liberada nesta análise.\n\n📍 Faixa do plano: 0.14468 a 0.14503\n🛑 Stop: 0.14575\n🎯 Alvo: 0.14339\n\nEstimativas de taxas, deslizamento e funding; ganho não garantido.\n\n⏱ Nova entrada até 06:26:00 BRT (1min 03s).\nGatilho M1 (segundo fechamento): 06:24:00 BRT\nAnálise: 13/11/2026 06:24:57 BRT\nA validade se aplica a novas entradas.\nPlano: adf8da3e180b844fab1e • revisão 1"
     },
     "7d3acebcc3f1316181d3": {
-      "attempts": 0,
+      "attempts": 1,
       "category": "ENTRY",
       "created_at": 1794711450,
       "expires_at": 1794711480,
       "id": "7d3acebcc3f1316181d3",
       "quote_at": 1794711446,
-      "status": "PENDING",
+      "sent_at": 1794711455,
+      "status": "SENT",
+      "telegram_ids": [
+        4271
+      ],
       "text": "🟢 GATILHO VÁLIDO PARA SIMULAR\nXLM/USDT • LONG\n🧪 SIMULAÇÃO • Confirmada\nRompimento • 2 fechamentos M1 • volume ≥50%\n\nVolume do segundo M1: 5348.6% do primeiro.\n📍 Entrada: 0.13767 a 0.13817\n🛑 Stop: 0.13652 (-13.53% líquido sobre a margem)\n🎯 Alvo: 0.14463 (+45.12% líquido sobre a margem)\nMovimento sem alavancagem: TP +4.68% • SL -1.19%.\nBase dos percentuais sem alavancagem: 0.13817 (pior entrada); na direção da operação, antes de custos.\n\nMargem isolada estimada: 0.6909 USDT • 10x\nQuantidade: 5 contratos\nPerda planejada: -0.0935 USDT (-9.35% da banca)\nGanho projetado: +0.3117 USDT (+31.17% da banca)\nRetorno/risco líquido: 3.33:1 (pior entrada)\nCustos estimados: 0.0113 USDT\nROI líquido estimado sobre a margem: TP +45.12% • SL -13.53%.\nTaxa por execução: 0.06%\nDisparo do stop: último preço (Last)\n\nEstimativas de taxas, deslizamento e funding; ganho não garantido.\nFalta validar para uso real: taxa pessoal da conta; regras de margem da conta.\n\n⏱ Nova entrada até 23:58:00 BRT (30s).\nGatilho M1 (segundo fechamento): 23:56:00 BRT\nCotação: 23:57:26 BRT\nAnálise: 14/11/2026 23:57:30 BRT\nA validade se aplica a novas entradas.\nPlano: be2eb0a6abb42792f57d • revisão 1"
     },
     "7d3f723166ec0b908a84": {
@@ -34509,7 +34513,7 @@
       "watch_symbol": "DOT_USDT"
     },
     "88084665157b31d4043c": {
-      "attempts": 0,
+      "attempts": 1,
       "category": "INFO",
       "created_at": 1794711450,
       "expires_at": 1794712500,
@@ -34518,7 +34522,11 @@
         "6eff76b3351416fb46f9"
       ],
       "quote_at": 0,
-      "status": "PENDING",
+      "sent_at": 1794711455,
+      "status": "SENT",
+      "telegram_ids": [
+        4272
+      ],
       "text": "👀 PLANO EM PREPARAÇÃO • AGUARDANDO GATILHO\nXRP/USDT\n🧪 SIMULAÇÃO • acompanhamento\n\nRegião em análise: 0.8989 a 0.9513\nSHORT somente se houver fechamento M1 abaixo de ≈ 0.897567.\n\nConfirmação: dois fechamentos M1 consecutivos além do gatilho; volume do segundo de pelo menos 50% do primeiro.\nTP, SL e percentuais serão definidos no primeiro gatilho. A confirmação ainda precisa passar pela avaliação financeira.\n\nSem rompimento observado neste plano e sem entrada liberada.\nPreparação até 15/11 00:15:00 BRT.\nAnálise: 14/11/2026 23:57:30 BRT\nPlanos: 6eff76b3351416fb46f9",
       "watch_stage": 2,
       "watch_symbol": "XRP_USDT"
@@ -39995,13 +40003,17 @@
       "text": "🟠 ENTRADA BLOQUEADA\nDOT/USDT • SHORT\n🧪 SIMULAÇÃO • Antecipada\nContinuação após correção\n\nMotivo: O preço está fora da faixa permitida.\nSem entrada liberada nesta análise.\n\n📍 Faixa do plano: 0.8723 a 0.8736\n🛑 Stop: 0.8807\n🎯 Alvo: 0.851\n\nEstimativas de taxas, deslizamento e funding; ganho não garantido.\n\n⏱ Nova entrada até 02:15:00 BRT (28min 29s).\nGatilho 15m: 01:45:00 BRT\nCotação: 01:46:27 BRT\nAnálise: 09/11/2026 01:46:31 BRT\nA validade se aplica a novas entradas.\nPlano: 0b5e63e523bdbdeefb61 • revisão 1"
     },
     "9cf7c9e613e427b39246": {
-      "attempts": 0,
+      "attempts": 1,
       "category": "INFO",
       "created_at": 1794711450,
       "expires_at": 1794715050,
       "id": "9cf7c9e613e427b39246",
       "quote_at": 0,
-      "status": "PENDING",
+      "sent_at": 1794711455,
+      "status": "SENT",
+      "telegram_ids": [
+        4273
+      ],
       "text": "⚪ ATUALIZAÇÃO DOS PLANOS ACOMPANHADOS\n🧪 SIMULAÇÃO\n\n• XRP/USDT • LONG: confirmação não aprovada\n  Motivo: O segundo fechamento M1 perdeu o nível do gatilho.\n  Plano: ad5784a94501a38b4ddc\n\nSem novas entradas por esses planos.\nAvisos de movimento não equivalem a entradas liberadas.\nA expiração não encerra uma posição já aberta.\nAnálise: 14/11/2026 23:57:30 BRT"
     },
     "9d0e626d05310e3cbb29": {
