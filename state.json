@@ -7746,7 +7746,7 @@
       "text": "⚪ ATUALIZAÇÃO DOS PLANOS ACOMPANHADOS\n🧪 SIMULAÇÃO\n\n• SOL/USDT • SHORT: plano invalidado\n  Plano: efeb91167b0fcd013b25\n\nSem novas entradas por esses planos.\nA expiração não encerra posições já abertas.\nAnálise: 11/11/2026 01:22:40 BRT"
     },
     "205b3bb36c9708d92813": {
-      "attempts": 0,
+      "attempts": 1,
       "category": "INFO",
       "created_at": 1794708868,
       "expires_at": 1794708900,
@@ -7757,7 +7757,11 @@
         "4538a6a738c86ee3a56e"
       ],
       "quote_at": 0,
-      "status": "PENDING",
+      "sent_at": 1794708873,
+      "status": "SENT",
+      "telegram_ids": [
+        4211
+      ],
       "text": "🟡 MOVIMENTO DETECTADO • ENTRADA BLOQUEADA\nICP/USDT • ALTA (LONG)\n🧪 SIMULAÇÃO • acompanhamento\n\nRompimento observado no M1 fechado às 23:13:00 BRT.\nPreço de referência do primeiro gatilho: 2.178.\n\nConfirmação técnica identificada; entrada bloqueada.\nCondição pendente: O preço está fora da faixa permitida.\n\nFaixa em estudo: 2.176 a 2.184\n🛑 Stop do plano: 2.158 (-9.18% bruto em 10x)\n🎯 Alvo do plano: 2.241 (+28.93% bruto em 10x)\nCenário indicativo sobre a margem em 10x; custos e liquidação ainda não validados.\nMovimento sem alavancagem: TP +2.89% • SL -0.92%.\nPercentuais sobre a referência do primeiro gatilho, na direção da operação, antes de custos.\n\nMovimento observado, sem entrada liberada. Aguarde o alerta de confirmação e viabilidade.\nAlerta válido até 23:15:00 BRT.\nAnálise: 14/11/2026 23:14:28 BRT\nPlano: 4538a6a738c86ee3a56e",
       "watch_stage": 0,
       "watch_symbol": "ICP_USDT"
@@ -28306,13 +28310,17 @@
       "text": "🟠 ENTRADA BLOQUEADA\nAVAX/USDT • LONG\n🧪 SIMULAÇÃO • Confirmada\nRompimento • 2 fechamentos M1 • volume ≥50%\n\nVolume do segundo M1: 84.9% do primeiro.\nMotivo: A relação entre ganho e perda ficou abaixo do mínimo.\nSem entrada liberada nesta análise.\n\n📍 Faixa do plano: 8.408 a 8.426\n🛑 Stop: 8.38\n🎯 Alvo: 8.438\n\nEstimativas de taxas, deslizamento e funding; ganho não garantido.\n\n⏱ Nova entrada até 21:15:00 BRT (1min 23s).\nGatilho M1 (segundo fechamento): 21:13:00 BRT\nAnálise: 10/11/2026 21:13:37 BRT\nA validade se aplica a novas entradas.\nPlano: 61c49dfb945de4697a33 • revisão 1"
     },
     "7051ead358ee5f3c705a": {
-      "attempts": 0,
+      "attempts": 1,
       "category": "ENTRY",
       "created_at": 1794708868,
       "expires_at": 1794708900,
       "id": "7051ead358ee5f3c705a",
       "quote_at": 1794708865,
-      "status": "PENDING",
+      "sent_at": 1794708872,
+      "status": "SENT",
+      "telegram_ids": [
+        4209
+      ],
       "text": "🟢 GATILHO VÁLIDO PARA SIMULAR\nLINK/USDT • LONG\n🧪 SIMULAÇÃO • Confirmada\nRompimento • 2 fechamentos M1 • volume ≥50%\n\nVolume do segundo M1: 93.3% do primeiro.\n📍 Entrada: 8.944 a 8.983\n🛑 Stop: 8.879 (-13.22% líquido sobre a margem)\n🎯 Alvo: 9.245 (+27.50% líquido sobre a margem)\nMovimento sem alavancagem: TP +2.92% • SL -1.16%.\nBase dos percentuais sem alavancagem: 8.983 (pior entrada); na direção da operação, antes de custos.\n\nMargem isolada estimada: 0.7186 USDT • 10x\nQuantidade: 8 contratos\nPerda planejada: -0.0950 USDT (-9.50% da banca)\nGanho projetado: +0.1977 USDT (+19.77% da banca)\nRetorno/risco líquido: 2.08:1 (pior entrada)\nCustos estimados: 0.0119 USDT\nROI líquido estimado sobre a margem: TP +27.50% • SL -13.22%.\nTaxa por execução: 0.06%\nDisparo do stop: último preço (Last)\n\nEstimativas de taxas, deslizamento e funding; ganho não garantido.\nFalta validar para uso real: taxa pessoal da conta; regras de margem da conta.\n\n⏱ Nova entrada até 23:15:00 BRT (32s).\nGatilho M1 (segundo fechamento): 23:13:00 BRT\nCotação: 23:14:25 BRT\nAnálise: 14/11/2026 23:14:28 BRT\nA validade se aplica a novas entradas.\nPlano: 4d47a6186fa0929c6979 • revisão 1"
     },
     "7054654f0fc200ebf94d": {
@@ -60998,13 +61006,17 @@
       "text": "🟠 ENTRADA BLOQUEADA\nBTC/USDT • LONG\n🧪 SIMULAÇÃO • Confirmada\nRompimento de consolidação\n\nMotivo: A relação entre ganho e perda ficou abaixo do mínimo.\nSem entrada liberada nesta análise.\n\n📍 Faixa do plano: 73425.6 a 73546.7\n🛑 Stop: 73206.8\n🎯 Alvo: 74086.8\n\nEstimativas de taxas, deslizamento e funding; ganho não garantido.\n\n⏱ Nova entrada até 16:15:00 BRT (13min 21s).\nGatilho 15m: 16:00:00 BRT\nAnálise: 10/11/2026 16:01:39 BRT\nA validade se aplica a novas entradas.\nPlano: 57225fc898165acea450 • revisão 2"
     },
     "f883d9f94c8dd710eb79": {
-      "attempts": 0,
+      "attempts": 1,
       "category": "ENTRY",
       "created_at": 1794708868,
       "expires_at": 1794708900,
       "id": "f883d9f94c8dd710eb79",
       "quote_at": 1794708865,
-      "status": "PENDING",
+      "sent_at": 1794708873,
+      "status": "SENT",
+      "telegram_ids": [
+        4210
+      ],
       "text": "🟢 GATILHO VÁLIDO PARA SIMULAR\nUNI/USDT • LONG\n🧪 SIMULAÇÃO • Confirmada\nRompimento • 2 fechamentos M1 • volume ≥50%\n\nVolume do segundo M1: 83.5% do primeiro.\n📍 Entrada: 4.9 a 4.93\n🛑 Stop: 4.857 (-16.84% líquido sobre a margem)\n🎯 Alvo: 5.104 (+33.23% líquido sobre a margem)\nMovimento sem alavancagem: TP +3.53% • SL -1.48%.\nBase dos percentuais sem alavancagem: 4.93 (pior entrada); na direção da operação, antes de custos.\n\nMargem isolada estimada: 0.5916 USDT • 10x\nQuantidade: 12 contratos\nPerda planejada: -0.0997 USDT (-9.97% da banca)\nGanho projetado: +0.1966 USDT (+19.66% da banca)\nRetorno/risco líquido: 1.97:1 (pior entrada)\nCustos estimados: 0.0122 USDT\nROI líquido estimado sobre a margem: TP +33.23% • SL -16.84%.\nTaxa por execução: 0.06%\nDisparo do stop: último preço (Last)\n\nEstimativas de taxas, deslizamento e funding; ganho não garantido.\nFalta validar para uso real: taxa pessoal da conta; regras de margem da conta.\n\n⏱ Nova entrada até 23:15:00 BRT (32s).\nGatilho M1 (segundo fechamento): 23:13:00 BRT\nCotação: 23:14:25 BRT\nAnálise: 14/11/2026 23:14:28 BRT\nA validade se aplica a novas entradas.\nPlano: 673befdec89f23abfcf8 • revisão 1"
     },
     "f887e4d84932a3c0cb60": {
