@@ -16,20 +16,22 @@ def run():
     end=int(datetime.fromisoformat(p['end_exclusive_brt']).timestamp());observed=end+18000
     client=MexcClient();now=client.server_time();assert now>=observed+10
     cfg=load_config(p['config_file']);catalog={c['symbol']:c for c in client.contracts()}
+    fallback=json.loads(Path('config/audit-m1-validation-contract-fallback.json').read_text())
     out=Path('reports/m1-progress-new-week');out.mkdir(parents=True,exist_ok=True)
     qn=480+(observed-start)//900;hn=240+(observed-start)//3600
     result=dict(kind='M1_PROGRESS_NEW_WEEK_SOURCE',start_brt=p['start_brt'],
         end_exclusive_brt=p['end_exclusive_brt'],collected_at=datetime.fromtimestamp(now,timezone.utc).isoformat(),
         config=jsonable(cfg),selected_symbols=len(p['symbols']),analyzed_symbols=0,datasets=[],errors={})
     def one(symbol):
-        raw=catalog[symbol];contract=Contract.from_api(raw)
+        raw=catalog.get(symbol) or fallback[symbol];contract=Contract.from_api(raw)
         q=parse_candles(client.candles(symbol,'Min15',qn,observed+10),900,observed+10,qn)
         h=parse_candles(client.candles(symbol,'Min60',hn,observed+10),3600,observed+10,hn)
         m=collect_minutes(client,symbol,start-1200,observed)
         check_ohlc(q,{c.ts:c for c in m},start,observed)
         digest=write_gzip(out/'raw'/f'{symbol}.json.gz',
             dict(symbol=symbol,contract=raw,quarter=q,hourly=h,minute=m))
-        return dict(symbol=symbol,quarter_bars=len(q),hourly_bars=len(h),minute_bars=len(m),
+        return dict(symbol=symbol,contract_source='current_catalog' if symbol in catalog else 'archived_fallback',
+                    quarter_bars=len(q),hourly_bars=len(h),minute_bars=len(m),
                     sha256_uncompressed=digest,ohlc_matches=True)
     with ThreadPoolExecutor(max_workers=4) as pool:
         futures={pool.submit(one,s):s for s in p['symbols']}

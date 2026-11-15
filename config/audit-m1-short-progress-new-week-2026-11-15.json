@@ -48,5 +48,12 @@
     "Historical next-week test,notprospective;universechoseninpriorcapture, survivorbias;contractrulescurrentretrospectively.",
     "Same modeled costs,fundingzero,syntheticbook andimmediate entry aspreviousM1audit.",
     "NoFairM1liquidationpath,noGitHublatency orwalletsimulation."
-  ]
+  ],
+  "source_repair_before_outcomes": {
+    "at_utc": "2026-11-15T12:49:09.321349+00:00",
+    "first_collection_run": 43715498746,
+    "status": "29complete;DASH/XMR absent from countrycatalog; outcome computation skipped by integrity assertion.",
+    "repair": "For missingcatalog symbols only,use frozen archivedcontract specs, retain same publicsymbol candles. Do not drop symbols or alter entryrule based on outcomes. Require31 before complete validation.",
+    "fallback_file": "config/audit-m1-validation-contract-fallback.json"
+  }
 }

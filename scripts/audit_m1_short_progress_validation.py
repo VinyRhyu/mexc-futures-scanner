@@ -14,6 +14,8 @@ from scripts.audit_m1_profit_protection import walk
 def run(source,protocol):
     source=Path(source);p=json.loads(Path(protocol).read_text())
     manifest=json.loads((source/'summary.json').read_text())
+    assert manifest['kind']=='M1_PROGRESS_NEW_WEEK_SOURCE'
+    assert manifest['start_brt']==p['start_brt'] and manifest['end_exclusive_brt']==p['end_exclusive_brt']
     assert manifest['selected_symbols']==manifest['analyzed_symbols']==31 and not manifest['errors']
     assert set(p['symbols'])=={d['symbol'] for d in manifest['datasets']}
     cfg=Config(**manifest['config']).validate()
