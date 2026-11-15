@@ -1,0 +1,187 @@
+{
+  "review_date_brt": "2026-11-15",
+  "retrieved_at_utc": "2026-11-15T16:27:07.979228+00:00",
+  "purpose": "Literature and official-document collection only. No new market sample,backtest,parameter sweep orbot changes.",
+  "method": "Targeted non-systematic review prioritizing primary research,institutional author repositories and official exchange/platform docs. Access limitations explicitly recorded.",
+  "main_commit_checked": "20c500deb4fbea15573dbced9eaddb6bf5839cae",
+  "studies": [
+    {
+      "id": "P01",
+      "authors": "Robert Hudson; Andrew Urquhart",
+      "year": 2021,
+      "title": "Technical trading and cryptocurrencies",
+      "doi": "10.1007/s10479-019-03357-1",
+      "url": "https://link.springer.com/article/10.1007/s10479-019-03357-1",
+      "access": "Texto integral aberto consultado; online 2019, volume 2021.",
+      "scope": "BTC em duas fontes, ETH, LTC e XRP; preços diários até 2017, com avaliação fora da amostra."
+    },
+    {
+      "id": "P02",
+      "authors": "Dan-Gabriel Anghel",
+      "year": 2021,
+      "title": "A reality check on trading rule performance in the cryptocurrency market: Machine learning vs. technical analysis",
+      "doi": "10.1016/j.frl.2020.101655",
+      "url": "https://www.sciencedirect.com/science/article/pii/S1544612320304414",
+      "access": "Resumo editorial e trechos indexados; integral não acessado.",
+      "scope": "Regras técnicas e aprendizado de máquina em cripto; detalhes completos de amostra não conferidos."
+    },
+    {
+      "id": "P03",
+      "authors": "Zhuzhu Wen; Elie Bouri; Yahua Xu; Yang Zhao",
+      "year": 2022,
+      "title": "Intraday return predictability in the cryptocurrency markets: Momentum, reversal, or both",
+      "doi": "10.1016/j.najef.2022.101733",
+      "url": "https://www.sciencedirect.com/science/article/abs/pii/S1062940822000833",
+      "secondary_primary_url": "https://ssrn.com/abstract=4080253",
+      "access": "Resumo e trechos metodológicos editoriais; integral não acessado.",
+      "scope": "BTC 2013–2020; relações entre retornos horários; verificações também em ETH, LTC, XRP."
+    },
+    {
+      "id": "P04",
+      "authors": "Christian Fieberg; Gerrit Liedtke; Adam Zaremba",
+      "year": 2024,
+      "title": "Cryptocurrency anomalies and economic constraints",
+      "doi": "10.1016/j.irfa.2024.103218",
+      "url": "https://www.sciencedirect.com/science/article/pii/S1057521924001509",
+      "secondary_primary_url": "https://open.icm.edu.pl/handle/123456789/25544",
+      "data_url": "https://repod.icm.edu.pl/dataset.xhtml?persistentId=doi%3A10.18150%2FJERMX8",
+      "access": "Resumo e descrição editorial indexada; PDF do repositório bloqueado por verificação.",
+      "scope": "Quase 4.000 criptomoedas, 2014–2022; carteiras por características, não rompimentos M1."
+    },
+    {
+      "id": "P05",
+      "authors": "Eduard Silantyev",
+      "year": 2019,
+      "title": "Order flow analysis of cryptocurrency markets",
+      "doi": "10.1007/s42521-019-00007-w",
+      "url": "https://link.springer.com/article/10.1007/s42521-019-00007-w",
+      "access": "Resumo editorial e trechos públicos; integral restrito.",
+      "scope": "Negócios e cotações do perpétuo XBTUSD na BitMEX; período detalhado não conferido."
+    },
+    {
+      "id": "P06",
+      "authors": "Savva Shanaev; Mikhail Vasenin; Roman Stepanov",
+      "year": 2023,
+      "title": "Turn-of-the-candle effect in bitcoin returns",
+      "doi": "10.1016/j.heliyon.2023.e14236",
+      "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC10015199/",
+      "access": "Texto integral aberto consultado.",
+      "scope": "BTC em sete exchanges, dados M1 até 2021 e verificação Bitfinex em 2022."
+    },
+    {
+      "id": "P07",
+      "authors": "David H. Bailey; Jonathan M. Borwein; Marcos López de Prado; Qiji Jim Zhu",
+      "year": 2017,
+      "title": "The probability of backtest overfitting",
+      "doi": "10.21314/JCF.2016.322",
+      "url": "https://www.davidhbailey.com/dhbpapers/backtest-prob.pdf",
+      "publication_url": "https://scholarworks.wmich.edu/math_pubs/42/",
+      "access": "Manuscrito integral dos autores, versão 2015; publicação formal 2017.",
+      "scope": "Metodologia estatística de seleção de estratégias; não demonstra uma estratégia de cripto."
+    },
+    {
+      "id": "P08",
+      "authors": "Kathryn M. Kaminski; Andrew W. Lo",
+      "year": 2014,
+      "title": "When do stop-loss rules stop losses?",
+      "doi": "10.1016/j.finmar.2013.07.001",
+      "url": "https://dspace.mit.edu/entities/publication/bb69ca4b-0cdc-487f-831d-63b2e84fafee",
+      "access": "Resumo do manuscrito final e metadados MIT; download integral indisponível nesta consulta.",
+      "scope": "Políticas de redução de exposição em futuros de índices, dados diários; publicação 2014."
+    }
+  ],
+  "technical_documents": [
+    {
+      "id": "D01",
+      "title": "GitHub Actions — Troubleshooting workflows",
+      "url": "https://docs.github.com/en/actions/how-tos/troubleshoot-workflows",
+      "checked_on": "2026-11-15"
+    },
+    {
+      "id": "D02",
+      "title": "MEXC Futures — Deal WebSocket",
+      "url": "https://www.mexc.com/api-docs/futures/websocket-api/deal",
+      "checked_on": "2026-11-15"
+    },
+    {
+      "id": "D03",
+      "title": "MEXC Futures — Order book depth",
+      "url": "https://www.mexc.com/api-docs/futures/websocket-api/order-book-depth",
+      "checked_on": "2026-11-15"
+    },
+    {
+      "id": "D04",
+      "title": "MEXC Futures — Incremental order book maintenance",
+      "url": "https://www.mexc.com/api-docs/futures/websocket-api/incremental-order-book-maintenance-mechanism",
+      "checked_on": "2026-11-15"
+    },
+    {
+      "id": "D05",
+      "title": "MEXC Futures — Get Fair Price Candles",
+      "url": "https://www.mexc.com/api-docs/futures/market-endpoints/get-fair-price-candles",
+      "checked_on": "2026-11-15"
+    },
+    {
+      "id": "D06",
+      "title": "MEXC Futures — Get Funding Rate History",
+      "url": "https://www.mexc.com/api-docs/futures/market-endpoints/get-funding-rate-history",
+      "checked_on": "2026-11-15"
+    },
+    {
+      "id": "D07",
+      "title": "MEXC — FAQ on Index Price, Fair Price, and Last Price",
+      "url": "https://www.mexc.com/support/article/faq-on-index-price-fair-price-and-last-price-7950960183961",
+      "checked_on": "2026-11-15"
+    }
+  ],
+  "exclusions": [
+    "Trading marketing and unsupported profitability claims",
+    "Cross-market results presented as direct M1 MEXC validation",
+    "Secondary sources used as empirical proof"
+  ],
+  "proposed_priorities": [
+    {
+      "priority": 1,
+      "topic": "Data/execution fidelity",
+      "references": [
+        "D01",
+        "D02",
+        "D03",
+        "D04",
+        "D05",
+        "D06",
+        "D07"
+      ]
+    },
+    {
+      "priority": 2,
+      "topic": "Validation and complete experiment ledger",
+      "references": [
+        "P01",
+        "P02",
+        "P07"
+      ]
+    },
+    {
+      "priority": 3,
+      "topic": "Conditional continuation versus reversal hypotheses",
+      "references": [
+        "P03",
+        "P04",
+        "P08"
+      ]
+    },
+    {
+      "priority": 4,
+      "topic": "Order flow as a future-data research hypothesis",
+      "references": [
+        "P05",
+        "P06",
+        "D02",
+        "D03"
+      ]
+    }
+  ],
+  "new_tests_run": false,
+  "production_changed": false
+}
