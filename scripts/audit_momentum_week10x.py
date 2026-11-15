@@ -114,6 +114,8 @@ def summarize_week(days,trades,marks):
 
 def simulate_week(market,p,leverage):
     cash=D(p['reference_equity_usdt']);trades,days,marks=[],[],[];skips=Counter();checks=0
+    holding=int(p.get('holding_hours',24))*HOUR
+    if not 0<holding<=DAY:raise ValueError('Holding hours must be between1 and24')
     for day in range(p['evaluation_start_utc'],p['evaluation_end_utc'],DAY):
         before=cash;at=day+HOUR;signals,ranking=select(market,day)
         prefix={s:dict(m,hourly={t:b for t,b in m['hourly'].items() if b.end<=day},
@@ -126,7 +128,7 @@ def simulate_week(market,p,leverage):
         cash-=sum((t['entry_fee'] for t in active),D(0));day_trades=[]
         marks.append(dict(ts=at,equity=cash+sum((t['sign']*t['quantity']*
             (market[t['symbol']]['fair'][at].open-t['entry_fill']) for t in active),D(0))))
-        for ts in range(at,at+DAY,HOUR):
+        for ts in range(at,at+holding,HOUR):
             keep=[]
             locked=sum((t['isolated_margin'] for t in active),D(0))
             for pos in active:
@@ -152,11 +154,11 @@ def simulate_week(market,p,leverage):
             value=cash+sum((t['sign']*t['quantity']*(market[t['symbol']]['fair'][ts].close-t['entry_fill']) for t in active),D(0))
             marks.append(dict(ts=ts+HOUR,equity=value))
         for pos in active:
-            m=market[pos['symbol']];last=m['hourly'][at+DAY-HOUR]
-            trade,change=close_position(pos,last.close,at+DAY,'TIME',m['contract'])
+            m=market[pos['symbol']];last=m['hourly'][at+holding-HOUR]
+            trade,change=close_position(pos,last.close,at+holding,'TIME',m['contract'])
             cash+=change;day_trades.append(trade)
-        marks.append(dict(ts=at+DAY,equity=cash));trades.extend(day_trades)
-        days.append(dict(decision_at=day,entry_at=at,exit_at=at+DAY,start_equity=before,end_equity=cash,
+        marks.append(dict(ts=at+holding,equity=cash));trades.extend(day_trades)
+        days.append(dict(decision_at=day,entry_at=at,exit_at=at+holding,start_equity=before,end_equity=cash,
                          eligible=ranking['eligible'],selected=signals,entries=len(day_trades),
                          initial_notional=notional,initial_margin=margin,planned_stop_risk=risk,
                          net_pnl=cash-before))
