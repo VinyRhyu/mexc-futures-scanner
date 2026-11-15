@@ -22730,7 +22730,7 @@
       "text": "🟢 GATILHO VÁLIDO PARA SIMULAR\nONE/USDT • SHORT\n🧪 SIMULAÇÃO • Antecipada\nRompimento de consolidação\n\n📍 Entrada: 0.0015719 a 0.0015837\n🛑 Stop: 0.0015987\n🎯 Alvo: 0.0015026\n\nMargem isolada estimada: 0.8868 USDT • 6x\nQuantidade: 3385 contratos\nPerda planejada: -0.1000 USDT (-10.00% da banca)\nGanho projetado: +0.2256 USDT (+22.56% da banca)\nRetorno/risco líquido: 2.26:1 (pior entrada)\nCustos estimados: 0.0093 USDT\nTaxa por execução: 0.06%\nDisparo do stop: último preço (Last)\n\nEstimativas de taxas, deslizamento e funding; ganho não garantido.\nFalta validar para uso real: taxa pessoal da conta; regras de margem da conta.\n\n⏱ Nova entrada até 05:45:00 BRT (28min 29s).\nGatilho 15m: 05:15:00 BRT\nCotação: 05:16:28 BRT\nAnálise: 09/11/2026 05:16:31 BRT\nA validade se aplica a novas entradas.\nPlano: a6c0f8bdf097b4c1de14 • revisão 1"
     },
     "5942e84557554b2530fb": {
-      "attempts": 0,
+      "attempts": 1,
       "category": "INFO",
       "created_at": 1794711630,
       "expires_at": 1794711660,
@@ -22741,7 +22741,11 @@
         "c2697f975411a01d1b35"
       ],
       "quote_at": 0,
-      "status": "PENDING",
+      "sent_at": 1794711634,
+      "status": "SENT",
+      "telegram_ids": [
+        4277
+      ],
       "text": "🟡 MOVIMENTO DETECTADO • ENTRADA BLOQUEADA\nSEI/USDT • ALTA (LONG)\n🧪 SIMULAÇÃO • acompanhamento\n\nRompimento observado no M1 fechado às 14/11 23:59:00 BRT.\nPreço de referência do primeiro gatilho: 0.03861.\n\nConfirmação técnica identificada; entrada bloqueada.\nCondição pendente: O preço médio estimado de execução sai da faixa permitida.\n\nFaixa em estudo: 0.03859 a 0.03874\n🛑 Stop do plano: 0.03824 (-9.58% bruto em 10x)\n🎯 Alvo do plano: 0.04053 (+49.73% bruto em 10x)\nCenário indicativo sobre a margem em 10x; custos e liquidação ainda não validados.\nMovimento sem alavancagem: TP +4.97% • SL -0.96%.\nPercentuais sobre a referência do primeiro gatilho, na direção da operação, antes de custos.\n\nMovimento observado, sem entrada liberada. Aguarde o alerta de confirmação e viabilidade.\nAlerta válido até 00:01:00 BRT.\nAnálise: 15/11/2026 00:00:30 BRT\nPlano: c2697f975411a01d1b35",
       "watch_stage": 0,
       "watch_symbol": "SEI_USDT"
