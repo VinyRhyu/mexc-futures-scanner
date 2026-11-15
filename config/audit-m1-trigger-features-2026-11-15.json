@@ -1,0 +1,25 @@
+{
+  "name": "M1_TRIGGER_FEATURES_AND_ONE_PROGRESS_FILTER_V1",
+  "frozen_at_utc": "2026-11-15T12:42:08.021591+00:00",
+  "reference": "123 entered unique M1 volume50 signals in m1-trend-context-2026-11-15.json; unchanged entries, size, initialSL,TP,costs and4h horizon. No BE or failed-break exit.",
+  "training": "Confirmation signal before2026-11-01T00:00:00-03:00;66 entries. Descriptive median/IQR byTP versusSL; open cases separately.",
+  "verification": "Confirmation signal from2026-11-01T00:00:00-03:00;57 entries. Already examined by preceding experiments, not untouched holdout.",
+  "features": {
+    "progress_atr": "side_sign*(second.close-first.close)/formationATR14M15",
+    "signed_second_body_atr": "side_sign*(second.close-second.open)/formationATR",
+    "close_location": "LONG(second.close-second.low)/(second.high-second.low); SHORT(second.high-second.close)/width;zero-width undefined",
+    "confirmation_distance_atr": "side_sign*(second.close-original_box_boundary)/formationATR",
+    "volume_pair_relative20": "Mean volume of first/second M1 divided by mean20M1 beforefirst; no future minute volume",
+    "volume_retention": "second.volume/first.volume, firstpositive by model"
+  },
+  "single_candidate": "Keep only side_sign*(second.close-first.close)>=0. Equality passes. This exact natural zero threshold fixed before feature/performance output. No feature or threshold selection by best result.",
+  "timing": "first.ts=signal-120,second.ts=signal-60,both end<=confirmation signal. Gate adds no candle. Discarded budget staysidle; no reshuffling signals or quantities.",
+  "metrics": "Original TP,SL,open plus mark-at4h; retained/rejected outcomes and R; total markedR across all attempts (rejected0) avoids inflating per-kept averages. No portfolioROI.",
+  "screen": "Promising only if markedR and closedprofitfactor improve overall, markedR no worse in verification week and train week, and at least20 verification entries retained; still requires genuinely new data for promotion.",
+  "limitations": [
+    "Retrospective shared source already used in many experiments; no prospective validation.",
+    "Correlated entries;123trades but102symbol/side/minute combinations.",
+    "Source31survivors,frozencontracts,syntheticfills,zero funding,immediateentry andnoliquidationreconstruction.",
+    "No live scanner,Telegram ororderchanges."
+  ]
+}

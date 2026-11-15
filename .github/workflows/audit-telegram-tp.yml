@@ -1,4 +1,4 @@
-name: Coletar última semana para momentum10x
+name: Validar progressao SHORT em nova semana M1
 on:
   push:
     branches: ['audit/tp-hype-link-2026-11-14']
@@ -6,9 +6,9 @@ on:
 permissions:
   contents: read
 jobs:
-  prices:
+  public-history:
     runs-on: ubuntu-latest
-    timeout-minutes: 10
+    timeout-minutes: 15
     steps:
       - uses: actions/checkout@v7.0.1
         with:
@@ -16,58 +16,13 @@ jobs:
       - uses: actions/setup-python@v7
         with:
           python-version: '3.12'
-      - name: Ler preços Last e Fair e funding públicos
-        run: |
-          python - <<'PY'
-          import json,gzip
-          from pathlib import Path
-          from concurrent.futures import ThreadPoolExecutor,as_completed
-          from mexc_scanner.mexc import MexcClient
-          from mexc_scanner.market import parse_candles
-          from mexc_scanner.models import jsonable,seconds,Contract
-          p=json.loads(Path('config/audit-momentum-week10x-2026-11-14.json').read_text())
-          old=json.loads(Path('config/audit-day-confirmed-2026-11-14.json').read_text())
-          symbols=sorted({r['symbol'] for r in old['records']})
-          client=MexcClient();captured=client.server_time()
-          catalog={c['symbol']:c for c in client.contracts()}
-          start=p['warmup_start_utc'];end=p['evaluation_end_utc']+3600
-          out=Path('reports/momentum-week10x-source');out.mkdir(parents=True,exist_ok=True)
-          manifest=dict(captured_at=captured,start=start,end=end,ok={},errors={})
-          def collect(symbol):
-              contract=catalog[symbol];Contract.from_api(contract)
-              raw=client._get('/api/v1/contract/kline/'+symbol,dict(interval='Min60',start=start,end=end))
-              bars=[c for c in parse_candles(raw,3600,end+10) if c.ts>=start]
-              rawfair=client._get('/api/v1/contract/kline/fair_price/'+symbol,dict(interval='Min60',start=start,end=end))
-              fairs=[c for c in parse_candles(rawfair,3600,end+10) if c.ts>=start]
-              count=(end-start)//3600
-              assert len(bars)==len(fairs)==count,(symbol,len(bars),len(fairs),count)
-              assert [b.ts for b in bars]==[b.ts for b in fairs]
-              funding={}
-              for page in range(1,5):
-                  data=client._get('/api/v1/contract/funding_rate/history',dict(symbol=symbol,page_num=page,page_size=1000))
-                  items=data.get('resultList',[])
-                  if not items:break
-                  for f in items:funding[seconds(f['settleTime'])]=f
-                  if min(funding)<=start or page>=int(data.get('totalPage',page)):break
-              keep=[dict(ts=t,rate=f['fundingRate']) for t,f in sorted(funding.items()) if start-86400<=t<=end+86400]
-              record=jsonable(dict(symbol=symbol,contract=contract,hourly=bars,fair=fairs,funding=keep))
-              with gzip.open(out/(symbol+'.json.gz'),'wt') as f:json.dump(record,f)
-              return dict(symbol=symbol,hours=len(bars),fair_hours=len(fairs),funding=len(keep))
-          with ThreadPoolExecutor(max_workers=4) as pool:
-              fs={pool.submit(collect,s):s for s in symbols}
-              for f in as_completed(fs):
-                  s=fs[f]
-                  try:
-                      r=f.result();manifest['ok'][s]=r;print(json.dumps(r),flush=True)
-                  except Exception as exc:
-                      manifest['errors'][s]=type(exc).__name__+': '+str(exc)[:160]
-                      print(json.dumps(dict(symbol=s,error=manifest['errors'][s])),flush=True)
-          (out/'manifest.json').write_text(json.dumps(manifest,indent=2))
-          assert len(manifest['ok'])>=20,manifest['errors']
-          PY
+      - name: Coletar apenas historico publico M1 M15 H1
+        run: python -m scripts.collect_m1_progress_validation
+      - name: Comparar regra congelada sem alterar producao
+        run: python -m scripts.audit_m1_short_progress_validation --source reports/m1-progress-new-week --protocol config/audit-m1-short-progress-new-week-2026-11-15.json --output reports/m1-progress-new-week/result.json
       - uses: actions/upload-artifact@v7.0.2
         if: always()
         with:
-          name: momentum-week10x-source-2026-11-14
-          path: reports/momentum-week10x-source/
+          name: m1-short-progress-new-week-2026-11-15
+          path: reports/m1-progress-new-week/
           retention-days: 30
