@@ -11,13 +11,19 @@ from scripts.audit_m1_trigger_features import trigger_features,compare
 from scripts.audit_m1_profit_protection import walk
 
 
-def run(source,protocol):
+def run(source,protocol,allow_partial=False):
     source=Path(source);p=json.loads(Path(protocol).read_text())
     manifest=json.loads((source/'summary.json').read_text())
     assert manifest['kind']=='M1_PROGRESS_NEW_WEEK_SOURCE'
     assert manifest['start_brt']==p['start_brt'] and manifest['end_exclusive_brt']==p['end_exclusive_brt']
-    assert manifest['selected_symbols']==manifest['analyzed_symbols']==31 and not manifest['errors']
-    assert set(p['symbols'])=={d['symbol'] for d in manifest['datasets']}
+    available={d['symbol'] for d in manifest['datasets']}
+    complete=manifest['selected_symbols']==manifest['analyzed_symbols']==31 and not manifest['errors']
+    if not complete:
+        assert allow_partial and 'partial_analysis_amendment_before_outcomes' in p
+        missing=set(p['partial_analysis_amendment_before_outcomes']['excluded_symbols'])
+        assert set(manifest['errors'])==missing and set(p['symbols'])-available==missing
+        assert manifest['selected_symbols']==31 and manifest['analyzed_symbols']==29
+    else:assert set(p['symbols'])==available
     cfg=Config(**manifest['config']).validate()
     start=int(datetime.fromisoformat(p['start_brt']).timestamp());end=int(datetime.fromisoformat(p['end_exclusive_brt']).timestamp())
     records=[];confirmations=0;checks=0
@@ -49,13 +55,15 @@ def run(source,protocol):
     promising=promising and stats['kept']['profit_factor']>stats['baseline']['profit_factor']
     promising=promising and stats['kept']['entries']>=20 and sides['SHORT']['kept']['entries']>=10
     return jsonable(dict(protocol=p,source_manifest=manifest,confirmations=confirmations,
-        comparison=stats,by_side=sides,causal_checks=checks,promising_new_period=promising,
+        comparison=stats,by_side=sides,causal_checks=checks,performance_screen_passed=promising,
+        complete_validation=complete,promising_new_period=promising and complete,
         records=rows,production_changed=False))
 
 
 if __name__=='__main__':
     ap=argparse.ArgumentParser()
     for k in ('source','protocol','output'):ap.add_argument('--'+k,required=True)
-    a=ap.parse_args();r=run(a.source,a.protocol)
+    ap.add_argument('--allow-known-partial',action='store_true')
+    a=ap.parse_args();r=run(a.source,a.protocol,a.allow_known_partial)
     Path(a.output).write_text(json.dumps(r,indent=2)+'\n')
     print(json.dumps({k:v for k,v in r.items() if k not in ('records','source_manifest','protocol')},indent=2))
