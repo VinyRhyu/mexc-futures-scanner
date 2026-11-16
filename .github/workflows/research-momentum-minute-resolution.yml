@@ -1,0 +1,29 @@
+name: Research momentum minute resolution
+on:
+  push:
+    branches: ['research/multihour-v1']
+    paths:
+      - 'config/momentum-minute-resolution-v1-2026-11-16.json'
+      - 'scripts/collect_momentum_minutes.py'
+      - '.github/workflows/research-momentum-minute-resolution.yml'
+permissions:
+  contents: read
+jobs:
+  collect:
+    runs-on: ubuntu-latest
+    timeout-minutes: 8
+    steps:
+      - uses: actions/checkout@v7.0.1
+      - uses: actions/setup-python@v7
+        with:
+          python-version: '3.12'
+      - name: Test minute source guards
+        run: python -m unittest tests.test_momentum_minutes -v
+      - name: Resolve both frozen hourly ambiguities
+        run: python -m scripts.collect_momentum_minutes --protocol config/momentum-minute-resolution-v1-2026-11-16.json --output reports/momentum-minute-resolution
+      - uses: actions/upload-artifact@v7.0.2
+        if: always()
+        with:
+          name: momentum-minute-resolution-v1
+          path: reports/momentum-minute-resolution
+          retention-days: 30

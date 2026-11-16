@@ -1,0 +1,55 @@
+{
+  "name": "ALL_MODEL_H1_LIQUIDATIONS_M1_RESOLUTION_V1",
+  "frozen_at_utc": "2026-11-16T12:40:44.836669+00:00",
+  "source_run": 43867049880,
+  "source_manifest_sha256": "c0bc234d46c7531780ef2a38dcac1bfb078846308978132d59f13ba681666005",
+  "cases": [
+    {
+      "symbol": "WLD_USDT",
+      "start": 1780624800,
+      "end": 1780628400,
+      "last_hour": {
+        "close": "0.4919",
+        "high": "0.5558",
+        "low": "0.4773",
+        "open": "0.5538",
+        "tf": 3600,
+        "ts": 1780624800,
+        "volume": "24508209"
+      },
+      "fair_hour": {
+        "close": "0.4919",
+        "high": "0.5558",
+        "low": "0.4777",
+        "open": "0.554",
+        "tf": 3600,
+        "ts": 1780624800,
+        "volume": "0"
+      }
+    },
+    {
+      "symbol": "ARB_USDT",
+      "start": 1788195600,
+      "end": 1788199200,
+      "last_hour": {
+        "close": "0.09397",
+        "high": "0.09429",
+        "low": "0.08755",
+        "open": "0.08758",
+        "tf": 3600,
+        "ts": 1788195600,
+        "volume": "20860248"
+      },
+      "fair_hour": {
+        "close": "0.09399",
+        "high": "0.09431",
+        "low": "0.08757",
+        "open": "0.08759",
+        "tf": 3600,
+        "ts": 1788195600,
+        "volume": "0"
+      }
+    }
+  ],
+  "rule": "Collect all2distinct hourly liquidation bars across control/candidate, both cost schedules and risk policies. No time, strategy or level changes. Use only complete M1 histories whose OHLC exactly reproduce frozen H1. M1 simultaneous stop/liquidation remains conservatively liquidation-first."
+}
