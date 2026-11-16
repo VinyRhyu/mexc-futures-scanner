@@ -27,7 +27,11 @@ def restore(directory: Path):
     base = None
     if lines:
         base = lines[0].split()[0]
-        git("fetch", "--no-tags", "origin", f"refs/heads/{BRANCH}")
+        # A runner needs only the latest snapshot/tree. Fetching every previous
+        # state revision on a fresh runner dominated the measured round time.
+        # The parent SHA is still checked before saving and a normal push still
+        # enforces fast-forward; no history is removed from the remote branch.
+        git("fetch", "--depth=1", "--no-tags", "origin", f"refs/heads/{BRANCH}")
         actual = git("rev-parse", "FETCH_HEAD").stdout.decode().strip()
         if actual != base:
             raise RuntimeError("Estado mudou durante a recuperação; executar novamente")

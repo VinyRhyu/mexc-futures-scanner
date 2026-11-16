@@ -21,3 +21,13 @@ Validação local: 303 testes aprovados, incluindo 12 novos testes de medição,
 5. Não apresentar rentabilidade hipotética como dinheiro realizado, não executar ordens e não garantir lucro. A autorização para continuar testes não torna resultados futuros positivos garantidos.
 
 A instrumentação não muda TP, SL, alavancagem, frequência do cron ou estratégia. O crescimento dos arquivos de auditoria deverá ser medido; não há descarte de histórico nesta etapa.
+
+## Etapa 2: recuperar somente o snapshot atual
+
+A primeira rodada instrumentada ([43786050654](https://github.com/VinyRhyu/mexc-futures-scanner/actions/runs/43786050654)) concluiu com coleta 25/25 e nove mensagens enviadas, sem falha de envio. Durou 98,028 s: restore 66,170 s, scan 20,032 s, persistência anterior ao envio 2,516 s e notify 6,145 s. A duração de restore foi 67,5% da rodada. É uma observação, não uma estimativa de P95 ou de rentabilidade.
+
+Única otimização: adicionar `--depth=1` ao fetch da branch scanner-state. O runner recupera o commit e arquivos atuais, sem baixar todos os snapshots históricos. O histórico remoto não é apagado; o commit-base continua conferido antes da gravação, e o push segue normal, sem force.
+
+Validação antes de publicar: 305 testes aprovados. Os dois casos adicionais verificam que só um ancestral é acessível no checkout raso, o saldo atual é restaurado, uma nova gravação acrescenta um commit sem remover os ancestrais remotos e o histórico de decisões é restaurado e acrescido. Os testes anteriores de writer obsoleto continuam aprovados.
+
+A medição após a implantação será comparada a esta base, informando o número de rodadas e a diferença de carga. Nenhum resultado financeiro foi inferido desses tempos.
