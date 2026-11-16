@@ -5169,7 +5169,7 @@
       "text": "⚪ ATUALIZAÇÃO DOS PLANOS ACOMPANHADOS\n🧪 SIMULAÇÃO\n\n• ETH/USDT • LONG: janela expirou\n  Plano: 7f128fb5da75a5d49f24\n• ENA/USDT • LONG: janela expirou\n  Plano: ac5376849d5524ba2216\n• ARB/USDT • LONG: janela expirou\n  Plano: eb2e03dbf0e36edaf224\n\nSem novas entradas por esses planos.\nA expiração não encerra posições já abertas.\nAnálise: 13/11/2026 00:00:17 BRT"
     },
     "0cdfaccabfc1dfeab796": {
-      "attempts": 0,
+      "attempts": 1,
       "category": "INFO",
       "created_at": 1794826533,
       "expires_at": 1794826560,
@@ -5180,7 +5180,11 @@
         "d2317c2e53bccf90d957"
       ],
       "quote_at": 0,
-      "status": "PENDING",
+      "sent_at": 1794826539,
+      "status": "SENT",
+      "telegram_ids": [
+        6518
+      ],
       "text": "🟡 MOVIMENTO DETECTADO • AINDA SEM CONFIRMAÇÃO\nINJ/USDT • ALTA (LONG)\n🧪 SIMULAÇÃO • acompanhamento\n\nRompimento observado no M1 fechado às 07:55:00 BRT.\nPreço de referência do primeiro gatilho: 6.714.\n\nPrimeiro fechamento além da região identificado.\nFalta o segundo fechamento sustentar o nível, com volume de pelo menos 50% do primeiro.\nApós confirmar, o plano ainda precisa passar pela avaliação financeira.\n\nFaixa em estudo: 6.713 a 6.728\n🛑 Stop do plano: 6.677 (-5.51% bruto em 10x)\n🎯 Alvo do plano: 6.804 (+13.40% bruto em 10x)\nCenário indicativo sobre a margem em 10x; custos e liquidação ainda não validados.\nMovimento sem alavancagem: TP +1.34% • SL -0.55%.\nPercentuais sobre a referência do primeiro gatilho, na direção da operação, antes de custos.\n\nMovimento observado, sem entrada liberada. Aguarde o alerta de confirmação e viabilidade.\nAlerta válido até 07:56:00 BRT.\nAnálise: 16/11/2026 07:55:33 BRT\nPlano: d2317c2e53bccf90d957",
       "watch_stage": 1,
       "watch_symbol": "INJ_USDT"
@@ -67753,7 +67757,7 @@
       "watch_symbol": "ENA_USDT"
     },
     "a158fe9e623b35dbed3d": {
-      "attempts": 0,
+      "attempts": 1,
       "category": "INFO",
       "created_at": 1794826533,
       "expires_at": 1794826560,
@@ -67764,7 +67768,11 @@
         "47638bc0dcb602980848"
       ],
       "quote_at": 0,
-      "status": "PENDING",
+      "sent_at": 1794826539,
+      "status": "SENT",
+      "telegram_ids": [
+        6519
+      ],
       "text": "🟡 MOVIMENTO DETECTADO • AINDA SEM CONFIRMAÇÃO\nXLM/USDT • ALTA (LONG)\n🧪 SIMULAÇÃO • acompanhamento\n\nRompimento observado no M1 fechado às 07:55:00 BRT.\nPreço de referência do primeiro gatilho: 0.13815.\n\nPrimeiro fechamento além da região identificado.\nFalta o segundo fechamento sustentar o nível, com volume de pelo menos 50% do primeiro.\nApós confirmar, o plano ainda precisa passar pela avaliação financeira.\n\nFaixa em estudo: 0.13808 a 0.13833\n🛑 Stop do plano: 0.13762 (-3.84% bruto em 10x)\n🎯 Alvo do plano: 0.13905 (+6.51% bruto em 10x)\nCenário indicativo sobre a margem em 10x; custos e liquidação ainda não validados.\nMovimento sem alavancagem: TP +0.65% • SL -0.38%.\nPercentuais sobre a referência do primeiro gatilho, na direção da operação, antes de custos.\n\nMovimento observado, sem entrada liberada. Aguarde o alerta de confirmação e viabilidade.\nAlerta válido até 07:56:00 BRT.\nAnálise: 16/11/2026 07:55:33 BRT\nPlano: 47638bc0dcb602980848",
       "watch_stage": 1,
       "watch_symbol": "XLM_USDT"
