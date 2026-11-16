@@ -4705,7 +4705,7 @@
       "text": "⚪ ATUALIZAÇÃO DOS PLANOS ACOMPANHADOS\n🧪 SIMULAÇÃO\n\n• LTC/USDT • LONG: janela expirou\n  Plano: f64e0849d514c13faf37\n\nSem novas entradas por esses planos.\nA expiração não encerra posições já abertas.\nAnálise: 13/11/2026 08:19:24 BRT"
     },
     "0dd0d0219af4bb3cd478": {
-      "attempts": 0,
+      "attempts": 1,
       "category": "INFO",
       "created_at": 1794794445,
       "expires_at": 1794794460,
@@ -4716,7 +4716,11 @@
         "d22bdb6c45f2416d7986"
       ],
       "quote_at": 0,
-      "status": "PENDING",
+      "sent_at": 1794794450,
+      "status": "SENT",
+      "telegram_ids": [
+        5858
+      ],
       "text": "🟡 MOVIMENTO DETECTADO • AINDA SEM CONFIRMAÇÃO\nBTC/USDT • BAIXA (SHORT)\n🧪 SIMULAÇÃO • acompanhamento\n\nRompimento observado no M1 fechado às 23:00:00 BRT.\nPreço de referência do primeiro gatilho: 64537.7.\n\nPrimeiro fechamento além da região identificado.\nFalta o segundo fechamento sustentar o nível, com volume de pelo menos 50% do primeiro.\nApós confirmar, o plano ainda precisa passar pela avaliação financeira.\n\nFaixa em estudo: 64469.4 a 64595.3\n🛑 Stop do plano: 64759.5 (-3.44% bruto em 10x)\n🎯 Alvo do plano: 64274 (+4.09% bruto em 10x)\nCenário indicativo sobre a margem em 10x; custos e liquidação ainda não validados.\nMovimento sem alavancagem: TP +0.41% • SL -0.34%.\nPercentuais sobre a referência do primeiro gatilho, na direção da operação, antes de custos.\n\nMovimento observado, sem entrada liberada. Aguarde o alerta de confirmação e viabilidade.\nAlerta válido até 23:01:00 BRT.\nAnálise: 15/11/2026 23:00:45 BRT\nPlano: d22bdb6c45f2416d7986",
       "watch_stage": 1,
       "watch_symbol": "BTC_USDT"
@@ -10572,13 +10576,17 @@
       "text": "👀 POSSÍVEL ENTRADA • AGUARDAR GATILHO\nONDO/USDT • LONG\n🧪 SIMULAÇÃO\nRompimento de consolidação\n\nRegião de atenção ≈ 0.3702 a 0.3746\n\nAntecipada: Primeiro fechamento de 15m acima da faixa, com a tolerância do plano.\nConfirmada: O candle de 15m imediatamente seguinte mantém o rompimento.\nCada modalidade é avaliada de forma independente.\n\nPreparação válida até 22:45:00 BRT (13min 30s).\nAnálise: 09/11/2026 22:31:30 BRT\nPlano: dc1c020d995df466e341 • revisão 0"
     },
     "1cbf2cfd95ef33b1734c": {
-      "attempts": 0,
+      "attempts": 1,
       "category": "INFO",
       "created_at": 1794794445,
       "expires_at": 1794798045,
       "id": "1cbf2cfd95ef33b1734c",
       "quote_at": 0,
-      "status": "PENDING",
+      "sent_at": 1794794451,
+      "status": "SENT",
+      "telegram_ids": [
+        5859
+      ],
       "text": "⚪ ATUALIZAÇÃO DOS PLANOS ACOMPANHADOS\n🧪 SIMULAÇÃO\n\n• ARB/USDT • SHORT: prazo para nova entrada encerrado\n  Motivo: A janela para uma nova entrada terminou.\n  Plano: 18e65dc9adfae87923f3\n• ZEC/USDT • LONG: prazo para nova entrada encerrado\n  Motivo: A janela para uma nova entrada terminou.\n  Plano: 1e5cfe11d74e3e5ab3fa\n• ARB/USDT • LONG: prazo para nova entrada encerrado\n  Motivo: A janela para uma nova entrada terminou.\n  Plano: 34e5b139637e0be964ef\n• ETH/USDT • SHORT: prazo para nova entrada encerrado\n  Motivo: A janela para uma nova entrada terminou.\n  Plano: 4f02d9dec23b40c11076\n• ETH/USDT • LONG: prazo para nova entrada encerrado\n  Motivo: A janela para uma nova entrada terminou.\n  Plano: 5d2298a833f45f912607\n• XRP/USDT • LONG: prazo para nova entrada encerrado\n  Motivo: A janela para uma nova entrada terminou.\n  Plano: 65ba0cde580813052298\n\nSem novas entradas por esses planos.\nAvisos de movimento não equivalem a entradas liberadas.\nA expiração não encerra uma posição já aberta.\nAnálise: 15/11/2026 23:00:45 BRT"
     },
     "1cd25b85619ea24ee2ad": {
