@@ -1,0 +1,1154 @@
+{
+  "protocol": {
+    "id": "MOMENTUM_CONDITIONAL_EXIT_V1",
+    "frozen_at_utc": "2026-11-16T14:03:15.012705+00:00",
+    "base_commit": "3626e1ec0b4e5a0cb35d7a106fbd5b48842c77ec",
+    "base_protocol": "config/momentum-intrahour-evaluation-v1-2026-11-16.json",
+    "base_protocol_sha256": "c352ed285b24b41967a576c6573876cba4423897b67d320a42f5591fbb86da13",
+    "baseline_results_sha256": "75f8226d6fc4819c9c21bd9b745ebfac3cece8edba8724e2ea203aa154e31e3e",
+    "control": "MOMENTUM_BTC_RISK1",
+    "candidate": "MOMENTUM_BTC_RISK1_WEAK_EXIT",
+    "rule": {
+      "ema_period": 20,
+      "consecutive_closed_bars": 2,
+      "minimum_held_hours_at_signal": 6,
+      "decision_delay_seconds": 3600,
+      "net_condition": "<=0 after modeled exit costs, entry fee and already settled funding at the latest signal close",
+      "direction": "LONG: both close < respective EMA20; SHORT: both close > respective EMA20; equality does not qualify",
+      "ema_seed": "First H1 close in the frozen May1 source; recursive Decimal EMA alpha=2/21; require at least20 completed bars",
+      "signal_time": "At execution opening T use only H1 bars with end <= T-3600. Latest bar ends exactly T-3600; require both bars start >= entry time.",
+      "execution": "At opening T; min hold applies at signal close T-3600, hence earliest execution entry+7h. Do not cancel using T opening PNL. Stop/liquidation opening gap takes priority. No H1 high/low at T used for elective exit.",
+      "priority": "Existing delayed daily stop update, then opening gap stop/liquidation if elective exit triggers, then existing daily channel exit, existing24h deadline, conditional exit. Otherwise ordinary stop/liquidation unchanged.",
+      "funding": "Existing baseline convention retained: voluntary opening exits precede settlement at the same timestamp. At signal time all funding through that boundary is already available."
+    },
+    "unchanged": [
+      "universe26",
+      "daily entries and rank",
+      "BTC7_SIGN",
+      "fixed1% risk sizing incl costs",
+      "10x modeled leverage",
+      "one simultaneous position",
+      "initial stop and daily trailing stop",
+      "24h maximum hold",
+      "base/stress costs",
+      "frozen H1 Last/Fair funding and verified M5"
+    ],
+    "evaluation": {
+      "blocks": [
+        "new_early_history",
+        "historical_actual_fair",
+        "recent_extended",
+        "continuous_all"
+      ],
+      "costs": [
+        "base",
+        "stress"
+      ],
+      "baseline": "Exact full wallet equality against all8 corresponding previously saved wallets required",
+      "acceptance": "Exploratory only: both continuous base and stress ROI strictly improve; continuous base DD<=10%; each of3 separate periods has positive base/stress return; no liquidation or unresolved new liquidation ambiguity. Report original temporal consistency separately, even if failed.",
+      "diagnostics": [
+        "paired same-symbol/entry trades normalized per quantity",
+        "baseline winning recoveries cut",
+        "baseline losers improved/worsened",
+        "time exposed",
+        "fees funding",
+        "monthly and split returns"
+      ],
+      "search": "One candidate, no threshold/rule search after outcomes. Preserve failed experiment."
+    },
+    "limitations": [
+      "All historical data previously examined; not independent validation",
+      "Current catalog/universe survivor bias",
+      "Modeled fills and slippage, approximate liquidation; not actual executions"
+    ],
+    "production_changed": false,
+    "prospective_protocol_changed": false,
+    "independent_validation": false,
+    "approved_for_production": false
+  },
+  "protocol_sha256": "184a4c06b9f8b0ea9c158b2a8a88bb84727328f7604c7791f7df19b30993cf98",
+  "source_sha256": {
+    "AAVE_USDT": "b00d614975ce5149d701cfa56a19e10db42c1c47d10de7b6060926025ef598cf",
+    "ADA_USDT": "b6e97c68a32bb05925e25e32ca103cfe73a763038a73ce43c78fc4bea3566be2",
+    "ARB_USDT": "66c83a871712bb60da49c4b84037a43721b6188df5cf2c2e654005bd77dd5edf",
+    "AVAX_USDT": "905dcac89bffcd9cd9daf3743a6b29bf6a30c6f2327ce06eddd0acec053908db",
+    "BNB_USDT": "e962bb2d851c7bc5ea53021a58eab02989d45ef31540ca781cd16d12f1a5a71b",
+    "BTC_USDT": "c46081bd201ee818db050769b810a09f1505765dd27a288f39d490c4fe3d494a",
+    "DOGE_USDT": "8d9d6c96e2c89171534548cb6c342fb8625bc58c966f3bb0ff316c845ddaaa48",
+    "DOT_USDT": "ef7e0f88188c18b3934fc4f4b6e3dde8da9e8b56d0829c6b36229342841f9c1b",
+    "ENA_USDT": "5e41608f649b17ff7d0d69fb1cce9e6a6a796447156a163a2eab66e4d6d84e17",
+    "ETH_USDT": "40d4663f7691edfb0c001bfd312e80a01fe3fb844e3f55a33d5f8599a52df5bc",
+    "FET_USDT": "b16fddffcbfb71da706d58b2d9338b33f25d46b6536f05b47306c5179a163f73",
+    "HYPE_USDT": "31fcea8aff159afb79135c419c6160bbd2dd7c7748e60aa331b3ea981cd54150",
+    "ICP_USDT": "cee97b24f7607712c566d2b4834ec5dbd3ff0e7dee09be14bb056eded7c2641b",
+    "INJ_USDT": "746d74e28306b7e13b8add31b0613b4cb658c4f75a1d63d3594b83fa5e212021",
+    "LINK_USDT": "5ab3f5e27bb80ae75ffa8f6d74dc9d574252fdca8bf3f0b9aa79cfb38b714c31",
+    "ONDO_USDT": "a61287d7642a4cdde82aa81b4fc2105c958fffbef86413760aba545841f7fb55",
+    "PEPE_USDT": "a229682119cc8aa98058740bc2269cc4104bc0eb849d32586c53c4e96ef6e22f",
+    "QNT_USDT": "145d09ede7208acfdf4c92cf83490e993caa6e10822fbbfc153fc2ef0d13c275",
+    "SOL_USDT": "4963a89444e14807f18a0468ab4c02ce838546f996e8ca734a9bbac329e8538a",
+    "SUI_USDT": "35d6871a92f582046a5a7c2b9d26620a782eaff17706b5ee9e5630626c38a512",
+    "TAO_USDT": "239af420eb95982a6b54222d32a454938d398d4419d513a31414c5766e5c4bbb",
+    "TIA_USDT": "678d2b3cd2a8b348d158d2f3c277083fa149cf6f7cf8efec8bf714d9da69cfc5",
+    "UNI_USDT": "1439f0a35aba0f9d91916a8e7549c6cfb65839f1ce370bacca069107eaa4afa9",
+    "WLD_USDT": "7fd993c3ad472d6f59c6ee9bb9a22da5f03718c317805db441261c66f0ef7067",
+    "XLM_USDT": "b7827a8b57a9a73df18943c3aee18dc3e769881132011dc8d2f2233b7b22f4fb",
+    "XRP_USDT": "9063c43744fb2a5e169a13d251f589066284c3b0d08659ef7339e29d57879098"
+  },
+  "intrahour_source": {
+    "protocol_sha256": "53c467143a6810605ba204ed1b5212eee04800358096f9912e2865eb6ac5e13f",
+    "selected": 2,
+    "complete": 2,
+    "datasets": [
+      {
+        "key": "WLD_USDT-1780624800",
+        "symbol": "WLD_USDT",
+        "start": 1780624800,
+        "end": 1780628400,
+        "sha256_uncompressed": "6e20006ecf3c1e96dae55228a2340cfe75e84513d5d2813906e26884f3b1be0d",
+        "ohlc_matches": true,
+        "timeframe_seconds": 300
+      },
+      {
+        "key": "ARB_USDT-1788195600",
+        "symbol": "ARB_USDT",
+        "start": 1788195600,
+        "end": 1788199200,
+        "sha256_uncompressed": "6140cb0876bb3fd5db681558fae70979653c5cd2e0b3df482248b8638de0fdf6",
+        "ohlc_matches": true,
+        "timeframe_seconds": 300
+      }
+    ],
+    "errors": {}
+  },
+  "baseline_wallets_reproduced": 8,
+  "production_changed": false,
+  "prospective_protocol_changed": false,
+  "independent_validation": false,
+  "approved_for_production": false,
+  "original_consistency_screen": {
+    "MOMENTUM_BTC_RISK1": {
+      "conditions": {
+        "new_early_history": {
+          "base_positive": true,
+          "stress_positive": false,
+          "base_dd_at_most10": true,
+          "base_subblocks_positive": false,
+          "stress_subblocks_positive": false
+        },
+        "historical_actual_fair": {
+          "base_positive": true,
+          "stress_positive": true,
+          "base_dd_at_most10": true,
+          "base_subblocks_positive": true,
+          "stress_subblocks_positive": false
+        },
+        "recent_extended": {
+          "base_positive": true,
+          "stress_positive": true,
+          "base_dd_at_most10": true,
+          "base_subblocks_positive": true,
+          "stress_subblocks_positive": true
+        },
+        "continuous_all": {
+          "base_positive": true,
+          "stress_positive": true
+        }
+      },
+      "passed": false
+    },
+    "MOMENTUM_BTC_RISK1_WEAK_EXIT": {
+      "conditions": {
+        "new_early_history": {
+          "base_positive": true,
+          "stress_positive": false,
+          "base_dd_at_most10": true,
+          "base_subblocks_positive": false,
+          "stress_subblocks_positive": false
+        },
+        "historical_actual_fair": {
+          "base_positive": true,
+          "stress_positive": true,
+          "base_dd_at_most10": true,
+          "base_subblocks_positive": true,
+          "stress_subblocks_positive": true
+        },
+        "recent_extended": {
+          "base_positive": false,
+          "stress_positive": false,
+          "base_dd_at_most10": true,
+          "base_subblocks_positive": false,
+          "stress_subblocks_positive": false
+        },
+        "continuous_all": {
+          "base_positive": true,
+          "stress_positive": true
+        }
+      },
+      "passed": false
+    }
+  },
+  "exploratory_acceptance": {
+    "conditions": {
+      "continuous_base_roi_improves": false,
+      "continuous_stress_roi_improves": false,
+      "continuous_base_dd_at_most10": true,
+      "all_three_periods_positive": false,
+      "no_modeled_liquidations": true
+    },
+    "passed": false
+  },
+  "experiments": {
+    "new_early_history": {
+      "MOMENTUM_BTC_RISK1": {
+        "base": {
+          "summary": {
+            "initial": "100",
+            "final": "100.63279383192",
+            "return_pct": "0.6327938319200",
+            "max_drawdown_pct": "6.748450923229516753185700154",
+            "positions": 46,
+            "positive": 27,
+            "profit_factor": "1.055087720128423094762740803",
+            "outcomes": {
+              "TEMPO": 36,
+              "STOP": 9,
+              "FIM_DO_BLOCO": 1
+            },
+            "skipped": {
+              "DIRECAO_CONTRA_BTC_7D": 246,
+              "LOTE": 56,
+              "OUTRO_PLANO_PRIORIZADO": 707,
+              "CARTEIRA_OCUPADA": 0,
+              "STOP_PROXIMO_DA_LIQUIDACAO": 38,
+              "LIQUIDEZ": 102
+            },
+            "trading_fees": "1.009182762",
+            "funding_paid": "0.01217340608"
+          },
+          "months": {
+            "2026-05": {
+              "start": "100",
+              "end": "103.16928018292",
+              "return_pct": "3.1692801829200"
+            },
+            "2026-06": {
+              "start": "103.16928018292",
+              "end": "100.63279383192",
+              "return_pct": "-2.458567459715516481929870260"
+            }
+          },
+          "temporal_blocks": {
+            "development_return_pct": "3.1692801829200",
+            "verification_return_pct": "-2.458567459715516481929870260"
+          },
+          "mean_hours_held": "22.26086956521739130434782609",
+          "fraction_hours_exposed": "0.9275362318840579710144927536"
+        },
+        "stress": {
+          "summary": {
+            "initial": "100",
+            "final": "99.46887746095",
+            "return_pct": "-0.5311225390500",
+            "max_drawdown_pct": "7.003732023233971192523683427",
+            "positions": 46,
+            "positive": 27,
+            "profit_factor": "0.9543915895120991496330918254",
+            "outcomes": {
+              "TEMPO": 36,
+              "STOP": 9,
+              "FIM_DO_BLOCO": 1
+            },
+            "skipped": {
+              "DIRECAO_CONTRA_BTC_7D": 246,
+              "LOTE": 61,
+              "OUTRO_PLANO_PRIORIZADO": 701,
+              "CARTEIRA_OCUPADA": 0,
+              "STOP_PROXIMO_DA_LIQUIDACAO": 39,
+              "LIQUIDEZ": 102
+            },
+            "trading_fees": "1.630540730",
+            "funding_paid": "0.01297180905"
+          },
+          "months": {
+            "2026-05": {
+              "start": "100",
+              "end": "102.72093326005",
+              "return_pct": "2.7209332600500"
+            },
+            "2026-06": {
+              "start": "102.72093326005",
+              "end": "99.46887746095",
+              "return_pct": "-3.165913408192118136228763410"
+            }
+          },
+          "temporal_blocks": {
+            "development_return_pct": "2.7209332600500",
+            "verification_return_pct": "-3.165913408192118136228763410"
+          },
+          "mean_hours_held": "22.26086956521739130434782609",
+          "fraction_hours_exposed": "0.9275362318840579710144927536"
+        }
+      },
+      "MOMENTUM_BTC_RISK1_WEAK_EXIT": {
+        "base": {
+          "summary": {
+            "initial": "100",
+            "final": "100.82146677739",
+            "return_pct": "0.8214667773900",
+            "max_drawdown_pct": "4.273169737960694421078535571",
+            "positions": 46,
+            "positive": 18,
+            "profit_factor": "1.097717412511074246302081535",
+            "outcomes": {
+              "FRAQUEZA_H1": 27,
+              "TEMPO": 16,
+              "STOP": 2,
+              "FIM_DO_BLOCO": 1
+            },
+            "skipped": {
+              "DIRECAO_CONTRA_BTC_7D": 246,
+              "LOTE": 57,
+              "OUTRO_PLANO_PRIORIZADO": 706,
+              "CARTEIRA_OCUPADA": 0,
+              "STOP_PROXIMO_DA_LIQUIDACAO": 38,
+              "LIQUIDEZ": 102
+            },
+            "trading_fees": "1.007088078",
+            "funding_paid": "0.01077514461"
+          },
+          "months": {
+            "2026-05": {
+              "start": "100",
+              "end": "101.87731162755",
+              "return_pct": "1.8773116275500"
+            },
+            "2026-06": {
+              "start": "101.87731162755",
+              "end": "100.82146677739",
+              "return_pct": "-1.036388606346454610362482080"
+            }
+          },
+          "temporal_blocks": {
+            "development_return_pct": "1.8773116275500",
+            "verification_return_pct": "-1.036388606346454610362482080"
+          },
+          "mean_hours_held": "16.02173913043478260869565217",
+          "fraction_hours_exposed": "0.6675724637681159420289855072"
+        },
+        "stress": {
+          "summary": {
+            "initial": "100",
+            "final": "99.70658989372",
+            "return_pct": "-0.2934101062800",
+            "max_drawdown_pct": "4.669490843254332257800748664",
+            "positions": 46,
+            "positive": 18,
+            "profit_factor": "0.9665839545760548683567701071",
+            "outcomes": {
+              "FRAQUEZA_H1": 28,
+              "TEMPO": 16,
+              "STOP": 2
+            },
+            "skipped": {
+              "DIRECAO_CONTRA_BTC_7D": 246,
+              "LOTE": 62,
+              "OUTRO_PLANO_PRIORIZADO": 700,
+              "CARTEIRA_OCUPADA": 0,
+              "STOP_PROXIMO_DA_LIQUIDACAO": 39,
+              "LIQUIDEZ": 102
+            },
+            "trading_fees": "1.633285960",
+            "funding_paid": "0.01180414628"
+          },
+          "months": {
+            "2026-05": {
+              "start": "100",
+              "end": "101.48812361268",
+              "return_pct": "1.4881236126800"
+            },
+            "2026-06": {
+              "start": "101.48812361268",
+              "end": "99.70658989372",
+              "return_pct": "-1.755411032880121040124147740"
+            }
+          },
+          "temporal_blocks": {
+            "development_return_pct": "1.4881236126800",
+            "verification_return_pct": "-1.755411032880121040124147740"
+          },
+          "mean_hours_held": "15.95652173913043478260869565",
+          "fraction_hours_exposed": "0.6648550724637681159420289855"
+        }
+      }
+    },
+    "historical_actual_fair": {
+      "MOMENTUM_BTC_RISK1": {
+        "base": {
+          "summary": {
+            "initial": "100",
+            "final": "117.15093855151",
+            "return_pct": "17.1509385515100",
+            "max_drawdown_pct": "7.277728704620292531194642680",
+            "positions": 92,
+            "positive": 34,
+            "profit_factor": "1.499585824122418678089103798",
+            "outcomes": {
+              "TEMPO": 66,
+              "STOP": 26
+            },
+            "skipped": {
+              "DIRECAO_CONTRA_BTC_7D": 612,
+              "LIQUIDEZ": 151,
+              "LOTE": 128,
+              "OUTRO_PLANO_PRIORIZADO": 1331,
+              "CARTEIRA_OCUPADA": 0,
+              "STOP_PROXIMO_DA_LIQUIDACAO": 74,
+              "STOP_DURANTE_LATENCIA": 1
+            },
+            "trading_fees": "2.122119078",
+            "funding_paid": "0.14797237049"
+          },
+          "months": {
+            "2026-07": {
+              "start": "100",
+              "end": "96.49720556399",
+              "return_pct": "-3.5027944360100"
+            },
+            "2026-08": {
+              "start": "96.49720556399",
+              "end": "101.02482990114",
+              "return_pct": "4.691974561012137785076411400"
+            },
+            "2026-09": {
+              "start": "101.02482990114",
+              "end": "117.15093855151",
+              "return_pct": "15.96251997271418050891571790"
+            }
+          },
+          "temporal_blocks": {
+            "development_return_pct": "1.0248299011400",
+            "verification_return_pct": "15.96251997271418050891571790"
+          },
+          "mean_hours_held": "20.87137681159420289855072464",
+          "fraction_hours_exposed": "0.8696407004830917874396135266"
+        },
+        "stress": {
+          "summary": {
+            "initial": "100",
+            "final": "114.70307845723",
+            "return_pct": "14.7030784572300",
+            "max_drawdown_pct": "7.854534142221722124980327088",
+            "positions": 92,
+            "positive": 34,
+            "profit_factor": "1.429080132060153293505165306",
+            "outcomes": {
+              "TEMPO": 66,
+              "STOP": 26
+            },
+            "skipped": {
+              "DIRECAO_CONTRA_BTC_7D": 612,
+              "LIQUIDEZ": 151,
+              "LOTE": 137,
+              "OUTRO_PLANO_PRIORIZADO": 1320,
+              "CARTEIRA_OCUPADA": 0,
+              "STOP_PROXIMO_DA_LIQUIDACAO": 76,
+              "STOP_DURANTE_LATENCIA": 1
+            },
+            "trading_fees": "3.429172700",
+            "funding_paid": "0.14252884277"
+          },
+          "months": {
+            "2026-07": {
+              "start": "100",
+              "end": "95.86352530940",
+              "return_pct": "-4.136474690600"
+            },
+            "2026-08": {
+              "start": "95.86352530940",
+              "end": "99.76543689187",
+              "return_pct": "4.070277584593891319212912600"
+            },
+            "2026-09": {
+              "start": "99.76543689187",
+              "end": "114.70307845723",
+              "return_pct": "14.97276214161227771069188610"
+            }
+          },
+          "temporal_blocks": {
+            "development_return_pct": "-0.2345631081300",
+            "verification_return_pct": "14.97276214161227771069188610"
+          },
+          "mean_hours_held": "20.87137681159420289855072464",
+          "fraction_hours_exposed": "0.8696407004830917874396135266"
+        }
+      },
+      "MOMENTUM_BTC_RISK1_WEAK_EXIT": {
+        "base": {
+          "summary": {
+            "initial": "100",
+            "final": "124.62822249394",
+            "return_pct": "24.6282224939400",
+            "max_drawdown_pct": "4.705795081077253349215740587",
+            "positions": 92,
+            "positive": 28,
+            "profit_factor": "2.071422410631071464084947657",
+            "outcomes": {
+              "TEMPO": 27,
+              "STOP": 9,
+              "FRAQUEZA_H1": 56
+            },
+            "skipped": {
+              "DIRECAO_CONTRA_BTC_7D": 612,
+              "LIQUIDEZ": 151,
+              "LOTE": 126,
+              "OUTRO_PLANO_PRIORIZADO": 1333,
+              "CARTEIRA_OCUPADA": 0,
+              "STOP_PROXIMO_DA_LIQUIDACAO": 74,
+              "STOP_DURANTE_LATENCIA": 1
+            },
+            "trading_fees": "2.198867574",
+            "funding_paid": "0.09069993206"
+          },
+          "months": {
+            "2026-07": {
+              "start": "100",
+              "end": "99.32722590230",
+              "return_pct": "-0.672774097700"
+            },
+            "2026-08": {
+              "start": "99.32722590230",
+              "end": "105.28726738810",
+              "return_pct": "6.000410694709626994648280600"
+            },
+            "2026-09": {
+              "start": "105.28726738810",
+              "end": "124.62822249394",
+              "return_pct": "18.36969995103699907988437630"
+            }
+          },
+          "temporal_blocks": {
+            "development_return_pct": "5.287267388100",
+            "verification_return_pct": "18.36969995103699907988437630"
+          },
+          "mean_hours_held": "13.88043478260869565217391304",
+          "fraction_hours_exposed": "0.5783514492753623188405797101"
+        },
+        "stress": {
+          "summary": {
+            "initial": "100",
+            "final": "121.64138009618",
+            "return_pct": "21.6413800961800",
+            "max_drawdown_pct": "5.349369194691751743388704258",
+            "positions": 92,
+            "positive": 28,
+            "profit_factor": "1.919329037612398135042574188",
+            "outcomes": {
+              "TEMPO": 26,
+              "STOP": 9,
+              "FRAQUEZA_H1": 57
+            },
+            "skipped": {
+              "DIRECAO_CONTRA_BTC_7D": 612,
+              "LIQUIDEZ": 151,
+              "LOTE": 132,
+              "OUTRO_PLANO_PRIORIZADO": 1325,
+              "CARTEIRA_OCUPADA": 0,
+              "STOP_PROXIMO_DA_LIQUIDACAO": 76,
+              "STOP_DURANTE_LATENCIA": 1
+            },
+            "trading_fees": "3.512423820",
+            "funding_paid": "0.08863608382"
+          },
+          "months": {
+            "2026-07": {
+              "start": "100",
+              "end": "98.61821513460",
+              "return_pct": "-1.381784865400"
+            },
+            "2026-08": {
+              "start": "98.61821513460",
+              "end": "103.69336958000",
+              "return_pct": "5.146264752888832598127669700"
+            },
+            "2026-09": {
+              "start": "103.69336958000",
+              "end": "121.64138009618",
+              "return_pct": "17.30873496432480384248691710"
+            }
+          },
+          "temporal_blocks": {
+            "development_return_pct": "3.69336958000",
+            "verification_return_pct": "17.30873496432480384248691710"
+          },
+          "mean_hours_held": "13.83695652173913043478260870",
+          "fraction_hours_exposed": "0.5765398550724637681159420290"
+        }
+      }
+    },
+    "recent_extended": {
+      "MOMENTUM_BTC_RISK1": {
+        "base": {
+          "summary": {
+            "initial": "100",
+            "final": "104.19131986916",
+            "return_pct": "4.1913198691600",
+            "max_drawdown_pct": "2.125397716836718235370564118",
+            "positions": 23,
+            "positive": 13,
+            "profit_factor": "2.196935484649922852673965511",
+            "outcomes": {
+              "TEMPO": 20,
+              "STOP": 2,
+              "FIM_DO_BLOCO": 1
+            },
+            "skipped": {
+              "STOP_PROXIMO_DA_LIQUIDACAO": 30,
+              "DIRECAO_CONTRA_BTC_7D": 83,
+              "LOTE": 25,
+              "OUTRO_PLANO_PRIORIZADO": 408,
+              "CARTEIRA_OCUPADA": 0,
+              "LIQUIDEZ": 29
+            },
+            "trading_fees": "0.482837592",
+            "funding_paid": "-0.04207746116"
+          },
+          "months": {
+            "2026-10": {
+              "start": "100",
+              "end": "101.24020559638",
+              "return_pct": "1.2402055963800"
+            },
+            "2026-11": {
+              "start": "101.24020559638",
+              "end": "104.19131986916",
+              "return_pct": "2.914962741724737915042752100"
+            }
+          },
+          "temporal_blocks": {
+            "development_return_pct": "1.2402055963800",
+            "verification_return_pct": "2.914962741724737915042752100"
+          },
+          "mean_hours_held": "22.34782608695652173913043478",
+          "fraction_hours_exposed": "0.9311594202898550724637681159"
+        },
+        "stress": {
+          "summary": {
+            "initial": "100",
+            "final": "103.58565680014",
+            "return_pct": "3.5856568001400",
+            "max_drawdown_pct": "2.161718719421935095710714193",
+            "positions": 23,
+            "positive": 13,
+            "profit_factor": "1.991084385243430009289897915",
+            "outcomes": {
+              "TEMPO": 20,
+              "STOP": 2,
+              "FIM_DO_BLOCO": 1
+            },
+            "skipped": {
+              "STOP_PROXIMO_DA_LIQUIDACAO": 30,
+              "DIRECAO_CONTRA_BTC_7D": 83,
+              "LOTE": 26,
+              "OUTRO_PLANO_PRIORIZADO": 407,
+              "CARTEIRA_OCUPADA": 0,
+              "LIQUIDEZ": 29
+            },
+            "trading_fees": "0.785657680",
+            "funding_paid": "-0.04181448014"
+          },
+          "months": {
+            "2026-10": {
+              "start": "100",
+              "end": "101.09328355226",
+              "return_pct": "1.0932835522600"
+            },
+            "2026-11": {
+              "start": "101.09328355226",
+              "end": "103.58565680014",
+              "return_pct": "2.465419224998831809647977700"
+            }
+          },
+          "temporal_blocks": {
+            "development_return_pct": "1.0932835522600",
+            "verification_return_pct": "2.465419224998831809647977700"
+          },
+          "mean_hours_held": "22.34782608695652173913043478",
+          "fraction_hours_exposed": "0.9311594202898550724637681159"
+        }
+      },
+      "MOMENTUM_BTC_RISK1_WEAK_EXIT": {
+        "base": {
+          "summary": {
+            "initial": "100",
+            "final": "98.64557631696",
+            "return_pct": "-1.3544236830400",
+            "max_drawdown_pct": "3.248270662475302841308445516",
+            "positions": 23,
+            "positive": 9,
+            "profit_factor": "0.7017840033304231937285505972",
+            "outcomes": {
+              "FRAQUEZA_H1": 15,
+              "STOP": 2,
+              "TEMPO": 6
+            },
+            "skipped": {
+              "STOP_PROXIMO_DA_LIQUIDACAO": 30,
+              "DIRECAO_CONTRA_BTC_7D": 83,
+              "LOTE": 26,
+              "OUTRO_PLANO_PRIORIZADO": 407,
+              "CARTEIRA_OCUPADA": 0,
+              "LIQUIDEZ": 29
+            },
+            "trading_fees": "0.474410880",
+            "funding_paid": "-0.02638719696"
+          },
+          "months": {
+            "2026-10": {
+              "start": "100",
+              "end": "98.43716124548",
+              "return_pct": "-1.5628387545200"
+            },
+            "2026-11": {
+              "start": "98.43716124548",
+              "end": "98.64557631696",
+              "return_pct": "0.211723975826832291658931600"
+            }
+          },
+          "temporal_blocks": {
+            "development_return_pct": "-1.5628387545200",
+            "verification_return_pct": "0.211723975826832291658931600"
+          },
+          "mean_hours_held": "16",
+          "fraction_hours_exposed": "0.6666666666666666666666666667"
+        },
+        "stress": {
+          "summary": {
+            "initial": "100",
+            "final": "98.54427499094",
+            "return_pct": "-1.4557250090600",
+            "max_drawdown_pct": "3.380443003108997515814946146",
+            "positions": 23,
+            "positive": 8,
+            "profit_factor": "0.6682813118562441929513612882",
+            "outcomes": {
+              "FRAQUEZA_H1": 15,
+              "STOP": 2,
+              "TEMPO": 6
+            },
+            "skipped": {
+              "STOP_PROXIMO_DA_LIQUIDACAO": 30,
+              "DIRECAO_CONTRA_BTC_7D": 83,
+              "LOTE": 27,
+              "OUTRO_PLANO_PRIORIZADO": 406,
+              "CARTEIRA_OCUPADA": 0,
+              "LIQUIDEZ": 29
+            },
+            "trading_fees": "0.776585360",
+            "funding_paid": "-0.02624035094"
+          },
+          "months": {
+            "2026-10": {
+              "start": "100",
+              "end": "98.44066752886",
+              "return_pct": "-1.5593324711400"
+            },
+            "2026-11": {
+              "start": "98.44066752886",
+              "end": "98.54427499094",
+              "return_pct": "0.105248638272008103759250200"
+            }
+          },
+          "temporal_blocks": {
+            "development_return_pct": "-1.5593324711400",
+            "verification_return_pct": "0.105248638272008103759250200"
+          },
+          "mean_hours_held": "15.52173913043478260869565217",
+          "fraction_hours_exposed": "0.6467391304347826086956521739"
+        }
+      }
+    },
+    "continuous_all": {
+      "MOMENTUM_BTC_RISK1": {
+        "base": {
+          "summary": {
+            "initial": "100",
+            "final": "120.38964704053",
+            "return_pct": "20.3896470405300",
+            "max_drawdown_pct": "9.640456243249352099726107449",
+            "positions": 184,
+            "positive": 83,
+            "profit_factor": "1.351718162091261425058403122",
+            "outcomes": {
+              "TEMPO": 141,
+              "STOP": 41,
+              "CANAL": 1,
+              "FIM_DO_BLOCO": 1
+            },
+            "skipped": {
+              "DIRECAO_CONTRA_BTC_7D": 1117,
+              "LOTE": 237,
+              "OUTRO_PLANO_PRIORIZADO": 2784,
+              "CARTEIRA_OCUPADA": 0,
+              "STOP_PROXIMO_DA_LIQUIDACAO": 170,
+              "LIQUIDEZ": 285,
+              "STOP_DURANTE_LATENCIA": 1
+            },
+            "trading_fees": "4.295714820",
+            "funding_paid": "0.10663813947"
+          },
+          "months": {
+            "2026-05": {
+              "start": "100",
+              "end": "103.16928018292",
+              "return_pct": "3.1692801829200"
+            },
+            "2026-06": {
+              "start": "103.16928018292",
+              "end": "100.63279383192",
+              "return_pct": "-2.458567459715516481929870260"
+            },
+            "2026-07": {
+              "start": "100.63279383192",
+              "end": "97.10701577252",
+              "return_pct": "-3.503607447577042726139049080"
+            },
+            "2026-08": {
+              "start": "97.10701577252",
+              "end": "101.29652250784",
+              "return_pct": "4.314319312555349834043824200"
+            },
+            "2026-09": {
+              "start": "101.29652250784",
+              "end": "117.46273758686",
+              "return_pct": "15.95929917314663091699451390"
+            },
+            "2026-10": {
+              "start": "117.46273758686",
+              "end": "116.68264588526",
+              "return_pct": "-0.6641184409848669857200838100"
+            },
+            "2026-11": {
+              "start": "116.68264588526",
+              "end": "120.38964704053",
+              "return_pct": "3.176994425473761885540883600"
+            }
+          },
+          "temporal_blocks": {
+            "development_return_pct": "1.2965225078400",
+            "verification_return_pct": "18.84874629453568684009700550"
+          },
+          "mean_hours_held": "21.50090579710144927536231884",
+          "fraction_hours_exposed": "0.8958710748792270531400966184"
+        },
+        "stress": {
+          "summary": {
+            "initial": "100",
+            "final": "114.22315531802",
+            "return_pct": "14.2231553180200",
+            "max_drawdown_pct": "10.62142297789575721664331876",
+            "positions": 184,
+            "positive": 83,
+            "profit_factor": "1.248057680548515887973258546",
+            "outcomes": {
+              "TEMPO": 141,
+              "STOP": 41,
+              "CANAL": 1,
+              "FIM_DO_BLOCO": 1
+            },
+            "skipped": {
+              "DIRECAO_CONTRA_BTC_7D": 1117,
+              "LOTE": 258,
+              "OUTRO_PLANO_PRIORIZADO": 2760,
+              "CARTEIRA_OCUPADA": 0,
+              "STOP_PROXIMO_DA_LIQUIDACAO": 173,
+              "LIQUIDEZ": 285,
+              "STOP_DURANTE_LATENCIA": 1
+            },
+            "trading_fees": "6.796604350",
+            "funding_paid": "0.11077033198"
+          },
+          "months": {
+            "2026-05": {
+              "start": "100",
+              "end": "102.72093326005",
+              "return_pct": "2.7209332600500"
+            },
+            "2026-06": {
+              "start": "102.72093326005",
+              "end": "99.46887746095",
+              "return_pct": "-3.165913408192118136228763410"
+            },
+            "2026-07": {
+              "start": "99.46887746095",
+              "end": "95.40787418914",
+              "return_pct": "-4.082687344495557827145998840"
+            },
+            "2026-08": {
+              "start": "95.40787418914",
+              "end": "99.04160455843",
+              "return_pct": "3.808627327851747615821734500"
+            },
+            "2026-09": {
+              "start": "99.04160455843",
+              "end": "113.18270112905",
+              "return_pct": "14.27793565508866750712998760"
+            },
+            "2026-10": {
+              "start": "113.18270112905",
+              "end": "111.09621556285",
+              "return_pct": "-1.843466842005304362185308440"
+            },
+            "2026-11": {
+              "start": "111.09621556285",
+              "end": "114.22315531802",
+              "return_pct": "2.814623107842057299171695900"
+            }
+          },
+          "temporal_blocks": {
+            "development_return_pct": "-0.9583954415700",
+            "verification_return_pct": "15.32845800234747003642128320"
+          },
+          "mean_hours_held": "21.50090579710144927536231884",
+          "fraction_hours_exposed": "0.8958710748792270531400966184"
+        }
+      },
+      "MOMENTUM_BTC_RISK1_WEAK_EXIT": {
+        "base": {
+          "summary": {
+            "initial": "100",
+            "final": "117.89572260214",
+            "return_pct": "17.8957226021400",
+            "max_drawdown_pct": "9.084958587244182314799954853",
+            "positions": 184,
+            "positive": 58,
+            "profit_factor": "1.398797837184456785677341745",
+            "outcomes": {
+              "FRAQUEZA_H1": 115,
+              "TEMPO": 54,
+              "STOP": 15
+            },
+            "skipped": {
+              "DIRECAO_CONTRA_BTC_7D": 1117,
+              "LOTE": 227,
+              "OUTRO_PLANO_PRIORIZADO": 2795,
+              "CARTEIRA_OCUPADA": 0,
+              "STOP_PROXIMO_DA_LIQUIDACAO": 169,
+              "LIQUIDEZ": 285,
+              "STOP_DURANTE_LATENCIA": 1
+            },
+            "trading_fees": "4.406797122",
+            "funding_paid": "0.07203027586"
+          },
+          "months": {
+            "2026-05": {
+              "start": "100",
+              "end": "101.87731162755",
+              "return_pct": "1.8773116275500"
+            },
+            "2026-06": {
+              "start": "101.87731162755",
+              "end": "100.82146677739",
+              "return_pct": "-1.036388606346454610362482080"
+            },
+            "2026-07": {
+              "start": "100.82146677739",
+              "end": "100.19184596359",
+              "return_pct": "-0.6244908291110057292501108500"
+            },
+            "2026-08": {
+              "start": "100.19184596359",
+              "end": "106.14013489556",
+              "return_pct": "5.936899230434006585526951800"
+            },
+            "2026-09": {
+              "start": "106.14013489556",
+              "end": "125.61171716589",
+              "return_pct": "18.34516442765942376863144390"
+            },
+            "2026-10": {
+              "start": "125.61171716589",
+              "end": "117.33434934337",
+              "return_pct": "-6.589646260140235022066742490"
+            },
+            "2026-11": {
+              "start": "117.33434934337",
+              "end": "117.89572260214",
+              "return_pct": "0.478438975382378514095243200"
+            }
+          },
+          "temporal_blocks": {
+            "development_return_pct": "6.1401348955600",
+            "verification_return_pct": "11.07553492196640664956918990"
+          },
+          "mean_hours_held": "14.41847826086956521739130435",
+          "fraction_hours_exposed": "0.6007699275362318840579710145"
+        },
+        "stress": {
+          "summary": {
+            "initial": "100",
+            "final": "113.26375991079",
+            "return_pct": "13.2637599107900",
+            "max_drawdown_pct": "9.607734739553266614570524337",
+            "positions": 184,
+            "positive": 57,
+            "profit_factor": "1.291702108142727479215958079",
+            "outcomes": {
+              "FRAQUEZA_H1": 117,
+              "TEMPO": 52,
+              "STOP": 15
+            },
+            "skipped": {
+              "DIRECAO_CONTRA_BTC_7D": 1117,
+              "LOTE": 254,
+              "OUTRO_PLANO_PRIORIZADO": 2764,
+              "CARTEIRA_OCUPADA": 0,
+              "STOP_PROXIMO_DA_LIQUIDACAO": 173,
+              "LIQUIDEZ": 285,
+              "STOP_DURANTE_LATENCIA": 1
+            },
+            "trading_fees": "6.993715260",
+            "funding_paid": "0.07204482921"
+          },
+          "months": {
+            "2026-05": {
+              "start": "100",
+              "end": "101.48812361268",
+              "return_pct": "1.4881236126800"
+            },
+            "2026-06": {
+              "start": "101.48812361268",
+              "end": "99.70658989372",
+              "return_pct": "-1.755411032880121040124147740"
+            },
+            "2026-07": {
+              "start": "99.70658989372",
+              "end": "98.32871231932",
+              "return_pct": "-1.381932303440241665166052560"
+            },
+            "2026-08": {
+              "start": "98.32871231932",
+              "end": "103.40317356639",
+              "return_pct": "5.160711584008967563759570800"
+            },
+            "2026-09": {
+              "start": "103.40317356639",
+              "end": "121.25814470892",
+              "return_pct": "17.26733380292841504350524140"
+            },
+            "2026-10": {
+              "start": "121.25814470892",
+              "end": "112.77419895402",
+              "return_pct": "-6.996598682311773320029850180"
+            },
+            "2026-11": {
+              "start": "112.77419895402",
+              "end": "113.26375991079",
+              "return_pct": "0.434107234908937377255172900"
+            }
+          },
+          "temporal_blocks": {
+            "development_return_pct": "3.4031735663900",
+            "verification_return_pct": "9.536057747849500248851372800"
+          },
+          "mean_hours_held": "14.31521739130434782608695652",
+          "fraction_hours_exposed": "0.5964673913043478260869565217"
+        }
+      }
+    }
+  },
+  "paired_diagnostics": {
+    "new_early_history": {
+      "base": {
+        "identical_entry_pairs": 46,
+        "control_only_entries": 0,
+        "candidate_only_entries": 0,
+        "changed_exit_pairs": 27,
+        "baseline_winners_cut": 11,
+        "baseline_losers_improved": 13,
+        "baseline_losers_worsened": 2
+      },
+      "stress": {
+        "identical_entry_pairs": 46,
+        "control_only_entries": 0,
+        "candidate_only_entries": 0,
+        "changed_exit_pairs": 28,
+        "baseline_winners_cut": 11,
+        "baseline_losers_improved": 13,
+        "baseline_losers_worsened": 2
+      }
+    },
+    "historical_actual_fair": {
+      "base": {
+        "identical_entry_pairs": 92,
+        "control_only_entries": 0,
+        "candidate_only_entries": 0,
+        "changed_exit_pairs": 56,
+        "baseline_winners_cut": 7,
+        "baseline_losers_improved": 37,
+        "baseline_losers_worsened": 10
+      },
+      "stress": {
+        "identical_entry_pairs": 92,
+        "control_only_entries": 0,
+        "candidate_only_entries": 0,
+        "changed_exit_pairs": 57,
+        "baseline_winners_cut": 7,
+        "baseline_losers_improved": 37,
+        "baseline_losers_worsened": 10
+      }
+    },
+    "recent_extended": {
+      "base": {
+        "identical_entry_pairs": 23,
+        "control_only_entries": 0,
+        "candidate_only_entries": 0,
+        "changed_exit_pairs": 15,
+        "baseline_winners_cut": 4,
+        "baseline_losers_improved": 3,
+        "baseline_losers_worsened": 5
+      },
+      "stress": {
+        "identical_entry_pairs": 23,
+        "control_only_entries": 0,
+        "candidate_only_entries": 0,
+        "changed_exit_pairs": 15,
+        "baseline_winners_cut": 5,
+        "baseline_losers_improved": 3,
+        "baseline_losers_worsened": 5
+      }
+    },
+    "continuous_all": {
+      "base": {
+        "identical_entry_pairs": 183,
+        "control_only_entries": 1,
+        "candidate_only_entries": 1,
+        "changed_exit_pairs": 114,
+        "baseline_winners_cut": 27,
+        "baseline_losers_improved": 57,
+        "baseline_losers_worsened": 23
+      },
+      "stress": {
+        "identical_entry_pairs": 184,
+        "control_only_entries": 0,
+        "candidate_only_entries": 0,
+        "changed_exit_pairs": 117,
+        "baseline_winners_cut": 29,
+        "baseline_losers_improved": 57,
+        "baseline_losers_worsened": 23
+      }
+    }
+  },
+  "full_results_sha256": "a393a0fd4a85a8933cc6286720d55312211e579ab0f9cf78a6b3d63531ddc84e",
+  "verification": {
+    "unit_tests_passed": 368,
+    "new_exit_tests": 13,
+    "baseline_exact_wallets": 8,
+    "freeze_commit": "bc19d8c56d8d83a9be33beb9255482b5c19290d0",
+    "code_sha256": {
+      "scripts/audit_multihour.py": "9a5feebbfbf3a69c1171a6a6d3cbcee256f01a718bd4a3736f3bb3be0017e144",
+      "scripts/audit_momentum_conditional_exit.py": "f74c367f7f0c93b336aa54384d9481b61ca1835f8b2cd28cdb0eca4e72437f46",
+      "tests/test_momentum_conditional_exit.py": "51c99a25741227c4db32f2606f07425ffc4790bd30e0aa8f15effcb3fde85c38"
+    }
+  }
+}

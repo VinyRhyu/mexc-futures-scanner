@@ -282,7 +282,7 @@ def allocation_risk(policy, equity, peak, guarded, default):
     return D(policy['reduced'] if guarded else policy['normal']),guarded
 
 
-def simulate(markets, variant, block, protocol, costs):
+def simulate(markets, variant, block, protocol, costs, exit_policy=None):
     start, end = stamp(block['start']), stamp(block['end'])
     entry_events = defaultdict(list); updates = {}
     for symbol, market in markets.items():
@@ -308,9 +308,24 @@ def simulate(markets, variant, block, protocol, costs):
                 proposed = update['close']-position['sign']*D(variant['trail_atr'])*update['atr']
                 rounded = floor_step(proposed, position['tick']) if position['sign'] == 1 else ceil_step(proposed, position['tick'])
                 position['stop'] = max(position['stop'], rounded) if position['sign'] == 1 else min(position['stop'], rounded)
-            if channel or at >= position['deadline']:
-                trade, delta = close(position, market['hourly'][at].open, at,
-                    'CANAL' if channel else 'TEMPO', costs)
+            elective = exit_policy(position, market, at, costs) if exit_policy else None
+            if channel or at >= position['deadline'] or elective:
+                reason = 'CANAL' if channel else ('TEMPO' if at >= position['deadline'] else 'FRAQUEZA_H1')
+                mid = market['hourly'][at].open; ambiguous = False
+                # Optional experiment only: an already breached stop/liquidation
+                # cannot be escaped by an elective opening exit. Never inspect
+                # the execution hour's future high/low for this decision.
+                if elective:
+                    opening = {}
+                    for key in ('hourly', 'fair'):
+                        b = market[key][at]
+                        opening[key] = Candle(at,HOUR,b.open,b.open,b.open,b.open,D(0))
+                    gap = exit_event(position,opening['hourly'],opening['fair'],market['contract'].stop_only_fair)
+                    if gap:
+                        reason, mid, ambiguous = gap
+                trade, delta = close(position, mid, at, reason, costs, ambiguous)
+                if elective:
+                    trade['conditional_exit_signal'] = elective
                 cash += delta; trades.append(trade); cashflows.append(delta)
                 position = None
         candidates = entry_events.get(at, [])
