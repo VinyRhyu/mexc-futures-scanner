@@ -30545,7 +30545,7 @@
       "text": "⚪ ATUALIZAÇÃO DOS PLANOS ACOMPANHADOS\n🧪 SIMULAÇÃO\n\n• SUI/USDT • SHORT: confirmação não aprovada\n  Motivo: O segundo fechamento M1 perdeu o nível do gatilho.\n  Plano: 69d7561b28be5639ddee\n• XLM/USDT • SHORT: confirmação não aprovada\n  Motivo: O segundo fechamento M1 perdeu o nível do gatilho.\n  Plano: d5642b8d2004395add23\n\nSem novas entradas por esses planos.\nAvisos de movimento não equivalem a entradas liberadas.\nA expiração não encerra uma posição já aberta.\nAnálise: 16/11/2026 18:05:34 BRT"
     },
     "41ef5cfb63d8fea915c6": {
-      "attempts": 0,
+      "attempts": 1,
       "category": "INFO",
       "created_at": 1794872492,
       "expires_at": 1794872580,
@@ -30556,7 +30556,11 @@
         "0282cc72eefbbf185706"
       ],
       "quote_at": 0,
-      "status": "PENDING",
+      "sent_at": 1794872497,
+      "status": "SENT",
+      "telegram_ids": [
+        7241
+      ],
       "text": "🟡 MOVIMENTO DETECTADO • ENTRADA BLOQUEADA\nTAO/USDT • BAIXA (SHORT)\n🧪 SIMULAÇÃO • acompanhamento\n\nRompimento observado no M1 fechado às 20:41:00 BRT.\nPreço de referência do primeiro gatilho: 190.34.\n\nConfirmação técnica identificada; entrada bloqueada.\nCondição pendente: A relação entre ganho e perda ficou abaixo do mínimo.\n\nFaixa em estudo: 190.04 a 190.38\n🛑 Stop do plano: 191.13 (-4.15% bruto em 10x)\n🎯 Alvo do plano: 189.68 (+3.47% bruto em 10x)\nCenário indicativo sobre a margem em 10x; custos e liquidação ainda não validados.\nMovimento sem alavancagem: TP +0.35% • SL -0.42%.\nPercentuais sobre a referência do primeiro gatilho, na direção da operação, antes de custos.\n\nMovimento observado, sem entrada liberada. Aguarde o alerta de confirmação e viabilidade.\nAlerta válido até 20:43:00 BRT.\nAnálise: 16/11/2026 20:41:32 BRT\nPlano: 0282cc72eefbbf185706",
       "watch_stage": 0,
       "watch_symbol": "TAO_USDT"
