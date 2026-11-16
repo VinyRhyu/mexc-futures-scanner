@@ -54708,7 +54708,7 @@
       "text": "⚪ ATUALIZAÇÃO DOS PLANOS ACOMPANHADOS\n🧪 SIMULAÇÃO\n\n• LTC/USDT • LONG: confirmação não aprovada\n  Motivo: O segundo fechamento M1 perdeu o nível do gatilho.\n  Plano: 23cd6476bd5fa90ca3e4\n• XLM/USDT • LONG: prazo para nova entrada encerrado\n  Motivo: A janela para uma nova entrada terminou.\n  Plano: 95b79f7e61dc108aa52c\n\nSem novas entradas por esses planos.\nAvisos de movimento não equivalem a entradas liberadas.\nA expiração não encerra uma posição já aberta.\nAnálise: 15/11/2026 16:37:10 BRT"
     },
     "738bd96b383897e47fb4": {
-      "attempts": 0,
+      "attempts": 1,
       "category": "INFO",
       "created_at": 1794872438,
       "expires_at": 1794872460,
@@ -54719,7 +54719,11 @@
         "0282cc72eefbbf185706"
       ],
       "quote_at": 0,
-      "status": "PENDING",
+      "sent_at": 1794872442,
+      "status": "SENT",
+      "telegram_ids": [
+        7240
+      ],
       "text": "🟡 MOVIMENTO DETECTADO • AINDA SEM CONFIRMAÇÃO\nTAO/USDT • BAIXA (SHORT)\n🧪 SIMULAÇÃO • acompanhamento\n\nRompimento observado no M1 fechado às 20:40:00 BRT.\nPreço de referência do primeiro gatilho: 190.34.\n\nPrimeiro fechamento além da região identificado.\nFalta o segundo fechamento sustentar o nível, com volume de pelo menos 50% do primeiro.\nApós confirmar, o plano ainda precisa passar pela avaliação financeira.\n\nFaixa em estudo: 190.04 a 190.38\n🛑 Stop do plano: 191.13 (-4.15% bruto em 10x)\n🎯 Alvo do plano: 189.68 (+3.47% bruto em 10x)\nCenário indicativo sobre a margem em 10x; custos e liquidação ainda não validados.\nMovimento sem alavancagem: TP +0.35% • SL -0.42%.\nPercentuais sobre a referência do primeiro gatilho, na direção da operação, antes de custos.\n\nMovimento observado, sem entrada liberada. Aguarde o alerta de confirmação e viabilidade.\nAlerta válido até 20:41:00 BRT.\nAnálise: 16/11/2026 20:40:38 BRT\nPlano: 0282cc72eefbbf185706",
       "watch_stage": 1,
       "watch_symbol": "TAO_USDT"
