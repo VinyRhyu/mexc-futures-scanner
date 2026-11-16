@@ -15925,7 +15925,7 @@
       "text": "⚪ ATUALIZAÇÃO DOS PLANOS ACOMPANHADOS\n🧪 SIMULAÇÃO\n\n• AVAX/USDT • LONG: janela expirou\n  Plano: 02ccf17ef5693689a627\n\nSem novas entradas por esses planos.\nA expiração não encerra posições já abertas.\nAnálise: 13/11/2026 00:30:14 BRT"
     },
     "262a5d675ffba1ff52e5": {
-      "attempts": 0,
+      "attempts": 1,
       "category": "INFO",
       "created_at": 1794833136,
       "expires_at": 1794834900,
@@ -15935,7 +15935,11 @@
         "c657ef17383085fb4df7"
       ],
       "quote_at": 0,
-      "status": "PENDING",
+      "sent_at": 1794833140,
+      "status": "SENT",
+      "telegram_ids": [
+        6627
+      ],
       "text": "👀 PLANO EM PREPARAÇÃO • AGUARDANDO GATILHO\nDOGE/USDT\n🧪 SIMULAÇÃO • acompanhamento\n\nRegião em análise: 0.05796 a 0.0591\nDireção indefinida: cenários alternativos, não duas entradas.\nLONG somente se houver fechamento M1 acima de ≈ 0.0591328.\nSHORT somente se houver fechamento M1 abaixo de ≈ 0.0579272.\n\nConfirmação: dois fechamentos M1 consecutivos além do gatilho; volume do segundo de pelo menos 50% do primeiro.\nTP, SL e percentuais serão definidos no primeiro gatilho. A confirmação ainda precisa passar pela avaliação financeira.\n\nSem rompimento observado neste plano e sem entrada liberada.\nPreparação até 10:15:00 BRT.\nAnálise: 16/11/2026 09:45:36 BRT\nPlanos: 35b1b31f43a2c09e42fd, c657ef17383085fb4df7",
       "watch_stage": 2,
       "watch_symbol": "DOGE_USDT"
@@ -18087,7 +18091,7 @@
       "watch_symbol": "FET_USDT"
     },
     "2b5389a57d9a7d52788f": {
-      "attempts": 0,
+      "attempts": 1,
       "category": "INFO",
       "created_at": 1794833136,
       "expires_at": 1794834900,
@@ -18097,7 +18101,11 @@
         "364f5bcd9dfa4ee40e20"
       ],
       "quote_at": 0,
-      "status": "PENDING",
+      "sent_at": 1794833141,
+      "status": "SENT",
+      "telegram_ids": [
+        6628
+      ],
       "text": "👀 PLANO EM PREPARAÇÃO • AGUARDANDO GATILHO\nDOT/USDT\n🧪 SIMULAÇÃO • acompanhamento\n\nRegião em análise: 0.7224 a 0.733\nDireção indefinida: cenários alternativos, não duas entradas.\nLONG somente se houver fechamento M1 acima de ≈ 0.733413.\nSHORT somente se houver fechamento M1 abaixo de ≈ 0.721987.\n\nConfirmação: dois fechamentos M1 consecutivos além do gatilho; volume do segundo de pelo menos 50% do primeiro.\nTP, SL e percentuais serão definidos no primeiro gatilho. A confirmação ainda precisa passar pela avaliação financeira.\n\nSem rompimento observado neste plano e sem entrada liberada.\nPreparação até 10:15:00 BRT.\nAnálise: 16/11/2026 09:45:36 BRT\nPlanos: 24e7f60caec517cf7605, 364f5bcd9dfa4ee40e20",
       "watch_stage": 2,
       "watch_symbol": "DOT_USDT"
@@ -37297,11 +37305,12 @@
       "text": "🟢 GATILHO VÁLIDO PARA SIMULAR\nWLD/USDT • LONG\n🧪 SIMULAÇÃO • Confirmada\nRompimento • 2 fechamentos M1 • volume ≥50%\n\nVolume do segundo M1: 57.4% do primeiro.\n📍 Entrada: 0.2536 a 0.2544\n🛑 Stop: 0.2511 (-15.74% líquido sobre a margem)\n🎯 Alvo: 0.2609 (+22.76% líquido sobre a margem)\nMovimento sem alavancagem: TP +2.56% • SL -1.30%.\nBase dos percentuais sem alavancagem: 0.2544 (pior entrada); na direção da operação, antes de custos.\n\nMargem isolada estimada: 0.6106 USDT • 10x\nQuantidade: 24 contratos\nPerda planejada: -0.0961 USDT (-9.61% da banca)\nGanho projetado: +0.1390 USDT (+13.90% da banca)\nRetorno/risco líquido: 1.45:1 (pior entrada)\nCustos estimados: 0.0170 USDT\nROI líquido estimado sobre a margem: TP +22.76% • SL -15.74%.\nTaxa por execução: 0.06%\nDisparo do stop: último preço (Last)\n\nEstimativas de taxas, deslizamento e funding; ganho não garantido.\nFalta validar para uso real: taxa pessoal da conta; regras de margem da conta.\n\n⏱ Nova entrada até 20:52:00 BRT (16s).\nGatilho M1 (segundo fechamento): 20:50:00 BRT\nCotação: 20:51:40 BRT\nAnálise: 14/11/2026 20:51:44 BRT\nA validade se aplica a novas entradas.\nPlano: 30cd3a2cafd826e7dafe • revisão 1"
     },
     "56d3dd932bf3e98868d4": {
-      "attempts": 0,
+      "attempts": 1,
       "category": "INFO",
       "created_at": 1794833136,
       "expires_at": 1794834900,
       "id": "56d3dd932bf3e98868d4",
+      "last_error": "TELEGRAM_FALHA_OU_RESULTADO_AMBIGUO: URLError",
       "plan_ids": [
         "52d17e236a1632fd1781",
         "f646b17a987600aad8de"
