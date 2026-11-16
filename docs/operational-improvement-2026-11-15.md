@@ -61,3 +61,15 @@ Fontes e resultado: [medições sanitizadas](operational-rollout-source-2026-11-
 ```sh
 python -m scripts.summarize_operational_rollout --source docs/operational-rollout-source-2026-11-15.json --output results.json
 ```
+
+## Consistência entre decisão e mensagem pendente
+
+A revisão posterior encontrou um caso no código, reproduzido em teste: uma ENTRY pendente podia sobreviver a uma nova avaliação bloqueada enquanto a cotação anterior ainda tinha menos de 60 s. A mensagem agora é retirada antes da etapa de envio quando o plano/modalidade deixa de estar válido e financeiramente viável na rodada atual. A associação também funciona para mensagens antigas sem metadados de plano, por meio do ID de evento já existente.
+
+A autorização retirada fica EXPIRED, conforme a política existente de expiração; não é reenviada automaticamente com o mesmo ID. Mensagens já enviadas permanecem SENT. Uma tentativa anterior com resultado ambíguo conserva a indicação da carteira para reconciliação; apenas uma indicação ainda não tentada pode ser liberada automaticamente.
+
+Falhas parciais e totais de fonte passam a registrar os respectivos bloqueios no histórico de decisões. Os sete testes adicionais cobrem preço fora do plano com cotação antiga ainda recente, coleta parcial, falha total, formato antigo de mensagem, autorização ainda válida, mensagem já enviada e preservação de tentativa ambígua/indicação da carteira.
+
+Validação local após essa correção: **314 testes aprovados**. A suíte local também contém testes de pesquisa mantidos na branch de auditoria, por isso sua contagem é maior que a suíte de produção no GitHub. Os dez tempos da tabela anterior foram medidos antes desta correção de consistência e permanecem identificados pelo respectivo commit; não foram substituídos por uma seleção posterior de rodadas.
+
+Critérios técnicos, TP, SL, alavancagem, cron e modo paper permanecem os mesmos. A mudança de entrega impede que uma avaliação antiga seja apresentada como autorização atual.

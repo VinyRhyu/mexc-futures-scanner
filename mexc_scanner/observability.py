@@ -105,3 +105,13 @@ def record_plan(observer, event, plan, variant, at, **extra):
         variant_status=variant.status, reason=plan.reason,
         entry_low=variant.entry_low, entry_high=variant.entry_high,
         stop=variant.stop, target=variant.target, **extra)
+
+
+def record_source_gate(observer, row, at):
+    if observer is None or row['status'] in {'INVALIDADO', 'EXPIRADO', 'AMBIGUO', 'EVENTO_PASSADO'}:
+        return
+    from .models import Plan
+    plan = Plan.from_dict(row)
+    for variant in plan.variants.values():
+        if variant.triggered_at:
+            record_plan(observer, 'source_gate', plan, variant, at, financial=variant.financial)

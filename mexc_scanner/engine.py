@@ -13,7 +13,7 @@ from .mexc import MexcClient, SourceError
 from .models import Contract, D, DataError, Plan, jsonable, stable_id
 from .reporting import brt, closed_plans_message, daily_message, plan_message
 from .state import queue_message
-from .observability import Timings, record_plan
+from .observability import Timings, record_plan, record_source_gate
 from .strategies import process_symbol
 from .minute_breakout import MODEL,prepare_model,process_minutes,validate_minute_ohlc
 from .watch_notifications import STRATEGY as WATCH_STRATEGY, queue_waiting_entries
@@ -144,6 +144,7 @@ def run_scan(client: MexcClient, config: Config, state: dict, assets: set[str],
             if row["symbol"] not in good_symbols:
                 for v in row.get("variants", {}).values():
                     v["financial"] = {"status": "BLOQUEADA", "reasons": ["COLETA_NAO_VALIDADA_NESTA_RODADA"]}
+                record_source_gate(observer, row, server + int(time.monotonic() - wall_start))
         state["plans"] = new_plans
         report["analyzed_symbols"] = len(good_symbols & selected_symbols)
         report["source_status"] = "OK" if report["analyzed_symbols"] == report["selected_symbols"] and good_symbols else "PARCIAL"
@@ -152,6 +153,7 @@ def run_scan(client: MexcClient, config: Config, state: dict, assets: set[str],
         state["source_status"] = report["source_status"]
         state["last_success"] = server + int(time.monotonic() - wall_start)
         report["analyzed_at"] = state["last_success"]
+        _reconcile_pending_entries(state, report["analyzed_at"], observer)
         _queue_transitions(state, previous_plans, config, report["analyzed_at"], watch_symbols=good_symbols, observer=observer)
     except (SourceError, DataError, KeyError, ValueError, TypeError) as exc:
         report["error"] = str(exc)
@@ -159,6 +161,8 @@ def run_scan(client: MexcClient, config: Config, state: dict, assets: set[str],
         for p in state["plans"].values():
             for v in p.get("variants", {}).values():
                 v["financial"] = {"status": "BLOQUEADA", "reasons": ["FALHA_DA_FONTE_NESTA_RODADA"]}
+            record_source_gate(observer, p, started + int(time.monotonic() - wall_start))
+        _reconcile_pending_entries(state, started + int(time.monotonic() - wall_start), observer)
         for message in state["outbox"].values():
             if message["status"] == "PENDING" and (message["category"] == "ENTRY" or message.get('watch_symbol')):
                 message["status"] = "EXPIRED"
@@ -173,6 +177,39 @@ def run_scan(client: MexcClient, config: Config, state: dict, assets: set[str],
     snapshot["source_status"] = report["source_status"]
     report["operational_timings"] = timings.rows
     return jsonable(report), jsonable(snapshot)
+
+
+def _reconcile_pending_entries(state, now, observer=None):
+    """Withdraw queued authorizations absent from the current financial decision.
+
+    Includes legacy outbox rows with no plan metadata: their event ID already
+    links to plan/variant/mode. Previously sent or ambiguous attempts are never
+    treated as proof that no delivery occurred.
+    """
+    pending = [m for m in state['outbox'].values()
+               if m['status'] == 'PENDING' and m['category'] == 'ENTRY']
+    if not pending:
+        return
+    current = set()
+    for plan in state['plans'].values():
+        if plan['status'] in {'INVALIDADO', 'EXPIRADO', 'AMBIGUO', 'EVENTO_PASSADO'}:
+            continue
+        for kind, variant in plan.get('variants', {}).items():
+            if variant['status'] == 'VALIDA' and variant.get('financial', {}).get('status') in {'VIAVEL_SIMULADO', 'VIAVEL_REAL'}:
+                current.add(stable_id(plan['id'], kind, 'GATILHO', state['mode']))
+    for message in pending:
+        if message['id'] in current:
+            continue
+        message['status'] = 'EXPIRED'
+        wallet_pending = state['wallet'].get('pending')
+        if (wallet_pending and wallet_pending.get('delivery_event_id') == message['id']
+                and message.get('attempts', 0) == 0):
+            state['wallet']['pending'] = None
+        if observer:
+            observer('authorization_withdrawn', event_id=message['id'], status='EXPIRED',
+                reason='DECISAO_ATUAL_NAO_AUTORIZA_ENTRADA', observed_at=now,
+                created_at=message['created_at'], quote_at=message['quote_at'],
+                expires_at=message['expires_at'], attempt=message.get('attempts', 0))
 
 
 def _queue_transitions(state: dict, previous: dict, config: Config, now: int, *, watch_symbols=None, observer=None) -> None:
