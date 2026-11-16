@@ -13609,7 +13609,7 @@
       "text": "🟠 ENTRADA BLOQUEADA\nDOGE/USDT • SHORT\n🧪 SIMULAÇÃO • Confirmada\nRompimento • 2 fechamentos M1 • volume ≥50%\n\nVolume do segundo M1: 175.0% do primeiro.\nMotivo: A relação entre ganho e perda ficou abaixo do mínimo.\nSem entrada liberada nesta análise.\n\n📍 Faixa do plano: 0.06698 a 0.06704\n🛑 Stop: 0.06725\n🎯 Alvo: 0.0666\n\nEstimativas de taxas, deslizamento e funding; ganho não garantido.\n\n⏱ Nova entrada até 01:36:00 BRT (1min 05s).\nGatilho M1 (segundo fechamento): 01:34:00 BRT\nAnálise: 12/11/2026 01:34:55 BRT\nA validade se aplica a novas entradas.\nPlano: 0c41f6fdbbaf2ee4f9fe • revisão 1"
     },
     "1e7801f1737aab15041e": {
-      "attempts": 0,
+      "attempts": 1,
       "category": "INFO",
       "created_at": 1794861573,
       "expires_at": 1794861900,
@@ -13618,7 +13618,11 @@
         "9e7732a5c9d61a00ce17"
       ],
       "quote_at": 0,
-      "status": "PENDING",
+      "sent_at": 1794861580,
+      "status": "SENT",
+      "telegram_ids": [
+        6988
+      ],
       "text": "👀 PLANO EM PREPARAÇÃO • AGUARDANDO GATILHO\nARB/USDT\n🧪 SIMULAÇÃO • acompanhamento\n\nRegião em análise: 0.13159 a 0.13319\nLONG somente se houver fechamento M1 acima de ≈ 0.13328.\n\nConfirmação: dois fechamentos M1 consecutivos além do gatilho; volume do segundo de pelo menos 50% do primeiro.\nTP, SL e percentuais serão definidos no primeiro gatilho. A confirmação ainda precisa passar pela avaliação financeira.\n\nSem rompimento observado neste plano e sem entrada liberada.\nPreparação até 17:45:00 BRT.\nAnálise: 16/11/2026 17:39:33 BRT\nPlanos: 9e7732a5c9d61a00ce17",
       "watch_stage": 2,
       "watch_symbol": "ARB_USDT"
@@ -84926,13 +84930,17 @@
       "watch_symbol": "ICP_USDT"
     },
     "bb470c6fe9073963bf84": {
-      "attempts": 0,
+      "attempts": 1,
       "category": "INFO",
       "created_at": 1794861573,
       "expires_at": 1794865173,
       "id": "bb470c6fe9073963bf84",
       "quote_at": 0,
-      "status": "PENDING",
+      "sent_at": 1794861580,
+      "status": "SENT",
+      "telegram_ids": [
+        6989
+      ],
       "text": "⚪ ATUALIZAÇÃO DOS PLANOS ACOMPANHADOS\n🧪 SIMULAÇÃO\n\n• ARB/USDT • SHORT: confirmação não aprovada\n  Motivo: O volume do segundo candle M1 foi menor que50% do primeiro.\n  Plano: ef0e5048ddb24ec2617d\n\nSem novas entradas por esses planos.\nAvisos de movimento não equivalem a entradas liberadas.\nA expiração não encerra uma posição já aberta.\nAnálise: 16/11/2026 17:39:33 BRT"
     },
     "bb4dabb30f7892dbd585": {
