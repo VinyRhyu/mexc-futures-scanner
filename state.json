@@ -13343,7 +13343,7 @@
       "text": "⚪ ATUALIZAÇÃO DOS PLANOS ACOMPANHADOS\n🧪 SIMULAÇÃO\n\n• ADA/USDT • SHORT: janela expirou\n  Plano: 5e2128403c2d41b91c5c\n• AAVE/USDT • LONG: janela expirou\n  Plano: 886c70200c5d944a6397\n• ENA/USDT • SHORT: janela expirou\n  Plano: c78103706e7ade87e731\n• ADA/USDT • LONG: janela expirou\n  Plano: d0727c7b29abbb3a1d10\n• AAVE/USDT • SHORT: janela expirou\n  Plano: f0a7038cac1b33a2f5d1\n• ENA/USDT • LONG: janela expirou\n  Plano: f7f4b34d89becd9e8a71\n\nSem novas entradas por esses planos.\nA expiração não encerra posições já abertas.\nAnálise: 11/11/2026 03:00:59 BRT"
     },
     "23644eb94999218f59e1": {
-      "attempts": 0,
+      "attempts": 1,
       "category": "INFO",
       "created_at": 1794805954,
       "expires_at": 1794806040,
@@ -13354,7 +13354,11 @@
         "6427b7bf3cf7b447266a"
       ],
       "quote_at": 0,
-      "status": "PENDING",
+      "sent_at": 1794805958,
+      "status": "SENT",
+      "telegram_ids": [
+        6091
+      ],
       "text": "🟡 MOVIMENTO DETECTADO • ENTRADA BLOQUEADA\nZEC/USDT • BAIXA (SHORT)\n🧪 SIMULAÇÃO • acompanhamento\n\nRompimento observado no M1 fechado às 02:12:00 BRT.\nPreço de referência do primeiro gatilho: 883.45.\n\nConfirmação técnica identificada; entrada bloqueada.\nCondição pendente: A relação entre ganho e perda ficou abaixo do mínimo.\n\nFaixa em estudo: 881.25 a 883.7\n🛑 Stop do plano: 889.02 (-6.30% bruto em 10x)\n🎯 Alvo do plano: 881.14 (+2.61% bruto em 10x)\nCenário indicativo sobre a margem em 10x; custos e liquidação ainda não validados.\nMovimento sem alavancagem: TP +0.26% • SL -0.63%.\nPercentuais sobre a referência do primeiro gatilho, na direção da operação, antes de custos.\n\nMovimento observado, sem entrada liberada. Aguarde o alerta de confirmação e viabilidade.\nAlerta válido até 02:14:00 BRT.\nAnálise: 16/11/2026 02:12:34 BRT\nPlano: 6427b7bf3cf7b447266a",
       "watch_stage": 0,
       "watch_symbol": "ZEC_USDT"
@@ -18526,7 +18530,7 @@
       "watch_symbol": "ENA_USDT"
     },
     "305342d53a3038989ae6": {
-      "attempts": 0,
+      "attempts": 1,
       "category": "INFO",
       "created_at": 1794805954,
       "expires_at": 1794806040,
@@ -18537,7 +18541,11 @@
         "1d95463cd561ecc7fcc2"
       ],
       "quote_at": 0,
-      "status": "PENDING",
+      "sent_at": 1794805958,
+      "status": "SENT",
+      "telegram_ids": [
+        6092
+      ],
       "text": "🟡 MOVIMENTO DETECTADO • ENTRADA BLOQUEADA\nINJ/USDT • BAIXA (SHORT)\n🧪 SIMULAÇÃO • acompanhamento\n\nRompimento observado no M1 fechado às 02:12:00 BRT.\nPreço de referência do primeiro gatilho: 6.785.\n\nConfirmação técnica identificada; entrada bloqueada.\nCondição pendente: A relação entre ganho e perda ficou abaixo do mínimo.\n\nFaixa em estudo: 6.77 a 6.789\n🛑 Stop do plano: 6.828 (-6.34% bruto em 10x)\n🎯 Alvo do plano: 6.732 (+7.81% bruto em 10x)\nCenário indicativo sobre a margem em 10x; custos e liquidação ainda não validados.\nMovimento sem alavancagem: TP +0.78% • SL -0.63%.\nPercentuais sobre a referência do primeiro gatilho, na direção da operação, antes de custos.\n\nMovimento observado, sem entrada liberada. Aguarde o alerta de confirmação e viabilidade.\nAlerta válido até 02:14:00 BRT.\nAnálise: 16/11/2026 02:12:34 BRT\nPlano: 1d95463cd561ecc7fcc2",
       "watch_stage": 0,
       "watch_symbol": "INJ_USDT"
