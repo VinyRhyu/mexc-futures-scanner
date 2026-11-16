@@ -21866,7 +21866,7 @@
       "text": "🟠 ENTRADA BLOQUEADA\nUNI/USDT • SHORT\n🧪 SIMULAÇÃO • Confirmada\nRompimento • 2 fechamentos M1 • volume ≥50%\n\nVolume do segundo M1: 121.3% do primeiro.\nMotivo: O preço está fora da faixa permitida.\nSem entrada liberada nesta análise.\n\n📍 Faixa do plano: 6.352 a 6.357\n🛑 Stop: 6.394\n🎯 Alvo: 6.233\n\nEstimativas de taxas, deslizamento e funding; ganho não garantido.\n\n⏱ Nova entrada até 06:36:00 BRT (1min 08s).\nGatilho M1 (segundo fechamento): 06:34:00 BRT\nCotação: 06:34:49 BRT\nAnálise: 11/11/2026 06:34:52 BRT\nA validade se aplica a novas entradas.\nPlano: 5c5d0dea766db7fb97cd • revisão 1"
     },
     "30a5a35aa448d1e39dba": {
-      "attempts": 0,
+      "attempts": 1,
       "category": "INFO",
       "created_at": 1794866674,
       "expires_at": 1794866700,
@@ -21877,7 +21877,11 @@
         "22cda1f275eb3eb775e5"
       ],
       "quote_at": 0,
-      "status": "PENDING",
+      "sent_at": 1794866678,
+      "status": "SENT",
+      "telegram_ids": [
+        7078
+      ],
       "text": "🟡 MOVIMENTO DETECTADO • AINDA SEM CONFIRMAÇÃO\nBTC/USDT • ALTA (LONG)\n🧪 SIMULAÇÃO • acompanhamento\n\nRompimento observado no M1 fechado às 19:04:00 BRT.\nPreço de referência do primeiro gatilho: 65453.6.\n\nPrimeiro fechamento além da região identificado.\nFalta o segundo fechamento sustentar o nível, com volume de pelo menos 50% do primeiro.\nApós confirmar, o plano ainda precisa passar pela avaliação financeira.\n\nFaixa em estudo: 65414.2 a 65518.9\n🛑 Stop do plano: 65257.2 (-3.00% bruto em 10x)\n🎯 Alvo do plano: 65448.9 (-0.072% bruto em 10x)\nCenário indicativo sobre a margem em 10x; custos e liquidação ainda não validados.\nMovimento sem alavancagem: TP -0.0072% • SL -0.30%.\nPercentuais sobre a referência do primeiro gatilho, na direção da operação, antes de custos.\n\nMovimento observado, sem entrada liberada. Aguarde o alerta de confirmação e viabilidade.\nAlerta válido até 19:05:00 BRT.\nAnálise: 16/11/2026 19:04:34 BRT\nPlano: 22cda1f275eb3eb775e5",
       "watch_stage": 1,
       "watch_symbol": "BTC_USDT"
@@ -67837,7 +67841,7 @@
       "text": "⚪ ATUALIZAÇÃO DOS PLANOS ACOMPANHADOS\n🧪 SIMULAÇÃO\n\n• ZEC/USDT • SHORT: janela expirou\n  Plano: 0201ab3cd2cfedfea25a\n• TIA/USDT • SHORT: janela expirou\n  Plano: 5c7ad3a4a6558db2ceca\n• TIA/USDT • LONG: janela expirou\n  Plano: cd4f33101c1eee202575\n• ZEC/USDT • LONG: janela expirou\n  Plano: e3380995c67a7cab196d\n\nSem novas entradas por esses planos.\nA expiração não encerra posições já abertas.\nAnálise: 12/11/2026 11:30:06 BRT"
     },
     "923789ca5b9e9331457c": {
-      "attempts": 0,
+      "attempts": 1,
       "category": "INFO",
       "created_at": 1794866674,
       "expires_at": 1794866700,
@@ -67848,7 +67852,11 @@
         "7e4158a7f8ec4090d184"
       ],
       "quote_at": 0,
-      "status": "PENDING",
+      "sent_at": 1794866679,
+      "status": "SENT",
+      "telegram_ids": [
+        7079
+      ],
       "text": "🟡 MOVIMENTO DETECTADO • AINDA SEM CONFIRMAÇÃO\nBNB/USDT • ALTA (LONG)\n🧪 SIMULAÇÃO • acompanhamento\n\nRompimento observado no M1 fechado às 19:04:00 BRT.\nPreço de referência do primeiro gatilho: 595.29.\n\nPrimeiro fechamento além da região identificado.\nFalta o segundo fechamento sustentar o nível, com volume de pelo menos 50% do primeiro.\nApós confirmar, o plano ainda precisa passar pela avaliação financeira.\n\nFaixa em estudo: 595.2 a 595.74\n🛑 Stop do plano: 594.08 (-2.03% bruto em 10x)\n🎯 Alvo do plano: 597.64 (+3.95% bruto em 10x)\nCenário indicativo sobre a margem em 10x; custos e liquidação ainda não validados.\nMovimento sem alavancagem: TP +0.39% • SL -0.20%.\nPercentuais sobre a referência do primeiro gatilho, na direção da operação, antes de custos.\n\nMovimento observado, sem entrada liberada. Aguarde o alerta de confirmação e viabilidade.\nAlerta válido até 19:05:00 BRT.\nAnálise: 16/11/2026 19:04:34 BRT\nPlano: 7e4158a7f8ec4090d184",
       "watch_stage": 1,
       "watch_symbol": "BNB_USDT"
