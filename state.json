@@ -12426,7 +12426,7 @@
       "text": "⚪ ATUALIZAÇÃO DOS PLANOS ACOMPANHADOS\n🧪 SIMULAÇÃO\n\n• ADA/USDT • LONG: janela expirou\n  Plano: 3ba6c971be95e99212ff\n• ARB/USDT • LONG: janela expirou\n  Plano: 82da14dbd3f738eb5701\n• ICP/USDT • SHORT: janela expirou\n  Plano: b510d5db55ecad864494\n• AAVE/USDT • LONG: janela expirou\n  Plano: bfcf1b3e0472862295b7\n\nSem novas entradas por esses planos.\nA expiração não encerra posições já abertas.\nAnálise: 11/11/2026 19:45:11 BRT"
     },
     "1d61114f520fe27e5948": {
-      "attempts": 0,
+      "attempts": 1,
       "category": "INFO",
       "created_at": 1794831284,
       "expires_at": 1794831300,
@@ -12437,7 +12437,11 @@
         "9f6ed818c835a8993126"
       ],
       "quote_at": 0,
-      "status": "PENDING",
+      "sent_at": 1794831288,
+      "status": "SENT",
+      "telegram_ids": [
+        6613
+      ],
       "text": "🟡 MOVIMENTO DETECTADO • AINDA SEM CONFIRMAÇÃO\nETH/USDT • BAIXA (SHORT)\n🧪 SIMULAÇÃO • acompanhamento\n\nRompimento observado no M1 fechado às 09:14:00 BRT.\nPreço de referência do primeiro gatilho: 1792.43.\n\nPrimeiro fechamento além da região identificado.\nFalta o segundo fechamento sustentar o nível, com volume de pelo menos 50% do primeiro.\nApós confirmar, o plano ainda precisa passar pela avaliação financeira.\n\nFaixa em estudo: 1790.43 a 1793.18\n🛑 Stop do plano: 1798.02 (-3.12% bruto em 10x)\n🎯 Alvo do plano: 1791.54 (+0.50% bruto em 10x)\nCenário indicativo sobre a margem em 10x; custos e liquidação ainda não validados.\nMovimento sem alavancagem: TP +0.050% • SL -0.31%.\nPercentuais sobre a referência do primeiro gatilho, na direção da operação, antes de custos.\n\nMovimento observado, sem entrada liberada. Aguarde o alerta de confirmação e viabilidade.\nAlerta válido até 09:15:00 BRT.\nAnálise: 16/11/2026 09:14:44 BRT\nPlano: 9f6ed818c835a8993126",
       "watch_stage": 1,
       "watch_symbol": "ETH_USDT"
