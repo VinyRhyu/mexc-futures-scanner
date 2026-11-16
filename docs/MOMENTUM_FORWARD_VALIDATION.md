@@ -60,3 +60,9 @@ python -m scripts.forward_momentum \
 ```
 
 Esse comando não faz persistência remota por conta própria. O workflow restaura e salva a branch exclusiva através de `scripts.forward_state_branch.py`, sem force-push.
+
+## Inicialização verificada em 16/11
+
+A [primeira rodada no GitHub Actions](https://github.com/VinyRhyu/mexc-futures-scanner/actions/runs/43879113295) concluiu testes, coleta, gravação e publicação do diário com sucesso. O [estado atual do acompanhamento](https://github.com/VinyRhyu/mexc-futures-scanner/blob/research/momentum-forward-state-v1/status.md) iniciou em WARMUP, com quatro carteiras de US$ 100 e zero operações. Isso verifica a instalação; não constitui resultado de desempenho prospectivo.
+
+O monitor foi ativado com verificações horárias a partir de 16/11 às 11h de Brasília. O resumo diário é solicitado para a verificação das 23h; os horários dos serviços podem variar e atrasos são registrados. O agendamento termina após o primeiro checkpoint de 16/12 às 23h.

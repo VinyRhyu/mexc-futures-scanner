@@ -1,0 +1,29 @@
+{
+  "date": "2026-11-16",
+  "protocol_sha256": "0e2aaf291b1ee9dd8a113dcf14611801ae0e0f16fd03217a0f110d116dea7ca6",
+  "code_sha256": {
+    "scripts/audit_multihour.py": "91160a9af5f145d6ade06cb45330dd0f66dc76752655509f0e4992f173361356",
+    "scripts/forward_momentum.py": "00829350e8fea84745b173332adb7d8e1bf97fecca00f928931d9f7d09620731",
+    "scripts/collect_multihour_source.py": "ea257d836350a1a99c35003c0726135ca7675f087fbf9b7922ccc812b298c895",
+    "mexc_scanner/models.py": "b67d85b56a7b72a1ca083e4b4f1a7a4a171eb01f2a8f2fe666f9bd6cbc474778",
+    "mexc_scanner/mexc.py": "2f05e2149440c03c83655ccf1fd9d0d08276724725adda434f82dfdb1d2544b2"
+  },
+  "unit_tests_passed": 372,
+  "historical_coarse_wallets_reproduced": 32,
+  "historical_refined_wallets_reproduced": 32,
+  "bootstrap_workflow_run": 43879113295,
+  "bootstrap_success": true,
+  "initial_phase": "WARMUP",
+  "initial_equity_each_wallet": "100",
+  "initial_closed_positions": 0,
+  "state_branch": "research/momentum-forward-state-v1",
+  "automation_enabled": true,
+  "automation_timezone": "America/Sao_Paulo",
+  "automation_first_check_brt": "2026-11-16T11:00:00-03:00",
+  "automation_frequency": "hourly",
+  "daily_summary_brt": "23:00",
+  "checkpoint_brt": "2026-12-16T23:00:00-03:00",
+  "execution_validated": false,
+  "approved_for_production": false,
+  "main_expected_sha": "71db8f2dbb5a9693f0656602b696d00135411a14"
+}
