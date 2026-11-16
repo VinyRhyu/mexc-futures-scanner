@@ -1,0 +1,151 @@
+{
+  "approved_for_production": false,
+  "asof_utc": "2026-11-16T13:00:00+00:00",
+  "conditions": {
+    "checkpoint_reached": false,
+    "frozen_days_sufficient": false,
+    "no_source_revisions": true,
+    "quote_coverage_sufficient": false
+  },
+  "execution_validated": false,
+  "frozen_days": 0,
+  "interpretation": "Prospective signals, deferred H1 paper replay; quotes are a separate observational lane.",
+  "missed_days": 0,
+  "missed_or_late_quote_windows": 0,
+  "models": {
+    "MOMENTUM_BTC_DD_GUARD": {
+      "checks": {
+        "drawdown_within_limit": true,
+        "enough_trades": false,
+        "flat_at_checkpoint": false,
+        "no_liquidations": true,
+        "observed_entry_quote_coverage": false,
+        "positive_base_and_stress": false
+      },
+      "quote_quality": {
+        "base": {
+          "coverage": 0,
+          "paper_entries": 0,
+          "price_comparisons": [],
+          "valid_observed_entry_quotes": 0
+        },
+        "stress": {
+          "coverage": 0,
+          "paper_entries": 0,
+          "price_comparisons": [],
+          "valid_observed_entry_quotes": 0
+        }
+      },
+      "research_screen_passed": false,
+      "wallets": {
+        "base": {
+          "cash": "100",
+          "marked_equity": "100",
+          "open_position": null,
+          "summary": {
+            "final": "100",
+            "funding_paid": "0",
+            "initial": "100",
+            "max_drawdown_pct": "0",
+            "outcomes": {},
+            "positions": 0,
+            "positive": 0,
+            "profit_factor": null,
+            "return_pct": "0",
+            "skipped": {},
+            "trading_fees": "0"
+          },
+          "valuation": "H1_PAPER_MARK_NOT_REALIZED_CASH"
+        },
+        "stress": {
+          "cash": "100",
+          "marked_equity": "100",
+          "open_position": null,
+          "summary": {
+            "final": "100",
+            "funding_paid": "0",
+            "initial": "100",
+            "max_drawdown_pct": "0",
+            "outcomes": {},
+            "positions": 0,
+            "positive": 0,
+            "profit_factor": null,
+            "return_pct": "0",
+            "skipped": {},
+            "trading_fees": "0"
+          },
+          "valuation": "H1_PAPER_MARK_NOT_REALIZED_CASH"
+        }
+      }
+    },
+    "MOMENTUM_BTC_RISK1": {
+      "checks": {
+        "drawdown_within_limit": true,
+        "enough_trades": false,
+        "flat_at_checkpoint": false,
+        "no_liquidations": true,
+        "observed_entry_quote_coverage": false,
+        "positive_base_and_stress": false
+      },
+      "quote_quality": {
+        "base": {
+          "coverage": 0,
+          "paper_entries": 0,
+          "price_comparisons": [],
+          "valid_observed_entry_quotes": 0
+        },
+        "stress": {
+          "coverage": 0,
+          "paper_entries": 0,
+          "price_comparisons": [],
+          "valid_observed_entry_quotes": 0
+        }
+      },
+      "research_screen_passed": false,
+      "wallets": {
+        "base": {
+          "cash": "100",
+          "marked_equity": "100",
+          "open_position": null,
+          "summary": {
+            "final": "100",
+            "funding_paid": "0",
+            "initial": "100",
+            "max_drawdown_pct": "0",
+            "outcomes": {},
+            "positions": 0,
+            "positive": 0,
+            "profit_factor": null,
+            "return_pct": "0",
+            "skipped": {},
+            "trading_fees": "0"
+          },
+          "valuation": "H1_PAPER_MARK_NOT_REALIZED_CASH"
+        },
+        "stress": {
+          "cash": "100",
+          "marked_equity": "100",
+          "open_position": null,
+          "summary": {
+            "final": "100",
+            "funding_paid": "0",
+            "initial": "100",
+            "max_drawdown_pct": "0",
+            "outcomes": {},
+            "positions": 0,
+            "positive": 0,
+            "profit_factor": null,
+            "return_pct": "0",
+            "skipped": {},
+            "trading_fees": "0"
+          },
+          "valuation": "H1_PAPER_MARK_NOT_REALIZED_CASH"
+        }
+      }
+    }
+  },
+  "name": "MOMENTUM_PROSPECTIVE_30D_V1",
+  "observed_quote_windows": 0,
+  "phase": "WARMUP",
+  "source_revisions": 0
+}
