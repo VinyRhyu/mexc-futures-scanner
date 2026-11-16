@@ -1,3 +1,5 @@
+> Atualização: a publicação autorizada e as coletas foram executadas. Veja [a validação ampliada, com Fair e resolução M5](momentum-expanded-fair-2026-11-16.md). O texto abaixo preserva o checkpoint anterior.
+
 # Desenvolvimento e testes de momentum — 16/11/2026
 
 **Foi encontrada uma candidata com resultado recente positivo, mas nenhuma configuração passou em todos os critérios de consistência.** O momentum diário alinhado à direção de sete dias do Bitcoin terminou em US$ 107,30 após custos; o controle sem esse alinhamento terminou em US$ 102,43. A confirmação adicional de um dia piorou o resultado e foi rejeitada.
