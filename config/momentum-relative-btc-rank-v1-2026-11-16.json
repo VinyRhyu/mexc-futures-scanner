@@ -1,0 +1,64 @@
+{
+  "id": "MOMENTUM_RELATIVE_BTC_RANK_V1",
+  "frozen_at_utc": "2026-11-16T14:12:25.503439+00:00",
+  "base_commit": "3626e1ec0b4e5a0cb35d7a106fbd5b48842c77ec",
+  "base_protocol": "config/momentum-intrahour-evaluation-v1-2026-11-16.json",
+  "base_protocol_sha256": "c352ed285b24b41967a576c6573876cba4423897b67d320a42f5591fbb86da13",
+  "baseline_results_sha256": "75f8226d6fc4819c9c21bd9b745ebfac3cece8edba8724e2ea203aa154e31e3e",
+  "control": "MOMENTUM_BTC_RISK1",
+  "candidate": "MOMENTUM_BTC_RISK1_RELATIVE_RANK",
+  "hypothesis": "Changing only eligible-candidate ordering to signed BTC-relative7day return per asset daily ATR may select more productive exposure.",
+  "ranking": {
+    "lookback_days": 7,
+    "return_definition": "r_asset=P_asset(S)/P_asset(S-7d)-1; r_btc=P_BTC(S)/P_BTC(S-7d)-1; P(S) is the close of H1 ending exactly at signal boundary S.",
+    "formula": "score = sign * (r_asset - r_btc) / (ATR14_asset_daily / P_asset(S))",
+    "direction": "sign remains sign(r_asset), and existing BTC7_SIGN gate remains mandatory; no relative-return sign gate.",
+    "ordering": "Descending score among original eligible candidates; then ascending entry_fee/planned_risk, then symbol. Negative scores remain eligible. BTC itself remains eligible with relative score0. No new threshold or exclusion.",
+    "causality": "At execution opening T use signal_at S=T-3600; returns and daily ATR use closed bars ending<=S. Neither delay bar nor execution bar can affect rank.",
+    "normalization": "Exactly the ATR14 daily from the existing entry event, not a newly estimated volatility or regression beta."
+  },
+  "unchanged": [
+    "universe26 and current catalog",
+    "daily timing and1h delay",
+    "side and absolute7day momentum generation",
+    "BTC7_SIGN filter",
+    "fixed1% risk inclusive modeled stop loss costs/funding reserve",
+    "single simultaneous position",
+    "10x modeled leverage",
+    "24h holding ceiling",
+    "initial stop and daily trailing update",
+    "liquidity and lot/tier/liquidation buffer checks",
+    "base/stress costs and frozen Last/Fair/funding/M5"
+  ],
+  "evaluation": {
+    "blocks": [
+      "new_early_history",
+      "historical_actual_fair",
+      "recent_extended",
+      "continuous_all"
+    ],
+    "costs": [
+      "base",
+      "stress"
+    ],
+    "baseline": "Exact full-wallet equality for all8 prior fixed1% wallets required, including curves and trades.",
+    "acceptance": "Exploratory screen: continuous base and stress ROI must both strictly improve; continuous base maximum H1 drawdown<=10%; each of3 separate periods must be positive in both cost scenarios; no modeled liquidation or new unresolved liquidation ambiguity. Original temporal consistency screen also retained separately.",
+    "diagnostics": [
+      "selection changes and same-entry outcomes",
+      "per-symbol net contribution",
+      "monthly and split returns",
+      "fees funding drawdown",
+      "risk fraction and single-position invariants"
+    ],
+    "search": "Exactly one candidate/formula; no parameter, side, symbol, period or threshold pruning after inspecting outcomes. All negative results retained."
+  },
+  "limitations": [
+    "All past data examined during strategy development; no independent holdout",
+    "Current universe and catalog create survivor/metadata bias",
+    "Simulated fills and approximate liquidation; H1 marked drawdown"
+  ],
+  "production_changed": false,
+  "prospective_protocol_changed": false,
+  "independent_validation": false,
+  "approved_for_production": false
+}
