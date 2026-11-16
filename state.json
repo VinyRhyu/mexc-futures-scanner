@@ -1810,13 +1810,17 @@
       "text": "⚪ ATUALIZAÇÃO DOS PLANOS ACOMPANHADOS\n🧪 SIMULAÇÃO\n\n• XMR/USDT • LONG: janela expirou\n  Plano: 2c007386e88f25089925\n• XMR/USDT • LONG: janela expirou\n  Plano: a644414ec96f9c205324\n\nSem novas entradas por esses planos.\nA expiração não encerra posições já abertas.\nAnálise: 10/11/2026 20:52:40 BRT"
     },
     "0440cbd51ee591712c59": {
-      "attempts": 0,
+      "attempts": 1,
       "category": "INFO",
       "created_at": 1794829591,
       "expires_at": 1794833191,
       "id": "0440cbd51ee591712c59",
       "quote_at": 0,
-      "status": "PENDING",
+      "sent_at": 1794829599,
+      "status": "SENT",
+      "telegram_ids": [
+        6591
+      ],
       "text": "⚪ ATUALIZAÇÃO DOS PLANOS ACOMPANHADOS\n🧪 SIMULAÇÃO\n\n• ARB/USDT • LONG: prazo para nova entrada encerrado\n  Motivo: A janela para uma nova entrada terminou.\n  Plano: 053e7ee69ce2c97ffb16\n• UNI/USDT • LONG: prazo para nova entrada encerrado\n  Motivo: A janela para uma nova entrada terminou.\n  Plano: 50a92d5538916a657917\n• ARB/USDT • SHORT: prazo para nova entrada encerrado\n  Motivo: A janela para uma nova entrada terminou.\n  Plano: 6491ab051869da7ae85c\n• INJ/USDT • SHORT: prazo para nova entrada encerrado\n  Motivo: A janela para uma nova entrada terminou.\n  Plano: 82593f81104aec63e059\n• INJ/USDT • LONG: prazo para nova entrada encerrado\n  Motivo: A janela para uma nova entrada terminou.\n  Plano: 9c641a5c03b5c51a3f88\n• PEPE/USDT • SHORT: prazo para nova entrada encerrado\n  Motivo: A janela para uma nova entrada terminou.\n  Plano: a8918a92029851876099\n\nSem novas entradas por esses planos.\nAvisos de movimento não equivalem a entradas liberadas.\nA expiração não encerra uma posição já aberta.\nAnálise: 16/11/2026 08:46:31 BRT"
     },
     "044311013b0ece4e1dd7": {
@@ -4216,7 +4220,7 @@
       "watch_symbol": "SOL_USDT"
     },
     "0a463a39133e313f19d0": {
-      "attempts": 0,
+      "attempts": 1,
       "category": "INFO",
       "created_at": 1794829591,
       "expires_at": 1794831300,
@@ -4226,7 +4230,11 @@
         "13142fc2bbabf08e2bb5"
       ],
       "quote_at": 0,
-      "status": "PENDING",
+      "sent_at": 1794829597,
+      "status": "SENT",
+      "telegram_ids": [
+        6586
+      ],
       "text": "👀 PLANO EM PREPARAÇÃO • AGUARDANDO GATILHO\nNEAR/USDT\n🧪 SIMULAÇÃO • acompanhamento\n\nRegião em análise: 3.168 a 3.22\nDireção indefinida: cenários alternativos, não duas entradas.\nLONG somente se houver fechamento M1 acima de ≈ 3.22233.\nSHORT somente se houver fechamento M1 abaixo de ≈ 3.16567.\n\nConfirmação: dois fechamentos M1 consecutivos além do gatilho; volume do segundo de pelo menos 50% do primeiro.\nTP, SL e percentuais serão definidos no primeiro gatilho. A confirmação ainda precisa passar pela avaliação financeira.\n\nSem rompimento observado neste plano e sem entrada liberada.\nPreparação até 09:15:00 BRT.\nAnálise: 16/11/2026 08:46:31 BRT\nPlanos: dfcad948854c16157ecd, 13142fc2bbabf08e2bb5",
       "watch_stage": 2,
       "watch_symbol": "NEAR_USDT"
@@ -36256,7 +36264,7 @@
       "watch_symbol": "PEPE_USDT"
     },
     "54df200e1a4912e6f72d": {
-      "attempts": 0,
+      "attempts": 1,
       "category": "INFO",
       "created_at": 1794829591,
       "expires_at": 1794831300,
@@ -36266,7 +36274,11 @@
         "9f6ed818c835a8993126"
       ],
       "quote_at": 0,
-      "status": "PENDING",
+      "sent_at": 1794829597,
+      "status": "SENT",
+      "telegram_ids": [
+        6587
+      ],
       "text": "👀 PLANO EM PREPARAÇÃO • AGUARDANDO GATILHO\nETH/USDT\n🧪 SIMULAÇÃO • acompanhamento\n\nRegião em análise: 1794 a 1813.71\nDireção indefinida: cenários alternativos, não duas entradas.\nLONG somente se houver fechamento M1 acima de ≈ 1814.51.\nSHORT somente se houver fechamento M1 abaixo de ≈ 1793.2.\n\nConfirmação: dois fechamentos M1 consecutivos além do gatilho; volume do segundo de pelo menos 50% do primeiro.\nTP, SL e percentuais serão definidos no primeiro gatilho. A confirmação ainda precisa passar pela avaliação financeira.\n\nSem rompimento observado neste plano e sem entrada liberada.\nPreparação até 09:15:00 BRT.\nAnálise: 16/11/2026 08:46:31 BRT\nPlanos: 851734fa937139c8cd32, 9f6ed818c835a8993126",
       "watch_stage": 2,
       "watch_symbol": "ETH_USDT"
@@ -86302,7 +86314,7 @@
       "text": "👀 POSSÍVEL ENTRADA • AGUARDAR GATILHO\nENA/USDT • SHORT\n🧪 SIMULAÇÃO\nRompimento de consolidação\n\nRegião de atenção ≈ 0.15236 a 0.15507\n\nAntecipada: Primeiro fechamento de 15m abaixo da faixa, com a tolerância do plano.\nConfirmada: O candle de 15m imediatamente seguinte mantém o rompimento.\nCada modalidade é avaliada de forma independente.\n\nPreparação válida até 16:30:00 BRT (13min 31s).\nAnálise: 09/11/2026 16:16:29 BRT\nPlano: d37a54d0a3ab7d70205e • revisão 0"
     },
     "c9fc8547adfeae6ee563": {
-      "attempts": 0,
+      "attempts": 1,
       "category": "INFO",
       "created_at": 1794829591,
       "expires_at": 1794831300,
@@ -86312,7 +86324,11 @@
         "45c2f6367ff89fb53330"
       ],
       "quote_at": 0,
-      "status": "PENDING",
+      "sent_at": 1794829598,
+      "status": "SENT",
+      "telegram_ids": [
+        6588
+      ],
       "text": "👀 PLANO EM PREPARAÇÃO • AGUARDANDO GATILHO\nWLD/USDT\n🧪 SIMULAÇÃO • acompanhamento\n\nRegião em análise: 0.2629 a 0.2659\nDireção indefinida: cenários alternativos, não duas entradas.\nLONG somente se houver fechamento M1 acima de ≈ 0.26608.\nSHORT somente se houver fechamento M1 abaixo de ≈ 0.26272.\n\nConfirmação: dois fechamentos M1 consecutivos além do gatilho; volume do segundo de pelo menos 50% do primeiro.\nTP, SL e percentuais serão definidos no primeiro gatilho. A confirmação ainda precisa passar pela avaliação financeira.\n\nSem rompimento observado neste plano e sem entrada liberada.\nPreparação até 09:15:00 BRT.\nAnálise: 16/11/2026 08:46:31 BRT\nPlanos: aa3fa305f17c25ea866c, 45c2f6367ff89fb53330",
       "watch_stage": 2,
       "watch_symbol": "WLD_USDT"
@@ -89434,7 +89450,7 @@
       "watch_symbol": "ONDO_USDT"
     },
     "d12001f15d9216f3b631": {
-      "attempts": 0,
+      "attempts": 1,
       "category": "INFO",
       "created_at": 1794829591,
       "expires_at": 1794831300,
@@ -89444,7 +89460,11 @@
         "6d26cbfc7d230ca0f180"
       ],
       "quote_at": 0,
-      "status": "PENDING",
+      "sent_at": 1794829598,
+      "status": "SENT",
+      "telegram_ids": [
+        6589
+      ],
       "text": "👀 PLANO EM PREPARAÇÃO • AGUARDANDO GATILHO\nDOT/USDT\n🧪 SIMULAÇÃO • acompanhamento\n\nRegião em análise: 0.7197 a 0.733\nDireção indefinida: cenários alternativos, não duas entradas.\nLONG somente se houver fechamento M1 acima de ≈ 0.733401.\nSHORT somente se houver fechamento M1 abaixo de ≈ 0.719299.\n\nConfirmação: dois fechamentos M1 consecutivos além do gatilho; volume do segundo de pelo menos 50% do primeiro.\nTP, SL e percentuais serão definidos no primeiro gatilho. A confirmação ainda precisa passar pela avaliação financeira.\n\nSem rompimento observado neste plano e sem entrada liberada.\nPreparação até 09:15:00 BRT.\nAnálise: 16/11/2026 08:46:31 BRT\nPlanos: f607dd8ce22a6ea1f8f6, 6d26cbfc7d230ca0f180",
       "watch_stage": 2,
       "watch_symbol": "DOT_USDT"
@@ -89586,7 +89606,7 @@
       "text": "⚪ ATUALIZAÇÃO DOS PLANOS ACOMPANHADOS\n🧪 SIMULAÇÃO\n\n• HYPE/USDT • LONG: prazo para nova entrada encerrado\n  Motivo: A janela para uma nova entrada terminou.\n  Plano: 796880e35e6195dac50d\n\nSem novas entradas por esses planos.\nAvisos de movimento não equivalem a entradas liberadas.\nA expiração não encerra uma posição já aberta.\nAnálise: 15/11/2026 17:25:15 BRT"
     },
     "d1756300c6b7309f6e0d": {
-      "attempts": 0,
+      "attempts": 1,
       "category": "INFO",
       "created_at": 1794829591,
       "expires_at": 1794831300,
@@ -89596,7 +89616,11 @@
         "d211294f66edc2da4d67"
       ],
       "quote_at": 0,
-      "status": "PENDING",
+      "sent_at": 1794829599,
+      "status": "SENT",
+      "telegram_ids": [
+        6590
+      ],
       "text": "👀 PLANO EM PREPARAÇÃO • AGUARDANDO GATILHO\nAVAX/USDT\n🧪 SIMULAÇÃO • acompanhamento\n\nRegião em análise: 7.085 a 7.174\nDireção indefinida: cenários alternativos, não duas entradas.\nLONG somente se houver fechamento M1 acima de ≈ 7.17847.\nSHORT somente se houver fechamento M1 abaixo de ≈ 7.08053.\n\nConfirmação: dois fechamentos M1 consecutivos além do gatilho; volume do segundo de pelo menos 50% do primeiro.\nTP, SL e percentuais serão definidos no primeiro gatilho. A confirmação ainda precisa passar pela avaliação financeira.\n\nSem rompimento observado neste plano e sem entrada liberada.\nPreparação até 09:15:00 BRT.\nAnálise: 16/11/2026 08:46:31 BRT\nPlanos: 04a072942d2c235d03fd, d211294f66edc2da4d67",
       "watch_stage": 2,
       "watch_symbol": "AVAX_USDT"
