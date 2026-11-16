@@ -6,7 +6,7 @@ from mexc_scanner.mexc import MexcClient
 from mexc_scanner.models import Candle,D,jsonable,seconds
 
 
-def minute_window(payload,start,end,fair=False):
+def minute_window(payload,start,end,fair=False,tf=60):
     names=['time','open','high','low','close']+([] if fair else ['vol'])
     if any(k not in payload for k in names) or len({len(payload[k]) for k in names})!=1:
         raise ValueError('Unequal M1 arrays')
@@ -14,12 +14,12 @@ def minute_window(payload,start,end,fair=False):
     for i,t in enumerate(payload['time']):
         at=seconds(t)
         if not start<=at<end:continue
-        c=Candle(at,60,D(payload['open'][i]),D(payload['high'][i]),D(payload['low'][i]),
+        c=Candle(at,tf,D(payload['open'][i]),D(payload['high'][i]),D(payload['low'][i]),
             D(payload['close'][i]),D(0) if fair else D(payload['vol'][i]))
         c.validate()
         if at in bars and bars[at]!=c:raise ValueError('Conflicting M1 duplicate')
         bars[at]=c
-    if set(bars)!=set(range(start,end,60)):raise ValueError('Incomplete M1 hour')
+    if set(bars)!=set(range(start,end,tf)):raise ValueError(f'Incomplete M{tf//60} hour')
     return [bars[t] for t in sorted(bars)]
 
 
@@ -37,14 +37,22 @@ def run(protocol,output,client=None):
     for case in p['cases']:
         symbol,start,end=case['symbol'],case['start'],case['end'];key=f'{symbol}-{start}'
         try:
-            params=dict(interval='Min1',start=start,end=end-1)
-            last=minute_window(client._get('/api/v1/contract/kline/'+client._symbol(symbol),params),start,end)
-            fair=minute_window(client._get('/api/v1/contract/kline/fair_price/'+client._symbol(symbol),params),start,end,True)
-            verify_hour(last,case['last_hour']);verify_hour(fair,case['fair_hour'])
-            raw=json.dumps(jsonable(dict(symbol=symbol,start=start,end=end,last=last,fair=fair)),sort_keys=True,separators=(',',':')).encode()
+            attempts=[];found=False
+            for tf in p.get('intervals_seconds',[60]):
+                try:
+                    params=dict(interval=f'Min{tf//60}',start=start,end=end-1)
+                    last=minute_window(client._get('/api/v1/contract/kline/'+client._symbol(symbol),params),start,end,tf=tf)
+                    fair=minute_window(client._get('/api/v1/contract/kline/fair_price/'+client._symbol(symbol),params),start,end,True,tf)
+                    verify_hour(last,case['last_hour']);verify_hour(fair,case['fair_hour'])
+                    found=True;break
+                except Exception as exc:
+                    attempts.append(dict(timeframe_seconds=tf,error=type(exc).__name__+': '+str(exc)[:120]))
+            if not found:raise ValueError('No complete coherent intrahour source: '+json.dumps(attempts))
+            raw=json.dumps(jsonable(dict(symbol=symbol,start=start,end=end,last=last,fair=fair,
+                timeframe_seconds=tf,failed_finer_attempts=attempts)),sort_keys=True,separators=(',',':')).encode()
             (out/(key+'.json.gz')).write_bytes(gzip.compress(raw,mtime=0))
             summary['datasets'].append(dict(key=key,symbol=symbol,start=start,end=end,
-                sha256_uncompressed=hashlib.sha256(raw).hexdigest(),ohlc_matches=True))
+                sha256_uncompressed=hashlib.sha256(raw).hexdigest(),ohlc_matches=True,timeframe_seconds=tf))
             summary['complete']+=1;print(json.dumps(dict(case=key,status='OK')),flush=True)
         except Exception as exc:
             summary['errors'][key]=type(exc).__name__+': '+str(exc)[:180]

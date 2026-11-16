@@ -215,6 +215,17 @@ def settlement_amount(position, event, last, fair, stop_only_fair):
     return D(0) if amount < 0 and (stop_gap or liquidation_gap) else amount
 
 
+def find_exit(position,last,fair,stop_only_fair,minute_resolution=None):
+    coarse=exit_event(position,last,fair,stop_only_fair)
+    if coarse is None or minute_resolution is None:
+        return coarse,last.end,False
+    for a,b in zip(minute_resolution['last'],minute_resolution['fair']):
+        fine=exit_event(position,a,b,stop_only_fair)
+        if fine is not None:
+            return fine,a.end,True
+    raise ValueError('Complete minute reconstruction did not reproduce any hourly exit')
+
+
 def close(position, mid, at, reason, costs, ambiguous=False):
     if reason == 'LIQUIDACAO':
         price = None; fee = D(0)
@@ -256,6 +267,21 @@ def market_gate_allows(markets, signal, gate):
     return True
 
 
+def allocation_risk(policy, equity, peak, guarded, default):
+    if not policy:
+        return D(default),guarded
+    if policy['kind']=='FIXED':
+        return D(policy['fraction']),False
+    if policy['kind']!='DRAWDOWN_HYSTERESIS':
+        raise ValueError('Unknown frozen risk allocation')
+    drawdown=1-equity/peak
+    if guarded and drawdown<=D(policy['restore']):
+        guarded=False
+    elif not guarded and drawdown>=D(policy['trigger']):
+        guarded=True
+    return D(policy['reduced'] if guarded else policy['normal']),guarded
+
+
 def simulate(markets, variant, block, protocol, costs):
     start, end = stamp(block['start']), stamp(block['end'])
     entry_events = defaultdict(list); updates = {}
@@ -267,7 +293,11 @@ def simulate(markets, variant, block, protocol, costs):
     cash = initial = D(protocol['initial_equity']); position = None
     skips = Counter(); trades = []; curve = [dict(at=start, equity=cash)]
     cashflows = []; delay = protocol['signal_delay_seconds']
+    allocation_peak=initial;guarded=False
     for at in range(start, end, HOUR):
+        known_equity=curve[-1]['equity'];allocation_peak=max(allocation_peak,known_equity)
+        risk,guarded=allocation_risk(variant.get('allocation'),known_equity,
+            allocation_peak,guarded,protocol['risk_fraction'])
         # These exits/stop updates are known at the opening, before any new fill.
         if position:
             market = markets[position['symbol']]
@@ -293,11 +323,14 @@ def simulate(markets, variant, block, protocol, costs):
                     if not market_gate_allows(markets, signal, variant['market_gate']):
                         skips['DIRECAO_CONTRA_BTC_7D'] += 1
                         continue
+                sizing_protocol=dict(protocol,risk_fraction=str(risk))
                 candidate, reason = risk_budget(signal, markets[signal['symbol']], at,
-                    cash, protocol, variant, costs)
+                    cash, sizing_protocol, variant, costs)
                 if candidate is None:
                     skips[reason] += 1
                     continue
+                if variant.get('allocation'):
+                    candidate.update(effective_risk_fraction=risk,allocation_guarded=guarded)
                 rank = (-signal['score'], candidate['entry_fee']/candidate['planned_risk'], signal['symbol'])
                 ranked.append((rank, candidate))
             if ranked:
@@ -311,10 +344,13 @@ def simulate(markets, variant, block, protocol, costs):
                 for event in market['funding_by_time'].get(at, []):
                     amount = settlement_amount(position,event,last,fair,market['contract'].stop_only_fair)
                     position['funding_paid'] += amount; cash -= amount; cashflows.append(-amount)
-            result = exit_event(position, last, fair, market['contract'].stop_only_fair)
+            result,exit_at,used_minutes = find_exit(position,last,fair,market['contract'].stop_only_fair,
+                market.get('minute_resolution',{}).get(at))
             if result or at+HOUR == end:
                 reason, mid, ambiguous = result if result else ('FIM_DO_BLOCO', last.close, False)
-                trade, delta = close(position, mid, at+HOUR, reason, costs, ambiguous)
+                trade, delta = close(position, mid, exit_at if result else at+HOUR, reason, costs, ambiguous)
+                if used_minutes:
+                    trade['price_resolution']='M'+str(market['minute_resolution'][at].get('timeframe_seconds',60)//60)
                 cash += delta; trades.append(trade); cashflows.append(delta); position = None
         marked = cash
         if position:

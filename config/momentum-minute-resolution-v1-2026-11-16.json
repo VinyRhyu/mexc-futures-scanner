@@ -51,5 +51,12 @@
       }
     }
   ],
-  "rule": "Collect all2distinct hourly liquidation bars across control/candidate, both cost schedules and risk policies. No time, strategy or level changes. Use only complete M1 histories whose OHLC exactly reproduce frozen H1. M1 simultaneous stop/liquidation remains conservatively liquidation-first."
+  "rule": "Collect all2distinct hourly liquidation bars across control/candidate, both cost schedules and risk policies. No time, strategy or level changes. Use only complete M1 histories whose OHLC exactly reproduce frozen H1. M1 simultaneous stop/liquidation remains conservatively liquidation-first.",
+  "amended_at_utc": "2026-11-16T12:43:29.410969+00:00",
+  "intervals_seconds": [
+    60,
+    300,
+    900
+  ],
+  "amendment": "M1 collection failed for both old hours. Before querying broader bars, freeze M1->M5->M15 fallback. Choose the finest complete OHLC-consistent pair; never choose by exit outcome. Unavailable/coincident events retain conservative uncertainty."
 }
