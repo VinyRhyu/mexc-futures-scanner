@@ -282,14 +282,18 @@ def allocation_risk(policy, equity, peak, guarded, default):
     return D(policy['reduced'] if guarded else policy['normal']),guarded
 
 
-def simulate(markets, variant, block, protocol, costs):
+def simulate(markets, variant, block, protocol, costs, *, frozen_events=None, force_flat=True):
     start, end = stamp(block['start']), stamp(block['end'])
     entry_events = defaultdict(list); updates = {}
-    for symbol, market in markets.items():
-        e, u = events(symbol, market, variant, start, end, protocol['signal_delay_seconds'])
-        for t, rows in e.items():
-            entry_events[t].extend(rows)
-        updates[symbol] = u
+    if frozen_events is None:
+        for symbol, market in markets.items():
+            e, u = events(symbol, market, variant, start, end, protocol['signal_delay_seconds'])
+            for t, rows in e.items():
+                entry_events[t].extend(rows)
+            updates[symbol] = u
+    else:
+        entry_events.update(frozen_events['entries'])
+        updates=frozen_events['updates']
     cash = initial = D(protocol['initial_equity']); position = None
     skips = Counter(); trades = []; curve = [dict(at=start, equity=cash)]
     cashflows = []; delay = protocol['signal_delay_seconds']
@@ -319,8 +323,13 @@ def simulate(markets, variant, block, protocol, costs):
         else:
             ranked = []
             for signal in candidates:
+                if signal.get('source_gate_reasons'):
+                    for reason in signal['source_gate_reasons']:skips[reason]+=1
+                    continue
                 if variant.get('market_gate'):
-                    if not market_gate_allows(markets, signal, variant['market_gate']):
+                    allowed=signal.get('frozen_market_gate')
+                    if allowed is None:allowed=market_gate_allows(markets,signal,variant['market_gate'])
+                    if not allowed:
                         skips['DIRECAO_CONTRA_BTC_7D'] += 1
                         continue
                 sizing_protocol=dict(protocol,risk_fraction=str(risk))
@@ -346,7 +355,7 @@ def simulate(markets, variant, block, protocol, costs):
                     position['funding_paid'] += amount; cash -= amount; cashflows.append(-amount)
             result,exit_at,used_minutes = find_exit(position,last,fair,market['contract'].stop_only_fair,
                 market.get('minute_resolution',{}).get(at))
-            if result or at+HOUR == end:
+            if result or (force_flat and at+HOUR == end):
                 reason, mid, ambiguous = result if result else ('FIM_DO_BLOCO', last.close, False)
                 trade, delta = close(position, mid, exit_at if result else at+HOUR, reason, costs, ambiguous)
                 if used_minutes:
@@ -359,12 +368,13 @@ def simulate(markets, variant, block, protocol, costs):
             marked += position['sign']*position['quantity']*(price-position['entry'])-position['quantity']*price*D(costs['fee'])
         assert cash >= 0 and marked > 0, 'Wallet exhausted or negative'
         curve.append(dict(at=at+HOUR, equity=marked))
-    assert position is None
+    if force_flat:assert position is None
     assert abs(initial+sum(cashflows, D(0))-cash) < D('1E-16')
-    assert abs(initial+sum((t['net'] for t in trades), D(0))-cash) < D('1E-16')
+    open_debits=position['entry_fee']+position['funding_paid'] if position else D(0)
+    assert abs(initial+sum((t['net'] for t in trades), D(0))-open_debits-cash) < D('1E-16')
     assert all(a['exit_at'] <= b['opened_at'] for a, b in zip(trades, trades[1:]))
     split = stamp(block['validation_start'])
-    split_equity = next(row['equity'] for row in curve if row['at'] == split)
+    split_equity = next((row['equity'] for row in curve if row['at'] == split),curve[-1]['equity'])
     months = {}
     month_start = initial
     for row in curve[1:]:
@@ -373,10 +383,15 @@ def simulate(markets, variant, block, protocol, costs):
             key = datetime.fromtimestamp(row['at']-1, timezone.utc).strftime('%Y-%m')
             months[key] = dict(start=month_start, end=row['equity'], return_pct=(row['equity']/month_start-1)*100)
             month_start = row['equity']
-    return dict(summary=summarize(initial, cash, trades, curve, skips),
+    terminal=cash if force_flat else curve[-1]['equity']
+    result=dict(summary=summarize(initial, terminal, trades, curve, skips),
         temporal_blocks=dict(development_return_pct=(split_equity/initial-1)*100,
-            verification_return_pct=(cash/split_equity-1)*100),
+            verification_return_pct=(terminal/split_equity-1)*100),
         months=months, trades=trades, equity_curve=curve)
+    if not force_flat:
+        result.update(cash=cash,marked_equity=curve[-1]['equity'],open_position=position,
+            unrealized_net=curve[-1]['equity']-cash,valuation='H1_PAPER_MARK_NOT_REALIZED_CASH')
+    return result
 
 
 def load_markets(block, protocol, data_root=None):

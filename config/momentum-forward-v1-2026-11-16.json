@@ -1,0 +1,115 @@
+{
+  "symbols": [
+    "AAVE_USDT",
+    "ADA_USDT",
+    "ARB_USDT",
+    "AVAX_USDT",
+    "BNB_USDT",
+    "BTC_USDT",
+    "DOGE_USDT",
+    "DOT_USDT",
+    "ENA_USDT",
+    "ETH_USDT",
+    "FET_USDT",
+    "HYPE_USDT",
+    "ICP_USDT",
+    "INJ_USDT",
+    "LINK_USDT",
+    "ONDO_USDT",
+    "PEPE_USDT",
+    "QNT_USDT",
+    "SOL_USDT",
+    "SUI_USDT",
+    "TAO_USDT",
+    "TIA_USDT",
+    "UNI_USDT",
+    "WLD_USDT",
+    "XLM_USDT",
+    "XRP_USDT"
+  ],
+  "initial_equity": "100",
+  "leverage": 10,
+  "risk_fraction": "0.02",
+  "minimum_turnover": "5000000",
+  "signal_delay_seconds": 3600,
+  "min_liquidation_buffer": "1.5",
+  "costs": [
+    {
+      "name": "base",
+      "fee": "0.0006",
+      "spread": "0.0002",
+      "slippage": "0.0002"
+    },
+    {
+      "name": "stress",
+      "fee": "0.0010",
+      "spread": "0.0004",
+      "slippage": "0.0004"
+    }
+  ],
+  "name": "MOMENTUM_PROSPECTIVE_30D_V1",
+  "frozen_at_utc": "2026-11-16T13:31:44.051046+00:00",
+  "historical_parent_commit": "3626e1ec0b4e5a0cb35d7a106fbd5b48842c77ec",
+  "historical_strategy_protocol_sha256": "a151dc4721540f0a87f04efab8a2759cc4003f54dba3ac81fedeb864969ae31b",
+  "variants": [
+    {
+      "name": "MOMENTUM_BTC_RISK1",
+      "tf_hours": 24,
+      "kind": "MOMENTUM",
+      "lookback_days": 7,
+      "stop_atr": 2,
+      "stop_cap": ".05",
+      "trail_atr": 2,
+      "max_hold_hours": 24,
+      "market_gate": "BTC7_SIGN",
+      "allocation": {
+        "kind": "FIXED",
+        "fraction": "0.01"
+      }
+    },
+    {
+      "name": "MOMENTUM_BTC_DD_GUARD",
+      "tf_hours": 24,
+      "kind": "MOMENTUM",
+      "lookback_days": 7,
+      "stop_atr": 2,
+      "stop_cap": ".05",
+      "trail_atr": 2,
+      "max_hold_hours": 24,
+      "market_gate": "BTC7_SIGN",
+      "allocation": {
+        "kind": "DRAWDOWN_HYSTERESIS",
+        "normal": "0.02",
+        "reduced": "0.005",
+        "trigger": "0.05",
+        "restore": "0.025"
+      }
+    }
+  ],
+  "decision_start_utc": "2026-11-17T00:00:00+00:00",
+  "decision_end_exclusive_utc": "2026-12-17T00:00:00+00:00",
+  "evaluation_end_utc": "2026-12-17T02:00:00+00:00",
+  "history_start_utc": "2026-10-31T00:00:00+00:00",
+  "state_branch": "research/momentum-forward-state-v1",
+  "research_branch": "research/multihour-v1",
+  "freeze_window_seconds": 3600,
+  "quote_max_delay_seconds": 300,
+  "quote_max_age_seconds": 120,
+  "technical_rules": "Unchanged7day momentum,BTC7direction,ATR/turnover/stop/24h rules. Freeze candidates,gate decisions and daily stop updates before planned01UTC entry. Missing freezes remain missing; never backfill.",
+  "paper_lane": "Prospectively frozen signals, subsequently evaluated with first-observed closed H1 Last/Fair and realized historical funding. H1 open fills remain modeled, not live execution. Open positions remain open in intermediate reports.",
+  "observation_lane": "Capture actual timestamped public bid/ask and top3candidate depth only during01UTC+5min. Record delays or missed observations; never reconstruct an old quote. Compare selected paper entries with observations. No actual orders or broker fill claims.",
+  "initial_balances": "IndependentUS$100 for each of2risk policies and each of2cost schedules; four paper wallets, no real capital.",
+  "integrity": "Pin protocol and code hashes; pin initial contract rules; retain immutable first-observed prices/funding, freeze daily events before outcomes, append hash-chained journal and reject changed historical paper trades. Changed contract rules block that symbol for new daily entries.",
+  "checkpoint": {
+    "minimum_frozen_days": 29,
+    "minimum_closed_trades_per_wallet": 20,
+    "minimum_quote_coverage": "0.95",
+    "positive_base_and_stress": true,
+    "maximum_drawdown_pct": "10",
+    "require_no_liquidations": true,
+    "require_no_source_revisions": true
+  },
+  "end_policy": "Thirty decisions only. Stop opening after decision_end_exclusive; finalize after last24hposition can close. No claim of success before checkpoint; production approval alwaysfalse. If sample or source coverage inadequate, report inconclusive rather than changing rules.",
+  "publish_scope": "Only the research code branch and dedicated forward-state branch; no main, scanner-state, account API, orders or Telegram.",
+  "automation_stop_utc": "2026-12-17T03:00:00+00:00"
+}

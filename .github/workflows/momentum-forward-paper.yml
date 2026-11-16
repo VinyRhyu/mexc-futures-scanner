@@ -1,0 +1,39 @@
+name: Momentum prospective paper
+on:
+  push:
+    branches: ['research/multihour-v1']
+    paths:
+      - 'config/momentum-forward-v1-2026-11-16.json'
+      - 'config/momentum-forward-trigger.json'
+      - 'scripts/forward_momentum.py'
+      - 'scripts/forward_state_branch.py'
+      - '.github/workflows/momentum-forward-paper.yml'
+permissions:
+  contents: write
+concurrency:
+  group: research-momentum-forward-v1
+  cancel-in-progress: false
+jobs:
+  paper:
+    if: github.ref == 'refs/heads/research/multihour-v1'
+    runs-on: ubuntu-latest
+    timeout-minutes: 12
+    steps:
+      - uses: actions/checkout@v7.0.1
+      - uses: actions/setup-python@v7
+        with:
+          python-version: '3.12'
+      - name: Test prospective invariants
+        run: python -m unittest tests.test_forward_momentum tests.test_forward_state_branch -v
+      - name: Restore isolated research journal
+        run: python -m scripts.forward_state_branch restore --directory reports/momentum-forward-state --base-file reports/momentum-forward-base.json
+      - name: Observe public data and frozen paper signals
+        run: python -m scripts.forward_momentum --protocol config/momentum-forward-v1-2026-11-16.json --directory reports/momentum-forward-state
+      - name: Persist isolated research journal
+        run: python -m scripts.forward_state_branch save --directory reports/momentum-forward-state --base-file reports/momentum-forward-base.json
+      - uses: actions/upload-artifact@v7.0.2
+        if: always()
+        with:
+          name: momentum-forward-observations
+          path: reports/momentum-forward-state
+          retention-days: 45
