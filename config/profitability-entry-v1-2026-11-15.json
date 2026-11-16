@@ -1,0 +1,95 @@
+{
+  "name": "M1_PORTFOLIO_MARKET_VS_ORIGINAL_BAND_LIMIT_V1",
+  "frozen_at_utc": "2026-11-16T02:04:45.224253+00:00",
+  "production_commit": "71db8f2dbb5a9693f0656602b696d00135411a14",
+  "symbols": [
+    "AAVE_USDT",
+    "ADA_USDT",
+    "ARB_USDT",
+    "AVAX_USDT",
+    "BNB_USDT",
+    "BTC_USDT",
+    "DOGE_USDT",
+    "DOT_USDT",
+    "ENA_USDT",
+    "ETH_USDT",
+    "HBAR_USDT",
+    "HYPE_USDT",
+    "INJ_USDT",
+    "JUP_USDT",
+    "LINK_USDT",
+    "NEAR_USDT",
+    "ONDO_USDT",
+    "ONE_USDT",
+    "PEPE_USDT",
+    "QNT_USDT",
+    "SOL_USDT",
+    "SUI_USDT",
+    "TAO_USDT",
+    "TIA_USDT",
+    "UNI_USDT",
+    "WLD_USDT",
+    "XLM_USDT",
+    "XRP_USDT",
+    "ZEC_USDT"
+  ],
+  "excluded_symbols": [
+    "DASH_USDT",
+    "XMR_USDT"
+  ],
+  "start_brt": "2026-10-25T00:00:00-03:00",
+  "end_exclusive_brt": "2026-11-15T00:00:00-03:00",
+  "weeks": [
+    [
+      "2026-10-25T00:00:00-03:00",
+      "2026-11-01T00:00:00-03:00"
+    ],
+    [
+      "2026-11-01T00:00:00-03:00",
+      "2026-11-08T00:00:00-03:00"
+    ],
+    [
+      "2026-11-08T00:00:00-03:00",
+      "2026-11-15T00:00:00-03:00"
+    ]
+  ],
+  "capital": "100",
+  "leverage": 10,
+  "risk_fraction": "0.02",
+  "minimum_net_rr": "1",
+  "entry_delay_seconds": 60,
+  "entry_ttl_seconds": 120,
+  "horizon_seconds": 14400,
+  "single_change": "Market at first whole M1 open >= signal+60 versus resting limit at original entry_low LONG / entry_high SHORT. Same technical confirmation, frozen band/SL/TP, latency, expiry, rank and sizing policy. No extra candle criterion.",
+  "sizing": "At most 2% of current equity lost at original SL including modeled fees/slippage, integer contract lots, margin+reserved fees <= equity, exactly10x, one position or pending order globally. Rank at decision time by projected netRR then costs/risk then symbol/ID. Never choose by future fill or outcome.",
+  "limit_fill": "Place only until original signal+120; require price penetrate limit by half modeled spread plus2ticks. No improvement over requested limit. Reserve wallet while pending. Conservatively process entry-bar stop before TP; intrabar limit TP allowed only if close beyond TP guarantees post-fill crossing, otherwise wait until following minute. Account fill at end of its minute, not exact exchange timestamp.",
+  "source_gate": "Any SL/TP touch in completed waiting minute cancels both arms. Preserve original band; market must be within it. Limit priced inside frozen band and checked with same finance validator at order price. No entry last4h before each weekly boundary. Weekly resets and continuous21day wallet both reported.",
+  "costs": [
+    {
+      "name": "base",
+      "taker_fee": "0.0006",
+      "slippage_rate": "0.0002",
+      "spread": "0.0002"
+    },
+    {
+      "name": "stress",
+      "taker_fee": "0.0010",
+      "slippage_rate": "0.0004",
+      "spread": "0.0004"
+    }
+  ],
+  "fair_and_funding": "Attempt actual FairM1 and funding history. Estimated future funding at decision uses only latest settlement known then, never future realized rates. Realized cash flows use historical settlement events while held. Missing data flagged; no claim of validated profitability without coverage.",
+  "compatibility": "Before wallet changes, reproduce original 31asset old immediate-entry123:49TP71SL3open, and newer29asset107:25TP65SL17open with active paper config. These sums are independent signals, not ROI.",
+  "promotion_screen": "Candidate exploratory promising only if continuous base balance > control and >100, each of3weekly base returns >=0, latest week >=15closed positions and positive, total >=30closed, base maxDD<=10%, and continuous stress balance>100. Even a pass is not independent validation or production approval.",
+  "data_reuse": "All three weeks already inspected in previous work: development and retrospective verification only; no untouched holdout. No additional threshold/strategy trials after inspecting results in this protocol.",
+  "limitations": [
+    "Frozen contract snapshots and29current-survivor universe; not historical point-in-time eligibility.",
+    "No historical order book or true bid/ask; modeled spread/depth/fill/slippage remain assumptions.",
+    "Historical candles cannot reproduce exact manual execution or intraminute sequence.",
+    "10x is exposure multiplier, not probability improvement."
+  ],
+  "source_manifests": {
+    "/workspace/scratch/c65849e9b14e/quality-review/m1-trend/source/summary.json": "6eb6302f3f5c31bddd47e712c1c1ab1da0fb8d5034b5c6452672045d1395eae7",
+    "/workspace/scratch/c65849e9b14e/quality-review/m1-new-week/source/summary.json": "0ec3f59e4f125c3409a6e8c1123670009b6c215dc86f03ac82ea4a784a065456"
+  }
+}

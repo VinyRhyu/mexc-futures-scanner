@@ -1,0 +1,27 @@
+name: Research valuation history
+on:
+  push:
+    branches: ['research/profitability-entry-v1']
+    paths: ['config/profitability-entry-v1-2026-11-15.json', 'scripts/collect_valuation_history.py', '.github/workflows/profitability-valuation.yml']
+permissions:
+  contents: read
+concurrency:
+  group: research-valuation-history
+  cancel-in-progress: false
+jobs:
+  collect:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v7.0.1
+      - uses: actions/setup-python@v7
+        with:
+          python-version: '3.12'
+      - name: Public historical valuation only
+        run: python -m scripts.collect_valuation_history --protocol config/profitability-entry-v1-2026-11-15.json --output reports/valuation-history
+      - uses: actions/upload-artifact@v7.0.2
+        if: always()
+        with:
+          name: valuation-history-v1
+          path: reports/valuation-history
+          retention-days: 30
