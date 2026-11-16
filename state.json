@@ -8474,7 +8474,7 @@
       "watch_symbol": "PEPE_USDT"
     },
     "16696603dd50ac51dca5": {
-      "attempts": 0,
+      "attempts": 1,
       "category": "INFO",
       "created_at": 1794812552,
       "expires_at": 1794814200,
@@ -8484,7 +8484,11 @@
         "87998e312bad4da32fab"
       ],
       "quote_at": 0,
-      "status": "PENDING",
+      "sent_at": 1794812558,
+      "status": "SENT",
+      "telegram_ids": [
+        6231
+      ],
       "text": "👀 PLANO EM PREPARAÇÃO • AGUARDANDO GATILHO\nXRP/USDT\n🧪 SIMULAÇÃO • acompanhamento\n\nRegião em análise: 0.9489 a 0.9604\nDireção indefinida: cenários alternativos, não duas entradas.\nLONG somente se houver fechamento M1 acima de ≈ 0.960904.\nSHORT somente se houver fechamento M1 abaixo de ≈ 0.948396.\n\nConfirmação: dois fechamentos M1 consecutivos além do gatilho; volume do segundo de pelo menos 50% do primeiro.\nTP, SL e percentuais serão definidos no primeiro gatilho. A confirmação ainda precisa passar pela avaliação financeira.\n\nSem rompimento observado neste plano e sem entrada liberada.\nPreparação até 04:30:00 BRT.\nAnálise: 16/11/2026 04:02:32 BRT\nPlanos: 546716dcd2ebddc88798, 87998e312bad4da32fab",
       "watch_stage": 2,
       "watch_symbol": "XRP_USDT"
@@ -19286,11 +19290,12 @@
       "text": "👀 POSSÍVEL ENTRADA • AGUARDAR GATILHO\nPEPE/USDT • LONG\n🧪 SIMULAÇÃO\nRompimento de consolidação\n\nRegião de atenção ≈ 0.0000050084 a 0.0000051643\n\nAntecipada: Primeiro fechamento de 15m acima da faixa, com a tolerância do plano.\nConfirmada: O candle de 15m imediatamente seguinte mantém o rompimento.\nCada modalidade é avaliada de forma independente.\n\nPreparação válida até 10:45:00 BRT (13min 29s).\nAnálise: 09/11/2026 10:31:31 BRT\nPlano: 0e759c4472c5ac020c50 • revisão 0"
     },
     "318a2da967c38c29a925": {
-      "attempts": 0,
+      "attempts": 1,
       "category": "INFO",
       "created_at": 1794812552,
       "expires_at": 1794814200,
       "id": "318a2da967c38c29a925",
+      "last_error": "TELEGRAM_FALHA_OU_RESULTADO_AMBIGUO: URLError",
       "plan_ids": [
         "2b9c0f0fd8f059e74253",
         "3cf24fffea0ca6c1518e"
