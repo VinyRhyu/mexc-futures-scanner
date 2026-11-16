@@ -1,0 +1,600 @@
+{
+  "protocol": {
+    "name": "LIVE_M1_OPERATIONAL_AUDIT_V1",
+    "frozen_at_utc": "2026-11-16T00:10:32.068380+00:00",
+    "window_start_utc": "2026-11-15T18:00:00Z",
+    "window_end_utc": "2026-11-16T00:00:00Z",
+    "window_brt": "15/11/2026 15:00–21:00",
+    "main_commit": "20c500deb4fbea15573dbced9eaddb6bf5839cae",
+    "state_commit": "da2f28f427c6cd13f8bc77233d6cd85c38baf350",
+    "sampling": "All scanner runs created within6h, immutable capturedmetadata dedupbyrunid.24successful and8cancelled runs uniformly selected chronologically for job timing. Up to4 successful jobs uniformly selected for phase log parsing.",
+    "quantiles": "Linear interpolation on sorted observed samples. Durationsseconds; sourcewindowbyrun.created_at, M1cohortbyconfirmed.triggered_at, messagescohortbycreated_at. Delivery of confirmedcohort checkedbyeventhash acrosssnapshot.",
+    "privacy": "Publish aggregates,timingmetadata and hashes only; no rawstate,Telegramtext,chatID,telegrammessageIDs orcredentials.",
+    "causality": "Runstatuses do not expose cancellation reason. Pending replacement is supported configuration/inference, not proved perrun. Lastfinancialstatus can overwrite earlier decisions; not a complete financialfunnel.",
+    "scope": "Read-only operational inspection and auditcode/report. No strategybacktest,settingschanges,orders,Telegramsend,scheduledtask orliveinstrumentationdeployment."
+  },
+  "provenance": {
+    "state_commit": "da2f28f427c6cd13f8bc77233d6cd85c38baf350",
+    "main_commit": "20c500deb4fbea15573dbced9eaddb6bf5839cae",
+    "source_sha256": {
+      "state.json": "06c7d09de44f1093beb1ecc6096ca58fd4db5bd2d829d1d2bfb97cb087ae87de",
+      "latest-report.json": "1f39805195b8b48c1ce931504841490eda24805fcc47ecbed8bd3e8c698fbd35",
+      "github-metadata.json": "97731080a1bb338754226ec87adde5441a6b94894a3c88067ce281bc5788489e"
+    },
+    "snapshot_last_success_utc": "2026-11-16T00:05:01+00:00"
+  },
+  "workflow": {
+    "runs": 361,
+    "outcomes": {
+      "success": 187,
+      "cancelled": 168,
+      "failure": 6
+    },
+    "events": {
+      "workflow_dispatch": 360,
+      "schedule": 1
+    },
+    "cancellation_pct": 46.53739612188366,
+    "success_pct": 51.8005540166205,
+    "success_dispatch_spacing_s": {
+      "n": 186,
+      "min": 45.0,
+      "p50": 120.0,
+      "p95": 178.75,
+      "max": 780.0,
+      "mean": 115.72043010752688
+    },
+    "timing_sample": {
+      "dispatch_to_job_s": {
+        "n": 24,
+        "min": 5.0,
+        "p50": 25.0,
+        "p95": 54.699999999999996,
+        "max": 57.0,
+        "mean": 28.458333333333332
+      },
+      "job_s": {
+        "n": 24,
+        "min": 81.0,
+        "p50": 114.5,
+        "p95": 129.54999999999998,
+        "max": 132.0,
+        "mean": 110.04166666666667
+      },
+      "main_step_s": {
+        "n": 24,
+        "min": 76.0,
+        "p50": 109.0,
+        "p95": 124.69999999999999,
+        "max": 125.0,
+        "mean": 104.41666666666667
+      },
+      "dispatch_to_main_step_s": {
+        "n": 24,
+        "min": 7.0,
+        "p50": 28.0,
+        "p95": 56.699999999999996,
+        "max": 64.0,
+        "mean": 31.416666666666668
+      }
+    },
+    "successful_sample_rows": [
+      {
+        "run_id": 43744246111,
+        "job_id": 132904165505,
+        "dispatch_to_job_s": 48.0,
+        "job_s": 109.0,
+        "main_step_s": 104.0,
+        "dispatch_to_main_step_s": 50.0
+      },
+      {
+        "run_id": 43745780450,
+        "job_id": 132908685762,
+        "dispatch_to_job_s": 13.0,
+        "job_s": 88.0,
+        "main_step_s": 83.0,
+        "dispatch_to_main_step_s": 15.0
+      },
+      {
+        "run_id": 43747114607,
+        "job_id": 132912843026,
+        "dispatch_to_job_s": 19.0,
+        "job_s": 110.0,
+        "main_step_s": 98.0,
+        "dispatch_to_main_step_s": 27.0
+      },
+      {
+        "run_id": 43748314301,
+        "job_id": 132916680668,
+        "dispatch_to_job_s": 55.0,
+        "job_s": 83.0,
+        "main_step_s": 78.0,
+        "dispatch_to_main_step_s": 57.0
+      },
+      {
+        "run_id": 43749530993,
+        "job_id": 132920340164,
+        "dispatch_to_job_s": 40.0,
+        "job_s": 82.0,
+        "main_step_s": 76.0,
+        "dispatch_to_main_step_s": 43.0
+      },
+      {
+        "run_id": 43751087192,
+        "job_id": 132925100288,
+        "dispatch_to_job_s": 32.0,
+        "job_s": 125.0,
+        "main_step_s": 121.0,
+        "dispatch_to_main_step_s": 34.0
+      },
+      {
+        "run_id": 43752663773,
+        "job_id": 132929872632,
+        "dispatch_to_job_s": 6.0,
+        "job_s": 126.0,
+        "main_step_s": 119.0,
+        "dispatch_to_main_step_s": 9.0
+      },
+      {
+        "run_id": 43754060213,
+        "job_id": 132934287046,
+        "dispatch_to_job_s": 27.0,
+        "job_s": 125.0,
+        "main_step_s": 121.0,
+        "dispatch_to_main_step_s": 29.0
+      },
+      {
+        "run_id": 43755626432,
+        "job_id": 132939057500,
+        "dispatch_to_job_s": 21.0,
+        "job_s": 132.0,
+        "main_step_s": 125.0,
+        "dispatch_to_main_step_s": 25.0
+      },
+      {
+        "run_id": 43757095647,
+        "job_id": 132943676123,
+        "dispatch_to_job_s": 48.0,
+        "job_s": 127.0,
+        "main_step_s": 123.0,
+        "dispatch_to_main_step_s": 50.0
+      },
+      {
+        "run_id": 43758614681,
+        "job_id": 132948211377,
+        "dispatch_to_job_s": 21.0,
+        "job_s": 86.0,
+        "main_step_s": 82.0,
+        "dispatch_to_main_step_s": 23.0
+      },
+      {
+        "run_id": 43759995932,
+        "job_id": 132952538425,
+        "dispatch_to_job_s": 23.0,
+        "job_s": 122.0,
+        "main_step_s": 116.0,
+        "dispatch_to_main_step_s": 26.0
+      },
+      {
+        "run_id": 43761370030,
+        "job_id": 132956720870,
+        "dispatch_to_job_s": 5.0,
+        "job_s": 121.0,
+        "main_step_s": 117.0,
+        "dispatch_to_main_step_s": 7.0
+      },
+      {
+        "run_id": 43762813189,
+        "job_id": 132961191380,
+        "dispatch_to_job_s": 5.0,
+        "job_s": 123.0,
+        "main_step_s": 119.0,
+        "dispatch_to_main_step_s": 7.0
+      },
+      {
+        "run_id": 43764209275,
+        "job_id": 132965608652,
+        "dispatch_to_job_s": 15.0,
+        "job_s": 108.0,
+        "main_step_s": 102.0,
+        "dispatch_to_main_step_s": 18.0
+      },
+      {
+        "run_id": 43765500299,
+        "job_id": 132969727091,
+        "dispatch_to_job_s": 40.0,
+        "job_s": 81.0,
+        "main_step_s": 76.0,
+        "dispatch_to_main_step_s": 42.0
+      },
+      {
+        "run_id": 43766786479,
+        "job_id": 132973719616,
+        "dispatch_to_job_s": 21.0,
+        "job_s": 85.0,
+        "main_step_s": 81.0,
+        "dispatch_to_main_step_s": 23.0
+      },
+      {
+        "run_id": 43768143226,
+        "job_id": 132978016443,
+        "dispatch_to_job_s": 53.0,
+        "job_s": 106.0,
+        "main_step_s": 101.0,
+        "dispatch_to_main_step_s": 55.0
+      },
+      {
+        "run_id": 43769818485,
+        "job_id": 132983038786,
+        "dispatch_to_job_s": 12.0,
+        "job_s": 100.0,
+        "main_step_s": 93.0,
+        "dispatch_to_main_step_s": 17.0
+      },
+      {
+        "run_id": 43771291571,
+        "job_id": 132987572360,
+        "dispatch_to_job_s": 5.0,
+        "job_s": 119.0,
+        "main_step_s": 114.0,
+        "dispatch_to_main_step_s": 8.0
+      },
+      {
+        "run_id": 43772648203,
+        "job_id": 132992001302,
+        "dispatch_to_job_s": 49.0,
+        "job_s": 130.0,
+        "main_step_s": 125.0,
+        "dispatch_to_main_step_s": 52.0
+      },
+      {
+        "run_id": 43775054992,
+        "job_id": 132999548719,
+        "dispatch_to_job_s": 41.0,
+        "job_s": 125.0,
+        "main_step_s": 118.0,
+        "dispatch_to_main_step_s": 44.0
+      },
+      {
+        "run_id": 43776398323,
+        "job_id": 133003665249,
+        "dispatch_to_job_s": 27.0,
+        "job_s": 122.0,
+        "main_step_s": 119.0,
+        "dispatch_to_main_step_s": 29.0
+      },
+      {
+        "run_id": 43777704408,
+        "job_id": 133007914091,
+        "dispatch_to_job_s": 57.0,
+        "job_s": 106.0,
+        "main_step_s": 95.0,
+        "dispatch_to_main_step_s": 64.0
+      }
+    ],
+    "canceled_sample_n": 8,
+    "canceled_sample_with_no_jobs": 8,
+    "failures": [
+      {
+        "run_id": 43755429015,
+        "job_id": 132938471382,
+        "scan": {
+          "source_status": "OK",
+          "coverage": "31/31",
+          "plans": 2026,
+          "error": null
+        },
+        "notify": {
+          "sent": 6,
+          "expired": 0,
+          "failed": 1,
+          "configuration": "OK"
+        }
+      },
+      {
+        "run_id": 43773791070,
+        "job_id": 132995351748,
+        "scan": {
+          "source_status": "OK",
+          "coverage": "26/26",
+          "plans": 2242,
+          "error": null
+        },
+        "notify": {
+          "sent": 0,
+          "expired": 0,
+          "failed": 1,
+          "configuration": "OK"
+        }
+      },
+      {
+        "run_id": 43773972104,
+        "job_id": 132995996017,
+        "scan": {
+          "source_status": "OK",
+          "coverage": "26/26",
+          "plans": 2242,
+          "error": null
+        },
+        "notify": {
+          "sent": 0,
+          "expired": 0,
+          "failed": 1,
+          "configuration": "OK"
+        }
+      },
+      {
+        "run_id": 43774149147,
+        "job_id": 132996753909,
+        "scan": {
+          "source_status": "OK",
+          "coverage": "26/26",
+          "plans": 2242,
+          "error": null
+        },
+        "notify": {
+          "sent": 0,
+          "expired": 0,
+          "failed": 1,
+          "configuration": "OK"
+        }
+      },
+      {
+        "run_id": 43774419336,
+        "job_id": 132997412405,
+        "scan": {
+          "source_status": "OK",
+          "coverage": "26/26",
+          "plans": 2242,
+          "error": null
+        },
+        "notify": {
+          "sent": 0,
+          "expired": 0,
+          "failed": 1,
+          "configuration": "OK"
+        }
+      },
+      {
+        "run_id": 43774596933,
+        "job_id": 132998003269,
+        "scan": {
+          "source_status": "OK",
+          "coverage": "26/26",
+          "plans": 2242,
+          "error": null
+        },
+        "notify": {
+          "sent": 0,
+          "expired": 0,
+          "failed": 1,
+          "configuration": "OK"
+        }
+      }
+    ],
+    "buffered_phase_samples": [
+      {
+        "run_id": 43744246111,
+        "phase_lines": 6,
+        "log_timestamp_span_s": 0.0005388259887695312,
+        "phase_timing_reconstructible": false
+      },
+      {
+        "run_id": 43755626432,
+        "phase_lines": 6,
+        "log_timestamp_span_s": 0.0006029605865478516,
+        "phase_timing_reconstructible": false
+      },
+      {
+        "run_id": 43766786479,
+        "phase_lines": 6,
+        "log_timestamp_span_s": 0.0002040863037109375,
+        "phase_timing_reconstructible": false
+      },
+      {
+        "run_id": 43777704408,
+        "phase_lines": 6,
+        "log_timestamp_span_s": 0.0006618499755859375,
+        "phase_timing_reconstructible": false
+      }
+    ]
+  },
+  "confirmed_cohort": {
+    "plans": 40,
+    "distinct_symbol_side_signal": 32,
+    "late_marked": 13,
+    "late_pct": 32.5,
+    "nonlate": 27,
+    "last_financial_status_nonlate": {
+      "BLOQUEADA": 22,
+      "VIAVEL_SIMULADO": 5
+    },
+    "last_financial_block_reasons_nonlate": {
+      "RETORNO_RISCO_INSUFICIENTE": 13,
+      "CUSTO_RELATIVO_ELEVADO": 3,
+      "PRECO_FORA_DO_PLANO": 4,
+      "COLETA_NAO_VALIDADA_NESTA_RODADA": 1,
+      "PLANO_NAO_ATUAL": 1
+    },
+    "entry_event_status": {
+      "SENT": 5
+    },
+    "sent_entry_timing": {
+      "signal_to_enqueue_s": {
+        "n": 5,
+        "min": 34,
+        "p50": 88.0,
+        "p95": 91.2,
+        "max": 92,
+        "mean": 73.8
+      },
+      "signal_to_telegram_ack_s": {
+        "n": 5,
+        "min": 39,
+        "p50": 94.0,
+        "p95": 97.2,
+        "max": 98,
+        "mean": 79.4
+      },
+      "enqueue_to_ack_s": {
+        "n": 5,
+        "min": 5,
+        "p50": 6.0,
+        "p95": 6.0,
+        "max": 6,
+        "mean": 5.6
+      },
+      "quote_to_ack_s": {
+        "n": 5,
+        "min": 7,
+        "p50": 8.0,
+        "p95": 10.6,
+        "max": 11,
+        "mean": 8.4
+      },
+      "remaining_validity_at_ack_s": {
+        "n": 5,
+        "min": 22,
+        "p50": 26.0,
+        "p95": 74.39999999999999,
+        "max": 81,
+        "mean": 40.6
+      }
+    },
+    "sent_entry_rows": [
+      {
+        "symbol": "NEAR_USDT",
+        "side": "LONG",
+        "status": "SENT",
+        "trigger_at": 1794774840,
+        "enqueued_at": 1794774928,
+        "quote_at": 1794774923,
+        "sent_at": 1794774934,
+        "signal_to_enqueue_s": 88,
+        "signal_to_telegram_ack_s": 94,
+        "enqueue_to_ack_s": 6,
+        "quote_to_ack_s": 11,
+        "remaining_validity_at_ack_s": 26
+      },
+      {
+        "symbol": "HYPE_USDT",
+        "side": "LONG",
+        "status": "SENT",
+        "trigger_at": 1794774120,
+        "enqueued_at": 1794774187,
+        "quote_at": 1794774183,
+        "sent_at": 1794774192,
+        "signal_to_enqueue_s": 67,
+        "signal_to_telegram_ack_s": 72,
+        "enqueue_to_ack_s": 5,
+        "quote_to_ack_s": 9,
+        "remaining_validity_at_ack_s": 48
+      },
+      {
+        "symbol": "HYPE_USDT",
+        "side": "LONG",
+        "status": "SENT",
+        "trigger_at": 1794772020,
+        "enqueued_at": 1794772112,
+        "quote_at": 1794772110,
+        "sent_at": 1794772118,
+        "signal_to_enqueue_s": 92,
+        "signal_to_telegram_ack_s": 98,
+        "enqueue_to_ack_s": 6,
+        "quote_to_ack_s": 8,
+        "remaining_validity_at_ack_s": 22
+      },
+      {
+        "symbol": "HYPE_USDT",
+        "side": "LONG",
+        "status": "SENT",
+        "trigger_at": 1794772200,
+        "enqueued_at": 1794772234,
+        "quote_at": 1794772232,
+        "sent_at": 1794772239,
+        "signal_to_enqueue_s": 34,
+        "signal_to_telegram_ack_s": 39,
+        "enqueue_to_ack_s": 5,
+        "quote_to_ack_s": 7,
+        "remaining_validity_at_ack_s": 81
+      },
+      {
+        "symbol": "TAO_USDT",
+        "side": "LONG",
+        "status": "SENT",
+        "trigger_at": 1794774840,
+        "enqueued_at": 1794774928,
+        "quote_at": 1794774927,
+        "sent_at": 1794774934,
+        "signal_to_enqueue_s": 88,
+        "signal_to_telegram_ack_s": 94,
+        "enqueue_to_ack_s": 6,
+        "quote_to_ack_s": 7,
+        "remaining_validity_at_ack_s": 26
+      }
+    ]
+  },
+  "messages_created_window": {
+    "count": 430,
+    "category_status": {
+      "INFO:SENT": 419,
+      "ENTRY:SENT": 5,
+      "INFO:EXPIRED": 6
+    },
+    "watch_stages": {
+      "2:SENT": 317,
+      "1:SENT": 22,
+      "2:EXPIRED": 2,
+      "0:SENT": 16,
+      "1:EXPIRED": 3,
+      "0:EXPIRED": 1
+    },
+    "movement_to_ack_s": {
+      "n": 38,
+      "min": 34,
+      "p50": 53.0,
+      "p95": 110.15,
+      "max": 119,
+      "mean": 64.71052631578948
+    },
+    "recovered_error_messages": 2,
+    "expired_error_messages": 2,
+    "stored_error_types": {
+      "TELEGRAM_FALHA_OU_RESULTADO_AMBIGUO: URLError": 1,
+      "TELEGRAM_FALHA_OU_RESULTADO_AMBIGUO: TimeoutError": 3
+    }
+  },
+  "latest_snapshot": {
+    "source_status": "OK",
+    "selected": 26,
+    "analyzed": 26,
+    "diagnostic_count": 0,
+    "state_bytes": 15356093,
+    "report_bytes": 2115128,
+    "total_state_plans": 10686,
+    "total_state_messages": 5796,
+    "journal_entries": 0,
+    "mode": "paper"
+  },
+  "cost_verification": {
+    "configured_taker_fee": "0.0006",
+    "fees_verified": false,
+    "account_rules_verified": false,
+    "fair_trigger_verified": false,
+    "realized_fee_events_recorded": 0,
+    "viable_fee_rates": [
+      "0.0006"
+    ],
+    "note": "Live evaluator consults currentfunding forplanning;historicalM1replay usedzero. No actualaccountfee confirmation orrealizedexecution ledger."
+  },
+  "limitations": [
+    "Snapshot values are retained latest decisions, not a per-event immutable evaluation ledger.",
+    "Confirmation counts are by plan and may share market movement;not independent trades.",
+    "TelegramSENT means API response received,not handset delivery/read or actual trade.",
+    "Runcreation-to-job is dispatch/queue delay,not technicalsignal-to-analysis latency.",
+    "No exact internal phase timing recoverable from buffered stdouttimestamps.",
+    "Realaccountfees andrealexecutions not observed;no recordedjournal events in snapshot.",
+    "Six-hour window and24job sample cannot establish all-day statistics or strategyprofitability."
+  ],
+  "production_changed": false
+}

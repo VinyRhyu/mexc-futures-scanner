@@ -1,0 +1,14 @@
+{
+  "name": "LIVE_M1_OPERATIONAL_AUDIT_V1",
+  "frozen_at_utc": "2026-11-16T00:10:32.068380+00:00",
+  "window_start_utc": "2026-11-15T18:00:00Z",
+  "window_end_utc": "2026-11-16T00:00:00Z",
+  "window_brt": "15/11/2026 15:00\u201321:00",
+  "main_commit": "20c500deb4fbea15573dbced9eaddb6bf5839cae",
+  "state_commit": "da2f28f427c6cd13f8bc77233d6cd85c38baf350",
+  "sampling": "All scanner runs created within6h, immutable capturedmetadata dedupbyrunid.24successful and8cancelled runs uniformly selected chronologically for job timing. Up to4 successful jobs uniformly selected for phase log parsing.",
+  "quantiles": "Linear interpolation on sorted observed samples. Durationsseconds; sourcewindowbyrun.created_at, M1cohortbyconfirmed.triggered_at, messagescohortbycreated_at. Delivery of confirmedcohort checkedbyeventhash acrosssnapshot.",
+  "privacy": "Publish aggregates,timingmetadata and hashes only; no rawstate,Telegramtext,chatID,telegrammessageIDs orcredentials.",
+  "causality": "Runstatuses do not expose cancellation reason. Pending replacement is supported configuration/inference, not proved perrun. Lastfinancialstatus can overwrite earlier decisions; not a complete financialfunnel.",
+  "scope": "Read-only operational inspection and auditcode/report. No strategybacktest,settingschanges,orders,Telegramsend,scheduledtask orliveinstrumentationdeployment."
+}
