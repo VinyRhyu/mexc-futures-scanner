@@ -1,0 +1,67 @@
+{
+  "id": "MOMENTUM_CONDITIONAL_EXIT_V1",
+  "frozen_at_utc": "2026-11-16T14:03:15.012705+00:00",
+  "base_commit": "3626e1ec0b4e5a0cb35d7a106fbd5b48842c77ec",
+  "base_protocol": "config/momentum-intrahour-evaluation-v1-2026-11-16.json",
+  "base_protocol_sha256": "c352ed285b24b41967a576c6573876cba4423897b67d320a42f5591fbb86da13",
+  "baseline_results_sha256": "75f8226d6fc4819c9c21bd9b745ebfac3cece8edba8724e2ea203aa154e31e3e",
+  "control": "MOMENTUM_BTC_RISK1",
+  "candidate": "MOMENTUM_BTC_RISK1_WEAK_EXIT",
+  "rule": {
+    "ema_period": 20,
+    "consecutive_closed_bars": 2,
+    "minimum_held_hours_at_signal": 6,
+    "decision_delay_seconds": 3600,
+    "net_condition": "<=0 after modeled exit costs, entry fee and already settled funding at the latest signal close",
+    "direction": "LONG: both close < respective EMA20; SHORT: both close > respective EMA20; equality does not qualify",
+    "ema_seed": "First H1 close in the frozen May1 source; recursive Decimal EMA alpha=2/21; require at least20 completed bars",
+    "signal_time": "At execution opening T use only H1 bars with end <= T-3600. Latest bar ends exactly T-3600; require both bars start >= entry time.",
+    "execution": "At opening T; min hold applies at signal close T-3600, hence earliest execution entry+7h. Do not cancel using T opening PNL. Stop/liquidation opening gap takes priority. No H1 high/low at T used for elective exit.",
+    "priority": "Existing delayed daily stop update, then opening gap stop/liquidation if elective exit triggers, then existing daily channel exit, existing24h deadline, conditional exit. Otherwise ordinary stop/liquidation unchanged.",
+    "funding": "Existing baseline convention retained: voluntary opening exits precede settlement at the same timestamp. At signal time all funding through that boundary is already available."
+  },
+  "unchanged": [
+    "universe26",
+    "daily entries and rank",
+    "BTC7_SIGN",
+    "fixed1% risk sizing incl costs",
+    "10x modeled leverage",
+    "one simultaneous position",
+    "initial stop and daily trailing stop",
+    "24h maximum hold",
+    "base/stress costs",
+    "frozen H1 Last/Fair funding and verified M5"
+  ],
+  "evaluation": {
+    "blocks": [
+      "new_early_history",
+      "historical_actual_fair",
+      "recent_extended",
+      "continuous_all"
+    ],
+    "costs": [
+      "base",
+      "stress"
+    ],
+    "baseline": "Exact full wallet equality against all8 corresponding previously saved wallets required",
+    "acceptance": "Exploratory only: both continuous base and stress ROI strictly improve; continuous base DD<=10%; each of3 separate periods has positive base/stress return; no liquidation or unresolved new liquidation ambiguity. Report original temporal consistency separately, even if failed.",
+    "diagnostics": [
+      "paired same-symbol/entry trades normalized per quantity",
+      "baseline winning recoveries cut",
+      "baseline losers improved/worsened",
+      "time exposed",
+      "fees funding",
+      "monthly and split returns"
+    ],
+    "search": "One candidate, no threshold/rule search after outcomes. Preserve failed experiment."
+  },
+  "limitations": [
+    "All historical data previously examined; not independent validation",
+    "Current catalog/universe survivor bias",
+    "Modeled fills and slippage, approximate liquidation; not actual executions"
+  ],
+  "production_changed": false,
+  "prospective_protocol_changed": false,
+  "independent_validation": false,
+  "approved_for_production": false
+}
