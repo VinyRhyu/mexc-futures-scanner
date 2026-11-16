@@ -46177,7 +46177,7 @@
       "text": "🟢 GATILHO VÁLIDO PARA SIMULAR\nHYPE/USDT • LONG\n🧪 SIMULAÇÃO • Confirmada\nRompimento • 2 fechamentos M1 • volume ≥50%\n\nVolume do segundo M1: 322.5% do primeiro.\n📍 Entrada: 67.255 a 67.374\n🛑 Stop: 66.98 (-7.54% líquido sobre a margem)\n🎯 Alvo: 68.263 (+11.48% líquido sobre a margem)\nMovimento sem alavancagem: TP +1.32% • SL -0.58%.\nBase dos percentuais sem alavancagem: 67.374 (pior entrada); na direção da operação, antes de custos.\n\nMargem isolada estimada: 0.6737 USDT • 10x\nQuantidade: 1 contratos\nPerda planejada: -0.0508 USDT (-5.08% da banca)\nGanho projetado: +0.0774 USDT (+7.74% da banca)\nRetorno/risco líquido: 1.52:1 (pior entrada)\nCustos estimados: 0.0115 USDT\nROI líquido estimado sobre a margem: TP +11.48% • SL -7.54%.\nTaxa por execução: 0.06%\nDisparo do stop: último preço (Last)\n\nEstimativas de taxas, deslizamento e funding; ganho não garantido.\nFalta validar para uso real: taxa pessoal da conta; regras de margem da conta.\n\n⏱ Nova entrada até 16:49:00 BRT (28s).\nGatilho M1 (segundo fechamento): 16:47:00 BRT\nCotação: 16:48:30 BRT\nAnálise: 15/11/2026 16:48:32 BRT\nA validade se aplica a novas entradas.\nPlano: d73b652a45905fcee0c3 • revisão 1"
     },
     "6df58f41c764fb0db947": {
-      "attempts": 0,
+      "attempts": 1,
       "category": "INFO",
       "created_at": 1794826652,
       "expires_at": 1794826680,
@@ -46188,7 +46188,11 @@
         "e4d770938affa1f62fff"
       ],
       "quote_at": 0,
-      "status": "PENDING",
+      "sent_at": 1794826658,
+      "status": "SENT",
+      "telegram_ids": [
+        6523
+      ],
       "text": "🟡 MOVIMENTO DETECTADO • AINDA SEM CONFIRMAÇÃO\nARB/USDT • ALTA (LONG)\n🧪 SIMULAÇÃO • acompanhamento\n\nRompimento observado no M1 fechado às 07:57:00 BRT.\nPreço de referência do primeiro gatilho: 0.13414.\n\nPrimeiro fechamento além da região identificado.\nFalta o segundo fechamento sustentar o nível, com volume de pelo menos 50% do primeiro.\nApós confirmar, o plano ainda precisa passar pela avaliação financeira.\n\nFaixa em estudo: 0.13409 a 0.13433\n🛑 Stop do plano: 0.1336 (-4.03% bruto em 10x)\n🎯 Alvo do plano: 0.13532 (+8.80% bruto em 10x)\nCenário indicativo sobre a margem em 10x; custos e liquidação ainda não validados.\nMovimento sem alavancagem: TP +0.88% • SL -0.40%.\nPercentuais sobre a referência do primeiro gatilho, na direção da operação, antes de custos.\n\nMovimento observado, sem entrada liberada. Aguarde o alerta de confirmação e viabilidade.\nAlerta válido até 07:58:00 BRT.\nAnálise: 16/11/2026 07:57:32 BRT\nPlano: e4d770938affa1f62fff",
       "watch_stage": 1,
       "watch_symbol": "ARB_USDT"
