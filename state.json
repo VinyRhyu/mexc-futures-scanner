@@ -52650,13 +52650,17 @@
       "watch_symbol": "SUI_USDT"
     },
     "85730f00cd3abcb8e6c0": {
-      "attempts": 0,
+      "attempts": 1,
       "category": "INFO",
       "created_at": 1794810511,
       "expires_at": 1794814111,
       "id": "85730f00cd3abcb8e6c0",
       "quote_at": 0,
-      "status": "PENDING",
+      "sent_at": 1794810517,
+      "status": "SENT",
+      "telegram_ids": [
+        6181
+      ],
       "text": "⚪ ATUALIZAÇÃO DOS PLANOS ACOMPANHADOS\n🧪 SIMULAÇÃO\n\n• DOT/USDT • SHORT: confirmação não aprovada\n  Motivo: O segundo fechamento M1 perdeu o nível do gatilho.\n  Plano: 097c710ea1281d7ddb34\n\nSem novas entradas por esses planos.\nAvisos de movimento não equivalem a entradas liberadas.\nA expiração não encerra uma posição já aberta.\nAnálise: 16/11/2026 03:28:31 BRT"
     },
     "857e7cb432f18bad68ff": {
@@ -80083,7 +80087,7 @@
       "text": "🟢 GATILHO VÁLIDO PARA SIMULAR\nDOT/USDT • SHORT\n🧪 SIMULAÇÃO • Confirmada\nRompimento • 2 fechamentos M1 • volume ≥50%\n\nVolume do segundo M1: 231.0% do primeiro.\n📍 Entrada: 0.7099 a 0.7109\n🛑 Stop: 0.7145 (-10.72% líquido sobre a margem)\n🎯 Alvo: 0.7026 (+11.08% líquido sobre a margem)\nMovimento sem alavancagem: TP +1.03% • SL -0.65%.\nBase dos percentuais sem alavancagem: 0.7099 (pior entrada); na direção da operação, antes de custos.\n\nMargem isolada estimada: 0.9283 USDT • 13x\nQuantidade: 170 contratos\nPerda planejada: -0.0995 USDT (-9.95% da banca)\nGanho projetado: +0.1029 USDT (+10.29% da banca)\nRetorno/risco líquido: 1.03:1 (pior entrada)\nCustos estimados: 0.0213 USDT\nROI líquido estimado sobre a margem: TP +11.08% • SL -10.72%.\nTaxa por execução: 0.06%\nDisparo do stop: último preço (Last)\n\nEstimativas de taxas, deslizamento e funding; ganho não garantido.\nFalta validar para uso real: taxa pessoal da conta; regras de margem da conta.\n\n⏱ Nova entrada até 05:15:00 BRT (27s).\nGatilho M1 (segundo fechamento): 05:13:00 BRT\nCotação: 05:14:27 BRT\nAnálise: 15/11/2026 05:14:33 BRT\nA validade se aplica a novas entradas.\nPlano: 528f096feb423d958a23 • revisão 1"
     },
     "ca36a7eecf63bbaf5802": {
-      "attempts": 0,
+      "attempts": 1,
       "category": "INFO",
       "created_at": 1794810511,
       "expires_at": 1794811500,
@@ -80092,7 +80096,11 @@
         "f9e196e4e5b3988a98ad"
       ],
       "quote_at": 0,
-      "status": "PENDING",
+      "sent_at": 1794810516,
+      "status": "SENT",
+      "telegram_ids": [
+        6180
+      ],
       "text": "👀 PLANO EM PREPARAÇÃO • AGUARDANDO GATILHO\nDOT/USDT\n🧪 SIMULAÇÃO • acompanhamento\n\nRegião em análise: 0.7219 a 0.732\nLONG somente se houver fechamento M1 acima de ≈ 0.732415.\n\nConfirmação: dois fechamentos M1 consecutivos além do gatilho; volume do segundo de pelo menos 50% do primeiro.\nTP, SL e percentuais serão definidos no primeiro gatilho. A confirmação ainda precisa passar pela avaliação financeira.\n\nSem rompimento observado neste plano e sem entrada liberada.\nPreparação até 03:45:00 BRT.\nAnálise: 16/11/2026 03:28:31 BRT\nPlanos: f9e196e4e5b3988a98ad",
       "watch_stage": 2,
       "watch_symbol": "DOT_USDT"
