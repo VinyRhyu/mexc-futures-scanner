@@ -1,0 +1,3296 @@
+{
+  "protocol": {
+    "id": "MOMENTUM_RELATIVE_BTC_RANK_V1",
+    "frozen_at_utc": "2026-11-16T14:12:25.503439+00:00",
+    "base_commit": "3626e1ec0b4e5a0cb35d7a106fbd5b48842c77ec",
+    "base_protocol": "config/momentum-intrahour-evaluation-v1-2026-11-16.json",
+    "base_protocol_sha256": "c352ed285b24b41967a576c6573876cba4423897b67d320a42f5591fbb86da13",
+    "baseline_results_sha256": "75f8226d6fc4819c9c21bd9b745ebfac3cece8edba8724e2ea203aa154e31e3e",
+    "control": "MOMENTUM_BTC_RISK1",
+    "candidate": "MOMENTUM_BTC_RISK1_RELATIVE_RANK",
+    "hypothesis": "Changing only eligible-candidate ordering to signed BTC-relative7day return per asset daily ATR may select more productive exposure.",
+    "ranking": {
+      "lookback_days": 7,
+      "return_definition": "r_asset=P_asset(S)/P_asset(S-7d)-1; r_btc=P_BTC(S)/P_BTC(S-7d)-1; P(S) is the close of H1 ending exactly at signal boundary S.",
+      "formula": "score = sign * (r_asset - r_btc) / (ATR14_asset_daily / P_asset(S))",
+      "direction": "sign remains sign(r_asset), and existing BTC7_SIGN gate remains mandatory; no relative-return sign gate.",
+      "ordering": "Descending score among original eligible candidates; then ascending entry_fee/planned_risk, then symbol. Negative scores remain eligible. BTC itself remains eligible with relative score0. No new threshold or exclusion.",
+      "causality": "At execution opening T use signal_at S=T-3600; returns and daily ATR use closed bars ending<=S. Neither delay bar nor execution bar can affect rank.",
+      "normalization": "Exactly the ATR14 daily from the existing entry event, not a newly estimated volatility or regression beta."
+    },
+    "unchanged": [
+      "universe26 and current catalog",
+      "daily timing and1h delay",
+      "side and absolute7day momentum generation",
+      "BTC7_SIGN filter",
+      "fixed1% risk inclusive modeled stop loss costs/funding reserve",
+      "single simultaneous position",
+      "10x modeled leverage",
+      "24h holding ceiling",
+      "initial stop and daily trailing update",
+      "liquidity and lot/tier/liquidation buffer checks",
+      "base/stress costs and frozen Last/Fair/funding/M5"
+    ],
+    "evaluation": {
+      "blocks": [
+        "new_early_history",
+        "historical_actual_fair",
+        "recent_extended",
+        "continuous_all"
+      ],
+      "costs": [
+        "base",
+        "stress"
+      ],
+      "baseline": "Exact full-wallet equality for all8 prior fixed1% wallets required, including curves and trades.",
+      "acceptance": "Exploratory screen: continuous base and stress ROI must both strictly improve; continuous base maximum H1 drawdown<=10%; each of3 separate periods must be positive in both cost scenarios; no modeled liquidation or new unresolved liquidation ambiguity. Original temporal consistency screen also retained separately.",
+      "diagnostics": [
+        "selection changes and same-entry outcomes",
+        "per-symbol net contribution",
+        "monthly and split returns",
+        "fees funding drawdown",
+        "risk fraction and single-position invariants"
+      ],
+      "search": "Exactly one candidate/formula; no parameter, side, symbol, period or threshold pruning after inspecting outcomes. All negative results retained."
+    },
+    "limitations": [
+      "All past data examined during strategy development; no independent holdout",
+      "Current universe and catalog create survivor/metadata bias",
+      "Simulated fills and approximate liquidation; H1 marked drawdown"
+    ],
+    "production_changed": false,
+    "prospective_protocol_changed": false,
+    "independent_validation": false,
+    "approved_for_production": false
+  },
+  "protocol_sha256": "69dfcbaa793337bf5a018687bb21f7a75aae4f0baf264bd228b6f2a368c6d115",
+  "source_sha256": {
+    "AAVE_USDT": "b00d614975ce5149d701cfa56a19e10db42c1c47d10de7b6060926025ef598cf",
+    "ADA_USDT": "b6e97c68a32bb05925e25e32ca103cfe73a763038a73ce43c78fc4bea3566be2",
+    "ARB_USDT": "66c83a871712bb60da49c4b84037a43721b6188df5cf2c2e654005bd77dd5edf",
+    "AVAX_USDT": "905dcac89bffcd9cd9daf3743a6b29bf6a30c6f2327ce06eddd0acec053908db",
+    "BNB_USDT": "e962bb2d851c7bc5ea53021a58eab02989d45ef31540ca781cd16d12f1a5a71b",
+    "BTC_USDT": "c46081bd201ee818db050769b810a09f1505765dd27a288f39d490c4fe3d494a",
+    "DOGE_USDT": "8d9d6c96e2c89171534548cb6c342fb8625bc58c966f3bb0ff316c845ddaaa48",
+    "DOT_USDT": "ef7e0f88188c18b3934fc4f4b6e3dde8da9e8b56d0829c6b36229342841f9c1b",
+    "ENA_USDT": "5e41608f649b17ff7d0d69fb1cce9e6a6a796447156a163a2eab66e4d6d84e17",
+    "ETH_USDT": "40d4663f7691edfb0c001bfd312e80a01fe3fb844e3f55a33d5f8599a52df5bc",
+    "FET_USDT": "b16fddffcbfb71da706d58b2d9338b33f25d46b6536f05b47306c5179a163f73",
+    "HYPE_USDT": "31fcea8aff159afb79135c419c6160bbd2dd7c7748e60aa331b3ea981cd54150",
+    "ICP_USDT": "cee97b24f7607712c566d2b4834ec5dbd3ff0e7dee09be14bb056eded7c2641b",
+    "INJ_USDT": "746d74e28306b7e13b8add31b0613b4cb658c4f75a1d63d3594b83fa5e212021",
+    "LINK_USDT": "5ab3f5e27bb80ae75ffa8f6d74dc9d574252fdca8bf3f0b9aa79cfb38b714c31",
+    "ONDO_USDT": "a61287d7642a4cdde82aa81b4fc2105c958fffbef86413760aba545841f7fb55",
+    "PEPE_USDT": "a229682119cc8aa98058740bc2269cc4104bc0eb849d32586c53c4e96ef6e22f",
+    "QNT_USDT": "145d09ede7208acfdf4c92cf83490e993caa6e10822fbbfc153fc2ef0d13c275",
+    "SOL_USDT": "4963a89444e14807f18a0468ab4c02ce838546f996e8ca734a9bbac329e8538a",
+    "SUI_USDT": "35d6871a92f582046a5a7c2b9d26620a782eaff17706b5ee9e5630626c38a512",
+    "TAO_USDT": "239af420eb95982a6b54222d32a454938d398d4419d513a31414c5766e5c4bbb",
+    "TIA_USDT": "678d2b3cd2a8b348d158d2f3c277083fa149cf6f7cf8efec8bf714d9da69cfc5",
+    "UNI_USDT": "1439f0a35aba0f9d91916a8e7549c6cfb65839f1ce370bacca069107eaa4afa9",
+    "WLD_USDT": "7fd993c3ad472d6f59c6ee9bb9a22da5f03718c317805db441261c66f0ef7067",
+    "XLM_USDT": "b7827a8b57a9a73df18943c3aee18dc3e769881132011dc8d2f2233b7b22f4fb",
+    "XRP_USDT": "9063c43744fb2a5e169a13d251f589066284c3b0d08659ef7339e29d57879098"
+  },
+  "intrahour_source": {
+    "protocol_sha256": "53c467143a6810605ba204ed1b5212eee04800358096f9912e2865eb6ac5e13f",
+    "selected": 2,
+    "complete": 2,
+    "datasets": [
+      {
+        "key": "WLD_USDT-1780624800",
+        "symbol": "WLD_USDT",
+        "start": 1780624800,
+        "end": 1780628400,
+        "sha256_uncompressed": "6e20006ecf3c1e96dae55228a2340cfe75e84513d5d2813906e26884f3b1be0d",
+        "ohlc_matches": true,
+        "timeframe_seconds": 300
+      },
+      {
+        "key": "ARB_USDT-1788195600",
+        "symbol": "ARB_USDT",
+        "start": 1788195600,
+        "end": 1788199200,
+        "sha256_uncompressed": "6140cb0876bb3fd5db681558fae70979653c5cd2e0b3df482248b8638de0fdf6",
+        "ohlc_matches": true,
+        "timeframe_seconds": 300
+      }
+    ],
+    "errors": {}
+  },
+  "baseline_wallets_reproduced": 8,
+  "closed_signal_causality_checks": 234,
+  "production_changed": false,
+  "prospective_protocol_changed": false,
+  "independent_validation": false,
+  "approved_for_production": false,
+  "original_consistency_screen": {
+    "MOMENTUM_BTC_RISK1": {
+      "conditions": {
+        "new_early_history": {
+          "base_positive": true,
+          "stress_positive": false,
+          "base_dd_at_most10": true,
+          "base_subblocks_positive": false,
+          "stress_subblocks_positive": false
+        },
+        "historical_actual_fair": {
+          "base_positive": true,
+          "stress_positive": true,
+          "base_dd_at_most10": true,
+          "base_subblocks_positive": true,
+          "stress_subblocks_positive": false
+        },
+        "recent_extended": {
+          "base_positive": true,
+          "stress_positive": true,
+          "base_dd_at_most10": true,
+          "base_subblocks_positive": true,
+          "stress_subblocks_positive": true
+        },
+        "continuous_all": {
+          "base_positive": true,
+          "stress_positive": true
+        }
+      },
+      "passed": false
+    },
+    "MOMENTUM_BTC_RISK1_RELATIVE_RANK": {
+      "conditions": {
+        "new_early_history": {
+          "base_positive": true,
+          "stress_positive": true,
+          "base_dd_at_most10": true,
+          "base_subblocks_positive": true,
+          "stress_subblocks_positive": true
+        },
+        "historical_actual_fair": {
+          "base_positive": true,
+          "stress_positive": true,
+          "base_dd_at_most10": true,
+          "base_subblocks_positive": true,
+          "stress_subblocks_positive": false
+        },
+        "recent_extended": {
+          "base_positive": true,
+          "stress_positive": true,
+          "base_dd_at_most10": true,
+          "base_subblocks_positive": true,
+          "stress_subblocks_positive": true
+        },
+        "continuous_all": {
+          "base_positive": true,
+          "stress_positive": true
+        }
+      },
+      "passed": false
+    }
+  },
+  "exploratory_acceptance": {
+    "conditions": {
+      "continuous_base_roi_improves": true,
+      "continuous_stress_roi_improves": true,
+      "continuous_base_dd_at_most10": true,
+      "all_three_periods_positive": true,
+      "no_modeled_liquidations": true
+    },
+    "passed": true
+  },
+  "experiments": {
+    "new_early_history": {
+      "MOMENTUM_BTC_RISK1": {
+        "base": {
+          "summary": {
+            "initial": "100",
+            "final": "100.63279383192",
+            "return_pct": "0.6327938319200",
+            "max_drawdown_pct": "6.748450923229516753185700154",
+            "positions": 46,
+            "positive": 27,
+            "profit_factor": "1.055087720128423094762740803",
+            "outcomes": {
+              "TEMPO": 36,
+              "STOP": 9,
+              "FIM_DO_BLOCO": 1
+            },
+            "skipped": {
+              "DIRECAO_CONTRA_BTC_7D": 246,
+              "LOTE": 56,
+              "OUTRO_PLANO_PRIORIZADO": 707,
+              "CARTEIRA_OCUPADA": 0,
+              "STOP_PROXIMO_DA_LIQUIDACAO": 38,
+              "LIQUIDEZ": 102
+            },
+            "trading_fees": "1.009182762",
+            "funding_paid": "0.01217340608"
+          },
+          "months": {
+            "2026-05": {
+              "start": "100",
+              "end": "103.16928018292",
+              "return_pct": "3.1692801829200"
+            },
+            "2026-06": {
+              "start": "103.16928018292",
+              "end": "100.63279383192",
+              "return_pct": "-2.458567459715516481929870260"
+            }
+          },
+          "temporal_blocks": {
+            "development_return_pct": "3.1692801829200",
+            "verification_return_pct": "-2.458567459715516481929870260"
+          },
+          "per_symbol": {
+            "AAVE_USDT": {
+              "positions": 1,
+              "net": "-0.6124858080",
+              "positive": 0,
+              "fees": "0.01983828",
+              "funding_paid": "0.0008475280"
+            },
+            "ADA_USDT": {
+              "positions": 2,
+              "net": "-0.4255599836",
+              "positive": 1,
+              "fees": "0.04940796",
+              "funding_paid": "-0.0004479764"
+            },
+            "ARB_USDT": {
+              "positions": 3,
+              "net": "-1.28986164664",
+              "positive": 1,
+              "fees": "0.081212010",
+              "funding_paid": "0.00263963664"
+            },
+            "AVAX_USDT": {
+              "positions": 3,
+              "net": "-1.9047050279",
+              "positive": 1,
+              "fees": "0.07527738",
+              "funding_paid": "0.0023276479"
+            },
+            "BNB_USDT": {
+              "positions": 1,
+              "net": "-0.07973040",
+              "positive": 0,
+              "fees": "0.02093040",
+              "funding_paid": "0.000"
+            },
+            "BTC_USDT": {
+              "positions": 8,
+              "net": "2.25195583960",
+              "positive": 6,
+              "fees": "0.155623224",
+              "funding_paid": "-0.01245906360"
+            },
+            "DOGE_USDT": {
+              "positions": 6,
+              "net": "0.94992921400",
+              "positive": 5,
+              "fees": "0.101827200",
+              "funding_paid": "-0.00175641400"
+            },
+            "DOT_USDT": {
+              "positions": 1,
+              "net": "-0.2003114190",
+              "positive": 0,
+              "fees": "0.020512800",
+              "funding_paid": "-0.0008013810"
+            },
+            "FET_USDT": {
+              "positions": 1,
+              "net": "0.2367314960",
+              "positive": 1,
+              "fees": "0.01843680",
+              "funding_paid": "0.0088317040"
+            },
+            "ICP_USDT": {
+              "positions": 1,
+              "net": "0.06961248576",
+              "positive": 1,
+              "fees": "0.022093848",
+              "funding_paid": "0.00033366624"
+            },
+            "LINK_USDT": {
+              "positions": 1,
+              "net": "0.1488103440",
+              "positive": 1,
+              "fees": "0.02281824",
+              "funding_paid": "0.0011714160"
+            },
+            "SOL_USDT": {
+              "positions": 3,
+              "net": "-0.357389788",
+              "positive": 1,
+              "fees": "0.0613548",
+              "funding_paid": "0.002034988"
+            },
+            "SUI_USDT": {
+              "positions": 4,
+              "net": "-0.2918991344",
+              "positive": 2,
+              "fees": "0.11024280",
+              "funding_paid": "-0.0003436656"
+            },
+            "TAO_USDT": {
+              "positions": 4,
+              "net": "-1.1757100987",
+              "positive": 1,
+              "fees": "0.08311014",
+              "funding_paid": "0.0108999587"
+            },
+            "UNI_USDT": {
+              "positions": 3,
+              "net": "0.2646338480",
+              "positive": 2,
+              "fees": "0.08096796",
+              "funding_paid": "-0.0038018080"
+            },
+            "WLD_USDT": {
+              "positions": 1,
+              "net": "2.4919745866",
+              "positive": 1,
+              "fees": "0.02484018",
+              "funding_paid": "0.0024852334"
+            },
+            "XLM_USDT": {
+              "positions": 2,
+              "net": "0.24646145120",
+              "positive": 2,
+              "fees": "0.037829520",
+              "funding_paid": "-0.00149097120"
+            },
+            "XRP_USDT": {
+              "positions": 1,
+              "net": "0.3103378730",
+              "positive": 1,
+              "fees": "0.02285922",
+              "funding_paid": "0.0017029070"
+            }
+          },
+          "mean_hours_held": "22.26086956521739130434782609"
+        },
+        "stress": {
+          "summary": {
+            "initial": "100",
+            "final": "99.46887746095",
+            "return_pct": "-0.5311225390500",
+            "max_drawdown_pct": "7.003732023233971192523683427",
+            "positions": 46,
+            "positive": 27,
+            "profit_factor": "0.9543915895120991496330918254",
+            "outcomes": {
+              "TEMPO": 36,
+              "STOP": 9,
+              "FIM_DO_BLOCO": 1
+            },
+            "skipped": {
+              "DIRECAO_CONTRA_BTC_7D": 246,
+              "LOTE": 61,
+              "OUTRO_PLANO_PRIORIZADO": 701,
+              "CARTEIRA_OCUPADA": 0,
+              "STOP_PROXIMO_DA_LIQUIDACAO": 39,
+              "LIQUIDEZ": 102
+            },
+            "trading_fees": "1.630540730",
+            "funding_paid": "0.01297180905"
+          },
+          "months": {
+            "2026-05": {
+              "start": "100",
+              "end": "102.72093326005",
+              "return_pct": "2.7209332600500"
+            },
+            "2026-06": {
+              "start": "102.72093326005",
+              "end": "99.46887746095",
+              "return_pct": "-3.165913408192118136228763410"
+            }
+          },
+          "temporal_blocks": {
+            "development_return_pct": "2.7209332600500",
+            "verification_return_pct": "-3.165913408192118136228763410"
+          },
+          "per_symbol": {
+            "AAVE_USDT": {
+              "positions": 1,
+              "net": "-0.6345113280",
+              "positive": 0,
+              "fees": "0.03306380",
+              "funding_paid": "0.0008475280"
+            },
+            "ADA_USDT": {
+              "positions": 2,
+              "net": "-0.4454156590",
+              "positive": 1,
+              "fees": "0.08035250",
+              "funding_paid": "-0.0004368410"
+            },
+            "ARB_USDT": {
+              "positions": 3,
+              "net": "-1.32993626599",
+              "positive": 1,
+              "fees": "0.130923650",
+              "funding_paid": "0.00256261599"
+            },
+            "AVAX_USDT": {
+              "positions": 3,
+              "net": "-1.9211709211",
+              "positive": 1,
+              "fees": "0.12162310",
+              "funding_paid": "0.0022478211"
+            },
+            "BNB_USDT": {
+              "positions": 1,
+              "net": "-0.10388400",
+              "positive": 0,
+              "fees": "0.03488400",
+              "funding_paid": "0.000"
+            },
+            "BTC_USDT": {
+              "positions": 8,
+              "net": "1.83298459120",
+              "positive": 6,
+              "fees": "0.244859310",
+              "funding_paid": "-0.01071390120"
+            },
+            "DOGE_USDT": {
+              "positions": 6,
+              "net": "0.83604441400",
+              "positive": 5,
+              "fees": "0.169712000",
+              "funding_paid": "-0.00175641400"
+            },
+            "DOT_USDT": {
+              "positions": 1,
+              "net": "-0.2149737317",
+              "positive": 0,
+              "fees": "0.033048400",
+              "funding_paid": "-0.0007746683"
+            },
+            "FET_USDT": {
+              "positions": 1,
+              "net": "0.2244402960",
+              "positive": 1,
+              "fees": "0.03072800",
+              "funding_paid": "0.0088317040"
+            },
+            "ICP_USDT": {
+              "positions": 1,
+              "net": "0.05403054784",
+              "positive": 1,
+              "fees": "0.036250970",
+              "funding_paid": "0.00032848216"
+            },
+            "LINK_USDT": {
+              "positions": 1,
+              "net": "0.1188315930",
+              "positive": 1,
+              "fees": "0.03644580",
+              "funding_paid": "0.0011226070"
+            },
+            "SOL_USDT": {
+              "positions": 3,
+              "net": "-0.434292988",
+              "positive": 1,
+              "fees": "0.1022580",
+              "funding_paid": "0.002034988"
+            },
+            "SUI_USDT": {
+              "positions": 4,
+              "net": "-0.4017152834",
+              "positive": 2,
+              "fees": "0.17534930",
+              "funding_paid": "-0.0003340166"
+            },
+            "TAO_USDT": {
+              "positions": 4,
+              "net": "-1.2057735757",
+              "positive": 1,
+              "fees": "0.13314220",
+              "funding_paid": "0.0102313757"
+            },
+            "UNI_USDT": {
+              "positions": 3,
+              "net": "0.2030972208",
+              "positive": 2,
+              "fees": "0.13119740",
+              "funding_paid": "-0.0036946208"
+            },
+            "WLD_USDT": {
+              "positions": 1,
+              "net": "2.4334582892",
+              "positive": 1,
+              "fees": "0.04069860",
+              "funding_paid": "0.0024431108"
+            },
+            "XLM_USDT": {
+              "positions": 2,
+              "net": "0.18952459780",
+              "positive": 2,
+              "fees": "0.060146100",
+              "funding_paid": "-0.00157069780"
+            },
+            "XRP_USDT": {
+              "positions": 1,
+              "net": "0.2681396640",
+              "positive": 1,
+              "fees": "0.03585760",
+              "funding_paid": "0.0016027360"
+            }
+          },
+          "mean_hours_held": "22.26086956521739130434782609"
+        }
+      },
+      "MOMENTUM_BTC_RISK1_RELATIVE_RANK": {
+        "base": {
+          "summary": {
+            "initial": "100",
+            "final": "107.75775492075",
+            "return_pct": "7.7577549207500",
+            "max_drawdown_pct": "5.615795303172163527251383723",
+            "positions": 46,
+            "positive": 26,
+            "profit_factor": "1.557187159271086520132666805",
+            "outcomes": {
+              "TEMPO": 34,
+              "STOP": 11,
+              "FIM_DO_BLOCO": 1
+            },
+            "skipped": {
+              "DIRECAO_CONTRA_BTC_7D": 246,
+              "LOTE": 55,
+              "OUTRO_PLANO_PRIORIZADO": 708,
+              "CARTEIRA_OCUPADA": 0,
+              "STOP_PROXIMO_DA_LIQUIDACAO": 38,
+              "LIQUIDEZ": 102
+            },
+            "trading_fees": "1.112599464",
+            "funding_paid": "-0.01257438475"
+          },
+          "months": {
+            "2026-05": {
+              "start": "100",
+              "end": "103.56206578025",
+              "return_pct": "3.5620657802500"
+            },
+            "2026-06": {
+              "start": "103.56206578025",
+              "end": "107.75775492075",
+              "return_pct": "4.051376446471142958001954700"
+            }
+          },
+          "temporal_blocks": {
+            "development_return_pct": "3.5620657802500",
+            "verification_return_pct": "4.051376446471142958001954700"
+          },
+          "per_symbol": {
+            "AAVE_USDT": {
+              "positions": 1,
+              "net": "-0.6403260720",
+              "positive": 0,
+              "fees": "0.02074002",
+              "funding_paid": "0.0008860520"
+            },
+            "ADA_USDT": {
+              "positions": 4,
+              "net": "-0.6391486568",
+              "positive": 2,
+              "fees": "0.12558930",
+              "funding_paid": "0.0030593568"
+            },
+            "ARB_USDT": {
+              "positions": 5,
+              "net": "-1.06806156038",
+              "positive": 2,
+              "fees": "0.126207414",
+              "funding_paid": "0.00140414638"
+            },
+            "AVAX_USDT": {
+              "positions": 3,
+              "net": "-1.9631194980",
+              "positive": 1,
+              "fees": "0.07679004",
+              "funding_paid": "0.0023294580"
+            },
+            "BNB_USDT": {
+              "positions": 2,
+              "net": "-0.061153486",
+              "positive": 1,
+              "fees": "0.03523680",
+              "funding_paid": "-0.000083314"
+            },
+            "DOGE_USDT": {
+              "positions": 1,
+              "net": "0.06451161200",
+              "positive": 1,
+              "fees": "0.017346000",
+              "funding_paid": "0.00014238800"
+            },
+            "DOT_USDT": {
+              "positions": 1,
+              "net": "-0.2127116497",
+              "positive": 0,
+              "fees": "0.021782640",
+              "funding_paid": "-0.0008509903"
+            },
+            "ENA_USDT": {
+              "positions": 1,
+              "net": "0.89467929200",
+              "positive": 1,
+              "fees": "0.021772800",
+              "funding_paid": "-0.00045209200"
+            },
+            "FET_USDT": {
+              "positions": 1,
+              "net": "1.7820954180",
+              "positive": 1,
+              "fees": "0.03899880",
+              "funding_paid": "-0.0030942180"
+            },
+            "ICP_USDT": {
+              "positions": 2,
+              "net": "0.28916893683",
+              "positive": 2,
+              "fees": "0.044589330",
+              "funding_paid": "-0.00114826683"
+            },
+            "INJ_USDT": {
+              "positions": 2,
+              "net": "1.047083922",
+              "positive": 1,
+              "fees": "0.0364038",
+              "funding_paid": "-0.012487722"
+            },
+            "SUI_USDT": {
+              "positions": 7,
+              "net": "0.7739573405",
+              "positive": 4,
+              "fees": "0.17978340",
+              "funding_paid": "-0.0099407405"
+            },
+            "TAO_USDT": {
+              "positions": 9,
+              "net": "4.4353078325",
+              "positive": 5,
+              "fees": "0.19741002",
+              "funding_paid": "0.0127821475"
+            },
+            "TIA_USDT": {
+              "positions": 1,
+              "net": "-1.0381596096",
+              "positive": 0,
+              "fees": "0.02841600",
+              "funding_paid": "-0.0014563904"
+            },
+            "UNI_USDT": {
+              "positions": 2,
+              "net": "0.1402245320",
+              "positive": 1,
+              "fees": "0.05566806",
+              "funding_paid": "-0.0019925920"
+            },
+            "WLD_USDT": {
+              "positions": 2,
+              "net": "3.8308011451",
+              "positive": 2,
+              "fees": "0.04788738",
+              "funding_paid": "-0.0003885251"
+            },
+            "XLM_USDT": {
+              "positions": 2,
+              "net": "0.12260542230",
+              "positive": 2,
+              "fees": "0.037977660",
+              "funding_paid": "-0.00128308230"
+            }
+          },
+          "mean_hours_held": "21.43478260869565217391304348"
+        },
+        "stress": {
+          "summary": {
+            "initial": "100",
+            "final": "106.50401345346",
+            "return_pct": "6.5040134534600",
+            "max_drawdown_pct": "5.586422193701477962068317911",
+            "positions": 46,
+            "positive": 26,
+            "profit_factor": "1.466866865667446926666723082",
+            "outcomes": {
+              "TEMPO": 34,
+              "STOP": 11,
+              "FIM_DO_BLOCO": 1
+            },
+            "skipped": {
+              "DIRECAO_CONTRA_BTC_7D": 246,
+              "LOTE": 61,
+              "OUTRO_PLANO_PRIORIZADO": 701,
+              "CARTEIRA_OCUPADA": 0,
+              "STOP_PROXIMO_DA_LIQUIDACAO": 39,
+              "LIQUIDEZ": 102
+            },
+            "trading_fees": "1.794669560",
+            "funding_paid": "-0.01302301346"
+          },
+          "months": {
+            "2026-05": {
+              "start": "100",
+              "end": "103.05063046066",
+              "return_pct": "3.0506304606600"
+            },
+            "2026-06": {
+              "start": "103.05063046066",
+              "end": "106.50401345346",
+              "return_pct": "3.351151737124347913023898000"
+            }
+          },
+          "temporal_blocks": {
+            "development_return_pct": "3.0506304606600",
+            "verification_return_pct": "3.351151737124347913023898000"
+          },
+          "per_symbol": {
+            "AAVE_USDT": {
+              "positions": 1,
+              "net": "-0.6345113280",
+              "positive": 0,
+              "fees": "0.03306380",
+              "funding_paid": "0.0008475280"
+            },
+            "ADA_USDT": {
+              "positions": 4,
+              "net": "-0.7226905340",
+              "positive": 2,
+              "fees": "0.20252420",
+              "funding_paid": "0.0029663340"
+            },
+            "ARB_USDT": {
+              "positions": 5,
+              "net": "-1.16535460012",
+              "positive": 2,
+              "fees": "0.203512150",
+              "funding_paid": "0.00135245012"
+            },
+            "AVAX_USDT": {
+              "positions": 3,
+              "net": "-1.9518788211",
+              "positive": 1,
+              "fees": "0.12283100",
+              "funding_paid": "0.0022478211"
+            },
+            "BNB_USDT": {
+              "positions": 2,
+              "net": "-0.102044686",
+              "positive": 1,
+              "fees": "0.05872800",
+              "funding_paid": "-0.000083314"
+            },
+            "DOGE_USDT": {
+              "positions": 1,
+              "net": "0.04494761200",
+              "positive": 1,
+              "fees": "0.028910000",
+              "funding_paid": "0.00014238800"
+            },
+            "DOT_USDT": {
+              "positions": 1,
+              "net": "-0.2276815385",
+              "positive": 0,
+              "fees": "0.035002000",
+              "funding_paid": "-0.0008204615"
+            },
+            "ENA_USDT": {
+              "positions": 1,
+              "net": "0.82475588740",
+              "positive": 1,
+              "fees": "0.034473600",
+              "funding_paid": "-0.00042948740"
+            },
+            "FET_USDT": {
+              "positions": 1,
+              "net": "1.6585353170",
+              "positive": 1,
+              "fees": "0.06138700",
+              "funding_paid": "-0.0029223170"
+            },
+            "ICP_USDT": {
+              "positions": 2,
+              "net": "0.25550337978",
+              "positive": 2,
+              "fees": "0.073177710",
+              "funding_paid": "-0.00113108978"
+            },
+            "INJ_USDT": {
+              "positions": 2,
+              "net": "1.022814722",
+              "positive": 1,
+              "fees": "0.0606730",
+              "funding_paid": "-0.012487722"
+            },
+            "SUI_USDT": {
+              "positions": 7,
+              "net": "0.5098266166",
+              "positive": 4,
+              "fees": "0.28783950",
+              "funding_paid": "-0.0095661166"
+            },
+            "TAO_USDT": {
+              "positions": 9,
+              "net": "4.1281996626",
+              "positive": 5,
+              "fees": "0.31412020",
+              "funding_paid": "0.0118801374"
+            },
+            "TIA_USDT": {
+              "positions": 1,
+              "net": "-1.0405863657",
+              "positive": 0,
+              "fees": "0.04662000",
+              "funding_paid": "-0.0014336343"
+            },
+            "UNI_USDT": {
+              "positions": 2,
+              "net": "0.0973813608",
+              "positive": 1,
+              "fees": "0.09025430",
+              "funding_paid": "-0.0019356608"
+            },
+            "WLD_USDT": {
+              "positions": 2,
+              "net": "3.7275097864",
+              "positive": 2,
+              "fees": "0.07825700",
+              "funding_paid": "-0.0003667864"
+            },
+            "XLM_USDT": {
+              "positions": 2,
+              "net": "0.07928698230",
+              "positive": 2,
+              "fees": "0.063296100",
+              "funding_paid": "-0.00128308230"
+            }
+          },
+          "mean_hours_held": "21.43478260869565217391304348"
+        }
+      }
+    },
+    "historical_actual_fair": {
+      "MOMENTUM_BTC_RISK1": {
+        "base": {
+          "summary": {
+            "initial": "100",
+            "final": "117.15093855151",
+            "return_pct": "17.1509385515100",
+            "max_drawdown_pct": "7.277728704620292531194642680",
+            "positions": 92,
+            "positive": 34,
+            "profit_factor": "1.499585824122418678089103798",
+            "outcomes": {
+              "TEMPO": 66,
+              "STOP": 26
+            },
+            "skipped": {
+              "DIRECAO_CONTRA_BTC_7D": 612,
+              "LIQUIDEZ": 151,
+              "LOTE": 128,
+              "OUTRO_PLANO_PRIORIZADO": 1331,
+              "CARTEIRA_OCUPADA": 0,
+              "STOP_PROXIMO_DA_LIQUIDACAO": 74,
+              "STOP_DURANTE_LATENCIA": 1
+            },
+            "trading_fees": "2.122119078",
+            "funding_paid": "0.14797237049"
+          },
+          "months": {
+            "2026-07": {
+              "start": "100",
+              "end": "96.49720556399",
+              "return_pct": "-3.5027944360100"
+            },
+            "2026-08": {
+              "start": "96.49720556399",
+              "end": "101.02482990114",
+              "return_pct": "4.691974561012137785076411400"
+            },
+            "2026-09": {
+              "start": "101.02482990114",
+              "end": "117.15093855151",
+              "return_pct": "15.96251997271418050891571790"
+            }
+          },
+          "temporal_blocks": {
+            "development_return_pct": "1.0248299011400",
+            "verification_return_pct": "15.96251997271418050891571790"
+          },
+          "per_symbol": {
+            "AAVE_USDT": {
+              "positions": 2,
+              "net": "-0.3583989012",
+              "positive": 1,
+              "fees": "0.04344708",
+              "funding_paid": "0.0067518212"
+            },
+            "ADA_USDT": {
+              "positions": 10,
+              "net": "-2.8814260079",
+              "positive": 2,
+              "fees": "0.21944778",
+              "funding_paid": "0.0278782279"
+            },
+            "ARB_USDT": {
+              "positions": 11,
+              "net": "9.77244958717",
+              "positive": 5,
+              "fees": "0.291548178",
+              "funding_paid": "0.03571223483"
+            },
+            "AVAX_USDT": {
+              "positions": 2,
+              "net": "-1.0636774155",
+              "positive": 0,
+              "fees": "0.05320476",
+              "funding_paid": "0.0024726555"
+            },
+            "BNB_USDT": {
+              "positions": 2,
+              "net": "-0.370053900",
+              "positive": 0,
+              "fees": "0.03652212",
+              "funding_paid": "0.000931780"
+            },
+            "BTC_USDT": {
+              "positions": 2,
+              "net": "0.71642954246",
+              "positive": 1,
+              "fees": "0.036687792",
+              "funding_paid": "0.00152266554"
+            },
+            "DOT_USDT": {
+              "positions": 4,
+              "net": "-1.72304977602",
+              "positive": 1,
+              "fees": "0.109759008",
+              "funding_paid": "0.00347076802"
+            },
+            "ENA_USDT": {
+              "positions": 10,
+              "net": "1.11823318190",
+              "positive": 3,
+              "fees": "0.215601360",
+              "funding_paid": "0.02016545810"
+            },
+            "HYPE_USDT": {
+              "positions": 4,
+              "net": "-1.4761350882",
+              "positive": 0,
+              "fees": "0.08086194",
+              "funding_paid": "-0.0088268518"
+            },
+            "INJ_USDT": {
+              "positions": 5,
+              "net": "-1.521806287",
+              "positive": 1,
+              "fees": "0.0998604",
+              "funding_paid": "-0.000054113"
+            },
+            "LINK_USDT": {
+              "positions": 6,
+              "net": "1.8987844368",
+              "positive": 4,
+              "fees": "0.14333490",
+              "funding_paid": "0.0123806632"
+            },
+            "ONDO_USDT": {
+              "positions": 7,
+              "net": "0.2735712990",
+              "positive": 5,
+              "fees": "0.14202420",
+              "funding_paid": "0.0254045010"
+            },
+            "QNT_USDT": {
+              "positions": 1,
+              "net": "13.0457190948",
+              "positive": 1,
+              "fees": "0.03263778",
+              "funding_paid": "-0.0016568748"
+            },
+            "SOL_USDT": {
+              "positions": 4,
+              "net": "-0.136779669",
+              "positive": 2,
+              "fees": "0.0685500",
+              "funding_paid": "0.004229669"
+            },
+            "SUI_USDT": {
+              "positions": 5,
+              "net": "0.2379424750",
+              "positive": 2,
+              "fees": "0.11494098",
+              "funding_paid": "0.0018165450"
+            },
+            "TAO_USDT": {
+              "positions": 1,
+              "net": "-1.0410120528",
+              "positive": 0,
+              "fees": "0.03295224",
+              "funding_paid": "-0.0011401872"
+            },
+            "TIA_USDT": {
+              "positions": 2,
+              "net": "-0.8419915225",
+              "positive": 1,
+              "fees": "0.07150668",
+              "funding_paid": "0.0036848425"
+            },
+            "UNI_USDT": {
+              "positions": 7,
+              "net": "0.6662938226",
+              "positive": 2,
+              "fees": "0.16366500",
+              "funding_paid": "0.0068411774"
+            },
+            "WLD_USDT": {
+              "positions": 5,
+              "net": "2.2491150605",
+              "positive": 3,
+              "fees": "0.11842080",
+              "funding_paid": "0.0050641395"
+            },
+            "XLM_USDT": {
+              "positions": 1,
+              "net": "-0.40890695900",
+              "positive": 0,
+              "fees": "0.021607200",
+              "funding_paid": "0.00329975900"
+            },
+            "XRP_USDT": {
+              "positions": 1,
+              "net": "-1.0043623696",
+              "positive": 0,
+              "fees": "0.02553888",
+              "funding_paid": "-0.0019765104"
+            }
+          },
+          "mean_hours_held": "20.87137681159420289855072464"
+        },
+        "stress": {
+          "summary": {
+            "initial": "100",
+            "final": "114.70307845723",
+            "return_pct": "14.7030784572300",
+            "max_drawdown_pct": "7.854534142221722124980327088",
+            "positions": 92,
+            "positive": 34,
+            "profit_factor": "1.429080132060153293505165306",
+            "outcomes": {
+              "TEMPO": 66,
+              "STOP": 26
+            },
+            "skipped": {
+              "DIRECAO_CONTRA_BTC_7D": 612,
+              "LIQUIDEZ": 151,
+              "LOTE": 137,
+              "OUTRO_PLANO_PRIORIZADO": 1320,
+              "CARTEIRA_OCUPADA": 0,
+              "STOP_PROXIMO_DA_LIQUIDACAO": 76,
+              "STOP_DURANTE_LATENCIA": 1
+            },
+            "trading_fees": "3.429172700",
+            "funding_paid": "0.14252884277"
+          },
+          "months": {
+            "2026-07": {
+              "start": "100",
+              "end": "95.86352530940",
+              "return_pct": "-4.136474690600"
+            },
+            "2026-08": {
+              "start": "95.86352530940",
+              "end": "99.76543689187",
+              "return_pct": "4.070277584593891319212912600"
+            },
+            "2026-09": {
+              "start": "99.76543689187",
+              "end": "114.70307845723",
+              "return_pct": "14.97276214161227771069188610"
+            }
+          },
+          "temporal_blocks": {
+            "development_return_pct": "-0.2345631081300",
+            "verification_return_pct": "14.97276214161227771069188610"
+          },
+          "per_symbol": {
+            "AAVE_USDT": {
+              "positions": 2,
+              "net": "-0.4257555008",
+              "positive": 1,
+              "fees": "0.07059370",
+              "funding_paid": "0.0066618008"
+            },
+            "ADA_USDT": {
+              "positions": 10,
+              "net": "-2.9674294453",
+              "positive": 2,
+              "fees": "0.35905340",
+              "funding_paid": "0.0273760453"
+            },
+            "ARB_USDT": {
+              "positions": 11,
+              "net": "9.00210576805",
+              "positive": 5,
+              "fees": "0.466827510",
+              "funding_paid": "0.03439672195"
+            },
+            "AVAX_USDT": {
+              "positions": 2,
+              "net": "-1.0708069100",
+              "positive": 0,
+              "fees": "0.08445200",
+              "funding_paid": "0.0023549100"
+            },
+            "BNB_USDT": {
+              "positions": 2,
+              "net": "-0.412801980",
+              "positive": 0,
+              "fees": "0.06087020",
+              "funding_paid": "0.000931780"
+            },
+            "BTC_USDT": {
+              "positions": 2,
+              "net": "0.67361125446",
+              "positive": 1,
+              "fees": "0.061146080",
+              "funding_paid": "0.00152266554"
+            },
+            "DOT_USDT": {
+              "positions": 4,
+              "net": "-1.75179751988",
+              "positive": 1,
+              "fees": "0.174737210",
+              "funding_paid": "0.00333030988"
+            },
+            "ENA_USDT": {
+              "positions": 10,
+              "net": "1.00916707320",
+              "positive": 3,
+              "fees": "0.344226800",
+              "funding_paid": "0.01880612680"
+            },
+            "HYPE_USDT": {
+              "positions": 4,
+              "net": "-1.5706432482",
+              "positive": 0,
+              "fees": "0.13477010",
+              "funding_paid": "-0.0088268518"
+            },
+            "INJ_USDT": {
+              "positions": 5,
+              "net": "-1.344022395",
+              "positive": 1,
+              "fees": "0.1545510",
+              "funding_paid": "-0.001528605"
+            },
+            "LINK_USDT": {
+              "positions": 6,
+              "net": "1.6645342884",
+              "positive": 4,
+              "fees": "0.22931270",
+              "funding_paid": "0.0118530116"
+            },
+            "ONDO_USDT": {
+              "positions": 7,
+              "net": "0.1728884990",
+              "positive": 5,
+              "fees": "0.23670700",
+              "funding_paid": "0.0254045010"
+            },
+            "QNT_USDT": {
+              "positions": 1,
+              "net": "12.3877759760",
+              "positive": 1,
+              "fees": "0.05180200",
+              "funding_paid": "-0.0015779760"
+            },
+            "SOL_USDT": {
+              "positions": 4,
+              "net": "-0.212479669",
+              "positive": 2,
+              "fees": "0.1142500",
+              "funding_paid": "0.004229669"
+            },
+            "SUI_USDT": {
+              "positions": 5,
+              "net": "0.1798956821",
+              "positive": 2,
+              "fees": "0.18634800",
+              "funding_paid": "0.0019563179"
+            },
+            "TAO_USDT": {
+              "positions": 1,
+              "net": "-0.9897985284",
+              "positive": 0,
+              "fees": "0.05034370",
+              "funding_paid": "-0.0010451716"
+            },
+            "TIA_USDT": {
+              "positions": 2,
+              "net": "-0.8487362550",
+              "positive": 1,
+              "fees": "0.11451240",
+              "funding_paid": "0.0034238550"
+            },
+            "UNI_USDT": {
+              "positions": 7,
+              "net": "0.5125364874",
+              "positive": 2,
+              "fees": "0.26560420",
+              "funding_paid": "0.0068593126"
+            },
+            "WLD_USDT": {
+              "positions": 5,
+              "net": "2.0976981607",
+              "positive": 3,
+              "fees": "0.19314820",
+              "funding_paid": "0.0049536393"
+            },
+            "XLM_USDT": {
+              "positions": 1,
+              "net": "-0.43331175900",
+              "positive": 0,
+              "fees": "0.036012000",
+              "funding_paid": "0.00329975900"
+            },
+            "XRP_USDT": {
+              "positions": 1,
+              "net": "-0.9695515215",
+              "positive": 0,
+              "fees": "0.03990450",
+              "funding_paid": "-0.0018529785"
+            }
+          },
+          "mean_hours_held": "20.87137681159420289855072464"
+        }
+      },
+      "MOMENTUM_BTC_RISK1_RELATIVE_RANK": {
+        "base": {
+          "summary": {
+            "initial": "100",
+            "final": "114.40871219718",
+            "return_pct": "14.4087121971800",
+            "max_drawdown_pct": "7.718392062052238636432251989",
+            "positions": 92,
+            "positive": 36,
+            "profit_factor": "1.411252491759514972206194770",
+            "outcomes": {
+              "TEMPO": 65,
+              "STOP": 27
+            },
+            "skipped": {
+              "DIRECAO_CONTRA_BTC_7D": 612,
+              "LIQUIDEZ": 151,
+              "LOTE": 128,
+              "OUTRO_PLANO_PRIORIZADO": 1331,
+              "CARTEIRA_OCUPADA": 0,
+              "STOP_PROXIMO_DA_LIQUIDACAO": 74,
+              "STOP_DURANTE_LATENCIA": 1
+            },
+            "trading_fees": "2.136345378",
+            "funding_paid": "0.15211242482"
+          },
+          "months": {
+            "2026-07": {
+              "start": "100",
+              "end": "96.59734973817",
+              "return_pct": "-3.4026502618300"
+            },
+            "2026-08": {
+              "start": "96.59734973817",
+              "end": "100.57697232200",
+              "return_pct": "4.119805144361502473392615800"
+            },
+            "2026-09": {
+              "start": "100.57697232200",
+              "end": "114.40871219718",
+              "return_pct": "13.75239237754870622302405960"
+            }
+          },
+          "temporal_blocks": {
+            "development_return_pct": "0.57697232200",
+            "verification_return_pct": "13.75239237754870622302405960"
+          },
+          "per_symbol": {
+            "AAVE_USDT": {
+              "positions": 2,
+              "net": "-0.3583989012",
+              "positive": 1,
+              "fees": "0.04344708",
+              "funding_paid": "0.0067518212"
+            },
+            "ADA_USDT": {
+              "positions": 10,
+              "net": "-2.8814260079",
+              "positive": 2,
+              "fees": "0.21944778",
+              "funding_paid": "0.0278782279"
+            },
+            "ARB_USDT": {
+              "positions": 13,
+              "net": "8.21100685619",
+              "positive": 5,
+              "fees": "0.343053270",
+              "funding_paid": "0.03620987381"
+            },
+            "AVAX_USDT": {
+              "positions": 1,
+              "net": "-1.02917178",
+              "positive": 0,
+              "fees": "0.02747178",
+              "funding_paid": "0"
+            },
+            "BNB_USDT": {
+              "positions": 1,
+              "net": "-0.360610336",
+              "positive": 0,
+              "fees": "0.01823292",
+              "funding_paid": "0.000977416"
+            },
+            "DOT_USDT": {
+              "positions": 3,
+              "net": "-1.65968502391",
+              "positive": 1,
+              "fees": "0.088770648",
+              "funding_paid": "0.00331437591"
+            },
+            "ENA_USDT": {
+              "positions": 11,
+              "net": "0.18515873710",
+              "positive": 3,
+              "fees": "0.245622960",
+              "funding_paid": "0.01741830290"
+            },
+            "FET_USDT": {
+              "positions": 1,
+              "net": "0.49894240",
+              "positive": 1,
+              "fees": "0.03197700",
+              "funding_paid": "0.00808060"
+            },
+            "HYPE_USDT": {
+              "positions": 6,
+              "net": "-0.9630471804",
+              "positive": 2,
+              "fees": "0.11953554",
+              "funding_paid": "-0.0017883596"
+            },
+            "INJ_USDT": {
+              "positions": 6,
+              "net": "-1.193790595",
+              "positive": 2,
+              "fees": "0.1187568",
+              "funding_paid": "0.011033795"
+            },
+            "LINK_USDT": {
+              "positions": 5,
+              "net": "2.9232229088",
+              "positive": 4,
+              "fees": "0.11570490",
+              "funding_paid": "0.0135721912"
+            },
+            "ONDO_USDT": {
+              "positions": 8,
+              "net": "0.0843461610",
+              "positive": 5,
+              "fees": "0.16599300",
+              "funding_paid": "0.0226608390"
+            },
+            "QNT_USDT": {
+              "positions": 1,
+              "net": "12.4244943760",
+              "positive": 1,
+              "fees": "0.03108360",
+              "funding_paid": "-0.0015779760"
+            },
+            "SOL_USDT": {
+              "positions": 3,
+              "net": "0.030018771",
+              "positive": 2,
+              "fees": "0.0502668",
+              "funding_paid": "-0.000285571"
+            },
+            "SUI_USDT": {
+              "positions": 2,
+              "net": "-0.8650118944",
+              "positive": 1,
+              "fees": "0.04597272",
+              "funding_paid": "-0.0027608256"
+            },
+            "TAO_USDT": {
+              "positions": 2,
+              "net": "-1.3848739978",
+              "positive": 0,
+              "fees": "0.04986438",
+              "funding_paid": "0.0031096178"
+            },
+            "TIA_USDT": {
+              "positions": 3,
+              "net": "-1.0898110875",
+              "positive": 1,
+              "fees": "0.09639534",
+              "funding_paid": "-0.0014842525"
+            },
+            "UNI_USDT": {
+              "positions": 6,
+              "net": "1.0987978197",
+              "positive": 2,
+              "fees": "0.14114772",
+              "funding_paid": "0.0012544603"
+            },
+            "WLD_USDT": {
+              "positions": 6,
+              "net": "2.1518203001",
+              "positive": 3,
+              "fees": "0.13645506",
+              "funding_paid": "0.0064246399"
+            },
+            "XLM_USDT": {
+              "positions": 1,
+              "net": "-0.40890695900",
+              "positive": 0,
+              "fees": "0.021607200",
+              "funding_paid": "0.00329975900"
+            },
+            "XRP_USDT": {
+              "positions": 1,
+              "net": "-1.0043623696",
+              "positive": 0,
+              "fees": "0.02553888",
+              "funding_paid": "-0.0019765104"
+            }
+          },
+          "mean_hours_held": "20.57789855072463768115942029"
+        },
+        "stress": {
+          "summary": {
+            "initial": "100",
+            "final": "111.70976243817",
+            "return_pct": "11.7097624381700",
+            "max_drawdown_pct": "7.742573016175659103417622548",
+            "positions": 92,
+            "positive": 36,
+            "profit_factor": "1.335553451768019564241445072",
+            "outcomes": {
+              "TEMPO": 65,
+              "STOP": 27
+            },
+            "skipped": {
+              "DIRECAO_CONTRA_BTC_7D": 612,
+              "LIQUIDEZ": 151,
+              "LOTE": 137,
+              "OUTRO_PLANO_PRIORIZADO": 1320,
+              "CARTEIRA_OCUPADA": 0,
+              "STOP_PROXIMO_DA_LIQUIDACAO": 76,
+              "STOP_DURANTE_LATENCIA": 1
+            },
+            "trading_fees": "3.443714930",
+            "funding_paid": "0.14765263183"
+          },
+          "months": {
+            "2026-07": {
+              "start": "100",
+              "end": "95.97885991009",
+              "return_pct": "-4.0211400899100"
+            },
+            "2026-08": {
+              "start": "95.97885991009",
+              "end": "99.01866800075",
+              "return_pct": "3.167164200020293356514388400"
+            },
+            "2026-09": {
+              "start": "99.01866800075",
+              "end": "111.70976243817",
+              "return_pct": "12.81687048882931193472909590"
+            }
+          },
+          "temporal_blocks": {
+            "development_return_pct": "-0.9813319992500",
+            "verification_return_pct": "12.81687048882931193472909590"
+          },
+          "per_symbol": {
+            "AAVE_USDT": {
+              "positions": 2,
+              "net": "-0.4257555008",
+              "positive": 1,
+              "fees": "0.07059370",
+              "funding_paid": "0.0066618008"
+            },
+            "ADA_USDT": {
+              "positions": 10,
+              "net": "-2.9674294453",
+              "positive": 2,
+              "fees": "0.35905340",
+              "funding_paid": "0.0273760453"
+            },
+            "ARB_USDT": {
+              "positions": 13,
+              "net": "7.38832599010",
+              "positive": 5,
+              "fees": "0.548622850",
+              "funding_paid": "0.03482115990"
+            },
+            "AVAX_USDT": {
+              "positions": 1,
+              "net": "-1.00960600",
+              "positive": 0,
+              "fees": "0.04360600",
+              "funding_paid": "0"
+            },
+            "BNB_USDT": {
+              "positions": 1,
+              "net": "-0.381965616",
+              "positive": 0,
+              "fees": "0.03038820",
+              "funding_paid": "0.000977416"
+            },
+            "DOT_USDT": {
+              "positions": 3,
+              "net": "-1.65660809733",
+              "positive": 1,
+              "fees": "0.140006880",
+              "funding_paid": "0.00316121733"
+            },
+            "ENA_USDT": {
+              "positions": 11,
+              "net": "-0.25248175050",
+              "positive": 3,
+              "fees": "0.391141700",
+              "funding_paid": "0.01644005050"
+            },
+            "FET_USDT": {
+              "positions": 1,
+              "net": "0.47762440",
+              "positive": 1,
+              "fees": "0.05329500",
+              "funding_paid": "0.00808060"
+            },
+            "HYPE_USDT": {
+              "positions": 6,
+              "net": "-1.1027375404",
+              "positive": 2,
+              "fees": "0.19922590",
+              "funding_paid": "-0.0017883596"
+            },
+            "INJ_USDT": {
+              "positions": 6,
+              "net": "-1.036604303",
+              "positive": 2,
+              "fees": "0.1860450",
+              "funding_paid": "0.009559303"
+            },
+            "LINK_USDT": {
+              "positions": 5,
+              "net": "2.6685517368",
+              "positive": 4,
+              "fees": "0.18556330",
+              "funding_paid": "0.0129849632"
+            },
+            "ONDO_USDT": {
+              "positions": 8,
+              "net": "0.0018848840",
+              "positive": 5,
+              "fees": "0.26999700",
+              "funding_paid": "0.0231181160"
+            },
+            "QNT_USDT": {
+              "positions": 1,
+              "net": "11.7683871772",
+              "positive": 1,
+              "fees": "0.04921190",
+              "funding_paid": "-0.0014990772"
+            },
+            "SOL_USDT": {
+              "positions": 3,
+              "net": "-0.025492429",
+              "positive": 2,
+              "fees": "0.0837780",
+              "funding_paid": "-0.000285571"
+            },
+            "SUI_USDT": {
+              "positions": 2,
+              "net": "-0.8562195272",
+              "positive": 1,
+              "fees": "0.07277810",
+              "funding_paid": "-0.0026585728"
+            },
+            "TAO_USDT": {
+              "positions": 2,
+              "net": "-1.3533352334",
+              "positive": 0,
+              "fees": "0.07853060",
+              "funding_paid": "0.0032046334"
+            },
+            "TIA_USDT": {
+              "positions": 3,
+              "net": "-1.1069725585",
+              "positive": 1,
+              "fees": "0.15389980",
+              "funding_paid": "-0.0015272415"
+            },
+            "UNI_USDT": {
+              "positions": 6,
+              "net": "0.9708251574",
+              "positive": 2,
+              "fees": "0.22872400",
+              "funding_paid": "0.0012508426"
+            },
+            "WLD_USDT": {
+              "positions": 6,
+              "net": "2.0122343746",
+              "positive": 3,
+              "fees": "0.22333710",
+              "funding_paid": "0.0063285254"
+            },
+            "XLM_USDT": {
+              "positions": 1,
+              "net": "-0.43331175900",
+              "positive": 0,
+              "fees": "0.036012000",
+              "funding_paid": "0.00329975900"
+            },
+            "XRP_USDT": {
+              "positions": 1,
+              "net": "-0.9695515215",
+              "positive": 0,
+              "fees": "0.03990450",
+              "funding_paid": "-0.0018529785"
+            }
+          },
+          "mean_hours_held": "20.57789855072463768115942029"
+        }
+      }
+    },
+    "recent_extended": {
+      "MOMENTUM_BTC_RISK1": {
+        "base": {
+          "summary": {
+            "initial": "100",
+            "final": "104.19131986916",
+            "return_pct": "4.1913198691600",
+            "max_drawdown_pct": "2.125397716836718235370564118",
+            "positions": 23,
+            "positive": 13,
+            "profit_factor": "2.196935484649922852673965511",
+            "outcomes": {
+              "TEMPO": 20,
+              "STOP": 2,
+              "FIM_DO_BLOCO": 1
+            },
+            "skipped": {
+              "STOP_PROXIMO_DA_LIQUIDACAO": 30,
+              "DIRECAO_CONTRA_BTC_7D": 83,
+              "LOTE": 25,
+              "OUTRO_PLANO_PRIORIZADO": 408,
+              "CARTEIRA_OCUPADA": 0,
+              "LIQUIDEZ": 29
+            },
+            "trading_fees": "0.482837592",
+            "funding_paid": "-0.04207746116"
+          },
+          "months": {
+            "2026-10": {
+              "start": "100",
+              "end": "101.24020559638",
+              "return_pct": "1.2402055963800"
+            },
+            "2026-11": {
+              "start": "101.24020559638",
+              "end": "104.19131986916",
+              "return_pct": "2.914962741724737915042752100"
+            }
+          },
+          "temporal_blocks": {
+            "development_return_pct": "1.2402055963800",
+            "verification_return_pct": "2.914962741724737915042752100"
+          },
+          "per_symbol": {
+            "AAVE_USDT": {
+              "positions": 3,
+              "net": "-0.7130053982",
+              "positive": 2,
+              "fees": "0.06443952",
+              "funding_paid": "-0.0058341218"
+            },
+            "ARB_USDT": {
+              "positions": 1,
+              "net": "-0.07330954342",
+              "positive": 0,
+              "fees": "0.020772216",
+              "funding_paid": "-0.00102267258"
+            },
+            "BNB_USDT": {
+              "positions": 1,
+              "net": "-0.43368224",
+              "positive": 0,
+              "fees": "0.01408224",
+              "funding_paid": "0.0000"
+            },
+            "BTC_USDT": {
+              "positions": 2,
+              "net": "0.91183177258",
+              "positive": 1,
+              "fees": "0.034424556",
+              "funding_paid": "-0.00631632858"
+            },
+            "HYPE_USDT": {
+              "positions": 1,
+              "net": "-0.431883900",
+              "positive": 0,
+              "fees": "0.02822058",
+              "funding_paid": "-0.007036680"
+            },
+            "SOL_USDT": {
+              "positions": 3,
+              "net": "0.3949321",
+              "positive": 2,
+              "fees": "0.0561330",
+              "funding_paid": "-0.0140651"
+            },
+            "TIA_USDT": {
+              "positions": 3,
+              "net": "-0.1610783569",
+              "positive": 1,
+              "fees": "0.05868918",
+              "funding_paid": "0.0034891769"
+            },
+            "WLD_USDT": {
+              "positions": 2,
+              "net": "2.3570359517",
+              "positive": 2,
+              "fees": "0.04047318",
+              "funding_paid": "-0.0002091317"
+            },
+            "XLM_USDT": {
+              "positions": 3,
+              "net": "0.78927758240",
+              "positive": 2,
+              "fees": "0.073649040",
+              "funding_paid": "0.00547337760"
+            },
+            "XRP_USDT": {
+              "positions": 4,
+              "net": "1.5512019010",
+              "positive": 3,
+              "fees": "0.09195408",
+              "funding_paid": "-0.0165559810"
+            }
+          },
+          "mean_hours_held": "22.34782608695652173913043478"
+        },
+        "stress": {
+          "summary": {
+            "initial": "100",
+            "final": "103.58565680014",
+            "return_pct": "3.5856568001400",
+            "max_drawdown_pct": "2.161718719421935095710714193",
+            "positions": 23,
+            "positive": 13,
+            "profit_factor": "1.991084385243430009289897915",
+            "outcomes": {
+              "TEMPO": 20,
+              "STOP": 2,
+              "FIM_DO_BLOCO": 1
+            },
+            "skipped": {
+              "STOP_PROXIMO_DA_LIQUIDACAO": 30,
+              "DIRECAO_CONTRA_BTC_7D": 83,
+              "LOTE": 26,
+              "OUTRO_PLANO_PRIORIZADO": 407,
+              "CARTEIRA_OCUPADA": 0,
+              "LIQUIDEZ": 29
+            },
+            "trading_fees": "0.785657680",
+            "funding_paid": "-0.04181448014"
+          },
+          "months": {
+            "2026-10": {
+              "start": "100",
+              "end": "101.09328355226",
+              "return_pct": "1.0932835522600"
+            },
+            "2026-11": {
+              "start": "101.09328355226",
+              "end": "103.58565680014",
+              "return_pct": "2.465419224998831809647977700"
+            }
+          },
+          "temporal_blocks": {
+            "development_return_pct": "1.0932835522600",
+            "verification_return_pct": "2.465419224998831809647977700"
+          },
+          "per_symbol": {
+            "AAVE_USDT": {
+              "positions": 3,
+              "net": "-0.7196257782",
+              "positive": 2,
+              "fees": "0.10495990",
+              "funding_paid": "-0.0058341218"
+            },
+            "ARB_USDT": {
+              "positions": 1,
+              "net": "-0.09556530514",
+              "positive": 0,
+              "fees": "0.033948120",
+              "funding_paid": "-0.00100281486"
+            },
+            "BNB_USDT": {
+              "positions": 1,
+              "net": "-0.45007060",
+              "positive": 0,
+              "fees": "0.02347060",
+              "funding_paid": "0.0000"
+            },
+            "BTC_USDT": {
+              "positions": 2,
+              "net": "0.87166236858",
+              "positive": 1,
+              "fees": "0.057373960",
+              "funding_paid": "-0.00631632858"
+            },
+            "HYPE_USDT": {
+              "positions": 1,
+              "net": "-0.464797920",
+              "positive": 0,
+              "fees": "0.04703460",
+              "funding_paid": "-0.007036680"
+            },
+            "SOL_USDT": {
+              "positions": 3,
+              "net": "0.3275101",
+              "positive": 2,
+              "fees": "0.0935550",
+              "funding_paid": "-0.0140651"
+            },
+            "TIA_USDT": {
+              "positions": 3,
+              "net": "-0.1979471062",
+              "positive": 1,
+              "fees": "0.09498720",
+              "funding_paid": "0.0033599062"
+            },
+            "WLD_USDT": {
+              "positions": 2,
+              "net": "2.2678243380",
+              "positive": 2,
+              "fees": "0.06577380",
+              "funding_paid": "-0.0001981380"
+            },
+            "XLM_USDT": {
+              "positions": 3,
+              "net": "0.67847553880",
+              "positive": 2,
+              "fees": "0.119693900",
+              "funding_paid": "0.00493056120"
+            },
+            "XRP_USDT": {
+              "positions": 4,
+              "net": "1.3681911643",
+              "positive": 3,
+              "fees": "0.14486060",
+              "funding_paid": "-0.0156517643"
+            }
+          },
+          "mean_hours_held": "22.34782608695652173913043478"
+        }
+      },
+      "MOMENTUM_BTC_RISK1_RELATIVE_RANK": {
+        "base": {
+          "summary": {
+            "initial": "100",
+            "final": "105.58614597554",
+            "return_pct": "5.5861459755400",
+            "max_drawdown_pct": "1.618406917080592546220164864",
+            "positions": 23,
+            "positive": 15,
+            "profit_factor": "2.354038855292193468387448573",
+            "outcomes": {
+              "TEMPO": 20,
+              "STOP": 3
+            },
+            "skipped": {
+              "STOP_PROXIMO_DA_LIQUIDACAO": 30,
+              "DIRECAO_CONTRA_BTC_7D": 83,
+              "LOTE": 25,
+              "OUTRO_PLANO_PRIORIZADO": 408,
+              "CARTEIRA_OCUPADA": 0,
+              "LIQUIDEZ": 29
+            },
+            "trading_fees": "0.516719208",
+            "funding_paid": "-0.03234518354"
+          },
+          "months": {
+            "2026-10": {
+              "start": "100",
+              "end": "101.63100277204",
+              "return_pct": "1.6310027720400"
+            },
+            "2026-11": {
+              "start": "101.63100277204",
+              "end": "105.58614597554",
+              "return_pct": "3.891669958596640867174067500"
+            }
+          },
+          "temporal_blocks": {
+            "development_return_pct": "1.6310027720400",
+            "verification_return_pct": "3.891669958596640867174067500"
+          },
+          "per_symbol": {
+            "AAVE_USDT": {
+              "positions": 2,
+              "net": "-0.923474535",
+              "positive": 1,
+              "fees": "0.04308858",
+              "funding_paid": "-0.004114045"
+            },
+            "ARB_USDT": {
+              "positions": 1,
+              "net": "-0.07402128656",
+              "positive": 0,
+              "fees": "0.020973888",
+              "funding_paid": "-0.00103260144"
+            },
+            "ENA_USDT": {
+              "positions": 1,
+              "net": "-1.01521842100",
+              "positive": 0,
+              "fees": "0.019683720",
+              "funding_paid": "0.00013470100"
+            },
+            "HYPE_USDT": {
+              "positions": 1,
+              "net": "-0.431883900",
+              "positive": 0,
+              "fees": "0.02822058",
+              "funding_paid": "-0.007036680"
+            },
+            "QNT_USDT": {
+              "positions": 1,
+              "net": "1.9350635733",
+              "positive": 1,
+              "fees": "0.01983762",
+              "funding_paid": "-0.0024011933"
+            },
+            "SOL_USDT": {
+              "positions": 1,
+              "net": "0.1546125",
+              "positive": 1,
+              "fees": "0.0111846",
+              "funding_paid": "-0.0027971"
+            },
+            "TIA_USDT": {
+              "positions": 5,
+              "net": "0.6120132318",
+              "positive": 3,
+              "fees": "0.11098572",
+              "funding_paid": "0.0008010482"
+            },
+            "WLD_USDT": {
+              "positions": 5,
+              "net": "2.9795459896",
+              "positive": 4,
+              "fees": "0.12364998",
+              "funding_paid": "-0.0072959696"
+            },
+            "XLM_USDT": {
+              "positions": 2,
+              "net": "0.79830692240",
+              "positive": 2,
+              "fees": "0.047140440",
+              "funding_paid": "0.00795263760"
+            },
+            "XRP_USDT": {
+              "positions": 4,
+              "net": "1.5512019010",
+              "positive": 3,
+              "fees": "0.09195408",
+              "funding_paid": "-0.0165559810"
+            }
+          },
+          "mean_hours_held": "21.73913043478260869565217391"
+        },
+        "stress": {
+          "summary": {
+            "initial": "100",
+            "final": "104.99738757426",
+            "return_pct": "4.9973875742600",
+            "max_drawdown_pct": "1.593818263129463359001255399",
+            "positions": 23,
+            "positive": 15,
+            "profit_factor": "2.192598581600829582135606506",
+            "outcomes": {
+              "TEMPO": 20,
+              "STOP": 3
+            },
+            "skipped": {
+              "STOP_PROXIMO_DA_LIQUIDACAO": 30,
+              "DIRECAO_CONTRA_BTC_7D": 83,
+              "LOTE": 25,
+              "OUTRO_PLANO_PRIORIZADO": 408,
+              "CARTEIRA_OCUPADA": 0,
+              "LIQUIDEZ": 29
+            },
+            "trading_fees": "0.839395220",
+            "funding_paid": "-0.03130279426"
+          },
+          "months": {
+            "2026-10": {
+              "start": "100",
+              "end": "101.47568083226",
+              "return_pct": "1.4756808322600"
+            },
+            "2026-11": {
+              "start": "101.47568083226",
+              "end": "104.99738757426",
+              "return_pct": "3.470493337040433878489195600"
+            }
+          },
+          "temporal_blocks": {
+            "development_return_pct": "1.4756808322600",
+            "verification_return_pct": "3.470493337040433878489195600"
+          },
+          "per_symbol": {
+            "AAVE_USDT": {
+              "positions": 2,
+              "net": "-0.905460955",
+              "positive": 1,
+              "fees": "0.06937500",
+              "funding_paid": "-0.004114045"
+            },
+            "ARB_USDT": {
+              "positions": 1,
+              "net": "-0.09556530514",
+              "positive": 0,
+              "fees": "0.033948120",
+              "funding_paid": "-0.00100281486"
+            },
+            "ENA_USDT": {
+              "positions": 1,
+              "net": "-1.03814230100",
+              "positive": 0,
+              "fees": "0.032807600",
+              "funding_paid": "0.00013470100"
+            },
+            "HYPE_USDT": {
+              "positions": 1,
+              "net": "-0.464797920",
+              "positive": 0,
+              "fees": "0.04703460",
+              "funding_paid": "-0.007036680"
+            },
+            "QNT_USDT": {
+              "positions": 1,
+              "net": "1.9119395933",
+              "positive": 1,
+              "fees": "0.03306160",
+              "funding_paid": "-0.0024011933"
+            },
+            "SOL_USDT": {
+              "positions": 1,
+              "net": "0.1411561",
+              "positive": 1,
+              "fees": "0.0186410",
+              "funding_paid": "-0.0027971"
+            },
+            "TIA_USDT": {
+              "positions": 5,
+              "net": "0.5132639768",
+              "positive": 3,
+              "fees": "0.18020100",
+              "funding_paid": "0.0007350232"
+            },
+            "WLD_USDT": {
+              "positions": 5,
+              "net": "2.8247220586",
+              "positive": 4,
+              "fees": "0.20089950",
+              "funding_paid": "-0.0071215586"
+            },
+            "XLM_USDT": {
+              "positions": 2,
+              "net": "0.74208116240",
+              "positive": 2,
+              "fees": "0.078566200",
+              "funding_paid": "0.00795263760"
+            },
+            "XRP_USDT": {
+              "positions": 4,
+              "net": "1.3681911643",
+              "positive": 3,
+              "fees": "0.14486060",
+              "funding_paid": "-0.0156517643"
+            }
+          },
+          "mean_hours_held": "21.73913043478260869565217391"
+        }
+      }
+    },
+    "continuous_all": {
+      "MOMENTUM_BTC_RISK1": {
+        "base": {
+          "summary": {
+            "initial": "100",
+            "final": "120.38964704053",
+            "return_pct": "20.3896470405300",
+            "max_drawdown_pct": "9.640456243249352099726107449",
+            "positions": 184,
+            "positive": 83,
+            "profit_factor": "1.351718162091261425058403122",
+            "outcomes": {
+              "TEMPO": 141,
+              "STOP": 41,
+              "CANAL": 1,
+              "FIM_DO_BLOCO": 1
+            },
+            "skipped": {
+              "DIRECAO_CONTRA_BTC_7D": 1117,
+              "LOTE": 237,
+              "OUTRO_PLANO_PRIORIZADO": 2784,
+              "CARTEIRA_OCUPADA": 0,
+              "STOP_PROXIMO_DA_LIQUIDACAO": 170,
+              "LIQUIDEZ": 285,
+              "STOP_DURANTE_LATENCIA": 1
+            },
+            "trading_fees": "4.295714820",
+            "funding_paid": "0.10663813947"
+          },
+          "months": {
+            "2026-05": {
+              "start": "100",
+              "end": "103.16928018292",
+              "return_pct": "3.1692801829200"
+            },
+            "2026-06": {
+              "start": "103.16928018292",
+              "end": "100.63279383192",
+              "return_pct": "-2.458567459715516481929870260"
+            },
+            "2026-07": {
+              "start": "100.63279383192",
+              "end": "97.10701577252",
+              "return_pct": "-3.503607447577042726139049080"
+            },
+            "2026-08": {
+              "start": "97.10701577252",
+              "end": "101.29652250784",
+              "return_pct": "4.314319312555349834043824200"
+            },
+            "2026-09": {
+              "start": "101.29652250784",
+              "end": "117.46273758686",
+              "return_pct": "15.95929917314663091699451390"
+            },
+            "2026-10": {
+              "start": "117.46273758686",
+              "end": "116.68264588526",
+              "return_pct": "-0.6641184409848669857200838100"
+            },
+            "2026-11": {
+              "start": "116.68264588526",
+              "end": "120.38964704053",
+              "return_pct": "3.176994425473761885540883600"
+            }
+          },
+          "temporal_blocks": {
+            "development_return_pct": "1.2965225078400",
+            "verification_return_pct": "18.84874629453568684009700550"
+          },
+          "per_symbol": {
+            "AAVE_USDT": {
+              "positions": 10,
+              "net": "-2.0309317276",
+              "positive": 5,
+              "fees": "0.23801586",
+              "funding_paid": "0.0092158676"
+            },
+            "ADA_USDT": {
+              "positions": 12,
+              "net": "-3.3210516210",
+              "positive": 3,
+              "fees": "0.26996082",
+              "funding_paid": "0.0275908010"
+            },
+            "ARB_USDT": {
+              "positions": 15,
+              "net": "8.45816307656",
+              "positive": 6,
+              "fees": "0.397826490",
+              "funding_paid": "0.03736043344"
+            },
+            "AVAX_USDT": {
+              "positions": 5,
+              "net": "-2.9683824434",
+              "positive": 1,
+              "fees": "0.12848214",
+              "funding_paid": "0.0048003034"
+            },
+            "BNB_USDT": {
+              "positions": 4,
+              "net": "-1.100307660",
+              "positive": 0,
+              "fees": "0.07857588",
+              "funding_paid": "0.000931780"
+            },
+            "BTC_USDT": {
+              "positions": 12,
+              "net": "4.33613304093",
+              "positive": 8,
+              "fees": "0.243947850",
+              "funding_paid": "-0.02041089093"
+            },
+            "DOGE_USDT": {
+              "positions": 6,
+              "net": "1.00524392600",
+              "positive": 5,
+              "fees": "0.101794800",
+              "funding_paid": "-0.00303872600"
+            },
+            "DOT_USDT": {
+              "positions": 5,
+              "net": "-1.93060492938",
+              "positive": 1,
+              "fees": "0.130717908",
+              "funding_paid": "0.00268702138"
+            },
+            "ENA_USDT": {
+              "positions": 10,
+              "net": "1.10249686780",
+              "positive": 3,
+              "fees": "0.216641160",
+              "funding_paid": "0.02026197220"
+            },
+            "FET_USDT": {
+              "positions": 1,
+              "net": "0.2367314960",
+              "positive": 1,
+              "fees": "0.01843680",
+              "funding_paid": "0.0088317040"
+            },
+            "HYPE_USDT": {
+              "positions": 7,
+              "net": "-3.2927484822",
+              "positive": 0,
+              "fees": "0.15011052",
+              "funding_paid": "-0.0153620378"
+            },
+            "ICP_USDT": {
+              "positions": 2,
+              "net": "0.06112905642",
+              "positive": 1,
+              "fees": "0.052688772",
+              "funding_paid": "-0.00303782842"
+            },
+            "INJ_USDT": {
+              "positions": 8,
+              "net": "-0.538703388",
+              "positive": 3,
+              "fees": "0.1683246",
+              "funding_paid": "-0.000621212"
+            },
+            "LINK_USDT": {
+              "positions": 7,
+              "net": "2.0475947808",
+              "positive": 5,
+              "fees": "0.16615314",
+              "funding_paid": "0.0135520792"
+            },
+            "ONDO_USDT": {
+              "positions": 7,
+              "net": "0.2735712990",
+              "positive": 5,
+              "fees": "0.14202420",
+              "funding_paid": "0.0254045010"
+            },
+            "QNT_USDT": {
+              "positions": 3,
+              "net": "12.3503649058",
+              "positive": 2,
+              "fees": "0.07654266",
+              "funding_paid": "0.0013924342"
+            },
+            "SOL_USDT": {
+              "positions": 13,
+              "net": "1.744718588",
+              "positive": 7,
+              "fees": "0.2859972",
+              "funding_paid": "-0.020715788"
+            },
+            "SUI_USDT": {
+              "positions": 9,
+              "net": "-0.0680130181",
+              "positive": 4,
+              "fees": "0.22600782",
+              "funding_paid": "0.0015051981"
+            },
+            "TAO_USDT": {
+              "positions": 5,
+              "net": "-2.2167221515",
+              "positive": 1,
+              "fees": "0.11606238",
+              "funding_paid": "0.0097597715"
+            },
+            "TIA_USDT": {
+              "positions": 5,
+              "net": "-1.0616722819",
+              "positive": 2,
+              "fees": "0.13957332",
+              "funding_paid": "0.0076989619"
+            },
+            "UNI_USDT": {
+              "positions": 13,
+              "net": "-1.3344582179",
+              "positive": 4,
+              "fees": "0.32991960",
+              "funding_paid": "-0.0010613821"
+            },
+            "WLD_USDT": {
+              "positions": 9,
+              "net": "6.2716684672",
+              "positive": 6,
+              "fees": "0.21591060",
+              "funding_paid": "0.0074209328"
+            },
+            "XLM_USDT": {
+              "positions": 10,
+              "net": "1.27377718980",
+              "positive": 6,
+              "fees": "0.249026520",
+              "funding_paid": "0.01159629020"
+            },
+            "XRP_USDT": {
+              "positions": 6,
+              "net": "1.0916502672",
+              "positive": 4,
+              "fees": "0.15297378",
+              "funding_paid": "-0.0191240472"
+            }
+          },
+          "mean_hours_held": "21.50090579710144927536231884"
+        },
+        "stress": {
+          "summary": {
+            "initial": "100",
+            "final": "114.22315531802",
+            "return_pct": "14.2231553180200",
+            "max_drawdown_pct": "10.62142297789575721664331876",
+            "positions": 184,
+            "positive": 83,
+            "profit_factor": "1.248057680548515887973258546",
+            "outcomes": {
+              "TEMPO": 141,
+              "STOP": 41,
+              "CANAL": 1,
+              "FIM_DO_BLOCO": 1
+            },
+            "skipped": {
+              "DIRECAO_CONTRA_BTC_7D": 1117,
+              "LOTE": 258,
+              "OUTRO_PLANO_PRIORIZADO": 2760,
+              "CARTEIRA_OCUPADA": 0,
+              "STOP_PROXIMO_DA_LIQUIDACAO": 173,
+              "LIQUIDEZ": 285,
+              "STOP_DURANTE_LATENCIA": 1
+            },
+            "trading_fees": "6.796604350",
+            "funding_paid": "0.11077033198"
+          },
+          "months": {
+            "2026-05": {
+              "start": "100",
+              "end": "102.72093326005",
+              "return_pct": "2.7209332600500"
+            },
+            "2026-06": {
+              "start": "102.72093326005",
+              "end": "99.46887746095",
+              "return_pct": "-3.165913408192118136228763410"
+            },
+            "2026-07": {
+              "start": "99.46887746095",
+              "end": "95.40787418914",
+              "return_pct": "-4.082687344495557827145998840"
+            },
+            "2026-08": {
+              "start": "95.40787418914",
+              "end": "99.04160455843",
+              "return_pct": "3.808627327851747615821734500"
+            },
+            "2026-09": {
+              "start": "99.04160455843",
+              "end": "113.18270112905",
+              "return_pct": "14.27793565508866750712998760"
+            },
+            "2026-10": {
+              "start": "113.18270112905",
+              "end": "111.09621556285",
+              "return_pct": "-1.843466842005304362185308440"
+            },
+            "2026-11": {
+              "start": "111.09621556285",
+              "end": "114.22315531802",
+              "return_pct": "2.814623107842057299171695900"
+            }
+          },
+          "temporal_blocks": {
+            "development_return_pct": "-0.9583954415700",
+            "verification_return_pct": "15.32845800234747003642128320"
+          },
+          "per_symbol": {
+            "AAVE_USDT": {
+              "positions": 10,
+              "net": "-2.1987651145",
+              "positive": 5,
+              "fees": "0.37139190",
+              "funding_paid": "0.0088732145"
+            },
+            "ADA_USDT": {
+              "positions": 12,
+              "net": "-3.4087454433",
+              "positive": 3,
+              "fees": "0.43715460",
+              "funding_paid": "0.0267908433"
+            },
+            "ARB_USDT": {
+              "positions": 15,
+              "net": "7.45473109966",
+              "positive": 6,
+              "fees": "0.632023440",
+              "funding_paid": "0.03560546034"
+            },
+            "AVAX_USDT": {
+              "positions": 5,
+              "net": "-2.9919778311",
+              "positive": 1,
+              "fees": "0.20607510",
+              "funding_paid": "0.0046027311"
+            },
+            "BNB_USDT": {
+              "positions": 4,
+              "net": "-1.191791880",
+              "positive": 0,
+              "fees": "0.13096010",
+              "funding_paid": "0.000931780"
+            },
+            "BTC_USDT": {
+              "positions": 12,
+              "net": "3.84858166053",
+              "positive": 8,
+              "fees": "0.376550030",
+              "funding_paid": "-0.01634169053"
+            },
+            "DOGE_USDT": {
+              "positions": 6,
+              "net": "0.89138072600",
+              "positive": 5,
+              "fees": "0.169658000",
+              "funding_paid": "-0.00303872600"
+            },
+            "DOT_USDT": {
+              "positions": 5,
+              "net": "-1.95707508195",
+              "positive": 1,
+              "fees": "0.206645850",
+              "funding_paid": "0.00253923195"
+            },
+            "ENA_USDT": {
+              "positions": 10,
+              "net": "0.75926863570",
+              "positive": 3,
+              "fees": "0.341051200",
+              "funding_paid": "0.01868016430"
+            },
+            "FET_USDT": {
+              "positions": 1,
+              "net": "0.2244402960",
+              "positive": 1,
+              "fees": "0.03072800",
+              "funding_paid": "0.0088317040"
+            },
+            "HYPE_USDT": {
+              "positions": 7,
+              "net": "-3.4681232622",
+              "positive": 0,
+              "fees": "0.25018530",
+              "funding_paid": "-0.0153620378"
+            },
+            "ICP_USDT": {
+              "positions": 2,
+              "net": "0.02696898988",
+              "positive": 1,
+              "fees": "0.084031730",
+              "funding_paid": "-0.00283071988"
+            },
+            "INJ_USDT": {
+              "positions": 8,
+              "net": "-0.405646827",
+              "positive": 3,
+              "fees": "0.2538010",
+              "funding_paid": "0.002845827"
+            },
+            "LINK_USDT": {
+              "positions": 7,
+              "net": "1.7638592445",
+              "positive": 5,
+              "fees": "0.26362940",
+              "funding_paid": "0.0129113555"
+            },
+            "ONDO_USDT": {
+              "positions": 7,
+              "net": "0.1728884990",
+              "positive": 5,
+              "fees": "0.23670700",
+              "funding_paid": "0.0254045010"
+            },
+            "QNT_USDT": {
+              "positions": 3,
+              "net": "11.1462297991",
+              "positive": 2,
+              "fees": "0.11362490",
+              "funding_paid": "0.0012453009"
+            },
+            "SOL_USDT": {
+              "positions": 13,
+              "net": "0.914378493",
+              "positive": 7,
+              "fees": "0.4344810",
+              "funding_paid": "-0.017859493"
+            },
+            "SUI_USDT": {
+              "positions": 9,
+              "net": "-0.3060251400",
+              "positive": 4,
+              "fees": "0.35789280",
+              "funding_paid": "0.0013323400"
+            },
+            "TAO_USDT": {
+              "positions": 5,
+              "net": "-2.1955721041",
+              "positive": 1,
+              "fees": "0.18348590",
+              "funding_paid": "0.0091862041"
+            },
+            "TIA_USDT": {
+              "positions": 5,
+              "net": "-1.0578765782",
+              "positive": 2,
+              "fees": "0.21806290",
+              "funding_paid": "0.0071136782"
+            },
+            "UNI_USDT": {
+              "positions": 13,
+              "net": "-1.4517307123",
+              "positive": 4,
+              "fees": "0.52611890",
+              "funding_paid": "-0.0008881877"
+            },
+            "WLD_USDT": {
+              "positions": 9,
+              "net": "5.9439432770",
+              "positive": 6,
+              "fees": "0.34585450",
+              "funding_paid": "0.0071022230"
+            },
+            "XLM_USDT": {
+              "positions": 10,
+              "net": "0.88721923210",
+              "positive": 6,
+              "fees": "0.389075700",
+              "funding_paid": "0.01080506790"
+            },
+            "XRP_USDT": {
+              "positions": 6,
+              "net": "0.8225953402",
+              "positive": 4,
+              "fees": "0.23741510",
+              "funding_paid": "-0.0177104402"
+            }
+          },
+          "mean_hours_held": "21.50090579710144927536231884"
+        }
+      },
+      "MOMENTUM_BTC_RISK1_RELATIVE_RANK": {
+        "base": {
+          "summary": {
+            "initial": "100",
+            "final": "130.17897043801",
+            "return_pct": "30.1789704380100",
+            "max_drawdown_pct": "7.540217334135711525073676653",
+            "positions": 184,
+            "positive": 88,
+            "profit_factor": "1.465988134927738360132710763",
+            "outcomes": {
+              "TEMPO": 138,
+              "STOP": 45,
+              "CANAL": 1
+            },
+            "skipped": {
+              "DIRECAO_CONTRA_BTC_7D": 1117,
+              "LOTE": 216,
+              "OUTRO_PLANO_PRIORIZADO": 2805,
+              "CARTEIRA_OCUPADA": 0,
+              "STOP_PROXIMO_DA_LIQUIDACAO": 170,
+              "LIQUIDEZ": 285,
+              "STOP_DURANTE_LATENCIA": 1
+            },
+            "trading_fees": "4.675165134",
+            "funding_paid": "0.12917442799"
+          },
+          "months": {
+            "2026-05": {
+              "start": "100",
+              "end": "103.56206578025",
+              "return_pct": "3.5620657802500"
+            },
+            "2026-06": {
+              "start": "103.56206578025",
+              "end": "107.75775492075",
+              "return_pct": "4.051376446471142958001954700"
+            },
+            "2026-07": {
+              "start": "107.75775492075",
+              "end": "104.12946921371",
+              "return_pct": "-3.367076188352669261965870010"
+            },
+            "2026-08": {
+              "start": "104.12946921371",
+              "end": "108.16289269814",
+              "return_pct": "3.873469743855130779940114800"
+            },
+            "2026-09": {
+              "start": "108.16289269814",
+              "end": "123.61197036325",
+              "return_pct": "14.28315874301285837617029560"
+            },
+            "2026-10": {
+              "start": "123.61197036325",
+              "end": "125.20839756981",
+              "return_pct": "1.291482695299402727199412500"
+            },
+            "2026-11": {
+              "start": "125.20839756981",
+              "end": "130.17897043801",
+              "return_pct": "3.969839854733908560254721300"
+            }
+          },
+          "temporal_blocks": {
+            "development_return_pct": "8.1628926981400",
+            "verification_return_pct": "20.35455708577641873828642660"
+          },
+          "per_symbol": {
+            "AAVE_USDT": {
+              "positions": 9,
+              "net": "-2.3382540157",
+              "positive": 4,
+              "fees": "0.22236720",
+              "funding_paid": "0.0118868157"
+            },
+            "ADA_USDT": {
+              "positions": 15,
+              "net": "-4.9537925073",
+              "positive": 4,
+              "fees": "0.38923980",
+              "funding_paid": "0.0331527073"
+            },
+            "ARB_USDT": {
+              "positions": 20,
+              "net": "7.91100029884",
+              "positive": 8,
+              "fees": "0.549241044",
+              "funding_paid": "0.04205865716"
+            },
+            "AVAX_USDT": {
+              "positions": 4,
+              "net": "-3.0412994580",
+              "positive": 1,
+              "fees": "0.10557000",
+              "funding_paid": "0.0023294580"
+            },
+            "BNB_USDT": {
+              "positions": 3,
+              "net": "-0.421763822",
+              "positive": 1,
+              "fees": "0.05346972",
+              "funding_paid": "0.000894102"
+            },
+            "DOGE_USDT": {
+              "positions": 1,
+              "net": "0.11982632400",
+              "positive": 1,
+              "fees": "0.017313600",
+              "funding_paid": "-0.00113992400"
+            },
+            "DOT_USDT": {
+              "positions": 4,
+              "net": "-2.00014517172",
+              "positive": 1,
+              "fees": "0.117290196",
+              "funding_paid": "0.00271497572"
+            },
+            "ENA_USDT": {
+              "positions": 13,
+              "net": "-0.33642265560",
+              "positive": 4,
+              "fees": "0.312863400",
+              "funding_paid": "0.01875925560"
+            },
+            "FET_USDT": {
+              "positions": 2,
+              "net": "2.3263962180",
+              "positive": 2,
+              "fees": "0.07388280",
+              "funding_paid": "0.0057209820"
+            },
+            "HYPE_USDT": {
+              "positions": 8,
+              "net": "-1.7485882303",
+              "positive": 2,
+              "fees": "0.19194036",
+              "funding_paid": "-0.0103521297"
+            },
+            "ICP_USDT": {
+              "positions": 3,
+              "net": "0.28009700919",
+              "positive": 2,
+              "fees": "0.077306634",
+              "funding_paid": "-0.00475364319"
+            },
+            "INJ_USDT": {
+              "positions": 10,
+              "net": "1.335488582",
+              "positive": 5,
+              "fees": "0.2073888",
+              "funding_paid": "0.017122618"
+            },
+            "LINK_USDT": {
+              "positions": 5,
+              "net": "3.2105304410",
+              "positive": 4,
+              "fees": "0.12585402",
+              "funding_paid": "0.0147155390"
+            },
+            "ONDO_USDT": {
+              "positions": 8,
+              "net": "0.0710487280",
+              "positive": 5,
+              "fees": "0.18012300",
+              "funding_paid": "0.0258282720"
+            },
+            "QNT_USDT": {
+              "positions": 5,
+              "net": "15.9089656993",
+              "positive": 4,
+              "fees": "0.12877320",
+              "funding_paid": "-0.0001388993"
+            },
+            "SOL_USDT": {
+              "positions": 6,
+              "net": "0.313033580",
+              "positive": 4,
+              "fees": "0.1356672",
+              "funding_paid": "-0.012700780"
+            },
+            "SUI_USDT": {
+              "positions": 9,
+              "net": "-0.2116617683",
+              "positive": 5,
+              "fees": "0.23036784",
+              "funding_paid": "-0.0129060717"
+            },
+            "TAO_USDT": {
+              "positions": 11,
+              "net": "3.0013106997",
+              "positive": 5,
+              "fees": "0.24969042",
+              "funding_paid": "0.0164988803"
+            },
+            "TIA_USDT": {
+              "positions": 9,
+              "net": "-1.4612571188",
+              "positive": 4,
+              "fees": "0.26888730",
+              "funding_paid": "-0.0021301812"
+            },
+            "UNI_USDT": {
+              "positions": 12,
+              "net": "1.5052676527",
+              "positive": 4,
+              "fees": "0.32085090",
+              "funding_paid": "-0.0062185527"
+            },
+            "WLD_USDT": {
+              "positions": 14,
+              "net": "8.5206863028",
+              "positive": 9,
+              "fees": "0.37468896",
+              "funding_paid": "-0.0023752628"
+            },
+            "XLM_USDT": {
+              "positions": 8,
+              "net": "1.34919358420",
+              "positive": 6,
+              "fees": "0.201893160",
+              "funding_paid": "0.01271325580"
+            },
+            "XRP_USDT": {
+              "positions": 5,
+              "net": "0.8393100660",
+              "positive": 3,
+              "fees": "0.14049558",
+              "funding_paid": "-0.0225056460"
+            }
+          },
+          "mean_hours_held": "20.99003623188405797101449276"
+        },
+        "stress": {
+          "summary": {
+            "initial": "100",
+            "final": "123.70467320772",
+            "return_pct": "23.7046732077200",
+            "max_drawdown_pct": "7.802284176829238143933613650",
+            "positions": 184,
+            "positive": 88,
+            "profit_factor": "1.369837625743273390282701322",
+            "outcomes": {
+              "TEMPO": 138,
+              "STOP": 45,
+              "CANAL": 1
+            },
+            "skipped": {
+              "DIRECAO_CONTRA_BTC_7D": 1117,
+              "LOTE": 238,
+              "OUTRO_PLANO_PRIORIZADO": 2779,
+              "CARTEIRA_OCUPADA": 0,
+              "STOP_PROXIMO_DA_LIQUIDACAO": 174,
+              "LIQUIDEZ": 285,
+              "STOP_DURANTE_LATENCIA": 1
+            },
+            "trading_fees": "7.412102690",
+            "funding_paid": "0.11871410228"
+          },
+          "months": {
+            "2026-05": {
+              "start": "100",
+              "end": "103.05063046066",
+              "return_pct": "3.0506304606600"
+            },
+            "2026-06": {
+              "start": "103.05063046066",
+              "end": "106.50401345346",
+              "return_pct": "3.351151737124347913023898000"
+            },
+            "2026-07": {
+              "start": "106.50401345346",
+              "end": "102.47364194898",
+              "return_pct": "-3.784243779922140732448326280"
+            },
+            "2026-08": {
+              "start": "102.47364194898",
+              "end": "105.25976690948",
+              "return_pct": "2.718869855223031304122859800"
+            },
+            "2026-09": {
+              "start": "105.25976690948",
+              "end": "119.09461391141",
+              "return_pct": "13.14352806217737647270581660"
+            },
+            "2026-10": {
+              "start": "119.09461391141",
+              "end": "119.27060657722",
+              "return_pct": "0.147775503887114759777125600"
+            },
+            "2026-11": {
+              "start": "119.27060657722",
+              "end": "123.70467320772",
+              "return_pct": "3.717652452475144222729087600"
+            }
+          },
+          "temporal_blocks": {
+            "development_return_pct": "5.2597669094800",
+            "verification_return_pct": "17.52322548282101337641150330"
+          },
+          "per_symbol": {
+            "AAVE_USDT": {
+              "positions": 9,
+              "net": "-2.5361293852",
+              "positive": 4,
+              "fees": "0.35289650",
+              "funding_paid": "0.0113328852"
+            },
+            "ADA_USDT": {
+              "positions": 15,
+              "net": "-5.0538550911",
+              "positive": 4,
+              "fees": "0.62798910",
+              "funding_paid": "0.0321659911"
+            },
+            "ARB_USDT": {
+              "positions": 20,
+              "net": "6.76092277307",
+              "positive": 8,
+              "fees": "0.869421800",
+              "funding_paid": "0.03991542693"
+            },
+            "AVAX_USDT": {
+              "positions": 4,
+              "net": "-3.0119651211",
+              "positive": 1,
+              "fees": "0.16861730",
+              "funding_paid": "0.0022478211"
+            },
+            "BNB_USDT": {
+              "positions": 3,
+              "net": "-0.484010302",
+              "positive": 1,
+              "fees": "0.08911620",
+              "funding_paid": "0.000894102"
+            },
+            "DOGE_USDT": {
+              "positions": 1,
+              "net": "0.10028392400",
+              "positive": 1,
+              "fees": "0.028856000",
+              "funding_paid": "-0.00113992400"
+            },
+            "DOT_USDT": {
+              "positions": 4,
+              "net": "-1.98848536835",
+              "positive": 1,
+              "fees": "0.184145300",
+              "funding_paid": "0.00254006835"
+            },
+            "ENA_USDT": {
+              "positions": 13,
+              "net": "-0.69011644360",
+              "positive": 4,
+              "fees": "0.489401900",
+              "funding_paid": "0.01761454360"
+            },
+            "FET_USDT": {
+              "positions": 2,
+              "net": "2.1795801170",
+              "positive": 2,
+              "fees": "0.11952700",
+              "funding_paid": "0.0058928830"
+            },
+            "HYPE_USDT": {
+              "positions": 8,
+              "net": "-2.0014550338",
+              "positive": 2,
+              "fees": "0.27876950",
+              "funding_paid": "-0.0112144662"
+            },
+            "ICP_USDT": {
+              "positions": 3,
+              "net": "0.22656169080",
+              "positive": 2,
+              "fees": "0.124278090",
+              "funding_paid": "-0.00450978080"
+            },
+            "INJ_USDT": {
+              "positions": 10,
+              "net": "0.737056433",
+              "positive": 5,
+              "fees": "0.3281400",
+              "funding_paid": "0.012803567"
+            },
+            "LINK_USDT": {
+              "positions": 5,
+              "net": "2.8236826869",
+              "positive": 4,
+              "fees": "0.19834750",
+              "funding_paid": "0.0138698131"
+            },
+            "ONDO_USDT": {
+              "positions": 8,
+              "net": "0.1022790280",
+              "positive": 5,
+              "fees": "0.29210300",
+              "funding_paid": "0.0246179720"
+            },
+            "QNT_USDT": {
+              "positions": 5,
+              "net": "14.9243197947",
+              "positive": 4,
+              "fees": "0.20516770",
+              "funding_paid": "0.0000125053"
+            },
+            "SOL_USDT": {
+              "positions": 6,
+              "net": "0.158588780",
+              "positive": 4,
+              "fees": "0.2261120",
+              "funding_paid": "-0.012700780"
+            },
+            "SUI_USDT": {
+              "positions": 9,
+              "net": "-0.4094337578",
+              "positive": 5,
+              "fees": "0.36446070",
+              "funding_paid": "-0.0123269422"
+            },
+            "TAO_USDT": {
+              "positions": 11,
+              "net": "2.6329489298",
+              "positive": 5,
+              "fees": "0.40125420",
+              "funding_paid": "0.0155968702"
+            },
+            "TIA_USDT": {
+              "positions": 9,
+              "net": "-1.5930713360",
+              "positive": 4,
+              "fees": "0.42190680",
+              "funding_paid": "-0.0022354640"
+            },
+            "UNI_USDT": {
+              "positions": 12,
+              "net": "1.1784058757",
+              "positive": 4,
+              "fees": "0.51039760",
+              "funding_paid": "-0.0058034757"
+            },
+            "WLD_USDT": {
+              "positions": 14,
+              "net": "8.0168399361",
+              "positive": 9,
+              "fees": "0.59502160",
+              "funding_paid": "-0.0020615361"
+            },
+            "XLM_USDT": {
+              "positions": 8,
+              "net": "0.99975572340",
+              "positive": 6,
+              "fees": "0.319315300",
+              "funding_paid": "0.01202897660"
+            },
+            "XRP_USDT": {
+              "positions": 5,
+              "net": "0.6319693542",
+              "positive": 3,
+              "fees": "0.21685760",
+              "funding_paid": "-0.0208269542"
+            }
+          },
+          "mean_hours_held": "20.99003623188405797101449276"
+        }
+      }
+    }
+  },
+  "selection_diagnostics": {
+    "new_early_history": {
+      "base": {
+        "same_entries": 24,
+        "changed_symbols_or_sides": 22,
+        "control_only_entries": 0,
+        "candidate_only_entries": 0
+      },
+      "stress": {
+        "same_entries": 24,
+        "changed_symbols_or_sides": 22,
+        "control_only_entries": 0,
+        "candidate_only_entries": 0
+      }
+    },
+    "historical_actual_fair": {
+      "base": {
+        "same_entries": 81,
+        "changed_symbols_or_sides": 11,
+        "control_only_entries": 0,
+        "candidate_only_entries": 0
+      },
+      "stress": {
+        "same_entries": 81,
+        "changed_symbols_or_sides": 11,
+        "control_only_entries": 0,
+        "candidate_only_entries": 0
+      }
+    },
+    "recent_extended": {
+      "base": {
+        "same_entries": 16,
+        "changed_symbols_or_sides": 7,
+        "control_only_entries": 0,
+        "candidate_only_entries": 0
+      },
+      "stress": {
+        "same_entries": 16,
+        "changed_symbols_or_sides": 7,
+        "control_only_entries": 0,
+        "candidate_only_entries": 0
+      }
+    },
+    "continuous_all": {
+      "base": {
+        "same_entries": 140,
+        "changed_symbols_or_sides": 44,
+        "control_only_entries": 0,
+        "candidate_only_entries": 0
+      },
+      "stress": {
+        "same_entries": 140,
+        "changed_symbols_or_sides": 44,
+        "control_only_entries": 0,
+        "candidate_only_entries": 0
+      }
+    }
+  },
+  "full_results_sha256": "cbd182fbcd8affe219057d2e5f707a3e052e336d40e0ed352f6557bfd904af16",
+  "verification": {
+    "unit_tests_passed": 366,
+    "new_rank_tests": 11,
+    "baseline_exact_wallets": 8,
+    "closed_signal_causality_checks": 234,
+    "freeze_commit": "f4dcce7b9edb2a75e797902fe6ca71d300cba6ad",
+    "code_sha256": {
+      "scripts/audit_multihour.py": "aa398cee6cd1f5fa05717ce3423285dbab98c7ca3b189d62060e61f2696be27b",
+      "scripts/audit_momentum_relative_btc.py": "9d9d1d6413c572e8c13c4329b63bbd768fdf39217af464c56e0de85d2ff92da0",
+      "tests/test_momentum_relative_btc.py": "51eec81f138dfb8111c79a5cfaf71787c99129b9417ac15b4139b34aa684954b"
+    }
+  },
+  "concentration_diagnostic": {
+    "MOMENTUM_BTC_RISK1": {
+      "base": {
+        "largest_trade": {
+          "symbol": "QNT_USDT",
+          "sign": 1,
+          "entry": "98.38",
+          "stop": "130.73",
+          "original_stop": "93.59",
+          "opened_at": 1790384400,
+          "signal_at": 1790380800,
+          "deadline": 1790470800,
+          "quantity": "0.21",
+          "contracts": "21",
+          "tick": "0.01",
+          "margin": "2.06598",
+          "mmr": "0.004",
+          "liquidation_fee": "0.0002",
+          "funding_paid": "-0.0016568748",
+          "entry_fee": "0.01239588",
+          "equity_before": "104.63863729266",
+          "planned_risk": "1.0418386272",
+          "score": "9.432066154042927721787087002",
+          "effective_risk_fraction": "0.01",
+          "allocation_guarded": false,
+          "exit": "160.65",
+          "exit_at": 1790470800,
+          "exit_fee": "0.02024190",
+          "outcome": "TEMPO",
+          "ambiguous": false,
+          "net": "13.0457190948"
+        },
+        "largest_trade_share_of_net_profit": "0.6398207418141209278548902192",
+        "worst_trade_pct_equity": "-1.001698425615619043718731445"
+      },
+      "stress": {
+        "largest_trade": {
+          "symbol": "QNT_USDT",
+          "sign": 1,
+          "entry": "98.41",
+          "stop": "130.73",
+          "original_stop": "93.59",
+          "opened_at": 1790384400,
+          "signal_at": 1790380800,
+          "deadline": 1790470800,
+          "quantity": "0.19",
+          "contracts": "19",
+          "tick": "0.01",
+          "margin": "1.86979",
+          "mmr": "0.004",
+          "liquidation_fee": "0.0002",
+          "funding_paid": "-0.0014990772",
+          "entry_fee": "0.01869790",
+          "equity_before": "101.77057678985",
+          "planned_risk": "0.9686048456",
+          "score": "9.432066154042927721787087002",
+          "effective_risk_fraction": "0.01",
+          "allocation_guarded": false,
+          "exit": "160.60",
+          "exit_at": 1790470800,
+          "exit_fee": "0.03051400",
+          "outcome": "TEMPO",
+          "ambiguous": false,
+          "net": "11.7683871772"
+        },
+        "largest_trade_share_of_net_profit": "0.8274104384060310372849068665",
+        "worst_trade_pct_equity": "-1.001673394173512842330427364"
+      }
+    },
+    "MOMENTUM_BTC_RISK1_RELATIVE_RANK": {
+      "base": {
+        "largest_trade": {
+          "symbol": "QNT_USDT",
+          "sign": 1,
+          "entry": "98.38",
+          "stop": "130.73",
+          "original_stop": "93.59",
+          "opened_at": 1790384400,
+          "signal_at": 1790380800,
+          "deadline": 1790470800,
+          "quantity": "0.22",
+          "contracts": "22",
+          "tick": "0.01",
+          "margin": "2.16436",
+          "mmr": "0.004",
+          "liquidation_fee": "0.0002",
+          "funding_paid": "-0.0017357736",
+          "entry_fee": "0.01298616",
+          "equity_before": "111.45902273865",
+          "planned_risk": "1.0914499904",
+          "score": "8.765976199166884306417532008",
+          "effective_risk_fraction": "0.01",
+          "allocation_guarded": false,
+          "original_score": "9.432066154042927721787087002",
+          "exit": "160.65",
+          "exit_at": 1790470800,
+          "exit_fee": "0.02120580",
+          "outcome": "TEMPO",
+          "ambiguous": false,
+          "net": "13.6669438136"
+        },
+        "largest_trade_share_of_net_profit": "0.4528631565371982146886328455",
+        "worst_trade_pct_equity": "-1.001151027012330601029399054"
+      },
+      "stress": {
+        "largest_trade": {
+          "symbol": "QNT_USDT",
+          "sign": 1,
+          "entry": "98.41",
+          "stop": "130.73",
+          "original_stop": "93.59",
+          "opened_at": 1790384400,
+          "signal_at": 1790380800,
+          "deadline": 1790470800,
+          "quantity": "0.21",
+          "contracts": "21",
+          "tick": "0.01",
+          "margin": "2.06661",
+          "mmr": "0.004",
+          "liquidation_fee": "0.0002",
+          "funding_paid": "-0.0016568748",
+          "entry_fee": "0.02066610",
+          "equity_before": "107.56348524561",
+          "planned_risk": "1.0705632504",
+          "score": "8.765976199166884306417532008",
+          "effective_risk_fraction": "0.01",
+          "allocation_guarded": false,
+          "original_score": "9.432066154042927721787087002",
+          "exit": "160.60",
+          "exit_at": 1790470800,
+          "exit_fee": "0.03372600",
+          "outcome": "TEMPO",
+          "ambiguous": false,
+          "net": "13.0071647748"
+        },
+        "largest_trade_share_of_net_profit": "0.5487173208767924411980993838",
+        "worst_trade_pct_equity": "-0.9999880007283989339570894975"
+      }
+    }
+  }
+}
