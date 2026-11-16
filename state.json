@@ -77135,7 +77135,7 @@
       "text": "⚪ ATUALIZAÇÃO DOS PLANOS ACOMPANHADOS\n🧪 SIMULAÇÃO\n\n• XRP/USDT • SHORT: prazo para nova entrada encerrado\n  Motivo: A janela para uma nova entrada terminou.\n  Plano: 00a962911db6cdc4b7a2\n• JUP/USDT • SHORT: prazo para nova entrada encerrado\n  Motivo: A janela para uma nova entrada terminou.\n  Plano: 1466849bef549d9c2cc2\n\nSem novas entradas por esses planos.\nAvisos de movimento não equivalem a entradas liberadas.\nA expiração não encerra uma posição já aberta.\nAnálise: 14/11/2026 21:30:11 BRT"
     },
     "d361349707d4c1c784ef": {
-      "attempts": 0,
+      "attempts": 1,
       "category": "INFO",
       "created_at": 1794789205,
       "expires_at": 1794789240,
@@ -77146,7 +77146,11 @@
         "4204e6d025aec62f0e5b"
       ],
       "quote_at": 0,
-      "status": "PENDING",
+      "sent_at": 1794789209,
+      "status": "SENT",
+      "telegram_ids": [
+        5782
+      ],
       "text": "🟡 MOVIMENTO DETECTADO • ENTRADA BLOQUEADA\nXLM/USDT • BAIXA (SHORT)\n🧪 SIMULAÇÃO • acompanhamento\n\nRompimento observado no M1 fechado às 21:32:00 BRT.\nPreço de referência do primeiro gatilho: 0.13973.\n\nConfirmação técnica identificada; entrada bloqueada.\nCondição pendente: Os custos estão altos demais em relação ao risco.\n\nFaixa em estudo: 0.13954 a 0.13986\n🛑 Stop do plano: 0.14035 (-4.44% bruto em 10x)\n🎯 Alvo do plano: 0.1379 (+13.10% bruto em 10x)\nCenário indicativo sobre a margem em 10x; custos e liquidação ainda não validados.\nMovimento sem alavancagem: TP +1.31% • SL -0.44%.\nPercentuais sobre a referência do primeiro gatilho, na direção da operação, antes de custos.\n\nMovimento observado, sem entrada liberada. Aguarde o alerta de confirmação e viabilidade.\nAlerta válido até 21:34:00 BRT.\nAnálise: 15/11/2026 21:33:25 BRT\nPlano: 4204e6d025aec62f0e5b",
       "watch_stage": 0,
       "watch_symbol": "XLM_USDT"
