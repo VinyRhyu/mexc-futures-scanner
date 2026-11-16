@@ -10774,7 +10774,7 @@
       "watch_symbol": "AAVE_USDT"
     },
     "19b57139afb8adeb7b8f": {
-      "attempts": 0,
+      "attempts": 1,
       "category": "INFO",
       "created_at": 1794839674,
       "expires_at": 1794839760,
@@ -10785,7 +10785,11 @@
         "b911dc0ec8335abf94b8"
       ],
       "quote_at": 0,
-      "status": "PENDING",
+      "sent_at": 1794839682,
+      "status": "SENT",
+      "telegram_ids": [
+        6719
+      ],
       "text": "🟡 MOVIMENTO DETECTADO • ENTRADA BLOQUEADA\nAVAX/USDT • ALTA (LONG)\n🧪 SIMULAÇÃO • acompanhamento\n\nRompimento observado no M1 fechado às 11:34:00 BRT.\nPreço de referência do primeiro gatilho: 7.19.\n\nConfirmação técnica identificada; entrada bloqueada.\nCondição pendente: O preço está fora da faixa permitida.\n\nFaixa em estudo: 7.179 a 7.201\n🛑 Stop do plano: 7.134 (-7.79% bruto em 10x)\n🎯 Alvo do plano: 7.254 (+8.90% bruto em 10x)\nCenário indicativo sobre a margem em 10x; custos e liquidação ainda não validados.\nMovimento sem alavancagem: TP +0.89% • SL -0.78%.\nPercentuais sobre a referência do primeiro gatilho, na direção da operação, antes de custos.\n\nMovimento observado, sem entrada liberada. Aguarde o alerta de confirmação e viabilidade.\nAlerta válido até 11:36:00 BRT.\nAnálise: 16/11/2026 11:34:34 BRT\nPlano: b911dc0ec8335abf94b8",
       "watch_stage": 0,
       "watch_symbol": "AVAX_USDT"
@@ -24120,7 +24124,7 @@
       "text": "🟠 ENTRADA BLOQUEADA\nXLM/USDT • SHORT\n🧪 SIMULAÇÃO • Confirmada\nRompimento • 2 fechamentos M1 • volume ≥50%\n\nVolume do segundo M1: 87.0% do primeiro.\nMotivo: A relação entre ganho e perda ficou abaixo do mínimo.\nSem entrada liberada nesta análise.\n\n📍 Faixa do plano: 0.14658 a 0.14687\n🛑 Stop: 0.14745\n🎯 Alvo: 0.14641\n\nEstimativas de taxas, deslizamento e funding; ganho não garantido.\n\n⏱ Nova entrada até 00:15:00 BRT (1min 07s).\nGatilho M1 (segundo fechamento): 00:13:00 BRT\nAnálise: 12/11/2026 00:13:53 BRT\nA validade se aplica a novas entradas.\nPlano: 6f97b1031e3ed3b9fe61 • revisão 1"
     },
     "386aa39e312d8925f91b": {
-      "attempts": 0,
+      "attempts": 1,
       "category": "INFO",
       "created_at": 1794839674,
       "expires_at": 1794841200,
@@ -24129,7 +24133,11 @@
         "b8c896749f969479f586"
       ],
       "quote_at": 0,
-      "status": "PENDING",
+      "sent_at": 1794839684,
+      "status": "SENT",
+      "telegram_ids": [
+        6723
+      ],
       "text": "👀 PLANO EM PREPARAÇÃO • AGUARDANDO GATILHO\nARB/USDT\n🧪 SIMULAÇÃO • acompanhamento\n\nRegião em análise: 0.13138 a 0.1333\nSHORT somente se houver fechamento M1 abaixo de ≈ 0.131298.\n\nConfirmação: dois fechamentos M1 consecutivos além do gatilho; volume do segundo de pelo menos 50% do primeiro.\nTP, SL e percentuais serão definidos no primeiro gatilho. A confirmação ainda precisa passar pela avaliação financeira.\n\nSem rompimento observado neste plano e sem entrada liberada.\nPreparação até 12:00:00 BRT.\nAnálise: 16/11/2026 11:34:34 BRT\nPlanos: b8c896749f969479f586",
       "watch_stage": 2,
       "watch_symbol": "ARB_USDT"
@@ -44457,7 +44465,7 @@
       "watch_symbol": "ETH_USDT"
     },
     "6646cdbcc3ca08026e6c": {
-      "attempts": 0,
+      "attempts": 1,
       "category": "INFO",
       "created_at": 1794839674,
       "expires_at": 1794841200,
@@ -44466,7 +44474,11 @@
         "4eee841b198521d3cb6c"
       ],
       "quote_at": 0,
-      "status": "PENDING",
+      "sent_at": 1794839684,
+      "status": "SENT",
+      "telegram_ids": [
+        6724
+      ],
       "text": "👀 PLANO EM PREPARAÇÃO • AGUARDANDO GATILHO\nDOT/USDT\n🧪 SIMULAÇÃO • acompanhamento\n\nRegião em análise: 0.7205 a 0.7354\nSHORT somente se houver fechamento M1 abaixo de ≈ 0.720042.\n\nConfirmação: dois fechamentos M1 consecutivos além do gatilho; volume do segundo de pelo menos 50% do primeiro.\nTP, SL e percentuais serão definidos no primeiro gatilho. A confirmação ainda precisa passar pela avaliação financeira.\n\nSem rompimento observado neste plano e sem entrada liberada.\nPreparação até 12:00:00 BRT.\nAnálise: 16/11/2026 11:34:34 BRT\nPlanos: 4eee841b198521d3cb6c",
       "watch_stage": 2,
       "watch_symbol": "DOT_USDT"
@@ -62717,13 +62729,17 @@
       "text": "⚪ ATUALIZAÇÃO DOS PLANOS ACOMPANHADOS\n🧪 SIMULAÇÃO\n\n• SOL/USDT • SHORT: confirmação não aprovada\n  Motivo: O volume do segundo candle M1 foi menor que50% do primeiro.\n  Plano: 05b4da7f5016b76cf2a8\n• ADA/USDT • SHORT: alvo do plano alcançado durante o acompanhamento\n  Motivo: O movimento já alcançou o alvo do plano.\n  Plano: 0b4d55f71094bf52a998\n• SOL/USDT • SHORT: confirmação não aprovada\n  Motivo: O volume do segundo candle M1 foi menor que50% do primeiro.\n  Plano: 59fc1962bed5e88ec845\n• ADA/USDT • SHORT: alvo do plano alcançado durante o acompanhamento\n  Motivo: O movimento já alcançou o alvo do plano.\n  Plano: d8bf0339153a60e30938\n\nSem novas entradas por esses planos.\nAvisos de movimento não equivalem a entradas liberadas.\nA expiração não encerra uma posição já aberta.\nAnálise: 16/11/2026 04:20:43 BRT"
     },
     "8f5f3ac8f9a00e36f73c": {
-      "attempts": 0,
+      "attempts": 1,
       "category": "INFO",
       "created_at": 1794839674,
       "expires_at": 1794843274,
       "id": "8f5f3ac8f9a00e36f73c",
       "quote_at": 0,
-      "status": "PENDING",
+      "sent_at": 1794839684,
+      "status": "SENT",
+      "telegram_ids": [
+        6725
+      ],
       "text": "⚪ ATUALIZAÇÃO DOS PLANOS ACOMPANHADOS\n🧪 SIMULAÇÃO\n\n• NEAR/USDT • LONG: alvo do plano alcançado durante o acompanhamento\n  Motivo: O movimento já alcançou o alvo do plano.\n  Plano: 25b032c00da6c39c7f7f\n• SOL/USDT • LONG: alvo do plano alcançado durante o acompanhamento\n  Motivo: O movimento já alcançou o alvo do plano.\n  Plano: 2fd73d6ed96073bf2611\n• WLD/USDT • LONG: alvo do plano alcançado durante o acompanhamento\n  Motivo: O movimento já alcançou o alvo do plano.\n  Plano: 54b659b06a944bbf284a\n• ENA/USDT • LONG: alvo do plano alcançado durante o acompanhamento\n  Motivo: O movimento já alcançou o alvo do plano.\n  Plano: 67e1eba7fc859fb2b45b\n• ARB/USDT • LONG: alvo do plano alcançado durante o acompanhamento\n  Motivo: O movimento já alcançou o alvo do plano.\n  Plano: 688f448ef9a094a44766\n• UNI/USDT • LONG: alvo do plano alcançado durante o acompanhamento\n  Motivo: O movimento já alcançou o alvo do plano.\n  Plano: 7cdc2cc70dc04a128570\n\nSem novas entradas por esses planos.\nAvisos de movimento não equivalem a entradas liberadas.\nA expiração não encerra uma posição já aberta.\nAnálise: 16/11/2026 11:34:34 BRT"
     },
     "8f63349087f26adcc70c": {
@@ -74871,7 +74887,7 @@
       "watch_symbol": "ARB_USDT"
     },
     "ac618ed4b47bf25c80c1": {
-      "attempts": 0,
+      "attempts": 1,
       "category": "INFO",
       "created_at": 1794839674,
       "expires_at": 1794839700,
@@ -74882,7 +74898,11 @@
         "f7db14b52b45a95d7981"
       ],
       "quote_at": 0,
-      "status": "PENDING",
+      "sent_at": 1794839682,
+      "status": "SENT",
+      "telegram_ids": [
+        6720
+      ],
       "text": "🟡 MOVIMENTO DETECTADO • AINDA SEM CONFIRMAÇÃO\nPEPE/USDT • ALTA (LONG)\n🧪 SIMULAÇÃO • acompanhamento\n\nRompimento observado no M1 fechado às 11:34:00 BRT.\nPreço de referência do primeiro gatilho: 0.0000038614.\n\nPrimeiro fechamento além da região identificado.\nFalta o segundo fechamento sustentar o nível, com volume de pelo menos 50% do primeiro.\nApós confirmar, o plano ainda precisa passar pela avaliação financeira.\n\nFaixa em estudo: 0.0000038561 a 0.0000038694\n🛑 Stop do plano: 0.0000038366 (-6.42% bruto em 10x)\n🎯 Alvo do plano: 0.000003888 (+6.89% bruto em 10x)\nCenário indicativo sobre a margem em 10x; custos e liquidação ainda não validados.\nMovimento sem alavancagem: TP +0.69% • SL -0.64%.\nPercentuais sobre a referência do primeiro gatilho, na direção da operação, antes de custos.\n\nMovimento observado, sem entrada liberada. Aguarde o alerta de confirmação e viabilidade.\nAlerta válido até 11:35:00 BRT.\nAnálise: 16/11/2026 11:34:34 BRT\nPlano: f7db14b52b45a95d7981",
       "watch_stage": 1,
       "watch_symbol": "PEPE_USDT"
@@ -94111,7 +94131,7 @@
       "watch_symbol": "JUP_USDT"
     },
     "d89bfbdc7e24d4531e5e": {
-      "attempts": 0,
+      "attempts": 1,
       "category": "INFO",
       "created_at": 1794839674,
       "expires_at": 1794839760,
@@ -94122,7 +94142,11 @@
         "b90cfa21fec32c49b0d1"
       ],
       "quote_at": 0,
-      "status": "PENDING",
+      "sent_at": 1794839683,
+      "status": "SENT",
+      "telegram_ids": [
+        6721
+      ],
       "text": "🟡 MOVIMENTO DETECTADO • ENTRADA BLOQUEADA\nADA/USDT • ALTA (LONG)\n🧪 SIMULAÇÃO • acompanhamento\n\nRompimento observado no M1 fechado às 11:34:00 BRT.\nPreço de referência do primeiro gatilho: 0.1535.\n\nConfirmação técnica identificada; entrada bloqueada.\nCondição pendente: A relação entre ganho e perda ficou abaixo do mínimo.\n\nFaixa em estudo: 0.1533 a 0.1537\n🛑 Stop do plano: 0.1524 (-7.17% bruto em 10x)\n🎯 Alvo do plano: 0.1549 (+9.12% bruto em 10x)\nCenário indicativo sobre a margem em 10x; custos e liquidação ainda não validados.\nMovimento sem alavancagem: TP +0.91% • SL -0.72%.\nPercentuais sobre a referência do primeiro gatilho, na direção da operação, antes de custos.\n\nMovimento observado, sem entrada liberada. Aguarde o alerta de confirmação e viabilidade.\nAlerta válido até 11:36:00 BRT.\nAnálise: 16/11/2026 11:34:34 BRT\nPlano: b90cfa21fec32c49b0d1",
       "watch_stage": 0,
       "watch_symbol": "ADA_USDT"
@@ -107563,7 +107587,7 @@
       "watch_symbol": "ADA_USDT"
     },
     "f8c8a1e517ccf034a4de": {
-      "attempts": 0,
+      "attempts": 1,
       "category": "INFO",
       "created_at": 1794839674,
       "expires_at": 1794839760,
@@ -107574,7 +107598,11 @@
         "0bf2b72aeccc8fb45900"
       ],
       "quote_at": 0,
-      "status": "PENDING",
+      "sent_at": 1794839683,
+      "status": "SENT",
+      "telegram_ids": [
+        6722
+      ],
       "text": "🟡 MOVIMENTO DETECTADO • ENTRADA BLOQUEADA\nAAVE/USDT • ALTA (LONG)\n🧪 SIMULAÇÃO • acompanhamento\n\nRompimento observado no M1 fechado às 11:34:00 BRT.\nPreço de referência do primeiro gatilho: 109.48.\n\nConfirmação técnica identificada; entrada bloqueada.\nCondição pendente: A relação entre ganho e perda ficou abaixo do mínimo.\n\nFaixa em estudo: 109.33 a 109.65\n🛑 Stop do plano: 108.88 (-5.48% bruto em 10x)\n🎯 Alvo do plano: 110.07 (+5.39% bruto em 10x)\nCenário indicativo sobre a margem em 10x; custos e liquidação ainda não validados.\nMovimento sem alavancagem: TP +0.54% • SL -0.55%.\nPercentuais sobre a referência do primeiro gatilho, na direção da operação, antes de custos.\n\nMovimento observado, sem entrada liberada. Aguarde o alerta de confirmação e viabilidade.\nAlerta válido até 11:36:00 BRT.\nAnálise: 16/11/2026 11:34:34 BRT\nPlano: 0bf2b72aeccc8fb45900",
       "watch_stage": 0,
       "watch_symbol": "AAVE_USDT"
