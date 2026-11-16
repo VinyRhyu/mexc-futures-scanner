@@ -1,0 +1,102 @@
+{
+  "name": "M1_FIRST_FAILED_BREAK_REVERSAL_V1",
+  "frozen_at_utc": "2026-11-16T02:39:25.564289+00:00",
+  "production_commit": "71db8f2dbb5a9693f0656602b696d00135411a14",
+  "symbols": [
+    "AAVE_USDT",
+    "ADA_USDT",
+    "ARB_USDT",
+    "AVAX_USDT",
+    "BNB_USDT",
+    "BTC_USDT",
+    "DOGE_USDT",
+    "DOT_USDT",
+    "ENA_USDT",
+    "ETH_USDT",
+    "HBAR_USDT",
+    "HYPE_USDT",
+    "INJ_USDT",
+    "JUP_USDT",
+    "LINK_USDT",
+    "NEAR_USDT",
+    "ONDO_USDT",
+    "ONE_USDT",
+    "PEPE_USDT",
+    "QNT_USDT",
+    "SOL_USDT",
+    "SUI_USDT",
+    "TAO_USDT",
+    "TIA_USDT",
+    "UNI_USDT",
+    "WLD_USDT",
+    "XLM_USDT",
+    "XRP_USDT",
+    "ZEC_USDT"
+  ],
+  "excluded_symbols": [
+    "DASH_USDT",
+    "XMR_USDT"
+  ],
+  "start_brt": "2026-10-25T00:00:00-03:00",
+  "end_exclusive_brt": "2026-11-15T00:00:00-03:00",
+  "weeks": [
+    [
+      "2026-10-25T00:00:00-03:00",
+      "2026-11-01T00:00:00-03:00"
+    ],
+    [
+      "2026-11-01T00:00:00-03:00",
+      "2026-11-08T00:00:00-03:00"
+    ],
+    [
+      "2026-11-08T00:00:00-03:00",
+      "2026-11-15T00:00:00-03:00"
+    ]
+  ],
+  "capital": "100",
+  "leverage": 10,
+  "risk_fraction": "0.02",
+  "minimum_net_rr": "1",
+  "entry_delay_seconds": 60,
+  "entry_ttl_seconds": 120,
+  "horizon_seconds": 14400,
+  "single_change": "One new structural strategy after prior entry-policy test failed: trade opposite direction on first known return inside broken box after a technical M1 confirmation. MARKET entry, same wallet/cost/latency infrastructure. Not a filter that uses future stop outcomes.",
+  "sizing": "At most 2% of current equity lost at original SL including modeled fees/slippage, integer contract lots, margin+reserved fees <= equity, exactly10x, one position or pending order globally. Rank at decision time by projected netRR then costs/risk then symbol/ID. Never choose by future fill or outcome.",
+  "limit_fill": "Place only until original signal+120; require price penetrate limit by half modeled spread plus2ticks. No improvement over requested limit. Reserve wallet while pending. Conservatively process entry-bar stop before TP; intrabar limit TP allowed only if close beyond TP guarantees post-fill crossing, otherwise wait until following minute. Account fill at end of its minute, not exact exchange timestamp.",
+  "source_gate": "Any SL/TP touch in completed waiting minute cancels both arms. Preserve original band; market must be within it. Limit priced inside frozen band and checked with same finance validator at order price. No entry last4h before each weekly boundary. Weekly resets and continuous21day wallet both reported.",
+  "costs": [
+    {
+      "name": "base",
+      "taker_fee": "0.0006",
+      "slippage_rate": "0.0002",
+      "spread": "0.0002"
+    },
+    {
+      "name": "stress",
+      "taker_fee": "0.0010",
+      "slippage_rate": "0.0004",
+      "spread": "0.0004"
+    }
+  ],
+  "fair_and_funding": "Attempt actual FairM1 and funding history. Estimated future funding at decision uses only latest settlement known then, never future realized rates. Realized cash flows use historical settlement events while held. Missing data flagged; no claim of validated profitability without coverage.",
+  "compatibility": "Before wallet changes, reproduce original 31asset old immediate-entry123:49TP71SL3open, and newer29asset107:25TP65SL17open with active paper config. These sums are independent signals, not ROI.",
+  "promotion_screen": "Same frozen exploratory screen as parent, with >=30closed total, >=15latestweek, all3weekly returns>=0, continuous>100 and above identical MARKET control, DD<=10%,fixed-fill stress>100 and no margin infeasibility. Passing still not independent validation.",
+  "data_reuse": "All three weeks already inspected in previous work: development and retrospective verification only; no untouched holdout. No additional threshold/strategy trials after inspecting results in this protocol.",
+  "limitations": [
+    "Frozen contract snapshots and29current-survivor universe; not historical point-in-time eligibility.",
+    "No historical order book or true bid/ask; modeled spread/depth/fill/slippage remain assumptions.",
+    "Historical candles cannot reproduce exact manual execution or intraminute sequence.",
+    "10x is exposure multiplier, not probability improvement."
+  ],
+  "source_manifests": {
+    "/workspace/scratch/c65849e9b14e/quality-review/m1-trend/source/summary.json": "6eb6302f3f5c31bddd47e712c1c1ab1da0fb8d5034b5c6452672045d1395eae7",
+    "/workspace/scratch/c65849e9b14e/quality-review/m1-new-week/source/summary.json": "0ec3f59e4f125c3409a6e8c1123670009b6c215dc86f03ac82ea4a784a065456"
+  },
+  "parent_rejected_protocol": "M1_PORTFOLIO_MARKET_VS_ORIGINAL_BAND_LIMIT_V1",
+  "parent_result_sha256": "bfc5a8e9f8533cba6d5b7a14eae01456213ee34f0b40748cf96c7ba646030953",
+  "trigger": "From each technical confirmation, inspect at most first5closed M1. Cancel if original SL/TP touched before or within failure candle. First close strictly back inside original boundary is a reversal signal; no replacement if failed.",
+  "levels": "Opposite side. TP=frozen original box midpoint. SL=observed adverse extremum of original first breakout M1 through failure M1 plus0.10 originalM15ATR outward. Entry=failure close +/-0.25 originalATR, clipped strictly inside box between broken boundary and midpoint, tick rounded. All known by failure close. Cancel if midpoint already touched in failure candle.",
+  "causal_check": "Require output identical with complete history versus price history truncated exactly at failure close; subsequent prices may only affect fills/outcomes.",
+  "cost_stress": "Reprice identical base execution quantities; do not select a new higher-fee cohort.",
+  "no_further_search": "Exactly this one reversal specification. No alternate5min thresholds, midpoint targets, stop buffers, direction filters or timeframes selected after outcomes. If rejected, report rejection; no third strategy sweep in this session."
+}

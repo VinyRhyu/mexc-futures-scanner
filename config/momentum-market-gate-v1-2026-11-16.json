@@ -1,0 +1,167 @@
+{
+  "name": "MOMENTUM_DAILY_MARKET_GATE_V1",
+  "frozen_at_utc": "2026-11-16T11:44:20.900726+00:00",
+  "parent_commit": "871e0b3",
+  "status": "NEW_RESEARCH_PROTOCOL_AFTER_REJECTED_M1",
+  "hypothesis": "Test whether restricting daily seven-day momentum candidates to the already-known7day BTC direction reduces opposing market-factor exposure. This is a new hypothesis after the five earlier variants; not independent validation.",
+  "symbols": [
+    "AAVE_USDT",
+    "ADA_USDT",
+    "ARB_USDT",
+    "AVAX_USDT",
+    "BNB_USDT",
+    "BTC_USDT",
+    "DOGE_USDT",
+    "DOT_USDT",
+    "ENA_USDT",
+    "ETH_USDT",
+    "FET_USDT",
+    "HYPE_USDT",
+    "ICP_USDT",
+    "INJ_USDT",
+    "LINK_USDT",
+    "ONDO_USDT",
+    "PEPE_USDT",
+    "QNT_USDT",
+    "SOL_USDT",
+    "SUI_USDT",
+    "TAO_USDT",
+    "TIA_USDT",
+    "UNI_USDT",
+    "WLD_USDT",
+    "XLM_USDT",
+    "XRP_USDT"
+  ],
+  "initial_equity": "100",
+  "leverage": 10,
+  "risk_fraction": "0.02",
+  "minimum_turnover": "5000000",
+  "signal_delay_seconds": 3600,
+  "min_liquidation_buffer": "1.5",
+  "costs": [
+    {
+      "name": "base",
+      "fee": "0.0006",
+      "spread": "0.0002",
+      "slippage": "0.0002"
+    },
+    {
+      "name": "stress",
+      "fee": "0.0010",
+      "spread": "0.0004",
+      "slippage": "0.0004"
+    }
+  ],
+  "variants": [
+    {
+      "name": "MOMENTUM_24H",
+      "tf_hours": 24,
+      "kind": "MOMENTUM",
+      "lookback_days": 7,
+      "stop_atr": 2,
+      "stop_cap": ".05",
+      "trail_atr": 2,
+      "max_hold_hours": 24
+    },
+    {
+      "name": "MOMENTUM_BTC_GATE",
+      "tf_hours": 24,
+      "kind": "MOMENTUM",
+      "lookback_days": 7,
+      "stop_atr": 2,
+      "stop_cap": ".05",
+      "trail_atr": 2,
+      "max_hold_hours": 24,
+      "market_gate": "BTC7_SIGN"
+    }
+  ],
+  "blocks": [
+    {
+      "name": "historical_last_proxy",
+      "source": "/workspace/scratch/c65849e9b14e/quality-review/momentum/source",
+      "start": "2026-07-01T00:00:00+00:00",
+      "end": "2026-10-01T00:00:00+00:00",
+      "validation_start": "2026-09-01T00:00:00+00:00",
+      "valuation": "LAST_PROXY_NOT_VALIDATED"
+    },
+    {
+      "name": "recent_fair",
+      "source": "/workspace/scratch/c65849e9b14e/quality-review/momentum-week10x/source",
+      "start": "2026-10-24T00:00:00+00:00",
+      "end": "2026-11-14T00:00:00+00:00",
+      "validation_start": "2026-11-01T00:00:00+00:00",
+      "valuation": "HISTORICAL_FAIR"
+    }
+  ],
+  "ranking": "Same normalized7day momentum rank as the24h control. For the gated arm, before ranking require side equal sign(BTC return from known closed H1 at signal boundary versus7days earlier). BTC zero => cash. No alternative lookback or gate threshold.",
+  "execution": "One full H1 delay after UTC daily signal. Initial stop distance is min(2ATR14 daily,5%of signal close); recheck actual fill against1.5liquidation buffer. Exit at market, adverse rounded spread/slippage. Same2%wallet risk. Control closes after24h, candidate after168h at most. Full re-simulation and funding reserve depend on holding horizon.",
+  "turnover_and_funding": "Turnover proxy from preceding24 completed H1 volumes * contract size * close. Realized funding settlement strictly after entry; uncertain intrahour credits omitted if an exit can occur. Conservative Fair liquidation priority. Last proxy explicitly fails final approval.",
+  "screen": "Provisional research progress only if recent Fair base/stress returns positive, recent base DD<=10%, historical base development and verification positive, >=30closed across both blocks and>=5recent. These are bookkeeping screens, not statistical proof. Approval always false until genuinely new data and verified execution. Report inadequate sample sizes.",
+  "no_search": "One BTC7day directional gate only. Replay exact24h control from prior trial. Same costs,size/risk,stop cap,delay,and24h holding. No direction-specific or symbol-specific pruning. All negative runs remain reported.",
+  "sources": [
+    "https://www.nber.org/papers/w24877",
+    "https://www.mexc.com/api-docs/futures/market-endpoints/get-candlestick-data"
+  ],
+  "source_manifests": {
+    "/workspace/scratch/c65849e9b14e/quality-review/momentum/source/manifest.json": "15c9eb5bf69c1fd30ac7f57f642d73ceb5091ac589b7b56da1054135efdb1a43",
+    "/workspace/scratch/c65849e9b14e/quality-review/momentum-week10x/source/manifest.json": "6a3c7a673d7bb864fea364a97a7f595cd2be706fdcfe96138b79496eb7b7cd68"
+  },
+  "data_sha256": {
+    "historical_last_proxy": {
+      "AAVE_USDT": "781bf0e50c8eabf60f83466008c08fe6f807ba4ce56eb3bd0284041e75bd8de3",
+      "ADA_USDT": "6933feb34c87166a4c82e71a8962316b6ffb04c93e7dbb32994df8a60e634c0e",
+      "ARB_USDT": "9e47e6742315b7004e2385c4312544e9831114fe1a93ef3c8b111c981f3b0966",
+      "AVAX_USDT": "5cba1dca7ee18ebacbd332beca712c8b27b79e09818e93ef05b28ff82de3b4bc",
+      "BNB_USDT": "0c382bc11176771461a248e01d217a7f13fe53b1bfc415a53f7da261f0b0a582",
+      "BTC_USDT": "2185293341382d5837cf210f0039112064ec2d37cae953ed899be03d8d57e62e",
+      "DOGE_USDT": "cc07d6432be9443dced6b3997ad1db626b106f28e2cb93e91c1c34a718eaba38",
+      "DOT_USDT": "dd64a7169b0deb919a6cfe94e13ed4f1a1640bfd562f8994b50ee26168043153",
+      "ENA_USDT": "a07b70f10383a2c2f4ae4fa6dc50781a426ff20ee6a8f06fc212df697a36c8cf",
+      "ETH_USDT": "53ca50de77fa5bab8984fbd47621043485e028ec4c71f83b51715fd2f1d8665a",
+      "FET_USDT": "cea131a363fdc51536f932b7e6b5c580b557ef52c4b531d3562efbfbd1997126",
+      "HYPE_USDT": "036cf0324c4cbb4be88cf5f347fa950fafbea29deecc5c619979a693e6f6128b",
+      "ICP_USDT": "6de600f50ae9a51e0ee7e17a0c98756204eabc5fa5e75563f882ec2871946cbc",
+      "INJ_USDT": "f0fedc82a93fc5dacb4704d62e949ec9b4172f75fee2a53b0630354f1524f92c",
+      "LINK_USDT": "e3f028556d37fac5faf71873d8eba20b3feba5f1b5d6bfe43b83156ca2147ee5",
+      "ONDO_USDT": "e5551c006e58ec22c0432a2ce917d95f0247c8af51cae20ea77fe0f4e36aad0b",
+      "PEPE_USDT": "60a0e343eb3bebb139860c00f4836635f89b3808f02831b32b5b60168655032c",
+      "QNT_USDT": "8e9c07b7f0e217e969c7b6a048aff41a23368ee28ed9181a3da6e6c793a4b386",
+      "SOL_USDT": "9aeab604a64e9032523369e295f1d6a33c068184576040bc4048fa1e2d038ef1",
+      "SUI_USDT": "ff22afd96e61b25e224103991c41d23b5a49352dc860fd40ffd5f442e0780a1f",
+      "TAO_USDT": "7a6bc2a8606611dec9399d5736ec7119683830c499fa6992d27e0263cfc43442",
+      "TIA_USDT": "52a9d33bdf40d768b7b0ec25717dd813fb2a227e9b8138b5534ca213480ffd19",
+      "UNI_USDT": "37763fa678a242e2e5d2fc653bc50b49a96e9b6e31d0a8f142b8edd3c0d175c9",
+      "WLD_USDT": "202f3a125a6de13acb0456487c60f108085f5edb4d1d579a2846f561da7c7bc0",
+      "XLM_USDT": "1eb14b32129403d7090be2f0fddd4eacaec7bb5e6645b7a0beee0d67a7d60d8a",
+      "XRP_USDT": "2ac5749037f9f5e160da6ecf0b1dc082866baea5ee06e5b4975bdba48254c161"
+    },
+    "recent_fair": {
+      "AAVE_USDT": "a008d6eccf1ff82f958a1c3fe95479864e79271ea8aa53dddd6e161ebbdd8de0",
+      "ADA_USDT": "7634c2f28318a5562e95888cb8a870c0524653b8d8db900c4cd7b70ee490f614",
+      "ARB_USDT": "64200f0dd0194fb4781cb6c9cc2a01b2e51d0591a37bfc707020d15357023963",
+      "AVAX_USDT": "bcadf1f7fb240340dd2f9d8cc8ac06ddb467fbf3e5d1d48445b0e78aed87212b",
+      "BNB_USDT": "fb21524b312de580e08a37e1b976233de0fa6f0b27f5b8418edf2871da984d7c",
+      "BTC_USDT": "c332eafac19715518adeb681768f23024218309aee9d7713956549b38a3c9ddd",
+      "DOGE_USDT": "b7e1e0efe265f27d61581d2aa3ad6cc97a050d1927b555cb5dfef553c393684d",
+      "DOT_USDT": "032bc4e2c3fd01b0632814910fae5d55f5aff5de018907c2770bd99888ce8015",
+      "ENA_USDT": "4916330215b2a8d941637f9ce221ec3f6befc7caaf8670e3c18c60f7c61c9196",
+      "ETH_USDT": "282c8d949a91aa7f7cc4fc8cdfbc463880f79528557346435d556ba560474742",
+      "FET_USDT": "7b9a0460f8b109688cbf1eb011deab69a669c891674d431b3f886e4ba4db71bb",
+      "HYPE_USDT": "61b252e023e2d3241bbc255a3a2327f0356a7ff6698540a12a7e4a66ca1ce743",
+      "ICP_USDT": "b323c31fd6b8024969b294268728a0864a8aecd191562664d9eee7e1144bc2c4",
+      "INJ_USDT": "32d88c488377eeceafd23a73b47916271da2a7312019c5dafe4ca99fe9ec5ef9",
+      "LINK_USDT": "6977e89e0c409a2c51380e5661419fc8c196cbd379e862df1ed1738fbaade056",
+      "ONDO_USDT": "0dffb0ad5657586401607a86e66efb5a9d898e77fe8929751dd2b51860fe8efd",
+      "PEPE_USDT": "207aa98b637a093a3d8cc6d09a2a790693d2c9a8814797281a4da16e4b0258d9",
+      "QNT_USDT": "dafbc6be8949d28587a42a271b93a96a749abceab1e420885470005652550499",
+      "SOL_USDT": "ee101803f5a97c14b4c43aa090b91fdf19a3335b5d3efa758659118b6ee697f1",
+      "SUI_USDT": "234a788bb177bb9c633d95b04913e7840b4df2e6999cc08734660cf5a94d5b7e",
+      "TAO_USDT": "61fa55e82a5a89f1e4fe2ad12f8112821223b50c8b4ec8867d0de8935dcf3e26",
+      "TIA_USDT": "e38796f18c1dd432f19ca86738949aae66575a0844466ae466548f0faaa5f747",
+      "UNI_USDT": "2d46c71fc6a7002085328655b7fb2fa5b51d73c3ae99f0920bb3072db2f35acb",
+      "WLD_USDT": "d355c75b47cb4443f94d64a030c7456b04a6d0672f03781b72fc55e98808eda7",
+      "XLM_USDT": "00972dda3918e0136abfb55adcf9f1dd856daa5e8889665d06052b706fba7870",
+      "XRP_USDT": "075c16f1644b1c7a302c86ce925c92b02907117e2bf48491a5cd2e3393c5720e"
+    }
+  }
+}

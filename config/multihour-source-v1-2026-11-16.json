@@ -1,0 +1,56 @@
+{
+  "name": "MULTIHOUR_PUBLIC_SOURCE_V1",
+  "frozen_at_utc": "2026-11-16T11:53:33.828411+00:00",
+  "collect_start_utc": "2026-05-01T00:00:00+00:00",
+  "collect_end_utc": "2026-11-16T00:00:00+00:00",
+  "symbols": [
+    "AAVE_USDT",
+    "ADA_USDT",
+    "ARB_USDT",
+    "AVAX_USDT",
+    "BNB_USDT",
+    "BTC_USDT",
+    "DOGE_USDT",
+    "DOT_USDT",
+    "ENA_USDT",
+    "ETH_USDT",
+    "FET_USDT",
+    "HYPE_USDT",
+    "ICP_USDT",
+    "INJ_USDT",
+    "LINK_USDT",
+    "ONDO_USDT",
+    "PEPE_USDT",
+    "QNT_USDT",
+    "SOL_USDT",
+    "SUI_USDT",
+    "TAO_USDT",
+    "TIA_USDT",
+    "UNI_USDT",
+    "WLD_USDT",
+    "XLM_USDT",
+    "XRP_USDT"
+  ],
+  "candidate": "MOMENTUM_BTC_GATE",
+  "control": "MOMENTUM_24H",
+  "candidate_protocol_sha256": "9b477db28485e5105ea7ae5a0a44c218544fe4ae2c11b68f5ec73b8beda98b9a",
+  "intent": "Obtain actual Fair H1 for previous proxy-only months and additional historical days. Candidate frozen before collection. Earlier unseen months are a retrospective check, not forward validation. No order/account/Telegram operations.",
+  "evaluation_plan": [
+    {
+      "start": "2026-05-16T00:00:00+00:00",
+      "end": "2026-07-01T00:00:00+00:00",
+      "kind": "previously_unexamined_earlier_dates"
+    },
+    {
+      "start": "2026-07-01T00:00:00+00:00",
+      "end": "2026-10-01T00:00:00+00:00",
+      "kind": "replace_Last_proxy_with_actual_Fair"
+    },
+    {
+      "start": "2026-10-24T00:00:00+00:00",
+      "end": "2026-11-16T00:00:00+00:00",
+      "kind": "extend_recent_period"
+    }
+  ],
+  "independent_validation": false
+}

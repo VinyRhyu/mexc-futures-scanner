@@ -1,0 +1,32 @@
+{
+  "name": "LIMIT_EXECUTION_CASH_CORRECTION_V1",
+  "frozen_at_utc": "2026-11-16T09:19:08.131950+00:00",
+  "change": "Pure limit entry cash costs equal modeled trading fee only; no adverse entry slippage charged beyond requested limit. Qualification and sizing still reserve the original conservative fee/slippage budget. No signal, TP,SL,timing,rank or risk parameter tuning.",
+  "legacy_entry_result_sha256": "bfc5a8e9f8533cba6d5b7a14eae01456213ee34f0b40748cf96c7ba646030953",
+  "legacy_reversal_result_sha256": "ef1d3410732eaac6bd48c7a71472d95b77f743de9d33fd674858e97294e693f4",
+  "fee_sensitivity": "Same corrected base executions and quantities. Reprice cash flows only, without selecting new trades or resizing. Not an independently re-simulated portfolio at new fees; margin feasibility reported.",
+  "fee_scenarios": [
+    {
+      "name": "uniform_taker_004",
+      "maker": "0.0004",
+      "taker": "0.0004"
+    },
+    {
+      "name": "uniform_taker_002",
+      "maker": "0.0002",
+      "taker": "0.0002"
+    },
+    {
+      "name": "maker001_taker004",
+      "maker": "0.0001",
+      "taker": "0.0004"
+    },
+    {
+      "name": "maker000_taker002",
+      "maker": "0",
+      "taker": "0.0002"
+    }
+  ],
+  "fee_role": "Only INTRABAR resting LIMIT entry uses maker scenario; OPEN marketable entry and all modeled exits use taker. No personal or pair-specific fees verified. Scenarios are economic sensitivity, not actual account rates.",
+  "no_search": "Two strategy hypotheses remain the only trials; this corrects accounting and quantifies fee uncertainty, without a third setup or threshold sweep."
+}

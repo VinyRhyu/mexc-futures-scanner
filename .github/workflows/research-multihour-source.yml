@@ -1,0 +1,32 @@
+name: Research multihour public data
+on:
+  push:
+    branches: ['research/multihour-v1']
+    paths:
+      - 'config/multihour-source-v1-2026-11-16.json'
+      - 'scripts/collect_multihour_source.py'
+      - '.github/workflows/research-multihour-source.yml'
+permissions:
+  contents: read
+concurrency:
+  group: research-multihour-public-source
+  cancel-in-progress: false
+jobs:
+  collect:
+    runs-on: ubuntu-latest
+    timeout-minutes: 25
+    steps:
+      - uses: actions/checkout@v7.0.1
+      - uses: actions/setup-python@v7
+        with:
+          python-version: '3.12'
+      - name: Validate public collector
+        run: python -m unittest tests.test_multihour_collection -v
+      - name: Collect Last Fair and funding via public GET only
+        run: python -m scripts.collect_multihour_source --protocol config/multihour-source-v1-2026-11-16.json --output reports/multihour-public-source
+      - uses: actions/upload-artifact@v7.0.2
+        if: always()
+        with:
+          name: multihour-public-source-v1
+          path: reports/multihour-public-source
+          retention-days: 30

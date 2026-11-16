@@ -1,0 +1,11 @@
+{
+  "name": "WALLET_SIZING_SCOPE_V1",
+  "frozen_before_wallet_results_utc": "2026-11-16T02:11:11.155203+00:00",
+  "risk_fraction": "0.02",
+  "max_cost_fraction": "0.30",
+  "reason": "Production budget is min(config.risk_fraction=.30,.10)=.10 of equity, while cost budget is .30*.10=.03 of equity. Effective allowed cost/planned-risk is .30. With2% wallet risk keep that same ratio: .02*.30=.006 of equity; not accidentally tighten it to .002.",
+  "execution_sizing": "Confirm actual or contingent price lies inside ORIGINAL frozen band, then evaluate a singleton price interval for sizing/ranking in BOTH arms. Same per-unit costs,RR,contract and10x checks; actual risk capped at2% equity including costs. No change to production config.",
+  "funding_at_entry": "Only settlements strictly before decision inform projected next6h funding; use actual events for realized flows. Never use future settlement rate for entry gating.",
+  "weekly_split": "No signals in last4h of each of3weeks; all positions timeout by weekly boundary. Report each week reset100 plus continuous21day wallet without reset.",
+  "missing_valuation": "If full Fair/funding cannot be loaded, keep explicitly approximate fallback results separate and do not approve profitability."
+}

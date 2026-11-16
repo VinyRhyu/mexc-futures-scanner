@@ -1,0 +1,26 @@
+{
+  "tests_passed": 344,
+  "prefix_snapshots": {
+    "actual_dataset_prefix_snapshots": 1092,
+    "nonempty_signal_candidates_checked": 669,
+    "scope": "Signals/ATR/rank scores and stop updates compared with every future H1 bar removed; synthetic tests cover funding and BTC gate."
+  },
+  "controlled_comparisons": 8,
+  "production_changed": false,
+  "approved_for_production": false,
+  "code_sha256": {
+    "scripts/audit_multihour.py": "9e367ab8ee007f31f219a8712526bf6e5fdd0d07ae99af99759f29df7bfcf06a",
+    "scripts/run_research_batch.py": "544ceee0e2bf85dfc6637e98b378897318acc10e6f0639443087ba1c0da16533",
+    "scripts/collect_multihour_source.py": "ea257d836350a1a99c35003c0726135ca7675f087fbf9b7922ccc812b298c895",
+    "tests/test_multihour.py": "915078e019b46cdb75e8bdd2b7aa771b80f4d945e011f96002a73a006d79e0ef",
+    "tests/test_multihour_collection.py": "8471efe2a0707b6cfd107806a9f237938a3e76d915f45fc3f09d9f52ff774ed2",
+    "config/default.toml": "a5c3f329ed437ec8c7942170ae2628a5eca8ecbf9ef546c67a98d0be8a40557f"
+  },
+  "protocol_sha256": {
+    "config/momentum-market-confirm-v1-2026-11-16.json": "c119721e638a60ca52fac97f3de052333ba7cd62c1241a219129e2edcc18b732",
+    "config/momentum-market-gate-v1-2026-11-16.json": "9b477db28485e5105ea7ae5a0a44c218544fe4ae2c11b68f5ec73b8beda98b9a",
+    "config/momentum-persistence-v1-2026-11-16.json": "c16566d30d96c015c16b8559b8dc1579a7107fc842dd588008105fdadad885c9",
+    "config/multihour-source-v1-2026-11-16.json": "481512c555f00ef78099235b6dda28173e8cb239f70de4f78fa5a693fbf90586",
+    "config/multihour-v1-2026-11-16.json": "6b83673bb9ef212353b0a290827c62d44f570d9a5ccabb984f6a4577054f7223"
+  }
+}
