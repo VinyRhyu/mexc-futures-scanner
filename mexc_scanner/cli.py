@@ -13,6 +13,7 @@ import time
 from .config import load_config
 from .demo import DemoClient
 from .engine import run_scan
+from .observability import DecisionLog
 from .mexc import MexcClient
 from .models import DataError, jsonable
 from .reporting import markdown_report
@@ -115,8 +116,11 @@ def main(argv=None) -> int:
                 raise DataError("Modo real exige destino privado confirmado")
             if args.command == "scan":
                 assets = set(json.loads(Path("config/crypto-assets.json").read_text())["assets"])
+                audit = DecisionLog(path.parent / 'audit', mode=config.mode, fingerprint=config.fingerprint)
                 report, snapshot = run_scan(MexcClient(config.api_base), config, state, assets,
-                                            symbol_limit=args.limit or None,signal_model=args.model)
+                                            symbol_limit=args.limit or None,signal_model=args.model,
+                                            observer=audit.record)
+                audit.flush()
                 atomic_json(path, state)
                 write_report(Path(args.output), report, snapshot)
                 (path.parent / "round-complete.marker").write_text(str(report["analyzed_at"]))
@@ -125,9 +129,11 @@ def main(argv=None) -> int:
                                   "plans": len(report["plans"]), "error": report.get("error")}))
                 return 1 if report["source_status"] == "FALHA" else 0
             if args.command == "notify":
+                audit = DecisionLog(path.parent / 'audit', mode=config.mode, fingerprint=config.fingerprint)
                 result = drain_outbox(state, now, os.environ.get("TELEGRAM_BOT_TOKEN", ""),
-                                      os.environ.get("TELEGRAM_CHAT_ID", ""), clock=time.time)
+                                      os.environ.get("TELEGRAM_CHAT_ID", ""), clock=time.time, observer=audit.record)
                 atomic_json(path, state)
+                audit.flush()
                 print(json.dumps(result))
                 return 1 if result["failed"] else 0
             executed_at = None

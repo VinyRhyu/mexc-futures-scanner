@@ -13,6 +13,7 @@ from .mexc import MexcClient, SourceError
 from .models import Contract, D, DataError, Plan, jsonable, stable_id
 from .reporting import brt, closed_plans_message, daily_message, plan_message
 from .state import queue_message
+from .observability import Timings, record_plan
 from .strategies import process_symbol
 from .minute_breakout import MODEL,prepare_model,process_minutes,validate_minute_ohlc
 from .watch_notifications import STRATEGY as WATCH_STRATEGY, queue_waiting_entries
@@ -20,7 +21,8 @@ from .watch_notifications import STRATEGY as WATCH_STRATEGY, queue_waiting_entri
 
 def run_scan(client: MexcClient, config: Config, state: dict, assets: set[str],
              now: int | None = None, symbol_limit: int | None = None,
-             signal_model: str = 'legacy') -> tuple[dict, dict]:
+             signal_model: str = 'legacy', *, observer=None, timings=None) -> tuple[dict, dict]:
+    timings = timings or Timings()
     started = int(time.time()) if now is None else now
     wall_start = time.monotonic()
     if signal_model not in {'legacy',MODEL}:raise DataError('Modelo de sinal desconhecido')
@@ -36,13 +38,14 @@ def run_scan(client: MexcClient, config: Config, state: dict, assets: set[str],
     report['max_leverage']=snapshot['max_leverage']=config.max_leverage
     previous_plans = state["plans"]
     try:
-        server = client.server_time()
-        if abs(server - started) > 300:
-            raise SourceError("Horários local e da fonte divergem mais de cinco minutos")
-        catalog, tickers = client.contracts(), client.tickers()
-        selected, excluded = select_universe(catalog, tickers, assets, D(config.minimum_turnover),
-                                             min(config.universe_size, symbol_limit or config.universe_size))
-        report["selected_symbols"], report["excluded"] = len(selected), excluded
+        with timings.phase('market_catalog'):
+            server = client.server_time()
+            if abs(server - started) > 300:
+                raise SourceError("Horários local e da fonte divergem mais de cinco minutos")
+            catalog, tickers = client.contracts(), client.tickers()
+            selected, excluded = select_universe(catalog, tickers, assets, D(config.minimum_turnover),
+                                                 min(config.universe_size, symbol_limit or config.universe_size))
+            report["selected_symbols"], report["excluded"] = len(selected), excluded
         # Planos ativos continuam sendo reconciliados mesmo fora do universo principal.
         active_symbols = {p["symbol"] for p in previous_plans.values()
                           if p["status"] not in {"INVALIDADO", "EXPIRADO", "AMBIGUO", "EVENTO_PASSADO"}}
@@ -63,61 +66,80 @@ def run_scan(client: MexcClient, config: Config, state: dict, assets: set[str],
             if minute is not None:validate_minute_ohlc(quarter,minute)
             return (row, parse_candles(h, 3600, server, h_count),quarter,minute)
         results = []
-        with ThreadPoolExecutor(max_workers=4) as pool:
-            futures = {pool.submit(collect, row): row["symbol"] for row in selected}
-            for future in as_completed(futures):
-                symbol = futures[future]
-                try:
-                    results.append(future.result())
-                except (DataError, SourceError, ValueError, KeyError, TypeError) as exc:
-                    report["diagnostics"].append({"symbol": symbol, "reason": str(exc)})
+        with timings.phase('candles_collect'):
+            with ThreadPoolExecutor(max_workers=4) as pool:
+                futures = {pool.submit(collect, row): row["symbol"] for row in selected}
+                for future in as_completed(futures):
+                    symbol = futures[future]
+                    try:
+                        results.append(future.result())
+                    except (DataError, SourceError, ValueError, KeyError, TypeError) as exc:
+                        report["diagnostics"].append({"symbol": symbol, "reason": str(exc)})
         new_plans = dict(previous_plans)
         good_symbols = set()
-        for row, hourly, quarter, minute in sorted(results, key=lambda r: r[0]["symbol"]):
-            symbol = row["symbol"]
-            analysis_time = server + int(time.monotonic() - wall_start)
-            try:
-                contract = Contract.from_api(row)
-                plans = [Plan.from_dict(p) for p in previous_plans.values() if p["symbol"] == symbol]
-                if signal_model==MODEL:
-                    activated=state.setdefault('minute_activation',{}).setdefault(symbol,server)
-                    plans,cursor,diagnostics=process_minutes(symbol,quarter,hourly,minute,plans,
-                        int(state.setdefault('minute_cursors',{}).get(symbol,0)),analysis_time,
-                        contract.tick,config,activated)
-                    state['minute_cursors'][symbol]=cursor
-                    if diagnostics:state['minute_activation'][symbol]=analysis_time
-                    report['diagnostics'] += [{'symbol':symbol,'reason':x} for x in diagnostics]
-                else:
-                    plans, cursor = process_symbol(symbol, quarter, hourly, plans,
-                        int(state["cursors"].get(symbol, 0)), analysis_time, contract.tick, config)
-                active = [p for p in plans if not p.terminal and any(v.status == "VALIDA" for v in p.variants.values())]
-                market = {"hourly": hourly, "quarter": quarter,
-                          "context_1h": structure(hourly, server),
-                          "context_2h": structure(aggregate_two_hours(hourly), server)}
-                if minute is not None:market['minute']=minute
-                if active:
-                    try:
-                        ticker = client.ticker(symbol)
-                        book = client.depth(symbol)
-                        funding = client.funding(symbol)
-                        analysis_time = server + int(time.monotonic() - wall_start)
-                        market.update({"ticker": ticker, "depth": book, "funding": funding})
-                        for p in active:
-                            for v in p.variants.values():
-                                v.financial = evaluate(p, v, contract, D(state["wallet"]["balance"]),
-                                                       ticker, book, funding, analysis_time, config)
-                    except (SourceError, DataError, KeyError, ValueError, TypeError) as exc:
-                        for p in active:
-                            for v in p.variants.values():
-                                v.financial = {"status": "BLOQUEADA", "reasons": ["COTACAO_LIVRO_OU_CUSTOS_INDISPONIVEIS"]}
-                        report["diagnostics"].append({"symbol": symbol, "reason": str(exc)})
-                for p in plans:
-                    new_plans[p.id] = jsonable(p)
-                if signal_model!=MODEL:state["cursors"][symbol] = cursor
-                snapshot["market"][symbol] = jsonable(market)
-                good_symbols.add(symbol)
-            except (DataError, KeyError, ValueError, TypeError) as exc:
-                report["diagnostics"].append({"symbol": symbol, "reason": str(exc)})
+        with timings.phase("analysis_and_finance"):
+            for row, hourly, quarter, minute in sorted(results, key=lambda r: r[0]["symbol"]):
+                symbol = row["symbol"]
+                analysis_time = server + int(time.monotonic() - wall_start)
+                try:
+                    contract = Contract.from_api(row)
+                    plans = [Plan.from_dict(p) for p in previous_plans.values() if p["symbol"] == symbol]
+                    if signal_model==MODEL:
+                        activated=state.setdefault('minute_activation',{}).setdefault(symbol,server)
+                        plans,cursor,diagnostics=process_minutes(symbol,quarter,hourly,minute,plans,
+                            int(state.setdefault('minute_cursors',{}).get(symbol,0)),analysis_time,
+                            contract.tick,config,activated)
+                        state['minute_cursors'][symbol]=cursor
+                        if diagnostics:state['minute_activation'][symbol]=analysis_time
+                        report['diagnostics'] += [{'symbol':symbol,'reason':x} for x in diagnostics]
+                    else:
+                        plans, cursor = process_symbol(symbol, quarter, hourly, plans,
+                            int(state["cursors"].get(symbol, 0)), analysis_time, contract.tick, config)
+                    for p in plans:
+                        for v in p.variants.values():
+                            old_v = previous_plans.get(p.id, {}).get('variants', {}).get(v.kind)
+                            if v.triggered_at and (not old_v or old_v.get('status') != v.status):
+                                record_plan(observer, 'technical_transition', p, v, analysis_time)
+                    active = [p for p in plans if not p.terminal and any(v.status == "VALIDA" for v in p.variants.values())]
+                    market = {"hourly": hourly, "quarter": quarter,
+                              "context_1h": structure(hourly, server),
+                              "context_2h": structure(aggregate_two_hours(hourly), server)}
+                    if minute is not None:market['minute']=minute
+                    if active:
+                        try:
+                            with timings.phase("financial_quotes_and_evaluation"):
+                                ticker = client.ticker(symbol)
+                                book = client.depth(symbol)
+                                funding = client.funding(symbol)
+                                analysis_time = server + int(time.monotonic() - wall_start)
+                                market.update({"ticker": ticker, "depth": book, "funding": funding})
+                                for p in active:
+                                    for v in p.variants.values():
+                                        v.financial = evaluate(p, v, contract, D(state["wallet"]["balance"]),
+                                                               ticker, book, funding, analysis_time, config)
+                                        record_plan(observer, 'financial_evaluation', p, v, analysis_time,
+                                                    financial=v.financial,
+                                                    quote_at=ticker.get('timestamp'),
+                                                    last_price=ticker.get('lastPrice'),
+                                                    fair_price=ticker.get('fairPrice'),
+                                                    bid=ticker.get('bid1'), ask=ticker.get('ask1'),
+                                                    book_at=book.get('timestamp'),
+                                                    funding_rate=funding.get('fundingRate'),
+                                                    funding_next_at=funding.get('nextSettleTime'))
+                        except (SourceError, DataError, KeyError, ValueError, TypeError) as exc:
+                            for p in active:
+                                for v in p.variants.values():
+                                    v.financial = {"status": "BLOQUEADA", "reasons": ["COTACAO_LIVRO_OU_CUSTOS_INDISPONIVEIS"]}
+                                    record_plan(observer, 'financial_evaluation', p, v, analysis_time,
+                                                financial=v.financial)
+                            report["diagnostics"].append({"symbol": symbol, "reason": str(exc)})
+                    for p in plans:
+                        new_plans[p.id] = jsonable(p)
+                    if signal_model!=MODEL:state["cursors"][symbol] = cursor
+                    snapshot["market"][symbol] = jsonable(market)
+                    good_symbols.add(symbol)
+                except (DataError, KeyError, ValueError, TypeError) as exc:
+                    report["diagnostics"].append({"symbol": symbol, "reason": str(exc)})
         for pid, row in new_plans.items():
             if row["symbol"] not in good_symbols:
                 for v in row.get("variants", {}).values():
@@ -130,7 +152,7 @@ def run_scan(client: MexcClient, config: Config, state: dict, assets: set[str],
         state["source_status"] = report["source_status"]
         state["last_success"] = server + int(time.monotonic() - wall_start)
         report["analyzed_at"] = state["last_success"]
-        _queue_transitions(state, previous_plans, config, report["analyzed_at"], watch_symbols=good_symbols)
+        _queue_transitions(state, previous_plans, config, report["analyzed_at"], watch_symbols=good_symbols, observer=observer)
     except (SourceError, DataError, KeyError, ValueError, TypeError) as exc:
         report["error"] = str(exc)
         state["source_status"] = "FALHA"
@@ -149,10 +171,11 @@ def run_scan(client: MexcClient, config: Config, state: dict, assets: set[str],
                         and p["formed_at"] >= report["analyzed_at"] - 86400]
     _daily_summary(state, report, config)
     snapshot["source_status"] = report["source_status"]
+    report["operational_timings"] = timings.rows
     return jsonable(report), jsonable(snapshot)
 
 
-def _queue_transitions(state: dict, previous: dict, config: Config, now: int, *, watch_symbols=None) -> None:
+def _queue_transitions(state: dict, previous: dict, config: Config, now: int, *, watch_symbols=None, observer=None) -> None:
     viable = []
     closed = []
     observations_queued = 0
@@ -220,6 +243,14 @@ def _queue_transitions(state: dict, previous: dict, config: Config, now: int, *,
         quote_at = int(v.financial.get("quote_at", 0))
         queue_message(state, event_id, plan_message(p, config.mode, now, v, restriction=restriction) + suffix,
                       now, p.expires_at, "ENTRY", quote_at)
+        message = state['outbox'][event_id]
+        if message['status'] == 'PENDING':
+            message.update(plan_id=p.id, variant=v.kind, signal_at=v.triggered_at,
+                           symbol=p.symbol, side=p.side)
+            record_plan(observer, 'entry_queued', p, v, now, event_id=event_id,
+                        created_at=message['created_at'], quote_at=quote_at,
+                        financial=v.financial)
+
     if closed:
         event_id = stable_id("CLOSED_PLANS", [(p.id, p.status) for p in closed], config.mode)
         queue_message(state, event_id, closed_plans_message(closed, config.mode, now), now, now + 3600)

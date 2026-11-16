@@ -35,7 +35,7 @@ def send_text(token: str, chat_id: str, text: str, transport=None) -> list[int]:
     return ids
 
 
-def drain_outbox(state: dict, now: int, token: str, chat_id: str, transport=None, *, clock=None) -> dict:
+def drain_outbox(state: dict, now: int, token: str, chat_id: str, transport=None, *, clock=None, observer=None) -> dict:
     counts = {"sent": 0, "expired": 0, "failed": 0, "configuration": "OK"}
     configured = bool(token and chat_id)
     if not configured:
@@ -44,6 +44,14 @@ def drain_outbox(state: dict, now: int, token: str, chat_id: str, transport=None
     messages = sorted(state["outbox"].values(), key=lambda m: (
         0 if m["category"] == "ENTRY" else 1 if m.get('movement_at') is not None
         else 2 if m.get('watch_stage') == 2 else 3, m["created_at"]))
+    def record(event, message, current, **extra):
+        if observer:
+            fields = {k: message[k] for k in ('plan_id', 'variant', 'signal_at', 'symbol', 'side') if k in message}
+            observer(event, event_id=message['id'], created_at=message['created_at'],
+                     quote_at=message['quote_at'], expires_at=message['expires_at'],
+                     status=message['status'], attempt=message['attempts'], observed_at=current,
+                     **fields, **extra)
+
     for message in messages:
         if message["status"] != "PENDING":
             continue
@@ -51,6 +59,7 @@ def drain_outbox(state: dict, now: int, token: str, chat_id: str, transport=None
         if current >= message["expires_at"] or (message["category"] == "ENTRY" and current - message["quote_at"] > 60):
             message["status"] = "EXPIRED"
             counts["expired"] += 1
+            record("delivery_expired", message, current)
             pending = state["wallet"].get("pending")
             if pending and pending.get("delivery_event_id") == message["id"] and message["attempts"] == 0:
                 state["wallet"]["pending"] = None
@@ -58,12 +67,16 @@ def drain_outbox(state: dict, now: int, token: str, chat_id: str, transport=None
         if not configured:
             continue
         message["attempts"] += 1
+        record("delivery_attempt", message, current)
         try:
             message["telegram_ids"] = send_text(token, chat_id, message["text"], transport)
             message["status"], message["sent_at"] = "SENT", int(clock()) if clock else now
             counts["sent"] += 1
+            record("delivery_sent", message, message["sent_at"], sent_at=message["sent_at"])
         except TelegramError as exc:
             message["last_error"] = str(exc)
             counts["failed"] += 1
+            record("delivery_failed", message, int(clock()) if clock else now,
+                   failure_type=str(exc).split(":", 1)[0])
             break
     return counts
