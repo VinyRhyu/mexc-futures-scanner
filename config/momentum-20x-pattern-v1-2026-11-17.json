@@ -1,0 +1,68 @@
+{
+  "id": "MOMENTUM_20X_PATTERN_V1",
+  "frozen_at_utc": "2026-11-17T12:56:55.923802+00:00",
+  "base_commit": "30e7ade13521d4cf60f33cf859f6e3ead924540a",
+  "base_protocol": "config/momentum-intrahour-evaluation-v1-2026-11-16.json",
+  "base_protocol_sha256": "c352ed285b24b41967a576c6573876cba4423897b67d320a42f5591fbb86da13",
+  "parent_results_sha256": "cbd182fbcd8affe219057d2e5f707a3e052e336d40e0ed352f6557bfd904af16",
+  "arms": [
+    "MOMENTUM_BTC_RISK1_RELATIVE_RANK",
+    "MOMENTUM_RELATIVE_20X",
+    "MOMENTUM_RELATIVE_20X_PATTERN"
+  ],
+  "risk_fraction": ".01",
+  "leverage": [
+    10,
+    20,
+    20
+  ],
+  "hypothesis": "One causal same-asset same-direction nearest-neighbor filter may improve the unfiltered20x policy and10x control without increasing planned account risk.",
+  "learning": {
+    "features": [
+      "sign * (close(S)/close(S-1day)-1) / (ATR14daily/close(S))",
+      "sign * ((close_asset(S)/close_asset(S-7days)-1)-(close_BTC(S)/close_BTC(S-7days)-1)) / (ATR14daily/close(S))"
+    ],
+    "prices": "H1 closes ending exactly at S, never the delay or fill candle; ATR is existing closed daily signal ATR.",
+    "neighbors": 20,
+    "distance": "Unweighted squared Euclidean on the two dimensionless features. Same symbol and same sign only. Expanding historical training from earliest available valid daily signal. Equal distance: earlier signal first.",
+    "label": "Independent US$100 reference paper trade,20x,1% risk, base costs, original BTC gate, liquidity, stops, lots, liquidation buffer, funding and24h deadline. Net PNL/planned risk. No labels for ineligible entries. Verified M5 only where previously frozen; otherwise conservative H1.",
+    "release": "Label becomes usable only at hypothetical entry+24h+1h embargo, even if stopped earlier. release_at<=current signal_at. All label exit observations must end<=entry+24h+1h. Future prices/rates never used to build an available label.",
+    "signal_rule": "Require at least20 matured same-symbol/same-side labels; average R of nearest20 strictly>0. Otherwise reject signal. Base-cost training used unchanged for base and stress evaluation. Preserve relative-BTC rank among approved eligible entries.",
+    "warmup": "No synthetic prehistory and no reset at evaluation block boundary. Earlier genuine historical labels may train later blocks. No symbol pooling or fitted global scaler."
+  },
+  "evaluation": {
+    "blocks": [
+      "new_early_history",
+      "historical_actual_fair",
+      "recent_extended",
+      "continuous_all"
+    ],
+    "costs": [
+      "base",
+      "stress"
+    ],
+    "control": "Reproduce all8 full existing10x relative wallets exactly. Check eligible independent labels against one-entry full replay. Check filter predictions from prefix-only observations.",
+    "acceptance": "Exploratory only: filtered20x continuous ROI strictly exceeds both unfiltered20x and10x in base and stress; maximum continuous base H1 DD<=10%; at least20 continuous closed trades per cost; all3 separate periods positive both costs; no modeled liquidation or unresolved new ambiguity.",
+    "search": "Exactly one frozen k=20 model, two features, positive mean-R threshold and1h embargo. No tuning or replacement after outcomes. No after-outcome stop tightening or relaxation of liquidation buffer."
+  },
+  "unchanged": [
+    "26-symbol frozen universe and catalog",
+    "daily signals plus1h latency",
+    "BTC7_SIGN gate and relative ranking",
+    "planned1% loss budget inclusive modeled costs/funding reserve",
+    "one position at a time",
+    "24h ceiling and original initial/trailing stops",
+    "minimum liquidation-distance/stop-distance1.5",
+    "frozen Last/Fair/funding/M5 and base/stress costs"
+  ],
+  "limitations": [
+    "Previously explored historical data; sequential causal learning is not independent validation.",
+    "Nearest neighbors are a fixed exploratory hypothesis, not proof that recurring patterns predict the future.",
+    "Current catalog/universe survivor bias; simulated fills and approximate isolated liquidation; H1 marked drawdown.",
+    "Insufficient training or20x-compatible stops can cause no trades. Retain that outcome."
+  ],
+  "production_changed": false,
+  "prospective_protocol_changed": false,
+  "independent_validation": false,
+  "approved_for_production": false
+}
