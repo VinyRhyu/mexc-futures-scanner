@@ -15581,13 +15581,17 @@
       "text": "⚪ ATUALIZAÇÃO DOS PLANOS ACOMPANHADOS\n🧪 SIMULAÇÃO\n\n• ARB/USDT • LONG: prazo para nova entrada encerrado\n  Motivo: A janela para uma nova entrada terminou.\n  Plano: 3d7b6502724d806a336e\n• WLD/USDT • LONG: prazo para nova entrada encerrado\n  Motivo: A janela para uma nova entrada terminou.\n  Plano: e4ab1b52fd0e13785ad8\n• ARB/USDT • LONG: prazo para nova entrada encerrado\n  Motivo: A janela para uma nova entrada terminou.\n  Plano: fc33f9289c3496202b21\n\nSem novas entradas por esses planos.\nAvisos de movimento não equivalem a entradas liberadas.\nA expiração não encerra uma posição já aberta.\nAnálise: 15/11/2026 09:36:10 BRT"
     },
     "1e11f520e37fd66bb039": {
-      "attempts": 0,
+      "attempts": 1,
       "category": "INFO",
       "created_at": 1794915812,
       "expires_at": 1794919412,
       "id": "1e11f520e37fd66bb039",
       "quote_at": 0,
-      "status": "PENDING",
+      "sent_at": 1794915818,
+      "status": "SENT",
+      "telegram_ids": [
+        8055
+      ],
       "text": "⚪ ATUALIZAÇÃO DOS PLANOS ACOMPANHADOS\n🧪 SIMULAÇÃO\n\n• ETH/USDT • LONG: confirmação não aprovada\n  Motivo: O segundo fechamento M1 perdeu o nível do gatilho.\n  Plano: 5ebbe308e78b25e0d78e\n• ETH/USDT • LONG: confirmação não aprovada\n  Motivo: O segundo fechamento M1 perdeu o nível do gatilho.\n  Plano: c116aad29a212520dcf8\n\nSem novas entradas por esses planos.\nAvisos de movimento não equivalem a entradas liberadas.\nA expiração não encerra uma posição já aberta.\nAnálise: 17/11/2026 08:43:32 BRT"
     },
     "1e208828ba5ef233e370": {
@@ -32359,7 +32363,7 @@
       "watch_symbol": "XRP_USDT"
     },
     "3d448261f162853e2dfe": {
-      "attempts": 0,
+      "attempts": 1,
       "category": "INFO",
       "created_at": 1794915812,
       "expires_at": 1794916800,
@@ -32368,7 +32372,11 @@
         "772267f6959b3e35e178"
       ],
       "quote_at": 0,
-      "status": "PENDING",
+      "sent_at": 1794915817,
+      "status": "SENT",
+      "telegram_ids": [
+        8054
+      ],
       "text": "👀 PLANO EM PREPARAÇÃO • AGUARDANDO GATILHO\nETH/USDT\n🧪 SIMULAÇÃO • acompanhamento\n\nRegião em análise: 1785.33 a 1815.77\nSHORT somente se houver fechamento M1 abaixo de ≈ 1784.46.\n\nConfirmação: dois fechamentos M1 consecutivos além do gatilho; volume do segundo de pelo menos 50% do primeiro.\nTP, SL e percentuais serão definidos no primeiro gatilho. A confirmação ainda precisa passar pela avaliação financeira.\n\nSem rompimento observado neste plano e sem entrada liberada.\nPreparação até 09:00:00 BRT.\nAnálise: 17/11/2026 08:43:32 BRT\nPlanos: 772267f6959b3e35e178",
       "watch_stage": 2,
       "watch_symbol": "ETH_USDT"
