@@ -1,9 +1,9 @@
 # MEXC Futures Scanner — rodada
 
-Modo: **paper**. Análise: 17/11/2026 18:12:39 BRT.
+Modo: **paper**. Análise: 17/11/2026 18:13:32 BRT.
 
-Fonte: PARCIAL
-Cobertura: 23/27 contratos selecionados.
+Fonte: OK
+Cobertura: 27/27 contratos selecionados.
 
 Retorno/risco líquido mínimo: **1:1**.
 
@@ -224,7 +224,7 @@ Alavancagem de simulação: **10x a 20x**.
 | ZEC_USDT | ROMPIMENTO_M1_VOLUME | SHORT | EVENTO_PASSADO | CONFIRMADA | FALHA_DA_FONTE_NESTA_RODADA |
 | SOL_USDT | ROMPIMENTO_M1_VOLUME | LONG | EXPIRADO | ANTECIPADA | FALHA_DA_FONTE_NESTA_RODADA |
 | SOL_USDT | ROMPIMENTO_M1_VOLUME | LONG | EXPIRADO | CONFIRMADA | FALHA_DA_FONTE_NESTA_RODADA |
-| BNB_USDT | ROMPIMENTO_M1_VOLUME | LONG | POSSIVEL | — | aguardando gatilho |
+| BNB_USDT | ROMPIMENTO_M1_VOLUME | LONG | POSSIVEL | ANTECIPADA | aguardando gatilho |
 | AVAX_USDT | ROMPIMENTO_M1_VOLUME | LONG | EXPIRADO | — | PRAZO_ENCERRADO |
 | WLD_USDT | ROMPIMENTO_M1_VOLUME | LONG | EXPIRADO | — | PRAZO_ENCERRADO |
 | ENA_USDT | ROMPIMENTO_M1_VOLUME | SHORT | EXPIRADO | — | PRAZO_ENCERRADO |
@@ -794,7 +794,7 @@ Alavancagem de simulação: **10x a 20x**.
 | XRP_USDT | ROMPIMENTO_M1_VOLUME | LONG | EXPIRADO | — | PRAZO_ENCERRADO |
 | SUI_USDT | ROMPIMENTO_M1_VOLUME | SHORT | EXPIRADO | — | PRAZO_ENCERRADO |
 | HYPE_USDT | ROMPIMENTO_M1_VOLUME | LONG | EXPIRADO | — | PRAZO_ENCERRADO |
-| BNB_USDT | ROMPIMENTO_M1_VOLUME | LONG | POSSIVEL | — | aguardando gatilho |
+| BNB_USDT | ROMPIMENTO_M1_VOLUME | LONG | POSSIVEL | ANTECIPADA | aguardando gatilho |
 | AVAX_USDT | ROMPIMENTO_M1_VOLUME | LONG | EXPIRADO | — | PRAZO_ENCERRADO |
 | BTC_USDT | ROMPIMENTO_M1_VOLUME | SHORT | EXPIRADO | — | PRAZO_ENCERRADO |
 | BNB_USDT | ROMPIMENTO_M1_VOLUME | LONG | EXPIRADO | — | PRAZO_ENCERRADO |
@@ -1737,9 +1737,5 @@ Alavancagem de simulação: **10x a 20x**.
 
 ## Diagnósticos
 
-- WLD_USDT: MEXC não confirmou sucesso: 510
-- ADA_USDT: MEXC não confirmou sucesso: 510
-- ONDO_USDT: MEXC não confirmou sucesso: 510
-- XLM_USDT: MEXC não confirmou sucesso: 510
 
 Os parâmetros e os custos simulados não demonstram rentabilidade. Sinal técnico e viabilidade para o saldo são avaliações separadas.
