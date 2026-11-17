@@ -20741,7 +20741,7 @@
       "text": "🟠 ENTRADA BLOQUEADA\nBTC/USDT • SHORT\n🧪 SIMULAÇÃO • Confirmada\nRompimento • 2 fechamentos M1 • volume ≥50%\n\nVolume do segundo M1: 58.8% do primeiro.\nMotivo: A relação entre ganho e perda ficou abaixo do mínimo.\nSem entrada liberada nesta análise.\n\n📍 Faixa do plano: 71439.3 a 71524\n🛑 Stop: 71709.3\n🎯 Alvo: 71249\n\nEstimativas de taxas, deslizamento e funding; ganho não garantido.\n\n⏱ Nova entrada até 16:06:00 BRT (1min 18s).\nGatilho M1 (segundo fechamento): 16:04:00 BRT\nAnálise: 12/11/2026 16:04:42 BRT\nA validade se aplica a novas entradas.\nPlano: 09793bb44a5ad071fe66 • revisão 1"
     },
     "27f2fcec33c23863ff6f": {
-      "attempts": 0,
+      "attempts": 1,
       "category": "INFO",
       "created_at": 1794918211,
       "expires_at": 1794918240,
@@ -20752,7 +20752,11 @@
         "a81f3f810bf5483df9d2"
       ],
       "quote_at": 0,
-      "status": "PENDING",
+      "sent_at": 1794918215,
+      "status": "SENT",
+      "telegram_ids": [
+        8083
+      ],
       "text": "🟡 MOVIMENTO DETECTADO • AINDA SEM CONFIRMAÇÃO\nNEAR/USDT • ALTA (LONG)\n🧪 SIMULAÇÃO • acompanhamento\n\nRompimento observado no M1 fechado às 09:23:00 BRT.\nPreço de referência do primeiro gatilho: 3.293.\n\nPrimeiro fechamento além da região identificado.\nFalta o segundo fechamento sustentar o nível, com volume de pelo menos 50% do primeiro.\nApós confirmar, o plano ainda precisa passar pela avaliação financeira.\n\nFaixa em estudo: 3.292 a 3.299\n🛑 Stop do plano: 3.275 (-5.47% bruto em 10x)\n🎯 Alvo do plano: 3.39 (+29.46% bruto em 10x)\nCenário indicativo sobre a margem em 10x; custos e liquidação ainda não validados.\nMovimento sem alavancagem: TP +2.95% • SL -0.55%.\nPercentuais sobre a referência do primeiro gatilho, na direção da operação, antes de custos.\n\nMovimento observado, sem entrada liberada. Aguarde o alerta de confirmação e viabilidade.\nAlerta válido até 09:24:00 BRT.\nAnálise: 17/11/2026 09:23:31 BRT\nPlano: a81f3f810bf5483df9d2",
       "watch_stage": 1,
       "watch_symbol": "NEAR_USDT"
