@@ -44804,7 +44804,7 @@
       "text": "🟠 ENTRADA BLOQUEADA\nWLD/USDT • LONG\n🧪 SIMULAÇÃO • Confirmada\nRompimento • 2 fechamentos M1 • volume ≥50%\n\nVolume do segundo M1: 132.8% do primeiro.\nMotivo: A relação entre ganho e perda ficou abaixo do mínimo.\nSem entrada liberada nesta análise.\n\n📍 Faixa do plano: 0.3011 a 0.3018\n🛑 Stop: 0.2996\n🎯 Alvo: 0.3021\n\nEstimativas de taxas, deslizamento e funding; ganho não garantido.\n\n⏱ Nova entrada até 08:45:00 BRT (1min 19s).\nGatilho M1 (segundo fechamento): 08:43:00 BRT\nAnálise: 13/11/2026 08:43:41 BRT\nA validade se aplica a novas entradas.\nPlano: 3c73f7d795bdd7bdb16c • revisão 1"
     },
     "5defeaf881fa1fe10978": {
-      "attempts": 0,
+      "attempts": 1,
       "category": "INFO",
       "created_at": 1794874241,
       "expires_at": 1794874260,
@@ -44815,7 +44815,11 @@
         "eb3b6cd6fe1b3e6a94f4"
       ],
       "quote_at": 0,
-      "status": "PENDING",
+      "sent_at": 1794874246,
+      "status": "SENT",
+      "telegram_ids": [
+        7267
+      ],
       "text": "🟡 MOVIMENTO DETECTADO • AINDA SEM CONFIRMAÇÃO\nAAVE/USDT • ALTA (LONG)\n🧪 SIMULAÇÃO • acompanhamento\n\nRompimento observado no M1 fechado às 21:10:00 BRT.\nPreço de referência do primeiro gatilho: 108.7.\n\nPrimeiro fechamento além da região identificado.\nFalta o segundo fechamento sustentar o nível, com volume de pelo menos 50% do primeiro.\nApós confirmar, o plano ainda precisa passar pela avaliação financeira.\n\nFaixa em estudo: 108.68 a 108.84\n🛑 Stop do plano: 108.32 (-3.50% bruto em 10x)\n🎯 Alvo do plano: 109.55 (+7.82% bruto em 10x)\nCenário indicativo sobre a margem em 10x; custos e liquidação ainda não validados.\nMovimento sem alavancagem: TP +0.78% • SL -0.35%.\nPercentuais sobre a referência do primeiro gatilho, na direção da operação, antes de custos.\n\nMovimento observado, sem entrada liberada. Aguarde o alerta de confirmação e viabilidade.\nAlerta válido até 21:11:00 BRT.\nAnálise: 16/11/2026 21:10:41 BRT\nPlano: eb3b6cd6fe1b3e6a94f4",
       "watch_stage": 1,
       "watch_symbol": "AAVE_USDT"
