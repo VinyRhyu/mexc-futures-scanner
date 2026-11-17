@@ -59814,7 +59814,7 @@
       "text": "⚪ ATUALIZAÇÃO DOS PLANOS ACOMPANHADOS\n🧪 SIMULAÇÃO\n\n• QNT/USDT • SHORT: janela expirou\n  Plano: 2da34233afddc0fc92e6\n• QNT/USDT • LONG: janela expirou\n  Plano: 37e378cb41619a16d31d\n• ONE/USDT • SHORT: janela expirou\n  Plano: 7dc1241c235b0027a447\n• PEPE/USDT • SHORT: janela expirou\n  Plano: 7ef4307ab68ddddefed1\n• PEPE/USDT • LONG: janela expirou\n  Plano: d311dfaef9f81a72b982\n• ONE/USDT • LONG: janela expirou\n  Plano: f0f59a3c1b0631f58bc3\n\nSem novas entradas por esses planos.\nA expiração não encerra posições já abertas.\nAnálise: 12/11/2026 09:45:03 BRT"
     },
     "662f270774e98fed79ca": {
-      "attempts": 0,
+      "attempts": 1,
       "category": "INFO",
       "created_at": 1794954994,
       "expires_at": 1794955020,
@@ -59825,7 +59825,11 @@
         "a986e30c0682764701b4"
       ],
       "quote_at": 0,
-      "status": "PENDING",
+      "sent_at": 1794954999,
+      "status": "SENT",
+      "telegram_ids": [
+        8728
+      ],
       "text": "🟡 MOVIMENTO DETECTADO • AINDA SEM CONFIRMAÇÃO\nAAVE/USDT • ALTA (LONG)\n🧪 SIMULAÇÃO • acompanhamento\n\nRompimento observado no M1 fechado às 19:36:00 BRT.\nPreço de referência do primeiro gatilho: 111.68.\n\nPrimeiro fechamento além da região identificado.\nFalta o segundo fechamento sustentar o nível, com volume de pelo menos 50% do primeiro.\nApós confirmar, o plano ainda precisa passar pela avaliação financeira.\n\nFaixa em estudo: 111.63 a 111.88\n🛑 Stop do plano: 111.12 (-5.01% bruto em 10x)\n🎯 Alvo do plano: 112.25 (+5.10% bruto em 10x)\nCenário indicativo sobre a margem em 10x; custos e liquidação ainda não validados.\nMovimento sem alavancagem: TP +0.51% • SL -0.50%.\nPercentuais sobre a referência do primeiro gatilho, na direção da operação, antes de custos.\n\nMovimento observado, sem entrada liberada. Aguarde o alerta de confirmação e viabilidade.\nAlerta válido até 19:37:00 BRT.\nAnálise: 17/11/2026 19:36:34 BRT\nPlano: a986e30c0682764701b4",
       "watch_stage": 1,
       "watch_symbol": "AAVE_USDT"
@@ -140902,7 +140906,7 @@
       "watch_symbol": "BNB_USDT"
     },
     "f16b25ce8a2929567449": {
-      "attempts": 0,
+      "attempts": 1,
       "category": "INFO",
       "created_at": 1794954994,
       "expires_at": 1794955080,
@@ -140913,7 +140917,11 @@
         "2331afe557f50c75441d"
       ],
       "quote_at": 0,
-      "status": "PENDING",
+      "sent_at": 1794955000,
+      "status": "SENT",
+      "telegram_ids": [
+        8729
+      ],
       "text": "🟡 MOVIMENTO DETECTADO • ENTRADA BLOQUEADA\nHYPE/USDT • ALTA (LONG)\n🧪 SIMULAÇÃO • acompanhamento\n\nRompimento observado no M1 fechado às 19:36:00 BRT.\nPreço de referência do primeiro gatilho: 69.422.\n\nConfirmação técnica identificada; entrada bloqueada.\nCondição pendente: A relação entre ganho e perda ficou abaixo do mínimo.\n\nFaixa em estudo: 69.34 a 69.554\n🛑 Stop do plano: 69.019 (-5.81% bruto em 10x)\n🎯 Alvo do plano: 69.875 (+6.53% bruto em 10x)\nCenário indicativo sobre a margem em 10x; custos e liquidação ainda não validados.\nMovimento sem alavancagem: TP +0.65% • SL -0.58%.\nPercentuais sobre a referência do primeiro gatilho, na direção da operação, antes de custos.\n\nMovimento observado, sem entrada liberada. Aguarde o alerta de confirmação e viabilidade.\nAlerta válido até 19:38:00 BRT.\nAnálise: 17/11/2026 19:36:34 BRT\nPlano: 2331afe557f50c75441d",
       "watch_stage": 0,
       "watch_symbol": "HYPE_USDT"
