@@ -22746,11 +22746,12 @@
       "watch_symbol": "ZEC_USDT"
     },
     "2b350ec57d03324619c8": {
-      "attempts": 0,
+      "attempts": 1,
       "category": "INFO",
       "created_at": 1794916849,
       "expires_at": 1794918600,
       "id": "2b350ec57d03324619c8",
+      "last_error": "TELEGRAM_FALHA_OU_RESULTADO_AMBIGUO: URLError",
       "plan_ids": [
         "5c6d9092dbee3f164f7a",
         "70c4dae82f8b30c89c24"
@@ -31915,7 +31916,7 @@
       "watch_symbol": "AAVE_USDT"
     },
     "3c6b0917346d1c435fd2": {
-      "attempts": 0,
+      "attempts": 1,
       "category": "INFO",
       "created_at": 1794916849,
       "expires_at": 1794916920,
@@ -31926,7 +31927,11 @@
         "dede5639456d53b17239"
       ],
       "quote_at": 0,
-      "status": "PENDING",
+      "sent_at": 1794916854,
+      "status": "SENT",
+      "telegram_ids": [
+        8063
+      ],
       "text": "🟡 MOVIMENTO DETECTADO • ENTRADA BLOQUEADA\nZEC/USDT • ALTA (LONG)\n🧪 SIMULAÇÃO • acompanhamento\n\nRompimento observado no M1 fechado às 09:00:00 BRT.\nPreço de referência do primeiro gatilho: 949.55.\n\nConfirmação técnica identificada; entrada bloqueada.\nCondição pendente: A relação entre ganho e perda ficou abaixo do mínimo.\n\nFaixa em estudo: 949.33 a 951.88\n🛑 Stop do plano: 943.7 (-6.16% bruto em 10x)\n🎯 Alvo do plano: 958.12 (+9.03% bruto em 10x)\nCenário indicativo sobre a margem em 10x; custos e liquidação ainda não validados.\nMovimento sem alavancagem: TP +0.90% • SL -0.62%.\nPercentuais sobre a referência do primeiro gatilho, na direção da operação, antes de custos.\n\nMovimento observado, sem entrada liberada. Aguarde o alerta de confirmação e viabilidade.\nAlerta válido até 09:02:00 BRT.\nAnálise: 17/11/2026 09:00:49 BRT\nPlano: dede5639456d53b17239",
       "watch_stage": 0,
       "watch_symbol": "ZEC_USDT"
