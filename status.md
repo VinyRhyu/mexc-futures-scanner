@@ -1,14 +1,14 @@
 # Momentum — validação prospectiva
 
 Fase: COLLECTING
-Dados fechados até 2026-11-17T06:00:00+00:00.
+Dados fechados até 2026-11-17T07:00:00+00:00.
 Dias congelados: 1/30; dias perdidos: 0; janelas de cotação observadas: 0.
 
 | Carteira | Patrimônio marcado | Operações encerradas | Queda máxima H1 |
 | --- | ---: | ---: | ---: |
-| MOMENTUM_BTC_RISK1 / base | 99.8683 | 0 | 0.174% |
-| MOMENTUM_BTC_RISK1 / stress | 99.8433 | 0 | 0.199% |
-| MOMENTUM_BTC_DD_GUARD / base | 99.7365 | 0 | 0.348% |
-| MOMENTUM_BTC_DD_GUARD / stress | 99.6865 | 0 | 0.398% |
+| MOMENTUM_BTC_RISK1 / base | 99.9016 | 0 | 0.174% |
+| MOMENTUM_BTC_RISK1 / stress | 99.8766 | 0 | 0.199% |
+| MOMENTUM_BTC_DD_GUARD / base | 99.8032 | 0 | 0.348% |
+| MOMENTUM_BTC_DD_GUARD / stress | 99.7532 | 0 | 0.398% |
 
 Sinais congelados antes do desfecho; preenchimentos H1 ainda modelados. Cotações observadas não comprovam execução. Produção e Telegram inalterados.
