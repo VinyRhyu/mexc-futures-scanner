@@ -84729,7 +84729,7 @@
       "text": "⚪ ATUALIZAÇÃO DOS PLANOS ACOMPANHADOS\n🧪 SIMULAÇÃO\n\n• TAO/USDT • LONG: janela expirou\n  Plano: 5591f68079a3d59e0e80\n• XLM/USDT • SHORT: janela expirou\n  Plano: 57d536c89d96bb8a8428\n• TAO/USDT • SHORT: janela expirou\n  Plano: 6d22a052dfae1ca98a8e\n• XLM/USDT • LONG: janela expirou\n  Plano: 71330abda3456d94e39d\n• SUI/USDT • LONG: janela expirou\n  Plano: e0c3c95a54363192d3f7\n\nSem novas entradas por esses planos.\nA expiração não encerra posições já abertas.\nAnálise: 11/11/2026 02:15:49 BRT"
     },
     "a1fc04d0947c4243a991": {
-      "attempts": 0,
+      "attempts": 1,
       "category": "INFO",
       "created_at": 1794906993,
       "expires_at": 1794907020,
@@ -84740,7 +84740,11 @@
         "4af3f8bdc2d0c7702a19"
       ],
       "quote_at": 0,
-      "status": "PENDING",
+      "sent_at": 1794906998,
+      "status": "SENT",
+      "telegram_ids": [
+        7912
+      ],
       "text": "🟡 MOVIMENTO DETECTADO • AINDA SEM CONFIRMAÇÃO\nAAVE/USDT • BAIXA (SHORT)\n🧪 SIMULAÇÃO • acompanhamento\n\nRompimento observado no M1 fechado às 06:16:00 BRT.\nPreço de referência do primeiro gatilho: 112.24.\n\nPrimeiro fechamento além da região identificado.\nFalta o segundo fechamento sustentar o nível, com volume de pelo menos 50% do primeiro.\nApós confirmar, o plano ainda precisa passar pela avaliação financeira.\n\nFaixa em estudo: 112.08 a 112.28\n🛑 Stop do plano: 112.69 (-4.01% bruto em 10x)\n🎯 Alvo do plano: 111.88 (+3.21% bruto em 10x)\nCenário indicativo sobre a margem em 10x; custos e liquidação ainda não validados.\nMovimento sem alavancagem: TP +0.32% • SL -0.40%.\nPercentuais sobre a referência do primeiro gatilho, na direção da operação, antes de custos.\n\nMovimento observado, sem entrada liberada. Aguarde o alerta de confirmação e viabilidade.\nAlerta válido até 06:17:00 BRT.\nAnálise: 17/11/2026 06:16:33 BRT\nPlano: 4af3f8bdc2d0c7702a19",
       "watch_stage": 1,
       "watch_symbol": "AAVE_USDT"
