@@ -30383,7 +30383,7 @@
       "text": "⚪ ATUALIZAÇÃO DOS PLANOS ACOMPANHADOS\n🧪 SIMULAÇÃO\n\n• ENA/USDT • LONG: janela expirou\n  Plano: 0c0cf250cbe6a3d29466\n• AVAX/USDT • LONG: janela expirou\n  Plano: 70a8bfab1d6499fa6b34\n\nSem novas entradas por esses planos.\nA expiração não encerra posições já abertas.\nAnálise: 09/11/2026 02:46:39 BRT"
     },
     "3ad826af94f6a10f85e8": {
-      "attempts": 0,
+      "attempts": 1,
       "category": "INFO",
       "created_at": 1794906821,
       "expires_at": 1794906840,
@@ -30394,7 +30394,11 @@
         "5dbdc6eecb7dead9c288"
       ],
       "quote_at": 0,
-      "status": "PENDING",
+      "sent_at": 1794906826,
+      "status": "SENT",
+      "telegram_ids": [
+        7905
+      ],
       "text": "🟡 MOVIMENTO DETECTADO • AINDA SEM CONFIRMAÇÃO\nQNT/USDT • ALTA (LONG)\n🧪 SIMULAÇÃO • acompanhamento\n\nRompimento observado no M1 fechado às 06:13:00 BRT.\nPreço de referência do primeiro gatilho: 153.95.\n\nPrimeiro fechamento além da região identificado.\nFalta o segundo fechamento sustentar o nível, com volume de pelo menos 50% do primeiro.\nApós confirmar, o plano ainda precisa passar pela avaliação financeira.\n\nFaixa em estudo: 153.96 a 154.15\n🛑 Stop do plano: 153.44 (-3.31% bruto em 10x)\n🎯 Alvo do plano: 154.09 (+0.91% bruto em 10x)\nCenário indicativo sobre a margem em 10x; custos e liquidação ainda não validados.\nMovimento sem alavancagem: TP +0.091% • SL -0.33%.\nPercentuais sobre a referência do primeiro gatilho, na direção da operação, antes de custos.\n\nMovimento observado, sem entrada liberada. Aguarde o alerta de confirmação e viabilidade.\nAlerta válido até 06:14:00 BRT.\nAnálise: 17/11/2026 06:13:41 BRT\nPlano: 5dbdc6eecb7dead9c288",
       "watch_stage": 1,
       "watch_symbol": "QNT_USDT"
