@@ -15131,7 +15131,7 @@
       "text": "SIMULAÇÃO | POSSIVEL\nID 3f6752daaa18866ebb2b/r0 | HBAR_USDT | SHORT | CONTINUACAO\nFormação: 08/11/2026 20:15:00 BRT | Análise: 08/11/2026 20:37:36 BRT\nRegião: 0.06596907172255346978689965081 a 0.06617092827744653021310034919\nAntecipada: reação fechada de 15m recuperando a região\nConfirmada: fechamento posterior além do extremo da reação\nEstado: POSSIVEL | Motivo: aguardando gatilho\nPlano expira: 08/11/2026 20:45:00 BRT.\nA validade de entrada não encerra uma posição já aberta."
     },
     "1faba4ac8aa13774059a": {
-      "attempts": 0,
+      "attempts": 1,
       "category": "INFO",
       "created_at": 1794884912,
       "expires_at": 1794884940,
@@ -15142,7 +15142,11 @@
         "fb29404cdfb3c48f63a4"
       ],
       "quote_at": 0,
-      "status": "PENDING",
+      "sent_at": 1794884918,
+      "status": "SENT",
+      "telegram_ids": [
+        7525
+      ],
       "text": "🟡 MOVIMENTO DETECTADO • AINDA SEM CONFIRMAÇÃO\nNEAR/USDT • ALTA (LONG)\n🧪 SIMULAÇÃO • acompanhamento\n\nRompimento observado no M1 fechado às 00:08:00 BRT.\nPreço de referência do primeiro gatilho: 3.195.\n\nPrimeiro fechamento além da região identificado.\nFalta o segundo fechamento sustentar o nível, com volume de pelo menos 50% do primeiro.\nApós confirmar, o plano ainda precisa passar pela avaliação financeira.\n\nFaixa em estudo: 3.19 a 3.2\n🛑 Stop do plano: 3.173 (-6.89% bruto em 10x)\n🎯 Alvo do plano: 3.197 (+0.63% bruto em 10x)\nCenário indicativo sobre a margem em 10x; custos e liquidação ainda não validados.\nMovimento sem alavancagem: TP +0.063% • SL -0.69%.\nPercentuais sobre a referência do primeiro gatilho, na direção da operação, antes de custos.\n\nMovimento observado, sem entrada liberada. Aguarde o alerta de confirmação e viabilidade.\nAlerta válido até 00:09:00 BRT.\nAnálise: 17/11/2026 00:08:32 BRT\nPlano: fb29404cdfb3c48f63a4",
       "watch_stage": 1,
       "watch_symbol": "NEAR_USDT"
@@ -53320,7 +53324,7 @@
       "watch_symbol": "ZEC_USDT"
     },
     "6c263348e718b8cdc96a": {
-      "attempts": 0,
+      "attempts": 1,
       "category": "INFO",
       "created_at": 1794884912,
       "expires_at": 1794884940,
@@ -53331,7 +53335,11 @@
         "4cf3078b7f5fe8b035b2"
       ],
       "quote_at": 0,
-      "status": "PENDING",
+      "sent_at": 1794884918,
+      "status": "SENT",
+      "telegram_ids": [
+        7526
+      ],
       "text": "🟡 MOVIMENTO DETECTADO • AINDA SEM CONFIRMAÇÃO\nADA/USDT • ALTA (LONG)\n🧪 SIMULAÇÃO • acompanhamento\n\nRompimento observado no M1 fechado às 00:08:00 BRT.\nPreço de referência do primeiro gatilho: 0.1534.\n\nPrimeiro fechamento além da região identificado.\nFalta o segundo fechamento sustentar o nível, com volume de pelo menos 50% do primeiro.\nApós confirmar, o plano ainda precisa passar pela avaliação financeira.\n\nFaixa em estudo: 0.1535 a 0.1536\n🛑 Stop do plano: 0.1528 (-3.91% bruto em 10x)\n🎯 Alvo do plano: 0.1534 (+0.00% bruto em 10x)\nCenário indicativo sobre a margem em 10x; custos e liquidação ainda não validados.\nMovimento sem alavancagem: TP +0.00% • SL -0.39%.\nPercentuais sobre a referência do primeiro gatilho, na direção da operação, antes de custos.\n\nMovimento observado, sem entrada liberada. Aguarde o alerta de confirmação e viabilidade.\nAlerta válido até 00:09:00 BRT.\nAnálise: 17/11/2026 00:08:32 BRT\nPlano: 4cf3078b7f5fe8b035b2",
       "watch_stage": 1,
       "watch_symbol": "ADA_USDT"
@@ -102206,7 +102214,7 @@
       "watch_symbol": "AAVE_USDT"
     },
     "cd7063f390c9dce1b606": {
-      "attempts": 0,
+      "attempts": 1,
       "category": "INFO",
       "created_at": 1794884912,
       "expires_at": 1794886200,
@@ -102215,7 +102223,11 @@
         "cf2c9e5d8830e02393de"
       ],
       "quote_at": 0,
-      "status": "PENDING",
+      "sent_at": 1794884919,
+      "status": "SENT",
+      "telegram_ids": [
+        7528
+      ],
       "text": "👀 PLANO EM PREPARAÇÃO • AGUARDANDO GATILHO\nXLM/USDT\n🧪 SIMULAÇÃO • acompanhamento\n\nRegião em análise: 0.13656 a 0.13791\nSHORT somente se houver fechamento M1 abaixo de ≈ 0.136491.\n\nConfirmação: dois fechamentos M1 consecutivos além do gatilho; volume do segundo de pelo menos 50% do primeiro.\nTP, SL e percentuais serão definidos no primeiro gatilho. A confirmação ainda precisa passar pela avaliação financeira.\n\nSem rompimento observado neste plano e sem entrada liberada.\nPreparação até 00:30:00 BRT.\nAnálise: 17/11/2026 00:08:32 BRT\nPlanos: cf2c9e5d8830e02393de",
       "watch_stage": 2,
       "watch_symbol": "XLM_USDT"
@@ -103215,13 +103227,17 @@
       "watch_symbol": "HYPE_USDT"
     },
     "cf4aba804b1f3320f2ad": {
-      "attempts": 0,
+      "attempts": 1,
       "category": "INFO",
       "created_at": 1794884912,
       "expires_at": 1794888512,
       "id": "cf4aba804b1f3320f2ad",
       "quote_at": 0,
-      "status": "PENDING",
+      "sent_at": 1794884919,
+      "status": "SENT",
+      "telegram_ids": [
+        7529
+      ],
       "text": "⚪ ATUALIZAÇÃO DOS PLANOS ACOMPANHADOS\n🧪 SIMULAÇÃO\n\n• XLM/USDT • LONG: alvo do plano alcançado durante o acompanhamento\n  Motivo: O movimento já alcançou o alvo do plano.\n  Plano: 4c4c507b80bd2c7483ce\n• XLM/USDT • LONG: alvo do plano alcançado durante o acompanhamento\n  Motivo: O movimento já alcançou o alvo do plano.\n  Plano: ca7ba55e4e41f5e5711f\n\nSem novas entradas por esses planos.\nAvisos de movimento não equivalem a entradas liberadas.\nA expiração não encerra uma posição já aberta.\nAnálise: 17/11/2026 00:08:32 BRT"
     },
     "cf503958180f96609961": {
@@ -107293,7 +107309,7 @@
       "text": "🟢 GATILHO VÁLIDO PARA SIMULAR\nFET/USDT • LONG\n🧪 SIMULAÇÃO • Confirmada\nRompimento • 2 fechamentos M1 • volume ≥50%\n\nVolume do segundo M1: 620.2% do primeiro.\n📍 Entrada: 0.131 a 0.132\n🛑 Stop: 0.1295 (-23.16% líquido sobre a margem)\n🎯 Alvo: 0.138 (+41.20% líquido sobre a margem)\nMovimento sem alavancagem: TP +4.55% • SL -1.89%.\nBase dos percentuais sem alavancagem: 0.132 (pior entrada); na direção da operação, antes de custos.\n\nMargem isolada estimada: 0.3960 USDT • 10x\nQuantidade: 3 contratos\nPerda planejada: -0.0917 USDT (-9.17% da banca)\nGanho projetado: +0.1631 USDT (+16.31% da banca)\nRetorno/risco líquido: 1.78:1 (pior entrada)\nCustos estimados: 0.0169 USDT\nROI líquido estimado sobre a margem: TP +41.20% • SL -23.16%.\nTaxa por execução: 0.06%\nDisparo do stop: último preço (Last)\n\nEstimativas de taxas, deslizamento e funding; ganho não garantido.\nFalta validar para uso real: taxa pessoal da conta; regras de margem da conta.\n\n⏱ Nova entrada até 00:05:00 BRT (1min 19s).\nGatilho M1 (segundo fechamento): 00:03:00 BRT\nCotação: 00:03:37 BRT\nAnálise: 15/11/2026 00:03:41 BRT\nA validade se aplica a novas entradas.\nPlano: fbf67b094d9037e4f149 • revisão 1"
     },
     "d8b9e889eecd28152c1d": {
-      "attempts": 0,
+      "attempts": 1,
       "category": "INFO",
       "created_at": 1794884912,
       "expires_at": 1794884940,
@@ -107304,7 +107320,11 @@
         "b7a6e35d4a577c023270"
       ],
       "quote_at": 0,
-      "status": "PENDING",
+      "sent_at": 1794884918,
+      "status": "SENT",
+      "telegram_ids": [
+        7527
+      ],
       "text": "🟡 MOVIMENTO DETECTADO • AINDA SEM CONFIRMAÇÃO\nSUI/USDT • ALTA (LONG)\n🧪 SIMULAÇÃO • acompanhamento\n\nRompimento observado no M1 fechado às 00:08:00 BRT.\nPreço de referência do primeiro gatilho: 0.7213.\n\nPrimeiro fechamento além da região identificado.\nFalta o segundo fechamento sustentar o nível, com volume de pelo menos 50% do primeiro.\nApós confirmar, o plano ainda precisa passar pela avaliação financeira.\n\nFaixa em estudo: 0.7207 a 0.7222\n🛑 Stop do plano: 0.7182 (-4.30% bruto em 10x)\n🎯 Alvo do plano: 0.7257 (+6.10% bruto em 10x)\nCenário indicativo sobre a margem em 10x; custos e liquidação ainda não validados.\nMovimento sem alavancagem: TP +0.61% • SL -0.43%.\nPercentuais sobre a referência do primeiro gatilho, na direção da operação, antes de custos.\n\nMovimento observado, sem entrada liberada. Aguarde o alerta de confirmação e viabilidade.\nAlerta válido até 00:09:00 BRT.\nAnálise: 17/11/2026 00:08:32 BRT\nPlano: b7a6e35d4a577c023270",
       "watch_stage": 1,
       "watch_symbol": "SUI_USDT"
