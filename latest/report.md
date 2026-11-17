@@ -1,17 +1,13 @@
 # MEXC Futures Scanner — rodada
 
-Modo: **paper**. Análise: 17/11/2026 17:13:18 BRT.
+Modo: **paper**. Análise: 17/11/2026 17:14:34 BRT.
 
-Fonte: FALHA
-Cobertura: 0/0 contratos selecionados.
+Fonte: OK
+Cobertura: 27/27 contratos selecionados.
 
 Retorno/risco líquido mínimo: **1:1**.
 
 Alavancagem de simulação: **10x a 20x**.
-
-**Falha de coleta:** MEXC não confirmou sucesso: 510
-
-Nenhuma entrada nova foi liberada com essa falha.
 
 ## Sinais e observações
 
