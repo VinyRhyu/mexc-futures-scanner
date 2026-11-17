@@ -50,15 +50,15 @@ class StopsCostAuditTests(unittest.TestCase):
         self.assertTrue(note['changed'])
         self.assertEqual(D(r['stop']), D('99.4'))
 
-    def test_quote_check_reproduces_band_rejection_despite_viable_price(self):
+    def test_quote_check_agrees_after_narrowing_viable_current_price(self):
         p, c = setup()
         v = p.variants['CONFIRMADA']
         v.entry_low, v.entry_high, v.target = map(D, ('99.05', '100.05', '104'))
         q = [candle(0, '99.99', '100.2', '99.9', '100')]
         r = compare_quote(jsonable(p), q, c, Config())
         self.assertTrue(r['comparable'])
-        self.assertTrue(r['band_blocked_point_viable'])
-        self.assertEqual(r['band_reasons'], ['CUSTO_RELATIVO_ELEVADO'])
+        self.assertFalse(r['band_blocked_point_viable'])
+        self.assertEqual(r['band_status'], 'VIAVEL_SIMULADO')
         self.assertGreater(D(r['point_rr']), 3)
         self.assertLessEqual(D(r['point_risk']), D('0.10'))
 
