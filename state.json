@@ -55285,7 +55285,7 @@
       "text": "⚪ ATUALIZAÇÃO DOS PLANOS ACOMPANHADOS\n🧪 SIMULAÇÃO\n\n• QNT/USDT • SHORT: prazo para nova entrada encerrado\n  Motivo: A janela para uma nova entrada terminou.\n  Plano: 0897932c8ac7c59d4910\n• TAO/USDT • SHORT: prazo para nova entrada encerrado\n  Motivo: A janela para uma nova entrada terminou.\n  Plano: 0fbff3764259e296b467\n• LINK/USDT • SHORT: prazo para nova entrada encerrado\n  Motivo: A janela para uma nova entrada terminou.\n  Plano: 15626dd3588ded056b9c\n• SEI/USDT • SHORT: confirmação não aprovada\n  Motivo: O segundo fechamento M1 perdeu o nível do gatilho.\n  Plano: 25017235d10bda7c055b\n• OP/USDT • SHORT: confirmação não aprovada\n  Motivo: O volume do segundo candle M1 foi menor que50% do primeiro.\n  Plano: 75e6a31902d7afe1664e\n• AVAX/USDT • SHORT: prazo para nova entrada encerrado\n  Motivo: A janela para uma nova entrada terminou.\n  Plano: 789c3ec8554a20b18bcf\n\nSem novas entradas por esses planos.\nAvisos de movimento não equivalem a entradas liberadas.\nA expiração não encerra uma posição já aberta.\nAnálise: 15/11/2026 04:48:38 BRT"
     },
     "6f0ad2976e67ec9d2659": {
-      "attempts": 0,
+      "attempts": 1,
       "category": "INFO",
       "created_at": 1794886289,
       "expires_at": 1794886320,
@@ -55296,7 +55296,11 @@
         "2e25df5cf82efb99acc5"
       ],
       "quote_at": 0,
-      "status": "PENDING",
+      "sent_at": 1794886294,
+      "status": "SENT",
+      "telegram_ids": [
+        7592
+      ],
       "text": "🟡 MOVIMENTO DETECTADO • AINDA SEM CONFIRMAÇÃO\nHYPE/USDT • ALTA (LONG)\n🧪 SIMULAÇÃO • acompanhamento\n\nRompimento observado no M1 fechado às 00:31:00 BRT.\nPreço de referência do primeiro gatilho: 69.504.\n\nPrimeiro fechamento além da região identificado.\nFalta o segundo fechamento sustentar o nível, com volume de pelo menos 50% do primeiro.\nApós confirmar, o plano ainda precisa passar pela avaliação financeira.\n\nFaixa em estudo: 69.448 a 69.621\n🛑 Stop do plano: 69.163 (-4.91% bruto em 10x)\n🎯 Alvo do plano: 69.881 (+5.42% bruto em 10x)\nCenário indicativo sobre a margem em 10x; custos e liquidação ainda não validados.\nMovimento sem alavancagem: TP +0.54% • SL -0.49%.\nPercentuais sobre a referência do primeiro gatilho, na direção da operação, antes de custos.\n\nMovimento observado, sem entrada liberada. Aguarde o alerta de confirmação e viabilidade.\nAlerta válido até 00:32:00 BRT.\nAnálise: 17/11/2026 00:31:29 BRT\nPlano: 2e25df5cf82efb99acc5",
       "watch_stage": 1,
       "watch_symbol": "HYPE_USDT"
