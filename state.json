@@ -9388,7 +9388,7 @@
       "text": "⚪ ATUALIZAÇÃO DOS PLANOS ACOMPANHADOS\n🧪 SIMULAÇÃO\n\n• BTC/USDT • LONG: janela expirou\n  Plano: 155f4d6ed72cee016aae\n• AVAX/USDT • SHORT: janela expirou\n  Plano: 5376ea81a3c99dc32557\n• BNB/USDT • LONG: janela expirou\n  Plano: 6ec03a93dd4459b3ca64\n• BNB/USDT • SHORT: janela expirou\n  Plano: 78d634f5d89abd3ad97c\n• BTC/USDT • SHORT: janela expirou\n  Plano: e01ad58e0189635e3bd3\n\nSem novas entradas por esses planos.\nA expiração não encerra posições já abertas.\nAnálise: 11/11/2026 04:45:53 BRT"
     },
     "117ae1963140f3f71226": {
-      "attempts": 0,
+      "attempts": 1,
       "category": "INFO",
       "created_at": 1794950796,
       "expires_at": 1794950880,
@@ -9399,7 +9399,11 @@
         "86d97f4ea865ef39489b"
       ],
       "quote_at": 0,
-      "status": "PENDING",
+      "sent_at": 1794950802,
+      "status": "SENT",
+      "telegram_ids": [
+        8691
+      ],
       "text": "🟡 MOVIMENTO DETECTADO • ENTRADA BLOQUEADA\nTAO/USDT • ALTA (LONG)\n🧪 SIMULAÇÃO • acompanhamento\n\nRompimento observado no M1 fechado às 18:26:00 BRT.\nPreço de referência do primeiro gatilho: 192.4.\n\nConfirmação técnica identificada; entrada bloqueada.\nCondição pendente: A relação entre ganho e perda ficou abaixo do mínimo.\n\nFaixa em estudo: 192.14 a 192.73\n🛑 Stop do plano: 191.31 (-5.67% bruto em 10x)\n🎯 Alvo do plano: 192.63 (+1.20% bruto em 10x)\nCenário indicativo sobre a margem em 10x; custos e liquidação ainda não validados.\nMovimento sem alavancagem: TP +0.12% • SL -0.57%.\nPercentuais sobre a referência do primeiro gatilho, na direção da operação, antes de custos.\n\nMovimento observado, sem entrada liberada. Aguarde o alerta de confirmação e viabilidade.\nAlerta válido até 18:28:00 BRT.\nAnálise: 17/11/2026 18:26:36 BRT\nPlano: 86d97f4ea865ef39489b",
       "watch_stage": 0,
       "watch_symbol": "TAO_USDT"
