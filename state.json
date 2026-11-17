@@ -8522,7 +8522,7 @@
       "text": "🟢 GATILHO VÁLIDO PARA SIMULAR\nDOGE/USDT • LONG\n🧪 SIMULAÇÃO • Confirmada\nRompimento • 2 fechamentos M1 • volume ≥50%\n\nVolume do segundo M1: 65.9% do primeiro.\n📍 Entrada: 0.05804 a 0.0584\n🛑 Stop: 0.05752 (-16.97% líquido sobre a margem)\n🎯 Alvo: 0.06046 (+33.34% líquido sobre a margem)\nMovimento sem alavancagem: TP +3.53% • SL -1.51%.\nBase dos percentuais sem alavancagem: 0.0584 (pior entrada); na direção da operação, antes de custos.\n\nMargem isolada estimada: 0.5840 USDT • 10x\nQuantidade: 1 contratos\nPerda planejada: -0.0991 USDT (-9.91% da banca)\nGanho projetado: +0.1947 USDT (+19.47% da banca)\nRetorno/risco líquido: 1.97:1 (pior entrada)\nCustos estimados: 0.0113 USDT\nROI líquido estimado sobre a margem: TP +33.34% • SL -16.97%.\nTaxa por execução: 0.06%\nDisparo do stop: último preço (Last)\n\nEstimativas de taxas, deslizamento e funding; ganho não garantido.\nFalta validar para uso real: taxa pessoal da conta; regras de margem da conta.\n\n⏱ Nova entrada até 23:19:00 BRT (54s).\nGatilho M1 (segundo fechamento): 23:17:00 BRT\nCotação: 23:17:59 BRT\nAnálise: 14/11/2026 23:18:06 BRT\nA validade se aplica a novas entradas.\nPlano: 05ded0165cd3021bc28f • revisão 1"
     },
     "0fbfcad5b0aeea0222ea": {
-      "attempts": 0,
+      "attempts": 1,
       "category": "INFO",
       "created_at": 1794950012,
       "expires_at": 1794950040,
@@ -8533,7 +8533,11 @@
         "212d22cc55dbc7f7fafb"
       ],
       "quote_at": 0,
-      "status": "PENDING",
+      "sent_at": 1794950018,
+      "status": "SENT",
+      "telegram_ids": [
+        8653
+      ],
       "text": "🟡 MOVIMENTO DETECTADO • AINDA SEM CONFIRMAÇÃO\nBNB/USDT • ALTA (LONG)\n🧪 SIMULAÇÃO • acompanhamento\n\nRompimento observado no M1 fechado às 18:13:00 BRT.\nPreço de referência do primeiro gatilho: 590.9.\n\nPrimeiro fechamento além da região identificado.\nFalta o segundo fechamento sustentar o nível, com volume de pelo menos 50% do primeiro.\nApós confirmar, o plano ainda precisa passar pela avaliação financeira.\n\nFaixa em estudo: 590.86 a 591.41\n🛑 Stop do plano: 589.61 (-2.18% bruto em 10x)\n🎯 Alvo do plano: 592.24 (+2.27% bruto em 10x)\nCenário indicativo sobre a margem em 10x; custos e liquidação ainda não validados.\nMovimento sem alavancagem: TP +0.23% • SL -0.22%.\nPercentuais sobre a referência do primeiro gatilho, na direção da operação, antes de custos.\n\nMovimento observado, sem entrada liberada. Aguarde o alerta de confirmação e viabilidade.\nAlerta válido até 18:14:00 BRT.\nAnálise: 17/11/2026 18:13:32 BRT\nPlano: 212d22cc55dbc7f7fafb",
       "watch_stage": 1,
       "watch_symbol": "BNB_USDT"
