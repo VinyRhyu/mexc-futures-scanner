@@ -1515,13 +1515,17 @@
       "text": "⚪ ATUALIZAÇÃO DOS PLANOS ACOMPANHADOS\n🧪 SIMULAÇÃO\n\n• INJ/USDT • LONG: prazo para nova entrada encerrado\n  Motivo: A janela para uma nova entrada terminou.\n  Plano: 1628fedd5705eabe4b98\n• ETH/USDT • LONG: prazo para nova entrada encerrado\n  Motivo: A janela para uma nova entrada terminou.\n  Plano: 2ee1accb9919f13d7848\n• UNI/USDT • LONG: prazo para nova entrada encerrado\n  Motivo: A janela para uma nova entrada terminou.\n  Plano: 3ed1465288132c0f7414\n• UNI/USDT • SHORT: prazo para nova entrada encerrado\n  Motivo: A janela para uma nova entrada terminou.\n  Plano: 4095c2880c2651f454bc\n• XRP/USDT • SHORT: prazo para nova entrada encerrado\n  Motivo: A janela para uma nova entrada terminou.\n  Plano: 4a1f55866a6e5cd1301e\n• BNB/USDT • LONG: prazo para nova entrada encerrado\n  Motivo: A janela para uma nova entrada terminou.\n  Plano: 4a4c2e4bfa16d23d6823\n\nSem novas entradas por esses planos.\nAvisos de movimento não equivalem a entradas liberadas.\nA expiração não encerra uma posição já aberta.\nAnálise: 15/11/2026 22:45:35 BRT"
     },
     "02dcc2c376e5293f6d1c": {
-      "attempts": 0,
+      "attempts": 1,
       "category": "INFO",
       "created_at": 1794900393,
       "expires_at": 1794903993,
       "id": "02dcc2c376e5293f6d1c",
       "quote_at": 0,
-      "status": "PENDING",
+      "sent_at": 1794900400,
+      "status": "SENT",
+      "telegram_ids": [
+        7821
+      ],
       "text": "⚪ ATUALIZAÇÃO DOS PLANOS ACOMPANHADOS\n🧪 SIMULAÇÃO\n\n• AAVE/USDT • LONG: confirmação não aprovada\n  Motivo: O volume do segundo candle M1 foi menor que50% do primeiro.\n  Plano: e6fc117d47478fdd4e7d\n\nSem novas entradas por esses planos.\nAvisos de movimento não equivalem a entradas liberadas.\nA expiração não encerra uma posição já aberta.\nAnálise: 17/11/2026 04:26:33 BRT"
     },
     "02df1630e4669426e2ba": {
@@ -19739,7 +19743,7 @@
       "text": "👀 POSSÍVEL ENTRADA • AGUARDAR GATILHO\nINJ/USDT • SHORT\n🧪 SIMULAÇÃO\nRompimento • 2 fechamentos M1 • volume ≥50%\n\nRegião de atenção ≈ 7.982 a 8.281\nDois fechamentos consecutivos de1min além do gatilho.\nVolume do segundo candle pelo menos50% do primeiro. Apenas a confirmação pode liberar entrada.\nPreparação até 14:00:00 BRT.\nAnálise: 13/11/2026 13:31:48 BRT\nPlano: 5bed9e4652d87e87c031 • revisão 0"
     },
     "274ddbc7c5a7141ce593": {
-      "attempts": 0,
+      "attempts": 1,
       "category": "INFO",
       "created_at": 1794900393,
       "expires_at": 1794901500,
@@ -19748,7 +19752,11 @@
         "8aad43ce5747a8c291ed"
       ],
       "quote_at": 0,
-      "status": "PENDING",
+      "sent_at": 1794900399,
+      "status": "SENT",
+      "telegram_ids": [
+        7820
+      ],
       "text": "👀 PLANO EM PREPARAÇÃO • AGUARDANDO GATILHO\nAAVE/USDT\n🧪 SIMULAÇÃO • acompanhamento\n\nRegião em análise: 111.81 a 113\nSHORT somente se houver fechamento M1 abaixo de ≈ 111.743.\n\nConfirmação: dois fechamentos M1 consecutivos além do gatilho; volume do segundo de pelo menos 50% do primeiro.\nTP, SL e percentuais serão definidos no primeiro gatilho. A confirmação ainda precisa passar pela avaliação financeira.\n\nSem rompimento observado neste plano e sem entrada liberada.\nPreparação até 04:45:00 BRT.\nAnálise: 17/11/2026 04:26:33 BRT\nPlanos: 8aad43ce5747a8c291ed",
       "watch_stage": 2,
       "watch_symbol": "AAVE_USDT"
