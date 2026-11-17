@@ -1,6 +1,6 @@
 {
   "approved_for_production": false,
-  "asof_utc": "2026-11-17T11:00:00+00:00",
+  "asof_utc": "2026-11-17T13:00:00+00:00",
   "conditions": {
     "checkpoint_reached": false,
     "frozen_days_sufficient": false,
@@ -20,7 +20,7 @@
         "flat_at_checkpoint": false,
         "no_liquidations": true,
         "observed_entry_quote_coverage": false,
-        "positive_base_and_stress": true
+        "positive_base_and_stress": false
       },
       "quote_quality": {
         "base": {
@@ -40,7 +40,7 @@
       "wallets": {
         "base": {
           "cash": "99.97873984",
-          "marked_equity": "100.13098372",
+          "marked_equity": "99.70292704",
           "open_position": {
             "allocation_guarded": false,
             "contracts": "6",
@@ -65,15 +65,15 @@
             "tick": "0.01"
           },
           "summary": {
-            "final": "100.13098372",
+            "final": "99.70292704",
             "funding_paid": "0",
             "initial": "100",
-            "max_drawdown_pct": "0.3481035600",
+            "max_drawdown_pct": "0.4484818418000857327440625688",
             "outcomes": {},
             "positions": 0,
             "positive": 0,
             "profit_factor": null,
-            "return_pct": "0.1309837200",
+            "return_pct": "-0.2970729600",
             "skipped": {
               "CARTEIRA_OCUPADA": 0,
               "DIRECAO_CONTRA_BTC_7D": 1,
@@ -87,7 +87,7 @@
         },
         "stress": {
           "cash": "99.96457720",
-          "marked_equity": "100.08110620",
+          "marked_equity": "99.65287840",
           "open_position": {
             "allocation_guarded": false,
             "contracts": "6",
@@ -112,15 +112,15 @@
             "tick": "0.01"
           },
           "summary": {
-            "final": "100.08110620",
+            "final": "99.65287840",
             "funding_paid": "0",
             "initial": "100",
-            "max_drawdown_pct": "0.398172600",
+            "max_drawdown_pct": "0.4488847266558290699628577846",
             "outcomes": {},
             "positions": 0,
             "positive": 0,
             "profit_factor": null,
-            "return_pct": "0.081106200",
+            "return_pct": "-0.347121600",
             "skipped": {
               "CARTEIRA_OCUPADA": 0,
               "DIRECAO_CONTRA_BTC_7D": 1,
@@ -141,7 +141,7 @@
         "flat_at_checkpoint": false,
         "no_liquidations": true,
         "observed_entry_quote_coverage": false,
-        "positive_base_and_stress": true
+        "positive_base_and_stress": false
       },
       "quote_quality": {
         "base": {
@@ -161,7 +161,7 @@
       "wallets": {
         "base": {
           "cash": "99.98936992",
-          "marked_equity": "100.06549186",
+          "marked_equity": "99.85146352",
           "open_position": {
             "allocation_guarded": false,
             "contracts": "3",
@@ -186,15 +186,15 @@
             "tick": "0.01"
           },
           "summary": {
-            "final": "100.06549186",
+            "final": "99.85146352",
             "funding_paid": "0",
             "initial": "100",
-            "max_drawdown_pct": "0.1740517800",
+            "max_drawdown_pct": "0.2243876843319200969547905043",
             "outcomes": {},
             "positions": 0,
             "positive": 0,
             "profit_factor": null,
-            "return_pct": "0.0654918600",
+            "return_pct": "-0.1485364800",
             "skipped": {
               "CARTEIRA_OCUPADA": 0,
               "DIRECAO_CONTRA_BTC_7D": 1,
@@ -208,7 +208,7 @@
         },
         "stress": {
           "cash": "99.98228860",
-          "marked_equity": "100.04055310",
+          "marked_equity": "99.82643920",
           "open_position": {
             "allocation_guarded": false,
             "contracts": "3",
@@ -233,15 +233,15 @@
             "tick": "0.01"
           },
           "summary": {
-            "final": "100.04055310",
+            "final": "99.82643920",
             "funding_paid": "0",
             "initial": "100",
-            "max_drawdown_pct": "0.199086300",
+            "max_drawdown_pct": "0.2245333447681628221625655926",
             "outcomes": {},
             "positions": 0,
             "positive": 0,
             "profit_factor": null,
-            "return_pct": "0.040553100",
+            "return_pct": "-0.173560800",
             "skipped": {
               "CARTEIRA_OCUPADA": 0,
               "DIRECAO_CONTRA_BTC_7D": 1,
