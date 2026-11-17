@@ -1,6 +1,6 @@
 {
   "approved_for_production": false,
-  "asof_utc": "2026-11-16T22:00:00+00:00",
+  "asof_utc": "2026-11-17T00:00:00+00:00",
   "conditions": {
     "checkpoint_reached": false,
     "frozen_days_sufficient": false,
@@ -8,7 +8,7 @@
     "quote_coverage_sufficient": false
   },
   "execution_validated": false,
-  "frozen_days": 0,
+  "frozen_days": 1,
   "interpretation": "Prospective signals, deferred H1 paper replay; quotes are a separate observational lane.",
   "missed_days": 0,
   "missed_or_late_quote_windows": 0,
@@ -146,6 +146,6 @@
   },
   "name": "MOMENTUM_PROSPECTIVE_30D_V1",
   "observed_quote_windows": 0,
-  "phase": "WARMUP",
+  "phase": "COLLECTING",
   "source_revisions": 0
 }

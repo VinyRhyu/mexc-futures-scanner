@@ -1,8 +1,8 @@
 # Momentum — validação prospectiva
 
-Fase: WARMUP
-Dados fechados até 2026-11-16T22:00:00+00:00.
-Dias congelados: 0/30; dias perdidos: 0; janelas de cotação observadas: 0.
+Fase: COLLECTING
+Dados fechados até 2026-11-17T00:00:00+00:00.
+Dias congelados: 1/30; dias perdidos: 0; janelas de cotação observadas: 0.
 
 | Carteira | Patrimônio marcado | Operações encerradas | Queda máxima H1 |
 | --- | ---: | ---: | ---: |
