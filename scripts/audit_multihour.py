@@ -282,7 +282,7 @@ def allocation_risk(policy, equity, peak, guarded, default):
     return D(policy['reduced'] if guarded else policy['normal']),guarded
 
 
-def simulate(markets, variant, block, protocol, costs, entry_ranker=None):
+def simulate(markets, variant, block, protocol, costs, entry_ranker=None, entry_filter=None):
     start, end = stamp(block['start']), stamp(block['end'])
     entry_events = defaultdict(list); updates = {}
     for symbol, market in markets.items():
@@ -329,6 +329,11 @@ def simulate(markets, variant, block, protocol, costs, entry_ranker=None):
                 if candidate is None:
                     skips[reason] += 1
                     continue
+                if entry_filter is not None:
+                    rejection = entry_filter(markets, signal)
+                    if rejection:
+                        skips[rejection] += 1
+                        continue
                 if variant.get('allocation'):
                     candidate.update(effective_risk_fraction=risk,allocation_guarded=guarded)
                 score = signal['score']
