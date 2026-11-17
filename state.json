@@ -81754,13 +81754,17 @@
       "text": "⚪ ATUALIZAÇÃO DOS PLANOS ACOMPANHADOS\n🧪 SIMULAÇÃO\n\n• XLM/USDT • SHORT: plano invalidado\n  Plano: f358bd69e969bbc948b6\n\nSem novas entradas por esses planos.\nA expiração não encerra posições já abertas.\nAnálise: 13/11/2026 12:29:10 BRT"
     },
     "abb2fee39fff73089043": {
-      "attempts": 0,
+      "attempts": 1,
       "category": "INFO",
       "created_at": 1794876274,
       "expires_at": 1794879874,
       "id": "abb2fee39fff73089043",
       "quote_at": 0,
-      "status": "PENDING",
+      "sent_at": 1794876280,
+      "status": "SENT",
+      "telegram_ids": [
+        7299
+      ],
       "text": "⚪ ATUALIZAÇÃO DOS PLANOS ACOMPANHADOS\n🧪 SIMULAÇÃO\n\n• ENA/USDT • SHORT: confirmação não aprovada\n  Motivo: O segundo fechamento M1 perdeu o nível do gatilho.\n  Plano: 1597f1076b9604bdca43\n\nSem novas entradas por esses planos.\nAvisos de movimento não equivalem a entradas liberadas.\nA expiração não encerra uma posição já aberta.\nAnálise: 16/11/2026 21:44:34 BRT"
     },
     "abc8fe68bf45dd0b1e04": {
@@ -83348,7 +83352,7 @@
       "text": "👀 POSSÍVEL ENTRADA • AGUARDAR GATILHO\nADA/USDT • LONG\n🧪 SIMULAÇÃO\nRompimento de consolidação\n\nRegião de atenção ≈ 0.1766 a 0.1777\n\nAntecipada: Primeiro fechamento de 15m acima da faixa, com a tolerância do plano.\nConfirmada: O candle de 15m imediatamente seguinte mantém o rompimento.\nCada modalidade é avaliada de forma independente.\n\nPreparação válida até 00:15:00 BRT (13min 34s).\nAnálise: 10/11/2026 00:01:26 BRT\nPlano: 1982e8c37b4105feb5ed • revisão 0"
     },
     "ae803a0e573dc286b0e0": {
-      "attempts": 0,
+      "attempts": 1,
       "category": "INFO",
       "created_at": 1794876274,
       "expires_at": 1794877200,
@@ -83357,7 +83361,11 @@
         "f29a95d570db3a840733"
       ],
       "quote_at": 0,
-      "status": "PENDING",
+      "sent_at": 1794876280,
+      "status": "SENT",
+      "telegram_ids": [
+        7298
+      ],
       "text": "👀 PLANO EM PREPARAÇÃO • AGUARDANDO GATILHO\nENA/USDT\n🧪 SIMULAÇÃO • acompanhamento\n\nRegião em análise: 0.11372 a 0.11596\nLONG somente se houver fechamento M1 acima de ≈ 0.11605.\n\nConfirmação: dois fechamentos M1 consecutivos além do gatilho; volume do segundo de pelo menos 50% do primeiro.\nTP, SL e percentuais serão definidos no primeiro gatilho. A confirmação ainda precisa passar pela avaliação financeira.\n\nSem rompimento observado neste plano e sem entrada liberada.\nPreparação até 22:00:00 BRT.\nAnálise: 16/11/2026 21:44:34 BRT\nPlanos: f29a95d570db3a840733",
       "watch_stage": 2,
       "watch_symbol": "ENA_USDT"
