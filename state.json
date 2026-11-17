@@ -72417,7 +72417,7 @@
       "text": "⚪ ATUALIZAÇÃO DOS PLANOS ACOMPANHADOS\n🧪 SIMULAÇÃO\n\n• HBAR/USDT • LONG: prazo para nova entrada encerrado\n  Motivo: A janela para uma nova entrada terminou.\n  Plano: 23ac96bfcaadb8378ba1\n• SHIB/USDT • LONG: prazo para nova entrada encerrado\n  Motivo: A janela para uma nova entrada terminou.\n  Plano: 48892776183f69f2d3fe\n• NEAR/USDT • SHORT: prazo para nova entrada encerrado\n  Motivo: A janela para uma nova entrada terminou.\n  Plano: 50d1db2db6df059646f6\n• DOT/USDT • LONG: prazo para nova entrada encerrado\n  Motivo: A janela para uma nova entrada terminou.\n  Plano: 6e7fa16082409f4720bf\n• SUI/USDT • LONG: prazo para nova entrada encerrado\n  Motivo: A janela para uma nova entrada terminou.\n  Plano: 72c851aec526176c4f16\n• SUI/USDT • SHORT: prazo para nova entrada encerrado\n  Motivo: A janela para uma nova entrada terminou.\n  Plano: 8dccc6a4f84d5bf03ba6\n\nSem novas entradas por esses planos.\nAvisos de movimento não equivalem a entradas liberadas.\nA expiração não encerra uma posição já aberta.\nAnálise: 15/11/2026 11:00:19 BRT"
     },
     "81cf3849fa916ff289e8": {
-      "attempts": 0,
+      "attempts": 1,
       "category": "INFO",
       "created_at": 1794941013,
       "expires_at": 1794941040,
@@ -72428,7 +72428,11 @@
         "5a68afa230492e108202"
       ],
       "quote_at": 0,
-      "status": "PENDING",
+      "sent_at": 1794941020,
+      "status": "SENT",
+      "telegram_ids": [
+        8383
+      ],
       "text": "🟡 MOVIMENTO DETECTADO • AINDA SEM CONFIRMAÇÃO\nAPT/USDT • BAIXA (SHORT)\n🧪 SIMULAÇÃO • acompanhamento\n\nRompimento observado no M1 fechado às 15:43:00 BRT.\nPreço de referência do primeiro gatilho: 0.4384.\n\nPrimeiro fechamento além da região identificado.\nFalta o segundo fechamento sustentar o nível, com volume de pelo menos 50% do primeiro.\nApós confirmar, o plano ainda precisa passar pela avaliação financeira.\n\nFaixa em estudo: 0.4375 a 0.4383\n🛑 Stop do plano: 0.4407 (-5.25% bruto em 10x)\n🎯 Alvo do plano: 0.4341 (+9.81% bruto em 10x)\nCenário indicativo sobre a margem em 10x; custos e liquidação ainda não validados.\nMovimento sem alavancagem: TP +0.98% • SL -0.52%.\nPercentuais sobre a referência do primeiro gatilho, na direção da operação, antes de custos.\n\nMovimento observado, sem entrada liberada. Aguarde o alerta de confirmação e viabilidade.\nAlerta válido até 15:44:00 BRT.\nAnálise: 17/11/2026 15:43:33 BRT\nPlano: 5a68afa230492e108202",
       "watch_stage": 1,
       "watch_symbol": "APT_USDT"
@@ -90353,7 +90357,7 @@
       "text": "🟠 ENTRADA BLOQUEADA\nWLD/USDT • LONG\n🧪 SIMULAÇÃO • Confirmada\nRompimento • 2 fechamentos M1 • volume ≥50%\n\nVolume do segundo M1: 365.2% do primeiro.\nMotivo: A relação entre ganho e perda ficou abaixo do mínimo.\nSem entrada liberada nesta análise.\n\n📍 Faixa do plano: 0.2909 a 0.2922\n🛑 Stop: 0.289\n🎯 Alvo: 0.2962\n\nEstimativas de taxas, deslizamento e funding; ganho não garantido.\n\n⏱ Nova entrada até 03:14:00 BRT (25s).\nGatilho M1 (segundo fechamento): 03:12:00 BRT\nAnálise: 13/11/2026 03:13:35 BRT\nA validade se aplica a novas entradas.\nPlano: ba924a63813fdae8787e • revisão 1"
     },
     "a1e917b6d12fb9e446a1": {
-      "attempts": 0,
+      "attempts": 1,
       "category": "INFO",
       "created_at": 1794941013,
       "expires_at": 1794941100,
@@ -90364,7 +90368,11 @@
         "20a0de52475977024358"
       ],
       "quote_at": 0,
-      "status": "PENDING",
+      "sent_at": 1794941020,
+      "status": "SENT",
+      "telegram_ids": [
+        8384
+      ],
       "text": "🟡 MOVIMENTO DETECTADO • ENTRADA BLOQUEADA\nZEC/USDT • BAIXA (SHORT)\n🧪 SIMULAÇÃO • acompanhamento\n\nRompimento observado no M1 fechado às 15:43:00 BRT.\nPreço de referência do primeiro gatilho: 917.04.\n\nConfirmação técnica identificada; entrada bloqueada.\nCondição pendente: A relação entre ganho e perda ficou abaixo do mínimo.\n\nFaixa em estudo: 914.17 a 917.12\n🛑 Stop do plano: 924.03 (-7.62% bruto em 10x)\n🎯 Alvo do plano: 916.04 (+1.09% bruto em 10x)\nCenário indicativo sobre a margem em 10x; custos e liquidação ainda não validados.\nMovimento sem alavancagem: TP +0.11% • SL -0.76%.\nPercentuais sobre a referência do primeiro gatilho, na direção da operação, antes de custos.\n\nMovimento observado, sem entrada liberada. Aguarde o alerta de confirmação e viabilidade.\nAlerta válido até 15:45:00 BRT.\nAnálise: 17/11/2026 15:43:33 BRT\nPlano: 20a0de52475977024358",
       "watch_stage": 0,
       "watch_symbol": "ZEC_USDT"
