@@ -82476,7 +82476,7 @@
       "text": "👀 POSSÍVEL ENTRADA • AGUARDAR GATILHO\nARB/USDT • SHORT\n🧪 SIMULAÇÃO\nRompimento de consolidação\n\nRegião de atenção ≈ 0.1733 a 0.17581\n\nAntecipada: Primeiro fechamento de 15m abaixo da faixa, com a tolerância do plano.\nConfirmada: O candle de 15m imediatamente seguinte mantém o rompimento.\nCada modalidade é avaliada de forma independente.\n\nPreparação válida até 21:15:00 BRT (13min 33s).\nAnálise: 09/11/2026 21:01:27 BRT\nPlano: 0f2de98224b55e7bec16 • revisão 0"
     },
     "9b8a44b9b6c443abbe45": {
-      "attempts": 0,
+      "attempts": 1,
       "category": "INFO",
       "created_at": 1794913114,
       "expires_at": 1794913140,
@@ -82487,7 +82487,11 @@
         "1b404b63fcdfb7fa35a5"
       ],
       "quote_at": 0,
-      "status": "PENDING",
+      "sent_at": 1794913119,
+      "status": "SENT",
+      "telegram_ids": [
+        7978
+      ],
       "text": "🟡 MOVIMENTO DETECTADO • AINDA SEM CONFIRMAÇÃO\nBTC/USDT • BAIXA (SHORT)\n🧪 SIMULAÇÃO • acompanhamento\n\nRompimento observado no M1 fechado às 07:58:00 BRT.\nPreço de referência do primeiro gatilho: 64086.5.\n\nPrimeiro fechamento além da região identificado.\nFalta o segundo fechamento sustentar o nível, com volume de pelo menos 50% do primeiro.\nApós confirmar, o plano ainda precisa passar pela avaliação financeira.\n\nFaixa em estudo: 64039.5 a 64100.6\n🛑 Stop do plano: 64213.7 (-1.98% bruto em 10x)\n🎯 Alvo do plano: 64101.5 (-0.23% bruto em 10x)\nCenário indicativo sobre a margem em 10x; custos e liquidação ainda não validados.\nMovimento sem alavancagem: TP -0.023% • SL -0.20%.\nPercentuais sobre a referência do primeiro gatilho, na direção da operação, antes de custos.\n\nMovimento observado, sem entrada liberada. Aguarde o alerta de confirmação e viabilidade.\nAlerta válido até 07:59:00 BRT.\nAnálise: 17/11/2026 07:58:34 BRT\nPlano: 1b404b63fcdfb7fa35a5",
       "watch_stage": 1,
       "watch_symbol": "BTC_USDT"
@@ -89624,11 +89628,12 @@
       "watch_symbol": "INJ_USDT"
     },
     "aa042c0d4df42f4b2d3c": {
-      "attempts": 0,
+      "attempts": 1,
       "category": "INFO",
       "created_at": 1794913114,
       "expires_at": 1794913200,
       "id": "aa042c0d4df42f4b2d3c",
+      "last_error": "TELEGRAM_FALHA_OU_RESULTADO_AMBIGUO: URLError",
       "movement_at": 1794913080,
       "movement_side": "SHORT",
       "plan_ids": [
