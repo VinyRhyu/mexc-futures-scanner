@@ -684,7 +684,7 @@
       "text": "⚪ ATUALIZAÇÃO DOS PLANOS ACOMPANHADOS\n🧪 SIMULAÇÃO\n\n• ADA/USDT • LONG: janela expirou\n  Plano: 7205c4ffc5e31c31f50d\n• ARB/USDT • LONG: janela expirou\n  Plano: 9fa8d559a0e2da49360a\n• ADA/USDT • SHORT: janela expirou\n  Plano: fca736a24c13109c500b\n\nSem novas entradas por esses planos.\nA expiração não encerra posições já abertas.\nAnálise: 11/11/2026 05:45:50 BRT"
     },
     "00bc767fb208851535ff": {
-      "attempts": 0,
+      "attempts": 1,
       "category": "INFO",
       "created_at": 1794914252,
       "expires_at": 1794914280,
@@ -695,7 +695,11 @@
         "965ba8a293fb6ad11935"
       ],
       "quote_at": 0,
-      "status": "PENDING",
+      "sent_at": 1794914257,
+      "status": "SENT",
+      "telegram_ids": [
+        8011
+      ],
       "text": "🟡 MOVIMENTO DETECTADO • AINDA SEM CONFIRMAÇÃO\nWLD/USDT • ALTA (LONG)\n🧪 SIMULAÇÃO • acompanhamento\n\nRompimento observado no M1 fechado às 08:17:00 BRT.\nPreço de referência do primeiro gatilho: 0.2664.\n\nPrimeiro fechamento além da região identificado.\nFalta o segundo fechamento sustentar o nível, com volume de pelo menos 50% do primeiro.\nApós confirmar, o plano ainda precisa passar pela avaliação financeira.\n\nFaixa em estudo: 0.2664 a 0.2668\n🛑 Stop do plano: 0.2652 (-4.50% bruto em 10x)\n🎯 Alvo do plano: 0.2671 (+2.63% bruto em 10x)\nCenário indicativo sobre a margem em 10x; custos e liquidação ainda não validados.\nMovimento sem alavancagem: TP +0.26% • SL -0.45%.\nPercentuais sobre a referência do primeiro gatilho, na direção da operação, antes de custos.\n\nMovimento observado, sem entrada liberada. Aguarde o alerta de confirmação e viabilidade.\nAlerta válido até 08:18:00 BRT.\nAnálise: 17/11/2026 08:17:32 BRT\nPlano: 965ba8a293fb6ad11935",
       "watch_stage": 1,
       "watch_symbol": "WLD_USDT"
@@ -130128,13 +130132,17 @@
       "text": "🟠 ENTRADA BLOQUEADA\nXLM/USDT • SHORT\n🧪 SIMULAÇÃO • Confirmada\nRompimento • 2 fechamentos M1 • volume ≥50%\n\nVolume do segundo M1: 494.0% do primeiro.\nMotivo: A relação entre ganho e perda ficou abaixo do mínimo.\nSem entrada liberada nesta análise.\n\n📍 Faixa do plano: 0.14411 a 0.14427\n🛑 Stop: 0.14468\n🎯 Alvo: 0.14385\n\nEstimativas de taxas, deslizamento e funding; ganho não garantido.\n\n⏱ Nova entrada até 04:05:00 BRT (1min 19s).\nGatilho M1 (segundo fechamento): 04:03:00 BRT\nAnálise: 11/11/2026 04:03:41 BRT\nA validade se aplica a novas entradas.\nPlano: e4cb8e6f68698fcc00d9 • revisão 1"
     },
     "f62f28bce910f251dd74": {
-      "attempts": 0,
+      "attempts": 1,
       "category": "INFO",
       "created_at": 1794914252,
       "expires_at": 1794917852,
       "id": "f62f28bce910f251dd74",
       "quote_at": 0,
-      "status": "PENDING",
+      "sent_at": 1794914258,
+      "status": "SENT",
+      "telegram_ids": [
+        8013
+      ],
       "text": "⚪ ATUALIZAÇÃO DOS PLANOS ACOMPANHADOS\n🧪 SIMULAÇÃO\n\n• DOT/USDT • LONG: prazo para nova entrada encerrado\n  Motivo: A janela para uma nova entrada terminou.\n  Plano: a32a75e5922196d2dde6\n\nSem novas entradas por esses planos.\nAvisos de movimento não equivalem a entradas liberadas.\nA expiração não encerra uma posição já aberta.\nAnálise: 17/11/2026 08:17:32 BRT"
     },
     "f63aecf3ebbba02660bb": {
@@ -134166,7 +134174,7 @@
       "watch_symbol": "ICP_USDT"
     },
     "fd92d15892fc52b7cae3": {
-      "attempts": 0,
+      "attempts": 1,
       "category": "INFO",
       "created_at": 1794914252,
       "expires_at": 1794915000,
@@ -134175,7 +134183,11 @@
         "463d88c204dd0b2844e1"
       ],
       "quote_at": 0,
-      "status": "PENDING",
+      "sent_at": 1794914257,
+      "status": "SENT",
+      "telegram_ids": [
+        8012
+      ],
       "text": "👀 PLANO EM PREPARAÇÃO • AGUARDANDO GATILHO\nDOT/USDT\n🧪 SIMULAÇÃO • acompanhamento\n\nRegião em análise: 0.7241 a 0.7305\nSHORT somente se houver fechamento M1 abaixo de ≈ 0.723792.\n\nConfirmação: dois fechamentos M1 consecutivos além do gatilho; volume do segundo de pelo menos 50% do primeiro.\nTP, SL e percentuais serão definidos no primeiro gatilho. A confirmação ainda precisa passar pela avaliação financeira.\n\nSem rompimento observado neste plano e sem entrada liberada.\nPreparação até 08:30:00 BRT.\nAnálise: 17/11/2026 08:17:32 BRT\nPlanos: 463d88c204dd0b2844e1",
       "watch_stage": 2,
       "watch_symbol": "DOT_USDT"
