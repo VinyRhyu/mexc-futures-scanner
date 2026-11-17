@@ -126747,7 +126747,7 @@
       "text": "🟠 ENTRADA BLOQUEADA\nXRP/USDT • LONG\n🧪 SIMULAÇÃO • Confirmada\nRompimento • 2 fechamentos M1 • volume ≥50%\n\nVolume do segundo M1: 213.5% do primeiro.\nMotivo: O preço está fora da faixa permitida.\nSem entrada liberada nesta análise.\n\n📍 Faixa do plano: 1.0165 a 1.0167\n🛑 Stop: 1.0122\n🎯 Alvo: 1.0309\n\nEstimativas de taxas, deslizamento e funding; ganho não garantido.\n\n⏱ Nova entrada até 03:20:00 BRT (29s).\nGatilho M1 (segundo fechamento): 03:18:00 BRT\nCotação: 03:19:29 BRT\nAnálise: 13/11/2026 03:19:31 BRT\nA validade se aplica a novas entradas.\nPlano: 23c846ed89cf257c301d • revisão 1"
     },
     "e80200448d54fe1ab81c": {
-      "attempts": 0,
+      "attempts": 1,
       "category": "INFO",
       "created_at": 1794927216,
       "expires_at": 1794927240,
@@ -126758,7 +126758,11 @@
         "2833bf22632480fff952"
       ],
       "quote_at": 0,
-      "status": "PENDING",
+      "sent_at": 1794927222,
+      "status": "SENT",
+      "telegram_ids": [
+        8224
+      ],
       "text": "🟡 MOVIMENTO DETECTADO • AINDA SEM CONFIRMAÇÃO\nAVAX/USDT • BAIXA (SHORT)\n🧪 SIMULAÇÃO • acompanhamento\n\nRompimento observado no M1 fechado às 11:53:00 BRT.\nPreço de referência do primeiro gatilho: 7.201.\n\nPrimeiro fechamento além da região identificado.\nFalta o segundo fechamento sustentar o nível, com volume de pelo menos 50% do primeiro.\nApós confirmar, o plano ainda precisa passar pela avaliação financeira.\n\nFaixa em estudo: 7.191 a 7.206\n🛑 Stop do plano: 7.233 (-4.44% bruto em 10x)\n🎯 Alvo do plano: 7.139 (+8.61% bruto em 10x)\nCenário indicativo sobre a margem em 10x; custos e liquidação ainda não validados.\nMovimento sem alavancagem: TP +0.86% • SL -0.44%.\nPercentuais sobre a referência do primeiro gatilho, na direção da operação, antes de custos.\n\nMovimento observado, sem entrada liberada. Aguarde o alerta de confirmação e viabilidade.\nAlerta válido até 11:54:00 BRT.\nAnálise: 17/11/2026 11:53:36 BRT\nPlano: 2833bf22632480fff952",
       "watch_stage": 1,
       "watch_symbol": "AVAX_USDT"
