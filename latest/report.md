@@ -1,9 +1,9 @@
 # MEXC Futures Scanner — rodada
 
-Modo: **paper**. Análise: 17/11/2026 18:46:32 BRT.
+Modo: **paper**. Análise: 17/11/2026 18:47:33 BRT.
 
-Fonte: PARCIAL
-Cobertura: 1/27 contratos selecionados.
+Fonte: OK
+Cobertura: 27/27 contratos selecionados.
 
 Retorno/risco líquido mínimo: **1:1**.
 
@@ -1737,31 +1737,5 @@ Alavancagem de simulação: **10x a 20x**.
 
 ## Diagnósticos
 
-- BTC_USDT: MEXC não confirmou sucesso: 510
-- ZEC_USDT: MEXC não confirmou sucesso: 510
-- ETH_USDT: MEXC não confirmou sucesso: 510
-- SOL_USDT: MEXC não confirmou sucesso: 510
-- LINK_USDT: MEXC não confirmou sucesso: 510
-- XRP_USDT: MEXC não confirmou sucesso: 510
-- HYPE_USDT: MEXC não confirmou sucesso: 510
-- DOGE_USDT: MEXC não confirmou sucesso: 510
-- UNI_USDT: MEXC não confirmou sucesso: 510
-- SUI_USDT: MEXC não confirmou sucesso: 510
-- PEPE_USDT: MEXC não confirmou sucesso: 510
-- QNT_USDT: MEXC não confirmou sucesso: 510
-- TAO_USDT: MEXC não confirmou sucesso: 510
-- INJ_USDT: MEXC não confirmou sucesso: 510
-- ENA_USDT: MEXC não confirmou sucesso: 510
-- NEAR_USDT: MEXC não confirmou sucesso: 510
-- ADA_USDT: MEXC não confirmou sucesso: 510
-- WLD_USDT: MEXC não confirmou sucesso: 510
-- AAVE_USDT: MEXC não confirmou sucesso: 510
-- ONDO_USDT: MEXC não confirmou sucesso: 510
-- AVAX_USDT: MEXC não confirmou sucesso: 510
-- ARB_USDT: MEXC não confirmou sucesso: 510
-- XLM_USDT: MEXC não confirmou sucesso: 510
-- ICP_USDT: MEXC não confirmou sucesso: 510
-- BNB_USDT: MEXC não confirmou sucesso: 510
-- DOT_USDT: MEXC não confirmou sucesso: 510
 
 Os parâmetros e os custos simulados não demonstram rentabilidade. Sinal técnico e viabilidade para o saldo são avaliações separadas.

@@ -1,113 +1,8 @@
 {
-  "analyzed_at": 1794951992,
-  "analyzed_symbols": 1,
+  "analyzed_at": 1794952053,
+  "analyzed_symbols": 27,
   "config_fingerprint": "a0c2766956c79181fa62",
-  "diagnostics": [
-    {
-      "reason": "MEXC não confirmou sucesso: 510",
-      "symbol": "BTC_USDT"
-    },
-    {
-      "reason": "MEXC não confirmou sucesso: 510",
-      "symbol": "ZEC_USDT"
-    },
-    {
-      "reason": "MEXC não confirmou sucesso: 510",
-      "symbol": "ETH_USDT"
-    },
-    {
-      "reason": "MEXC não confirmou sucesso: 510",
-      "symbol": "SOL_USDT"
-    },
-    {
-      "reason": "MEXC não confirmou sucesso: 510",
-      "symbol": "LINK_USDT"
-    },
-    {
-      "reason": "MEXC não confirmou sucesso: 510",
-      "symbol": "XRP_USDT"
-    },
-    {
-      "reason": "MEXC não confirmou sucesso: 510",
-      "symbol": "HYPE_USDT"
-    },
-    {
-      "reason": "MEXC não confirmou sucesso: 510",
-      "symbol": "DOGE_USDT"
-    },
-    {
-      "reason": "MEXC não confirmou sucesso: 510",
-      "symbol": "UNI_USDT"
-    },
-    {
-      "reason": "MEXC não confirmou sucesso: 510",
-      "symbol": "SUI_USDT"
-    },
-    {
-      "reason": "MEXC não confirmou sucesso: 510",
-      "symbol": "PEPE_USDT"
-    },
-    {
-      "reason": "MEXC não confirmou sucesso: 510",
-      "symbol": "QNT_USDT"
-    },
-    {
-      "reason": "MEXC não confirmou sucesso: 510",
-      "symbol": "TAO_USDT"
-    },
-    {
-      "reason": "MEXC não confirmou sucesso: 510",
-      "symbol": "INJ_USDT"
-    },
-    {
-      "reason": "MEXC não confirmou sucesso: 510",
-      "symbol": "ENA_USDT"
-    },
-    {
-      "reason": "MEXC não confirmou sucesso: 510",
-      "symbol": "NEAR_USDT"
-    },
-    {
-      "reason": "MEXC não confirmou sucesso: 510",
-      "symbol": "ADA_USDT"
-    },
-    {
-      "reason": "MEXC não confirmou sucesso: 510",
-      "symbol": "WLD_USDT"
-    },
-    {
-      "reason": "MEXC não confirmou sucesso: 510",
-      "symbol": "AAVE_USDT"
-    },
-    {
-      "reason": "MEXC não confirmou sucesso: 510",
-      "symbol": "ONDO_USDT"
-    },
-    {
-      "reason": "MEXC não confirmou sucesso: 510",
-      "symbol": "AVAX_USDT"
-    },
-    {
-      "reason": "MEXC não confirmou sucesso: 510",
-      "symbol": "ARB_USDT"
-    },
-    {
-      "reason": "MEXC não confirmou sucesso: 510",
-      "symbol": "XLM_USDT"
-    },
-    {
-      "reason": "MEXC não confirmou sucesso: 510",
-      "symbol": "ICP_USDT"
-    },
-    {
-      "reason": "MEXC não confirmou sucesso: 510",
-      "symbol": "BNB_USDT"
-    },
-    {
-      "reason": "MEXC não confirmou sucesso: 510",
-      "symbol": "DOT_USDT"
-    }
-  ],
+  "diagnostics": [],
   "excluded": [
     {
       "reason": "CLASSIFICACAO_PENDENTE",
@@ -2770,37 +2665,37 @@
   "operational_timings": [
     {
       "commit": "71db8f2dbb5a9693f0656602b696d00135411a14",
-      "duration_s": 0.888505,
+      "duration_s": 1.554358,
       "event": "end",
-      "finished_at_utc": "2026-11-17T21:46:26.526846+00:00",
+      "finished_at_utc": "2026-11-17T21:47:15.111237+00:00",
       "phase": "market_catalog",
       "run_attempt": "1",
-      "run_id": "44183226806",
-      "started_at_utc": "2026-11-17T21:46:25.638368+00:00",
+      "run_id": "44183396679",
+      "started_at_utc": "2026-11-17T21:47:13.556903+00:00",
       "status": "OK",
       "telemetry": "phase_v1"
     },
     {
       "commit": "71db8f2dbb5a9693f0656602b696d00135411a14",
-      "duration_s": 6.815435,
+      "duration_s": 17.779661,
       "event": "end",
-      "finished_at_utc": "2026-11-17T21:46:33.344418+00:00",
+      "finished_at_utc": "2026-11-17T21:47:32.895061+00:00",
       "phase": "candles_collect",
       "run_attempt": "1",
-      "run_id": "44183226806",
-      "started_at_utc": "2026-11-17T21:46:26.529009+00:00",
+      "run_id": "44183396679",
+      "started_at_utc": "2026-11-17T21:47:15.115423+00:00",
       "status": "OK",
       "telemetry": "phase_v1"
     },
     {
       "commit": "71db8f2dbb5a9693f0656602b696d00135411a14",
-      "duration_s": 0.013541,
+      "duration_s": 0.707684,
       "event": "end",
-      "finished_at_utc": "2026-11-17T21:46:33.358160+00:00",
+      "finished_at_utc": "2026-11-17T21:47:33.603057+00:00",
       "phase": "analysis_and_finance",
       "run_attempt": "1",
-      "run_id": "44183226806",
-      "started_at_utc": "2026-11-17T21:46:33.344647+00:00",
+      "run_id": "44183396679",
+      "started_at_utc": "2026-11-17T21:47:32.895396+00:00",
       "status": "OK",
       "telemetry": "phase_v1"
     }
@@ -2858,7 +2753,7 @@
       "family": "0013a047dd0504fc9a8f",
       "formed_at": 1794951900,
       "id": "0013a047dd0504fc9a8f",
-      "last_bar": 0,
+      "last_bar": 1794952020,
       "level": "7.23",
       "lower": "7.082",
       "observations": [],
@@ -4618,7 +4513,7 @@
       "family": "0941e5f2568e047274bf",
       "formed_at": 1794951900,
       "id": "0941e5f2568e047274bf",
-      "last_bar": 0,
+      "last_bar": 1794952020,
       "level": "2.289",
       "lower": "2.23",
       "observations": [],
@@ -24027,7 +23922,7 @@
       "family": "6be18ebf02b4a62d7b9a",
       "formed_at": 1794951000,
       "id": "6be18ebf02b4a62d7b9a",
-      "last_bar": 1794951900,
+      "last_bar": 1794952020,
       "level": "0.0000037358",
       "lower": "0.0000037358",
       "observations": [],
@@ -24592,7 +24487,7 @@
       "family": "6f7e414d81a61bd13f0e",
       "formed_at": 1794951900,
       "id": "6f7e414d81a61bd13f0e",
-      "last_bar": 0,
+      "last_bar": 1794952020,
       "level": "7.082",
       "lower": "7.082",
       "observations": [],
@@ -34687,7 +34582,7 @@
       "family": "a07d95c07c018b3bbd14",
       "formed_at": 1794951900,
       "id": "a07d95c07c018b3bbd14",
-      "last_bar": 0,
+      "last_bar": 1794952020,
       "level": "2.23",
       "lower": "2.23",
       "observations": [],
@@ -38473,7 +38368,7 @@
       "family": "b02e9df4cad71ce032a0",
       "formed_at": 1794951000,
       "id": "b02e9df4cad71ce032a0",
-      "last_bar": 1794951900,
+      "last_bar": 1794952020,
       "level": "914.97",
       "lower": "914.97",
       "observations": [],
@@ -45163,7 +45058,7 @@
       "family": "d172a9c66432b1d8312c",
       "formed_at": 1794951900,
       "id": "d172a9c66432b1d8312c",
-      "last_bar": 0,
+      "last_bar": 1794952020,
       "level": "0.9765",
       "lower": "0.9612",
       "observations": [],
@@ -51140,7 +51035,7 @@
       "family": "f7741e5649432ef1a696",
       "formed_at": 1794951000,
       "id": "f7741e5649432ef1a696",
-      "last_bar": 1794951900,
+      "last_bar": 1794952020,
       "level": "109.78",
       "lower": "109.78",
       "observations": [],
@@ -52320,7 +52215,7 @@
       "family": "fe8dd759ef083d91bd15",
       "formed_at": 1794951900,
       "id": "fe8dd759ef083d91bd15",
-      "last_bar": 0,
+      "last_bar": 1794952020,
       "level": "0.9612",
       "lower": "0.9612",
       "observations": [],
@@ -52465,5 +52360,5 @@
   ],
   "selected_symbols": 27,
   "signal_model": "m1_volume50_v1",
-  "source_status": "PARCIAL"
+  "source_status": "OK"
 }
