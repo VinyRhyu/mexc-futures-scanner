@@ -85598,17 +85598,21 @@
       "watch_symbol": "AVAX_USDT"
     },
     "aeee4d27e09cb5ce7599": {
-      "attempts": 0,
+      "attempts": 1,
       "category": "ENTRY",
       "created_at": 1794882336,
       "expires_at": 1794882420,
       "id": "aeee4d27e09cb5ce7599",
       "plan_id": "26480e80d040105b4821",
       "quote_at": 1794882331,
+      "sent_at": 1794882340,
       "side": "SHORT",
       "signal_at": 1794882300,
-      "status": "PENDING",
+      "status": "SENT",
       "symbol": "HYPE_USDT",
+      "telegram_ids": [
+        7458
+      ],
       "text": "🟢 GATILHO VÁLIDO PARA SIMULAR\nHYPE/USDT • SHORT\n🧪 SIMULAÇÃO • Confirmada\nRompimento • 2 fechamentos M1 • volume ≥50%\n\nVolume do segundo M1: 209.4% do primeiro.\n📍 Entrada: 68.691 a 68.72\n🛑 Stop: 69.019 (-9.57% líquido sobre a margem)\n🎯 Alvo: 68.143 (+9.58% líquido sobre a margem)\nMovimento sem alavancagem: TP +0.80% • SL -0.48%.\nBase dos percentuais sem alavancagem: 68.691 (pior entrada); na direção da operação, antes de custos.\n\nMargem isolada estimada: 0.9159 USDT • 15x\nQuantidade: 2 contratos\nPerda planejada: -0.0876 USDT (-8.76% da banca)\nGanho projetado: +0.0877 USDT (+8.77% da banca)\nRetorno/risco líquido: 1.00:1 (pior entrada)\nCustos estimados: 0.0220 USDT\nROI líquido estimado sobre a margem: TP +9.58% • SL -9.57%.\nTaxa por execução: 0.06%\nDisparo do stop: último preço (Last)\n\nEstimativas de taxas, deslizamento e funding; ganho não garantido.\nFalta validar para uso real: taxa pessoal da conta; regras de margem da conta.\n\n⏱ Nova entrada até 23:27:00 BRT (1min 24s).\nGatilho M1 (segundo fechamento): 23:25:00 BRT\nCotação: 23:25:31 BRT\nAnálise: 16/11/2026 23:25:36 BRT\nA validade se aplica a novas entradas.\nPlano: 26480e80d040105b4821 • revisão 1",
       "variant": "CONFIRMADA"
     },
