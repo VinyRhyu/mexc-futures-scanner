@@ -29175,17 +29175,21 @@
       "watch_symbol": "ONDO_USDT"
     },
     "3c4336998589f0e66109": {
-      "attempts": 0,
+      "attempts": 1,
       "category": "ENTRY",
       "created_at": 1794885092,
       "expires_at": 1794885120,
       "id": "3c4336998589f0e66109",
       "plan_id": "da4a1f68397d8fc71f5e",
       "quote_at": 1794885089,
+      "sent_at": 1794885096,
       "side": "LONG",
       "signal_at": 1794885000,
-      "status": "PENDING",
+      "status": "SENT",
       "symbol": "ENA_USDT",
+      "telegram_ids": [
+        7542
+      ],
       "text": "🟢 GATILHO VÁLIDO PARA SIMULAR\nENA/USDT • LONG\n🧪 SIMULAÇÃO • Confirmada\nRompimento • 2 fechamentos M1 • volume ≥50%\n\nVolume do segundo M1: 1214.0% do primeiro.\n📍 Entrada: 0.11494 a 0.11522\n🛑 Stop: 0.1144 (-9.69% líquido sobre a margem)\n🎯 Alvo: 0.11645 (+9.86% líquido sobre a margem)\nMovimento sem alavancagem: TP +1.07% • SL -0.71%.\nBase dos percentuais sem alavancagem: 0.11522 (pior entrada); na direção da operação, antes de custos.\n\nMargem isolada estimada: 0.9427 USDT • 11x\nQuantidade: 9 contratos\nPerda planejada: -0.0914 USDT (-9.14% da banca)\nGanho projetado: +0.0930 USDT (+9.30% da banca)\nRetorno/risco líquido: 1.02:1 (pior entrada)\nCustos estimados: 0.0177 USDT\nROI líquido estimado sobre a margem: TP +9.86% • SL -9.69%.\nTaxa por execução: 0.06%\nDisparo do stop: último preço (Last)\n\nEstimativas de taxas, deslizamento e funding; ganho não garantido.\nFalta validar para uso real: taxa pessoal da conta; regras de margem da conta.\n\n⏱ Nova entrada até 00:12:00 BRT (28s).\nGatilho M1 (segundo fechamento): 00:10:00 BRT\nCotação: 00:11:29 BRT\nAnálise: 17/11/2026 00:11:32 BRT\nA validade se aplica a novas entradas.\nPlano: da4a1f68397d8fc71f5e • revisão 1",
       "variant": "CONFIRMADA"
     },
@@ -33932,13 +33936,17 @@
       "watch_symbol": "OP_USDT"
     },
     "4580bbc40f5a72ca3356": {
-      "attempts": 0,
+      "attempts": 1,
       "category": "INFO",
       "created_at": 1794885092,
       "expires_at": 1794888692,
       "id": "4580bbc40f5a72ca3356",
       "quote_at": 0,
-      "status": "PENDING",
+      "sent_at": 1794885098,
+      "status": "SENT",
+      "telegram_ids": [
+        7546
+      ],
       "text": "⚪ ATUALIZAÇÃO DOS PLANOS ACOMPANHADOS\n🧪 SIMULAÇÃO\n\n• ONDO/USDT • LONG: confirmação não aprovada\n  Motivo: O volume do segundo candle M1 foi menor que50% do primeiro.\n  Plano: 3d80dcd6683fc5d1539f\n• SUI/USDT • LONG: prazo para nova entrada encerrado\n  Motivo: A janela para uma nova entrada terminou.\n  Plano: 3ecb7bc11314d729c92c\n• SUI/USDT • LONG: prazo para nova entrada encerrado\n  Motivo: A janela para uma nova entrada terminou.\n  Plano: b7a6e35d4a577c023270\n• ONDO/USDT • LONG: confirmação não aprovada\n  Motivo: O volume do segundo candle M1 foi menor que50% do primeiro.\n  Plano: c73e56c727594777b9e3\n\nSem novas entradas por esses planos.\nAvisos de movimento não equivalem a entradas liberadas.\nA expiração não encerra uma posição já aberta.\nAnálise: 17/11/2026 00:11:32 BRT"
     },
     "4587d884a7ee185ba92f": {
@@ -77901,7 +77909,7 @@
       "watch_symbol": "OP_USDT"
     },
     "9d0d1ebf6acbacb26371": {
-      "attempts": 0,
+      "attempts": 1,
       "category": "INFO",
       "created_at": 1794885092,
       "expires_at": 1794886200,
@@ -77910,7 +77918,11 @@
         "3ef2356a68c2a1bd9e31"
       ],
       "quote_at": 0,
-      "status": "PENDING",
+      "sent_at": 1794885097,
+      "status": "SENT",
+      "telegram_ids": [
+        7544
+      ],
       "text": "👀 PLANO EM PREPARAÇÃO • AGUARDANDO GATILHO\nSUI/USDT\n🧪 SIMULAÇÃO • acompanhamento\n\nRegião em análise: 0.7124 a 0.7202\nSHORT somente se houver fechamento M1 abaixo de ≈ 0.712012.\n\nConfirmação: dois fechamentos M1 consecutivos além do gatilho; volume do segundo de pelo menos 50% do primeiro.\nTP, SL e percentuais serão definidos no primeiro gatilho. A confirmação ainda precisa passar pela avaliação financeira.\n\nSem rompimento observado neste plano e sem entrada liberada.\nPreparação até 00:30:00 BRT.\nAnálise: 17/11/2026 00:11:32 BRT\nPlanos: 3ef2356a68c2a1bd9e31",
       "watch_stage": 2,
       "watch_symbol": "SUI_USDT"
@@ -88459,17 +88471,21 @@
       "watch_symbol": "ADA_USDT"
     },
     "b2a600a2aa92b50b103d": {
-      "attempts": 0,
+      "attempts": 1,
       "category": "ENTRY",
       "created_at": 1794885092,
       "expires_at": 1794885120,
       "id": "b2a600a2aa92b50b103d",
       "plan_id": "b375dd44bb9b8ba5e219",
       "quote_at": 1794885089,
+      "sent_at": 1794885097,
       "side": "LONG",
       "signal_at": 1794885000,
-      "status": "PENDING",
+      "status": "SENT",
       "symbol": "ENA_USDT",
+      "telegram_ids": [
+        7543
+      ],
       "text": "🟢 GATILHO VÁLIDO PARA SIMULAR\nENA/USDT • LONG\n🧪 SIMULAÇÃO • Confirmada\nRompimento • 2 fechamentos M1 • volume ≥50%\n\nVolume do segundo M1: 1214.0% do primeiro.\n📍 Entrada: 0.11494 a 0.11523\n🛑 Stop: 0.11441 (-9.69% líquido sobre a margem)\n🎯 Alvo: 0.11645 (+9.77% líquido sobre a margem)\nMovimento sem alavancagem: TP +1.06% • SL -0.71%.\nBase dos percentuais sem alavancagem: 0.11523 (pior entrada); na direção da operação, antes de custos.\n\nMargem isolada estimada: 0.9428 USDT • 11x\nQuantidade: 9 contratos\nPerda planejada: -0.0914 USDT (-9.14% da banca)\nGanho projetado: +0.0921 USDT (+9.21% da banca)\nRetorno/risco líquido: 1.01:1 (pior entrada)\nCustos estimados: 0.0177 USDT\nROI líquido estimado sobre a margem: TP +9.77% • SL -9.69%.\nTaxa por execução: 0.06%\nDisparo do stop: último preço (Last)\n\nEstimativas de taxas, deslizamento e funding; ganho não garantido.\nFalta validar para uso real: taxa pessoal da conta; regras de margem da conta.\n\n⏱ Nova entrada até 00:12:00 BRT (28s).\nGatilho M1 (segundo fechamento): 00:10:00 BRT\nCotação: 00:11:29 BRT\nAnálise: 17/11/2026 00:11:32 BRT\nA validade se aplica a novas entradas.\nPlano: b375dd44bb9b8ba5e219 • revisão 1",
       "variant": "CONFIRMADA"
     },
@@ -89666,7 +89682,7 @@
       "text": "👀 POSSÍVEL ENTRADA • AGUARDAR GATILHO\nPEPE/USDT • LONG\n🧪 SIMULAÇÃO\nRompimento de consolidação\n\nRegião de atenção ≈ 0.0000050983 a 0.0000051798\n\nAntecipada: Primeiro fechamento de 15m acima da faixa, com a tolerância do plano.\nConfirmada: O candle de 15m imediatamente seguinte mantém o rompimento.\nCada modalidade é avaliada de forma independente.\n\nPreparação válida até 18:15:00 BRT (13min 30s).\nAnálise: 09/11/2026 18:01:30 BRT\nPlano: 0d63090cc26e2caebcbe • revisão 0"
     },
     "b50320f1a63b615def24": {
-      "attempts": 0,
+      "attempts": 1,
       "category": "INFO",
       "created_at": 1794885092,
       "expires_at": 1794886200,
@@ -89675,7 +89691,11 @@
         "0d77f32c9f8d323f5e49"
       ],
       "quote_at": 0,
-      "status": "PENDING",
+      "sent_at": 1794885098,
+      "status": "SENT",
+      "telegram_ids": [
+        7545
+      ],
       "text": "👀 PLANO EM PREPARAÇÃO • AGUARDANDO GATILHO\nONDO/USDT\n🧪 SIMULAÇÃO • acompanhamento\n\nRegião em análise: 0.3036 a 0.307\nSHORT somente se houver fechamento M1 abaixo de ≈ 0.303428.\n\nConfirmação: dois fechamentos M1 consecutivos além do gatilho; volume do segundo de pelo menos 50% do primeiro.\nTP, SL e percentuais serão definidos no primeiro gatilho. A confirmação ainda precisa passar pela avaliação financeira.\n\nSem rompimento observado neste plano e sem entrada liberada.\nPreparação até 00:30:00 BRT.\nAnálise: 17/11/2026 00:11:32 BRT\nPlanos: 0d77f32c9f8d323f5e49",
       "watch_stage": 2,
       "watch_symbol": "ONDO_USDT"
