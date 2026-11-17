@@ -1,6 +1,6 @@
 {
   "approved_for_production": false,
-  "asof_utc": "2026-11-17T00:00:00+00:00",
+  "asof_utc": "2026-11-17T02:00:00+00:00",
   "conditions": {
     "checkpoint_reached": false,
     "frozen_days_sufficient": false,
@@ -11,7 +11,7 @@
   "frozen_days": 1,
   "interpretation": "Prospective signals, deferred H1 paper replay; quotes are a separate observational lane.",
   "missed_days": 0,
-  "missed_or_late_quote_windows": 0,
+  "missed_or_late_quote_windows": 1,
   "models": {
     "MOMENTUM_BTC_DD_GUARD": {
       "checks": {
@@ -24,14 +24,14 @@
       },
       "quote_quality": {
         "base": {
-          "coverage": 0,
-          "paper_entries": 0,
+          "coverage": 0.0,
+          "paper_entries": 1,
           "price_comparisons": [],
           "valid_observed_entry_quotes": 0
         },
         "stress": {
-          "coverage": 0,
-          "paper_entries": 0,
+          "coverage": 0.0,
+          "paper_entries": 1,
           "price_comparisons": [],
           "valid_observed_entry_quotes": 0
         }
@@ -39,39 +39,93 @@
       "research_screen_passed": false,
       "wallets": {
         "base": {
-          "cash": "100",
-          "marked_equity": "100",
-          "open_position": null,
+          "cash": "99.97873984",
+          "marked_equity": "99.80138608",
+          "open_position": {
+            "allocation_guarded": false,
+            "contracts": "6",
+            "deadline": 1794963600,
+            "effective_risk_fraction": "0.02",
+            "entry": "590.56",
+            "entry_fee": "0.02126016",
+            "equity_before": "100",
+            "funding_paid": "0",
+            "liquidation_fee": "0.0002",
+            "margin": "3.54336",
+            "mmr": "0.004",
+            "opened_at": 1794877200,
+            "original_stop": "621.12",
+            "planned_risk": "1.88862732",
+            "quantity": "0.06",
+            "score": "3.216403756709481871997045948",
+            "sign": -1,
+            "signal_at": 1794873600,
+            "stop": "621.12",
+            "symbol": "BNB_USDT",
+            "tick": "0.01"
+          },
           "summary": {
-            "final": "100",
+            "final": "99.80138608",
             "funding_paid": "0",
             "initial": "100",
-            "max_drawdown_pct": "0",
+            "max_drawdown_pct": "0.1986139200",
             "outcomes": {},
             "positions": 0,
             "positive": 0,
             "profit_factor": null,
-            "return_pct": "0",
-            "skipped": {},
+            "return_pct": "-0.1986139200",
+            "skipped": {
+              "DIRECAO_CONTRA_BTC_7D": 1,
+              "LIQUIDEZ": 2,
+              "LOTE": 1,
+              "OUTRO_PLANO_PRIORIZADO": 21
+            },
             "trading_fees": "0"
           },
           "valuation": "H1_PAPER_MARK_NOT_REALIZED_CASH"
         },
         "stress": {
-          "cash": "100",
-          "marked_equity": "100",
-          "open_position": null,
+          "cash": "99.96457720",
+          "marked_equity": "99.75137680",
+          "open_position": {
+            "allocation_guarded": false,
+            "contracts": "6",
+            "deadline": 1794963600,
+            "effective_risk_fraction": "0.02",
+            "entry": "590.38",
+            "entry_fee": "0.03542280",
+            "equity_before": "100",
+            "funding_paid": "0",
+            "liquidation_fee": "0.0002",
+            "margin": "3.54228",
+            "mmr": "0.004",
+            "opened_at": 1794877200,
+            "original_stop": "621.12",
+            "planned_risk": "1.93991280",
+            "quantity": "0.06",
+            "score": "3.216403756709481871997045948",
+            "sign": -1,
+            "signal_at": 1794873600,
+            "stop": "621.12",
+            "symbol": "BNB_USDT",
+            "tick": "0.01"
+          },
           "summary": {
-            "final": "100",
+            "final": "99.75137680",
             "funding_paid": "0",
             "initial": "100",
-            "max_drawdown_pct": "0",
+            "max_drawdown_pct": "0.248623200",
             "outcomes": {},
             "positions": 0,
             "positive": 0,
             "profit_factor": null,
-            "return_pct": "0",
-            "skipped": {},
+            "return_pct": "-0.248623200",
+            "skipped": {
+              "DIRECAO_CONTRA_BTC_7D": 1,
+              "LIQUIDEZ": 2,
+              "LOTE": 1,
+              "OUTRO_PLANO_PRIORIZADO": 21
+            },
             "trading_fees": "0"
           },
           "valuation": "H1_PAPER_MARK_NOT_REALIZED_CASH"
@@ -89,14 +143,14 @@
       },
       "quote_quality": {
         "base": {
-          "coverage": 0,
-          "paper_entries": 0,
+          "coverage": 0.0,
+          "paper_entries": 1,
           "price_comparisons": [],
           "valid_observed_entry_quotes": 0
         },
         "stress": {
-          "coverage": 0,
-          "paper_entries": 0,
+          "coverage": 0.0,
+          "paper_entries": 1,
           "price_comparisons": [],
           "valid_observed_entry_quotes": 0
         }
@@ -104,39 +158,93 @@
       "research_screen_passed": false,
       "wallets": {
         "base": {
-          "cash": "100",
-          "marked_equity": "100",
-          "open_position": null,
+          "cash": "99.98936992",
+          "marked_equity": "99.90069304",
+          "open_position": {
+            "allocation_guarded": false,
+            "contracts": "3",
+            "deadline": 1794963600,
+            "effective_risk_fraction": "0.01",
+            "entry": "590.56",
+            "entry_fee": "0.01063008",
+            "equity_before": "100",
+            "funding_paid": "0",
+            "liquidation_fee": "0.0002",
+            "margin": "1.77168",
+            "mmr": "0.004",
+            "opened_at": 1794877200,
+            "original_stop": "621.12",
+            "planned_risk": "0.94431366",
+            "quantity": "0.03",
+            "score": "3.216403756709481871997045948",
+            "sign": -1,
+            "signal_at": 1794873600,
+            "stop": "621.12",
+            "symbol": "BNB_USDT",
+            "tick": "0.01"
+          },
           "summary": {
-            "final": "100",
+            "final": "99.90069304",
             "funding_paid": "0",
             "initial": "100",
-            "max_drawdown_pct": "0",
+            "max_drawdown_pct": "0.0993069600",
             "outcomes": {},
             "positions": 0,
             "positive": 0,
             "profit_factor": null,
-            "return_pct": "0",
-            "skipped": {},
+            "return_pct": "-0.0993069600",
+            "skipped": {
+              "DIRECAO_CONTRA_BTC_7D": 1,
+              "LIQUIDEZ": 2,
+              "LOTE": 2,
+              "OUTRO_PLANO_PRIORIZADO": 20
+            },
             "trading_fees": "0"
           },
           "valuation": "H1_PAPER_MARK_NOT_REALIZED_CASH"
         },
         "stress": {
-          "cash": "100",
-          "marked_equity": "100",
-          "open_position": null,
+          "cash": "99.98228860",
+          "marked_equity": "99.87568840",
+          "open_position": {
+            "allocation_guarded": false,
+            "contracts": "3",
+            "deadline": 1794963600,
+            "effective_risk_fraction": "0.01",
+            "entry": "590.38",
+            "entry_fee": "0.01771140",
+            "equity_before": "100",
+            "funding_paid": "0",
+            "liquidation_fee": "0.0002",
+            "margin": "1.77114",
+            "mmr": "0.004",
+            "opened_at": 1794877200,
+            "original_stop": "621.12",
+            "planned_risk": "0.96995640",
+            "quantity": "0.03",
+            "score": "3.216403756709481871997045948",
+            "sign": -1,
+            "signal_at": 1794873600,
+            "stop": "621.12",
+            "symbol": "BNB_USDT",
+            "tick": "0.01"
+          },
           "summary": {
-            "final": "100",
+            "final": "99.87568840",
             "funding_paid": "0",
             "initial": "100",
-            "max_drawdown_pct": "0",
+            "max_drawdown_pct": "0.124311600",
             "outcomes": {},
             "positions": 0,
             "positive": 0,
             "profit_factor": null,
-            "return_pct": "0",
-            "skipped": {},
+            "return_pct": "-0.124311600",
+            "skipped": {
+              "DIRECAO_CONTRA_BTC_7D": 1,
+              "LIQUIDEZ": 2,
+              "LOTE": 2,
+              "OUTRO_PLANO_PRIORIZADO": 20
+            },
             "trading_fees": "0"
           },
           "valuation": "H1_PAPER_MARK_NOT_REALIZED_CASH"
