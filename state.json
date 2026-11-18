@@ -94247,13 +94247,17 @@
       "watch_symbol": "BNB_USDT"
     },
     "923e8360017f8194fa3b": {
-      "attempts": 0,
+      "attempts": 1,
       "category": "INFO",
       "created_at": 1795000115,
       "expires_at": 1795003715,
       "id": "923e8360017f8194fa3b",
       "quote_at": 0,
-      "status": "PENDING",
+      "sent_at": 1795000122,
+      "status": "SENT",
+      "telegram_ids": [
+        9485
+      ],
       "text": "⚪ ATUALIZAÇÃO DOS PLANOS ACOMPANHADOS\n🧪 SIMULAÇÃO\n\n• WLD/USDT • SHORT: confirmação não aprovada\n  Motivo: O volume do segundo candle M1 foi menor que50% do primeiro.\n  Plano: cd1ac29651d1f4507b28\n• WLD/USDT • SHORT: confirmação não aprovada\n  Motivo: O volume do segundo candle M1 foi menor que50% do primeiro.\n  Plano: f260ef8e040a1cf10c13\n\nSem novas entradas por esses planos.\nAvisos de movimento não equivalem a entradas liberadas.\nA expiração não encerra uma posição já aberta.\nAnálise: 18/11/2026 08:08:35 BRT"
     },
     "925363020fd788fd40ce": {
@@ -106476,7 +106480,7 @@
       "text": "⚪ ATUALIZAÇÃO DOS PLANOS ACOMPANHADOS\n🧪 SIMULAÇÃO\n\n• BTC/USDT • LONG: preço tocou o stop do plano\n  Motivo: O preço tocou o stop do plano antes de uma nova entrada.\n  Plano: 0ec9dfa4bc15544baebc\n• BTC/USDT • LONG: preço tocou o stop do plano\n  Motivo: O preço tocou o stop do plano antes de uma nova entrada.\n  Plano: 189bf7b16941e1de313f\n\nSem novas entradas por esses planos.\nAvisos de movimento não equivalem a entradas liberadas.\nA expiração não encerra uma posição já aberta.\nAnálise: 17/11/2026 11:37:31 BRT"
     },
     "a703e5dbc0f88b8d51f2": {
-      "attempts": 0,
+      "attempts": 1,
       "category": "INFO",
       "created_at": 1795000115,
       "expires_at": 1795001400,
@@ -106485,7 +106489,11 @@
         "eb0e1a71eeccdf86c16b"
       ],
       "quote_at": 0,
-      "status": "PENDING",
+      "sent_at": 1795000121,
+      "status": "SENT",
+      "telegram_ids": [
+        9484
+      ],
       "text": "👀 PLANO EM PREPARAÇÃO • AGUARDANDO GATILHO\nWLD/USDT\n🧪 SIMULAÇÃO • acompanhamento\n\nRegião em análise: 0.2628 a 0.2661\nLONG somente se houver fechamento M1 acima de ≈ 0.266241.\n\nConfirmação: dois fechamentos M1 consecutivos além do gatilho; volume do segundo de pelo menos 50% do primeiro.\nTP, SL e percentuais serão definidos no primeiro gatilho. A confirmação ainda precisa passar pela avaliação financeira.\n\nSem rompimento observado neste plano e sem entrada liberada.\nPreparação até 08:30:00 BRT.\nAnálise: 18/11/2026 08:08:35 BRT\nPlanos: eb0e1a71eeccdf86c16b",
       "watch_stage": 2,
       "watch_symbol": "WLD_USDT"
@@ -132108,7 +132116,7 @@
       "watch_symbol": "SUI_USDT"
     },
     "cce444f8b12d28c9d04f": {
-      "attempts": 0,
+      "attempts": 1,
       "category": "INFO",
       "created_at": 1795000115,
       "expires_at": 1795000200,
@@ -132119,7 +132127,11 @@
         "2bbac50a1ee10ca23438"
       ],
       "quote_at": 0,
-      "status": "PENDING",
+      "sent_at": 1795000121,
+      "status": "SENT",
+      "telegram_ids": [
+        9483
+      ],
       "text": "🟡 MOVIMENTO DETECTADO • ENTRADA BLOQUEADA\nUNI/USDT • BAIXA (SHORT)\n🧪 SIMULAÇÃO • acompanhamento\n\nRompimento observado no M1 fechado às 08:08:00 BRT.\nPreço de referência do primeiro gatilho: 5.196.\n\nConfirmação técnica identificada; entrada bloqueada.\nCondição pendente: A relação entre ganho e perda ficou abaixo do mínimo.\n\nFaixa em estudo: 5.19 a 5.201\n🛑 Stop do plano: 5.219 (-4.43% bruto em 10x)\n🎯 Alvo do plano: 5.185 (+2.12% bruto em 10x)\nCenário indicativo sobre a margem em 10x; custos e liquidação ainda não validados.\nMovimento sem alavancagem: TP +0.21% • SL -0.44%.\nPercentuais sobre a referência do primeiro gatilho, na direção da operação, antes de custos.\n\nMovimento observado, sem entrada liberada. Aguarde o alerta de confirmação e viabilidade.\nAlerta válido até 08:10:00 BRT.\nAnálise: 18/11/2026 08:08:35 BRT\nPlano: 2bbac50a1ee10ca23438",
       "watch_stage": 0,
       "watch_symbol": "UNI_USDT"
