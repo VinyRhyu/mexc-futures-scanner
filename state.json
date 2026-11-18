@@ -142089,7 +142089,7 @@
       "text": "⚪ ATUALIZAÇÃO DOS PLANOS ACOMPANHADOS\n🧪 SIMULAÇÃO\n\n• ETH/USDT • LONG: plano invalidado\n  Plano: 0a2f935fd4acc826bb9f\n• ENA/USDT • LONG: janela expirou\n  Plano: 2ab179df04e5e3c681bc\n• ENA/USDT • SHORT: janela expirou\n  Plano: 320ebf195f378f64b8ee\n• DOGE/USDT • LONG: janela expirou\n  Plano: 4c7243a3c656fe2a08be\n• ETH/USDT • SHORT: janela expirou\n  Plano: 7c8ef0c43462599e66b2\n• ENA/USDT • LONG: plano invalidado\n  Plano: 7d66e4a25222fe8d4602\n\nSem novas entradas por esses planos.\nA expiração não encerra posições já abertas.\nAnálise: 09/11/2026 17:01:30 BRT"
     },
     "e31f2b06726e7b059557": {
-      "attempts": 0,
+      "attempts": 1,
       "category": "INFO",
       "created_at": 1794989613,
       "expires_at": 1794989640,
@@ -142100,7 +142100,11 @@
         "9ac4335c7216e2779a21"
       ],
       "quote_at": 0,
-      "status": "PENDING",
+      "sent_at": 1794989619,
+      "status": "SENT",
+      "telegram_ids": [
+        9281
+      ],
       "text": "🟡 MOVIMENTO DETECTADO • AINDA SEM CONFIRMAÇÃO\nAVAX/USDT • BAIXA (SHORT)\n🧪 SIMULAÇÃO • acompanhamento\n\nRompimento observado no M1 fechado às 05:13:00 BRT.\nPreço de referência do primeiro gatilho: 7.131.\n\nPrimeiro fechamento além da região identificado.\nFalta o segundo fechamento sustentar o nível, com volume de pelo menos 50% do primeiro.\nApós confirmar, o plano ainda precisa passar pela avaliação financeira.\n\nFaixa em estudo: 7.123 a 7.133\n🛑 Stop do plano: 7.156 (-3.51% bruto em 10x)\n🎯 Alvo do plano: 7.132 (-0.14% bruto em 10x)\nCenário indicativo sobre a margem em 10x; custos e liquidação ainda não validados.\nMovimento sem alavancagem: TP -0.014% • SL -0.35%.\nPercentuais sobre a referência do primeiro gatilho, na direção da operação, antes de custos.\n\nMovimento observado, sem entrada liberada. Aguarde o alerta de confirmação e viabilidade.\nAlerta válido até 05:14:00 BRT.\nAnálise: 18/11/2026 05:13:33 BRT\nPlano: 9ac4335c7216e2779a21",
       "watch_stage": 1,
       "watch_symbol": "AVAX_USDT"
