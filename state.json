@@ -57966,13 +57966,17 @@
       "watch_symbol": "WLD_USDT"
     },
     "61c8fd2783aeeb88d384": {
-      "attempts": 0,
+      "attempts": 1,
       "category": "INFO",
       "created_at": 1794966272,
       "expires_at": 1794969872,
       "id": "61c8fd2783aeeb88d384",
       "quote_at": 0,
-      "status": "PENDING",
+      "sent_at": 1794966277,
+      "status": "SENT",
+      "telegram_ids": [
+        8841
+      ],
       "text": "⚪ ATUALIZAÇÃO DOS PLANOS ACOMPANHADOS\n🧪 SIMULAÇÃO\n\n• NEAR/USDT • SHORT: confirmação não aprovada\n  Motivo: O volume do segundo candle M1 foi menor que50% do primeiro.\n  Plano: 213f3a27a835cf2ceeeb\n\nSem novas entradas por esses planos.\nAvisos de movimento não equivalem a entradas liberadas.\nA expiração não encerra uma posição já aberta.\nAnálise: 17/11/2026 22:44:32 BRT"
     },
     "61d5954895b1e4c51687": {
@@ -91273,7 +91277,7 @@
       "text": "🟠 ENTRADA BLOQUEADA\nSHIB/USDT • LONG\n🧪 SIMULAÇÃO • Confirmada\nRompimento • 2 fechamentos M1 • volume ≥50%\n\nVolume do segundo M1: 312.2% do primeiro.\nMotivo: A relação entre ganho e perda ficou abaixo do mínimo.\nSem entrada liberada nesta análise.\n\n📍 Faixa do plano: 0.000004475 a 0.000004478\n🛑 Stop: 0.000004464\n🎯 Alvo: 0.000004484\n\nEstimativas de taxas, deslizamento e funding; ganho não garantido.\n\n⏱ Nova entrada até 11:42:00 BRT (1min 07s).\nGatilho M1 (segundo fechamento): 11:40:00 BRT\nAnálise: 11/11/2026 11:40:53 BRT\nA validade se aplica a novas entradas.\nPlano: 8c7f31dfabaf14fb9de0 • revisão 1"
     },
     "99f4b89d4283cca400d1": {
-      "attempts": 0,
+      "attempts": 1,
       "category": "INFO",
       "created_at": 1794966272,
       "expires_at": 1794967200,
@@ -91282,7 +91286,11 @@
         "d1c4a9a5a7f4b1411635"
       ],
       "quote_at": 0,
-      "status": "PENDING",
+      "sent_at": 1794966277,
+      "status": "SENT",
+      "telegram_ids": [
+        8840
+      ],
       "text": "👀 PLANO EM PREPARAÇÃO • AGUARDANDO GATILHO\nNEAR/USDT\n🧪 SIMULAÇÃO • acompanhamento\n\nRegião em análise: 3.364 a 3.406\nLONG somente se houver fechamento M1 acima de ≈ 3.40904.\n\nConfirmação: dois fechamentos M1 consecutivos além do gatilho; volume do segundo de pelo menos 50% do primeiro.\nTP, SL e percentuais serão definidos no primeiro gatilho. A confirmação ainda precisa passar pela avaliação financeira.\n\nSem rompimento observado neste plano e sem entrada liberada.\nPreparação até 23:00:00 BRT.\nAnálise: 17/11/2026 22:44:32 BRT\nPlanos: d1c4a9a5a7f4b1411635",
       "watch_stage": 2,
       "watch_symbol": "NEAR_USDT"
