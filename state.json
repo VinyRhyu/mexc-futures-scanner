@@ -54834,13 +54834,17 @@
       "watch_symbol": "SOL_USDT"
     },
     "511c0eca40d65d81c102": {
-      "attempts": 0,
+      "attempts": 1,
       "category": "INFO",
       "created_at": 1795033773,
       "expires_at": 1795037373,
       "id": "511c0eca40d65d81c102",
       "quote_at": 0,
-      "status": "PENDING",
+      "sent_at": 1795033780,
+      "status": "SENT",
+      "telegram_ids": [
+        10008
+      ],
       "text": "⚪ ATUALIZAÇÃO DOS PLANOS ACOMPANHADOS\n🧪 SIMULAÇÃO\n\n• ETH/USDT • SHORT: prazo para nova entrada encerrado\n  Motivo: A janela para uma nova entrada terminou.\n  Plano: 95cbcc0ac809480a20af\n• ETH/USDT • SHORT: prazo para nova entrada encerrado\n  Motivo: A janela para uma nova entrada terminou.\n  Plano: af436c775ef18efe8d96\n\nSem novas entradas por esses planos.\nAvisos de movimento não equivalem a entradas liberadas.\nA expiração não encerra uma posição já aberta.\nAnálise: 18/11/2026 17:29:33 BRT"
     },
     "511c9982e7898fb25f8a": {
@@ -130489,7 +130493,7 @@
       "text": "🟠 ENTRADA BLOQUEADA\nXLM/USDT • LONG\n🧪 SIMULAÇÃO • Confirmada\nContinuação após correção\n\nMotivo: A relação entre ganho e perda ficou abaixo do mínimo.\nSem entrada liberada nesta análise.\n\n📍 Faixa do plano: 0.14752 a 0.14792\n🛑 Stop: 0.14635\n🎯 Alvo: 0.14868\n\nEstimativas de taxas, deslizamento e funding; ganho não garantido.\n\n⏱ Nova entrada até 18:15:00 BRT (13min 30s).\nGatilho 15m: 18:00:00 BRT\nAnálise: 09/11/2026 18:01:30 BRT\nA validade se aplica a novas entradas.\nPlano: e233b71af6c108f9d390 • revisão 2"
     },
     "bfbf92aee81bf2086941": {
-      "attempts": 0,
+      "attempts": 1,
       "category": "INFO",
       "created_at": 1795033773,
       "expires_at": 1795034700,
@@ -130498,7 +130502,11 @@
         "f803ef1b337ebffb7dac"
       ],
       "quote_at": 0,
-      "status": "PENDING",
+      "sent_at": 1795033779,
+      "status": "SENT",
+      "telegram_ids": [
+        10007
+      ],
       "text": "👀 PLANO EM PREPARAÇÃO • AGUARDANDO GATILHO\nETH/USDT\n🧪 SIMULAÇÃO • acompanhamento\n\nRegião em análise: 1752.32 a 1773.9\nLONG somente se houver fechamento M1 acima de ≈ 1774.91.\n\nConfirmação: dois fechamentos M1 consecutivos além do gatilho; volume do segundo de pelo menos 50% do primeiro.\nTP, SL e percentuais serão definidos no primeiro gatilho. A confirmação ainda precisa passar pela avaliação financeira.\n\nSem rompimento observado neste plano e sem entrada liberada.\nPreparação até 17:45:00 BRT.\nAnálise: 18/11/2026 17:29:33 BRT\nPlanos: f803ef1b337ebffb7dac",
       "watch_stage": 2,
       "watch_symbol": "ETH_USDT"
