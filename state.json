@@ -22942,13 +22942,17 @@
       "watch_symbol": "XRP_USDT"
     },
     "24db2c75bbe4763afd27": {
-      "attempts": 0,
+      "attempts": 1,
       "category": "INFO",
       "created_at": 1795004924,
       "expires_at": 1795008524,
       "id": "24db2c75bbe4763afd27",
       "quote_at": 0,
-      "status": "PENDING",
+      "sent_at": 1795004932,
+      "status": "SENT",
+      "telegram_ids": [
+        9566
+      ],
       "text": "⚪ ATUALIZAÇÃO DOS PLANOS ACOMPANHADOS\n🧪 SIMULAÇÃO\n\n• ICP/USDT • SHORT: prazo para nova entrada encerrado\n  Motivo: A janela para uma nova entrada terminou.\n  Plano: 357bd9fda294bada024a\n• ICP/USDT • SHORT: prazo para nova entrada encerrado\n  Motivo: A janela para uma nova entrada terminou.\n  Plano: dc2d23927e0fe077b910\n\nSem novas entradas por esses planos.\nAvisos de movimento não equivalem a entradas liberadas.\nA expiração não encerra uma posição já aberta.\nAnálise: 18/11/2026 09:28:44 BRT"
     },
     "24de8206aa88116290c6": {
@@ -23502,7 +23506,7 @@
       "text": "🟠 ENTRADA BLOQUEADA\nTAO/USDT • SHORT\n🧪 SIMULAÇÃO • Confirmada\nRompimento • 2 fechamentos M1 • volume ≥50%\n\nVolume do segundo M1: 2595.0% do primeiro.\nMotivo: O preço está fora da faixa permitida.\nSem entrada liberada nesta análise.\n\n📍 Faixa do plano: 207.93 a 208.17\n🛑 Stop: 208.95\n🎯 Alvo: 204.89\n\nEstimativas de taxas, deslizamento e funding; ganho não garantido.\n\n⏱ Nova entrada até 23:47:00 BRT (25s).\nGatilho M1 (segundo fechamento): 23:45:00 BRT\nCotação: 23:46:33 BRT\nAnálise: 12/11/2026 23:46:35 BRT\nA validade se aplica a novas entradas.\nPlano: 82dfdb715861a34224bf • revisão 1"
     },
     "25af6efcaa03df748633": {
-      "attempts": 0,
+      "attempts": 1,
       "category": "INFO",
       "created_at": 1795004924,
       "expires_at": 1795005900,
@@ -23511,7 +23515,11 @@
         "e52c2a3113264f507ab2"
       ],
       "quote_at": 0,
-      "status": "PENDING",
+      "sent_at": 1795004931,
+      "status": "SENT",
+      "telegram_ids": [
+        9565
+      ],
       "text": "👀 PLANO EM PREPARAÇÃO • AGUARDANDO GATILHO\nICP/USDT\n🧪 SIMULAÇÃO • acompanhamento\n\nRegião em análise: 2.239 a 2.264\nLONG somente se houver fechamento M1 acima de ≈ 2.26547.\n\nConfirmação: dois fechamentos M1 consecutivos além do gatilho; volume do segundo de pelo menos 50% do primeiro.\nTP, SL e percentuais serão definidos no primeiro gatilho. A confirmação ainda precisa passar pela avaliação financeira.\n\nSem rompimento observado neste plano e sem entrada liberada.\nPreparação até 09:45:00 BRT.\nAnálise: 18/11/2026 09:28:44 BRT\nPlanos: e52c2a3113264f507ab2",
       "watch_stage": 2,
       "watch_symbol": "ICP_USDT"
