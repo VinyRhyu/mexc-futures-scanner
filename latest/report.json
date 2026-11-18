@@ -1,5 +1,5 @@
 {
-  "analyzed_at": 1795018773,
+  "analyzed_at": 1795018843,
   "analyzed_symbols": 26,
   "config_fingerprint": "a0c2766956c79181fa62",
   "diagnostics": [],
@@ -2681,37 +2681,37 @@
   "operational_timings": [
     {
       "commit": "71db8f2dbb5a9693f0656602b696d00135411a14",
-      "duration_s": 1.724091,
+      "duration_s": 0.897487,
       "event": "end",
-      "finished_at_utc": "2026-11-18T16:19:15.545990+00:00",
+      "finished_at_utc": "2026-11-18T16:20:25.769319+00:00",
       "phase": "market_catalog",
       "run_attempt": "1",
-      "run_id": "44345817489",
-      "started_at_utc": "2026-11-18T16:19:13.821923+00:00",
+      "run_id": "44346037266",
+      "started_at_utc": "2026-11-18T16:20:24.871858+00:00",
       "status": "OK",
       "telemetry": "phase_v1"
     },
     {
       "commit": "71db8f2dbb5a9693f0656602b696d00135411a14",
-      "duration_s": 17.308669,
+      "duration_s": 17.112426,
       "event": "end",
-      "finished_at_utc": "2026-11-18T16:19:32.857444+00:00",
+      "finished_at_utc": "2026-11-18T16:20:42.884989+00:00",
       "phase": "candles_collect",
       "run_attempt": "1",
-      "run_id": "44345817489",
-      "started_at_utc": "2026-11-18T16:19:15.548802+00:00",
+      "run_id": "44346037266",
+      "started_at_utc": "2026-11-18T16:20:25.772585+00:00",
       "status": "OK",
       "telemetry": "phase_v1"
     },
     {
       "commit": "71db8f2dbb5a9693f0656602b696d00135411a14",
-      "duration_s": 0.901623,
+      "duration_s": 0.806168,
       "event": "end",
-      "finished_at_utc": "2026-11-18T16:19:33.759438+00:00",
+      "finished_at_utc": "2026-11-18T16:20:43.691499+00:00",
       "phase": "analysis_and_finance",
       "run_attempt": "1",
-      "run_id": "44345817489",
-      "started_at_utc": "2026-11-18T16:19:32.857836+00:00",
+      "run_id": "44346037266",
+      "started_at_utc": "2026-11-18T16:20:42.885360+00:00",
       "status": "OK",
       "telemetry": "phase_v1"
     }
@@ -5564,17 +5564,17 @@
     {
       "atr": "8.004901077963820307498895607",
       "detected_at": 1795017600,
-      "entry_started_at": 0,
-      "expires_at": 1795019400,
+      "entry_started_at": 1795018800,
+      "expires_at": 1795020600,
       "family": "11587f84fa6e7f330ad0",
       "formed_at": 1795017600,
       "id": "11587f84fa6e7f330ad0",
-      "last_bar": 1795018740,
+      "last_bar": 1795018800,
       "level": "919.36",
       "lower": "919.36",
       "observations": [],
       "preparation_expires_at": 1795019400,
-      "reaction_at": 0,
+      "reaction_at": 1795018800,
       "reaction_extreme": null,
       "reason": "",
       "revision": 0,
@@ -5584,7 +5584,21 @@
       "strategy": "ROMPIMENTO_M1_VOLUME",
       "symbol": "ZEC_USDT",
       "upper": "938.82",
-      "variants": {}
+      "variants": {
+        "ANTECIPADA": {
+          "entry_high": "918.54",
+          "entry_low": "915.85",
+          "financial": {},
+          "kind": "ANTECIPADA",
+          "reason": "",
+          "reference": "917.85",
+          "status": "AGUARDANDO_CONFIRMACAO",
+          "stop": "923.37",
+          "target": "915.78",
+          "target_origin": "PIVO_CONHECIDO",
+          "triggered_at": 1795018800
+        }
+      }
     },
     {
       "atr": "262.4825545721001674402995116",
@@ -24239,7 +24253,7 @@
       "family": "78c4ef4e806068a2cd25",
       "formed_at": 1795017600,
       "id": "78c4ef4e806068a2cd25",
-      "last_bar": 1795018740,
+      "last_bar": 1795018800,
       "level": "64060.0",
       "lower": "62970.4",
       "observations": [],
@@ -28514,7 +28528,7 @@
       "family": "8f07e7ee4aa5e864b021",
       "formed_at": 1795018500,
       "id": "8f07e7ee4aa5e864b021",
-      "last_bar": 1795018740,
+      "last_bar": 1795018800,
       "level": "938.82",
       "lower": "919.36",
       "observations": [],
@@ -32427,17 +32441,17 @@
     {
       "atr": "8.126693858109261028471643064",
       "detected_at": 1795018500,
-      "entry_started_at": 0,
-      "expires_at": 1795020300,
+      "entry_started_at": 1795018800,
+      "expires_at": 1795020600,
       "family": "a3d6855d97447b0b41e0",
       "formed_at": 1795018500,
       "id": "a3d6855d97447b0b41e0",
-      "last_bar": 1795018740,
+      "last_bar": 1795018800,
       "level": "919.36",
       "lower": "919.36",
       "observations": [],
       "preparation_expires_at": 1795020300,
-      "reaction_at": 0,
+      "reaction_at": 1795018800,
       "reaction_extreme": null,
       "reason": "",
       "revision": 0,
@@ -32447,7 +32461,21 @@
       "strategy": "ROMPIMENTO_M1_VOLUME",
       "symbol": "ZEC_USDT",
       "upper": "938.82",
-      "variants": {}
+      "variants": {
+        "ANTECIPADA": {
+          "entry_high": "918.53",
+          "entry_low": "915.82",
+          "financial": {},
+          "kind": "ANTECIPADA",
+          "reason": "",
+          "reference": "917.85",
+          "status": "AGUARDANDO_CONFIRMACAO",
+          "stop": "923.43",
+          "target": "915.79",
+          "target_origin": "PIVO_CONHECIDO",
+          "triggered_at": 1795018800
+        }
+      }
     },
     {
       "atr": "0.8987581533896414214671151386",
@@ -36886,7 +36914,7 @@
       "family": "bc9da95ab9198243f194",
       "formed_at": 1795017600,
       "id": "bc9da95ab9198243f194",
-      "last_bar": 1795018740,
+      "last_bar": 1795018800,
       "level": "938.82",
       "lower": "919.36",
       "observations": [],
