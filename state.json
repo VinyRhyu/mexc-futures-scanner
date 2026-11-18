@@ -760,13 +760,17 @@
       "watch_symbol": "DOT_USDT"
     },
     "00df9de800281122e245": {
-      "attempts": 0,
+      "attempts": 1,
       "category": "INFO",
       "created_at": 1795008995,
       "expires_at": 1795012595,
       "id": "00df9de800281122e245",
       "quote_at": 0,
-      "status": "PENDING",
+      "sent_at": 1795009002,
+      "status": "SENT",
+      "telegram_ids": [
+        9688
+      ],
       "text": "⚪ ATUALIZAÇÃO DOS PLANOS ACOMPANHADOS\n🧪 SIMULAÇÃO\n\n• XLM/USDT • LONG: confirmação não aprovada\n  Motivo: O segundo fechamento M1 perdeu o nível do gatilho.\n  Plano: aa8b515e803e124f7902\n\nSem novas entradas por esses planos.\nAvisos de movimento não equivalem a entradas liberadas.\nA expiração não encerra uma posição já aberta.\nAnálise: 18/11/2026 10:36:35 BRT"
     },
     "00e9a6c067645e2ac1c3": {
@@ -22279,7 +22283,7 @@
       "text": "🟠 ENTRADA BLOQUEADA\nUNI/USDT • SHORT\n🧪 SIMULAÇÃO • Confirmada\nContinuação após correção\n\nMotivo: A relação entre ganho e perda ficou abaixo do mínimo.\nSem entrada liberada nesta análise.\n\n📍 Faixa do plano: 6.876 a 6.906\n🛑 Stop: 6.974\n🎯 Alvo: 6.887\n\nEstimativas de taxas, deslizamento e funding; ganho não garantido.\n\n⏱ Nova entrada até 22:45:00 BRT (13min 30s).\nGatilho 15m: 22:30:00 BRT\nAnálise: 08/11/2026 22:31:30 BRT\nA validade se aplica a novas entradas.\nPlano: 5a5a906213be05af1193 • revisão 2"
     },
     "235037f1f411e61898f8": {
-      "attempts": 0,
+      "attempts": 1,
       "category": "INFO",
       "created_at": 1795008995,
       "expires_at": 1795010400,
@@ -22288,7 +22292,11 @@
         "8935d7dd1ce271eae3c6"
       ],
       "quote_at": 0,
-      "status": "PENDING",
+      "sent_at": 1795009001,
+      "status": "SENT",
+      "telegram_ids": [
+        9687
+      ],
       "text": "👀 PLANO EM PREPARAÇÃO • AGUARDANDO GATILHO\nXLM/USDT\n🧪 SIMULAÇÃO • acompanhamento\n\nRegião em análise: 0.13967 a 0.14105\nSHORT somente se houver fechamento M1 abaixo de ≈ 0.139608.\n\nConfirmação: dois fechamentos M1 consecutivos além do gatilho; volume do segundo de pelo menos 50% do primeiro.\nTP, SL e percentuais serão definidos no primeiro gatilho. A confirmação ainda precisa passar pela avaliação financeira.\n\nSem rompimento observado neste plano e sem entrada liberada.\nPreparação até 11:00:00 BRT.\nAnálise: 18/11/2026 10:36:35 BRT\nPlanos: 8935d7dd1ce271eae3c6",
       "watch_stage": 2,
       "watch_symbol": "XLM_USDT"
