@@ -106850,7 +106850,7 @@
       "text": "⚪ ATUALIZAÇÃO DOS PLANOS ACOMPANHADOS\n🧪 SIMULAÇÃO\n\n• DOT/USDT • SHORT: janela expirou\n  Plano: 03152d8a3d5f17f1a68c\n• DOT/USDT • LONG: janela expirou\n  Plano: 745f3240ace3c5102252\n• ONE/USDT • SHORT: janela expirou\n  Plano: 9bab77d2dc1c2e955bb4\n\nSem novas entradas por esses planos.\nA expiração não encerra posições já abertas.\nAnálise: 11/11/2026 13:16:06 BRT"
     },
     "b0a6b768e14fe7edeb8c": {
-      "attempts": 0,
+      "attempts": 1,
       "category": "INFO",
       "created_at": 1794975037,
       "expires_at": 1794975060,
@@ -106861,7 +106861,11 @@
         "ceb09a8fff8ca2414ada"
       ],
       "quote_at": 0,
-      "status": "PENDING",
+      "sent_at": 1794975043,
+      "status": "SENT",
+      "telegram_ids": [
+        9018
+      ],
       "text": "🟡 MOVIMENTO DETECTADO • AINDA SEM CONFIRMAÇÃO\nARB/USDT • BAIXA (SHORT)\n🧪 SIMULAÇÃO • acompanhamento\n\nRompimento observado no M1 fechado às 01:10:00 BRT.\nPreço de referência do primeiro gatilho: 0.13045.\n\nPrimeiro fechamento além da região identificado.\nFalta o segundo fechamento sustentar o nível, com volume de pelo menos 50% do primeiro.\nApós confirmar, o plano ainda precisa passar pela avaliação financeira.\n\nFaixa em estudo: 0.13027 a 0.13044\n🛑 Stop do plano: 0.13091 (-3.53% bruto em 10x)\n🎯 Alvo do plano: 0.13026 (+1.46% bruto em 10x)\nCenário indicativo sobre a margem em 10x; custos e liquidação ainda não validados.\nMovimento sem alavancagem: TP +0.15% • SL -0.35%.\nPercentuais sobre a referência do primeiro gatilho, na direção da operação, antes de custos.\n\nMovimento observado, sem entrada liberada. Aguarde o alerta de confirmação e viabilidade.\nAlerta válido até 01:11:00 BRT.\nAnálise: 18/11/2026 01:10:37 BRT\nPlano: ceb09a8fff8ca2414ada",
       "watch_stage": 1,
       "watch_symbol": "ARB_USDT"
