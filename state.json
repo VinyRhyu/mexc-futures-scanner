@@ -43034,7 +43034,7 @@
       "text": "⚪ ATUALIZAÇÃO DOS PLANOS ACOMPANHADOS\n🧪 SIMULAÇÃO\n\n• ONE/USDT • LONG: plano invalidado\n  Plano: 33a54ccf241887b19f0c\n• ONE/USDT • LONG: plano invalidado\n  Plano: a28ce4b3e5aaf9bc4c8e\n\nSem novas entradas por esses planos.\nA expiração não encerra posições já abertas.\nAnálise: 11/11/2026 13:02:58 BRT"
     },
     "43fcb2dfbf1585650ef7": {
-      "attempts": 0,
+      "attempts": 1,
       "category": "INFO",
       "created_at": 1794999694,
       "expires_at": 1794999720,
@@ -43045,7 +43045,11 @@
         "1b4615ccfb7266c4597c"
       ],
       "quote_at": 0,
-      "status": "PENDING",
+      "sent_at": 1794999700,
+      "status": "SENT",
+      "telegram_ids": [
+        9470
+      ],
       "text": "🟡 MOVIMENTO DETECTADO • AINDA SEM CONFIRMAÇÃO\nENA/USDT • BAIXA (SHORT)\n🧪 SIMULAÇÃO • acompanhamento\n\nRompimento observado no M1 fechado às 08:01:00 BRT.\nPreço de referência do primeiro gatilho: 0.11202.\n\nPrimeiro fechamento além da região identificado.\nFalta o segundo fechamento sustentar o nível, com volume de pelo menos 50% do primeiro.\nApós confirmar, o plano ainda precisa passar pela avaliação financeira.\n\nFaixa em estudo: 0.11181 a 0.11203\n🛑 Stop do plano: 0.11256 (-4.82% bruto em 10x)\n🎯 Alvo do plano: 0.11197 (+0.45% bruto em 10x)\nCenário indicativo sobre a margem em 10x; custos e liquidação ainda não validados.\nMovimento sem alavancagem: TP +0.045% • SL -0.48%.\nPercentuais sobre a referência do primeiro gatilho, na direção da operação, antes de custos.\n\nMovimento observado, sem entrada liberada. Aguarde o alerta de confirmação e viabilidade.\nAlerta válido até 08:02:00 BRT.\nAnálise: 18/11/2026 08:01:34 BRT\nPlano: 1b4615ccfb7266c4597c",
       "watch_stage": 1,
       "watch_symbol": "ENA_USDT"
@@ -80235,7 +80239,7 @@
       "watch_symbol": "SOL_USDT"
     },
     "7d10e6e650f20260615e": {
-      "attempts": 0,
+      "attempts": 1,
       "category": "INFO",
       "created_at": 1794999694,
       "expires_at": 1795001400,
@@ -80245,7 +80249,11 @@
         "f260ef8e040a1cf10c13"
       ],
       "quote_at": 0,
-      "status": "PENDING",
+      "sent_at": 1794999701,
+      "status": "SENT",
+      "telegram_ids": [
+        9471
+      ],
       "text": "👀 PLANO EM PREPARAÇÃO • AGUARDANDO GATILHO\nWLD/USDT\n🧪 SIMULAÇÃO • acompanhamento\n\nRegião em análise: 0.2628 a 0.2661\nDireção indefinida: cenários alternativos, não duas entradas.\nLONG somente se houver fechamento M1 acima de ≈ 0.266241.\nSHORT somente se houver fechamento M1 abaixo de ≈ 0.262659.\n\nConfirmação: dois fechamentos M1 consecutivos além do gatilho; volume do segundo de pelo menos 50% do primeiro.\nTP, SL e percentuais serão definidos no primeiro gatilho. A confirmação ainda precisa passar pela avaliação financeira.\n\nSem rompimento observado neste plano e sem entrada liberada.\nPreparação até 08:30:00 BRT.\nAnálise: 18/11/2026 08:01:34 BRT\nPlanos: eb0e1a71eeccdf86c16b, f260ef8e040a1cf10c13",
       "watch_stage": 2,
       "watch_symbol": "WLD_USDT"
