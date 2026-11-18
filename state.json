@@ -107371,13 +107371,17 @@
       "text": "👀 POSSÍVEL ENTRADA • AGUARDAR GATILHO\nONE/USDT • LONG\n🧪 SIMULAÇÃO\nRompimento • 2 fechamentos M1 • volume ≥50%\n\nRegião de atenção ≈ 0.0015309 a 0.0015838\nDois fechamentos consecutivos de1min além do gatilho.\nVolume do segundo candle pelo menos50% do primeiro. Apenas a confirmação pode liberar entrada.\nPreparação até 13:15:00 BRT.\nAnálise: 11/11/2026 12:46:01 BRT\nPlano: a28ce4b3e5aaf9bc4c8e • revisão 0"
     },
     "a733533d3834334d97cb": {
-      "attempts": 0,
+      "attempts": 1,
       "category": "INFO",
       "created_at": 1795004735,
       "expires_at": 1795008335,
       "id": "a733533d3834334d97cb",
       "quote_at": 0,
-      "status": "PENDING",
+      "sent_at": 1795004742,
+      "status": "SENT",
+      "telegram_ids": [
+        9563
+      ],
       "text": "⚪ ATUALIZAÇÃO DOS PLANOS ACOMPANHADOS\n🧪 SIMULAÇÃO\n\n• AAVE/USDT • LONG: confirmação não aprovada\n  Motivo: O volume do segundo candle M1 foi menor que50% do primeiro.\n  Plano: c00af305a511381da798\n\nSem novas entradas por esses planos.\nAvisos de movimento não equivalem a entradas liberadas.\nA expiração não encerra uma posição já aberta.\nAnálise: 18/11/2026 09:25:35 BRT"
     },
     "a734dd1d4a540c98bdab": {
@@ -139309,7 +139313,7 @@
       "watch_symbol": "XLM_USDT"
     },
     "d704eb20ff334f1352e2": {
-      "attempts": 0,
+      "attempts": 1,
       "category": "INFO",
       "created_at": 1795004735,
       "expires_at": 1795004760,
@@ -139320,7 +139324,11 @@
         "dc2d23927e0fe077b910"
       ],
       "quote_at": 0,
-      "status": "PENDING",
+      "sent_at": 1795004741,
+      "status": "SENT",
+      "telegram_ids": [
+        9562
+      ],
       "text": "🟡 MOVIMENTO DETECTADO • AINDA SEM CONFIRMAÇÃO\nICP/USDT • BAIXA (SHORT)\n🧪 SIMULAÇÃO • acompanhamento\n\nRompimento observado no M1 fechado às 09:25:00 BRT.\nPreço de referência do primeiro gatilho: 2.237.\n\nPrimeiro fechamento além da região identificado.\nFalta o segundo fechamento sustentar o nível, com volume de pelo menos 50% do primeiro.\nApós confirmar, o plano ainda precisa passar pela avaliação financeira.\n\nFaixa em estudo: 2.234 a 2.236\n🛑 Stop do plano: 2.247 (-4.47% bruto em 10x)\n🎯 Alvo do plano: 2.219 (+8.05% bruto em 10x)\nCenário indicativo sobre a margem em 10x; custos e liquidação ainda não validados.\nMovimento sem alavancagem: TP +0.80% • SL -0.45%.\nPercentuais sobre a referência do primeiro gatilho, na direção da operação, antes de custos.\n\nMovimento observado, sem entrada liberada. Aguarde o alerta de confirmação e viabilidade.\nAlerta válido até 09:26:00 BRT.\nAnálise: 18/11/2026 09:25:35 BRT\nPlano: dc2d23927e0fe077b910",
       "watch_stage": 1,
       "watch_symbol": "ICP_USDT"
