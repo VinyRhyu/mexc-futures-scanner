@@ -21109,7 +21109,7 @@
       "text": "🟠 ENTRADA BLOQUEADA\nAAVE/USDT • SHORT\n🧪 SIMULAÇÃO • Confirmada\nRompimento • 2 fechamentos M1 • volume ≥50%\n\nVolume do segundo M1: 61.3% do primeiro.\nMotivo: A relação entre ganho e perda ficou abaixo do mínimo.\nSem entrada liberada nesta análise.\n\n📍 Faixa do plano: 115.87 a 116.13\n🛑 Stop: 116.47\n🎯 Alvo: 115.11\n\nEstimativas de taxas, deslizamento e funding; ganho não garantido.\n\n⏱ Nova entrada até 07:35:00 BRT (1min 03s).\nGatilho M1 (segundo fechamento): 07:33:00 BRT\nAnálise: 12/11/2026 07:33:57 BRT\nA validade se aplica a novas entradas.\nPlano: c77467b3873ed97d6589 • revisão 1"
     },
     "20ad568748a4e0d34b8b": {
-      "attempts": 0,
+      "attempts": 1,
       "category": "INFO",
       "created_at": 1795032215,
       "expires_at": 1795032300,
@@ -21120,7 +21120,11 @@
         "f183711ba7d0066b7c3c"
       ],
       "quote_at": 0,
-      "status": "PENDING",
+      "sent_at": 1795032222,
+      "status": "SENT",
+      "telegram_ids": [
+        9950
+      ],
       "text": "🟡 MOVIMENTO DETECTADO • ENTRADA BLOQUEADA\nUNI/USDT • BAIXA (SHORT)\n🧪 SIMULAÇÃO • acompanhamento\n\nRompimento observado no M1 fechado às 17:03:00 BRT.\nPreço de referência do primeiro gatilho: 5.153.\n\nConfirmação técnica identificada; entrada bloqueada.\nCondição pendente: A relação entre ganho e perda ficou abaixo do mínimo.\n\nFaixa em estudo: 5.143 a 5.152\n🛑 Stop do plano: 5.179 (-5.05% bruto em 10x)\n🎯 Alvo do plano: 5.118 (+6.79% bruto em 10x)\nCenário indicativo sobre a margem em 10x; custos e liquidação ainda não validados.\nMovimento sem alavancagem: TP +0.68% • SL -0.50%.\nPercentuais sobre a referência do primeiro gatilho, na direção da operação, antes de custos.\n\nMovimento observado, sem entrada liberada. Aguarde o alerta de confirmação e viabilidade.\nAlerta válido até 17:05:00 BRT.\nAnálise: 18/11/2026 17:03:35 BRT\nPlano: f183711ba7d0066b7c3c",
       "watch_stage": 0,
       "watch_symbol": "UNI_USDT"
@@ -26746,11 +26750,12 @@
       "watch_symbol": "AAVE_USDT"
     },
     "28f12749bfcdd50b480e": {
-      "attempts": 0,
+      "attempts": 1,
       "category": "INFO",
       "created_at": 1795032215,
       "expires_at": 1795032240,
       "id": "28f12749bfcdd50b480e",
+      "last_error": "TELEGRAM_FALHA_OU_RESULTADO_AMBIGUO: URLError",
       "movement_at": 1795032180,
       "movement_side": "SHORT",
       "plan_ids": [
