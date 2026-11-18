@@ -1,7 +1,7 @@
 # Momentum — validação prospectiva
 
 Fase: COLLECTING
-Dados fechados até 2026-11-18T15:00:00+00:00.
+Dados fechados até 2026-11-18T16:00:00+00:00.
 Dias congelados: 1/30; dias perdidos: 1; janelas de cotação observadas: 0.
 
 | Carteira | Patrimônio marcado | Operações encerradas | Queda máxima H1 |
