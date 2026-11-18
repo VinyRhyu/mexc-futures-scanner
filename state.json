@@ -4622,7 +4622,7 @@
       "text": "⚪ ATUALIZAÇÃO DOS PLANOS ACOMPANHADOS\n🧪 SIMULAÇÃO\n\n• DOGE/USDT • LONG: plano invalidado\n  Plano: 19b30941106046967c9f\n• ARB/USDT • LONG: plano invalidado\n  Plano: 5ce690daa85cab58d6a1\n• ARB/USDT • LONG: plano invalidado\n  Plano: d2e4bddb515bdef92bd8\n\nSem novas entradas por esses planos.\nA expiração não encerra posições já abertas.\nAnálise: 12/11/2026 21:05:44 BRT"
     },
     "083ff7be7ba604a40363": {
-      "attempts": 0,
+      "attempts": 1,
       "category": "INFO",
       "created_at": 1794961899,
       "expires_at": 1794961920,
@@ -4633,7 +4633,11 @@
         "a905cd5ebe2185aa619f"
       ],
       "quote_at": 0,
-      "status": "PENDING",
+      "sent_at": 1794961905,
+      "status": "SENT",
+      "telegram_ids": [
+        8805
+      ],
       "text": "🟡 MOVIMENTO DETECTADO • AINDA SEM CONFIRMAÇÃO\nXLM/USDT • ALTA (LONG)\n🧪 SIMULAÇÃO • acompanhamento\n\nRompimento observado no M1 fechado às 21:31:00 BRT.\nPreço de referência do primeiro gatilho: 0.14202.\n\nPrimeiro fechamento além da região identificado.\nFalta o segundo fechamento sustentar o nível, com volume de pelo menos 50% do primeiro.\nApós confirmar, o plano ainda precisa passar pela avaliação financeira.\n\nFaixa em estudo: 0.14187 a 0.14221\n🛑 Stop do plano: 0.14139 (-4.44% bruto em 10x)\n🎯 Alvo do plano: 0.14399 (+13.87% bruto em 10x)\nCenário indicativo sobre a margem em 10x; custos e liquidação ainda não validados.\nMovimento sem alavancagem: TP +1.39% • SL -0.44%.\nPercentuais sobre a referência do primeiro gatilho, na direção da operação, antes de custos.\n\nMovimento observado, sem entrada liberada. Aguarde o alerta de confirmação e viabilidade.\nAlerta válido até 21:32:00 BRT.\nAnálise: 17/11/2026 21:31:39 BRT\nPlano: a905cd5ebe2185aa619f",
       "watch_stage": 1,
       "watch_symbol": "XLM_USDT"
