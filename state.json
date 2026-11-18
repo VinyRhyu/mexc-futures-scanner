@@ -44797,13 +44797,17 @@
       "text": "⚪ ATUALIZAÇÃO DOS PLANOS ACOMPANHADOS\n🧪 SIMULAÇÃO\n\n• ENA/USDT • SHORT: confirmação não aprovada\n  Motivo: O segundo fechamento M1 perdeu o nível do gatilho.\n  Plano: 840ccfd391165b41c183\n• ENA/USDT • SHORT: confirmação não aprovada\n  Motivo: O segundo fechamento M1 perdeu o nível do gatilho.\n  Plano: d16a18bc0852ee0d4e8a\n\nSem novas entradas por esses planos.\nAvisos de movimento não equivalem a entradas liberadas.\nA expiração não encerra uma posição já aberta.\nAnálise: 15/11/2026 21:17:46 BRT"
     },
     "407861d652cfb68ace25": {
-      "attempts": 0,
+      "attempts": 1,
       "category": "INFO",
       "created_at": 1795042354,
       "expires_at": 1795045954,
       "id": "407861d652cfb68ace25",
       "quote_at": 0,
-      "status": "PENDING",
+      "sent_at": 1795042362,
+      "status": "SENT",
+      "telegram_ids": [
+        10288
+      ],
       "text": "⚪ ATUALIZAÇÃO DOS PLANOS ACOMPANHADOS\n🧪 SIMULAÇÃO\n\n• HYPE/USDT • SHORT: alvo do plano alcançado durante o acompanhamento\n  Motivo: O movimento já alcançou o alvo do plano.\n  Plano: 239f77dfa1f3877cba02\n• HYPE/USDT • SHORT: alvo do plano alcançado durante o acompanhamento\n  Motivo: O movimento já alcançou o alvo do plano.\n  Plano: 23f7d08a709f8fe4584b\n\nSem novas entradas por esses planos.\nAvisos de movimento não equivalem a entradas liberadas.\nA expiração não encerra uma posição já aberta.\nAnálise: 18/11/2026 19:52:34 BRT"
     },
     "407eb3945e323a49e26f": {
@@ -60142,7 +60146,7 @@
       "text": "🟠 ENTRADA BLOQUEADA\nXLM/USDT • LONG\n🧪 SIMULAÇÃO • Confirmada\nRompimento • 2 fechamentos M1 • volume ≥50%\n\nVolume do segundo M1: 147.3% do primeiro.\nMotivo: A relação entre ganho e perda ficou abaixo do mínimo.\nSem entrada liberada nesta análise.\n\n📍 Faixa do plano: 0.14474 a 0.14506\n🛑 Stop: 0.14405\n🎯 Alvo: 0.14549\n\nEstimativas de taxas, deslizamento e funding; ganho não garantido.\n\n⏱ Nova entrada até 04:01:00 BRT (52s).\nGatilho M1 (segundo fechamento): 03:59:00 BRT\nAnálise: 13/11/2026 04:00:08 BRT\nA validade se aplica a novas entradas.\nPlano: 70f356d67bdcf259fa9c • revisão 1"
     },
     "561178341e6884f51752": {
-      "attempts": 0,
+      "attempts": 1,
       "category": "INFO",
       "created_at": 1795042354,
       "expires_at": 1795043700,
@@ -60151,7 +60155,11 @@
         "7bdc29bd923240b6ae79"
       ],
       "quote_at": 0,
-      "status": "PENDING",
+      "sent_at": 1795042360,
+      "status": "SENT",
+      "telegram_ids": [
+        10284
+      ],
       "text": "👀 PLANO EM PREPARAÇÃO • AGUARDANDO GATILHO\nHYPE/USDT\n🧪 SIMULAÇÃO • acompanhamento\n\nRegião em análise: 66.006 a 66.915\nLONG somente se houver fechamento M1 acima de ≈ 66.9547.\n\nConfirmação: dois fechamentos M1 consecutivos além do gatilho; volume do segundo de pelo menos 50% do primeiro.\nTP, SL e percentuais serão definidos no primeiro gatilho. A confirmação ainda precisa passar pela avaliação financeira.\n\nSem rompimento observado neste plano e sem entrada liberada.\nPreparação até 20:15:00 BRT.\nAnálise: 18/11/2026 19:52:34 BRT\nPlanos: 7bdc29bd923240b6ae79",
       "watch_stage": 2,
       "watch_symbol": "HYPE_USDT"
@@ -62730,7 +62738,7 @@
       "watch_symbol": "ONDO_USDT"
     },
     "5a15a1152bd0a56e2ab7": {
-      "attempts": 0,
+      "attempts": 1,
       "category": "INFO",
       "created_at": 1795042354,
       "expires_at": 1795042800,
@@ -62739,7 +62747,11 @@
         "7c59c90201481efa0313"
       ],
       "quote_at": 0,
-      "status": "PENDING",
+      "sent_at": 1795042360,
+      "status": "SENT",
+      "telegram_ids": [
+        10285
+      ],
       "text": "👀 PLANO EM PREPARAÇÃO • AGUARDANDO GATILHO\nDOT/USDT\n🧪 SIMULAÇÃO • acompanhamento\n\nRegião em análise: 0.7098 a 0.7163\nLONG somente se houver fechamento M1 acima de ≈ 0.716667.\n\nConfirmação: dois fechamentos M1 consecutivos além do gatilho; volume do segundo de pelo menos 50% do primeiro.\nTP, SL e percentuais serão definidos no primeiro gatilho. A confirmação ainda precisa passar pela avaliação financeira.\n\nSem rompimento observado neste plano e sem entrada liberada.\nPreparação até 20:00:00 BRT.\nAnálise: 18/11/2026 19:52:34 BRT\nPlanos: 7c59c90201481efa0313",
       "watch_stage": 2,
       "watch_symbol": "DOT_USDT"
@@ -123297,7 +123309,7 @@
       "text": "🟢 GATILHO VÁLIDO PARA SIMULAR\nDOGE/USDT • LONG\n🧪 SIMULAÇÃO • Confirmada\nRompimento • 2 fechamentos M1 • volume ≥50%\n\nVolume do segundo M1: 567.4% do primeiro.\n📍 Entrada: 0.06323 a 0.06332\n🛑 Stop: 0.06296 (-9.77% líquido sobre a margem)\n🎯 Alvo: 0.06403 (+12.19% líquido sobre a margem)\nMovimento sem alavancagem: TP +1.12% • SL -0.57%.\nBase dos percentuais sem alavancagem: 0.06332 (pior entrada); na direção da operação, antes de custos.\n\nMargem isolada estimada: 0.9742 USDT • 13x\nQuantidade: 2 contratos\nPerda planejada: -0.0952 USDT (-9.52% da banca)\nGanho projetado: +0.1187 USDT (+11.87% da banca)\nRetorno/risco líquido: 1.25:1 (pior entrada)\nCustos estimados: 0.0233 USDT\nROI líquido estimado sobre a margem: TP +12.19% • SL -9.77%.\nTaxa por execução: 0.06%\nDisparo do stop: último preço (Last)\n\nEstimativas de taxas, deslizamento e funding; ganho não garantido.\nFalta validar para uso real: taxa pessoal da conta; regras de margem da conta.\n\n⏱ Nova entrada até 03:04:00 BRT (1min 14s).\nGatilho M1 (segundo fechamento): 03:02:00 BRT\nCotação: 03:02:42 BRT\nAnálise: 14/11/2026 03:02:46 BRT\nA validade se aplica a novas entradas.\nPlano: 394a3063f6f3e052b4f2 • revisão 1"
     },
     "b03f2ae80173123dea02": {
-      "attempts": 0,
+      "attempts": 1,
       "category": "INFO",
       "created_at": 1795042354,
       "expires_at": 1795043700,
@@ -123306,7 +123318,11 @@
         "6c59dbf51f7bf712a0a2"
       ],
       "quote_at": 0,
-      "status": "PENDING",
+      "sent_at": 1795042361,
+      "status": "SENT",
+      "telegram_ids": [
+        10286
+      ],
       "text": "👀 PLANO EM PREPARAÇÃO • AGUARDANDO GATILHO\nZEC/USDT\n🧪 SIMULAÇÃO • acompanhamento\n\nRegião em análise: 907.27 a 917.52\nLONG somente se houver fechamento M1 acima de ≈ 918.184.\n\nConfirmação: dois fechamentos M1 consecutivos além do gatilho; volume do segundo de pelo menos 50% do primeiro.\nTP, SL e percentuais serão definidos no primeiro gatilho. A confirmação ainda precisa passar pela avaliação financeira.\n\nSem rompimento observado neste plano e sem entrada liberada.\nPreparação até 20:15:00 BRT.\nAnálise: 18/11/2026 19:52:34 BRT\nPlanos: 6c59dbf51f7bf712a0a2",
       "watch_stage": 2,
       "watch_symbol": "ZEC_USDT"
@@ -136126,7 +136142,7 @@
       "watch_symbol": "WLD_USDT"
     },
     "c1dd938d1214009f86bd": {
-      "attempts": 0,
+      "attempts": 1,
       "category": "INFO",
       "created_at": 1795042354,
       "expires_at": 1795043700,
@@ -136135,7 +136151,11 @@
         "46f0b845feca0620b575"
       ],
       "quote_at": 0,
-      "status": "PENDING",
+      "sent_at": 1795042361,
+      "status": "SENT",
+      "telegram_ids": [
+        10287
+      ],
       "text": "👀 PLANO EM PREPARAÇÃO • AGUARDANDO GATILHO\nXRP/USDT\n🧪 SIMULAÇÃO • acompanhamento\n\nRegião em análise: 0.9617 a 0.9718\nLONG somente se houver fechamento M1 acima de ≈ 0.972267.\n\nConfirmação: dois fechamentos M1 consecutivos além do gatilho; volume do segundo de pelo menos 50% do primeiro.\nTP, SL e percentuais serão definidos no primeiro gatilho. A confirmação ainda precisa passar pela avaliação financeira.\n\nSem rompimento observado neste plano e sem entrada liberada.\nPreparação até 20:15:00 BRT.\nAnálise: 18/11/2026 19:52:34 BRT\nPlanos: 46f0b845feca0620b575",
       "watch_stage": 2,
       "watch_symbol": "XRP_USDT"
