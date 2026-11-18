@@ -1,6 +1,6 @@
 {
   "MOMENTUM_BTC_DD_GUARD__base": {
-    "cash": "99.9814660360",
+    "cash": "99.6089952760",
     "equity_curve": [
       {
         "at": 1794873600,
@@ -105,49 +105,33 @@
       {
         "at": 1794963600,
         "equity": "99.6095956360"
+      },
+      {
+        "at": 1794967200,
+        "equity": "99.6089952760"
       }
     ],
-    "marked_equity": "99.6095956360",
+    "marked_equity": "99.6089952760",
     "months": {
       "2026-11": {
-        "end": "99.6095956360",
-        "return_pct": "-0.39040436400",
+        "end": "99.6089952760",
+        "return_pct": "-0.39100472400",
         "start": "100"
       }
     },
-    "open_position": {
-      "allocation_guarded": false,
-      "contracts": "6",
-      "deadline": 1794963600,
-      "effective_risk_fraction": "0.02",
-      "entry": "590.56",
-      "entry_fee": "0.02126016",
-      "equity_before": "100",
-      "funding_paid": "-0.0027261960",
-      "liquidation_fee": "0.0002",
-      "margin": "3.54336",
-      "mmr": "0.004",
-      "opened_at": 1794877200,
-      "original_stop": "621.12",
-      "planned_risk": "1.88862732",
-      "quantity": "0.06",
-      "score": "3.216403756709481871997045948",
-      "sign": -1,
-      "signal_at": 1794873600,
-      "stop": "621.12",
-      "symbol": "BNB_USDT",
-      "tick": "0.01"
-    },
+    "open_position": null,
     "summary": {
-      "final": "99.6095956360",
-      "funding_paid": "0",
+      "final": "99.6089952760",
+      "funding_paid": "-0.0027261960",
       "initial": "100",
       "max_drawdown_pct": "0.7734632566676048372546228346",
-      "outcomes": {},
-      "positions": 0,
+      "outcomes": {
+        "TEMPO": 1
+      },
+      "positions": 1,
       "positive": 0,
-      "profit_factor": null,
-      "return_pct": "-0.39040436400",
+      "profit_factor": "0E+10",
+      "return_pct": "-0.39100472400",
       "skipped": {
         "CARTEIRA_OCUPADA": 0,
         "DIRECAO_CONTRA_BTC_7D": 1,
@@ -155,18 +139,48 @@
         "LOTE": 1,
         "OUTRO_PLANO_PRIORIZADO": 21
       },
-      "trading_fees": "0"
+      "trading_fees": "0.04273092"
     },
     "temporal_blocks": {
       "development_return_pct": "0",
-      "verification_return_pct": "-0.39040436400"
+      "verification_return_pct": "-0.39100472400"
     },
-    "trades": [],
-    "unrealized_net": "-0.3718704000",
+    "trades": [
+      {
+        "allocation_guarded": false,
+        "ambiguous": false,
+        "contracts": "6",
+        "deadline": 1794963600,
+        "effective_risk_fraction": "0.02",
+        "entry": "590.56",
+        "entry_fee": "0.02126016",
+        "equity_before": "100",
+        "exit": "596.41",
+        "exit_at": 1794963600,
+        "exit_fee": "0.02147076",
+        "funding_paid": "-0.0027261960",
+        "liquidation_fee": "0.0002",
+        "margin": "3.54336",
+        "mmr": "0.004",
+        "net": "-0.3910047240",
+        "opened_at": 1794877200,
+        "original_stop": "621.12",
+        "outcome": "TEMPO",
+        "planned_risk": "1.88862732",
+        "quantity": "0.06",
+        "score": "3.216403756709481871997045948",
+        "sign": -1,
+        "signal_at": 1794873600,
+        "stop": "621.12",
+        "symbol": "BNB_USDT",
+        "tick": "0.01"
+      }
+    ],
+    "unrealized_net": "0E-10",
     "valuation": "H1_PAPER_MARK_NOT_REALIZED_CASH"
   },
   "MOMENTUM_BTC_DD_GUARD__stress": {
-    "cash": "99.9673033960",
+    "cash": "99.5589079960",
     "equity_curve": [
       {
         "at": 1794873600,
@@ -271,49 +285,33 @@
       {
         "at": 1794963600,
         "equity": "99.5595085960"
+      },
+      {
+        "at": 1794967200,
+        "equity": "99.5589079960"
       }
     ],
-    "marked_equity": "99.5595085960",
+    "marked_equity": "99.5589079960",
     "months": {
       "2026-11": {
-        "end": "99.5595085960",
-        "return_pct": "-0.44049140400",
+        "end": "99.5589079960",
+        "return_pct": "-0.44109200400",
         "start": "100"
       }
     },
-    "open_position": {
-      "allocation_guarded": false,
-      "contracts": "6",
-      "deadline": 1794963600,
-      "effective_risk_fraction": "0.02",
-      "entry": "590.38",
-      "entry_fee": "0.03542280",
-      "equity_before": "100",
-      "funding_paid": "-0.0027261960",
-      "liquidation_fee": "0.0002",
-      "margin": "3.54228",
-      "mmr": "0.004",
-      "opened_at": 1794877200,
-      "original_stop": "621.12",
-      "planned_risk": "1.93991280",
-      "quantity": "0.06",
-      "score": "3.216403756709481871997045948",
-      "sign": -1,
-      "signal_at": 1794873600,
-      "stop": "621.12",
-      "symbol": "BNB_USDT",
-      "tick": "0.01"
-    },
+    "open_position": null,
     "summary": {
-      "final": "99.5595085960",
-      "funding_paid": "0",
+      "final": "99.5589079960",
+      "funding_paid": "-0.0027261960",
       "initial": "100",
       "max_drawdown_pct": "0.7741570163796447989843948482",
-      "outcomes": {},
-      "positions": 0,
+      "outcomes": {
+        "TEMPO": 1
+      },
+      "positions": 1,
       "positive": 0,
-      "profit_factor": null,
-      "return_pct": "-0.44049140400",
+      "profit_factor": "0E+10",
+      "return_pct": "-0.44109200400",
       "skipped": {
         "CARTEIRA_OCUPADA": 0,
         "DIRECAO_CONTRA_BTC_7D": 1,
@@ -321,18 +319,48 @@
         "LOTE": 1,
         "OUTRO_PLANO_PRIORIZADO": 21
       },
-      "trading_fees": "0"
+      "trading_fees": "0.07121820"
     },
     "temporal_blocks": {
       "development_return_pct": "0",
-      "verification_return_pct": "-0.44049140400"
+      "verification_return_pct": "-0.44109200400"
     },
-    "trades": [],
-    "unrealized_net": "-0.4077948000",
+    "trades": [
+      {
+        "allocation_guarded": false,
+        "ambiguous": false,
+        "contracts": "6",
+        "deadline": 1794963600,
+        "effective_risk_fraction": "0.02",
+        "entry": "590.38",
+        "entry_fee": "0.03542280",
+        "equity_before": "100",
+        "exit": "596.59",
+        "exit_at": 1794963600,
+        "exit_fee": "0.03579540",
+        "funding_paid": "-0.0027261960",
+        "liquidation_fee": "0.0002",
+        "margin": "3.54228",
+        "mmr": "0.004",
+        "net": "-0.4410920040",
+        "opened_at": 1794877200,
+        "original_stop": "621.12",
+        "outcome": "TEMPO",
+        "planned_risk": "1.93991280",
+        "quantity": "0.06",
+        "score": "3.216403756709481871997045948",
+        "sign": -1,
+        "signal_at": 1794873600,
+        "stop": "621.12",
+        "symbol": "BNB_USDT",
+        "tick": "0.01"
+      }
+    ],
+    "unrealized_net": "0E-10",
     "valuation": "H1_PAPER_MARK_NOT_REALIZED_CASH"
   },
   "MOMENTUM_BTC_RISK1__base": {
-    "cash": "99.9907330180",
+    "cash": "99.8044976380",
     "equity_curve": [
       {
         "at": 1794873600,
@@ -437,49 +465,33 @@
       {
         "at": 1794963600,
         "equity": "99.8047978180"
+      },
+      {
+        "at": 1794967200,
+        "equity": "99.8044976380"
       }
     ],
-    "marked_equity": "99.8047978180",
+    "marked_equity": "99.8044976380",
     "months": {
       "2026-11": {
-        "end": "99.8047978180",
-        "return_pct": "-0.19520218200",
+        "end": "99.8044976380",
+        "return_pct": "-0.19550236200",
         "start": "100"
       }
     },
-    "open_position": {
-      "allocation_guarded": false,
-      "contracts": "3",
-      "deadline": 1794963600,
-      "effective_risk_fraction": "0.01",
-      "entry": "590.56",
-      "entry_fee": "0.01063008",
-      "equity_before": "100",
-      "funding_paid": "-0.0013630980",
-      "liquidation_fee": "0.0002",
-      "margin": "1.77168",
-      "mmr": "0.004",
-      "opened_at": 1794877200,
-      "original_stop": "621.12",
-      "planned_risk": "0.94431366",
-      "quantity": "0.03",
-      "score": "3.216403756709481871997045948",
-      "sign": -1,
-      "signal_at": 1794873600,
-      "stop": "621.12",
-      "symbol": "BNB_USDT",
-      "tick": "0.01"
-    },
+    "open_position": null,
     "summary": {
-      "final": "99.8047978180",
-      "funding_paid": "0",
+      "final": "99.8044976380",
+      "funding_paid": "-0.0013630980",
       "initial": "100",
       "max_drawdown_pct": "0.3872813117588374929445950181",
-      "outcomes": {},
-      "positions": 0,
+      "outcomes": {
+        "TEMPO": 1
+      },
+      "positions": 1,
       "positive": 0,
-      "profit_factor": null,
-      "return_pct": "-0.19520218200",
+      "profit_factor": "0E+10",
+      "return_pct": "-0.19550236200",
       "skipped": {
         "CARTEIRA_OCUPADA": 0,
         "DIRECAO_CONTRA_BTC_7D": 1,
@@ -487,18 +499,48 @@
         "LOTE": 2,
         "OUTRO_PLANO_PRIORIZADO": 20
       },
-      "trading_fees": "0"
+      "trading_fees": "0.02136546"
     },
     "temporal_blocks": {
       "development_return_pct": "0",
-      "verification_return_pct": "-0.19520218200"
+      "verification_return_pct": "-0.19550236200"
     },
-    "trades": [],
-    "unrealized_net": "-0.1859352000",
+    "trades": [
+      {
+        "allocation_guarded": false,
+        "ambiguous": false,
+        "contracts": "3",
+        "deadline": 1794963600,
+        "effective_risk_fraction": "0.01",
+        "entry": "590.56",
+        "entry_fee": "0.01063008",
+        "equity_before": "100",
+        "exit": "596.41",
+        "exit_at": 1794963600,
+        "exit_fee": "0.01073538",
+        "funding_paid": "-0.0013630980",
+        "liquidation_fee": "0.0002",
+        "margin": "1.77168",
+        "mmr": "0.004",
+        "net": "-0.1955023620",
+        "opened_at": 1794877200,
+        "original_stop": "621.12",
+        "outcome": "TEMPO",
+        "planned_risk": "0.94431366",
+        "quantity": "0.03",
+        "score": "3.216403756709481871997045948",
+        "sign": -1,
+        "signal_at": 1794873600,
+        "stop": "621.12",
+        "symbol": "BNB_USDT",
+        "tick": "0.01"
+      }
+    ],
+    "unrealized_net": "0E-10",
     "valuation": "H1_PAPER_MARK_NOT_REALIZED_CASH"
   },
   "MOMENTUM_BTC_RISK1__stress": {
-    "cash": "99.9836516980",
+    "cash": "99.7794539980",
     "equity_curve": [
       {
         "at": 1794873600,
@@ -603,49 +645,33 @@
       {
         "at": 1794963600,
         "equity": "99.7797542980"
+      },
+      {
+        "at": 1794967200,
+        "equity": "99.7794539980"
       }
     ],
-    "marked_equity": "99.7797542980",
+    "marked_equity": "99.7794539980",
     "months": {
       "2026-11": {
-        "end": "99.7797542980",
-        "return_pct": "-0.22024570200",
+        "end": "99.7794539980",
+        "return_pct": "-0.22054600200",
         "start": "100"
       }
     },
-    "open_position": {
-      "allocation_guarded": false,
-      "contracts": "3",
-      "deadline": 1794963600,
-      "effective_risk_fraction": "0.01",
-      "entry": "590.38",
-      "entry_fee": "0.01771140",
-      "equity_before": "100",
-      "funding_paid": "-0.0013630980",
-      "liquidation_fee": "0.0002",
-      "margin": "1.77114",
-      "mmr": "0.004",
-      "opened_at": 1794877200,
-      "original_stop": "621.12",
-      "planned_risk": "0.96995640",
-      "quantity": "0.03",
-      "score": "3.216403756709481871997045948",
-      "sign": -1,
-      "signal_at": 1794873600,
-      "stop": "621.12",
-      "symbol": "BNB_USDT",
-      "tick": "0.01"
-    },
+    "open_position": null,
     "summary": {
-      "final": "99.7797542980",
-      "funding_paid": "0",
+      "final": "99.7794539980",
+      "funding_paid": "-0.0013630980",
       "initial": "100",
       "max_drawdown_pct": "0.3875325209481830695695875030",
-      "outcomes": {},
-      "positions": 0,
+      "outcomes": {
+        "TEMPO": 1
+      },
+      "positions": 1,
       "positive": 0,
-      "profit_factor": null,
-      "return_pct": "-0.22024570200",
+      "profit_factor": "0E+10",
+      "return_pct": "-0.22054600200",
       "skipped": {
         "CARTEIRA_OCUPADA": 0,
         "DIRECAO_CONTRA_BTC_7D": 1,
@@ -653,14 +679,44 @@
         "LOTE": 2,
         "OUTRO_PLANO_PRIORIZADO": 20
       },
-      "trading_fees": "0"
+      "trading_fees": "0.03560910"
     },
     "temporal_blocks": {
       "development_return_pct": "0",
-      "verification_return_pct": "-0.22024570200"
+      "verification_return_pct": "-0.22054600200"
     },
-    "trades": [],
-    "unrealized_net": "-0.2038974000",
+    "trades": [
+      {
+        "allocation_guarded": false,
+        "ambiguous": false,
+        "contracts": "3",
+        "deadline": 1794963600,
+        "effective_risk_fraction": "0.01",
+        "entry": "590.38",
+        "entry_fee": "0.01771140",
+        "equity_before": "100",
+        "exit": "596.59",
+        "exit_at": 1794963600,
+        "exit_fee": "0.01789770",
+        "funding_paid": "-0.0013630980",
+        "liquidation_fee": "0.0002",
+        "margin": "1.77114",
+        "mmr": "0.004",
+        "net": "-0.2205460020",
+        "opened_at": 1794877200,
+        "original_stop": "621.12",
+        "outcome": "TEMPO",
+        "planned_risk": "0.96995640",
+        "quantity": "0.03",
+        "score": "3.216403756709481871997045948",
+        "sign": -1,
+        "signal_at": 1794873600,
+        "stop": "621.12",
+        "symbol": "BNB_USDT",
+        "tick": "0.01"
+      }
+    ],
+    "unrealized_net": "0E-10",
     "valuation": "H1_PAPER_MARK_NOT_REALIZED_CASH"
   }
 }
