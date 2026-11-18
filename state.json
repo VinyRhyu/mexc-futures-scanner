@@ -34536,17 +34536,21 @@
       "text": "⚪ ATUALIZAÇÃO DOS PLANOS ACOMPANHADOS\n🧪 SIMULAÇÃO\n\n• DASH/USDT • SHORT: janela expirou\n  Plano: 01ff8c51d6df05638f39\n• BTC/USDT • SHORT: janela expirou\n  Plano: 06f455f3aac79919fd2a\n• BTC/USDT • LONG: janela expirou\n  Plano: 47e806db1036642a09a7\n• DASH/USDT • LONG: janela expirou\n  Plano: 595de2e68b81a06b1e1d\n• WLD/USDT • LONG: plano invalidado\n  Plano: 962b663a391168626bc1\n\nSem novas entradas por esses planos.\nA expiração não encerra posições já abertas.\nAnálise: 10/11/2026 01:46:27 BRT"
     },
     "3acb14268eb958af0349": {
-      "attempts": 0,
+      "attempts": 1,
       "category": "ENTRY",
       "created_at": 1794967413,
       "expires_at": 1794967500,
       "id": "3acb14268eb958af0349",
       "plan_id": "53fbcc244c53223ff90d",
       "quote_at": 1794967411,
+      "sent_at": 1794967419,
       "side": "SHORT",
       "signal_at": 1794967380,
-      "status": "PENDING",
+      "status": "SENT",
       "symbol": "TAO_USDT",
+      "telegram_ids": [
+        8874
+      ],
       "text": "🟢 GATILHO VÁLIDO PARA SIMULAR\nTAO/USDT • SHORT\n🧪 SIMULAÇÃO • Confirmada\nRompimento • 2 fechamentos M1 • volume ≥50%\n\nVolume do segundo M1: 116.5% do primeiro.\n📍 Entrada: 194.43 a 194.86\n🛑 Stop: 195.68 (-9.72% líquido sobre a margem)\n🎯 Alvo: 191.22 (+17.83% líquido sobre a margem)\nMovimento sem alavancagem: TP +1.65% • SL -0.64%.\nBase dos percentuais sem alavancagem: 194.43 (pior entrada); na direção da operação, antes de custos.\n\nMargem isolada estimada: 0.9722 USDT • 12x\nQuantidade: 6 contratos\nPerda planejada: -0.0945 USDT (-9.45% da banca)\nGanho projetado: +0.1733 USDT (+17.33% da banca)\nRetorno/risco líquido: 1.83:1 (pior entrada)\nCustos estimados: 0.0195 USDT\nROI líquido estimado sobre a margem: TP +17.83% • SL -9.72%.\nTaxa por execução: 0.06%\nDisparo do stop: último preço (Last)\n\nEstimativas de taxas, deslizamento e funding; ganho não garantido.\nFalta validar para uso real: taxa pessoal da conta; regras de margem da conta.\n\n⏱ Nova entrada até 23:05:00 BRT (1min 27s).\nGatilho M1 (segundo fechamento): 23:03:00 BRT\nCotação: 23:03:31 BRT\nAnálise: 17/11/2026 23:03:33 BRT\nA validade se aplica a novas entradas.\nPlano: 53fbcc244c53223ff90d • revisão 1",
       "variant": "CONFIRMADA"
     },
@@ -83641,7 +83645,7 @@
       "watch_symbol": "ZEC_USDT"
     },
     "8c509c69dc7ee90a6db6": {
-      "attempts": 0,
+      "attempts": 1,
       "category": "INFO",
       "created_at": 1794967413,
       "expires_at": 1794967440,
@@ -83652,7 +83656,11 @@
         "510fd2912b337dba4033"
       ],
       "quote_at": 0,
-      "status": "PENDING",
+      "sent_at": 1794967419,
+      "status": "SENT",
+      "telegram_ids": [
+        8875
+      ],
       "text": "🟡 MOVIMENTO DETECTADO • AINDA SEM CONFIRMAÇÃO\nNEAR/USDT • BAIXA (SHORT)\n🧪 SIMULAÇÃO • acompanhamento\n\nRompimento observado no M1 fechado às 23:03:00 BRT.\nPreço de referência do primeiro gatilho: 3.344.\n\nPrimeiro fechamento além da região identificado.\nFalta o segundo fechamento sustentar o nível, com volume de pelo menos 50% do primeiro.\nApós confirmar, o plano ainda precisa passar pela avaliação financeira.\n\nFaixa em estudo: 3.337 a 3.347\n🛑 Stop do plano: 3.366 (-6.58% bruto em 10x)\n🎯 Alvo do plano: 3.313 (+9.27% bruto em 10x)\nCenário indicativo sobre a margem em 10x; custos e liquidação ainda não validados.\nMovimento sem alavancagem: TP +0.93% • SL -0.66%.\nPercentuais sobre a referência do primeiro gatilho, na direção da operação, antes de custos.\n\nMovimento observado, sem entrada liberada. Aguarde o alerta de confirmação e viabilidade.\nAlerta válido até 23:04:00 BRT.\nAnálise: 17/11/2026 23:03:33 BRT\nPlano: 510fd2912b337dba4033",
       "watch_stage": 1,
       "watch_symbol": "NEAR_USDT"
@@ -149362,7 +149370,7 @@
       "watch_symbol": "ETH_USDT"
     },
     "fc0dd8d38c60918b3611": {
-      "attempts": 0,
+      "attempts": 1,
       "category": "INFO",
       "created_at": 1794967413,
       "expires_at": 1794967440,
@@ -149373,7 +149381,11 @@
         "f31b6f2b016db85a0d8b"
       ],
       "quote_at": 0,
-      "status": "PENDING",
+      "sent_at": 1794967420,
+      "status": "SENT",
+      "telegram_ids": [
+        8876
+      ],
       "text": "🟡 MOVIMENTO DETECTADO • AINDA SEM CONFIRMAÇÃO\nUNI/USDT • BAIXA (SHORT)\n🧪 SIMULAÇÃO • acompanhamento\n\nRompimento observado no M1 fechado às 23:03:00 BRT.\nPreço de referência do primeiro gatilho: 5.192.\n\nPrimeiro fechamento além da região identificado.\nFalta o segundo fechamento sustentar o nível, com volume de pelo menos 50% do primeiro.\nApós confirmar, o plano ainda precisa passar pela avaliação financeira.\n\nFaixa em estudo: 5.183 a 5.195\n🛑 Stop do plano: 5.219 (-5.20% bruto em 10x)\n🎯 Alvo do plano: 5.182 (+1.93% bruto em 10x)\nCenário indicativo sobre a margem em 10x; custos e liquidação ainda não validados.\nMovimento sem alavancagem: TP +0.19% • SL -0.52%.\nPercentuais sobre a referência do primeiro gatilho, na direção da operação, antes de custos.\n\nMovimento observado, sem entrada liberada. Aguarde o alerta de confirmação e viabilidade.\nAlerta válido até 23:04:00 BRT.\nAnálise: 17/11/2026 23:03:33 BRT\nPlano: f31b6f2b016db85a0d8b",
       "watch_stage": 1,
       "watch_symbol": "UNI_USDT"
