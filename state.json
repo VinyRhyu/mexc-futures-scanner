@@ -2221,17 +2221,21 @@
       "watch_symbol": "ETH_USDT"
     },
     "03b0e49829a9a98eb0e5": {
-      "attempts": 0,
+      "attempts": 1,
       "category": "ENTRY",
       "created_at": 1795022735,
       "expires_at": 1795022820,
       "id": "03b0e49829a9a98eb0e5",
       "plan_id": "e3cb9e77e4b9d871b9c4",
       "quote_at": 1795022732,
+      "sent_at": 1795022741,
       "side": "LONG",
       "signal_at": 1795022700,
-      "status": "PENDING",
+      "status": "SENT",
       "symbol": "ARB_USDT",
+      "telegram_ids": [
+        9825
+      ],
       "text": "🟢 GATILHO VÁLIDO PARA SIMULAR\nARB/USDT • LONG\n🧪 SIMULAÇÃO • Confirmada\nRompimento • 2 fechamentos M1 • volume ≥50%\n\nVolume do segundo M1: 693.6% do primeiro.\n📍 Entrada: 0.12821 a 0.12852\n🛑 Stop: 0.12767 (-10.67% líquido sobre a margem)\n🎯 Alvo: 0.12986 (+11.46% líquido sobre a margem)\nMovimento sem alavancagem: TP +1.04% • SL -0.66%.\nBase dos percentuais sem alavancagem: 0.12852 (pior entrada); na direção da operação, antes de custos.\n\nMargem isolada estimada: 0.9293 USDT • 13x\nQuantidade: 94 contratos\nPerda planejada: -0.0992 USDT (-9.92% da banca)\nGanho projetado: +0.1065 USDT (+10.65% da banca)\nRetorno/risco líquido: 1.07:1 (pior entrada)\nCustos estimados: 0.0194 USDT\nROI líquido estimado sobre a margem: TP +11.46% • SL -10.67%.\nTaxa por execução: 0.06%\nDisparo do stop: último preço (Last)\n\nEstimativas de taxas, deslizamento e funding; ganho não garantido.\nFalta validar para uso real: taxa pessoal da conta; regras de margem da conta.\n\n⏱ Nova entrada até 14:27:00 BRT (1min 25s).\nGatilho M1 (segundo fechamento): 14:25:00 BRT\nCotação: 14:25:32 BRT\nAnálise: 18/11/2026 14:25:35 BRT\nA validade se aplica a novas entradas.\nPlano: e3cb9e77e4b9d871b9c4 • revisão 1",
       "variant": "CONFIRMADA"
     },
