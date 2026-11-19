@@ -1,8 +1,13 @@
 {
-  "analyzed_at": 1795069893,
-  "analyzed_symbols": 27,
+  "analyzed_at": 1795069954,
+  "analyzed_symbols": 28,
   "config_fingerprint": "a0c2766956c79181fa62",
-  "diagnostics": [],
+  "diagnostics": [
+    {
+      "reason": "LACUNA_M1_REINICIO_APENAS_FUTURO",
+      "symbol": "ICP_USDT"
+    }
+  ],
   "excluded": [
     {
       "reason": "CLASSIFICACAO_PENDENTE",
@@ -131,10 +136,6 @@
     {
       "reason": "CLASSIFICACAO_PENDENTE",
       "symbol": "ZKP_USDT"
-    },
-    {
-      "reason": "VOLUME_FINANCEIRO_INSUFICIENTE",
-      "symbol": "ICP_USDT"
     },
     {
       "reason": "CLASSIFICACAO_PENDENTE",
@@ -2681,37 +2682,37 @@
   "operational_timings": [
     {
       "commit": "71db8f2dbb5a9693f0656602b696d00135411a14",
-      "duration_s": 1.626923,
+      "duration_s": 1.380279,
       "event": "end",
-      "finished_at_utc": "2026-11-19T06:31:14.945522+00:00",
+      "finished_at_utc": "2026-11-19T06:32:15.265053+00:00",
       "phase": "market_catalog",
       "run_attempt": "1",
-      "run_id": "44472741016",
-      "started_at_utc": "2026-11-19T06:31:13.318624+00:00",
+      "run_id": "44472863131",
+      "started_at_utc": "2026-11-19T06:32:13.884802+00:00",
       "status": "OK",
       "telemetry": "phase_v1"
     },
     {
       "commit": "71db8f2dbb5a9693f0656602b696d00135411a14",
-      "duration_s": 17.747851,
+      "duration_s": 18.488491,
       "event": "end",
-      "finished_at_utc": "2026-11-19T06:31:32.696539+00:00",
+      "finished_at_utc": "2026-11-19T06:32:33.756695+00:00",
       "phase": "candles_collect",
       "run_attempt": "1",
-      "run_id": "44472741016",
-      "started_at_utc": "2026-11-19T06:31:14.948713+00:00",
+      "run_id": "44472863131",
+      "started_at_utc": "2026-11-19T06:32:15.268234+00:00",
       "status": "OK",
       "telemetry": "phase_v1"
     },
     {
       "commit": "71db8f2dbb5a9693f0656602b696d00135411a14",
-      "duration_s": 0.901651,
+      "duration_s": 0.684325,
       "event": "end",
-      "finished_at_utc": "2026-11-19T06:31:33.598596+00:00",
+      "finished_at_utc": "2026-11-19T06:32:34.441396+00:00",
       "phase": "analysis_and_finance",
       "run_attempt": "1",
-      "run_id": "44472741016",
-      "started_at_utc": "2026-11-19T06:31:32.696972+00:00",
+      "run_id": "44472863131",
+      "started_at_utc": "2026-11-19T06:32:33.757103+00:00",
       "status": "OK",
       "telemetry": "phase_v1"
     }
@@ -37702,7 +37703,7 @@
       "variants": {}
     }
   ],
-  "selected_symbols": 27,
+  "selected_symbols": 28,
   "signal_model": "m1_volume50_v1",
   "source_status": "OK"
 }
