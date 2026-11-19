@@ -6200,17 +6200,21 @@
       "watch_symbol": "ONDO_USDT"
     },
     "23b46cd7e493a80eec72": {
-      "attempts": 0,
+      "attempts": 1,
       "category": "ENTRY",
       "created_at": 1795118854,
       "expires_at": 1795118940,
       "id": "23b46cd7e493a80eec72",
       "plan_id": "f580601c96ffb3315423",
       "quote_at": 1795118852,
+      "sent_at": 1795118858,
       "side": "SHORT",
       "signal_at": 1795118820,
-      "status": "PENDING",
+      "status": "SENT",
       "symbol": "ENA_USDT",
+      "telegram_ids": [
+        10762
+      ],
       "text": "🟢 GATILHO VÁLIDO PARA SIMULAR\nENA/USDT • SHORT\n🧪 SIMULAÇÃO • Confirmada\nRompimento • 2 fechamentos M1 • volume ≥50%\n\nVolume do segundo M1: 109.1% do primeiro.\n📍 Entrada: 0.10496 a 0.10537\n🛑 Stop: 0.10602 (-11.71% líquido sobre a margem)\n🎯 Alvo: 0.10347 (+12.61% líquido sobre a margem)\nMovimento sem alavancagem: TP +1.42% • SL -1.01%.\nBase dos percentuais sem alavancagem: 0.10496 (pior entrada); na direção da operação, antes de custos.\n\nMargem isolada estimada: 0.8397 USDT • 10x\nQuantidade: 8 contratos\nPerda planejada: -0.0983 USDT (-9.83% da banca)\nGanho projetado: +0.1059 USDT (+10.59% da banca)\nRetorno/risco líquido: 1.08:1 (pior entrada)\nCustos estimados: 0.0135 USDT\nROI líquido estimado sobre a margem: TP +12.61% • SL -11.71%.\nTaxa por execução: 0.06%\nDisparo do stop: último preço (Last)\n\nEstimativas de taxas, deslizamento e funding; ganho não garantido.\nFalta validar para uso real: taxa pessoal da conta; regras de margem da conta.\n\n⏱ Nova entrada até 17:09:00 BRT (1min 26s).\nGatilho M1 (segundo fechamento): 17:07:00 BRT\nCotação: 17:07:32 BRT\nAnálise: 19/11/2026 17:07:34 BRT\nA validade se aplica a novas entradas.\nPlano: f580601c96ffb3315423 • revisão 1",
       "variant": "CONFIRMADA"
     },
