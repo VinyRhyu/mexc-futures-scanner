@@ -1,6 +1,6 @@
 {
-  "analyzed_at": 1795107572,
-  "analyzed_symbols": 30,
+  "analyzed_at": 1795107649,
+  "analyzed_symbols": 29,
   "config_fingerprint": "a0c2766956c79181fa62",
   "diagnostics": [],
   "excluded": [
@@ -115,6 +115,10 @@
     {
       "reason": "CLASSIFICACAO_PENDENTE",
       "symbol": "VVV_USDT"
+    },
+    {
+      "reason": "VOLUME_FINANCEIRO_INSUFICIENTE",
+      "symbol": "APT_USDT"
     },
     {
       "reason": "CLASSIFICACAO_PENDENTE",
@@ -2677,37 +2681,37 @@
   "operational_timings": [
     {
       "commit": "9f93310df53b77a98aa0a5166081b5693404df91",
-      "duration_s": 1.369686,
+      "duration_s": 0.78905,
       "event": "end",
-      "finished_at_utc": "2026-11-19T16:59:12.898708+00:00",
+      "finished_at_utc": "2026-11-19T17:00:30.411922+00:00",
       "phase": "market_catalog",
       "run_attempt": "1",
-      "run_id": "44572161246",
-      "started_at_utc": "2026-11-19T16:59:11.529052+00:00",
+      "run_id": "44572389185",
+      "started_at_utc": "2026-11-19T17:00:29.622897+00:00",
       "status": "OK",
       "telemetry": "phase_v1"
     },
     {
       "commit": "9f93310df53b77a98aa0a5166081b5693404df91",
-      "duration_s": 19.812711,
+      "duration_s": 19.089711,
       "event": "end",
-      "finished_at_utc": "2026-11-19T16:59:32.712232+00:00",
+      "finished_at_utc": "2026-11-19T17:00:49.502376+00:00",
       "phase": "candles_collect",
       "run_attempt": "1",
-      "run_id": "44572161246",
-      "started_at_utc": "2026-11-19T16:59:12.899547+00:00",
+      "run_id": "44572389185",
+      "started_at_utc": "2026-11-19T17:00:30.412708+00:00",
       "status": "OK",
       "telemetry": "phase_v1"
     },
     {
       "commit": "9f93310df53b77a98aa0a5166081b5693404df91",
-      "duration_s": 0.326811,
+      "duration_s": 0.470521,
       "event": "end",
-      "finished_at_utc": "2026-11-19T16:59:33.039169+00:00",
+      "finished_at_utc": "2026-11-19T17:00:49.973040+00:00",
       "phase": "analysis_and_finance",
       "run_attempt": "1",
-      "run_id": "44572161246",
-      "started_at_utc": "2026-11-19T16:59:32.712384+00:00",
+      "run_id": "44572389185",
+      "started_at_utc": "2026-11-19T17:00:49.502542+00:00",
       "status": "OK",
       "telemetry": "phase_v1"
     }
@@ -3319,7 +3323,7 @@
           "entry_low": "0.4272",
           "financial": {
             "reasons": [
-              "FALHA_DA_FONTE_NESTA_RODADA"
+              "COLETA_NAO_VALIDADA_NESTA_RODADA"
             ],
             "status": "BLOQUEADA"
           },
@@ -5595,31 +5599,6 @@
       "variants": {}
     },
     {
-      "atr": "0.0008763221417132587046573214236",
-      "detected_at": 1795021200,
-      "entry_started_at": 0,
-      "expires_at": 1795023000,
-      "family": "1f515ba1f253ffef4646",
-      "formed_at": 1795021200,
-      "id": "1f515ba1f253ffef4646",
-      "last_bar": 1795023000,
-      "level": "0.14059",
-      "lower": "0.13722",
-      "observations": [],
-      "preparation_expires_at": 1795023000,
-      "reaction_at": 0,
-      "reaction_extreme": null,
-      "reason": "PRAZO_ENCERRADO",
-      "revision": 0,
-      "side": "LONG",
-      "status": "EXPIRADO",
-      "stop": "0.14015",
-      "strategy": "ROMPIMENTO_M1_VOLUME",
-      "symbol": "XLM_USDT",
-      "upper": "0.14059",
-      "variants": {}
-    },
-    {
       "atr": "0.03182081179945469105059716534",
       "detected_at": 1795092300,
       "entry_started_at": 0,
@@ -6880,7 +6859,7 @@
           "entry_low": "0.4270",
           "financial": {
             "reasons": [
-              "FALHA_DA_FONTE_NESTA_RODADA"
+              "COLETA_NAO_VALIDADA_NESTA_RODADA"
             ],
             "status": "BLOQUEADA"
           },
@@ -8865,7 +8844,7 @@
           "entry_low": "0.4258",
           "financial": {
             "reasons": [
-              "FALHA_DA_FONTE_NESTA_RODADA"
+              "COLETA_NAO_VALIDADA_NESTA_RODADA"
             ],
             "status": "BLOQUEADA"
           },
@@ -9963,31 +9942,6 @@
           "triggered_at": 1795042080
         }
       }
-    },
-    {
-      "atr": "0.0008763221417132587046573214236",
-      "detected_at": 1795021200,
-      "entry_started_at": 0,
-      "expires_at": 1795023000,
-      "family": "456cdb50b8ef56ed19d2",
-      "formed_at": 1795021200,
-      "id": "456cdb50b8ef56ed19d2",
-      "last_bar": 1795023000,
-      "level": "0.13722",
-      "lower": "0.13722",
-      "observations": [],
-      "preparation_expires_at": 1795023000,
-      "reaction_at": 0,
-      "reaction_extreme": null,
-      "reason": "PRAZO_ENCERRADO",
-      "revision": 0,
-      "side": "SHORT",
-      "status": "EXPIRADO",
-      "stop": "0.13766",
-      "strategy": "ROMPIMENTO_M1_VOLUME",
-      "symbol": "XLM_USDT",
-      "upper": "0.14059",
-      "variants": {}
     },
     {
       "atr": "0.002039786872878930198829810906",
@@ -12995,70 +12949,6 @@
       }
     },
     {
-      "atr": "0.0008811348610074526695327894657",
-      "detected_at": 1795021200,
-      "entry_started_at": 1795022760,
-      "expires_at": 1795022940,
-      "family": "602deb0067b15f3316af",
-      "formed_at": 1795021200,
-      "id": "602deb0067b15f3316af",
-      "last_bar": 1795022940,
-      "level": "0.12833",
-      "lower": "0.12513",
-      "observations": [
-        "VOLUME_M1_PERCENT=131.7198764160659114315139032"
-      ],
-      "preparation_expires_at": 1795023000,
-      "reaction_at": 1795022760,
-      "reaction_extreme": null,
-      "reason": "PRAZO_ENCERRADO",
-      "revision": 1,
-      "side": "LONG",
-      "status": "EXPIRADO",
-      "stop": "0.12788",
-      "strategy": "ROMPIMENTO_M1_VOLUME",
-      "symbol": "ARB_USDT",
-      "upper": "0.12833",
-      "variants": {
-        "ANTECIPADA": {
-          "entry_high": "0.12864",
-          "entry_low": "0.12843",
-          "financial": {
-            "reasons": [
-              "FALHA_DA_FONTE_NESTA_RODADA"
-            ],
-            "status": "BLOQUEADA"
-          },
-          "kind": "ANTECIPADA",
-          "reason": "",
-          "reference": "0.12842",
-          "status": "ENCERRADA",
-          "stop": "0.12788",
-          "target": "0.12986",
-          "target_origin": "PIVO_CONHECIDO",
-          "triggered_at": 1795022760
-        },
-        "CONFIRMADA": {
-          "entry_high": "0.12864",
-          "entry_low": "0.12843",
-          "financial": {
-            "reasons": [
-              "FALHA_DA_FONTE_NESTA_RODADA"
-            ],
-            "status": "BLOQUEADA"
-          },
-          "kind": "CONFIRMADA",
-          "reason": "",
-          "reference": "0.12842",
-          "status": "ENCERRADA",
-          "stop": "0.12788",
-          "target": "0.12986",
-          "target_origin": "PIVO_CONHECIDO",
-          "triggered_at": 1795022820
-        }
-      }
-    },
-    {
       "atr": "0.001825016212437766639969036194",
       "detected_at": 1795095900,
       "entry_started_at": 0,
@@ -15058,31 +14948,6 @@
       }
     },
     {
-      "atr": "0.0008811348610074526695327894657",
-      "detected_at": 1795021200,
-      "entry_started_at": 0,
-      "expires_at": 1795023000,
-      "family": "75171032f13d4dd70e2b",
-      "formed_at": 1795021200,
-      "id": "75171032f13d4dd70e2b",
-      "last_bar": 1795023000,
-      "level": "0.12513",
-      "lower": "0.12513",
-      "observations": [],
-      "preparation_expires_at": 1795023000,
-      "reaction_at": 0,
-      "reaction_extreme": null,
-      "reason": "PRAZO_ENCERRADO",
-      "revision": 0,
-      "side": "SHORT",
-      "status": "EXPIRADO",
-      "stop": "0.12558",
-      "strategy": "ROMPIMENTO_M1_VOLUME",
-      "symbol": "ARB_USDT",
-      "upper": "0.12833",
-      "variants": {}
-    },
-    {
       "atr": "0.01658357685871766488651192137",
       "detected_at": 1795027500,
       "entry_started_at": 0,
@@ -15892,7 +15757,7 @@
           "entry_low": "0.4266",
           "financial": {
             "reasons": [
-              "FALHA_DA_FONTE_NESTA_RODADA"
+              "COLETA_NAO_VALIDADA_NESTA_RODADA"
             ],
             "status": "BLOQUEADA"
           },
@@ -17136,7 +17001,7 @@
           "entry_low": "0.4272",
           "financial": {
             "reasons": [
-              "FALHA_DA_FONTE_NESTA_RODADA"
+              "COLETA_NAO_VALIDADA_NESTA_RODADA"
             ],
             "status": "BLOQUEADA"
           },
@@ -20470,7 +20335,7 @@
           "entry_low": "0.4280",
           "financial": {
             "reasons": [
-              "FALHA_DA_FONTE_NESTA_RODADA"
+              "COLETA_NAO_VALIDADA_NESTA_RODADA"
             ],
             "status": "BLOQUEADA"
           },
@@ -25673,7 +25538,7 @@
       "family": "e78d2c10fa87904db759",
       "formed_at": 1795106700,
       "id": "e78d2c10fa87904db759",
-      "last_bar": 1795107540,
+      "last_bar": 1795107600,
       "level": "0.000003887",
       "lower": "0.000003811",
       "observations": [],
@@ -28067,7 +27932,7 @@
       "variants": {}
     }
   ],
-  "selected_symbols": 30,
+  "selected_symbols": 29,
   "signal_model": "m1_volume50_v1",
   "source_status": "OK"
 }
