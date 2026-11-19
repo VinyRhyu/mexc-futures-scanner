@@ -1,5 +1,5 @@
 {
-  "analyzed_at": 1795046372,
+  "analyzed_at": 1795046447,
   "analyzed_symbols": 27,
   "config_fingerprint": "a0c2766956c79181fa62",
   "diagnostics": [],
@@ -2677,37 +2677,37 @@
   "operational_timings": [
     {
       "commit": "71db8f2dbb5a9693f0656602b696d00135411a14",
-      "duration_s": 0.852748,
+      "duration_s": 1.840538,
       "event": "end",
-      "finished_at_utc": "2026-11-18T23:59:14.591756+00:00",
+      "finished_at_utc": "2026-11-19T00:00:29.093271+00:00",
       "phase": "market_catalog",
       "run_attempt": "1",
-      "run_id": "44425268965",
-      "started_at_utc": "2026-11-18T23:59:13.739028+00:00",
+      "run_id": "44425434319",
+      "started_at_utc": "2026-11-19T00:00:27.252758+00:00",
       "status": "OK",
       "telemetry": "phase_v1"
     },
     {
       "commit": "71db8f2dbb5a9693f0656602b696d00135411a14",
-      "duration_s": 17.764368,
+      "duration_s": 17.782417,
       "event": "end",
-      "finished_at_utc": "2026-11-18T23:59:32.360054+00:00",
+      "finished_at_utc": "2026-11-19T00:00:46.878901+00:00",
       "phase": "candles_collect",
       "run_attempt": "1",
-      "run_id": "44425268965",
-      "started_at_utc": "2026-11-18T23:59:14.595707+00:00",
+      "run_id": "44425434319",
+      "started_at_utc": "2026-11-19T00:00:29.096510+00:00",
       "status": "OK",
       "telemetry": "phase_v1"
     },
     {
       "commit": "71db8f2dbb5a9693f0656602b696d00135411a14",
-      "duration_s": 1.000926,
+      "duration_s": 0.983474,
       "event": "end",
-      "finished_at_utc": "2026-11-18T23:59:33.361245+00:00",
+      "finished_at_utc": "2026-11-19T00:00:47.862785+00:00",
       "phase": "analysis_and_finance",
       "run_attempt": "1",
-      "run_id": "44425268965",
-      "started_at_utc": "2026-11-18T23:59:32.360340+00:00",
+      "run_id": "44425434319",
+      "started_at_utc": "2026-11-19T00:00:46.879333+00:00",
       "status": "OK",
       "telemetry": "phase_v1"
     }
@@ -18337,50 +18337,6 @@
       "variants": {}
     },
     {
-      "atr": "0.01986364903873301767035206036",
-      "detected_at": 1794960000,
-      "entry_started_at": 1794960660,
-      "expires_at": 1794962460,
-      "family": "5718d638633eac2dcfe2",
-      "formed_at": 1794960000,
-      "id": "5718d638633eac2dcfe2",
-      "last_bar": 1794960720,
-      "level": "2.3",
-      "lower": "2.253",
-      "observations": [],
-      "preparation_expires_at": 1794961800,
-      "reaction_at": 1794960660,
-      "reaction_extreme": null,
-      "reason": "SEGUNDO_M1_NAO_SUSTENTOU",
-      "revision": 0,
-      "side": "LONG",
-      "status": "INVALIDADO",
-      "stop": "2.290",
-      "strategy": "ROMPIMENTO_M1_VOLUME",
-      "symbol": "ICP_USDT",
-      "upper": "2.3",
-      "variants": {
-        "ANTECIPADA": {
-          "entry_high": "2.306",
-          "entry_low": "2.303",
-          "financial": {
-            "reasons": [
-              "COLETA_NAO_VALIDADA_NESTA_RODADA"
-            ],
-            "status": "BLOQUEADA"
-          },
-          "kind": "ANTECIPADA",
-          "reason": "",
-          "reference": "2.302",
-          "status": "ENCERRADA",
-          "stop": "2.290",
-          "target": "2.347",
-          "target_origin": "PROJECAO_DA_FAIXA",
-          "triggered_at": 1794960660
-        }
-      }
-    },
-    {
       "atr": "0.0007643769448280043444827625843",
       "detected_at": 1795041900,
       "entry_started_at": 1795042020,
@@ -33915,31 +33871,6 @@
       "strategy": "ROMPIMENTO_M1_VOLUME",
       "symbol": "SUI_USDT",
       "upper": "0.7275",
-      "variants": {}
-    },
-    {
-      "atr": "0.01986364903873301767035206036",
-      "detected_at": 1794960000,
-      "entry_started_at": 0,
-      "expires_at": 1794961800,
-      "family": "b055f4ae3e8b0e9ce2d6",
-      "formed_at": 1794960000,
-      "id": "b055f4ae3e8b0e9ce2d6",
-      "last_bar": 1794961800,
-      "level": "2.253",
-      "lower": "2.253",
-      "observations": [],
-      "preparation_expires_at": 1794961800,
-      "reaction_at": 0,
-      "reaction_extreme": null,
-      "reason": "PRAZO_ENCERRADO",
-      "revision": 0,
-      "side": "SHORT",
-      "status": "EXPIRADO",
-      "stop": "2.263",
-      "strategy": "ROMPIMENTO_M1_VOLUME",
-      "symbol": "ICP_USDT",
-      "upper": "2.3",
       "variants": {}
     },
     {
