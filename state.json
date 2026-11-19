@@ -14017,7 +14017,7 @@
       "text": "⚠️ FALHA NA COLETA\n🧪 SIMULAÇÃO\n\nMEXC não confirmou sucesso: 510\nNenhuma nova entrada liberada.\nÚltima coleta válida: 19/11/2026 03:44:34 BRT"
     },
     "525fc10c1c30dd36ab5f": {
-      "attempts": 0,
+      "attempts": 1,
       "category": "INFO",
       "created_at": 1795091677,
       "expires_at": 1795093200,
@@ -14026,7 +14026,11 @@
         "65973b78b4bfe8ae4cad"
       ],
       "quote_at": 0,
-      "status": "PENDING",
+      "sent_at": 1795091681,
+      "status": "SENT",
+      "telegram_ids": [
+        10383
+      ],
       "text": "👀 PLANO EM PREPARAÇÃO • AGUARDANDO GATILHO\nSHIB/USDT\n🧪 SIMULAÇÃO • acompanhamento\n\nRegião em análise: 0.000003847 a 0.000003891\nSHORT somente se houver fechamento M1 abaixo de ≈ 0.00000384565.\n\nConfirmação: dois fechamentos M1 consecutivos além do gatilho; volume do segundo de pelo menos 50% do primeiro.\nTP, SL e percentuais serão definidos no primeiro gatilho. A confirmação ainda precisa passar pela avaliação financeira.\n\nSem rompimento observado neste plano e sem entrada liberada.\nPreparação até 10:00:00 BRT.\nAnálise: 19/11/2026 09:34:37 BRT\nPlanos: 65973b78b4bfe8ae4cad",
       "watch_stage": 2,
       "watch_symbol": "SHIB_USDT"
@@ -20208,13 +20212,17 @@
       "watch_symbol": "SOL_USDT"
     },
     "764f8e0f332082172b93": {
-      "attempts": 0,
+      "attempts": 1,
       "category": "INFO",
       "created_at": 1795091677,
       "expires_at": 1795095277,
       "id": "764f8e0f332082172b93",
       "quote_at": 0,
-      "status": "PENDING",
+      "sent_at": 1795091681,
+      "status": "SENT",
+      "telegram_ids": [
+        10384
+      ],
       "text": "⚪ ATUALIZAÇÃO DOS PLANOS ACOMPANHADOS\n🧪 SIMULAÇÃO\n\n• SHIB/USDT • LONG: confirmação não aprovada\n  Motivo: O volume do segundo candle M1 foi menor que50% do primeiro.\n  Plano: 41dffe0c9bd73fadf20c\n\nSem novas entradas por esses planos.\nAvisos de movimento não equivalem a entradas liberadas.\nA expiração não encerra uma posição já aberta.\nAnálise: 19/11/2026 09:34:37 BRT"
     },
     "767121c45085cb881630": {
