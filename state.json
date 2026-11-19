@@ -24657,7 +24657,7 @@
       "watch_symbol": "UNI_USDT"
     },
     "90dbeee0cdc5940c430f": {
-      "attempts": 0,
+      "attempts": 1,
       "category": "INFO",
       "created_at": 1795101515,
       "expires_at": 1795103100,
@@ -24666,7 +24666,11 @@
         "2be1460ee0816a426be3"
       ],
       "quote_at": 0,
-      "status": "PENDING",
+      "sent_at": 1795101518,
+      "status": "SENT",
+      "telegram_ids": [
+        10520
+      ],
       "text": "👀 PLANO EM PREPARAÇÃO • AGUARDANDO GATILHO\nNEAR/USDT\n🧪 SIMULAÇÃO • acompanhamento\n\nRegião em análise: 3.343 a 3.415\nLONG somente se houver fechamento M1 acima de ≈ 3.41743.\n\nConfirmação: dois fechamentos M1 consecutivos além do gatilho; volume do segundo de pelo menos 50% do primeiro.\nTP, SL e percentuais serão definidos no primeiro gatilho. A confirmação ainda precisa passar pela avaliação financeira.\n\nSem rompimento observado neste plano e sem entrada liberada.\nPreparação até 12:45:00 BRT.\nAnálise: 19/11/2026 12:18:35 BRT\nPlanos: 2be1460ee0816a426be3",
       "watch_stage": 2,
       "watch_symbol": "NEAR_USDT"
@@ -31010,7 +31014,7 @@
       "watch_symbol": "APT_USDT"
     },
     "b6ff60e29309cccffc94": {
-      "attempts": 0,
+      "attempts": 1,
       "category": "INFO",
       "created_at": 1795101515,
       "expires_at": 1795103100,
@@ -31019,7 +31023,11 @@
         "5c774c2ec2fd4fcf47e5"
       ],
       "quote_at": 0,
-      "status": "PENDING",
+      "sent_at": 1795101519,
+      "status": "SENT",
+      "telegram_ids": [
+        10521
+      ],
       "text": "👀 PLANO EM PREPARAÇÃO • AGUARDANDO GATILHO\nLINK/USDT\n🧪 SIMULAÇÃO • acompanhamento\n\nRegião em análise: 9.152 a 9.272\nLONG somente se houver fechamento M1 acima de ≈ 9.27635.\n\nConfirmação: dois fechamentos M1 consecutivos além do gatilho; volume do segundo de pelo menos 50% do primeiro.\nTP, SL e percentuais serão definidos no primeiro gatilho. A confirmação ainda precisa passar pela avaliação financeira.\n\nSem rompimento observado neste plano e sem entrada liberada.\nPreparação até 12:45:00 BRT.\nAnálise: 19/11/2026 12:18:35 BRT\nPlanos: 5c774c2ec2fd4fcf47e5",
       "watch_stage": 2,
       "watch_symbol": "LINK_USDT"
@@ -31680,11 +31688,12 @@
       "text": "⚪ ATUALIZAÇÃO DOS PLANOS ACOMPANHADOS\n🧪 SIMULAÇÃO\n\n• SUI/USDT • LONG: prazo para nova entrada encerrado\n  Motivo: A janela para uma nova entrada terminou.\n  Plano: 0094ec07b3dec04f7dcc\n\nSem novas entradas por esses planos.\nAvisos de movimento não equivalem a entradas liberadas.\nA expiração não encerra uma posição já aberta.\nAnálise: 18/11/2026 04:14:33 BRT"
     },
     "ba2c55773ed40c0e9795": {
-      "attempts": 0,
+      "attempts": 1,
       "category": "INFO",
       "created_at": 1795101515,
       "expires_at": 1795103100,
       "id": "ba2c55773ed40c0e9795",
+      "last_error": "TELEGRAM_FALHA_OU_RESULTADO_AMBIGUO: URLError",
       "plan_ids": [
         "55ca1094616286fd97f9"
       ],
