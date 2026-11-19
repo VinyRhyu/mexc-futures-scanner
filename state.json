@@ -30179,7 +30179,7 @@
       "text": "⚪ ATUALIZAÇÃO DOS PLANOS ACOMPANHADOS\n🧪 SIMULAÇÃO\n\n• XRP/USDT • LONG: prazo para nova entrada encerrado\n  Motivo: A janela para uma nova entrada terminou.\n  Plano: 2d2829d8993bc84d1544\n• NEAR/USDT • SHORT: prazo para nova entrada encerrado\n  Motivo: A janela para uma nova entrada terminou.\n  Plano: a2ceba848fdfb8803452\n• NEAR/USDT • LONG: prazo para nova entrada encerrado\n  Motivo: A janela para uma nova entrada terminou.\n  Plano: bcfa0f528e772c90faae\n\nSem novas entradas por esses planos.\nAvisos de movimento não equivalem a entradas liberadas.\nA expiração não encerra uma posição já aberta.\nAnálise: 18/11/2026 16:45:49 BRT"
     },
     "b3c7157439bc8fb0f3dd": {
-      "attempts": 0,
+      "attempts": 1,
       "category": "INFO",
       "created_at": 1795118612,
       "expires_at": 1795118640,
@@ -30190,7 +30190,11 @@
         "448c7892f89f71bb8822"
       ],
       "quote_at": 0,
-      "status": "PENDING",
+      "sent_at": 1795118615,
+      "status": "SENT",
+      "telegram_ids": [
+        10750
+      ],
       "text": "🟡 MOVIMENTO DETECTADO • AINDA SEM CONFIRMAÇÃO\nHBAR/USDT • BAIXA (SHORT)\n🧪 SIMULAÇÃO • acompanhamento\n\nRompimento observado no M1 fechado às 17:03:00 BRT.\nPreço de referência do primeiro gatilho: 0.05468.\n\nPrimeiro fechamento além da região identificado.\nFalta o segundo fechamento sustentar o nível, com volume de pelo menos 50% do primeiro.\nApós confirmar, o plano ainda precisa passar pela avaliação financeira.\n\nFaixa em estudo: 0.05459 a 0.05467\n🛑 Stop do plano: 0.05492 (-4.39% bruto em 10x)\n🎯 Alvo do plano: 0.05443 (+4.57% bruto em 10x)\nCenário indicativo sobre a margem em 10x; custos e liquidação ainda não validados.\nMovimento sem alavancagem: TP +0.46% • SL -0.44%.\nPercentuais sobre a referência do primeiro gatilho, na direção da operação, antes de custos.\n\nMovimento observado, sem entrada liberada. Aguarde o alerta de confirmação e viabilidade.\nAlerta válido até 17:04:00 BRT.\nAnálise: 19/11/2026 17:03:32 BRT\nPlano: 448c7892f89f71bb8822",
       "watch_stage": 1,
       "watch_symbol": "HBAR_USDT"
