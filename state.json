@@ -785,7 +785,7 @@
       "text": "⚪ ATUALIZAÇÃO DOS PLANOS ACOMPANHADOS\n🧪 SIMULAÇÃO\n\n• ZEC/USDT • SHORT: alvo do plano alcançado durante o acompanhamento\n  Motivo: O movimento já alcançou o alvo do plano.\n  Plano: 11587f84fa6e7f330ad0\n• ZEC/USDT • SHORT: alvo do plano alcançado durante o acompanhamento\n  Motivo: O movimento já alcançou o alvo do plano.\n  Plano: a3d6855d97447b0b41e0\n\nSem novas entradas por esses planos.\nAvisos de movimento não equivalem a entradas liberadas.\nA expiração não encerra uma posição já aberta.\nAnálise: 18/11/2026 13:21:32 BRT"
     },
     "04f78e5b8fe853e28c82": {
-      "attempts": 0,
+      "attempts": 1,
       "category": "INFO",
       "created_at": 1795126121,
       "expires_at": 1795126140,
@@ -796,7 +796,11 @@
         "a5d85edf15c757000bd7"
       ],
       "quote_at": 0,
-      "status": "PENDING",
+      "sent_at": 1795126123,
+      "status": "SENT",
+      "telegram_ids": [
+        10898
+      ],
       "text": "🟡 MOVIMENTO DETECTADO • AINDA SEM CONFIRMAÇÃO\nARB/USDT • BAIXA (SHORT)\n🧪 SIMULAÇÃO • acompanhamento\n\nRompimento observado no M1 fechado às 19:08:00 BRT.\nPreço de referência do primeiro gatilho: 0.12161.\n\nPrimeiro fechamento além da região identificado.\nFalta o segundo fechamento sustentar o nível, com volume de pelo menos 50% do primeiro.\nApós confirmar, o plano ainda precisa passar pela avaliação financeira.\n\nFaixa em estudo: 0.1214 a 0.1216\n🛑 Stop do plano: 0.12213 (-4.28% bruto em 10x)\n🎯 Alvo do plano: 0.12155 (+0.49% bruto em 10x)\nCenário indicativo sobre a margem em 10x; custos e liquidação ainda não validados.\nMovimento sem alavancagem: TP +0.049% • SL -0.43%.\nPercentuais sobre a referência do primeiro gatilho, na direção da operação, antes de custos.\n\nMovimento observado, sem entrada liberada. Aguarde o alerta de confirmação e viabilidade.\nAlerta válido até 19:09:00 BRT.\nAnálise: 19/11/2026 19:08:41 BRT\nPlano: a5d85edf15c757000bd7",
       "watch_stage": 1,
       "watch_symbol": "ARB_USDT"
