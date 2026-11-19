@@ -43265,7 +43265,7 @@
       "text": "⚪ ATUALIZAÇÃO DOS PLANOS ACOMPANHADOS\n🧪 SIMULAÇÃO\n\n• ARB/USDT • SHORT: prazo para nova entrada encerrado\n  Motivo: A janela para uma nova entrada terminou.\n  Plano: 2e709f2d25d50a69aa16\n• HYPE/USDT • SHORT: alvo do plano alcançado durante o acompanhamento\n  Motivo: O movimento já alcançou o alvo do plano.\n  Plano: 6d568436ec92c59dd3c1\n\nSem novas entradas por esses planos.\nAvisos de movimento não equivalem a entradas liberadas.\nA expiração não encerra uma posição já aberta.\nAnálise: 18/11/2026 07:37:31 BRT"
     },
     "fdd8ca77e8127b9df9f2": {
-      "attempts": 0,
+      "attempts": 1,
       "category": "INFO",
       "created_at": 1795099295,
       "expires_at": 1795099380,
@@ -43276,7 +43276,11 @@
         "4e6292d7ed95e8611d3a"
       ],
       "quote_at": 0,
-      "status": "PENDING",
+      "sent_at": 1795099298,
+      "status": "SENT",
+      "telegram_ids": [
+        10449
+      ],
       "text": "🟡 MOVIMENTO DETECTADO • ENTRADA BLOQUEADA\nUNI/USDT • BAIXA (SHORT)\n🧪 SIMULAÇÃO • acompanhamento\n\nRompimento observado no M1 fechado às 11:41:00 BRT.\nPreço de referência do primeiro gatilho: 5.098.\n\nConfirmação técnica identificada; entrada bloqueada.\nCondição pendente: A relação entre ganho e perda ficou abaixo do mínimo.\n\nFaixa em estudo: 5.092 a 5.103\n🛑 Stop do plano: 5.121 (-4.51% bruto em 10x)\n🎯 Alvo do plano: 5.086 (+2.35% bruto em 10x)\nCenário indicativo sobre a margem em 10x; custos e liquidação ainda não validados.\nMovimento sem alavancagem: TP +0.24% • SL -0.45%.\nPercentuais sobre a referência do primeiro gatilho, na direção da operação, antes de custos.\n\nMovimento observado, sem entrada liberada. Aguarde o alerta de confirmação e viabilidade.\nAlerta válido até 11:43:00 BRT.\nAnálise: 19/11/2026 11:41:35 BRT\nPlano: 4e6292d7ed95e8611d3a",
       "watch_stage": 0,
       "watch_symbol": "UNI_USDT"
