@@ -1,5 +1,5 @@
 {
-  "analyzed_at": 1795105172,
+  "analyzed_at": 1795105239,
   "analyzed_symbols": 30,
   "config_fingerprint": "a0c2766956c79181fa62",
   "diagnostics": [],
@@ -7,6 +7,10 @@
     {
       "reason": "CLASSIFICACAO_PENDENTE",
       "symbol": "XAU_USDT"
+    },
+    {
+      "reason": "CLASSIFICACAO_PENDENTE",
+      "symbol": "EVAA_USDT"
     },
     {
       "reason": "CLASSIFICACAO_PENDENTE",
@@ -23,10 +27,6 @@
     {
       "reason": "CLASSIFICACAO_PENDENTE",
       "symbol": "IRYS_USDT"
-    },
-    {
-      "reason": "CLASSIFICACAO_PENDENTE",
-      "symbol": "EVAA_USDT"
     },
     {
       "reason": "NAO_CRIPTO",
@@ -2677,37 +2677,37 @@
   "operational_timings": [
     {
       "commit": "9f93310df53b77a98aa0a5166081b5693404df91",
-      "duration_s": 1.39483,
+      "duration_s": 1.605444,
       "event": "end",
-      "finished_at_utc": "2026-11-19T16:19:13.140218+00:00",
+      "finished_at_utc": "2026-11-19T16:20:19.816365+00:00",
       "phase": "market_catalog",
       "run_attempt": "1",
-      "run_id": "44564711115",
-      "started_at_utc": "2026-11-19T16:19:11.745412+00:00",
+      "run_id": "44564919051",
+      "started_at_utc": "2026-11-19T16:20:18.210946+00:00",
       "status": "OK",
       "telemetry": "phase_v1"
     },
     {
       "commit": "9f93310df53b77a98aa0a5166081b5693404df91",
-      "duration_s": 19.832619,
+      "duration_s": 19.799457,
       "event": "end",
-      "finished_at_utc": "2026-11-19T16:19:32.973636+00:00",
+      "finished_at_utc": "2026-11-19T16:20:39.616578+00:00",
       "phase": "candles_collect",
       "run_attempt": "1",
-      "run_id": "44564711115",
-      "started_at_utc": "2026-11-19T16:19:13.141046+00:00",
+      "run_id": "44564919051",
+      "started_at_utc": "2026-11-19T16:20:19.817144+00:00",
       "status": "OK",
       "telemetry": "phase_v1"
     },
     {
       "commit": "9f93310df53b77a98aa0a5166081b5693404df91",
-      "duration_s": 0.388324,
+      "duration_s": 0.393467,
       "event": "end",
-      "finished_at_utc": "2026-11-19T16:19:33.362071+00:00",
+      "finished_at_utc": "2026-11-19T16:20:40.010128+00:00",
       "phase": "analysis_and_finance",
       "run_attempt": "1",
-      "run_id": "44564711115",
-      "started_at_utc": "2026-11-19T16:19:32.973772+00:00",
+      "run_id": "44564919051",
+      "started_at_utc": "2026-11-19T16:20:39.616691+00:00",
       "status": "OK",
       "telemetry": "phase_v1"
     }
@@ -5458,7 +5458,7 @@
       "family": "1cbb53ea83af282caf66",
       "formed_at": 1795104900,
       "id": "1cbb53ea83af282caf66",
-      "last_bar": 1795105140,
+      "last_bar": 1795105200,
       "level": "7.048",
       "lower": "7.048",
       "observations": [],
@@ -11943,7 +11943,7 @@
       "family": "5623a0829ef3ae881373",
       "formed_at": 1795104000,
       "id": "5623a0829ef3ae881373",
-      "last_bar": 1795105140,
+      "last_bar": 1795105200,
       "level": "7.293",
       "lower": "7.048",
       "observations": [],
@@ -12958,7 +12958,7 @@
       "family": "5f43800ff972ee21b8db",
       "formed_at": 1795104900,
       "id": "5f43800ff972ee21b8db",
-      "last_bar": 1795105140,
+      "last_bar": 1795105200,
       "level": "7.29",
       "lower": "7.048",
       "observations": [],
@@ -26706,7 +26706,7 @@
       "family": "f0fd897a94fc0b99e5af",
       "formed_at": 1795104000,
       "id": "f0fd897a94fc0b99e5af",
-      "last_bar": 1795105140,
+      "last_bar": 1795105200,
       "level": "7.048",
       "lower": "7.048",
       "observations": [],
