@@ -1,117 +1,8 @@
 {
-  "analyzed_at": 1795069842,
+  "analyzed_at": 1795069893,
   "analyzed_symbols": 27,
   "config_fingerprint": "a0c2766956c79181fa62",
-  "diagnostics": [
-    {
-      "reason": "LACUNA_M1_REINICIO_APENAS_FUTURO",
-      "symbol": "AAVE_USDT"
-    },
-    {
-      "reason": "LACUNA_M1_REINICIO_APENAS_FUTURO",
-      "symbol": "ADA_USDT"
-    },
-    {
-      "reason": "LACUNA_M1_REINICIO_APENAS_FUTURO",
-      "symbol": "APT_USDT"
-    },
-    {
-      "reason": "LACUNA_M1_REINICIO_APENAS_FUTURO",
-      "symbol": "ARB_USDT"
-    },
-    {
-      "reason": "LACUNA_M1_REINICIO_APENAS_FUTURO",
-      "symbol": "AVAX_USDT"
-    },
-    {
-      "reason": "LACUNA_M1_REINICIO_APENAS_FUTURO",
-      "symbol": "BNB_USDT"
-    },
-    {
-      "reason": "LACUNA_M1_REINICIO_APENAS_FUTURO",
-      "symbol": "BTC_USDT"
-    },
-    {
-      "reason": "LACUNA_M1_REINICIO_APENAS_FUTURO",
-      "symbol": "DOGE_USDT"
-    },
-    {
-      "reason": "LACUNA_M1_REINICIO_APENAS_FUTURO",
-      "symbol": "DOT_USDT"
-    },
-    {
-      "reason": "LACUNA_M1_REINICIO_APENAS_FUTURO",
-      "symbol": "ENA_USDT"
-    },
-    {
-      "reason": "LACUNA_M1_REINICIO_APENAS_FUTURO",
-      "symbol": "ETH_USDT"
-    },
-    {
-      "reason": "LACUNA_M1_REINICIO_APENAS_FUTURO",
-      "symbol": "HYPE_USDT"
-    },
-    {
-      "reason": "LACUNA_M1_REINICIO_APENAS_FUTURO",
-      "symbol": "INJ_USDT"
-    },
-    {
-      "reason": "LACUNA_M1_REINICIO_APENAS_FUTURO",
-      "symbol": "LINK_USDT"
-    },
-    {
-      "reason": "LACUNA_M1_REINICIO_APENAS_FUTURO",
-      "symbol": "NEAR_USDT"
-    },
-    {
-      "reason": "LACUNA_M1_REINICIO_APENAS_FUTURO",
-      "symbol": "ONDO_USDT"
-    },
-    {
-      "reason": "LACUNA_M1_REINICIO_APENAS_FUTURO",
-      "symbol": "PEPE_USDT"
-    },
-    {
-      "reason": "LACUNA_M1_REINICIO_APENAS_FUTURO",
-      "symbol": "QNT_USDT"
-    },
-    {
-      "reason": "LACUNA_M1_REINICIO_APENAS_FUTURO",
-      "symbol": "SOL_USDT"
-    },
-    {
-      "reason": "LACUNA_M1_REINICIO_APENAS_FUTURO",
-      "symbol": "SUI_USDT"
-    },
-    {
-      "reason": "LACUNA_M1_REINICIO_APENAS_FUTURO",
-      "symbol": "TAO_USDT"
-    },
-    {
-      "reason": "LACUNA_M1_REINICIO_APENAS_FUTURO",
-      "symbol": "TIA_USDT"
-    },
-    {
-      "reason": "LACUNA_M1_REINICIO_APENAS_FUTURO",
-      "symbol": "UNI_USDT"
-    },
-    {
-      "reason": "LACUNA_M1_REINICIO_APENAS_FUTURO",
-      "symbol": "WLD_USDT"
-    },
-    {
-      "reason": "LACUNA_M1_REINICIO_APENAS_FUTURO",
-      "symbol": "XLM_USDT"
-    },
-    {
-      "reason": "LACUNA_M1_REINICIO_APENAS_FUTURO",
-      "symbol": "XRP_USDT"
-    },
-    {
-      "reason": "LACUNA_M1_REINICIO_APENAS_FUTURO",
-      "symbol": "ZEC_USDT"
-    }
-  ],
+  "diagnostics": [],
   "excluded": [
     {
       "reason": "CLASSIFICACAO_PENDENTE",
@@ -2790,37 +2681,37 @@
   "operational_timings": [
     {
       "commit": "71db8f2dbb5a9693f0656602b696d00135411a14",
-      "duration_s": 1.110438,
+      "duration_s": 1.626923,
       "event": "end",
-      "finished_at_utc": "2026-11-19T06:30:24.017186+00:00",
+      "finished_at_utc": "2026-11-19T06:31:14.945522+00:00",
       "phase": "market_catalog",
       "run_attempt": "1",
-      "run_id": "44472630711",
-      "started_at_utc": "2026-11-19T06:30:22.906777+00:00",
+      "run_id": "44472741016",
+      "started_at_utc": "2026-11-19T06:31:13.318624+00:00",
       "status": "OK",
       "telemetry": "phase_v1"
     },
     {
       "commit": "71db8f2dbb5a9693f0656602b696d00135411a14",
-      "duration_s": 17.840921,
+      "duration_s": 17.747851,
       "event": "end",
-      "finished_at_utc": "2026-11-19T06:30:41.861302+00:00",
+      "finished_at_utc": "2026-11-19T06:31:32.696539+00:00",
       "phase": "candles_collect",
       "run_attempt": "1",
-      "run_id": "44472630711",
-      "started_at_utc": "2026-11-19T06:30:24.020409+00:00",
+      "run_id": "44472741016",
+      "started_at_utc": "2026-11-19T06:31:14.948713+00:00",
       "status": "OK",
       "telemetry": "phase_v1"
     },
     {
       "commit": "71db8f2dbb5a9693f0656602b696d00135411a14",
-      "duration_s": 0.507079,
+      "duration_s": 0.901651,
       "event": "end",
-      "finished_at_utc": "2026-11-19T06:30:42.368733+00:00",
+      "finished_at_utc": "2026-11-19T06:31:33.598596+00:00",
       "phase": "analysis_and_finance",
       "run_attempt": "1",
-      "run_id": "44472630711",
-      "started_at_utc": "2026-11-19T06:30:41.861683+00:00",
+      "run_id": "44472741016",
+      "started_at_utc": "2026-11-19T06:31:32.696972+00:00",
       "status": "OK",
       "telemetry": "phase_v1"
     }
