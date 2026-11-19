@@ -57,6 +57,56 @@ def restore(directory: Path):
     print(json.dumps({"action": "restore", "existing": bool(base)}))
 
 
+
+# Operational state is short-lived. Historical revisions stay recoverable through
+# scanner-state's non-rewritten Git ancestry, and decision audit logs are not pruned.
+RETENTION_SECONDS = 48 * 60 * 60
+TERMINAL_PLANS = frozenset({"EXPIRADO", "INVALIDADO", "AMBIGUO", "EVENTO_PASSADO"})
+FINISHED_MESSAGES = frozenset({"SENT", "EXPIRED"})
+
+
+def prune_expired_state_records(state: dict) -> dict:
+    """Bound paper-state growth without losing active signals or delivery safety."""
+    counts = {"plans": 0, "outbox": 0}
+    last_success = state.get("last_success")
+    if (state.get("schema_version") != 1 or state.get("mode") != "paper"
+            or type(last_success) is not int or last_success <= 0):
+        return counts
+    cutoff = last_success - RETENTION_SECONDS
+    wallet = state.get("wallet", {})
+    protected = set()
+    for key in ("pending", "position"):
+        item = wallet.get(key)
+        if isinstance(item, dict) and item.get("plan_id"):
+            protected.add(item["plan_id"])
+    for record in state.get("journal", []):
+        if isinstance(record, dict) and record.get("plan_id"):
+            protected.add(record["plan_id"])
+    for message in state.get("outbox", {}).values():
+        if message.get("status") in FINISHED_MESSAGES:
+            continue
+        if message.get("plan_id"):
+            protected.add(message["plan_id"])
+        protected.update(message.get("plan_ids", []))
+
+    plans = state.get("plans", {})
+    state["plans"] = {
+        pid: plan for pid, plan in plans.items()
+        if pid in protected or plan.get("status") not in TERMINAL_PLANS
+        or max(plan.get("expires_at", 0), plan.get("formed_at", 0)) >= cutoff
+    }
+    counts["plans"] = len(plans) - len(state["plans"])
+    outbox = state.get("outbox", {})
+    state["outbox"] = {
+        mid: message for mid, message in outbox.items()
+        if message.get("status") not in FINISHED_MESSAGES
+        or max(message.get("created_at", 0), message.get("sent_at", 0),
+               message.get("expires_at", 0)) >= cutoff
+    }
+    counts["outbox"] = len(outbox) - len(state["outbox"])
+    return counts
+
+
 def save(directory: Path):
     if not BASE_FILE.exists() or not (directory / "state.json").exists():
         raise RuntimeError("Estado/base ausente; restaurar e validar antes de salvar")
@@ -66,7 +116,13 @@ def save(directory: Path):
     if current != base:
         raise RuntimeError("Estado remoto mudou; não sobrescrever nem notificar a partir de estado antigo")
     # Confirmar leitura JSON antes de publicar qualquer snapshot de estado.
-    json.loads((directory / "state.json").read_text())
+    state = json.loads((directory / "state.json").read_text())
+    removed = prune_expired_state_records(state)
+    if removed["plans"] or removed["outbox"]:
+        from mexc_scanner.state import atomic_json
+        atomic_json(directory / "state.json", state)
+        print(json.dumps({"action": "prune_paper_state", "removed": removed,
+                          "retention_hours": RETENTION_SECONDS // 3600}))
     identity = os.environ.copy()
     identity.update({"GIT_AUTHOR_NAME": "github-actions[bot]", "GIT_COMMITTER_NAME": "github-actions[bot]",
         "GIT_AUTHOR_EMAIL": "github-actions[bot]@users.noreply.github.com",
