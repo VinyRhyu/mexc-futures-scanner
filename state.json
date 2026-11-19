@@ -9230,13 +9230,17 @@
       "watch_symbol": "ICP_USDT"
     },
     "34f434e2467ddfaf52b1": {
-      "attempts": 0,
+      "attempts": 1,
       "category": "INFO",
       "created_at": 1795117241,
       "expires_at": 1795120841,
       "id": "34f434e2467ddfaf52b1",
       "quote_at": 0,
-      "status": "PENDING",
+      "sent_at": 1795117246,
+      "status": "SENT",
+      "telegram_ids": [
+        10710
+      ],
       "text": "⚪ ATUALIZAÇÃO DOS PLANOS ACOMPANHADOS\n🧪 SIMULAÇÃO\n\n• XRP/USDT • SHORT: prazo para nova entrada encerrado\n  Motivo: A janela para uma nova entrada terminou.\n  Plano: 2146be5a4913dff32b2d\n\nSem novas entradas por esses planos.\nAvisos de movimento não equivalem a entradas liberadas.\nA expiração não encerra uma posição já aberta.\nAnálise: 19/11/2026 16:40:41 BRT"
     },
     "34fd680c4cbed5cf4ed7": {
@@ -25101,7 +25105,7 @@
       "watch_symbol": "SUI_USDT"
     },
     "9399808dfb7eb55aded6": {
-      "attempts": 0,
+      "attempts": 1,
       "category": "INFO",
       "created_at": 1795117241,
       "expires_at": 1795117260,
@@ -25112,7 +25116,11 @@
         "b921751dbfc7ad318f20"
       ],
       "quote_at": 0,
-      "status": "PENDING",
+      "sent_at": 1795117245,
+      "status": "SENT",
+      "telegram_ids": [
+        10708
+      ],
       "text": "🟡 MOVIMENTO DETECTADO • AINDA SEM CONFIRMAÇÃO\nSOL/USDT • BAIXA (SHORT)\n🧪 SIMULAÇÃO • acompanhamento\n\nRompimento observado no M1 fechado às 16:40:00 BRT.\nPreço de referência do primeiro gatilho: 73.56.\n\nPrimeiro fechamento além da região identificado.\nFalta o segundo fechamento sustentar o nível, com volume de pelo menos 50% do primeiro.\nApós confirmar, o plano ainda precisa passar pela avaliação financeira.\n\nFaixa em estudo: 73.44 a 73.58\n🛑 Stop do plano: 73.89 (-4.49% bruto em 10x)\n🎯 Alvo do plano: 72.89 (+9.11% bruto em 10x)\nCenário indicativo sobre a margem em 10x; custos e liquidação ainda não validados.\nMovimento sem alavancagem: TP +0.91% • SL -0.45%.\nPercentuais sobre a referência do primeiro gatilho, na direção da operação, antes de custos.\n\nMovimento observado, sem entrada liberada. Aguarde o alerta de confirmação e viabilidade.\nAlerta válido até 16:41:00 BRT.\nAnálise: 19/11/2026 16:40:41 BRT\nPlano: b921751dbfc7ad318f20",
       "watch_stage": 1,
       "watch_symbol": "SOL_USDT"
@@ -40001,7 +40009,7 @@
       "watch_symbol": "SHIB_USDT"
     },
     "e951fd5005298207ffa8": {
-      "attempts": 0,
+      "attempts": 1,
       "category": "INFO",
       "created_at": 1795117241,
       "expires_at": 1795118400,
@@ -40010,7 +40018,11 @@
         "c0c7acbd954565e1a4e5"
       ],
       "quote_at": 0,
-      "status": "PENDING",
+      "sent_at": 1795117245,
+      "status": "SENT",
+      "telegram_ids": [
+        10709
+      ],
       "text": "👀 PLANO EM PREPARAÇÃO • AGUARDANDO GATILHO\nXRP/USDT\n🧪 SIMULAÇÃO • acompanhamento\n\nRegião em análise: 0.967 a 0.9802\nLONG somente se houver fechamento M1 acima de ≈ 0.98084.\n\nConfirmação: dois fechamentos M1 consecutivos além do gatilho; volume do segundo de pelo menos 50% do primeiro.\nTP, SL e percentuais serão definidos no primeiro gatilho. A confirmação ainda precisa passar pela avaliação financeira.\n\nSem rompimento observado neste plano e sem entrada liberada.\nPreparação até 17:00:00 BRT.\nAnálise: 19/11/2026 16:40:41 BRT\nPlanos: c0c7acbd954565e1a4e5",
       "watch_stage": 2,
       "watch_symbol": "XRP_USDT"
