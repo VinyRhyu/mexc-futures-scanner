@@ -1,17 +1,13 @@
 # MEXC Futures Scanner — rodada
 
-Modo: **paper**. Análise: 19/11/2026 12:41:12 BRT.
+Modo: **paper**. Análise: 19/11/2026 12:42:34 BRT.
 
-Fonte: FALHA
-Cobertura: 0/0 contratos selecionados.
+Fonte: OK
+Cobertura: 30/30 contratos selecionados.
 
 Retorno/risco líquido mínimo: **1:1**.
 
 Alavancagem de simulação: **10x a 20x**.
-
-**Falha de coleta:** MEXC não confirmou sucesso: 510
-
-Nenhuma entrada nova foi liberada com essa falha.
 
 ## Sinais e observações
 
@@ -609,7 +605,7 @@ Nenhuma entrada nova foi liberada com essa falha.
 | HYPE_USDT | ROMPIMENTO_M1_VOLUME | LONG | INVALIDADO | ANTECIPADA | FALHA_DA_FONTE_NESTA_RODADA |
 | HBAR_USDT | ROMPIMENTO_M1_VOLUME | LONG | EVENTO_PASSADO | ANTECIPADA | FALHA_DA_FONTE_NESTA_RODADA |
 | AVAX_USDT | ROMPIMENTO_M1_VOLUME | SHORT | EXPIRADO | — | PRAZO_ENCERRADO |
-| ICP_USDT | ROMPIMENTO_M1_VOLUME | SHORT | EVENTO_PASSADO | ANTECIPADA | FALHA_DA_FONTE_NESTA_RODADA |
+| ICP_USDT | ROMPIMENTO_M1_VOLUME | SHORT | EVENTO_PASSADO | ANTECIPADA | COLETA_NAO_VALIDADA_NESTA_RODADA |
 | ADA_USDT | ROMPIMENTO_M1_VOLUME | SHORT | EXPIRADO | — | PRAZO_ENCERRADO |
 | HYPE_USDT | ROMPIMENTO_M1_VOLUME | LONG | EXPIRADO | — | PRAZO_ENCERRADO |
 | ENA_USDT | ROMPIMENTO_M1_VOLUME | SHORT | EXPIRADO | — | PRAZO_ENCERRADO |
