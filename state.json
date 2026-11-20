@@ -788,17 +788,21 @@
       "watch_symbol": "UNI_USDT"
     },
     "02be7b7ce18b8144e0f0": {
-      "attempts": 0,
+      "attempts": 1,
       "category": "ENTRY",
       "created_at": 1795212575,
       "expires_at": 1795212660,
       "id": "02be7b7ce18b8144e0f0",
       "plan_id": "cd49a0dc029e9f20cb42",
       "quote_at": 1795212571,
+      "sent_at": 1795212580,
       "side": "LONG",
       "signal_at": 1795212540,
-      "status": "PENDING",
+      "status": "SENT",
       "symbol": "NEAR_USDT",
+      "telegram_ids": [
+        12839
+      ],
       "text": "🟢 GATILHO VÁLIDO PARA SIMULAR\nNEAR/USDT • LONG\n🧪 SIMULAÇÃO • Confirmada\nRompimento • 2 fechamentos M1 • volume ≥50%\n\nVolume do segundo M1: 91.5% do primeiro.\n📍 Entrada: 2.849 a 2.858\n🛑 Stop: 2.825 (-14.20% líquido sobre a margem)\n🎯 Alvo: 2.927 (+21.46% líquido sobre a margem)\nMovimento sem alavancagem: TP +2.41% • SL -1.15%.\nBase dos percentuais sem alavancagem: 2.858 (pior entrada); na direção da operação, antes de custos.\n\nMargem isolada estimada: 0.5716 USDT • 10x\nQuantidade: 2 contratos\nPerda planejada: -0.0812 USDT (-8.12% da banca)\nGanho projetado: +0.1227 USDT (+12.27% da banca)\nRetorno/risco líquido: 1.51:1 (pior entrada)\nCustos estimados: 0.0153 USDT\nROI líquido estimado sobre a margem: TP +21.46% • SL -14.20%.\nTaxa por execução: 0.06%\nDisparo do stop: último preço (Last)\n\nEstimativas de taxas, deslizamento e funding; ganho não garantido.\nFalta validar para uso real: taxa pessoal da conta; regras de margem da conta.\n\n⏱ Nova entrada até 19:11:00 BRT (1min 25s).\nGatilho M1 (segundo fechamento): 19:09:00 BRT\nCotação: 19:09:31 BRT\nAnálise: 20/11/2026 19:09:35 BRT\nA validade se aplica a novas entradas.\nPlano: cd49a0dc029e9f20cb42 • revisão 1",
       "variant": "CONFIRMADA"
     },
@@ -13978,7 +13982,7 @@
       "text": "⚪ ATUALIZAÇÃO DOS PLANOS ACOMPANHADOS\n🧪 SIMULAÇÃO\n\n• SKY/USDT • LONG: prazo para nova entrada encerrado\n  Motivo: A janela para uma nova entrada terminou.\n  Plano: be78bc5e03fb4a31c6c3\n\nSem novas entradas por esses planos.\nAvisos de movimento não equivalem a entradas liberadas.\nA expiração não encerra uma posição já aberta.\nAnálise: 20/11/2026 10:19:35 BRT"
     },
     "3f1fae78f93495a65d7c": {
-      "attempts": 0,
+      "attempts": 1,
       "category": "INFO",
       "created_at": 1795212575,
       "expires_at": 1795212600,
@@ -13989,7 +13993,11 @@
         "85081879c88bb6f07dff"
       ],
       "quote_at": 0,
-      "status": "PENDING",
+      "sent_at": 1795212581,
+      "status": "SENT",
+      "telegram_ids": [
+        12840
+      ],
       "text": "🟡 MOVIMENTO DETECTADO • AINDA SEM CONFIRMAÇÃO\nXLM/USDT • ALTA (LONG)\n🧪 SIMULAÇÃO • acompanhamento\n\nRompimento observado no M1 fechado às 19:09:00 BRT.\nPreço de referência do primeiro gatilho: 0.12816.\n\nPrimeiro fechamento além da região identificado.\nFalta o segundo fechamento sustentar o nível, com volume de pelo menos 50% do primeiro.\nApós confirmar, o plano ainda precisa passar pela avaliação financeira.\n\nFaixa em estudo: 0.12811 a 0.12845\n🛑 Stop do plano: 0.12738 (-6.09% bruto em 10x)\n🎯 Alvo do plano: 0.12904 (+6.87% bruto em 10x)\nCenário indicativo sobre a margem em 10x; custos e liquidação ainda não validados.\nMovimento sem alavancagem: TP +0.69% • SL -0.61%.\nPercentuais sobre a referência do primeiro gatilho, na direção da operação, antes de custos.\n\nMovimento observado, sem entrada liberada. Aguarde o alerta de confirmação e viabilidade.\nAlerta válido até 19:10:00 BRT.\nAnálise: 20/11/2026 19:09:35 BRT\nPlano: 85081879c88bb6f07dff",
       "watch_stage": 1,
       "watch_symbol": "XLM_USDT"
