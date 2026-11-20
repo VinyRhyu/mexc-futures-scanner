@@ -24112,13 +24112,17 @@
       "watch_symbol": "AAVE_USDT"
     },
     "7381743590af55f6bc6f": {
-      "attempts": 0,
+      "attempts": 1,
       "category": "INFO",
       "created_at": 1795212814,
       "expires_at": 1795216414,
       "id": "7381743590af55f6bc6f",
       "quote_at": 0,
-      "status": "PENDING",
+      "sent_at": 1795212819,
+      "status": "SENT",
+      "telegram_ids": [
+        12855
+      ],
       "text": "⚪ ATUALIZAÇÃO DOS PLANOS ACOMPANHADOS\n🧪 SIMULAÇÃO\n\n• ARB/USDT • LONG: confirmação não aprovada\n  Motivo: O volume do segundo candle M1 foi menor que50% do primeiro.\n  Plano: e38c54fbdc59de10ef9c\n\nSem novas entradas por esses planos.\nAvisos de movimento não equivalem a entradas liberadas.\nA expiração não encerra uma posição já aberta.\nAnálise: 20/11/2026 19:13:34 BRT"
     },
     "738cda1ee2aab868664a": {
@@ -35189,7 +35193,7 @@
       "variant": "CONFIRMADA"
     },
     "a753fa2b8222ebb8034f": {
-      "attempts": 0,
+      "attempts": 1,
       "category": "INFO",
       "created_at": 1795212814,
       "expires_at": 1795213800,
@@ -35198,7 +35202,11 @@
         "83510954962003c742cc"
       ],
       "quote_at": 0,
-      "status": "PENDING",
+      "sent_at": 1795212818,
+      "status": "SENT",
+      "telegram_ids": [
+        12854
+      ],
       "text": "👀 PLANO EM PREPARAÇÃO • AGUARDANDO GATILHO\nARB/USDT\n🧪 SIMULAÇÃO • acompanhamento\n\nRegião em análise: 0.11066 a 0.1142\nSHORT somente se houver fechamento M1 abaixo de ≈ 0.110543.\n\nConfirmação: dois fechamentos M1 consecutivos além do gatilho; volume do segundo de pelo menos 50% do primeiro.\nTP, SL e percentuais serão definidos no primeiro gatilho. A confirmação ainda precisa passar pela avaliação financeira.\n\nSem rompimento observado neste plano e sem entrada liberada.\nPreparação até 19:30:00 BRT.\nAnálise: 20/11/2026 19:13:34 BRT\nPlanos: 83510954962003c742cc",
       "watch_stage": 2,
       "watch_symbol": "ARB_USDT"
