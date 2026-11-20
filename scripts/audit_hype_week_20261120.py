@@ -90,7 +90,7 @@ def run():
     eligible=[t for t in trades if START<=t["signal_at"]<END]
     detailed=[report_trade(five,h,t) for t in eligible]
     total=select_portfolio([{**t,"symbol":SYMBOL} for t in eligible])
-    direct=[],rr_rejected=[],potential=[]
+    direct,rr_rejected,potential=[],[],[]
     next_allowed=25
     for i in range(25,len(five)):
         event_at=iso(int(five[i][0])+FIVE_MS)
