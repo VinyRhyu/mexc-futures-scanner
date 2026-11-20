@@ -19,7 +19,12 @@ jobs:
           python -m unittest discover -s tests -v
           python -m mexc_scanner demo
           python -m mexc_scanner replay reports/demo/snapshot.json --output reports/demo-replay
-      - name: HYPE 8 movimentos - auditoria M5 H1 sem olhar futuro
+      - name: HYPE tres familias de sinais 168d + semana atual
         if: github.event_name == 'pull_request'
-        timeout-minutes: 9
-        run: python -m scripts.audit_hype_eight_moves_20261120
+        timeout-minutes: 16
+        run: |
+          set -e
+          for w in T U V W WK; do
+            echo "=== REGIME HYPE $w ==="
+            python -m scripts.audit_hype_three_regimes --window "$w"
+          done
