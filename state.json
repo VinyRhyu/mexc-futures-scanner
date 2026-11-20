@@ -9272,7 +9272,7 @@
       "watch_symbol": "NEAR_USDT"
     },
     "2b748dfe60854ab715ff": {
-      "attempts": 0,
+      "attempts": 1,
       "category": "INFO",
       "created_at": 1795184807,
       "expires_at": 1795185000,
@@ -9281,7 +9281,11 @@
         "3fc2a9bd3cfd2be6796e"
       ],
       "quote_at": 0,
-      "status": "PENDING",
+      "sent_at": 1795184813,
+      "status": "SENT",
+      "telegram_ids": [
+        12310
+      ],
       "text": "👀 PLANO EM PREPARAÇÃO • AGUARDANDO GATILHO\nSHIB/USDT\n🧪 SIMULAÇÃO • acompanhamento\n\nRegião em análise: 0.000003653 a 0.000003695\nSHORT somente se houver fechamento M1 abaixo de ≈ 0.00000365101.\n\nConfirmação: dois fechamentos M1 consecutivos além do gatilho; volume do segundo de pelo menos 50% do primeiro.\nTP, SL e percentuais serão definidos no primeiro gatilho. A confirmação ainda precisa passar pela avaliação financeira.\n\nSem rompimento observado neste plano e sem entrada liberada.\nPreparação até 11:30:00 BRT.\nAnálise: 20/11/2026 11:26:47 BRT\nPlanos: 3fc2a9bd3cfd2be6796e",
       "watch_stage": 2,
       "watch_symbol": "SHIB_USDT"
@@ -10947,7 +10951,7 @@
       "watch_symbol": "DOT_USDT"
     },
     "33e98c329198942a5e70": {
-      "attempts": 0,
+      "attempts": 1,
       "category": "INFO",
       "created_at": 1795184807,
       "expires_at": 1795184880,
@@ -10958,7 +10962,11 @@
         "753f6592d261cf3cbf0f"
       ],
       "quote_at": 0,
-      "status": "PENDING",
+      "sent_at": 1795184811,
+      "status": "SENT",
+      "telegram_ids": [
+        12308
+      ],
       "text": "🟡 MOVIMENTO DETECTADO • ENTRADA BLOQUEADA\nBNB/USDT • ALTA (LONG)\n🧪 SIMULAÇÃO • acompanhamento\n\nRompimento observado no M1 fechado às 11:26:00 BRT.\nPreço de referência do primeiro gatilho: 571.45.\n\nConfirmação técnica identificada; entrada bloqueada.\nCondição pendente: Os custos estão altos demais em relação ao risco.\n\nFaixa em estudo: 571.26 a 572.05\n🛑 Stop do plano: 569.78 (-2.92% bruto em 10x)\n🎯 Alvo do plano: 576.03 (+8.01% bruto em 10x)\nCenário indicativo sobre a margem em 10x; custos e liquidação ainda não validados.\nMovimento sem alavancagem: TP +0.80% • SL -0.29%.\nPercentuais sobre a referência do primeiro gatilho, na direção da operação, antes de custos.\n\nMovimento observado, sem entrada liberada. Aguarde o alerta de confirmação e viabilidade.\nAlerta válido até 11:28:00 BRT.\nAnálise: 20/11/2026 11:26:47 BRT\nPlano: 753f6592d261cf3cbf0f",
       "watch_stage": 0,
       "watch_symbol": "BNB_USDT"
@@ -14204,13 +14212,17 @@
       "watch_symbol": "LINK_USDT"
     },
     "45cb4a185f2d3f4d96e3": {
-      "attempts": 0,
+      "attempts": 1,
       "category": "INFO",
       "created_at": 1795184807,
       "expires_at": 1795188407,
       "id": "45cb4a185f2d3f4d96e3",
       "quote_at": 0,
-      "status": "PENDING",
+      "sent_at": 1795184813,
+      "status": "SENT",
+      "telegram_ids": [
+        12311
+      ],
       "text": "⚪ ATUALIZAÇÃO DOS PLANOS ACOMPANHADOS\n🧪 SIMULAÇÃO\n\n• SHIB/USDT • LONG: confirmação não aprovada\n  Motivo: O volume do segundo candle M1 foi menor que50% do primeiro.\n  Plano: 7cfdd1c14b461b499ad4\n\nSem novas entradas por esses planos.\nAvisos de movimento não equivalem a entradas liberadas.\nA expiração não encerra uma posição já aberta.\nAnálise: 20/11/2026 11:26:47 BRT"
     },
     "45ea6d37c2e3d00a7797": {
@@ -25957,17 +25969,21 @@
       "watch_symbol": "AVAX_USDT"
     },
     "84d688ef9114aecf6e73": {
-      "attempts": 0,
+      "attempts": 1,
       "category": "ENTRY",
       "created_at": 1795184807,
       "expires_at": 1795184880,
       "id": "84d688ef9114aecf6e73",
       "plan_id": "086b1e1e531f24eb03f9",
       "quote_at": 1795184805,
+      "sent_at": 1795184810,
       "side": "LONG",
       "signal_at": 1795184760,
-      "status": "PENDING",
+      "status": "SENT",
       "symbol": "XLM_USDT",
+      "telegram_ids": [
+        12306
+      ],
       "text": "🟢 GATILHO VÁLIDO PARA SIMULAR\nXLM/USDT • LONG\n🧪 SIMULAÇÃO • Confirmada\nRompimento • 2 fechamentos M1 • volume ≥50%\n\nVolume do segundo M1: 158.9% do primeiro.\n📍 Entrada: 0.13224 a 0.1326\n🛑 Stop: 0.13175 (-10.41% líquido sobre a margem)\n🎯 Alvo: 0.1341 (+12.61% líquido sobre a margem)\nMovimento sem alavancagem: TP +1.13% • SL -0.64%.\nBase dos percentuais sem alavancagem: 0.1326 (pior entrada); na direção da operação, antes de custos.\n\nMargem isolada estimada: 0.9180 USDT • 13x\nQuantidade: 9 contratos\nPerda planejada: -0.0955 USDT (-9.55% da banca)\nGanho projetado: +0.1158 USDT (+11.58% da banca)\nRetorno/risco líquido: 1.21:1 (pior entrada)\nCustos estimados: 0.0192 USDT\nROI líquido estimado sobre a margem: TP +12.61% • SL -10.41%.\nTaxa por execução: 0.06%\nDisparo do stop: último preço (Last)\n\nEstimativas de taxas, deslizamento e funding; ganho não garantido.\nFalta validar para uso real: taxa pessoal da conta; regras de margem da conta.\n\n⏱ Nova entrada até 11:28:00 BRT (1min 13s).\nGatilho M1 (segundo fechamento): 11:26:00 BRT\nCotação: 11:26:45 BRT\nAnálise: 20/11/2026 11:26:47 BRT\nA validade se aplica a novas entradas.\nPlano: 086b1e1e531f24eb03f9 • revisão 1",
       "variant": "CONFIRMADA"
     },
@@ -35063,17 +35079,21 @@
       "text": "⚪ ATUALIZAÇÃO DOS PLANOS ACOMPANHADOS\n🧪 SIMULAÇÃO\n\n• LTC/USDT • SHORT: prazo para nova entrada encerrado\n  Motivo: A janela para uma nova entrada terminou.\n  Plano: 58def92458ab085ad9c5\n• ARB/USDT • SHORT: confirmação não aprovada\n  Motivo: O segundo fechamento M1 perdeu o nível do gatilho.\n  Plano: 6fc778277a0c59376a93\n• SOL/USDT • SHORT: alvo do plano alcançado durante o acompanhamento\n  Motivo: O movimento já alcançou o alvo do plano.\n  Plano: 79cf52fd77ea364209af\n• LTC/USDT • SHORT: prazo para nova entrada encerrado\n  Motivo: A janela para uma nova entrada terminou.\n  Plano: f799ec66de347911304f\n\nSem novas entradas por esses planos.\nAvisos de movimento não equivalem a entradas liberadas.\nA expiração não encerra uma posição já aberta.\nAnálise: 20/11/2026 07:20:42 BRT"
     },
     "b20a9ebe9cca9d9820ef": {
-      "attempts": 0,
+      "attempts": 1,
       "category": "ENTRY",
       "created_at": 1795184807,
       "expires_at": 1795184880,
       "id": "b20a9ebe9cca9d9820ef",
       "plan_id": "3e0c83538d09a2b21682",
       "quote_at": 1795184805,
+      "sent_at": 1795184811,
       "side": "LONG",
       "signal_at": 1795184760,
-      "status": "PENDING",
+      "status": "SENT",
       "symbol": "XLM_USDT",
+      "telegram_ids": [
+        12307
+      ],
       "text": "🟢 GATILHO VÁLIDO PARA SIMULAR\nXLM/USDT • LONG\n🧪 SIMULAÇÃO • Confirmada\nRompimento • 2 fechamentos M1 • volume ≥50%\n\nVolume do segundo M1: 158.9% do primeiro.\n📍 Entrada: 0.13223 a 0.13258\n🛑 Stop: 0.13168 (-9.22% líquido sobre a margem)\n🎯 Alvo: 0.13392 (+9.35% líquido sobre a margem)\nMovimento sem alavancagem: TP +1.01% • SL -0.68%.\nBase dos percentuais sem alavancagem: 0.13258 (pior entrada); na direção da operação, antes de custos.\n\nMargem isolada estimada: 0.9642 USDT • 11x\nQuantidade: 8 contratos\nPerda planejada: -0.0889 USDT (-8.89% da banca)\nGanho projetado: +0.0901 USDT (+9.01% da banca)\nRetorno/risco líquido: 1.01:1 (pior entrada)\nCustos estimados: 0.0171 USDT\nROI líquido estimado sobre a margem: TP +9.35% • SL -9.22%.\nTaxa por execução: 0.06%\nDisparo do stop: último preço (Last)\n\nEstimativas de taxas, deslizamento e funding; ganho não garantido.\nFalta validar para uso real: taxa pessoal da conta; regras de margem da conta.\n\n⏱ Nova entrada até 11:28:00 BRT (1min 13s).\nGatilho M1 (segundo fechamento): 11:26:00 BRT\nCotação: 11:26:45 BRT\nAnálise: 20/11/2026 11:26:47 BRT\nA validade se aplica a novas entradas.\nPlano: 3e0c83538d09a2b21682 • revisão 1",
       "variant": "CONFIRMADA"
     },
@@ -35178,7 +35198,7 @@
       "watch_symbol": "TIA_USDT"
     },
     "b2ba73760f0bedd34f5b": {
-      "attempts": 0,
+      "attempts": 1,
       "category": "INFO",
       "created_at": 1795184807,
       "expires_at": 1795184880,
@@ -35189,7 +35209,11 @@
         "69f47a9e13fed71e6c56"
       ],
       "quote_at": 0,
-      "status": "PENDING",
+      "sent_at": 1795184812,
+      "status": "SENT",
+      "telegram_ids": [
+        12309
+      ],
       "text": "🟡 MOVIMENTO DETECTADO • ENTRADA BLOQUEADA\nBTC/USDT • ALTA (LONG)\n🧪 SIMULAÇÃO • acompanhamento\n\nRompimento observado no M1 fechado às 11:26:00 BRT.\nPreço de referência do primeiro gatilho: 62077.1.\n\nConfirmação técnica identificada; entrada bloqueada.\nCondição pendente: A relação entre ganho e perda ficou abaixo do mínimo.\n\nFaixa em estudo: 62009.4 a 62144.8\n🛑 Stop do plano: 61834.3 (-3.91% bruto em 10x)\n🎯 Alvo do plano: 62292.5 (+3.47% bruto em 10x)\nCenário indicativo sobre a margem em 10x; custos e liquidação ainda não validados.\nMovimento sem alavancagem: TP +0.35% • SL -0.39%.\nPercentuais sobre a referência do primeiro gatilho, na direção da operação, antes de custos.\n\nMovimento observado, sem entrada liberada. Aguarde o alerta de confirmação e viabilidade.\nAlerta válido até 11:28:00 BRT.\nAnálise: 20/11/2026 11:26:47 BRT\nPlano: 69f47a9e13fed71e6c56",
       "watch_stage": 0,
       "watch_symbol": "BTC_USDT"
