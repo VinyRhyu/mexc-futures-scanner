@@ -218,6 +218,12 @@ def run():
             "max_adverse_intrawindow_pct":round(maxadv,3),
             "early_same_side_raw_markers":len(early),
             "same_side_markers_whole_window":len(fixed_window_candidates),
+            "first_same_side_marker_in_full_window_brt":(
+                clock(fixed_window_candidates[0]["signal_ms"])
+                if fixed_window_candidates else None),
+            "first_same_side_marker_delay_minutes":(
+                int((fixed_window_candidates[0]["signal_ms"]-a)/60000)
+                if fixed_window_candidates else None),
             "opposite_side_markers_whole_window":len(opposite),
             "checkpoints":checkpoints,
             "first_early_marker":({
