@@ -123,3 +123,39 @@ os resultados dos outros dias/ativos. O excesso de timeouts e a concentração
 de sinais simultâneos sinalizam baixa seletividade. A estratégia precisa de nova
 hipótese pré-registrada e validação em dados independentes, comparada à baseline
 M1 nas mesmas condições, antes de sequer pensar em sinais no Telegram.
+
+
+## Verificação adicional sem ajuste de parâmetros: 42 dias contínuos
+
+Uma segunda execução da GitHub Action repetiu o mesmo modelo inalterado em uma
+janela histórica anterior de 21 dias, contígua à anterior (09/10/2026 a
+30/10/2026 11:00 UTC), usando os mesmos dez contratos e mesma metodologia.
+As duas janelas tiveram cobertura integral de M5/H1 nos dez símbolos.
+
+| Medida | 09–30/10 (21 dias) | 30/10–20/11 (21 dias) | 42 dias |
+| --- | ---: | ---: | ---: |
+| Sinais | 224 | 300 | 524 |
+| TP | 37 | 41 | 78 |
+| SL | 48 | 56 | 104 |
+| Timeouts | 139 | 203 | 342 |
+| Selecionadas (uma posição por vez) | 115 | 156 | 271 |
+| R líquido da carteira | -10,726R | -12,329R | -23,055R |
+| ROI composto com 1% de risco/entrada | -10,457% | -11,948% | **-21,156%** |
+| Drawdown máximo calculado da carteira contínua | — | — | **24,026%** |
+
+O ROI de 42 dias encadeia sequencialmente as 271 operações selecionadas sem
+reiniciar o saldo entre as janelas. Os sinais que se sobrepõem são contabilizados
+na contagem de candidatos, mas não são executados simultaneamente no portfólio.
+O filtro de seleção de sinais concorrentes é pelo maior volume relativo disponível
+no momento do sinal, nunca pelo resultado futuro.
+12/44 dias UTC calendáricos foram positivos e 32/44 negativos em R agregado
+de sinais; a janela contém 42 dias completos mas abrange 44 datas parciais UTC.
+
+**Conclusão reforçada:** o modelo tem expectativa histórica líquida negativa
+nas duas janelas. Não ativar em produção. Testar um novo mecanismo apenas com
+hipótese explícita, sem selecionar retroativamente o período/moeda vencedores.
+As taxas, slippage e risco de 1% são hipóteses; negociações reais podem ser
+piores e o tamanho mínimo pode inviabilizar operação com saldo de 1 USDT.
+
+Execução reproduzível: GitHub Actions run 44742303641, associada à pull request
+#2 em rascunho.
