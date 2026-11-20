@@ -68,7 +68,7 @@ def cohort(w):
         "success":sum(t["hit"] for t in w),
         "fail_or_time":sum(not t["hit"] for t in w),
         "precision_pct":round(100*sum(t["hit"] for t in w)/len(w),3) if w else None,
-        "success_delay_median_minutes":median([t["delay"] for t in w if t["hit"]]) if any(x["hit"] for x in w) else None,
+        "success_delay_median_minutes":median([t["delay"] for t in w if t.get("delay") is not None]) if any(x.get("delay") is not None for x in w) else None,
     }
 
 
