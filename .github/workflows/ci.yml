@@ -19,3 +19,9 @@ jobs:
           python -m unittest discover -s tests -v
           python -m mexc_scanner demo
           python -m mexc_scanner replay reports/demo/snapshot.json --output reports/demo-replay
+      - name: Avaliacao isolada MEXC 21 dias (somente PR, sem ordens)
+        if: github.event_name == 'pull_request'
+        continue-on-error: true
+        timeout-minutes: 6
+        run: |
+          python -m scripts.audit_confluence_extended --days 21
