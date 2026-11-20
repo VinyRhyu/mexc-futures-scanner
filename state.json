@@ -36908,17 +36908,21 @@
       "watch_symbol": "NEAR_USDT"
     },
     "b0d44f0b74e332ca6876": {
-      "attempts": 0,
+      "attempts": 1,
       "category": "ENTRY",
       "created_at": 1795213179,
       "expires_at": 1795213260,
       "id": "b0d44f0b74e332ca6876",
       "plan_id": "20162be40ae19b0eaaa2",
       "quote_at": 1795213177,
+      "sent_at": 1795213183,
       "side": "LONG",
       "signal_at": 1795213140,
-      "status": "PENDING",
+      "status": "SENT",
       "symbol": "XRP_USDT",
+      "telegram_ids": [
+        12875
+      ],
       "text": "🟢 GATILHO VÁLIDO PARA SIMULAR\nXRP/USDT • LONG\n🧪 SIMULAÇÃO • Confirmada\nRompimento • 2 fechamentos M1 • volume ≥50%\n\nVolume do segundo M1: 195.4% do primeiro.\n📍 Entrada: 0.9127 a 0.9147\n🛑 Stop: 0.9076 (-10.33% líquido sobre a margem)\n🎯 Alvo: 0.9399 (+28.49% líquido sobre a margem)\nMovimento sem alavancagem: TP +2.76% • SL -0.78%.\nBase dos percentuais sem alavancagem: 0.9147 (pior entrada); na direção da operação, antes de custos.\n\nMargem isolada estimada: 0.9147 USDT • 11x\nQuantidade: 11 contratos\nPerda planejada: -0.0945 USDT (-9.45% da banca)\nGanho projetado: +0.2606 USDT (+26.06% da banca)\nRetorno/risco líquido: 2.76:1 (pior entrada)\nCustos estimados: 0.0166 USDT\nROI líquido estimado sobre a margem: TP +28.49% • SL -10.33%.\nTaxa por execução: 0.06%\nDisparo do stop: último preço (Last)\n\nEstimativas de taxas, deslizamento e funding; ganho não garantido.\nFalta validar para uso real: taxa pessoal da conta; regras de margem da conta.\n\n⏱ Nova entrada até 19:21:00 BRT (1min 21s).\nGatilho M1 (segundo fechamento): 19:19:00 BRT\nCotação: 19:19:37 BRT\nAnálise: 20/11/2026 19:19:39 BRT\nA validade se aplica a novas entradas.\nPlano: 20162be40ae19b0eaaa2 • revisão 1",
       "variant": "CONFIRMADA"
     },
@@ -45505,13 +45509,17 @@
       "watch_symbol": "SKY_USDT"
     },
     "db8916c5a0f5168cae6a": {
-      "attempts": 0,
+      "attempts": 1,
       "category": "INFO",
       "created_at": 1795213179,
       "expires_at": 1795216779,
       "id": "db8916c5a0f5168cae6a",
       "quote_at": 0,
-      "status": "PENDING",
+      "sent_at": 1795213183,
+      "status": "SENT",
+      "telegram_ids": [
+        12876
+      ],
       "text": "⚪ ATUALIZAÇÃO DOS PLANOS ACOMPANHADOS\n🧪 SIMULAÇÃO\n\n• XRP/USDT • LONG: prazo para nova entrada encerrado\n  Motivo: A janela para uma nova entrada terminou.\n  Plano: a4546cc44bb4ed2f6530\n\nSem novas entradas por esses planos.\nAvisos de movimento não equivalem a entradas liberadas.\nA expiração não encerra uma posição já aberta.\nAnálise: 20/11/2026 19:19:39 BRT"
     },
     "dbc16845e481f6bd84e1": {
