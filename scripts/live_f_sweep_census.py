@@ -228,6 +228,9 @@ def main():
         "execution_note":"At completion, if age_seconds_at_completion exceeds 300, this frozen cutoff is not current. Never use it as a live entry.",
     }
     print("CENSUS_RESULT "+json.dumps(result,ensure_ascii=False,sort_keys=True),flush=True)
+    if status["DATA_ERROR"] > 0.1 * len(eligible):
+        # Never report a rate-limited partial census as a complete market scan.
+        raise RuntimeError(f"INCOMPLETE_CENSUS: {status['DATA_ERROR']} of {len(eligible)} symbols failed; retry in rate-limited batches")
 
 
 if __name__=="__main__":
