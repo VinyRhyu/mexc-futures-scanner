@@ -13091,13 +13091,17 @@
       "watch_symbol": "AAVE_USDT"
     },
     "451be9311ac6669182af": {
-      "attempts": 0,
+      "attempts": 1,
       "category": "INFO",
       "created_at": 1795159295,
       "expires_at": 1795162895,
       "id": "451be9311ac6669182af",
       "quote_at": 0,
-      "status": "PENDING",
+      "sent_at": 1795159300,
+      "status": "SENT",
+      "telegram_ids": [
+        11686
+      ],
       "text": "⚪ ATUALIZAÇÃO DOS PLANOS ACOMPANHADOS\n🧪 SIMULAÇÃO\n\n• APT/USDT • LONG: confirmação não aprovada\n  Motivo: O segundo fechamento M1 perdeu o nível do gatilho.\n  Plano: 1db29bd23118cecebac1\n• SKY/USDT • SHORT: prazo para nova entrada encerrado\n  Motivo: A janela para uma nova entrada terminou.\n  Plano: a0dedd53b0d4a3366544\n\nSem novas entradas por esses planos.\nAvisos de movimento não equivalem a entradas liberadas.\nA expiração não encerra uma posição já aberta.\nAnálise: 20/11/2026 04:21:35 BRT"
     },
     "4596d355fe0603eb3bf6": {
@@ -30705,7 +30709,7 @@
       "watch_symbol": "AAVE_USDT"
     },
     "a3359e1681d91a753d0a": {
-      "attempts": 0,
+      "attempts": 1,
       "category": "INFO",
       "created_at": 1795159295,
       "expires_at": 1795160700,
@@ -30714,7 +30718,11 @@
         "a66325206a4339b600ad"
       ],
       "quote_at": 0,
-      "status": "PENDING",
+      "sent_at": 1795159299,
+      "status": "SENT",
+      "telegram_ids": [
+        11684
+      ],
       "text": "👀 PLANO EM PREPARAÇÃO • AGUARDANDO GATILHO\nSKY/USDT\n🧪 SIMULAÇÃO • acompanhamento\n\nRegião em análise: 0.0441 a 0.0455\nLONG somente se houver fechamento M1 acima de ≈ 0.045558.\n\nConfirmação: dois fechamentos M1 consecutivos além do gatilho; volume do segundo de pelo menos 50% do primeiro.\nTP, SL e percentuais serão definidos no primeiro gatilho. A confirmação ainda precisa passar pela avaliação financeira.\n\nSem rompimento observado neste plano e sem entrada liberada.\nPreparação até 04:45:00 BRT.\nAnálise: 20/11/2026 04:21:35 BRT\nPlanos: a66325206a4339b600ad",
       "watch_stage": 2,
       "watch_symbol": "SKY_USDT"
@@ -46332,7 +46340,7 @@
       "watch_symbol": "TAO_USDT"
     },
     "fa30680a1deb68836feb": {
-      "attempts": 0,
+      "attempts": 1,
       "category": "INFO",
       "created_at": 1795159295,
       "expires_at": 1795159800,
@@ -46341,7 +46349,11 @@
         "44c38543a5736f9db31d"
       ],
       "quote_at": 0,
-      "status": "PENDING",
+      "sent_at": 1795159299,
+      "status": "SENT",
+      "telegram_ids": [
+        11685
+      ],
       "text": "👀 PLANO EM PREPARAÇÃO • AGUARDANDO GATILHO\nAPT/USDT\n🧪 SIMULAÇÃO • acompanhamento\n\nRegião em análise: 0.3977 a 0.4068\nSHORT somente se houver fechamento M1 abaixo de ≈ 0.397404.\n\nConfirmação: dois fechamentos M1 consecutivos além do gatilho; volume do segundo de pelo menos 50% do primeiro.\nTP, SL e percentuais serão definidos no primeiro gatilho. A confirmação ainda precisa passar pela avaliação financeira.\n\nSem rompimento observado neste plano e sem entrada liberada.\nPreparação até 04:30:00 BRT.\nAnálise: 20/11/2026 04:21:35 BRT\nPlanos: 44c38543a5736f9db31d",
       "watch_stage": 2,
       "watch_symbol": "APT_USDT"
