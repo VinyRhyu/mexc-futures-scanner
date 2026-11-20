@@ -5,7 +5,7 @@ Nenhuma ordem real, Telegram, main ou scanner em produção será alterado.
 
 ## Escopo
 
-Somente HYPE_USDT MEXC Futures. Janela de alerta 16/11/2026 00:00 até 18/11/2026 00:00, horário de São Paulo (-03). Carregar 80h H1 e 75m M5 de warmup e *até 18/11 02h* apenas para observar saídas de posições e janelas de avaliação abertas até 17/11 23h55; não gerar novos sinais após 17/11 23h55.
+Somente HYPE_USDT MEXC Futures. Janela de alerta 16/11/2026 00:00 até 18/11/2026 00:00, horário de São Paulo (-03). Carregar 80h H1 e 10h M5 de warmup e *até 18/11 02h* apenas para observar saídas de posições e janelas de avaliação abertas até 17/11 23h55; não gerar novos sinais após 17/11 23h55.
 Candles públicos M5/H1 contínuos e fechados, entrada próxima abertura M5. Custos Taker 0,06% + slippage 0,02% por lado. Funding e fills reais não modelados.
 
 ## 1. Detecção — avisos NÃO executáveis
