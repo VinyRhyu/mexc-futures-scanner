@@ -29,7 +29,9 @@ class StructuralPilotTests(unittest.TestCase):
         i=35
         self.five[i] = [i*300_000,100,100,98.7,98.8,20,260]
         self.five[i+1] = [(i+1)*300_000,99.7,99.85,99.2,99.5,10,90]
-        expected=candidate_g(self.five,self.hours,i)
+        # The break is visible now, but the retest is NOT.
+        self.assertIsNone(candidate_g(self.five,self.hours,i,through_index=i))
+        expected=candidate_g(self.five,self.hours,i,through_index=i+1)
         self.assertIsNotNone(expected)
         self.assertEqual(expected["signal_index"],i+1)
         changed=copy.deepcopy(self.five)
