@@ -31,3 +31,27 @@ Se ambas perderem, rejeitar os novos gatilhos e concentrar trabalho em qualidade
 ## Execução
 
 Arquivo scripts/audit_confluence_v3.py. Execução pela CI isolada da PR. A rotina deve imprimir métricas por período e cada uma das duas variantes. A produção na branch main permanece intacta.
+
+
+## Resultado efetivamente executado — 42 dias anteriores (MEXC, sem ordens)
+
+Execução: GitHub Actions [44747919562](https://github.com/VinyRhyu/mexc-futures-scanner/actions/runs/44747919562), com testes automatizados e runner concluídos com **success**. As regras acima foram escritas e versionadas antes do replay e não foram ajustadas em função dos resultados. Teste revisado para o padrão G, assegurando que o reteste só é avaliado quando seu próprio candle fecha.
+
+| Modelo | 28/08–18/09, ROI | 18/09–09/10, ROI | 42 dias, ROI | Operações na carteira | Trades/dia | Máx. drawdown |
+| --- | ---: | ---: | ---: | ---: | ---: | ---: |
+| A baseline | -27,586% | -24,812% | -45,553% | 218 | 5,190 | 45,763% |
+| F falso rompimento | +4,126% | -6,111% | **-2,237%** | 27 | 0,643 | 7,797% |
+| G rompimento e reteste | -18,264% | -6,876% | **-23,885%** | 130 | 3,095 | 30,478% |
+
+Contagem de resultados da carteira: A = 19 TP, 60 SL, 139 TIME; F = **9 TP, 15 SL, 3 TIME**; G = 35 TP, 71 SL, 24 TIME. Os ganhos e perdas incorporam 0,06% taker + 0,02% de slippage por lado como hipóteses, sem funding, book ou liquidação real. Na métrica de ROI, arriscar 1% por entrada é uma comparação, não recomendação de tamanho de posição nem garantia de viabilidade de ordem.
+
+**Nenhuma das duas novas estratégias passou os critérios predefinidos.** F é uma pista para pesquisa de estrutura/rejeição, não uma estratégia pronta; 27 trades são insuficientes para generalização e a segunda metade perdeu. G deve ser descartada nesta parametrização. Não selecionar ex post dias/ativos ganhadores.
+
+### Diagnóstico a fazer antes de outra alteração
+
+1. Registrar para cada um dos 15 stops de F: volatilidade disponível no sinal, distância de SL em ATR, regime H1/H4 e comportamento de BTC (descritivo, sem reescrever o teste).
+2. Comparar condições nos 9 TPs e nas 3 saídas por tempo, respeitando a cronologia e o risco de múltiplas comparações. Não tratar um subconjunto lucrativo como evidência confirmatória.
+3. Registrar uma hipótese nova e **reservar outro período jamais inspecionado**; testar só uma mudança por vez.
+4. Depois, exigir paper prospectivo por semanas, custos/fills verificados e no máximo 1–2 candidatas por dia antes de ponderar integração ao Telegram.
+
+O scanner main permanece intocado. O experimento em PR rascunho não envia ordens nem notificações.
