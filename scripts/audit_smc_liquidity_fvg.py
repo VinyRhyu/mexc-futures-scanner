@@ -40,7 +40,7 @@ def h1_states(hourly):
     opening = []
     for i, h in enumerate(hourly):
         close = float(h[4])
-        if i < 19:
+        if i <= 19:
             opening.append(close)
             if i == 19:
                 ema = sum(opening) / 20.0
