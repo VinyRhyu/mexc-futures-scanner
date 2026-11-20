@@ -8,7 +8,7 @@ permissions:
 jobs:
   tests:
     runs-on: ubuntu-latest
-    timeout-minutes: 10
+    timeout-minutes: 18
     steps:
       - uses: actions/checkout@v7.0.1
       - uses: actions/setup-python@v7
@@ -19,9 +19,20 @@ jobs:
           python -m unittest discover -s tests -v
           python -m mexc_scanner demo
           python -m mexc_scanner replay reports/demo/snapshot.json --output reports/demo-replay
-      - name: Rejection and retest V3 42 dias anteriores (pesquisa paper)
+      - name: V4 Confirmar falso rompimento em 3 janelas historicas independentes
         if: github.event_name == 'pull_request'
         continue-on-error: true
-        timeout-minutes: 8
+        timeout-minutes: 16
         run: |
-          python -m scripts.audit_confluence_v3 --days 42 --end 2026-10-09T11:00:00+00:00
+          set +e
+          failed=0
+          for w in U V W; do
+            echo "==== V4 START WINDOW ${w} ===="
+            python -m scripts.audit_confluence_v4 --window "${w}"
+            result=$?
+            if [ "$result" -ne 0 ]; then
+              echo "==== V4 WINDOW ${w}: INCOMPLETE OR ERROR (exit $result) ===="
+              failed=1
+            fi
+          done
+          exit "$failed"
