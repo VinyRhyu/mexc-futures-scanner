@@ -62,6 +62,28 @@ pequena, consistentemente positiva, e **falhou no limite de 12
 avisos/dia pré-registrado**, além da maioria dos alertas não
 alcançar o alvo direcional.
 
+## Controle adicional: composição LONG/SHORT dos alertas
+
+A comparação simples com os checkpoints de *ambas as direções* dá
+14,782% de taxa-base para 16,525% de WATCH (+1,743pp). Entretanto,
+se os alertas tenderem mais a LONG do que SHORT (ou vice-versa), a
+comparação mais justa pondera a taxa-base LONG/SHORT pela composição
+efetiva de WATCH de cada período. Esse controle foi recalculado a
+partir dos mesmos resultados de execução, **sem modificar parâmetros**.
+
+| Janela | Base LONG/SHORT ponderada | WATCH | Diferença |
+|---|---:|---:|---:|
+| T | 22,143% | 23,438% | +1,295pp |
+| U | 12,060% | 13,247% | +1,187pp |
+| V | 11,530% | 13,034% | +1,504pp |
+| W0 | 13,396% | 15,453% | +2,057pp |
+| **Agregado ponderado por alertas** | **15,035%** | **16,525%** | **+1,490pp** |
+
+Essa referência reduz o suposto ganho de +1,743pp para +1,490pp,
+e **ainda não corrige correlação temporal, seleção de regime nem
+dependência entre candles**. Portanto, não demonstra vantagem
+preditiva independente.
+
 ## Tipos de WATCH
 
 | Período | TURN precisão (n) | BREAK precisão (n) | DRIFT precisão (n) |
