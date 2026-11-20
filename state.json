@@ -4896,7 +4896,7 @@
       "watch_symbol": "ZEC_USDT"
     },
     "19059fd06ca41b4cb05b": {
-      "attempts": 0,
+      "attempts": 1,
       "category": "INFO",
       "created_at": 1795153776,
       "expires_at": 1795153860,
@@ -4907,7 +4907,11 @@
         "fea80de27ebc668eb1ed"
       ],
       "quote_at": 0,
-      "status": "PENDING",
+      "sent_at": 1795153779,
+      "status": "SENT",
+      "telegram_ids": [
+        11518
+      ],
       "text": "🟡 MOVIMENTO DETECTADO • ENTRADA BLOQUEADA\nXLM/USDT • ALTA (LONG)\n🧪 SIMULAÇÃO • acompanhamento\n\nRompimento observado no M1 fechado às 02:49:00 BRT.\nPreço de referência do primeiro gatilho: 0.13341.\n\nConfirmação técnica identificada; entrada bloqueada.\nCondição pendente: O preço está fora da faixa permitida.\n\nFaixa em estudo: 0.13325 a 0.13363\n🛑 Stop do plano: 0.1327 (-5.32% bruto em 10x)\n🎯 Alvo do plano: 0.13427 (+6.45% bruto em 10x)\nCenário indicativo sobre a margem em 10x; custos e liquidação ainda não validados.\nMovimento sem alavancagem: TP +0.64% • SL -0.53%.\nPercentuais sobre a referência do primeiro gatilho, na direção da operação, antes de custos.\n\nMovimento observado, sem entrada liberada. Aguarde o alerta de confirmação e viabilidade.\nAlerta válido até 02:51:00 BRT.\nAnálise: 20/11/2026 02:49:36 BRT\nPlano: fea80de27ebc668eb1ed",
       "watch_stage": 0,
       "watch_symbol": "XLM_USDT"
@@ -27250,13 +27254,17 @@
       "watch_symbol": "QNT_USDT"
     },
     "97f58aaaee40220a1dda": {
-      "attempts": 0,
+      "attempts": 1,
       "category": "INFO",
       "created_at": 1795153776,
       "expires_at": 1795157376,
       "id": "97f58aaaee40220a1dda",
       "quote_at": 0,
-      "status": "PENDING",
+      "sent_at": 1795153780,
+      "status": "SENT",
+      "telegram_ids": [
+        11520
+      ],
       "text": "⚪ ATUALIZAÇÃO DOS PLANOS ACOMPANHADOS\n🧪 SIMULAÇÃO\n\n• TIA/USDT • LONG: confirmação não aprovada\n  Motivo: O segundo fechamento M1 perdeu o nível do gatilho.\n  Plano: afa44da9cf1fa843745a\n\nSem novas entradas por esses planos.\nAvisos de movimento não equivalem a entradas liberadas.\nA expiração não encerra uma posição já aberta.\nAnálise: 20/11/2026 02:49:36 BRT"
     },
     "98047569c58ae621a84a": {
@@ -34606,7 +34614,7 @@
       "watch_symbol": "HYPE_USDT"
     },
     "c20bda70cd5b66b00299": {
-      "attempts": 0,
+      "attempts": 1,
       "category": "INFO",
       "created_at": 1795153776,
       "expires_at": 1795154400,
@@ -34615,7 +34623,11 @@
         "b50c284c787fe64d21cb"
       ],
       "quote_at": 0,
-      "status": "PENDING",
+      "sent_at": 1795153779,
+      "status": "SENT",
+      "telegram_ids": [
+        11519
+      ],
       "text": "👀 PLANO EM PREPARAÇÃO • AGUARDANDO GATILHO\nTIA/USDT\n🧪 SIMULAÇÃO • acompanhamento\n\nRegião em análise: 0.3332 a 0.3392\nSHORT somente se houver fechamento M1 abaixo de ≈ 0.332922.\n\nConfirmação: dois fechamentos M1 consecutivos além do gatilho; volume do segundo de pelo menos 50% do primeiro.\nTP, SL e percentuais serão definidos no primeiro gatilho. A confirmação ainda precisa passar pela avaliação financeira.\n\nSem rompimento observado neste plano e sem entrada liberada.\nPreparação até 03:00:00 BRT.\nAnálise: 20/11/2026 02:49:36 BRT\nPlanos: b50c284c787fe64d21cb",
       "watch_stage": 2,
       "watch_symbol": "TIA_USDT"
