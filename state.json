@@ -3983,7 +3983,7 @@
       "watch_symbol": "PEPE_USDT"
     },
     "10172a781ef888cfade1": {
-      "attempts": 0,
+      "attempts": 1,
       "category": "INFO",
       "created_at": 1795199138,
       "expires_at": 1795199400,
@@ -3992,7 +3992,11 @@
         "25f66cc5b28c07c4064f"
       ],
       "quote_at": 0,
-      "status": "PENDING",
+      "sent_at": 1795199142,
+      "status": "SENT",
+      "telegram_ids": [
+        12522
+      ],
       "text": "👀 PLANO EM PREPARAÇÃO • AGUARDANDO GATILHO\nENA/USDT\n🧪 SIMULAÇÃO • acompanhamento\n\nRegião em análise: 0.09672 a 0.09962\nSHORT somente se houver fechamento M1 abaixo de ≈ 0.0965973.\n\nConfirmação: dois fechamentos M1 consecutivos além do gatilho; volume do segundo de pelo menos 50% do primeiro.\nTP, SL e percentuais serão definidos no primeiro gatilho. A confirmação ainda precisa passar pela avaliação financeira.\n\nSem rompimento observado neste plano e sem entrada liberada.\nPreparação até 15:30:00 BRT.\nAnálise: 20/11/2026 15:25:38 BRT\nPlanos: 25f66cc5b28c07c4064f",
       "watch_stage": 2,
       "watch_symbol": "ENA_USDT"
@@ -31522,7 +31526,7 @@
       "watch_symbol": "BNB_USDT"
     },
     "989d75da74e0af5b3675": {
-      "attempts": 0,
+      "attempts": 1,
       "category": "INFO",
       "created_at": 1795199138,
       "expires_at": 1795200300,
@@ -31531,7 +31535,11 @@
         "bdf9747a9680eaa777f7"
       ],
       "quote_at": 0,
-      "status": "PENDING",
+      "sent_at": 1795199143,
+      "status": "SENT",
+      "telegram_ids": [
+        12523
+      ],
       "text": "👀 PLANO EM PREPARAÇÃO • AGUARDANDO GATILHO\nDOGE/USDT\n🧪 SIMULAÇÃO • acompanhamento\n\nRegião em análise: 0.05338 a 0.05426\nSHORT somente se houver fechamento M1 abaixo de ≈ 0.0533325.\n\nConfirmação: dois fechamentos M1 consecutivos além do gatilho; volume do segundo de pelo menos 50% do primeiro.\nTP, SL e percentuais serão definidos no primeiro gatilho. A confirmação ainda precisa passar pela avaliação financeira.\n\nSem rompimento observado neste plano e sem entrada liberada.\nPreparação até 15:45:00 BRT.\nAnálise: 20/11/2026 15:25:38 BRT\nPlanos: bdf9747a9680eaa777f7",
       "watch_stage": 2,
       "watch_symbol": "DOGE_USDT"
@@ -39680,17 +39688,21 @@
       "watch_symbol": "QNT_USDT"
     },
     "c182f69753cabc849b42": {
-      "attempts": 0,
+      "attempts": 1,
       "category": "ENTRY",
       "created_at": 1795199138,
       "expires_at": 1795199220,
       "id": "c182f69753cabc849b42",
       "plan_id": "dec29b57aec99b2038f6",
       "quote_at": 1795199134,
+      "sent_at": 1795199142,
       "side": "LONG",
       "signal_at": 1795199100,
-      "status": "PENDING",
+      "status": "SENT",
       "symbol": "TAO_USDT",
+      "telegram_ids": [
+        12521
+      ],
       "text": "🟢 GATILHO VÁLIDO PARA SIMULAR\nTAO/USDT • LONG\n🧪 SIMULAÇÃO • Confirmada\nRompimento • 2 fechamentos M1 • volume ≥50%\n\nVolume do segundo M1: 215.1% do primeiro.\n📍 Entrada: 177.57 a 178.03\n🛑 Stop: 176.38 (-10.86% líquido sobre a margem)\n🎯 Alvo: 180.26 (+10.92% líquido sobre a margem)\nMovimento sem alavancagem: TP +1.25% • SL -0.93%.\nBase dos percentuais sem alavancagem: 178.03 (pior entrada); na direção da operação, antes de custos.\n\nMargem isolada estimada: 0.8902 USDT • 10x\nQuantidade: 5 contratos\nPerda planejada: -0.0967 USDT (-9.67% da banca)\nGanho projetado: +0.0972 USDT (+9.72% da banca)\nRetorno/risco líquido: 1.01:1 (pior entrada)\nCustos estimados: 0.0143 USDT\nROI líquido estimado sobre a margem: TP +10.92% • SL -10.86%.\nTaxa por execução: 0.06%\nDisparo do stop: último preço (Last)\n\nEstimativas de taxas, deslizamento e funding; ganho não garantido.\nFalta validar para uso real: taxa pessoal da conta; regras de margem da conta.\n\n⏱ Nova entrada até 15:27:00 BRT (1min 22s).\nGatilho M1 (segundo fechamento): 15:25:00 BRT\nCotação: 15:25:34 BRT\nAnálise: 20/11/2026 15:25:38 BRT\nA validade se aplica a novas entradas.\nPlano: dec29b57aec99b2038f6 • revisão 1",
       "variant": "CONFIRMADA"
     },
@@ -41638,13 +41650,17 @@
       "watch_symbol": "SHIB_USDT"
     },
     "cafd1c7d55f10109bd71": {
-      "attempts": 0,
+      "attempts": 1,
       "category": "INFO",
       "created_at": 1795199138,
       "expires_at": 1795202738,
       "id": "cafd1c7d55f10109bd71",
       "quote_at": 0,
-      "status": "PENDING",
+      "sent_at": 1795199143,
+      "status": "SENT",
+      "telegram_ids": [
+        12524
+      ],
       "text": "⚪ ATUALIZAÇÃO DOS PLANOS ACOMPANHADOS\n🧪 SIMULAÇÃO\n\n• DOGE/USDT • LONG: prazo para nova entrada encerrado\n  Motivo: A janela para uma nova entrada terminou.\n  Plano: 15776506f5db69548314\n• ENA/USDT • LONG: prazo para nova entrada encerrado\n  Motivo: A janela para uma nova entrada terminou.\n  Plano: 675966a663d0d4e52b38\n\nSem novas entradas por esses planos.\nAvisos de movimento não equivalem a entradas liberadas.\nA expiração não encerra uma posição já aberta.\nAnálise: 20/11/2026 15:25:38 BRT"
     },
     "cb01173daec897fe7a1e": {
