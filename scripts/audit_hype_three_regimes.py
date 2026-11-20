@@ -254,9 +254,7 @@ def run(window):
         result=portfolio_metrics(trades,first,last)
         print("REGIME_RESULT "+json.dumps({
             "window":window,"model":model,"metrics":result,
-            "outcomes_direction":dict(Counter(t["side"] for t in
-                select_portfolio(trades)["chosen"])) if False else
-                dict(Counter(t["side"] for t in trades)),
+            "candidate_sides":dict(Counter(t.get("side","SHORT") for t in trades)),
             "source":"MEXC historical candles, not real fills"
         },sort_keys=True),flush=True)
     print("REGIME_COUNTS "+json.dumps({
