@@ -19,12 +19,7 @@ jobs:
           python -m unittest discover -s tests -v
           python -m mexc_scanner demo
           python -m mexc_scanner replay reports/demo/snapshot.json --output reports/demo-replay
-      - name: Diagnostico causal das 81 operacoes F historicas (paper)
+      - name: HYPE F entradas semana 16 a 20 de novembro - paper
         if: github.event_name == 'pull_request'
-        timeout-minutes: 16
-        run: |
-          set -e
-          for w in T U V W; do
-            echo "===== F FORENSIC HISTORICAL WINDOW $w ====="
-            python -m scripts.audit_f_forensic --window "$w"
-          done
+        timeout-minutes: 9
+        run: python -m scripts.audit_hype_week_20261120
