@@ -21,7 +21,7 @@ from scripts.audit_confluence_v3 import (
 
 FIVE_SECONDS=300
 HOUR_SECONDS=3600
-SKIP_BASE={"BTC", "USDC", "USDT", "DAI", "FDUSD", "TUSD", "USDD", "PYUSD", "USDE", "USD1", "EUR", "EURC", "USTC"}
+SKIP_BASE={"BTC", "USDC", "USDT", "DAI", "FDUSD", "TUSD", "USDD", "PYUSD", "USDE", "USD1", "EUR", "EURC", "USTC", "XAU", "XAUT", "SILVER", "GOLD", "XAG", "PAXG", "USOIL", "UKOIL", "XPT", "XPD", "ALUMINUM", "ZINC", "COPPER", "WTI", "BRENT", "PLATINUM", "PALLADIUM"}
 
 
 def now_iso(ts):
@@ -85,7 +85,8 @@ def check_symbol(meta, latest_m5_end, latest_h1_end):
     # Near a recent 2h resistance is an observational watchlist only.
     near=(last_ema_down and atr>0 and
           nearby_max >= ceiling-0.5*atr and
-          close_below_ceiling)
+          close_below_ceiling and
+          (ceiling-last[4]) <= max(1.2*atr, 0.003*ceiling))
     latest=candidate_f(five,hourly,i)
     recent=[]
     for k in range(max(25,i-5),i):
