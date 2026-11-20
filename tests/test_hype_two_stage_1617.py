@@ -45,8 +45,11 @@ class HypeTwoStageTests(unittest.TestCase):
         self.m[self.i]=[self.i*FIVE_MS,100,102,99.9,101.5,1,200]
         # At i+1, close above prior 6-bar high and passes volume/body.
         self.m[self.i+1]=[(self.i+1)*FIVE_MS,101.5,103,101.4,102.6,1,220]
-        # Test uses epoch-1970 timestamps; actual cutoff is in 2026.
-        self.assertIsNone(confirmation(self.m,w))
+        # The watch candle cannot confirm itself, only the following close.
+        confirmed=confirmation(self.m,w)
+        self.assertIsNotNone(confirmed)
+        self.assertEqual(confirmed["signal_index"],self.i+1)
+        self.assertGreater(confirmed["confirmation_ms"],w["at_ms"])
 
     def test_conservative_ambiguous_touch_is_stop(self):
         i=self.i
