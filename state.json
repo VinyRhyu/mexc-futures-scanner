@@ -1299,7 +1299,7 @@
       "watch_symbol": "APT_USDT"
     },
     "05a64a73d6b97c905794": {
-      "attempts": 0,
+      "attempts": 1,
       "category": "INFO",
       "created_at": 1795171251,
       "expires_at": 1795171260,
@@ -1310,7 +1310,11 @@
         "54533acdb9468cbd706d"
       ],
       "quote_at": 0,
-      "status": "PENDING",
+      "sent_at": 1795171255,
+      "status": "SENT",
+      "telegram_ids": [
+        11974
+      ],
       "text": "🟡 MOVIMENTO DETECTADO • AINDA SEM CONFIRMAÇÃO\nHBAR/USDT • ALTA (LONG)\n🧪 SIMULAÇÃO • acompanhamento\n\nRompimento observado no M1 fechado às 07:40:00 BRT.\nPreço de referência do primeiro gatilho: 0.05422.\n\nPrimeiro fechamento além da região identificado.\nFalta o segundo fechamento sustentar o nível, com volume de pelo menos 50% do primeiro.\nApós confirmar, o plano ainda precisa passar pela avaliação financeira.\n\nFaixa em estudo: 0.05423 a 0.05429\n🛑 Stop do plano: 0.05404 (-3.32% bruto em 10x)\n🎯 Alvo do plano: 0.05462 (+7.38% bruto em 10x)\nCenário indicativo sobre a margem em 10x; custos e liquidação ainda não validados.\nMovimento sem alavancagem: TP +0.74% • SL -0.33%.\nPercentuais sobre a referência do primeiro gatilho, na direção da operação, antes de custos.\n\nMovimento observado, sem entrada liberada. Aguarde o alerta de confirmação e viabilidade.\nAlerta válido até 07:41:00 BRT.\nAnálise: 20/11/2026 07:40:51 BRT\nPlano: 54533acdb9468cbd706d",
       "watch_stage": 1,
       "watch_symbol": "HBAR_USDT"
