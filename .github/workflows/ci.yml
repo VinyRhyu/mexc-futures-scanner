@@ -19,9 +19,9 @@ jobs:
           python -m unittest discover -s tests -v
           python -m mexc_scanner demo
           python -m mexc_scanner replay reports/demo/snapshot.json --output reports/demo-replay
-      - name: Regime confluence V2 42 dias (paper research)
+      - name: Rejection and retest V3 42 dias anteriores (pesquisa paper)
         if: github.event_name == 'pull_request'
         continue-on-error: true
         timeout-minutes: 8
         run: |
-          python -m scripts.audit_confluence_v2 --days 42 --end 2026-11-20T11:00:00+00:00
+          python -m scripts.audit_confluence_v3 --days 42 --end 2026-10-09T11:00:00+00:00
