@@ -100,3 +100,87 @@ mercado agora.
 scripts/audit_compression_momentum.py e
 tests/test_compression_momentum.py. Executar em GitHub Actions
 em branch experiments/confluence-tao-20261120 sem merge.
+
+
+---
+
+## Resultado final do teste congelado — 20/11/2026
+
+O GitHub Actions executou as CINCO janelas de 42 dias de MEXC USDT
+perp com os mesmos 10 contratos e sem preenchimento de gaps históricos.
+**50 combinações contrato/janela processadas com dados completos**;
+**307 testes automatizados aprovados**. Nenhuma ordem real executada.
+
+- [Ação GitHub, teste unitário e cinco janelas aprovadas](https://github.com/VinyRhyu/mexc-futures-scanner/actions/runs/44761927459)
+- O script foi congelado antes da ação e não foram alterados limiares
+  segundo os resultados. A ação rodou as variantes BCM_BOTH, BCM_LONG,
+  BCM_SHORT, e controle F_baseline_SHORT.
+
+### ROI composto por janela (1% do saldo de risco por trade; custos hipotéticos)
+
+| 42 dias UTC | F SHORT | BCM LONG | BCM SHORT | BCM carteira LONG+SHORT |
+|---|---:|---:|---:|---:|
+| S 24/04–05/06 | -0,685% | -9,248% | -7,379% | **-14,237%** |
+| T 05/06–17/07 | +0,893% | -8,425% | -20,502% | **-26,464%** |
+| U 17/07–28/08 | -1,696% | -1,174% | -8,923% | **-9,083%** |
+| V 28/08–09/10 | -2,237% | -4,603% | -11,417% | **-13,114%** |
+| W 09/10–20/11 | -1,263% | -8,431% | -2,782% | **-10,079%** |
+| **210 dias, encadeamento aproximado** | **-4,917%** | **-28,256%** | **-42,247%** | **-55,202%** |
+
+Última linha calculada como produto dos cinco fatores (1 + ROI_i/100) - 1,
+**não** soma aritmética. Cada janela foi simulada isoladamente, logo
+os números de 210 dias são uma aproximação concatenada, não recomputação
+de carteira contínua atravessando bordas. Não foi calculado o drawdown
+global de 210 dias a partir de trades completos: não atribuir valor inventado.
+
+### Resultados das operações selecionadas pela carteira
+
+| Modelo | Candidatos | Trades executados em papel | TP | SL | TIME | R líquido agregado |
+|---|---:|---:|---:|---:|---:|---:|
+| F original SHORT | 102 | 91 | 30 | 49 | 12 | -4,515R |
+| BCM LONG | 284 | 245 | 75 | 135 | 35 | -31,794R |
+| BCM SHORT | 321 | 239 | 65 | 137 | 37 | -53,608R |
+| **BCM LONG+SHORT** | **605** | **475** | **140** | **265** | **70** | **-77,638R** |
+
+As variantes LONG/SHORT são avaliadas separadamente como subcarteiras
+condicionadas aos trades aceitos pelo replay BCM completo;
+não devem ser somadas como se fossem a mesma carteira combinada.
+No portfólio combinado houve 140 TPs contra 265 SLs e 70 timeouts.
+Taxa de acerto TP/(TP+SL) ≈ 34,57%. O pior drawdown observado
+em janela de 42 dias foi **29,891%** (T, portfólio combinado);
+não representa DD de todo o período.
+
+### Decisão e implicações
+
+**REPROVADO.** O BCM_BOTH teve ROI negativo em S/T/U/V/W, falhando
+com grande margem os critérios pré-estabelecidos. A hipótese de LONG
+isolado também perdeu em todos os períodos; o SHORT isolado idem.
+Não há justificativa para alterar os parâmetros sobre esta mesma amostra.
+A versão F segue **menos negativa**, não aprovada. Nenhuma regra deve
+ser integrada ao Telegram ou ao runtime main.
+
+O padrão tem alta taxa de falsos rompimentos apesar de compressão,
+corpo forte, volume relativo e H1 alinhado. Os stops atingidos
+superam os alvos, mesmo com modelo de custo fixo conservador.
+Isso não prova que toda estratégia de momentum falhe, mas rejeita
+a configuração BCM-1 nos dados e condições testados.
+
+### Avisos e próximos passos não executados
+
+- Não verificamos taxa real da conta, spread intra-candle,
+  funding, margem de liquidação e lote mínimo.
+- Não realizamos sensitividade dobrando custos porque não há
+  estratégia candidata a integração após o teste inicial.
+- Os 210 dias são históricos; não é paper prospectivo.
+- Melhor próximo trabalho é um diagnóstico quantitativo de
+  **onde ocorreram os 265 stops** (volatilidade, regime, liquidez,
+  horário, distância ao SL, direção), seguido de hipótese nova
+  fixada ANTES de outra janela inédita, ou avaliar
+  modelos de regime/market-making com book/tick dados, sem
+  perseguir apenas um ROI retrospectivo.
+- Manter apenas a PR experimental. A etapa de coleta histórica
+  foi removida do CI automático após a execução, para evitar
+  repetir centenas de chamadas à API a cada commit;
+  o teste pode ser reproduzido manualmente pelos cinco comandos
+  python -m scripts.audit_compression_momentum --window S/T/U/V/W
+  (executar um valor de janela por vez) com acesso à API MEXC.
