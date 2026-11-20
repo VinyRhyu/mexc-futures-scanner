@@ -38,3 +38,60 @@ Nenhum desses testes compara execução real, funding, liquidação, lotes míni
 - A hipótese F_confirm é uma regra **original do nosso protótipo**, não um algoritmo validado desses repositórios.
 
 Execução: scripts/audit_confluence_v4.py por GitHub Action isolada da pull request em rascunho.
+
+
+## Resultados observados após congelar a hipótese — execução 20/11/2026
+
+A execução foi concluída sem erro, com 290 testes automatizados aprovados
+e as três janelas históricas completas da API pública MEXC Futures:
+https://github.com/VinyRhyu/mexc-futures-scanner/actions/runs/44751837925
+
+| Janela | F original: operações carteira | F original ROI | F+M5 confirm: operações carteira | F+M5 confirm ROI |
+| --- | ---: | ---: | ---: | ---: |
+| U — 17/07–28/08 | 10 | -1,696% | 18 | +1,257% |
+| V — 28/08–09/10 | 27 | -2,237% | 22 | -9,063% |
+| W — 09/10–20/11 | 20 | -1,263% | 26 | -7,590% |
+| Três janelas encadeadas (aproximação por multiplicação dos retornos das janelas) | 57 | -5,109% | 66 | -14,909% |
+
+**Critérios de avanço: reprovados**. A versão F_confirm perdeu em V e W
+e, mesmo em U, sua primeira metade foi levemente negativa (-0,130%).
+A versão original não é rentável nesses períodos, tampouco está aprovada.
+
+Resultados da carteira F_confirm: U = 4 TP, 5 SL, 9 TIME;
+V = 3 TP, 12 SL, 7 TIME; W = 2 TP, 12 SL, 12 TIME.
+
+### Checagem de eventos pareados
+
+Uma confirmação mais exigente pode resultar em MAIS operações elegíveis:
+ela altera o preço de entrada, o RR líquido e as janelas em que a carteira
+já está ocupada. Portanto, as carteiras F e F_confirm não têm exatamente
+as mesmas operações e não devem ser confundidas com um teste pareado puro.
+
+A comparação adicional restringe-se aos **mesmos sweeps** em que AMBAS
+as entradas seriam tecnicamente executáveis. Nesses 30 eventos (6 U, 12 V,
+12 W), a soma de R líquido por evento foi:
+
+- Entrada imediata F original: **+3,6340R**.
+- Entrada tardia F_confirm no candle seguinte: **-13,8858R**.
+
+Isto é uma comparação descritiva POR EVENTO, sem exclusividade global de
+posição e **condicionada retrospectivamente** à confirmação M5 para selecionar
+a amostra. Não constitui portfólio prospectivo nem valida uma estratégia F
+capaz de selecionar essas mesmas 30 oportunidades sem informação futura.
+O achado mostra que **atrasar a entrada não melhorou esses eventos**.
+
+A documentação registra que não integramos os motores dos repositórios
+Freqtrade e Acekiller88 como códigos executáveis; aproveitamos conceitos
+de sweep, replay causal e validação. No snapshot público consultado de
+Acekiller88/crypto-signal-scanner, data/performance.json contém total=0,
+wins=0, losses=0 e winRate=null. Isso não demonstra rentabilidade, mas
+também não prova que todos os conceitos do projeto sejam inválidos.
+
+### Decisão
+
+**Não fazer merge em main.** Não alterar Telegram e não liberar entradas
+reais. Mais filtros sobre a mesma família de setups não passaram no teste.
+Próxima pesquisa, se houver, deveria comparar uma implementação concreta
+de estratégia externa nos dados MEXC contra nossa baseline com protocolo
+pré-registrado, ou estudar a qualidade da execução/retorno líquido antes
+de assumir que algum escore maior implica lucro.
