@@ -11333,7 +11333,7 @@
       "watch_symbol": "INJ_USDT"
     },
     "33b1ee43279cfeefb986": {
-      "attempts": 0,
+      "attempts": 1,
       "category": "INFO",
       "created_at": 1795206949,
       "expires_at": 1795207020,
@@ -11344,7 +11344,11 @@
         "e7030ae2d12f581a4eda"
       ],
       "quote_at": 0,
-      "status": "PENDING",
+      "sent_at": 1795206953,
+      "status": "SENT",
+      "telegram_ids": [
+        12647
+      ],
       "text": "🟡 MOVIMENTO DETECTADO • ENTRADA BLOQUEADA\nONDO/USDT • BAIXA (SHORT)\n🧪 SIMULAÇÃO • acompanhamento\n\nRompimento observado no M1 fechado às 17:35:00 BRT.\nPreço de referência do primeiro gatilho: 0.2731.\n\nConfirmação técnica identificada; entrada bloqueada.\nCondição pendente: A relação entre ganho e perda ficou abaixo do mínimo.\n\nFaixa em estudo: 0.2724 a 0.2738\n🛑 Stop do plano: 0.2759 (-10.25% bruto em 10x)\n🎯 Alvo do plano: 0.2721 (+3.66% bruto em 10x)\nCenário indicativo sobre a margem em 10x; custos e liquidação ainda não validados.\nMovimento sem alavancagem: TP +0.37% • SL -1.03%.\nPercentuais sobre a referência do primeiro gatilho, na direção da operação, antes de custos.\n\nMovimento observado, sem entrada liberada. Aguarde o alerta de confirmação e viabilidade.\nAlerta válido até 17:37:00 BRT.\nAnálise: 20/11/2026 17:35:49 BRT\nPlano: e7030ae2d12f581a4eda",
       "watch_stage": 0,
       "watch_symbol": "ONDO_USDT"
@@ -26892,17 +26896,21 @@
       "watch_symbol": "TAO_USDT"
     },
     "8485e02628dc8b46cb64": {
-      "attempts": 0,
+      "attempts": 1,
       "category": "ENTRY",
       "created_at": 1795206949,
       "expires_at": 1795207020,
       "id": "8485e02628dc8b46cb64",
       "plan_id": "2401cd6b2c89215f1a19",
       "quote_at": 1795206944,
+      "sent_at": 1795206952,
       "side": "SHORT",
       "signal_at": 1795206900,
-      "status": "PENDING",
+      "status": "SENT",
       "symbol": "ENA_USDT",
+      "telegram_ids": [
+        12646
+      ],
       "text": "🟢 GATILHO VÁLIDO PARA SIMULAR\nENA/USDT • SHORT\n🧪 SIMULAÇÃO • Confirmada\nRompimento • 2 fechamentos M1 • volume ≥50%\n\nVolume do segundo M1: 121.0% do primeiro.\n📍 Entrada: 0.09495 a 0.09555\n🛑 Stop: 0.09656 (-18.60% líquido sobre a margem)\n🎯 Alvo: 0.09245 (+24.71% líquido sobre a margem)\nMovimento sem alavancagem: TP +2.63% • SL -1.70%.\nBase dos percentuais sem alavancagem: 0.09495 (pior entrada); na direção da operação, antes de custos.\n\nMargem isolada estimada: 0.4748 USDT • 10x\nQuantidade: 5 contratos\nPerda planejada: -0.0883 USDT (-8.83% da banca)\nGanho projetado: +0.1173 USDT (+11.73% da banca)\nRetorno/risco líquido: 1.33:1 (pior entrada)\nCustos estimados: 0.0078 USDT\nROI líquido estimado sobre a margem: TP +24.71% • SL -18.60%.\nTaxa por execução: 0.06%\nDisparo do stop: último preço (Last)\n\nEstimativas de taxas, deslizamento e funding; ganho não garantido.\nFalta validar para uso real: taxa pessoal da conta; regras de margem da conta.\n\n⏱ Nova entrada até 17:37:00 BRT (1min 11s).\nGatilho M1 (segundo fechamento): 17:35:00 BRT\nCotação: 17:35:44 BRT\nAnálise: 20/11/2026 17:35:49 BRT\nA validade se aplica a novas entradas.\nPlano: 2401cd6b2c89215f1a19 • revisão 1",
       "variant": "CONFIRMADA"
     },
