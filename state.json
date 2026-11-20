@@ -1850,7 +1850,7 @@
       "watch_symbol": "ICP_USDT"
     },
     "08a059d35fc55e8406b9": {
-      "attempts": 0,
+      "attempts": 1,
       "category": "INFO",
       "created_at": 1795138843,
       "expires_at": 1795138920,
@@ -1861,7 +1861,11 @@
         "218c54933547a48dbfdf"
       ],
       "quote_at": 0,
-      "status": "PENDING",
+      "sent_at": 1795138848,
+      "status": "SENT",
+      "telegram_ids": [
+        11252
+      ],
       "text": "🟡 MOVIMENTO DETECTADO • ENTRADA BLOQUEADA\nSHIB/USDT • BAIXA (SHORT)\n🧪 SIMULAÇÃO • acompanhamento\n\nRompimento observado no M1 fechado às 22:40:00 BRT.\nPreço de referência do primeiro gatilho: 0.000003766.\n\nConfirmação técnica identificada; entrada bloqueada.\nCondição pendente: A relação entre ganho e perda ficou abaixo do mínimo.\n\nFaixa em estudo: 0.000003761 a 0.000003765\n🛑 Stop do plano: 0.00000378 (-3.72% bruto em 10x)\n🎯 Alvo do plano: 0.000003744 (+5.84% bruto em 10x)\nCenário indicativo sobre a margem em 10x; custos e liquidação ainda não validados.\nMovimento sem alavancagem: TP +0.58% • SL -0.37%.\nPercentuais sobre a referência do primeiro gatilho, na direção da operação, antes de custos.\n\nMovimento observado, sem entrada liberada. Aguarde o alerta de confirmação e viabilidade.\nAlerta válido até 22:42:00 BRT.\nAnálise: 19/11/2026 22:40:43 BRT\nPlano: 218c54933547a48dbfdf",
       "watch_stage": 0,
       "watch_symbol": "SHIB_USDT"
