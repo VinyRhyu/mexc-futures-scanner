@@ -150,7 +150,7 @@
   "model_activated_at": 1794349620,
   "outbox": {
     "00173d02dbb252d487a9": {
-      "attempts": 0,
+      "attempts": 1,
       "category": "INFO",
       "created_at": 1795139748,
       "expires_at": 1795139760,
@@ -161,7 +161,11 @@
         "52f96fc0aceb322854c3"
       ],
       "quote_at": 0,
-      "status": "PENDING",
+      "sent_at": 1795139750,
+      "status": "SENT",
+      "telegram_ids": [
+        11294
+      ],
       "text": "🟡 MOVIMENTO DETECTADO • AINDA SEM CONFIRMAÇÃO\nXLM/USDT • BAIXA (SHORT)\n🧪 SIMULAÇÃO • acompanhamento\n\nRompimento observado no M1 fechado às 22:55:00 BRT.\nPreço de referência do primeiro gatilho: 0.1322.\n\nPrimeiro fechamento além da região identificado.\nFalta o segundo fechamento sustentar o nível, com volume de pelo menos 50% do primeiro.\nApós confirmar, o plano ainda precisa passar pela avaliação financeira.\n\nFaixa em estudo: 0.13202 a 0.13226\n🛑 Stop do plano: 0.13272 (-3.93% bruto em 10x)\n🎯 Alvo do plano: 0.13218 (+0.15% bruto em 10x)\nCenário indicativo sobre a margem em 10x; custos e liquidação ainda não validados.\nMovimento sem alavancagem: TP +0.015% • SL -0.39%.\nPercentuais sobre a referência do primeiro gatilho, na direção da operação, antes de custos.\n\nMovimento observado, sem entrada liberada. Aguarde o alerta de confirmação e viabilidade.\nAlerta válido até 22:56:00 BRT.\nAnálise: 19/11/2026 22:55:48 BRT\nPlano: 52f96fc0aceb322854c3",
       "watch_stage": 1,
       "watch_symbol": "XLM_USDT"
@@ -12514,13 +12518,17 @@
       "text": "⚪ ATUALIZAÇÃO DOS PLANOS ACOMPANHADOS\n🧪 SIMULAÇÃO\n\n• LINK/USDT • LONG: confirmação não aprovada\n  Motivo: O segundo fechamento M1 perdeu o nível do gatilho.\n  Plano: 04b92f46f54f80b7c574\n• TAO/USDT • LONG: confirmação não aprovada\n  Motivo: O volume do segundo candle M1 foi menor que50% do primeiro.\n  Plano: 0b0e58f9fa4122b96031\n• LINK/USDT • LONG: confirmação não aprovada\n  Motivo: O segundo fechamento M1 perdeu o nível do gatilho.\n  Plano: 31fc3bdf316809899e8b\n• BNB/USDT • LONG: confirmação não aprovada\n  Motivo: O volume do segundo candle M1 foi menor que50% do primeiro.\n  Plano: 3ce17ef1584e5fef4c3d\n• APT/USDT • LONG: confirmação não aprovada\n  Motivo: O segundo fechamento M1 perdeu o nível do gatilho.\n  Plano: 58d712976640d3ac0b4b\n• APT/USDT • LONG: confirmação não aprovada\n  Motivo: O segundo fechamento M1 perdeu o nível do gatilho.\n  Plano: bd66f542c45a3bdb1111\n\nSem novas entradas por esses planos.\nAvisos de movimento não equivalem a entradas liberadas.\nA expiração não encerra uma posição já aberta.\nAnálise: 18/11/2026 04:55:36 BRT"
     },
     "427c2fbca5aa02085492": {
-      "attempts": 0,
+      "attempts": 1,
       "category": "INFO",
       "created_at": 1795139748,
       "expires_at": 1795143348,
       "id": "427c2fbca5aa02085492",
       "quote_at": 0,
-      "status": "PENDING",
+      "sent_at": 1795139752,
+      "status": "SENT",
+      "telegram_ids": [
+        11297
+      ],
       "text": "⚪ ATUALIZAÇÃO DOS PLANOS ACOMPANHADOS\n🧪 SIMULAÇÃO\n\n• AAVE/USDT • SHORT: alvo do plano alcançado durante o acompanhamento\n  Motivo: O movimento já alcançou o alvo do plano.\n  Plano: 01ec3b35dcd323e81081\n• XRP/USDT • SHORT: alvo do plano alcançado durante o acompanhamento\n  Motivo: O movimento já alcançou o alvo do plano.\n  Plano: 990739f12af2d0001e8b\n• XRP/USDT • SHORT: alvo do plano alcançado durante o acompanhamento\n  Motivo: O movimento já alcançou o alvo do plano.\n  Plano: b465f26950dc08e442ea\n• XLM/USDT • SHORT: alvo do plano alcançado durante o acompanhamento\n  Motivo: O movimento já alcançou o alvo do plano.\n  Plano: bd39e9a604585399acb9\n• AAVE/USDT • SHORT: alvo do plano alcançado durante o acompanhamento\n  Motivo: O movimento já alcançou o alvo do plano.\n  Plano: f13e4359d3828e146a89\n\nSem novas entradas por esses planos.\nAvisos de movimento não equivalem a entradas liberadas.\nA expiração não encerra uma posição já aberta.\nAnálise: 19/11/2026 22:55:48 BRT"
     },
     "429f30d955f5defe161b": {
@@ -26901,7 +26909,7 @@
       "text": "⚪ ATUALIZAÇÃO DOS PLANOS ACOMPANHADOS\n🧪 SIMULAÇÃO\n\n• ARB/USDT • LONG: prazo para nova entrada encerrado\n  Motivo: A janela para uma nova entrada terminou.\n  Plano: 261484a6970cd9f37c30\n• DOT/USDT • SHORT: prazo para nova entrada encerrado\n  Motivo: A janela para uma nova entrada terminou.\n  Plano: 28f2e97391a96cb2ddb8\n• ETH/USDT • SHORT: prazo para nova entrada encerrado\n  Motivo: A janela para uma nova entrada terminou.\n  Plano: 3791984f5786075b0072\n• ZEC/USDT • LONG: prazo para nova entrada encerrado\n  Motivo: A janela para uma nova entrada terminou.\n  Plano: 4ae19ff602d191f593b7\n• SOL/USDT • SHORT: prazo para nova entrada encerrado\n  Motivo: A janela para uma nova entrada terminou.\n  Plano: 5f3d7c57b6b454a269e0\n• ETH/USDT • LONG: prazo para nova entrada encerrado\n  Motivo: A janela para uma nova entrada terminou.\n  Plano: 73105670bf45dc69720a\n\nSem novas entradas por esses planos.\nAvisos de movimento não equivalem a entradas liberadas.\nA expiração não encerra uma posição já aberta.\nAnálise: 18/11/2026 05:45:39 BRT"
     },
     "914aefcf0efaddec5279": {
-      "attempts": 0,
+      "attempts": 1,
       "category": "INFO",
       "created_at": 1795139748,
       "expires_at": 1795140900,
@@ -26910,7 +26918,11 @@
         "5472a2cad6e93a7ea42c"
       ],
       "quote_at": 0,
-      "status": "PENDING",
+      "sent_at": 1795139751,
+      "status": "SENT",
+      "telegram_ids": [
+        11295
+      ],
       "text": "👀 PLANO EM PREPARAÇÃO • AGUARDANDO GATILHO\nAAVE/USDT\n🧪 SIMULAÇÃO • acompanhamento\n\nRegião em análise: 103.76 a 105.08\nLONG somente se houver fechamento M1 acima de ≈ 105.143.\n\nConfirmação: dois fechamentos M1 consecutivos além do gatilho; volume do segundo de pelo menos 50% do primeiro.\nTP, SL e percentuais serão definidos no primeiro gatilho. A confirmação ainda precisa passar pela avaliação financeira.\n\nSem rompimento observado neste plano e sem entrada liberada.\nPreparação até 23:15:00 BRT.\nAnálise: 19/11/2026 22:55:48 BRT\nPlanos: 5472a2cad6e93a7ea42c",
       "watch_stage": 2,
       "watch_symbol": "AAVE_USDT"
@@ -45965,7 +45977,7 @@
       "watch_symbol": "XRP_USDT"
     },
     "f9de67e6c573b758bc9a": {
-      "attempts": 0,
+      "attempts": 1,
       "category": "INFO",
       "created_at": 1795139748,
       "expires_at": 1795140900,
@@ -45974,7 +45986,11 @@
         "3a576a40b357e64798c3"
       ],
       "quote_at": 0,
-      "status": "PENDING",
+      "sent_at": 1795139752,
+      "status": "SENT",
+      "telegram_ids": [
+        11296
+      ],
       "text": "👀 PLANO EM PREPARAÇÃO • AGUARDANDO GATILHO\nXRP/USDT\n🧪 SIMULAÇÃO • acompanhamento\n\nRegião em análise: 0.9577 a 0.9687\nLONG somente se houver fechamento M1 acima de ≈ 0.96921.\n\nConfirmação: dois fechamentos M1 consecutivos além do gatilho; volume do segundo de pelo menos 50% do primeiro.\nTP, SL e percentuais serão definidos no primeiro gatilho. A confirmação ainda precisa passar pela avaliação financeira.\n\nSem rompimento observado neste plano e sem entrada liberada.\nPreparação até 23:15:00 BRT.\nAnálise: 19/11/2026 22:55:48 BRT\nPlanos: 3a576a40b357e64798c3",
       "watch_stage": 2,
       "watch_symbol": "XRP_USDT"
