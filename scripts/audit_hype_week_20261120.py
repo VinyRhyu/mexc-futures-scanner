@@ -111,8 +111,43 @@ def run():
         cost=2*entry*(Parameters().taker_fee_each+Parameters().slippage_each)
         rr=(1.8*risk-cost)/(risk+cost)
         if rr<1.2:
-            rr_rejected.append({"signal_brt":brt(event_at),"reason":"net_rr_lt_1_2",
-                                "entry":entry,"sl":round(stop,8),"rr_net":round(rr,3)})
+            # Diagnostic only: counterfactual path with exactly the frozen 1.8R gross
+            # target and two-hour horizon. This NEVER converts rejection to an entry.
+            hypothetical_tp=entry-1.8*risk
+            horizon_end=min(i+24,len(five)-1)
+            hypothetical_result="NO_EXIT_YET" if horizon_end<i+24 else "TIME"
+            hypothetical_exit_price=float(five[horizon_end][4])
+            hypothetical_exit_k=horizon_end
+            for k in range(i+1,horizon_end+1):
+                bar=five[k]
+                hit_sl=float(bar[2])>=stop
+                hit_tp=float(bar[3])<=hypothetical_tp
+                if hit_sl or hit_tp:
+                    hypothetical_result=("AMBIGUOUS" if hit_sl and hit_tp
+                                         else "SL" if hit_sl else "TP")
+                    hypothetical_exit_price=(stop if hit_sl else hypothetical_tp)
+                    hypothetical_exit_k=k
+                    break
+            observed=five[i+1:hypothetical_exit_k+1]
+            rr_rejected.append({
+                "signal_brt":brt(event_at),
+                "entry_brt":brt(iso(int(five[i+1][0]))),
+                "reason":"net_rr_lt_1_2",
+                "entry":entry,"sl":round(stop,8),
+                "tp":round(hypothetical_tp,8),
+                "rr_net":round(rr,3),
+                "outcome_if_filter_IGNORED":hypothetical_result,
+                "hypothetical_exit_candle_start_brt":brt(iso(int(five[hypothetical_exit_k][0]))),
+                "hypothetical_exit_candle_end_brt":brt(iso(int(five[hypothetical_exit_k][0])+FIVE_MS)),
+                "hypothetical_exit_price":round(hypothetical_exit_price,8),
+                "hypothetical_movement_pct":round(100*(entry-hypothetical_exit_price)/entry,4),
+                "hypothetical_max_favorable_pct":round(
+                    100*(entry-min(float(c[3]) for c in observed))/entry,4),
+                "hypothetical_max_adverse_pct":round(
+                    100*(max(float(c[2]) for c in observed)-entry)/entry,4),
+                "hypothetical_bars":len(observed),
+                "WARNING":"counterfactual rejected setup, NOT a scanner-selected trade",
+            })
             continue
         if i+24>=len(five):
             end_idx=len(five)-1
