@@ -19,7 +19,7 @@ jobs:
           python -m unittest discover -s tests -v
           python -m mexc_scanner demo
           python -m mexc_scanner replay reports/demo/snapshot.json --output reports/demo-replay
-      - name: HYPE F entradas semana 16 a 20 de novembro - paper
+      - name: HYPE 8 movimentos - auditoria M5 H1 sem olhar futuro
         if: github.event_name == 'pull_request'
         timeout-minutes: 9
-        run: python -m scripts.audit_hype_week_20261120
+        run: python -m scripts.audit_hype_eight_moves_20261120
