@@ -19,8 +19,12 @@ jobs:
           python -m unittest discover -s tests -v
           python -m mexc_scanner demo
           python -m mexc_scanner replay reports/demo/snapshot.json --output reports/demo-replay
-      - name: Leitura fresca dos perps USDT liquidos no modelo F (paper)
+      - name: SMC-R sweep+FVG vs F original em 4 janelas historicas (paper)
         if: github.event_name == 'pull_request'
         timeout-minutes: 16
         run: |
-          python -m scripts.live_sweep_watch --minimum-turnover 2000000
+          set -e
+          for w in T U V W; do
+            echo "===== SMC RESEARCH WINDOW $w ====="
+            python -m scripts.audit_smc_liquidity_fvg --window "$w"
+          done
