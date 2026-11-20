@@ -9260,7 +9260,7 @@
       "text": "⚪ ATUALIZAÇÃO DOS PLANOS ACOMPANHADOS\n🧪 SIMULAÇÃO\n\n• BTC/USDT • SHORT: confirmação não aprovada\n  Motivo: O segundo fechamento M1 perdeu o nível do gatilho.\n  Plano: 15b2809835258cc48cee\n\nSem novas entradas por esses planos.\nAvisos de movimento não equivalem a entradas liberadas.\nA expiração não encerra uma posição já aberta.\nAnálise: 20/11/2026 04:37:35 BRT"
     },
     "2e66738d514f264fb5f3": {
-      "attempts": 0,
+      "attempts": 1,
       "category": "INFO",
       "created_at": 1795165595,
       "expires_at": 1795165620,
@@ -9271,7 +9271,11 @@
         "c7b79770657067111345"
       ],
       "quote_at": 0,
-      "status": "PENDING",
+      "sent_at": 1795165599,
+      "status": "SENT",
+      "telegram_ids": [
+        11811
+      ],
       "text": "🟡 MOVIMENTO DETECTADO • AINDA SEM CONFIRMAÇÃO\nADA/USDT • BAIXA (SHORT)\n🧪 SIMULAÇÃO • acompanhamento\n\nRompimento observado no M1 fechado às 06:06:00 BRT.\nPreço de referência do primeiro gatilho: 0.1486.\n\nPrimeiro fechamento além da região identificado.\nFalta o segundo fechamento sustentar o nível, com volume de pelo menos 50% do primeiro.\nApós confirmar, o plano ainda precisa passar pela avaliação financeira.\n\nFaixa em estudo: 0.1484 a 0.1486\n🛑 Stop do plano: 0.1493 (-4.71% bruto em 10x)\n🎯 Alvo do plano: 0.1484 (+1.35% bruto em 10x)\nCenário indicativo sobre a margem em 10x; custos e liquidação ainda não validados.\nMovimento sem alavancagem: TP +0.13% • SL -0.47%.\nPercentuais sobre a referência do primeiro gatilho, na direção da operação, antes de custos.\n\nMovimento observado, sem entrada liberada. Aguarde o alerta de confirmação e viabilidade.\nAlerta válido até 06:07:00 BRT.\nAnálise: 20/11/2026 06:06:35 BRT\nPlano: c7b79770657067111345",
       "watch_stage": 1,
       "watch_symbol": "ADA_USDT"
