@@ -1882,11 +1882,12 @@
       "watch_symbol": "TIA_USDT"
     },
     "07b8f64b172e3e446ae1": {
-      "attempts": 0,
+      "attempts": 1,
       "category": "INFO",
       "created_at": 1795196741,
       "expires_at": 1795198500,
       "id": "07b8f64b172e3e446ae1",
+      "last_error": "TELEGRAM_FALHA_OU_RESULTADO_AMBIGUO: TimeoutError",
       "plan_ids": [
         "32fc4591cb769deeba42",
         "5f1478988b52bf04c7c9"
