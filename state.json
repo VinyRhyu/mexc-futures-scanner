@@ -4253,13 +4253,17 @@
       "watch_symbol": "ADA_USDT"
     },
     "134119aaa7af1f4c0d4b": {
-      "attempts": 0,
+      "attempts": 1,
       "category": "INFO",
       "created_at": 1795174852,
       "expires_at": 1795178452,
       "id": "134119aaa7af1f4c0d4b",
       "quote_at": 0,
-      "status": "PENDING",
+      "sent_at": 1795174857,
+      "status": "SENT",
+      "telegram_ids": [
+        12086
+      ],
       "text": "⚪ ATUALIZAÇÃO DOS PLANOS ACOMPANHADOS\n🧪 SIMULAÇÃO\n\n• XRP/USDT • SHORT: alvo do plano alcançado durante o acompanhamento\n  Motivo: O movimento já alcançou o alvo do plano.\n  Plano: 36dd856d9cfa2b684fa0\n• XLM/USDT • SHORT: alvo do plano alcançado durante o acompanhamento\n  Motivo: O movimento já alcançou o alvo do plano.\n  Plano: 3bec8a517e7b965cb442\n\nSem novas entradas por esses planos.\nAvisos de movimento não equivalem a entradas liberadas.\nA expiração não encerra uma posição já aberta.\nAnálise: 20/11/2026 08:40:52 BRT"
     },
     "1353c1c41bf7af2ce383": {
@@ -22000,17 +22004,21 @@
       "watch_symbol": "BTC_USDT"
     },
     "73301e1c20d749a2a083": {
-      "attempts": 0,
+      "attempts": 1,
       "category": "ENTRY",
       "created_at": 1795174852,
       "expires_at": 1795174920,
       "id": "73301e1c20d749a2a083",
       "plan_id": "7b5876943231eddd4db6",
       "quote_at": 1795174848,
+      "sent_at": 1795174856,
       "side": "SHORT",
       "signal_at": 1795174800,
-      "status": "PENDING",
+      "status": "SENT",
       "symbol": "SKY_USDT",
+      "telegram_ids": [
+        12084
+      ],
       "text": "🟢 GATILHO VÁLIDO PARA SIMULAR\nSKY/USDT • SHORT\n🧪 SIMULAÇÃO • Confirmada\nRompimento • 2 fechamentos M1 • volume ≥50%\n\nVolume do segundo M1: 192.1% do primeiro.\n📍 Entrada: 0.04246 a 0.04257\n🛑 Stop: 0.04284 (-11.10% líquido sobre a margem)\n🎯 Alvo: 0.04189 (+11.29% líquido sobre a margem)\nMovimento sem alavancagem: TP +1.34% • SL -0.89%.\nBase dos percentuais sem alavancagem: 0.04246 (pior entrada); na direção da operação, antes de custos.\n\nMargem isolada estimada: 0.8917 USDT • 10x\nQuantidade: 21 contratos\nPerda planejada: -0.0989 USDT (-9.89% da banca)\nGanho projetado: +0.1007 USDT (+10.07% da banca)\nRetorno/risco líquido: 1.02:1 (pior entrada)\nCustos estimados: 0.0191 USDT\nROI líquido estimado sobre a margem: TP +11.29% • SL -11.10%.\nTaxa por execução: 0.06%\nDisparo do stop: último preço (Last)\n\nEstimativas de taxas, deslizamento e funding; ganho não garantido.\nFalta validar para uso real: taxa pessoal da conta; regras de margem da conta.\n\n⏱ Nova entrada até 08:42:00 BRT (1min 08s).\nGatilho M1 (segundo fechamento): 08:40:00 BRT\nCotação: 08:40:48 BRT\nAnálise: 20/11/2026 08:40:52 BRT\nA validade se aplica a novas entradas.\nPlano: 7b5876943231eddd4db6 • revisão 1",
       "variant": "CONFIRMADA"
     },
@@ -23605,7 +23613,7 @@
       "variant": "CONFIRMADA"
     },
     "7a9c944c02e071daa6e4": {
-      "attempts": 0,
+      "attempts": 1,
       "category": "INFO",
       "created_at": 1795174852,
       "expires_at": 1795176000,
@@ -23614,7 +23622,11 @@
         "3102e076ba604cc455d6"
       ],
       "quote_at": 0,
-      "status": "PENDING",
+      "sent_at": 1795174857,
+      "status": "SENT",
+      "telegram_ids": [
+        12085
+      ],
       "text": "👀 PLANO EM PREPARAÇÃO • AGUARDANDO GATILHO\nXLM/USDT\n🧪 SIMULAÇÃO • acompanhamento\n\nRegião em análise: 0.13231 a 0.13399\nLONG somente se houver fechamento M1 acima de ≈ 0.134064.\n\nConfirmação: dois fechamentos M1 consecutivos além do gatilho; volume do segundo de pelo menos 50% do primeiro.\nTP, SL e percentuais serão definidos no primeiro gatilho. A confirmação ainda precisa passar pela avaliação financeira.\n\nSem rompimento observado neste plano e sem entrada liberada.\nPreparação até 09:00:00 BRT.\nAnálise: 20/11/2026 08:40:52 BRT\nPlanos: 3102e076ba604cc455d6",
       "watch_stage": 2,
       "watch_symbol": "XLM_USDT"
