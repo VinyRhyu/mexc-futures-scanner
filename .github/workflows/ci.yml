@@ -19,10 +19,9 @@ jobs:
           python -m unittest discover -s tests -v
           python -m mexc_scanner demo
           python -m mexc_scanner replay reports/demo/snapshot.json --output reports/demo-replay
-      - name: Avaliacao isolada MEXC 21 dias (somente PR, sem ordens)
+      - name: Regime confluence V2 42 dias (paper research)
         if: github.event_name == 'pull_request'
         continue-on-error: true
-        timeout-minutes: 6
+        timeout-minutes: 8
         run: |
-          python -m scripts.audit_confluence_extended --days 21 --end 2026-10-30T11:00:00+00:00
-          python -m scripts.audit_confluence_extended --days 21 --end 2026-11-20T11:00:00+00:00
+          python -m scripts.audit_confluence_v2 --days 42 --end 2026-11-20T11:00:00+00:00
