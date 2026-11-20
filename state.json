@@ -9564,7 +9564,7 @@
       "watch_symbol": "HBAR_USDT"
     },
     "2ded3988ae17e543465b": {
-      "attempts": 0,
+      "attempts": 1,
       "category": "INFO",
       "created_at": 1795173878,
       "expires_at": 1795173960,
@@ -9575,7 +9575,11 @@
         "4fa4313295d4b3b6904d"
       ],
       "quote_at": 0,
-      "status": "PENDING",
+      "sent_at": 1795173882,
+      "status": "SENT",
+      "telegram_ids": [
+        12040
+      ],
       "text": "🟡 MOVIMENTO DETECTADO • ENTRADA BLOQUEADA\nXLM/USDT • BAIXA (SHORT)\n🧪 SIMULAÇÃO • acompanhamento\n\nRompimento observado no M1 fechado às 08:24:00 BRT.\nPreço de referência do primeiro gatilho: 0.13236.\n\nConfirmação técnica identificada; entrada bloqueada.\nCondição pendente: A relação entre ganho e perda ficou abaixo do mínimo.\n\nFaixa em estudo: 0.13218 a 0.13239\n🛑 Stop do plano: 0.13286 (-3.78% bruto em 10x)\n🎯 Alvo do plano: 0.13218 (+1.36% bruto em 10x)\nCenário indicativo sobre a margem em 10x; custos e liquidação ainda não validados.\nMovimento sem alavancagem: TP +0.14% • SL -0.38%.\nPercentuais sobre a referência do primeiro gatilho, na direção da operação, antes de custos.\n\nMovimento observado, sem entrada liberada. Aguarde o alerta de confirmação e viabilidade.\nAlerta válido até 08:26:00 BRT.\nAnálise: 20/11/2026 08:24:38 BRT\nPlano: 4fa4313295d4b3b6904d",
       "watch_stage": 0,
       "watch_symbol": "XLM_USDT"
@@ -12126,13 +12130,17 @@
       "text": "⚪ ATUALIZAÇÃO DOS PLANOS ACOMPANHADOS\n🧪 SIMULAÇÃO\n\n• HBAR/USDT • LONG: prazo para nova entrada encerrado\n  Motivo: A janela para uma nova entrada terminou.\n  Plano: 0e1113d07e973aaf5dea\n• APT/USDT • LONG: prazo para nova entrada encerrado\n  Motivo: A janela para uma nova entrada terminou.\n  Plano: 1ac848fab3bd95bddbed\n• ARB/USDT • LONG: prazo para nova entrada encerrado\n  Motivo: A janela para uma nova entrada terminou.\n  Plano: 2a8c3adfa68e2377fed7\n• ETH/USDT • SHORT: prazo para nova entrada encerrado\n  Motivo: A janela para uma nova entrada terminou.\n  Plano: 41c0e9a667259111075a\n• ETH/USDT • LONG: prazo para nova entrada encerrado\n  Motivo: A janela para uma nova entrada terminou.\n  Plano: 64202888e25eec89d88b\n• BTC/USDT • LONG: prazo para nova entrada encerrado\n  Motivo: A janela para uma nova entrada terminou.\n  Plano: 644cf7929e1f4e8f2a98\n\nSem novas entradas por esses planos.\nAvisos de movimento não equivalem a entradas liberadas.\nA expiração não encerra uma posição já aberta.\nAnálise: 19/11/2026 21:45:40 BRT"
     },
     "3bc7f25c582ce89f34b7": {
-      "attempts": 0,
+      "attempts": 1,
       "category": "INFO",
       "created_at": 1795173878,
       "expires_at": 1795177478,
       "id": "3bc7f25c582ce89f34b7",
       "quote_at": 0,
-      "status": "PENDING",
+      "sent_at": 1795173882,
+      "status": "SENT",
+      "telegram_ids": [
+        12042
+      ],
       "text": "⚪ ATUALIZAÇÃO DOS PLANOS ACOMPANHADOS\n🧪 SIMULAÇÃO\n\n• DOT/USDT • SHORT: confirmação não aprovada\n  Motivo: O volume do segundo candle M1 foi menor que50% do primeiro.\n  Plano: 4ba7fc6c14e15cdd2773\n• DOT/USDT • SHORT: confirmação não aprovada\n  Motivo: O volume do segundo candle M1 foi menor que50% do primeiro.\n  Plano: 59dbcd4bcb3a7656b3b3\n\nSem novas entradas por esses planos.\nAvisos de movimento não equivalem a entradas liberadas.\nA expiração não encerra uma posição já aberta.\nAnálise: 20/11/2026 08:24:38 BRT"
     },
     "3c1b62496dc4ff236a01": {
@@ -41515,7 +41523,7 @@
       "watch_symbol": "AVAX_USDT"
     },
     "d5ae0d1eae6a244c9eca": {
-      "attempts": 0,
+      "attempts": 1,
       "category": "INFO",
       "created_at": 1795173878,
       "expires_at": 1795175100,
@@ -41524,7 +41532,11 @@
         "9e38f610bef9d8e93293"
       ],
       "quote_at": 0,
-      "status": "PENDING",
+      "sent_at": 1795173882,
+      "status": "SENT",
+      "telegram_ids": [
+        12041
+      ],
       "text": "👀 PLANO EM PREPARAÇÃO • AGUARDANDO GATILHO\nDOT/USDT\n🧪 SIMULAÇÃO • acompanhamento\n\nRegião em análise: 0.6972 a 0.7032\nLONG somente se houver fechamento M1 acima de ≈ 0.703572.\n\nConfirmação: dois fechamentos M1 consecutivos além do gatilho; volume do segundo de pelo menos 50% do primeiro.\nTP, SL e percentuais serão definidos no primeiro gatilho. A confirmação ainda precisa passar pela avaliação financeira.\n\nSem rompimento observado neste plano e sem entrada liberada.\nPreparação até 08:45:00 BRT.\nAnálise: 20/11/2026 08:24:38 BRT\nPlanos: 9e38f610bef9d8e93293",
       "watch_stage": 2,
       "watch_symbol": "DOT_USDT"
