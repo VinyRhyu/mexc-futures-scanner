@@ -16215,7 +16215,7 @@
       "text": "⚪ ATUALIZAÇÃO DOS PLANOS ACOMPANHADOS\n🧪 SIMULAÇÃO\n\n• WLD/USDT • SHORT: prazo para nova entrada encerrado\n  Motivo: A janela para uma nova entrada terminou.\n  Plano: 39a330dc0574e184f5f3\n• WLD/USDT • SHORT: prazo para nova entrada encerrado\n  Motivo: A janela para uma nova entrada terminou.\n  Plano: 4a7da8e71b07a510bf2d\n• ONDO/USDT • SHORT: prazo para nova entrada encerrado\n  Motivo: A janela para uma nova entrada terminou.\n  Plano: 6dbb36c124029a774af4\n\nSem novas entradas por esses planos.\nAvisos de movimento não equivalem a entradas liberadas.\nA expiração não encerra uma posição já aberta.\nAnálise: 18/11/2026 22:35:39 BRT"
     },
     "587abe6c9fdab5197cfe": {
-      "attempts": 0,
+      "attempts": 1,
       "category": "INFO",
       "created_at": 1795139501,
       "expires_at": 1795139580,
@@ -16226,7 +16226,11 @@
         "d21925e5e59fb61a5b66"
       ],
       "quote_at": 0,
-      "status": "PENDING",
+      "sent_at": 1795139503,
+      "status": "SENT",
+      "telegram_ids": [
+        11271
+      ],
       "text": "🟡 MOVIMENTO DETECTADO • ENTRADA BLOQUEADA\nLUNC/USDT • BAIXA (SHORT)\n🧪 SIMULAÇÃO • acompanhamento\n\nRompimento observado no M1 fechado às 22:51:00 BRT.\nPreço de referência do primeiro gatilho: 0.00004611.\n\nConfirmação técnica identificada; entrada bloqueada.\nCondição pendente: A relação entre ganho e perda ficou abaixo do mínimo.\n\nFaixa em estudo: 0.00004595 a 0.00004611\n🛑 Stop do plano: 0.00004652 (-8.89% bruto em 10x)\n🎯 Alvo do plano: 0.00004562 (+10.63% bruto em 10x)\nCenário indicativo sobre a margem em 10x; custos e liquidação ainda não validados.\nMovimento sem alavancagem: TP +1.06% • SL -0.89%.\nPercentuais sobre a referência do primeiro gatilho, na direção da operação, antes de custos.\n\nMovimento observado, sem entrada liberada. Aguarde o alerta de confirmação e viabilidade.\nAlerta válido até 22:53:00 BRT.\nAnálise: 19/11/2026 22:51:41 BRT\nPlano: d21925e5e59fb61a5b66",
       "watch_stage": 0,
       "watch_symbol": "LUNC_USDT"
@@ -46286,7 +46290,7 @@
       "watch_symbol": "WLD_USDT"
     },
     "fd061c96660ba2f70016": {
-      "attempts": 0,
+      "attempts": 1,
       "category": "INFO",
       "created_at": 1795139501,
       "expires_at": 1795139520,
@@ -46297,7 +46301,11 @@
         "099e9b8a0b91cd9ede5e"
       ],
       "quote_at": 0,
-      "status": "PENDING",
+      "sent_at": 1795139503,
+      "status": "SENT",
+      "telegram_ids": [
+        11272
+      ],
       "text": "🟡 MOVIMENTO DETECTADO • AINDA SEM CONFIRMAÇÃO\nINJ/USDT • BAIXA (SHORT)\n🧪 SIMULAÇÃO • acompanhamento\n\nRompimento observado no M1 fechado às 22:51:00 BRT.\nPreço de referência do primeiro gatilho: 6.949.\n\nPrimeiro fechamento além da região identificado.\nFalta o segundo fechamento sustentar o nível, com volume de pelo menos 50% do primeiro.\nApós confirmar, o plano ainda precisa passar pela avaliação financeira.\n\nFaixa em estudo: 6.934 a 6.949\n🛑 Stop do plano: 6.989 (-5.76% bruto em 10x)\n🎯 Alvo do plano: 6.947 (+0.29% bruto em 10x)\nCenário indicativo sobre a margem em 10x; custos e liquidação ainda não validados.\nMovimento sem alavancagem: TP +0.029% • SL -0.58%.\nPercentuais sobre a referência do primeiro gatilho, na direção da operação, antes de custos.\n\nMovimento observado, sem entrada liberada. Aguarde o alerta de confirmação e viabilidade.\nAlerta válido até 22:52:00 BRT.\nAnálise: 19/11/2026 22:51:41 BRT\nPlano: 099e9b8a0b91cd9ede5e",
       "watch_stage": 1,
       "watch_symbol": "INJ_USDT"
