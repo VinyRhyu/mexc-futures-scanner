@@ -72,3 +72,54 @@ Mesmo conjunto de filtros aplicado sem ajuste posterior em outros snapshots de a
 Estes números são triagem exploratória dos snapshots, não auditoria definitiva de fills reais. Uma janela de 8h pode começar no dia anterior à data da coleta. A concentração dos TPs do dia 12 em ativos relacionados ao mesmo movimento de mercado é um risco de correlação. Os timeouts podem ganhar ou perder após custos; não os contar como ganhos nem como perdas fixas.
 
 Próximos critérios: backtest sobre históricos MEXC mais longos, comparação em janelas independentes e mensuração de expectativa líquida com somente uma posição simultânea por carteira; depois validação prospectiva em paper.
+
+
+## Avaliação ampliada MEXC Futures — 21 dias, 10 contratos
+
+Executada em 20/11/2026 na GitHub Action da PR de pesquisa, usando
+scripts/audit_confluence_extended.py --days 21, API pública da MEXC https://api.mexc.com,
+janela 2026-10-30T11:00Z a 2026-11-20T11:00Z, M5/H1.
+A coleta de todos os 10 ativos cobriu 6.072 candles M5 e 540 candles H1 por ativo
+(incluindo warmup). **Nenhuma execução real; resultados hipotéticos**.
+
+| Métrica | Resultado |
+| --- | ---: |
+| Candidatos técnicos, sem restrição global de carteira | 300 |
+| Alvos TP | 41 (13,7%) |
+| Stops SL | 56 (18,7%) |
+| Saída por 60 min sem TP/SL | 203 (67,7%) |
+| Resultado agregado dos sinais (não é portfólio) | -19,519 R |
+| Carteira com uma posição por vez (desempate: maior volume relativo ex ante) | 156 operações |
+| Soma de R dessa carteira | **-12,329 R** |
+| Retorno composto com risco hipotético de 1% da banca por operação | **-11,948%** |
+| Drawdown máximo nessa carteira | **14,653%** |
+| Dias UTC com resultado líquido agregado positivo/negativo | 5 / 17 (22 datas UTC abrangidas) |
+
+Hipóteses: fee taker 0,06% e slippage 0,02% por lado, fechamento simulado no TP/SL
+ou close de timeout de 60 minutos. Funding, order book, tamanho mínimo, execução parcial
+e liquidação não estão modelados. Ambiguidade OHLC é perda de 1R no estresse.
+Simular 1% de risco não garante execução viável com banca inicial de 1 USDT.
+
+Por ativo: TAO 23 sinais (5 TP, 3 SL, 15 TIME; -2,436 R); SOL 27 (4/3/20; -1,546R);
+AVAX 35 (7/5/23; -0,320R); ENA 42 (6/6/30; +4,043R);
+DOT 36 (5/11/20; -5,967R); ZEC 29 (5/7/17; +0,351R);
+HYPE 47 (2/11/34; -9,847R); AAVE 23 (2/4/17; +1,194R);
+BTC 19 (2/1/16; -2,091R); ETH 19 (3/5/11; -2,900R).
+Não selecionar ENA/ZEC/AAVE após ver lucros: seria seleção retrospectiva.
+
+### Caso TAO na MEXC, e não OKX
+
+No histórico MEXC do contrato TAO_USDT, sinal M5 confirmado
+**19/11 às 22h40 BRT**, entrada hipotética na abertura do próximo
+M5 a 191,50 USDT, stop 193,03915 USDT, alvo 189,191275 USDT.
+Alvo tocado no candle iniciado às 22h50 BRT; lucro após custos hipotéticos
+de +1,0849R. O caso TAO foi usado para escolher os parâmetros
+(in-sample); não comprova vantagem preditiva.
+
+### Conclusão
+
+**Não integrar o piloto na produção.** O acerto histórico em TAO não compensou
+os resultados dos outros dias/ativos. O excesso de timeouts e a concentração
+de sinais simultâneos sinalizam baixa seletividade. A estratégia precisa de nova
+hipótese pré-registrada e validação em dados independentes, comparada à baseline
+M1 nas mesmas condições, antes de sequer pensar em sinais no Telegram.
