@@ -139,15 +139,17 @@ def run(window: str):
              },sort_keys=True),flush=True)
     pairs=[p for x in obs.values() for p in x["paired"]
            if lo <= p["confirmation_at"] < hi]
+    comparable=[p for p in pairs if p["original_F_outcome"] is not None]
     print("V4_COMPARISON "+json.dumps({"window":window,"comparison":out,
           "observed_confirmations":sum(x["confirmed_observed"] for x in obs.values()),
           "eligible_confirmations":sum(x["confirmed_eligible"] for x in obs.values()),
           "paired_origin_outcomes":dict(Counter(x["original_F_outcome"] or "NO_ORIGINAL_TRADE" for x in pairs)),
           "paired_confirm_outcomes":dict(Counter(x["confirmed_outcome"] for x in pairs)),
-          "paired_original_net_R":round(sum(x["original_F_net_R"] if x["original_F_net_R"] is not None else -1 for x in pairs),4),
-          "paired_confirm_net_R":round(sum(x["confirmed_net_R"] if x["confirmed_net_R"] is not None else -1 for x in pairs),4),
+          "paired_comparable_events":len(comparable),
+          "paired_comparable_original_net_R":round(sum(x["original_F_net_R"] if x["original_F_net_R"] is not None else -1 for x in comparable),4),
+          "paired_comparable_confirm_net_R":round(sum(x["confirmed_net_R"] if x["confirmed_net_R"] is not None else -1 for x in comparable),4),
           "paired_original_absent":sum(x["original_F_outcome"] is None for x in pairs),
-          "note":"Pairs use matching sweep; independent portfolio simulation may admit different signals due to overlapping-position cooldowns",
+          "note":"Only events executable under BOTH entry rules form valid pairs; strategy portfolios can differ due to overlapping positions",
           "historical_not_prospective":True},sort_keys=True),flush=True)
 
 
