@@ -1,5 +1,5 @@
 {
-  "analyzed_at": 1795189720,
+  "analyzed_at": 1795189777,
   "analyzed_symbols": 33,
   "config_fingerprint": "a0c2766956c79181fa62",
   "diagnostics": [],
@@ -2669,37 +2669,37 @@
   "operational_timings": [
     {
       "commit": "9f93310df53b77a98aa0a5166081b5693404df91",
-      "duration_s": 1.902317,
+      "duration_s": 1.081153,
       "event": "end",
-      "finished_at_utc": "2026-11-20T15:48:17.859121+00:00",
+      "finished_at_utc": "2026-11-20T15:49:15.761293+00:00",
       "phase": "market_catalog",
       "run_attempt": "1",
-      "run_id": "44766910143",
-      "started_at_utc": "2026-11-20T15:48:15.956827+00:00",
+      "run_id": "44767071483",
+      "started_at_utc": "2026-11-20T15:49:14.680167+00:00",
       "status": "OK",
       "telemetry": "phase_v1"
     },
     {
       "commit": "9f93310df53b77a98aa0a5166081b5693404df91",
-      "duration_s": 21.792527,
+      "duration_s": 21.841849,
       "event": "end",
-      "finished_at_utc": "2026-11-20T15:48:39.652437+00:00",
+      "finished_at_utc": "2026-11-20T15:49:37.604298+00:00",
       "phase": "candles_collect",
       "run_attempt": "1",
-      "run_id": "44766910143",
-      "started_at_utc": "2026-11-20T15:48:17.859938+00:00",
+      "run_id": "44767071483",
+      "started_at_utc": "2026-11-20T15:49:15.762475+00:00",
       "status": "OK",
       "telemetry": "phase_v1"
     },
     {
       "commit": "9f93310df53b77a98aa0a5166081b5693404df91",
-      "duration_s": 0.563263,
+      "duration_s": 0.547799,
       "event": "end",
-      "finished_at_utc": "2026-11-20T15:48:40.215828+00:00",
+      "finished_at_utc": "2026-11-20T15:49:38.152183+00:00",
       "phase": "analysis_and_finance",
       "run_attempt": "1",
-      "run_id": "44766910143",
-      "started_at_utc": "2026-11-20T15:48:39.652586+00:00",
+      "run_id": "44767071483",
+      "started_at_utc": "2026-11-20T15:49:37.604419+00:00",
       "status": "OK",
       "telemetry": "phase_v1"
     }
