@@ -13400,7 +13400,7 @@
       "watch_symbol": "LUNC_USDT"
     },
     "41bb509a413e7a3c6275": {
-      "attempts": 0,
+      "attempts": 1,
       "category": "INFO",
       "created_at": 1795179696,
       "expires_at": 1795181400,
@@ -13410,7 +13410,11 @@
         "aeb5e237ffdf76c53a52"
       ],
       "quote_at": 0,
-      "status": "PENDING",
+      "sent_at": 1795179701,
+      "status": "SENT",
+      "telegram_ids": [
+        12203
+      ],
       "text": "👀 PLANO EM PREPARAÇÃO • AGUARDANDO GATILHO\nUNI/USDT\n🧪 SIMULAÇÃO • acompanhamento\n\nRegião em análise: 4.734 a 4.836\nDireção indefinida: cenários alternativos, não duas entradas.\nLONG somente se houver fechamento M1 acima de ≈ 4.83923.\nSHORT somente se houver fechamento M1 abaixo de ≈ 4.73077.\n\nConfirmação: dois fechamentos M1 consecutivos além do gatilho; volume do segundo de pelo menos 50% do primeiro.\nTP, SL e percentuais serão definidos no primeiro gatilho. A confirmação ainda precisa passar pela avaliação financeira.\n\nSem rompimento observado neste plano e sem entrada liberada.\nPreparação até 10:30:00 BRT.\nAnálise: 20/11/2026 10:01:36 BRT\nPlanos: f309506d144925fe0130, aeb5e237ffdf76c53a52",
       "watch_stage": 2,
       "watch_symbol": "UNI_USDT"
@@ -13609,17 +13613,21 @@
       "watch_symbol": "XRP_USDT"
     },
     "42d45607e00a2877d755": {
-      "attempts": 0,
+      "attempts": 1,
       "category": "ENTRY",
       "created_at": 1795179696,
       "expires_at": 1795179780,
       "id": "42d45607e00a2877d755",
       "plan_id": "e4ee525fd500e3148357",
       "quote_at": 1795179694,
+      "sent_at": 1795179700,
       "side": "SHORT",
       "signal_at": 1795179660,
-      "status": "PENDING",
+      "status": "SENT",
       "symbol": "ENA_USDT",
+      "telegram_ids": [
+        12202
+      ],
       "text": "🟢 GATILHO VÁLIDO PARA SIMULAR\nENA/USDT • SHORT\n🧪 SIMULAÇÃO • Confirmada\nRompimento • 2 fechamentos M1 • volume ≥50%\n\nVolume do segundo M1: 106.8% do primeiro.\n📍 Entrada: 0.10217 a 0.10247\n🛑 Stop: 0.10298 (-10.49% líquido sobre a margem)\n🎯 Alvo: 0.10096 (+11.28% líquido sobre a margem)\nMovimento sem alavancagem: TP +1.18% • SL -0.79%.\nBase dos percentuais sem alavancagem: 0.10217 (pior entrada); na direção da operação, antes de custos.\n\nMargem isolada estimada: 0.9288 USDT • 11x\nQuantidade: 10 contratos\nPerda planejada: -0.0974 USDT (-9.74% da banca)\nGanho projetado: +0.1047 USDT (+10.47% da banca)\nRetorno/risco líquido: 1.08:1 (pior entrada)\nCustos estimados: 0.0164 USDT\nROI líquido estimado sobre a margem: TP +11.28% • SL -10.49%.\nTaxa por execução: 0.06%\nDisparo do stop: último preço (Last)\n\nEstimativas de taxas, deslizamento e funding; ganho não garantido.\nFalta validar para uso real: taxa pessoal da conta; regras de margem da conta.\n\n⏱ Nova entrada até 10:03:00 BRT (1min 24s).\nGatilho M1 (segundo fechamento): 10:01:00 BRT\nCotação: 10:01:34 BRT\nAnálise: 20/11/2026 10:01:36 BRT\nA validade se aplica a novas entradas.\nPlano: e4ee525fd500e3148357 • revisão 1",
       "variant": "CONFIRMADA"
     },
@@ -32536,13 +32544,17 @@
       "watch_symbol": "ARB_USDT"
     },
     "a5d8cc1ff88b88c898ce": {
-      "attempts": 0,
+      "attempts": 1,
       "category": "INFO",
       "created_at": 1795179696,
       "expires_at": 1795183296,
       "id": "a5d8cc1ff88b88c898ce",
       "quote_at": 0,
-      "status": "PENDING",
+      "sent_at": 1795179701,
+      "status": "SENT",
+      "telegram_ids": [
+        12204
+      ],
       "text": "⚪ ATUALIZAÇÃO DOS PLANOS ACOMPANHADOS\n🧪 SIMULAÇÃO\n\n• UNI/USDT • SHORT: confirmação não aprovada\n  Motivo: O segundo fechamento M1 perdeu o nível do gatilho.\n  Plano: 0d81da5bab81fb90f41e\n\nSem novas entradas por esses planos.\nAvisos de movimento não equivalem a entradas liberadas.\nA expiração não encerra uma posição já aberta.\nAnálise: 20/11/2026 10:01:36 BRT"
     },
     "a5dd44fb868900a3e206": {
