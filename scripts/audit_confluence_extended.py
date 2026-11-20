@@ -132,6 +132,22 @@ def main():
                     "closed_candles_only": True, "symbol": sym,
                     "candles": {"5m": m, "1h": h}}
             result = replay(data)
+            if sym == "TAO_USDT":
+                # TAO event: 19 Nov 2026 21:00-23:59 Brasilia / 20 Nov 00:00-02:59 UTC
+                from scripts.audit_confluence_pilot import scan_at
+                lo, hi = 1795123200000, 1795134000000
+                case = []
+                for k, bar in enumerate(m):
+                    if lo <= bar[0] < hi and k >= 20:
+                        check = scan_at(m, h, k)
+                        case.append({"close_utc": check.get("decision_at"),
+                                     "close_price": bar[4], "prealert": check.get("prealert"),
+                                     "trigger": check.get("trigger"),
+                                     "rel_quote_vol": check.get("relative_quote_volume")})
+                tcase = [t for t in result["trades"]
+                         if "2026-11-20T00:00" <= t["signal_at"] < "2026-11-20T03:30"]
+                print("TAO_CASE_MEXC " + json.dumps({"five_minute": case,
+                        "trades": tcase}, sort_keys=True), flush=True)
             threshold = datetime.fromtimestamp(start, timezone.utc).isoformat()
             ts = [t for t in result["trades"] if t["signal_at"] >= threshold]
             prealerts = sum(x["at"] >= threshold for x in result["prealerts"])
