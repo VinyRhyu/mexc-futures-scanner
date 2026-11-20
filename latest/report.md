@@ -1,6 +1,6 @@
 # MEXC Futures Scanner — rodada
 
-Modo: **paper**. Análise: 20/11/2026 10:33:33 BRT.
+Modo: **paper**. Análise: 20/11/2026 10:34:36 BRT.
 
 Fonte: OK
 Cobertura: 31/31 contratos selecionados.
@@ -1273,7 +1273,8 @@ Alavancagem de simulação: **10x a 20x**.
 | LUNC_USDT | ROMPIMENTO_M1_VOLUME | LONG | EXPIRADO | — | PRAZO_ENCERRADO |
 | ONDO_USDT | ROMPIMENTO_M1_VOLUME | LONG | EXPIRADO | — | PRAZO_ENCERRADO |
 | AVAX_USDT | ROMPIMENTO_M1_VOLUME | LONG | INVALIDADO | ANTECIPADA | VOLUME_M1_INSUFICIENTE |
-| SOL_USDT | ROMPIMENTO_M1_VOLUME | SHORT | POSSIVEL | ANTECIPADA | aguardando gatilho |
+| SOL_USDT | ROMPIMENTO_M1_VOLUME | SHORT | ATIVO | ANTECIPADA | COTACAO_LIVRO_OU_CUSTOS_INDISPONIVEIS |
+| SOL_USDT | ROMPIMENTO_M1_VOLUME | SHORT | ATIVO | CONFIRMADA | COTACAO_LIVRO_OU_CUSTOS_INDISPONIVEIS |
 | ARB_USDT | ROMPIMENTO_M1_VOLUME | LONG | INVALIDADO | ANTECIPADA | FALHA_DA_FONTE_NESTA_RODADA |
 | INJ_USDT | ROMPIMENTO_M1_VOLUME | LONG | EXPIRADO | — | PRAZO_ENCERRADO |
 | WLD_USDT | ROMPIMENTO_M1_VOLUME | LONG | EXPIRADO | — | PRAZO_ENCERRADO |
@@ -2001,5 +2002,6 @@ Alavancagem de simulação: **10x a 20x**.
 
 ## Diagnósticos
 
+- SOL_USDT: MEXC não confirmou sucesso: 510
 
 Os parâmetros e os custos simulados não demonstram rentabilidade. Sinal técnico e viabilidade para o saldo são avaliações separadas.
