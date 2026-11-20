@@ -57,3 +57,18 @@ A saída contém prealerts, trades, net_rr_ex_ante, gross_r, net_r e outcomes. P
 5. Só depois considerar integração opcional, feature flag, alertas de observação e testes paper; manter modo real bloqueado.
 
 O módulo não muda os sinais ativos na branch main.
+
+
+## Checagem exploratória em janelas históricas distintas
+
+Mesmo conjunto de filtros aplicado sem ajuste posterior em outros snapshots de aproximadamente 8h, cada um com 16 ativos. Os arquivos históricos são recuperáveis do repositório VinyRhyu/altcoin-scanner nos seguintes commits:
+
+| Snapshot (coleta UTC aproximada) | Commit | Sinais | TP | SL | TIME |
+| --- | --- | ---: | ---: | ---: | ---: |
+| 12/11 03:36 | ddd13ec22487 | 13 | 8 | 2 | 3 |
+| 15/11 04:50 | 869f36aff43b | 1 | 0 | 0 | 1 |
+| 18/11 02:32 | 3002b5d01898 | 0 | 0 | 0 | 0 |
+
+Estes números são triagem exploratória dos snapshots, não auditoria definitiva de fills reais. Uma janela de 8h pode começar no dia anterior à data da coleta. A concentração dos TPs do dia 12 em ativos relacionados ao mesmo movimento de mercado é um risco de correlação. Os timeouts podem ganhar ou perder após custos; não os contar como ganhos nem como perdas fixas.
+
+Próximos critérios: backtest sobre históricos MEXC mais longos, comparação em janelas independentes e mensuração de expectativa líquida com somente uma posição simultânea por carteira; depois validação prospectiva em paper.
