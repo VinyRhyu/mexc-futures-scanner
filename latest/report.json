@@ -1,6 +1,6 @@
 {
-  "analyzed_at": 1795190377,
-  "analyzed_symbols": 34,
+  "analyzed_at": 1795190451,
+  "analyzed_symbols": 31,
   "config_fingerprint": "a0c2766956c79181fa62",
   "diagnostics": [],
   "excluded": [
@@ -93,6 +93,10 @@
       "symbol": "PIEVERSE_USDT"
     },
     {
+      "reason": "VOLUME_FINANCEIRO_INSUFICIENTE",
+      "symbol": "SKY_USDT"
+    },
+    {
       "reason": "CLASSIFICACAO_PENDENTE",
       "symbol": "BTW_USDT"
     },
@@ -119,6 +123,10 @@
     {
       "reason": "NAO_CRIPTO",
       "symbol": "NAS100_USDT"
+    },
+    {
+      "reason": "VOLUME_FINANCEIRO_INSUFICIENTE",
+      "symbol": "FET_USDT"
     },
     {
       "reason": "CLASSIFICACAO_PENDENTE",
@@ -503,6 +511,10 @@
     {
       "reason": "FORA_USDT",
       "symbol": "XRP_USD"
+    },
+    {
+      "reason": "VOLUME_FINANCEIRO_INSUFICIENTE",
+      "symbol": "ETC_USDT"
     },
     {
       "reason": "NAO_CRIPTO",
@@ -2665,37 +2677,37 @@
   "operational_timings": [
     {
       "commit": "9f93310df53b77a98aa0a5166081b5693404df91",
-      "duration_s": 1.012178,
+      "duration_s": 1.571086,
       "event": "end",
-      "finished_at_utc": "2026-11-20T15:59:14.136173+00:00",
+      "finished_at_utc": "2026-11-20T16:00:30.516762+00:00",
       "phase": "market_catalog",
       "run_attempt": "1",
-      "run_id": "44768718006",
-      "started_at_utc": "2026-11-20T15:59:13.124022+00:00",
+      "run_id": "44768933016",
+      "started_at_utc": "2026-11-20T16:00:28.945708+00:00",
       "status": "OK",
       "telemetry": "phase_v1"
     },
     {
       "commit": "9f93310df53b77a98aa0a5166081b5693404df91",
-      "duration_s": 22.567879,
+      "duration_s": 20.426535,
       "event": "end",
-      "finished_at_utc": "2026-11-20T15:59:36.704933+00:00",
+      "finished_at_utc": "2026-11-20T16:00:50.944100+00:00",
       "phase": "candles_collect",
       "run_attempt": "1",
-      "run_id": "44768718006",
-      "started_at_utc": "2026-11-20T15:59:14.137084+00:00",
+      "run_id": "44768933016",
+      "started_at_utc": "2026-11-20T16:00:30.517596+00:00",
       "status": "OK",
       "telemetry": "phase_v1"
     },
     {
       "commit": "9f93310df53b77a98aa0a5166081b5693404df91",
-      "duration_s": 0.465244,
+      "duration_s": 0.489546,
       "event": "end",
-      "finished_at_utc": "2026-11-20T15:59:37.170296+00:00",
+      "finished_at_utc": "2026-11-20T16:00:51.433764+00:00",
       "phase": "analysis_and_finance",
       "run_attempt": "1",
-      "run_id": "44768718006",
-      "started_at_utc": "2026-11-20T15:59:36.705079+00:00",
+      "run_id": "44768933016",
+      "started_at_utc": "2026-11-20T16:00:50.944246+00:00",
       "status": "OK",
       "telemetry": "phase_v1"
     }
@@ -22982,31 +22994,6 @@
           "triggered_at": 1795158960
         }
       }
-    },
-    {
-      "atr": "0.06511150759108851480093207761",
-      "detected_at": 1795104000,
-      "entry_started_at": 0,
-      "expires_at": 1795105800,
-      "family": "5623a0829ef3ae881373",
-      "formed_at": 1795104000,
-      "id": "5623a0829ef3ae881373",
-      "last_bar": 1795105800,
-      "level": "7.293",
-      "lower": "7.048",
-      "observations": [],
-      "preparation_expires_at": 1795105800,
-      "reaction_at": 0,
-      "reaction_extreme": null,
-      "reason": "PRAZO_ENCERRADO",
-      "revision": 0,
-      "side": "LONG",
-      "status": "EXPIRADO",
-      "stop": "7.260",
-      "strategy": "ROMPIMENTO_M1_VOLUME",
-      "symbol": "INJ_USDT",
-      "upper": "7.293",
-      "variants": {}
     },
     {
       "atr": "0.006928681034571045441899180019",
@@ -57426,31 +57413,6 @@
       }
     },
     {
-      "atr": "0.06511150759108851480093207761",
-      "detected_at": 1795104000,
-      "entry_started_at": 0,
-      "expires_at": 1795105800,
-      "family": "f0fd897a94fc0b99e5af",
-      "formed_at": 1795104000,
-      "id": "f0fd897a94fc0b99e5af",
-      "last_bar": 1795105800,
-      "level": "7.048",
-      "lower": "7.048",
-      "observations": [],
-      "preparation_expires_at": 1795105800,
-      "reaction_at": 0,
-      "reaction_extreme": null,
-      "reason": "PRAZO_ENCERRADO",
-      "revision": 0,
-      "side": "SHORT",
-      "status": "EXPIRADO",
-      "stop": "7.081",
-      "strategy": "ROMPIMENTO_M1_VOLUME",
-      "symbol": "INJ_USDT",
-      "upper": "7.293",
-      "variants": {}
-    },
-    {
       "atr": "0.002634381407590165011107643979",
       "detected_at": 1795161600,
       "entry_started_at": 0,
@@ -60554,9 +60516,59 @@
       "symbol": "ARB_USDT",
       "upper": "0.12279",
       "variants": {}
+    },
+    {
+      "atr": "0.07534585293409399412472632043",
+      "detected_at": 1795190400,
+      "entry_started_at": 0,
+      "expires_at": 1795192200,
+      "family": "12db8824dbe0aa12d1db",
+      "formed_at": 1795190400,
+      "id": "12db8824dbe0aa12d1db",
+      "last_bar": 0,
+      "level": "6.316",
+      "lower": "6.065",
+      "observations": [],
+      "preparation_expires_at": 1795192200,
+      "reaction_at": 0,
+      "reaction_extreme": null,
+      "reason": "",
+      "revision": 0,
+      "side": "LONG",
+      "status": "POSSIVEL",
+      "stop": "6.278",
+      "strategy": "ROMPIMENTO_M1_VOLUME",
+      "symbol": "INJ_USDT",
+      "upper": "6.316",
+      "variants": {}
+    },
+    {
+      "atr": "0.07534585293409399412472632043",
+      "detected_at": 1795190400,
+      "entry_started_at": 0,
+      "expires_at": 1795192200,
+      "family": "09f6a545f71085bfc5f7",
+      "formed_at": 1795190400,
+      "id": "09f6a545f71085bfc5f7",
+      "last_bar": 0,
+      "level": "6.065",
+      "lower": "6.065",
+      "observations": [],
+      "preparation_expires_at": 1795192200,
+      "reaction_at": 0,
+      "reaction_extreme": null,
+      "reason": "",
+      "revision": 0,
+      "side": "SHORT",
+      "status": "POSSIVEL",
+      "stop": "6.103",
+      "strategy": "ROMPIMENTO_M1_VOLUME",
+      "symbol": "INJ_USDT",
+      "upper": "6.316",
+      "variants": {}
     }
   ],
-  "selected_symbols": 34,
+  "selected_symbols": 31,
   "signal_model": "m1_volume50_v1",
   "source_status": "OK"
 }
