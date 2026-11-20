@@ -70,8 +70,19 @@ def gate_for(variant: str, btc_h1: list):
 def select_summary(trades, start, end):
     chosen = select_portfolio(trades)
     counts = dict(Counter(t["result"] for t in trades))
+    selected_attribution = {}
+    for result in ("TP", "SL", "TIME", "AMBIGUOUS"):
+        rows = [t for t in chosen["chosen"] if t["result"] == result]
+        if rows:
+            r_sum = sum(t["net_r"] for t in rows)
+            selected_attribution[result] = {
+                "n": len(rows), "net_R": round(r_sum, 3),
+                "avg_net_R": round(r_sum / len(rows), 4),
+                "positive_net_n": sum(t["net_r"] > 0 for t in rows),
+            }
     return {
         "n_candidates": len(trades), "outcomes": counts,
+        "selected_attribution": selected_attribution,
         "candidate_net_R_sum": round(sum(t["net_r"] if t["net_r"] is not None else -1 for t in trades), 3),
         "n_selected": chosen["n"], "portfolio_R": chosen["net_R_sum"],
         "portfolio_return_pct": chosen["return_pct_at_1pct_risk"],
