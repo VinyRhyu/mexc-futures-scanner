@@ -19,7 +19,12 @@ jobs:
           python -m unittest discover -s tests -v
           python -m mexc_scanner demo
           python -m mexc_scanner replay reports/demo/snapshot.json --output reports/demo-replay
-      - name: HYPE 16 e 17 watch deteccao versus entrada (paper)
+      - name: HYPE WATCH inalterado - quatro janelas sem 16 e 17 (paper)
         if: github.event_name == 'pull_request'
-        timeout-minutes: 10
-        run: python -m scripts.audit_hype_two_stage_1617
+        timeout-minutes: 15
+        run: |
+          set -e
+          for w in T U V W0; do
+            echo "===== WATCH CROSS-PERIOD $w ====="
+            python -m scripts.audit_hype_watch_crossperiod --window "$w"
+          done
