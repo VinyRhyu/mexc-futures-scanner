@@ -1453,7 +1453,7 @@
       "watch_symbol": "AAVE_USDT"
     },
     "07ddada5861923c33bbe": {
-      "attempts": 0,
+      "attempts": 1,
       "category": "INFO",
       "created_at": 1795134454,
       "expires_at": 1795134480,
@@ -1464,7 +1464,11 @@
         "c161852e94bea49423e5"
       ],
       "quote_at": 0,
-      "status": "PENDING",
+      "sent_at": 1795134458,
+      "status": "SENT",
+      "telegram_ids": [
+        11124
+      ],
       "text": "🟡 MOVIMENTO DETECTADO • AINDA SEM CONFIRMAÇÃO\nARB/USDT • BAIXA (SHORT)\n🧪 SIMULAÇÃO • acompanhamento\n\nRompimento observado no M1 fechado às 21:27:00 BRT.\nPreço de referência do primeiro gatilho: 0.12117.\n\nPrimeiro fechamento além da região identificado.\nFalta o segundo fechamento sustentar o nível, com volume de pelo menos 50% do primeiro.\nApós confirmar, o plano ainda precisa passar pela avaliação financeira.\n\nFaixa em estudo: 0.12097 a 0.12136\n🛑 Stop do plano: 0.12187 (-5.78% bruto em 10x)\n🎯 Alvo do plano: 0.12013 (+8.58% bruto em 10x)\nCenário indicativo sobre a margem em 10x; custos e liquidação ainda não validados.\nMovimento sem alavancagem: TP +0.86% • SL -0.58%.\nPercentuais sobre a referência do primeiro gatilho, na direção da operação, antes de custos.\n\nMovimento observado, sem entrada liberada. Aguarde o alerta de confirmação e viabilidade.\nAlerta válido até 21:28:00 BRT.\nAnálise: 19/11/2026 21:27:34 BRT\nPlano: c161852e94bea49423e5",
       "watch_stage": 1,
       "watch_symbol": "ARB_USDT"
