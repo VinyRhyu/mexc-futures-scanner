@@ -24,4 +24,5 @@ jobs:
         continue-on-error: true
         timeout-minutes: 6
         run: |
-          python -m scripts.audit_confluence_extended --days 21
+          python -m scripts.audit_confluence_extended --days 21 --end 2026-10-30T11:00:00+00:00
+          python -m scripts.audit_confluence_extended --days 21 --end 2026-11-20T11:00:00+00:00
