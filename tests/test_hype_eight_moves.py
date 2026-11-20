@@ -50,9 +50,9 @@ class HypeEightMovesTests(unittest.TestCase):
         for c in altered[self.i+1:]:
             c[4]=12345
         appended=copy.deepcopy(self.h)
-        appended.append([HOUR_MS, 1,2,0,999,4,3])
+        appended.append([10*HOUR_MS, 1,2,0,999,4,3])
         self.assertEqual(original,checkpoint(altered,appended,self.e_m,
-                         self.e_h+[2*HOUR_MS],at))
+                         self.e_h+[11*HOUR_MS],at))
 
 
 if __name__=="__main__":
