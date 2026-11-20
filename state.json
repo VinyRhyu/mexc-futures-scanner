@@ -15319,7 +15319,7 @@
       "watch_symbol": "ETH_USDT"
     },
     "51aeb2df8381bb5fde67": {
-      "attempts": 0,
+      "attempts": 1,
       "category": "INFO",
       "created_at": 1795158338,
       "expires_at": 1795158900,
@@ -15328,7 +15328,11 @@
         "7e9053ed190cb8e19666"
       ],
       "quote_at": 0,
-      "status": "PENDING",
+      "sent_at": 1795158342,
+      "status": "SENT",
+      "telegram_ids": [
+        11664
+      ],
       "text": "👀 PLANO EM PREPARAÇÃO • AGUARDANDO GATILHO\nSKY/USDT\n🧪 SIMULAÇÃO • acompanhamento\n\nRegião em análise: 0.04435 a 0.0455\nLONG somente se houver fechamento M1 acima de ≈ 0.0455593.\n\nConfirmação: dois fechamentos M1 consecutivos além do gatilho; volume do segundo de pelo menos 50% do primeiro.\nTP, SL e percentuais serão definidos no primeiro gatilho. A confirmação ainda precisa passar pela avaliação financeira.\n\nSem rompimento observado neste plano e sem entrada liberada.\nPreparação até 04:15:00 BRT.\nAnálise: 20/11/2026 04:05:38 BRT\nPlanos: 7e9053ed190cb8e19666",
       "watch_stage": 2,
       "watch_symbol": "SKY_USDT"
@@ -22582,17 +22586,21 @@
       "watch_symbol": "NEAR_USDT"
     },
     "7a94426cf6417bd91998": {
-      "attempts": 0,
+      "attempts": 1,
       "category": "ENTRY",
       "created_at": 1795158338,
       "expires_at": 1795158420,
       "id": "7a94426cf6417bd91998",
       "plan_id": "029c1cb914bfcfa95420",
       "quote_at": 1795158337,
+      "sent_at": 1795158341,
       "side": "LONG",
       "signal_at": 1795158300,
-      "status": "PENDING",
+      "status": "SENT",
       "symbol": "LUNC_USDT",
+      "telegram_ids": [
+        11663
+      ],
       "text": "🟢 GATILHO VÁLIDO PARA SIMULAR\nLUNC/USDT • LONG\n🧪 SIMULAÇÃO • Confirmada\nRompimento • 2 fechamentos M1 • volume ≥50%\n\nVolume do segundo M1: 67.0% do primeiro.\n📍 Entrada: 0.00004559 a 0.00004577\n🛑 Stop: 0.00004523 (-13.86% líquido sobre a margem)\n🎯 Alvo: 0.00004675 (+19.32% líquido sobre a margem)\nMovimento sem alavancagem: TP +2.14% • SL -1.18%.\nBase dos percentuais sem alavancagem: 0.00004577 (pior entrada); na direção da operação, antes de custos.\n\nMargem isolada estimada: 0.6866 USDT • 10x\nQuantidade: 15 contratos\nPerda planejada: -0.0952 USDT (-9.52% da banca)\nGanho projetado: +0.1327 USDT (+13.27% da banca)\nRetorno/risco líquido: 1.39:1 (pior entrada)\nCustos estimados: 0.0143 USDT\nROI líquido estimado sobre a margem: TP +19.32% • SL -13.86%.\nTaxa por execução: 0.06%\nDisparo do stop: último preço (Last)\n\nEstimativas de taxas, deslizamento e funding; ganho não garantido.\nFalta validar para uso real: taxa pessoal da conta; regras de margem da conta.\n\n⏱ Nova entrada até 04:07:00 BRT (1min 22s).\nGatilho M1 (segundo fechamento): 04:05:00 BRT\nCotação: 04:05:37 BRT\nAnálise: 20/11/2026 04:05:38 BRT\nA validade se aplica a novas entradas.\nPlano: 029c1cb914bfcfa95420 • revisão 1",
       "variant": "CONFIRMADA"
     },
@@ -28320,13 +28328,17 @@
       "watch_symbol": "AVAX_USDT"
     },
     "95987e291e2792cbf03a": {
-      "attempts": 0,
+      "attempts": 1,
       "category": "INFO",
       "created_at": 1795158338,
       "expires_at": 1795161938,
       "id": "95987e291e2792cbf03a",
       "quote_at": 0,
-      "status": "PENDING",
+      "sent_at": 1795158342,
+      "status": "SENT",
+      "telegram_ids": [
+        11665
+      ],
       "text": "⚪ ATUALIZAÇÃO DOS PLANOS ACOMPANHADOS\n🧪 SIMULAÇÃO\n\n• SKY/USDT • SHORT: confirmação não aprovada\n  Motivo: O segundo fechamento M1 perdeu o nível do gatilho.\n  Plano: 557728ea53369d944210\n\nSem novas entradas por esses planos.\nAvisos de movimento não equivalem a entradas liberadas.\nA expiração não encerra uma posição já aberta.\nAnálise: 20/11/2026 04:05:38 BRT"
     },
     "95a2eb5087245999bc3e": {
