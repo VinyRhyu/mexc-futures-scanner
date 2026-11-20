@@ -19,20 +19,8 @@ jobs:
           python -m unittest discover -s tests -v
           python -m mexc_scanner demo
           python -m mexc_scanner replay reports/demo/snapshot.json --output reports/demo-replay
-      - name: V4 Confirmar falso rompimento em 3 janelas historicas independentes
+      - name: Observacao agora de todos os perps USDT liquidos (F somente)
         if: github.event_name == 'pull_request'
-        continue-on-error: true
         timeout-minutes: 16
         run: |
-          set +e
-          failed=0
-          for w in U V W; do
-            echo "==== V4 START WINDOW ${w} ===="
-            python -m scripts.audit_confluence_v4 --window "${w}"
-            result=$?
-            if [ "$result" -ne 0 ]; then
-              echo "==== V4 WINDOW ${w}: INCOMPLETE OR ERROR (exit $result) ===="
-              failed=1
-            fi
-          done
-          exit "$failed"
+          python -m scripts.live_sweep_watch --minimum-turnover 2000000
