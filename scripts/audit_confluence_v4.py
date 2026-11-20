@@ -142,9 +142,12 @@ def run(window: str):
     print("V4_COMPARISON "+json.dumps({"window":window,"comparison":out,
           "observed_confirmations":sum(x["confirmed_observed"] for x in obs.values()),
           "eligible_confirmations":sum(x["confirmed_eligible"] for x in obs.values()),
-          "paired_origin_outcomes":dict(Counter(x["original_F_outcome"] for x in pairs)),
+          "paired_origin_outcomes":dict(Counter(x["original_F_outcome"] or "NO_ORIGINAL_TRADE" for x in pairs)),
           "paired_confirm_outcomes":dict(Counter(x["confirmed_outcome"] for x in pairs)),
-          "note":"Each pair compares matching sweep; portfolio may choose different concurrent symbols",
+          "paired_original_net_R":round(sum(x["original_F_net_R"] if x["original_F_net_R"] is not None else -1 for x in pairs),4),
+          "paired_confirm_net_R":round(sum(x["confirmed_net_R"] if x["confirmed_net_R"] is not None else -1 for x in pairs),4),
+          "paired_original_absent":sum(x["original_F_outcome"] is None for x in pairs),
+          "note":"Pairs use matching sweep; independent portfolio simulation may admit different signals due to overlapping-position cooldowns",
           "historical_not_prospective":True},sort_keys=True),flush=True)
 
 
