@@ -89,13 +89,15 @@ def score_direction(m,i,side):
     return False
 
 
-def confirmation(m,watch):
+def confirmation(m,watch,cutoff_ms=None):
     """Separate phase, starts AFTER the WATCH candle, waits up to six M5."""
     wi=watch["i"]
     side=watch["side"]
+    if cutoff_ms is None:
+        cutoff_ms=END
     for i in range(wi+1,min(len(m)-1,wi+7)):
         at=int(m[i][0])+FIVE_MS
-        if at>=END:   # confirmations outside the studied 2 days are excluded
+        if at>=cutoff_ms:   # no confirmations outside this research window
             break
         atr=atr_before(m,i)
         if atr<=0:
