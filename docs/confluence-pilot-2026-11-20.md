@@ -148,8 +148,10 @@ reiniciar o saldo entre as janelas. Os sinais que se sobrepõem são contabiliza
 na contagem de candidatos, mas não são executados simultaneamente no portfólio.
 O filtro de seleção de sinais concorrentes é pelo maior volume relativo disponível
 no momento do sinal, nunca pelo resultado futuro.
-12/44 dias UTC calendáricos foram positivos e 32/44 negativos em R agregado
-de sinais; a janela contém 42 dias completos mas abrange 44 datas parciais UTC.
+Nas duas análises separadas, 12 resultados diários UTC tiveram R agregado positivo
+e 32 negativo (a data de 30/10 participa das duas janelas parciais).
+A janela total contém 42 dias completos, e resultados diários não representam
+uma carteira única por dia.
 
 **Conclusão reforçada:** o modelo tem expectativa histórica líquida negativa
 nas duas janelas. Não ativar em produção. Testar um novo mecanismo apenas com
