@@ -19978,7 +19978,7 @@
       "text": "⚪ ATUALIZAÇÃO DOS PLANOS ACOMPANHADOS\n🧪 SIMULAÇÃO\n\n• ONDO/USDT • LONG: prazo para nova entrada encerrado\n  Motivo: A janela para uma nova entrada terminou.\n  Plano: 04011fb373ea512d3256\n• ETH/USDT • LONG: prazo para nova entrada encerrado\n  Motivo: A janela para uma nova entrada terminou.\n  Plano: 2f32074e3b5c27ec9819\n• WLD/USDT • LONG: prazo para nova entrada encerrado\n  Motivo: A janela para uma nova entrada terminou.\n  Plano: 37e2a377ffe0e6a45edc\n• ENA/USDT • LONG: prazo para nova entrada encerrado\n  Motivo: A janela para uma nova entrada terminou.\n  Plano: 3e2169056f295939cf09\n• LTC/USDT • LONG: prazo para nova entrada encerrado\n  Motivo: A janela para uma nova entrada terminou.\n  Plano: 664e6847038c2ced28d3\n• TIA/USDT • LONG: prazo para nova entrada encerrado\n  Motivo: A janela para uma nova entrada terminou.\n  Plano: 698826898a1b10fa3f5e\n\nSem novas entradas por esses planos.\nAvisos de movimento não equivalem a entradas liberadas.\nA expiração não encerra uma posição já aberta.\nAnálise: 20/11/2026 09:30:52 BRT"
     },
     "613d88f8c3707b5937cc": {
-      "attempts": 0,
+      "attempts": 1,
       "category": "INFO",
       "created_at": 1795199675,
       "expires_at": 1795199700,
@@ -19989,7 +19989,11 @@
         "f19ecce96d31f57c411f"
       ],
       "quote_at": 0,
-      "status": "PENDING",
+      "sent_at": 1795199678,
+      "status": "SENT",
+      "telegram_ids": [
+        12543
+      ],
       "text": "🟡 MOVIMENTO DETECTADO • AINDA SEM CONFIRMAÇÃO\nQNT/USDT • BAIXA (SHORT)\n🧪 SIMULAÇÃO • acompanhamento\n\nRompimento observado no M1 fechado às 15:34:00 BRT.\nPreço de referência do primeiro gatilho: 135.91.\n\nPrimeiro fechamento além da região identificado.\nFalta o segundo fechamento sustentar o nível, com volume de pelo menos 50% do primeiro.\nApós confirmar, o plano ainda precisa passar pela avaliação financeira.\n\nFaixa em estudo: 135.52 a 135.92\n🛑 Stop do plano: 136.89 (-7.21% bruto em 10x)\n🎯 Alvo do plano: 135.16 (+5.52% bruto em 10x)\nCenário indicativo sobre a margem em 10x; custos e liquidação ainda não validados.\nMovimento sem alavancagem: TP +0.55% • SL -0.72%.\nPercentuais sobre a referência do primeiro gatilho, na direção da operação, antes de custos.\n\nMovimento observado, sem entrada liberada. Aguarde o alerta de confirmação e viabilidade.\nAlerta válido até 15:35:00 BRT.\nAnálise: 20/11/2026 15:34:35 BRT\nPlano: f19ecce96d31f57c411f",
       "watch_stage": 1,
       "watch_symbol": "QNT_USDT"
