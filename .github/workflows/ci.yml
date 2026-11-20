@@ -19,12 +19,7 @@ jobs:
           python -m unittest discover -s tests -v
           python -m mexc_scanner demo
           python -m mexc_scanner replay reports/demo/snapshot.json --output reports/demo-replay
-      - name: HYPE tres familias de sinais 168d + semana atual
+      - name: HYPE 16 e 17 watch deteccao versus entrada (paper)
         if: github.event_name == 'pull_request'
-        timeout-minutes: 16
-        run: |
-          set -e
-          for w in T U V W WK; do
-            echo "=== REGIME HYPE $w ==="
-            python -m scripts.audit_hype_three_regimes --window "$w"
-          done
+        timeout-minutes: 10
+        run: python -m scripts.audit_hype_two_stage_1617
