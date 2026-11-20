@@ -74,12 +74,14 @@ def candidate_f(five, hourly, index, ends=None):
             "level": resistance, "atr": atr}
 
 
-def candidate_g(five, hourly, index, ends=None):
-    """Find a M5 break followed by the FIRST qualifying retest in next 3 M5 bars.
+def candidate_g(five, hourly, index, ends=None, through_index=None):
+    """Find a break and its first qualifying retest among KNOWN closed candles.
 
-    Only returns a signal AFTER the retest candle closes.
+    In a replay, set through_index to the current candle index. This prevents
+    a future retest from influencing decisions at the break candle.
     """
-    if index < 25 or index + 1 >= len(five):
+    last_known = min(len(five)-1, through_index if through_index is not None else len(five)-1)
+    if index < 25 or index + 1 > last_known:
         return None
     c = five[index]
     at = c[0] + FIVE_MS
@@ -93,7 +95,7 @@ def candidate_g(five, hourly, index, ends=None):
     rel_volume = float(c[6]) / max(1e-12, median(float(x[6]) for x in five[index-12:index]))
     if (close >= support or close >= op or op - close < .6*atr or rel_volume < 1.5):
         return None
-    for j in range(index+1, min(index+4, len(five))):
+    for j in range(index+1, min(index+4, last_known+1)):
         r = five[j]
         reject = (float(r[2]) >= support*.999
                   and support-1.2*atr <= float(r[4]) < support
@@ -149,8 +151,17 @@ def replay_structural(five, hourly, variant, param=Parameters()):
     for i in range(25,len(five)-25):
         if i < next_allowed_index:
             continue
-        candidate=(candidate_f(five,hourly,i,ends) if variant=="F_sweep_rejection"
-                   else candidate_g(five,hourly,i,ends))
+        if variant == "F_sweep_rejection":
+            candidate = candidate_f(five,hourly,i,ends)
+        else:
+            # At close of bar i, check only break events up to three candles
+            # ago; do not look at any retest that closes after bar i.
+            candidate = None
+            for break_index in range(max(25,i-3),i):
+                possible = candidate_g(five,hourly,break_index,ends,through_index=i)
+                if possible is not None and possible["signal_index"] == i:
+                    candidate = possible
+                    break
         if candidate is None:
             continue
         trade=execute(five,candidate,param,24)
