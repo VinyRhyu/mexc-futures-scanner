@@ -28574,17 +28574,21 @@
       "watch_symbol": "ZEC_USDT"
     },
     "9b9495cdef3ef5213a2d": {
-      "attempts": 0,
+      "attempts": 1,
       "category": "ENTRY",
       "created_at": 1795142140,
       "expires_at": 1795142160,
       "id": "9b9495cdef3ef5213a2d",
       "plan_id": "d949b2fd27c7273d9a74",
       "quote_at": 1795142137,
+      "sent_at": 1795142143,
       "side": "SHORT",
       "signal_at": 1795142040,
-      "status": "PENDING",
+      "status": "SENT",
       "symbol": "AVAX_USDT",
+      "telegram_ids": [
+        11315
+      ],
       "text": "🟢 GATILHO VÁLIDO PARA SIMULAR\nAVAX/USDT • SHORT\n🧪 SIMULAÇÃO • Confirmada\nRompimento • 2 fechamentos M1 • volume ≥50%\n\nVolume do segundo M1: 3050.1% do primeiro.\n📍 Entrada: 6.83 a 6.841\n🛑 Stop: 6.874 (-9.94% líquido sobre a margem)\n🎯 Alvo: 6.746 (+12.56% líquido sobre a margem)\nMovimento sem alavancagem: TP +1.23% • SL -0.64%.\nBase dos percentuais sem alavancagem: 6.83 (pior entrada); na direção da operação, antes de custos.\n\nMargem isolada estimada: 0.9676 USDT • 12x\nQuantidade: 17 contratos\nPerda planejada: -0.0962 USDT (-9.62% da banca)\nGanho projetado: +0.1216 USDT (+12.16% da banca)\nRetorno/risco líquido: 1.26:1 (pior entrada)\nCustos estimados: 0.0214 USDT\nROI líquido estimado sobre a margem: TP +12.56% • SL -9.94%.\nTaxa por execução: 0.06%\nDisparo do stop: último preço (Last)\n\nEstimativas de taxas, deslizamento e funding; ganho não garantido.\nFalta validar para uso real: taxa pessoal da conta; regras de margem da conta.\n\n⏱ Nova entrada até 23:36:00 BRT (20s).\nGatilho M1 (segundo fechamento): 23:34:00 BRT\nCotação: 23:35:37 BRT\nAnálise: 19/11/2026 23:35:40 BRT\nA validade se aplica a novas entradas.\nPlano: d949b2fd27c7273d9a74 • revisão 1",
       "variant": "CONFIRMADA"
     },
