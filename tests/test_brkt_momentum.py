@@ -12,7 +12,7 @@ class BreakoutMomentumTests(unittest.TestCase):
         self.m=[[i*300000,100,100.1,99.9,100,10,100] for i in range(100)]
         self.i=45
         self.m[self.i]=[self.i*300000,100,100.5,99.95,100.45,40,400]
-        self.m[self.i+1]=[(self.i+1)*300000,100.45,100.5,99.9,100.1,10,100]
+        self.m[self.i+1]=[(self.i+1)*300000,100.55,100.6,99.9,100.1,10,100]
 
     def test_signal_only_after_breakout_close(self):
         s=signal_at(self.m,self.h,self.i)
