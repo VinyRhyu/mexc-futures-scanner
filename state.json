@@ -6700,7 +6700,7 @@
       "watch_symbol": "AAVE_USDT"
     },
     "23b238399c4af0b61263": {
-      "attempts": 0,
+      "attempts": 1,
       "category": "INFO",
       "created_at": 1795135894,
       "expires_at": 1795135920,
@@ -6711,7 +6711,11 @@
         "91d7c389690b14222548"
       ],
       "quote_at": 0,
-      "status": "PENDING",
+      "sent_at": 1795135898,
+      "status": "SENT",
+      "telegram_ids": [
+        11167
+      ],
       "text": "🟡 MOVIMENTO DETECTADO • AINDA SEM CONFIRMAÇÃO\nONDO/USDT • BAIXA (SHORT)\n🧪 SIMULAÇÃO • acompanhamento\n\nRompimento observado no M1 fechado às 21:51:00 BRT.\nPreço de referência do primeiro gatilho: 0.2952.\n\nPrimeiro fechamento além da região identificado.\nFalta o segundo fechamento sustentar o nível, com volume de pelo menos 50% do primeiro.\nApós confirmar, o plano ainda precisa passar pela avaliação financeira.\n\nFaixa em estudo: 0.2947 a 0.2951\n🛑 Stop do plano: 0.2966 (-4.74% bruto em 10x)\n🎯 Alvo do plano: 0.2951 (+0.34% bruto em 10x)\nCenário indicativo sobre a margem em 10x; custos e liquidação ainda não validados.\nMovimento sem alavancagem: TP +0.034% • SL -0.47%.\nPercentuais sobre a referência do primeiro gatilho, na direção da operação, antes de custos.\n\nMovimento observado, sem entrada liberada. Aguarde o alerta de confirmação e viabilidade.\nAlerta válido até 21:52:00 BRT.\nAnálise: 19/11/2026 21:51:34 BRT\nPlano: 91d7c389690b14222548",
       "watch_stage": 1,
       "watch_symbol": "ONDO_USDT"
