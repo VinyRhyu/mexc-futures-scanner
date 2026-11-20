@@ -38466,17 +38466,21 @@
       "text": "⚪ ATUALIZAÇÃO DOS PLANOS ACOMPANHADOS\n🧪 SIMULAÇÃO\n\n• ADA/USDT • SHORT: alvo do plano alcançado durante o acompanhamento\n  Motivo: O movimento já alcançou o alvo do plano.\n  Plano: 90efd723e4ae1f16461e\n• NEAR/USDT • SHORT: confirmação não aprovada\n  Motivo: O volume do segundo candle M1 foi menor que50% do primeiro.\n  Plano: bb2ed982cd421af9f61e\n\nSem novas entradas por esses planos.\nAvisos de movimento não equivalem a entradas liberadas.\nA expiração não encerra uma posição já aberta.\nAnálise: 19/11/2026 12:18:35 BRT"
     },
     "cd6509cbc754fb526763": {
-      "attempts": 0,
+      "attempts": 1,
       "category": "ENTRY",
       "created_at": 1795159175,
       "expires_at": 1795159260,
       "id": "cd6509cbc754fb526763",
       "plan_id": "a0dedd53b0d4a3366544",
       "quote_at": 1795159173,
+      "sent_at": 1795159179,
       "side": "SHORT",
       "signal_at": 1795159140,
-      "status": "PENDING",
+      "status": "SENT",
       "symbol": "SKY_USDT",
+      "telegram_ids": [
+        11682
+      ],
       "text": "🟢 GATILHO VÁLIDO PARA SIMULAR\nSKY/USDT • SHORT\n🧪 SIMULAÇÃO • Confirmada\nRompimento • 2 fechamentos M1 • volume ≥50%\n\nVolume do segundo M1: 144.4% do primeiro.\n📍 Entrada: 0.04385 a 0.04403\n🛑 Stop: 0.04439 (-14.43% líquido sobre a margem)\n🎯 Alvo: 0.0427 (+24.13% líquido sobre a margem)\nMovimento sem alavancagem: TP +2.62% • SL -1.23%.\nBase dos percentuais sem alavancagem: 0.04385 (pior entrada); na direção da operação, antes de custos.\n\nMargem isolada estimada: 0.6578 USDT • 10x\nQuantidade: 15 contratos\nPerda planejada: -0.0949 USDT (-9.49% da banca)\nGanho projetado: +0.1587 USDT (+15.87% da banca)\nRetorno/risco líquido: 1.67:1 (pior entrada)\nCustos estimados: 0.0139 USDT\nROI líquido estimado sobre a margem: TP +24.13% • SL -14.43%.\nTaxa por execução: 0.06%\nDisparo do stop: último preço (Last)\n\nEstimativas de taxas, deslizamento e funding; ganho não garantido.\nFalta validar para uso real: taxa pessoal da conta; regras de margem da conta.\n\n⏱ Nova entrada até 04:21:00 BRT (1min 25s).\nGatilho M1 (segundo fechamento): 04:19:00 BRT\nCotação: 04:19:33 BRT\nAnálise: 20/11/2026 04:19:35 BRT\nA validade se aplica a novas entradas.\nPlano: a0dedd53b0d4a3366544 • revisão 1",
       "variant": "CONFIRMADA"
     },
