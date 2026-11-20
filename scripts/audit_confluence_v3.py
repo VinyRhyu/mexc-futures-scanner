@@ -79,7 +79,7 @@ def candidate_g(five, hourly, index, ends=None):
 
     Only returns a signal AFTER the retest candle closes.
     """
-    if index < 25 or index + 3 >= len(five):
+    if index < 25 or index + 1 >= len(five):
         return None
     c = five[index]
     at = c[0] + FIVE_MS
@@ -93,7 +93,7 @@ def candidate_g(five, hourly, index, ends=None):
     rel_volume = float(c[6]) / max(1e-12, median(float(x[6]) for x in five[index-12:index]))
     if (close >= support or close >= op or op - close < .6*atr or rel_volume < 1.5):
         return None
-    for j in range(index+1, index+4):
+    for j in range(index+1, min(index+4, len(five))):
         r = five[j]
         reject = (float(r[2]) >= support*.999
                   and support-1.2*atr <= float(r[4]) < support
