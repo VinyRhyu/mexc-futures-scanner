@@ -26198,7 +26198,7 @@
       "watch_symbol": "WLD_USDT"
     },
     "8284593ad885fe699876": {
-      "attempts": 0,
+      "attempts": 1,
       "category": "INFO",
       "created_at": 1795199077,
       "expires_at": 1795199100,
@@ -26209,7 +26209,11 @@
         "dec29b57aec99b2038f6"
       ],
       "quote_at": 0,
-      "status": "PENDING",
+      "sent_at": 1795199081,
+      "status": "SENT",
+      "telegram_ids": [
+        12519
+      ],
       "text": "🟡 MOVIMENTO DETECTADO • AINDA SEM CONFIRMAÇÃO\nTAO/USDT • ALTA (LONG)\n🧪 SIMULAÇÃO • acompanhamento\n\nRompimento observado no M1 fechado às 15:24:00 BRT.\nPreço de referência do primeiro gatilho: 177.64.\n\nPrimeiro fechamento além da região identificado.\nFalta o segundo fechamento sustentar o nível, com volume de pelo menos 50% do primeiro.\nApós confirmar, o plano ainda precisa passar pela avaliação financeira.\n\nFaixa em estudo: 177.57 a 178.12\n🛑 Stop do plano: 176.38 (-7.09% bruto em 10x)\n🎯 Alvo do plano: 180.26 (+14.75% bruto em 10x)\nCenário indicativo sobre a margem em 10x; custos e liquidação ainda não validados.\nMovimento sem alavancagem: TP +1.47% • SL -0.71%.\nPercentuais sobre a referência do primeiro gatilho, na direção da operação, antes de custos.\n\nMovimento observado, sem entrada liberada. Aguarde o alerta de confirmação e viabilidade.\nAlerta válido até 15:25:00 BRT.\nAnálise: 20/11/2026 15:24:37 BRT\nPlano: dec29b57aec99b2038f6",
       "watch_stage": 1,
       "watch_symbol": "TAO_USDT"
@@ -27400,13 +27404,17 @@
       "watch_symbol": "XRP_USDT"
     },
     "87be24238bf7a8f16e40": {
-      "attempts": 0,
+      "attempts": 1,
       "category": "INFO",
       "created_at": 1795199077,
       "expires_at": 1795202677,
       "id": "87be24238bf7a8f16e40",
       "quote_at": 0,
-      "status": "PENDING",
+      "sent_at": 1795199082,
+      "status": "SENT",
+      "telegram_ids": [
+        12520
+      ],
       "text": "⚪ ATUALIZAÇÃO DOS PLANOS ACOMPANHADOS\n🧪 SIMULAÇÃO\n\n• PEPE/USDT • LONG: prazo para nova entrada encerrado\n  Motivo: A janela para uma nova entrada terminou.\n  Plano: 7f550e0d065835e8fc20\n\nSem novas entradas por esses planos.\nAvisos de movimento não equivalem a entradas liberadas.\nA expiração não encerra uma posição já aberta.\nAnálise: 20/11/2026 15:24:37 BRT"
     },
     "87cc22b3d35f3707026d": {
@@ -50010,17 +50018,21 @@
       "watch_symbol": "ETH_USDT"
     },
     "fa73fe928883d42a1305": {
-      "attempts": 0,
+      "attempts": 1,
       "category": "ENTRY",
       "created_at": 1795199077,
       "expires_at": 1795199100,
       "id": "fa73fe928883d42a1305",
       "plan_id": "675966a663d0d4e52b38",
       "quote_at": 1795199074,
+      "sent_at": 1795199081,
       "side": "LONG",
       "signal_at": 1795198980,
-      "status": "PENDING",
+      "status": "SENT",
       "symbol": "ENA_USDT",
+      "telegram_ids": [
+        12518
+      ],
       "text": "🟢 GATILHO VÁLIDO PARA SIMULAR\nENA/USDT • LONG\n🧪 SIMULAÇÃO • Confirmada\nRompimento • 2 fechamentos M1 • volume ≥50%\n\nVolume do segundo M1: 50.1% do primeiro.\n📍 Entrada: 0.09976 a 0.10025\n🛑 Stop: 0.099 (-14.06% líquido sobre a margem)\n🎯 Alvo: 0.10252 (+21.03% líquido sobre a margem)\nMovimento sem alavancagem: TP +2.26% • SL -1.25%.\nBase dos percentuais sem alavancagem: 0.10025 (pior entrada); na direção da operação, antes de custos.\n\nMargem isolada estimada: 0.7018 USDT • 10x\nQuantidade: 7 contratos\nPerda planejada: -0.0987 USDT (-9.87% da banca)\nGanho projetado: +0.1475 USDT (+14.75% da banca)\nRetorno/risco líquido: 1.50:1 (pior entrada)\nCustos estimados: 0.0114 USDT\nROI líquido estimado sobre a margem: TP +21.03% • SL -14.06%.\nTaxa por execução: 0.06%\nDisparo do stop: último preço (Last)\n\nEstimativas de taxas, deslizamento e funding; ganho não garantido.\nFalta validar para uso real: taxa pessoal da conta; regras de margem da conta.\n\n⏱ Nova entrada até 15:25:00 BRT (23s).\nGatilho M1 (segundo fechamento): 15:23:00 BRT\nCotação: 15:24:34 BRT\nAnálise: 20/11/2026 15:24:37 BRT\nA validade se aplica a novas entradas.\nPlano: 675966a663d0d4e52b38 • revisão 1",
       "variant": "CONFIRMADA"
     },
