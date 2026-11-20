@@ -54,7 +54,7 @@ class StructuralPilotTests(unittest.TestCase):
         self.five[i] = [i*300_000,100.4,101.0,99.95,100.0,20,300]
         normal=candidate_f(self.five,self.hours,i)
         modified=copy.deepcopy(self.hours)
-        modified.append([0,1,1,1,10000000,1,1])
+        modified.append([3*3_600_000,1,1,1,10000000,1,1])
         self.assertEqual(normal,candidate_f(self.five,modified,i))
 
 
