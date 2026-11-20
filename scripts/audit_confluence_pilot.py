@@ -114,13 +114,13 @@ def scan_at(five: list, hourly: list, index: int, p: Parameters = Parameters()) 
     }
 
 
-def replay(data: dict, p: Parameters = Parameters(), gate=None) -> dict:
+def replay(data: dict, p: Parameters = Parameters(), gate=None, analysis_cache=None) -> dict:
     five, hourly = validate_source(data)
     prealerts, trades, skipped = [], [], []
     next_eligible = 20
     last_alert_index = -p.prealert_cooldown_bars - 1
     for i in range(20, len(five)-p.max_hold_bars):
-        check = scan_at(five, hourly, i, p)
+        check = analysis_cache[i] if analysis_cache is not None else scan_at(five, hourly, i, p)
         if check.get("prealert") and i-last_alert_index >= p.prealert_cooldown_bars:
             prealerts.append({"at": check["decision_at"], "close": five[i][4],
                               "prior_resistance": check["prior_resistance"]})
