@@ -114,7 +114,7 @@ def scan_at(five: list, hourly: list, index: int, p: Parameters = Parameters()) 
     }
 
 
-def replay(data: dict, p: Parameters = Parameters()) -> dict:
+def replay(data: dict, p: Parameters = Parameters(), gate=None) -> dict:
     five, hourly = validate_source(data)
     prealerts, trades, skipped = [], [], []
     next_eligible = 20
@@ -126,6 +126,11 @@ def replay(data: dict, p: Parameters = Parameters()) -> dict:
                               "prior_resistance": check["prior_resistance"]})
             last_alert_index = i
         if i < next_eligible or not check.get("trigger"):
+            continue
+        # Gate is evaluated at signal close, before consulting the next M5 bar.
+        # A rejected plan does not consume a 60-minute trading slot.
+        if gate is not None and not gate(check, five, hourly, i):
+            skipped.append({"at": check["decision_at"], "reason": "regime_gate"})
             continue
 
         # Next-bar open is a SIMULATED fill, not part of the causal signal.
