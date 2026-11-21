@@ -65039,7 +65039,7 @@
       "text": "⚪ ATUALIZAÇÃO DOS PLANOS ACOMPANHADOS\n🧪 SIMULAÇÃO\n\n• AVAX/USDT • LONG: prazo para nova entrada encerrado\n  Motivo: A janela para uma nova entrada terminou.\n  Plano: 01e97a7807ca8a03cb6e\n• DOGE/USDT • LONG: prazo para nova entrada encerrado\n  Motivo: A janela para uma nova entrada terminou.\n  Plano: 05fd3bbf4cc9af164270\n• TAO/USDT • LONG: prazo para nova entrada encerrado\n  Motivo: A janela para uma nova entrada terminou.\n  Plano: 07af54900e950e898633\n• XRP/USDT • LONG: prazo para nova entrada encerrado\n  Motivo: A janela para uma nova entrada terminou.\n  Plano: 2acdac6c60de6df5f0f2\n• AAVE/USDT • LONG: prazo para nova entrada encerrado\n  Motivo: A janela para uma nova entrada terminou.\n  Plano: 8dc341033eaa97befd73\n• SKY/USDT • SHORT: prazo para nova entrada encerrado\n  Motivo: A janela para uma nova entrada terminou.\n  Plano: 93ef054ac69817bf75c3\n\nSem novas entradas por esses planos.\nAvisos de movimento não equivalem a entradas liberadas.\nA expiração não encerra uma posição já aberta.\nAnálise: 20/11/2026 10:45:50 BRT"
     },
     "efdecd4ae3fe351a6899": {
-      "attempts": 0,
+      "attempts": 1,
       "category": "INFO",
       "created_at": 1795300842,
       "expires_at": 1795300920,
@@ -65050,7 +65050,11 @@
         "3ed1590e600bd175c94f"
       ],
       "quote_at": 0,
-      "status": "PENDING",
+      "sent_at": 1795300845,
+      "status": "SENT",
+      "telegram_ids": [
+        14512
+      ],
       "text": "🟡 MOVIMENTO DETECTADO • ENTRADA BLOQUEADA\nADA/USDT • BAIXA (SHORT)\n🧪 SIMULAÇÃO • acompanhamento\n\nRompimento observado no M1 fechado às 19:40:00 BRT.\nPreço de referência do primeiro gatilho: 0.1442.\n\nConfirmação técnica identificada; entrada bloqueada.\nCondição pendente: A relação entre ganho e perda ficou abaixo do mínimo.\n\nFaixa em estudo: 0.1441 a 0.1442\n🛑 Stop do plano: 0.1448 (-4.16% bruto em 10x)\n🎯 Alvo do plano: 0.1437 (+3.47% bruto em 10x)\nCenário indicativo sobre a margem em 10x; custos e liquidação ainda não validados.\nMovimento sem alavancagem: TP +0.35% • SL -0.42%.\nPercentuais sobre a referência do primeiro gatilho, na direção da operação, antes de custos.\n\nMovimento observado, sem entrada liberada. Aguarde o alerta de confirmação e viabilidade.\nAlerta válido até 19:42:00 BRT.\nAnálise: 21/11/2026 19:40:42 BRT\nPlano: 3ed1590e600bd175c94f",
       "watch_stage": 0,
       "watch_symbol": "ADA_USDT"
