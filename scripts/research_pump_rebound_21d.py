@@ -19,37 +19,49 @@ SYMBOLS=('PUMP TAO AVAX HYPE BTC ETH SOL SUI LINK INJ ENA DOT AERO TRX QNT '
          'NEAR LTC PENGU FIL ETC APT ARB ALGO CRV RENDER DASH BERA INIT JTO MORPHO').split()
 OUT=Path('reports/pump-causal-21d')
 def br(t):return datetime.fromtimestamp(t,TZ).strftime('%d/%m/%Y %H:%M')
-def request(symbol,a,b):
-    url='https://api.bybit.com/v5/market/kline?'+urlencode(
-        dict(category='linear',symbol=symbol+'USDT',interval='1',start=a*1000,end=b*1000,limit=1000))
-    for attempt in range(4):
+def request_page(symbol,cursor):
+    url='https://www.okx.com/api/v5/market/history-candles?'+urlencode(
+        dict(instId=symbol+'-USDT-SWAP',bar='1m',after=cursor,limit=300))
+    last=None
+    for attempt in range(5):
         try:
             with urlopen(Request(url,headers={'Accept':'application/json','User-Agent':'pump-m1-research/1'}),timeout=25) as response:
-                d=json.loads(response.read().decode())
-            if str(d.get('retCode'))!='0':raise ValueError('Bybit '+str(d.get('retCode'))+': '+str(d.get('retMsg'))[:150])
-            batch=d.get('result',{}).get('list',[])
+                payload=json.loads(response.read().decode())
+            if str(payload.get('code'))!='0':
+                raise ValueError('OKX '+str(payload.get('code'))+': '+str(payload.get('msg'))[:150])
+            batch=payload.get('data')
             if not isinstance(batch,list):raise ValueError('Non-list market response')
             return batch
-        except HTTPError as e:
-            if e.code in (400,404,422):raise ValueError('HTTP '+str(e.code)+' '+e.read().decode(errors='replace')[:400])
-            err=str(e)
-        except Exception as e:err=str(e)
-        time.sleep(1.3*(attempt+1))
-    raise RuntimeError(err)
+        except Exception as e:
+            last=type(e).__name__+': '+str(e)[:150]
+            time.sleep(1.1*(attempt+1))
+    raise RuntimeError(last)
 def candles(symbol):
-    a=START-18*60;data={};calls=0
-    while a<END:
-        b=min(a+899*60,END-60)
-        batch=request(symbol,a,b);calls+=1
+    earliest=START-18*60
+    cursor=END*1000
+    data={};calls=0;max_page=0
+    for page in range(430):
+        batch=request_page(symbol,cursor);calls+=1
+        max_page=max(max_page,len(batch))
+        if not batch:break
+        oldest=min(int(x[0]) for x in batch)
         for x in batch:
-            ts=int(x[0])//1000;r=(ts,float(x[1]),float(x[2]),float(x[3]),float(x[4]))
-            if ts in data and data[ts]!=r:raise ValueError('Inconsistent OHLC')
-            data[ts]=r
-        a=b+60;time.sleep(.16)
+            ts=int(x[0])//1000
+            if earliest<=ts<END and (len(x)<9 or str(x[8])=='1'):
+                r=(ts,float(x[1]),float(x[2]),float(x[3]),float(x[4]))
+                if ts in data and data[ts]!=r:raise ValueError('Inconsistent OHLC')
+                data[ts]=r
+        if oldest<=earliest*1000:break
+        if oldest>=cursor:raise ValueError('Pagination not advancing')
+        cursor=oldest
+        time.sleep(.13)
+    else:
+        raise ValueError('Max pagination pages exceeded')
+    if not data or min(data)>earliest+60:
+        raise ValueError('Incomplete OHLC history '+str((min(data) if data else None,earliest)))
     bars=sorted(data.values())
-    if len(bars)<100:raise ValueError('No full history')
     gaps=sum(max(0,(z[0]-y[0])//60-1) for y,z in zip(bars,bars[1:]))
-    return bars,dict(calls=calls,bars=len(bars),missing_minutes=gaps,
+    return bars,dict(calls=calls,largest_page=max_page,bars=len(bars),missing_minutes=gaps,
                      first=br(bars[0][0]),last=br(bars[-1][0]))
 def scan(symbol,bars):
     signals={};stats=Counter()
@@ -140,14 +152,14 @@ def main():
     write('per_symbol_no_overlap.csv',distinct)
     write('global_one_position.csv',portfolio)
     expected=[x for x in result if x['symbol']=='PUMP_USDT' and x['entry_brt'].startswith('18/11/2026 22:')]
-    report=dict(window_start=br(START),window_end=br(END),venue='Bybit USDT linear perpetual',interval='M1',
+    report=dict(window_start=br(START),window_end=br(END),venue='OKX USDT swap',interval='M1',
                 symbols=symbols,coverage=coverage,
                 confirmed=aggregate(result),per_symbol=aggregate(distinct),
                 portfolio_one_position=aggregate(portfolio),pump_example_18nov=expected,
                 warnings=['Historical causal reconstruction only; not alerts previously sent',
                           'Only confirmed signals before outcome, no filtering by later profitability',
                           'Target +2.67%, maximum 125m, fee assumption 0.20 percentage points per trade',
-                          'Uses Bybit data, not MEXC execution prices',
+                          'Uses OKX data, not MEXC execution prices',
                           'Stop first on same 1m candle ambiguity',
                           'Fixed universe may cause survivorship bias; coverage and missing data reported',
                           'One position per symbol/global portfolio are separate post-scan simulations'])
