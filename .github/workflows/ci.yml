@@ -28,3 +28,12 @@ jobs:
             echo "===== WATCH CROSS-PERIOD $w ====="
             python -m scripts.audit_hype_watch_crossperiod --window "$w"
           done
+      - name: HYPE Min1 fast vs H1 M5 trend - paper only
+        if: github.event_name == 'pull_request'
+        timeout-minutes: 14
+        run: |
+          set -e
+          for w in REF CMP CMP2; do
+            echo "===== M1_PILOT $w ====="
+            python -m scripts.audit_hype_m1_trend --window "$w"
+          done
