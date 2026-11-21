@@ -1,5 +1,5 @@
 {
-  "analyzed_at": 1795263515,
+  "analyzed_at": 1795263574,
   "analyzed_symbols": 31,
   "config_fingerprint": "a0c2766956c79181fa62",
   "diagnostics": [],
@@ -2677,37 +2677,37 @@
   "operational_timings": [
     {
       "commit": "9f93310df53b77a98aa0a5166081b5693404df91",
-      "duration_s": 1.21639,
+      "duration_s": 1.131273,
       "event": "end",
-      "finished_at_utc": "2026-11-21T12:18:14.206497+00:00",
+      "finished_at_utc": "2026-11-21T12:19:12.985208+00:00",
       "phase": "market_catalog",
       "run_attempt": "1",
-      "run_id": "44903208620",
-      "started_at_utc": "2026-11-21T12:18:12.990132+00:00",
+      "run_id": "44903285472",
+      "started_at_utc": "2026-11-21T12:19:11.853958+00:00",
       "status": "OK",
       "telemetry": "phase_v1"
     },
     {
       "commit": "9f93310df53b77a98aa0a5166081b5693404df91",
-      "duration_s": 20.474777,
+      "duration_s": 20.448012,
       "event": "end",
-      "finished_at_utc": "2026-11-21T12:18:34.682146+00:00",
+      "finished_at_utc": "2026-11-21T12:19:33.434022+00:00",
       "phase": "candles_collect",
       "run_attempt": "1",
-      "run_id": "44903208620",
-      "started_at_utc": "2026-11-21T12:18:14.207395+00:00",
+      "run_id": "44903285472",
+      "started_at_utc": "2026-11-21T12:19:12.986032+00:00",
       "status": "OK",
       "telemetry": "phase_v1"
     },
     {
       "commit": "9f93310df53b77a98aa0a5166081b5693404df91",
-      "duration_s": 0.427444,
+      "duration_s": 0.560519,
       "event": "end",
-      "finished_at_utc": "2026-11-21T12:18:35.109716+00:00",
+      "finished_at_utc": "2026-11-21T12:19:33.994670+00:00",
       "phase": "analysis_and_finance",
       "run_attempt": "1",
-      "run_id": "44903208620",
-      "started_at_utc": "2026-11-21T12:18:34.682295+00:00",
+      "run_id": "44903285472",
+      "started_at_utc": "2026-11-21T12:19:33.434172+00:00",
       "status": "OK",
       "telemetry": "phase_v1"
     }
@@ -5408,7 +5408,7 @@
       "family": "1215f0cb3aae88c3be51",
       "formed_at": 1795262400,
       "id": "1215f0cb3aae88c3be51",
-      "last_bar": 1795263480,
+      "last_bar": 1795263540,
       "level": "177.04",
       "lower": "177.04",
       "observations": [],
@@ -6161,17 +6161,17 @@
     {
       "atr": "1.723793342813949034481154677",
       "detected_at": 1795262400,
-      "entry_started_at": 0,
-      "expires_at": 1795264200,
+      "entry_started_at": 1795263540,
+      "expires_at": 1795265340,
       "family": "169a1e14b9486839721c",
       "formed_at": 1795262400,
       "id": "169a1e14b9486839721c",
-      "last_bar": 1795263480,
+      "last_bar": 1795263540,
       "level": "181.81",
       "lower": "177.04",
       "observations": [],
       "preparation_expires_at": 1795264200,
-      "reaction_at": 0,
+      "reaction_at": 1795263540,
       "reaction_extreme": null,
       "reason": "",
       "revision": 0,
@@ -6181,7 +6181,21 @@
       "strategy": "ROMPIMENTO_M1_VOLUME",
       "symbol": "TAO_USDT",
       "upper": "181.81",
-      "variants": {}
+      "variants": {
+        "ANTECIPADA": {
+          "entry_high": "182.43",
+          "entry_low": "182.00",
+          "financial": {},
+          "kind": "ANTECIPADA",
+          "reason": "",
+          "reference": "182.0",
+          "status": "AGUARDANDO_CONFIRMACAO",
+          "stop": "180.94",
+          "target": "182.28",
+          "target_origin": "PIVO_CONHECIDO",
+          "triggered_at": 1795263540
+        }
+      }
     },
     {
       "atr": "13.57478417745372295153335349",
@@ -11519,17 +11533,17 @@
     {
       "atr": "1.654950961184381275941352888",
       "detected_at": 1795263300,
-      "entry_started_at": 0,
-      "expires_at": 1795265100,
+      "entry_started_at": 1795263540,
+      "expires_at": 1795265340,
       "family": "35966a9a859337f1dec7",
       "formed_at": 1795263300,
       "id": "35966a9a859337f1dec7",
-      "last_bar": 1795263480,
+      "last_bar": 1795263540,
       "level": "181.81",
       "lower": "177.15",
       "observations": [],
       "preparation_expires_at": 1795265100,
-      "reaction_at": 0,
+      "reaction_at": 1795263540,
       "reaction_extreme": null,
       "reason": "",
       "revision": 0,
@@ -11539,7 +11553,21 @@
       "strategy": "ROMPIMENTO_M1_VOLUME",
       "symbol": "TAO_USDT",
       "upper": "181.81",
-      "variants": {}
+      "variants": {
+        "ANTECIPADA": {
+          "entry_high": "182.41",
+          "entry_low": "181.99",
+          "financial": {},
+          "kind": "ANTECIPADA",
+          "reason": "",
+          "reference": "182.0",
+          "status": "AGUARDANDO_CONFIRMACAO",
+          "stop": "180.98",
+          "target": "182.29",
+          "target_origin": "PIVO_CONHECIDO",
+          "triggered_at": 1795263540
+        }
+      }
     },
     {
       "atr": "0.9569205145179771335886106979",
@@ -23361,7 +23389,7 @@
       "family": "7ac50984c7fdcb22dc38",
       "formed_at": 1795263300,
       "id": "7ac50984c7fdcb22dc38",
-      "last_bar": 1795263480,
+      "last_bar": 1795263540,
       "level": "177.15",
       "lower": "177.15",
       "observations": [],
