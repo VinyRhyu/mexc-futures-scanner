@@ -15121,7 +15121,7 @@
       "text": "⚪ ATUALIZAÇÃO DOS PLANOS ACOMPANHADOS\n🧪 SIMULAÇÃO\n\n• ARB/USDT • SHORT: prazo para nova entrada encerrado\n  Motivo: A janela para uma nova entrada terminou.\n  Plano: 42ee32390a245a59183d\n• XLM/USDT • SHORT: prazo para nova entrada encerrado\n  Motivo: A janela para uma nova entrada terminou.\n  Plano: bf6757aa481c16de2158\n• ENA/USDT • SHORT: prazo para nova entrada encerrado\n  Motivo: A janela para uma nova entrada terminou.\n  Plano: ef1db1bcd2a99642f053\n• LUNC/USDT • LONG: prazo para nova entrada encerrado\n  Motivo: A janela para uma nova entrada terminou.\n  Plano: fa631ca1b79bb222b531\n\nSem novas entradas por esses planos.\nAvisos de movimento não equivalem a entradas liberadas.\nA expiração não encerra uma posição já aberta.\nAnálise: 20/11/2026 03:15:42 BRT"
     },
     "3507ae296940ccc32879": {
-      "attempts": 0,
+      "attempts": 1,
       "category": "INFO",
       "created_at": 1795303299,
       "expires_at": 1795303320,
@@ -15132,7 +15132,11 @@
         "aa163aca45aff8078656"
       ],
       "quote_at": 0,
-      "status": "PENDING",
+      "sent_at": 1795303303,
+      "status": "SENT",
+      "telegram_ids": [
+        14587
+      ],
       "text": "🟡 MOVIMENTO DETECTADO • AINDA SEM CONFIRMAÇÃO\nUNI/USDT • ALTA (LONG)\n🧪 SIMULAÇÃO • acompanhamento\n\nRompimento observado no M1 fechado às 20:21:00 BRT.\nPreço de referência do primeiro gatilho: 4.747.\n\nPrimeiro fechamento além da região identificado.\nFalta o segundo fechamento sustentar o nível, com volume de pelo menos 50% do primeiro.\nApós confirmar, o plano ainda precisa passar pela avaliação financeira.\n\nFaixa em estudo: 4.741 a 4.753\n🛑 Stop do plano: 4.723 (-5.06% bruto em 10x)\n🎯 Alvo do plano: 4.779 (+6.74% bruto em 10x)\nCenário indicativo sobre a margem em 10x; custos e liquidação ainda não validados.\nMovimento sem alavancagem: TP +0.67% • SL -0.51%.\nPercentuais sobre a referência do primeiro gatilho, na direção da operação, antes de custos.\n\nMovimento observado, sem entrada liberada. Aguarde o alerta de confirmação e viabilidade.\nAlerta válido até 20:22:00 BRT.\nAnálise: 21/11/2026 20:21:39 BRT\nPlano: aa163aca45aff8078656",
       "watch_stage": 1,
       "watch_symbol": "UNI_USDT"
