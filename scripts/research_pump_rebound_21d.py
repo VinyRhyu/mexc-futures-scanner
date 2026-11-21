@@ -29,7 +29,7 @@ def request(symbol,a,b):
             if not isinstance(d,list):raise ValueError('Non-list response '+str(d)[:80])
             return d
         except HTTPError as e:
-            if e.code in (400,404,422):raise
+            if e.code in (400,404,422):raise ValueError('HTTP '+str(e.code)+' '+e.read().decode(errors='replace')[:400])
             err=str(e)
         except Exception as e:err=str(e)
         time.sleep(1.3*(attempt+1))
@@ -37,7 +37,7 @@ def request(symbol,a,b):
 def candles(symbol):
     a=START-18*60;data={};calls=0
     while a<END:
-        b=min(a+1899*60,END-60)
+        b=min(a+899*60,END-60)
         batch=request(symbol,a,b);calls+=1
         for x in batch:
             ts=int(x['t']);r=(ts,float(x['o']),float(x['h']),float(x['l']),float(x['c']))
