@@ -62,3 +62,36 @@ Critério é exploratório e não autoriza uso real.
 
 Não modificar os parâmetros ao encontrar resultados negativos.
 Não adaptar filtros a dias selecionados no gráfico.
+
+
+## Adendo de indisponibilidade M1 e janelas de fallback (antes dos resultados)
+
+O primeiro replay do plano original falhou no acesso ao histórico Min1
+de **05/10/2026**: API MEXC respondeu 0 candles para 3.090 esperados,
+interrompendo o job antes de qualquer cálculo de ROI dos blocos propostos.
+Log do primeiro teste: https://github.com/VinyRhyu/mexc-futures-scanner/actions/runs/44842291237.
+Não supor retenção exata da API, nem substituir por candles fabricados.
+
+Como substituição por DISPONIBILIDADE DE DADOS — não por desfechos
+das operações — registrar os quatro períodos abaixo ANTES de ler
+seus resultados M1:
+
+- **OCT26:** 26/10/2026 00h → 28/10/2026 00h BRT;
+- **NOV04:** 04/11/2026 00h → 06/11/2026 00h BRT;
+- **NOV06:** 06/11/2026 00h → 08/11/2026 00h BRT;
+- **NOV12:** 12/11/2026 00h → 14/11/2026 00h BRT.
+
+Não se sobrepõem aos blocos de comparação já conhecidos CMP2
+(02–03/11), CMP (09–10/11) e REF (16–17/11), embora todos
+sejam histórico previamente observado por outros métodos.
+Se faltar M1 em OCT26, reportar como indisponível em vez de
+escolher arbitrariamente mais um período para "completar 4".
+Os demais períodos serão processados independentemente para
+não perder seus resultados se uma janela estiver indisponível.
+Para triagem robusta, exigir QUATRO disponíveis; caso contrário
+considerar inconclusivo, sem selecionar a janela vencedora.
+
+A restrição "somente segundas e terças" do desenho original
+foi abandonada por indisponibilidade de dados; isso reduz
+a comparabilidade por dia da semana e deve constar no relatório.
+Mantêm-se todos os thresholds e a lógica M1 originais.
