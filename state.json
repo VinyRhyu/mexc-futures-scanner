@@ -5152,13 +5152,17 @@
       "watch_symbol": "LUNC_USDT"
     },
     "1249e025950b46dbc70e": {
-      "attempts": 0,
+      "attempts": 1,
       "category": "INFO",
       "created_at": 1795289915,
       "expires_at": 1795293515,
       "id": "1249e025950b46dbc70e",
       "quote_at": 0,
-      "status": "PENDING",
+      "sent_at": 1795289920,
+      "status": "SENT",
+      "telegram_ids": [
+        14201
+      ],
       "text": "⚪ ATUALIZAÇÃO DOS PLANOS ACOMPANHADOS\n🧪 SIMULAÇÃO\n\n• LINK/USDT • LONG: confirmação não aprovada\n  Motivo: O segundo fechamento M1 perdeu o nível do gatilho.\n  Plano: 5edc8c2f0868439332c9\n• LINK/USDT • LONG: confirmação não aprovada\n  Motivo: O segundo fechamento M1 perdeu o nível do gatilho.\n  Plano: a803f16416035f8433c1\n\nSem novas entradas por esses planos.\nAvisos de movimento não equivalem a entradas liberadas.\nA expiração não encerra uma posição já aberta.\nAnálise: 21/11/2026 16:38:35 BRT"
     },
     "124de00924559a6445a7": {
@@ -20977,7 +20981,7 @@
       "text": "⚪ ATUALIZAÇÃO DOS PLANOS ACOMPANHADOS\n🧪 SIMULAÇÃO\n\n• ONDO/USDT • LONG: prazo para nova entrada encerrado\n  Motivo: A janela para uma nova entrada terminou.\n  Plano: 0c803a791f4e7447c6ba\n• ETH/USDT • SHORT: prazo para nova entrada encerrado\n  Motivo: A janela para uma nova entrada terminou.\n  Plano: 0d712b8f7ba9bf9fb770\n• SOL/USDT • SHORT: prazo para nova entrada encerrado\n  Motivo: A janela para uma nova entrada terminou.\n  Plano: 27e714fdca3f88c1072d\n• ENA/USDT • LONG: prazo para nova entrada encerrado\n  Motivo: A janela para uma nova entrada terminou.\n  Plano: 3ef4a1122c23fbd4af5c\n• SKY/USDT • LONG: prazo para nova entrada encerrado\n  Motivo: A janela para uma nova entrada terminou.\n  Plano: 7cd1bef520d7b8ac6834\n• XRP/USDT • SHORT: prazo para nova entrada encerrado\n  Motivo: A janela para uma nova entrada terminou.\n  Plano: 909ec26e79f04997b179\n\nSem novas entradas por esses planos.\nAvisos de movimento não equivalem a entradas liberadas.\nA expiração não encerra uma posição já aberta.\nAnálise: 20/11/2026 01:15:44 BRT"
     },
     "4b6ecd5ff565feed532e": {
-      "attempts": 0,
+      "attempts": 1,
       "category": "INFO",
       "created_at": 1795289915,
       "expires_at": 1795290000,
@@ -20988,7 +20992,11 @@
         "74a7b2dec4f6f835a776"
       ],
       "quote_at": 0,
-      "status": "PENDING",
+      "sent_at": 1795289919,
+      "status": "SENT",
+      "telegram_ids": [
+        14199
+      ],
       "text": "🟡 MOVIMENTO DETECTADO • ENTRADA BLOQUEADA\nBNB/USDT • ALTA (LONG)\n🧪 SIMULAÇÃO • acompanhamento\n\nRompimento observado no M1 fechado às 16:38:00 BRT.\nPreço de referência do primeiro gatilho: 550.09.\n\nConfirmação técnica identificada; entrada bloqueada.\nCondição pendente: A relação entre ganho e perda ficou abaixo do mínimo.\n\nFaixa em estudo: 550.08 a 550.58\n🛑 Stop do plano: 548.88 (-2.20% bruto em 10x)\n🎯 Alvo do plano: 550.51 (+0.76% bruto em 10x)\nCenário indicativo sobre a margem em 10x; custos e liquidação ainda não validados.\nMovimento sem alavancagem: TP +0.076% • SL -0.22%.\nPercentuais sobre a referência do primeiro gatilho, na direção da operação, antes de custos.\n\nMovimento observado, sem entrada liberada. Aguarde o alerta de confirmação e viabilidade.\nAlerta válido até 16:40:00 BRT.\nAnálise: 21/11/2026 16:38:35 BRT\nPlano: 74a7b2dec4f6f835a776",
       "watch_stage": 0,
       "watch_symbol": "BNB_USDT"
@@ -64434,7 +64442,7 @@
       "watch_symbol": "PEPE_USDT"
     },
     "f5b5651a5e04c8428ee4": {
-      "attempts": 0,
+      "attempts": 1,
       "category": "INFO",
       "created_at": 1795289915,
       "expires_at": 1795291200,
@@ -64443,7 +64451,11 @@
         "a5506b0a06d59649fa5f"
       ],
       "quote_at": 0,
-      "status": "PENDING",
+      "sent_at": 1795289919,
+      "status": "SENT",
+      "telegram_ids": [
+        14200
+      ],
       "text": "👀 PLANO EM PREPARAÇÃO • AGUARDANDO GATILHO\nLINK/USDT\n🧪 SIMULAÇÃO • acompanhamento\n\nRegião em análise: 8.574 a 8.636\nSHORT somente se houver fechamento M1 abaixo de ≈ 8.56994.\n\nConfirmação: dois fechamentos M1 consecutivos além do gatilho; volume do segundo de pelo menos 50% do primeiro.\nTP, SL e percentuais serão definidos no primeiro gatilho. A confirmação ainda precisa passar pela avaliação financeira.\n\nSem rompimento observado neste plano e sem entrada liberada.\nPreparação até 17:00:00 BRT.\nAnálise: 21/11/2026 16:38:35 BRT\nPlanos: a5506b0a06d59649fa5f",
       "watch_stage": 2,
       "watch_symbol": "LINK_USDT"
