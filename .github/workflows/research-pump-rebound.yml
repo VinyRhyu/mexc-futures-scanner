@@ -1,0 +1,35 @@
+name: Pesquisa PUMP M1 - sinais confirmados 21 dias
+on:
+  push:
+    branches: [research-pump-repique-20261121]
+    paths:
+      - scripts/research_pump_rebound_21d.py
+      - .github/workflows/research-pump-rebound.yml
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  scan:
+    runs-on: ubuntu-latest
+    timeout-minutes: 28
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Verify scanner syntax
+        run: python -m py_compile scripts/research_pump_rebound_21d.py
+      - name: Replay frozen PUMP M1 pattern on Gate perpetuals
+        env:
+          SYMBOLS: PUMP
+        run: python scripts/research_pump_rebound_21d.py
+      - name: Archive confirmed signals and all outcomes
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: pump-21d-${{ github.run_id }}
+          path: reports/pump-causal-21d/
+          retention-days: 30
+          if-no-files-found: warn
