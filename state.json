@@ -29711,17 +29711,21 @@
       "watch_symbol": "UNI_USDT"
     },
     "7b44cc294e1100da2a98": {
-      "attempts": 0,
+      "attempts": 1,
       "category": "ENTRY",
       "created_at": 1795252844,
       "expires_at": 1795252860,
       "id": "7b44cc294e1100da2a98",
       "plan_id": "e4a19f71a29535190931",
       "quote_at": 1795252839,
+      "sent_at": 1795252848,
       "side": "LONG",
       "signal_at": 1795252740,
-      "status": "PENDING",
+      "status": "SENT",
       "symbol": "APT_USDT",
+      "telegram_ids": [
+        13497
+      ],
       "text": "🟢 GATILHO VÁLIDO PARA SIMULAR\nAPT/USDT • LONG\n🧪 SIMULAÇÃO • Confirmada\nRompimento • 2 fechamentos M1 • volume ≥50%\n\nVolume do segundo M1: 471.6% do primeiro.\n📍 Entrada: 0.3548 a 0.3558\n🛑 Stop: 0.3523 (-12.16% líquido sobre a margem)\n🎯 Alvo: 0.3611 (+12.56% líquido sobre a margem)\nMovimento sem alavancagem: TP +1.49% • SL -0.98%.\nBase dos percentuais sem alavancagem: 0.3558 (pior entrada); na direção da operação, antes de custos.\n\nMargem isolada estimada: 0.8219 USDT • 10x\nQuantidade: 231 contratos\nPerda planejada: -0.0999 USDT (-9.99% da banca)\nGanho projetado: +0.1033 USDT (+10.33% da banca)\nRetorno/risco líquido: 1.03:1 (pior entrada)\nCustos estimados: 0.0192 USDT\nROI líquido estimado sobre a margem: TP +12.56% • SL -12.16%.\nTaxa por execução: 0.06%\nDisparo do stop: último preço (Last)\n\nEstimativas de taxas, deslizamento e funding; ganho não garantido.\nFalta validar para uso real: taxa pessoal da conta; regras de margem da conta.\n\n⏱ Nova entrada até 06:21:00 BRT (16s).\nGatilho M1 (segundo fechamento): 06:19:00 BRT\nCotação: 06:20:39 BRT\nAnálise: 21/11/2026 06:20:44 BRT\nA validade se aplica a novas entradas.\nPlano: e4a19f71a29535190931 • revisão 1",
       "variant": "CONFIRMADA"
     },
