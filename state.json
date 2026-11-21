@@ -42903,7 +42903,7 @@
       "text": "⚪ ATUALIZAÇÃO DOS PLANOS ACOMPANHADOS\n🧪 SIMULAÇÃO\n\n• ENA/USDT • LONG: prazo para nova entrada encerrado\n  Motivo: A janela para uma nova entrada terminou.\n  Plano: 077589235ea3e0a42546\n• DOGE/USDT • LONG: prazo para nova entrada encerrado\n  Motivo: A janela para uma nova entrada terminou.\n  Plano: 0e3b8e0b91020b81a590\n• XRP/USDT • LONG: prazo para nova entrada encerrado\n  Motivo: A janela para uma nova entrada terminou.\n  Plano: 11b2d106bed3f48e5f9b\n• ETH/USDT • SHORT: prazo para nova entrada encerrado\n  Motivo: A janela para uma nova entrada terminou.\n  Plano: 2615a2ee733b828c7f43\n• ARB/USDT • SHORT: confirmação não aprovada\n  Motivo: O volume do segundo candle M1 foi menor que50% do primeiro.\n  Plano: 2d27f3525c3283d05663\n• ADA/USDT • LONG: prazo para nova entrada encerrado\n  Motivo: A janela para uma nova entrada terminou.\n  Plano: 3334c956eac52d4033b2\n\nSem novas entradas por esses planos.\nAvisos de movimento não equivalem a entradas liberadas.\nA expiração não encerra uma posição já aberta.\nAnálise: 20/11/2026 08:45:44 BRT"
     },
     "96a03ac338363b8c9e8a": {
-      "attempts": 0,
+      "attempts": 1,
       "category": "INFO",
       "created_at": 1795301613,
       "expires_at": 1795301640,
@@ -42914,7 +42914,11 @@
         "7c9c83384854c1de8236"
       ],
       "quote_at": 0,
-      "status": "PENDING",
+      "sent_at": 1795301616,
+      "status": "SENT",
+      "telegram_ids": [
+        14539
+      ],
       "text": "🟡 MOVIMENTO DETECTADO • AINDA SEM CONFIRMAÇÃO\nAVAX/USDT • BAIXA (SHORT)\n🧪 SIMULAÇÃO • acompanhamento\n\nRompimento observado no M1 fechado às 19:53:00 BRT.\nPreço de referência do primeiro gatilho: 6.552.\n\nPrimeiro fechamento além da região identificado.\nFalta o segundo fechamento sustentar o nível, com volume de pelo menos 50% do primeiro.\nApós confirmar, o plano ainda precisa passar pela avaliação financeira.\n\nFaixa em estudo: 6.545 a 6.552\n🛑 Stop do plano: 6.571 (-2.90% bruto em 10x)\n🎯 Alvo do plano: 6.457 (+14.50% bruto em 10x)\nCenário indicativo sobre a margem em 10x; custos e liquidação ainda não validados.\nMovimento sem alavancagem: TP +1.45% • SL -0.29%.\nPercentuais sobre a referência do primeiro gatilho, na direção da operação, antes de custos.\n\nMovimento observado, sem entrada liberada. Aguarde o alerta de confirmação e viabilidade.\nAlerta válido até 19:54:00 BRT.\nAnálise: 21/11/2026 19:53:33 BRT\nPlano: 7c9c83384854c1de8236",
       "watch_stage": 1,
       "watch_symbol": "AVAX_USDT"
