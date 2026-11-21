@@ -21,9 +21,9 @@ jobs:
           python-version: '3.12'
       - name: Verify scanner syntax
         run: python -m py_compile scripts/research_pump_rebound_21d.py
-      - name: Replay frozen PUMP M1 pattern on Gate perpetuals
+      - name: Replay causal PUMP M1 pattern on 24 OKX perpetuals
         env:
-          SYMBOLS: PUMP
+          SYMBOLS: PUMP,TAO,AVAX,HYPE,BTC,ETH,SOL,SUI,LINK,INJ,ENA,DOT,AERO,TRX,QNT,ETHFI,AAVE,UNI,PEPE,ZEC,STX,HBAR,GALA,ADA
         run: python scripts/research_pump_rebound_21d.py
       - name: Archive confirmed signals and all outcomes
         if: always()
