@@ -10561,13 +10561,17 @@
       "watch_symbol": "INJ_USDT"
     },
     "271ecfe174058c2aabb2": {
-      "attempts": 0,
+      "attempts": 1,
       "category": "INFO",
       "created_at": 1795268020,
       "expires_at": 1795271620,
       "id": "271ecfe174058c2aabb2",
       "quote_at": 0,
-      "status": "PENDING",
+      "sent_at": 1795268025,
+      "status": "SENT",
+      "telegram_ids": [
+        13734
+      ],
       "text": "⚪ ATUALIZAÇÃO DOS PLANOS ACOMPANHADOS\n🧪 SIMULAÇÃO\n\n• SHIB/USDT • LONG: alvo do plano alcançado durante o acompanhamento\n  Motivo: O movimento já alcançou o alvo do plano.\n  Plano: e111ef1da63fa6ad1a92\n• APT/USDT • LONG: confirmação não aprovada\n  Motivo: O volume do segundo candle M1 foi menor que50% do primeiro.\n  Plano: fd57782b29c9b8b80117\n\nSem novas entradas por esses planos.\nAvisos de movimento não equivalem a entradas liberadas.\nA expiração não encerra uma posição já aberta.\nAnálise: 21/11/2026 10:33:40 BRT"
     },
     "2737f81aea0724b1be1a": {
@@ -17263,7 +17267,7 @@
       "watch_symbol": "ARB_USDT"
     },
     "3f5d96e1e65058bcc854": {
-      "attempts": 0,
+      "attempts": 1,
       "category": "INFO",
       "created_at": 1795268020,
       "expires_at": 1795269600,
@@ -17272,7 +17276,11 @@
         "498417d5b28567b28d9f"
       ],
       "quote_at": 0,
-      "status": "PENDING",
+      "sent_at": 1795268024,
+      "status": "SENT",
+      "telegram_ids": [
+        13732
+      ],
       "text": "👀 PLANO EM PREPARAÇÃO • AGUARDANDO GATILHO\nSHIB/USDT\n🧪 SIMULAÇÃO • acompanhamento\n\nRegião em análise: 0.00000352 a 0.000003576\nSHORT somente se houver fechamento M1 abaixo de ≈ 0.00000351776.\n\nConfirmação: dois fechamentos M1 consecutivos além do gatilho; volume do segundo de pelo menos 50% do primeiro.\nTP, SL e percentuais serão definidos no primeiro gatilho. A confirmação ainda precisa passar pela avaliação financeira.\n\nSem rompimento observado neste plano e sem entrada liberada.\nPreparação até 11:00:00 BRT.\nAnálise: 21/11/2026 10:33:40 BRT\nPlanos: 498417d5b28567b28d9f",
       "watch_stage": 2,
       "watch_symbol": "SHIB_USDT"
@@ -24844,7 +24852,7 @@
       "watch_symbol": "ADA_USDT"
     },
     "5f2574d8f81957c81aa3": {
-      "attempts": 0,
+      "attempts": 1,
       "category": "INFO",
       "created_at": 1795268020,
       "expires_at": 1795269600,
@@ -24853,7 +24861,11 @@
         "d68f8abb8c06f7404891"
       ],
       "quote_at": 0,
-      "status": "PENDING",
+      "sent_at": 1795268025,
+      "status": "SENT",
+      "telegram_ids": [
+        13733
+      ],
       "text": "👀 PLANO EM PREPARAÇÃO • AGUARDANDO GATILHO\nAPT/USDT\n🧪 SIMULAÇÃO • acompanhamento\n\nRegião em análise: 0.3589 a 0.37\nSHORT somente se houver fechamento M1 abaixo de ≈ 0.358559.\n\nConfirmação: dois fechamentos M1 consecutivos além do gatilho; volume do segundo de pelo menos 50% do primeiro.\nTP, SL e percentuais serão definidos no primeiro gatilho. A confirmação ainda precisa passar pela avaliação financeira.\n\nSem rompimento observado neste plano e sem entrada liberada.\nPreparação até 11:00:00 BRT.\nAnálise: 21/11/2026 10:33:40 BRT\nPlanos: d68f8abb8c06f7404891",
       "watch_stage": 2,
       "watch_symbol": "APT_USDT"
@@ -27277,7 +27289,7 @@
       "watch_symbol": "PEPE_USDT"
     },
     "6984b75de739a0c53d25": {
-      "attempts": 0,
+      "attempts": 1,
       "category": "INFO",
       "created_at": 1795268020,
       "expires_at": 1795268040,
@@ -27288,7 +27300,11 @@
         "b066a97b81d0185ae163"
       ],
       "quote_at": 0,
-      "status": "PENDING",
+      "sent_at": 1795268024,
+      "status": "SENT",
+      "telegram_ids": [
+        13731
+      ],
       "text": "🟡 MOVIMENTO DETECTADO • AINDA SEM CONFIRMAÇÃO\nETH/USDT • ALTA (LONG)\n🧪 SIMULAÇÃO • acompanhamento\n\nRompimento observado no M1 fechado às 10:33:00 BRT.\nPreço de referência do primeiro gatilho: 1682.69.\n\nPrimeiro fechamento além da região identificado.\nFalta o segundo fechamento sustentar o nível, com volume de pelo menos 50% do primeiro.\nApós confirmar, o plano ainda precisa passar pela avaliação financeira.\n\nFaixa em estudo: 1679.71 a 1685.67\n🛑 Stop do plano: 1672.48 (-6.07% bruto em 10x)\n🎯 Alvo do plano: 1718.42 (+21.23% bruto em 10x)\nCenário indicativo sobre a margem em 10x; custos e liquidação ainda não validados.\nMovimento sem alavancagem: TP +2.12% • SL -0.61%.\nPercentuais sobre a referência do primeiro gatilho, na direção da operação, antes de custos.\n\nMovimento observado, sem entrada liberada. Aguarde o alerta de confirmação e viabilidade.\nAlerta válido até 10:34:00 BRT.\nAnálise: 21/11/2026 10:33:40 BRT\nPlano: b066a97b81d0185ae163",
       "watch_stage": 1,
       "watch_symbol": "ETH_USDT"
