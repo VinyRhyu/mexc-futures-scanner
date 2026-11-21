@@ -1,0 +1,40 @@
+name: Pesquisa isolada de OI e fluxo agressor
+on:
+  push:
+    branches:
+      - research-oi-taker-20261121
+    paths:
+      - scripts/research_orderflow.py
+      - .github/workflows/research-orderflow.yml
+  workflow_dispatch:
+permissions:
+  contents: read
+  actions: read
+jobs:
+  experiment:
+    runs-on: ubuntu-latest
+    timeout-minutes: 25
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Recuperar resultados M1 congelados de 25/10 a 07/11
+        uses: actions/download-artifact@v4
+        with:
+          name: sustained-trigger-history-42890505005
+          run-id: 42890505005
+          github-token: ${{ github.token }}
+          path: reports/sustained-source
+      - name: Cruzar observacoes Binance OI e agressao com entradas MEXC
+        run: python scripts/research_orderflow.py
+      - name: Guardar indicadores e comparacao, inclusive diagnosticos
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: research-oi-taker-${{ github.run_id }}
+          path: reports/flow-research/
+          retention-days: 30
+          if-no-files-found: warn
