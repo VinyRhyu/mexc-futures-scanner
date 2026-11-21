@@ -1177,17 +1177,21 @@
       "watch_symbol": "LUNC_USDT"
     },
     "0490ad275ed193dd3614": {
-      "attempts": 0,
+      "attempts": 1,
       "category": "ENTRY",
       "created_at": 1795224945,
       "expires_at": 1795225020,
       "id": "0490ad275ed193dd3614",
       "plan_id": "34e2866cc32bcb668c99",
       "quote_at": 1795224941,
+      "sent_at": 1795224949,
       "side": "SHORT",
       "signal_at": 1795224900,
-      "status": "PENDING",
+      "status": "SENT",
       "symbol": "AVAX_USDT",
+      "telegram_ids": [
+        13140
+      ],
       "text": "🟢 GATILHO VÁLIDO PARA SIMULAR\nAVAX/USDT • SHORT\n🧪 SIMULAÇÃO • Confirmada\nRompimento • 2 fechamentos M1 • volume ≥50%\n\nVolume do segundo M1: 768.3% do primeiro.\n📍 Entrada: 6.477 a 6.477\n🛑 Stop: 6.51 (-10.37% líquido sobre a margem)\n🎯 Alvo: 6.419 (+10.71% líquido sobre a margem)\nMovimento sem alavancagem: TP +0.90% • SL -0.51%.\nBase dos percentuais sem alavancagem: 6.477 (pior entrada); na direção da operação, antes de custos.\n\nMargem isolada estimada: 0.9500 USDT • 15x\nQuantidade: 22 contratos\nPerda planejada: -0.0985 USDT (-9.85% da banca)\nGanho projetado: +0.1018 USDT (+10.18% da banca)\nRetorno/risco líquido: 1.03:1 (pior entrada)\nCustos estimados: 0.0259 USDT\nROI líquido estimado sobre a margem: TP +10.71% • SL -10.37%.\nTaxa por execução: 0.06%\nDisparo do stop: último preço (Last)\n\nEstimativas de taxas, deslizamento e funding; ganho não garantido.\nFalta validar para uso real: taxa pessoal da conta; regras de margem da conta.\n\n⏱ Nova entrada até 22:37:00 BRT (1min 15s).\nGatilho M1 (segundo fechamento): 22:35:00 BRT\nCotação: 22:35:41 BRT\nAnálise: 20/11/2026 22:35:45 BRT\nA validade se aplica a novas entradas.\nPlano: 34e2866cc32bcb668c99 • revisão 1",
       "variant": "CONFIRMADA"
     },
@@ -12162,7 +12166,7 @@
       "text": "⚪ ATUALIZAÇÃO DOS PLANOS ACOMPANHADOS\n🧪 SIMULAÇÃO\n\n• HBAR/USDT • LONG: prazo para nova entrada encerrado\n  Motivo: A janela para uma nova entrada terminou.\n  Plano: 15365ec5f3b4c3a0975d\n• PEPE/USDT • LONG: prazo para nova entrada encerrado\n  Motivo: A janela para uma nova entrada terminou.\n  Plano: 197116e62c41dd23beeb\n• PEPE/USDT • SHORT: prazo para nova entrada encerrado\n  Motivo: A janela para uma nova entrada terminou.\n  Plano: 1accd3c5bf434584c6e3\n• ONDO/USDT • LONG: prazo para nova entrada encerrado\n  Motivo: A janela para uma nova entrada terminou.\n  Plano: 2b3054b4ea35032657cf\n• LTC/USDT • LONG: prazo para nova entrada encerrado\n  Motivo: A janela para uma nova entrada terminou.\n  Plano: 31a13a0979d6c6071f58\n• QNT/USDT • LONG: prazo para nova entrada encerrado\n  Motivo: A janela para uma nova entrada terminou.\n  Plano: 39cc6835c43c5e051d3e\n\nSem novas entradas por esses planos.\nAvisos de movimento não equivalem a entradas liberadas.\nA expiração não encerra uma posição já aberta.\nAnálise: 20/11/2026 06:15:40 BRT"
     },
     "35eb9a80804e81d901e4": {
-      "attempts": 0,
+      "attempts": 1,
       "category": "INFO",
       "created_at": 1795224945,
       "expires_at": 1795225020,
@@ -12173,7 +12177,11 @@
         "c3419b605a9198517d5c"
       ],
       "quote_at": 0,
-      "status": "PENDING",
+      "sent_at": 1795224949,
+      "status": "SENT",
+      "telegram_ids": [
+        13141
+      ],
       "text": "🟡 MOVIMENTO DETECTADO • ENTRADA BLOQUEADA\nXRP/USDT • BAIXA (SHORT)\n🧪 SIMULAÇÃO • acompanhamento\n\nRompimento observado no M1 fechado às 22:35:00 BRT.\nPreço de referência do primeiro gatilho: 0.9047.\n\nConfirmação técnica identificada; entrada bloqueada.\nCondição pendente: O preço está fora da faixa permitida.\n\nFaixa em estudo: 0.9033 a 0.9051\n🛑 Stop do plano: 0.9088 (-4.53% bruto em 10x)\n🎯 Alvo do plano: 0.898 (+7.41% bruto em 10x)\nCenário indicativo sobre a margem em 10x; custos e liquidação ainda não validados.\nMovimento sem alavancagem: TP +0.74% • SL -0.45%.\nPercentuais sobre a referência do primeiro gatilho, na direção da operação, antes de custos.\n\nMovimento observado, sem entrada liberada. Aguarde o alerta de confirmação e viabilidade.\nAlerta válido até 22:37:00 BRT.\nAnálise: 20/11/2026 22:35:45 BRT\nPlano: c3419b605a9198517d5c",
       "watch_stage": 0,
       "watch_symbol": "XRP_USDT"
@@ -26954,7 +26962,7 @@
       "watch_symbol": "ETC_USDT"
     },
     "7cf9fc47c8ba463b8e8d": {
-      "attempts": 0,
+      "attempts": 1,
       "category": "INFO",
       "created_at": 1795224945,
       "expires_at": 1795226400,
@@ -26963,7 +26971,11 @@
         "b430e2ab617a9ff667f3"
       ],
       "quote_at": 0,
-      "status": "PENDING",
+      "sent_at": 1795224950,
+      "status": "SENT",
+      "telegram_ids": [
+        13142
+      ],
       "text": "👀 PLANO EM PREPARAÇÃO • AGUARDANDO GATILHO\nONDO/USDT\n🧪 SIMULAÇÃO • acompanhamento\n\nRegião em análise: 0.2782 a 0.2833\nLONG somente se houver fechamento M1 acima de ≈ 0.283522.\n\nConfirmação: dois fechamentos M1 consecutivos além do gatilho; volume do segundo de pelo menos 50% do primeiro.\nTP, SL e percentuais serão definidos no primeiro gatilho. A confirmação ainda precisa passar pela avaliação financeira.\n\nSem rompimento observado neste plano e sem entrada liberada.\nPreparação até 23:00:00 BRT.\nAnálise: 20/11/2026 22:35:45 BRT\nPlanos: b430e2ab617a9ff667f3",
       "watch_stage": 2,
       "watch_symbol": "ONDO_USDT"
@@ -51538,13 +51550,17 @@
       "watch_symbol": "TAO_USDT"
     },
     "f277be80fb0e1048f226": {
-      "attempts": 0,
+      "attempts": 1,
       "category": "INFO",
       "created_at": 1795224945,
       "expires_at": 1795228545,
       "id": "f277be80fb0e1048f226",
       "quote_at": 0,
-      "status": "PENDING",
+      "sent_at": 1795224950,
+      "status": "SENT",
+      "telegram_ids": [
+        13143
+      ],
       "text": "⚪ ATUALIZAÇÃO DOS PLANOS ACOMPANHADOS\n🧪 SIMULAÇÃO\n\n• ONDO/USDT • SHORT: confirmação não aprovada\n  Motivo: O segundo fechamento M1 perdeu o nível do gatilho.\n  Plano: c2f91ce464a728e8ffd9\n\nSem novas entradas por esses planos.\nAvisos de movimento não equivalem a entradas liberadas.\nA expiração não encerra uma posição já aberta.\nAnálise: 20/11/2026 22:35:45 BRT"
     },
     "f2adf7688b8f9b8a982d": {
