@@ -7107,7 +7107,7 @@
       "variant": "CONFIRMADA"
     },
     "1bf809d323f58bfd84a3": {
-      "attempts": 0,
+      "attempts": 1,
       "category": "INFO",
       "created_at": 1795241612,
       "expires_at": 1795241640,
@@ -7118,7 +7118,11 @@
         "acbeb35a30f6612ea02b"
       ],
       "quote_at": 0,
-      "status": "PENDING",
+      "sent_at": 1795241616,
+      "status": "SENT",
+      "telegram_ids": [
+        13384
+      ],
       "text": "🟡 MOVIMENTO DETECTADO • AINDA SEM CONFIRMAÇÃO\nARB/USDT • BAIXA (SHORT)\n🧪 SIMULAÇÃO • acompanhamento\n\nRompimento observado no M1 fechado às 03:13:00 BRT.\nPreço de referência do primeiro gatilho: 0.10542.\n\nPrimeiro fechamento além da região identificado.\nFalta o segundo fechamento sustentar o nível, com volume de pelo menos 50% do primeiro.\nApós confirmar, o plano ainda precisa passar pela avaliação financeira.\n\nFaixa em estudo: 0.10515 a 0.10569\n🛑 Stop do plano: 0.10651 (-10.34% bruto em 10x)\n🎯 Alvo do plano: 0.10312 (+21.82% bruto em 10x)\nCenário indicativo sobre a margem em 10x; custos e liquidação ainda não validados.\nMovimento sem alavancagem: TP +2.18% • SL -1.03%.\nPercentuais sobre a referência do primeiro gatilho, na direção da operação, antes de custos.\n\nMovimento observado, sem entrada liberada. Aguarde o alerta de confirmação e viabilidade.\nAlerta válido até 03:14:00 BRT.\nAnálise: 21/11/2026 03:13:32 BRT\nPlano: acbeb35a30f6612ea02b",
       "watch_stage": 1,
       "watch_symbol": "ARB_USDT"
