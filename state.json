@@ -1048,17 +1048,21 @@
       "watch_symbol": "TAO_USDT"
     },
     "034756f0d5a362ee66c4": {
-      "attempts": 0,
+      "attempts": 1,
       "category": "ENTRY",
       "created_at": 1795260516,
       "expires_at": 1795260540,
       "id": "034756f0d5a362ee66c4",
       "plan_id": "a30b45a6149072ad8db1",
       "quote_at": 1795260514,
+      "sent_at": 1795260518,
       "side": "LONG",
       "signal_at": 1795260420,
-      "status": "PENDING",
+      "status": "SENT",
       "symbol": "ZEC_USDT",
+      "telegram_ids": [
+        13600
+      ],
       "text": "🟢 GATILHO VÁLIDO PARA SIMULAR\nZEC/USDT • LONG\n🧪 SIMULAÇÃO • Confirmada\nRompimento • 2 fechamentos M1 • volume ≥50%\n\nVolume do segundo M1: 117.1% do primeiro.\n📍 Entrada: 752.61 a 754.11\n🛑 Stop: 746.08 (-12.27% líquido sobre a margem)\n🎯 Alvo: 764.61 (+12.28% líquido sobre a margem)\nMovimento sem alavancagem: TP +1.39% • SL -1.06%.\nBase dos percentuais sem alavancagem: 754.11 (pior entrada); na direção da operação, antes de custos.\n\nMargem isolada estimada: 0.7541 USDT • 10x\nQuantidade: 1 contratos\nPerda planejada: -0.0925 USDT (-9.25% da banca)\nGanho projetado: +0.0926 USDT (+9.26% da banca)\nRetorno/risco líquido: 1.00:1 (pior entrada)\nCustos estimados: 0.0124 USDT\nROI líquido estimado sobre a margem: TP +12.28% • SL -12.27%.\nTaxa por execução: 0.06%\nDisparo do stop: último preço (Last)\n\nEstimativas de taxas, deslizamento e funding; ganho não garantido.\nFalta validar para uso real: taxa pessoal da conta; regras de margem da conta.\n\n⏱ Nova entrada até 08:29:00 BRT (24s).\nGatilho M1 (segundo fechamento): 08:27:00 BRT\nCotação: 08:28:34 BRT\nAnálise: 21/11/2026 08:28:36 BRT\nA validade se aplica a novas entradas.\nPlano: a30b45a6149072ad8db1 • revisão 1",
       "variant": "CONFIRMADA"
     },
