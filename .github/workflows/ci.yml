@@ -33,7 +33,7 @@ jobs:
         timeout-minutes: 14
         run: |
           set -e
-          for w in REF CMP CMP2; do
+          for w in OCT05 OCT12 OCT19 OCT26 REF CMP CMP2; do
             echo "===== M1_PILOT $w ====="
             python -m scripts.audit_hype_m1_trend --window "$w"
           done
