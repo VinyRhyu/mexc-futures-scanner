@@ -52215,7 +52215,7 @@
       "text": "⚪ ATUALIZAÇÃO DOS PLANOS ACOMPANHADOS\n🧪 SIMULAÇÃO\n\n• ARB/USDT • LONG: confirmação não aprovada\n  Motivo: O volume do segundo candle M1 foi menor que50% do primeiro.\n  Plano: a3054622bfc90e2e0f40\n• ARB/USDT • LONG: confirmação não aprovada\n  Motivo: O volume do segundo candle M1 foi menor que50% do primeiro.\n  Plano: a6953205225ec2cdd5f9\n\nSem novas entradas por esses planos.\nAvisos de movimento não equivalem a entradas liberadas.\nA expiração não encerra uma posição já aberta.\nAnálise: 20/11/2026 03:03:34 BRT"
     },
     "bf5e5a5009cc4b9aec30": {
-      "attempts": 0,
+      "attempts": 1,
       "category": "INFO",
       "created_at": 1795295971,
       "expires_at": 1795296000,
@@ -52226,7 +52226,11 @@
         "20e79a799e73de4c7f11"
       ],
       "quote_at": 0,
-      "status": "PENDING",
+      "sent_at": 1795295975,
+      "status": "SENT",
+      "telegram_ids": [
+        14361
+      ],
       "text": "🟡 MOVIMENTO DETECTADO • AINDA SEM CONFIRMAÇÃO\nPEPE/USDT • ALTA (LONG)\n🧪 SIMULAÇÃO • acompanhamento\n\nRompimento observado no M1 fechado às 18:19:00 BRT.\nPreço de referência do primeiro gatilho: 0.0000034139.\n\nPrimeiro fechamento além da região identificado.\nFalta o segundo fechamento sustentar o nível, com volume de pelo menos 50% do primeiro.\nApós confirmar, o plano ainda precisa passar pela avaliação financeira.\n\nFaixa em estudo: 0.0000034133 a 0.0000034183\n🛑 Stop do plano: 0.0000034024 (-3.37% bruto em 10x)\n🎯 Alvo do plano: 0.0000034399 (+7.62% bruto em 10x)\nCenário indicativo sobre a margem em 10x; custos e liquidação ainda não validados.\nMovimento sem alavancagem: TP +0.76% • SL -0.34%.\nPercentuais sobre a referência do primeiro gatilho, na direção da operação, antes de custos.\n\nMovimento observado, sem entrada liberada. Aguarde o alerta de confirmação e viabilidade.\nAlerta válido até 18:20:00 BRT.\nAnálise: 21/11/2026 18:19:31 BRT\nPlano: 20e79a799e73de4c7f11",
       "watch_stage": 1,
       "watch_symbol": "PEPE_USDT"
