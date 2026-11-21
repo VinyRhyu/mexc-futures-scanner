@@ -22332,17 +22332,21 @@
       "watch_symbol": "TAO_USDT"
     },
     "52acd332c0fc55cf6d3d": {
-      "attempts": 0,
+      "attempts": 1,
       "category": "ENTRY",
       "created_at": 1795282847,
       "expires_at": 1795282860,
       "id": "52acd332c0fc55cf6d3d",
       "plan_id": "a8f13bd0537582bef471",
       "quote_at": 1795282846,
+      "sent_at": 1795282850,
       "side": "SHORT",
       "signal_at": 1795282740,
-      "status": "PENDING",
+      "status": "SENT",
       "symbol": "NEAR_USDT",
+      "telegram_ids": [
+        13956
+      ],
       "text": "🟢 GATILHO VÁLIDO PARA SIMULAR\nNEAR/USDT • SHORT\n🧪 SIMULAÇÃO • Confirmada\nRompimento • 2 fechamentos M1 • volume ≥50%\n\nVolume do segundo M1: 798.4% do primeiro.\n📍 Entrada: 2.835 a 2.838\n🛑 Stop: 2.856 (-10.02% líquido sobre a margem)\n🎯 Alvo: 2.799 (+10.10% líquido sobre a margem)\nMovimento sem alavancagem: TP +1.27% • SL -0.74%.\nBase dos percentuais sem alavancagem: 2.835 (pior entrada); na direção da operação, antes de custos.\n\nMargem isolada estimada: 0.8505 USDT • 10x\nQuantidade: 3 contratos\nPerda planejada: -0.0852 USDT (-8.52% da banca)\nGanho projetado: +0.0859 USDT (+8.59% da banca)\nRetorno/risco líquido: 1.01:1 (pior entrada)\nCustos estimados: 0.0222 USDT\nROI líquido estimado sobre a margem: TP +10.10% • SL -10.02%.\nTaxa por execução: 0.06%\nDisparo do stop: último preço (Last)\n\nEstimativas de taxas, deslizamento e funding; ganho não garantido.\nFalta validar para uso real: taxa pessoal da conta; regras de margem da conta.\n\n⏱ Nova entrada até 14:41:00 BRT (13s).\nGatilho M1 (segundo fechamento): 14:39:00 BRT\nCotação: 14:40:46 BRT\nAnálise: 21/11/2026 14:40:47 BRT\nA validade se aplica a novas entradas.\nPlano: a8f13bd0537582bef471 • revisão 1",
       "variant": "CONFIRMADA"
     },
@@ -34706,7 +34710,7 @@
       "watch_symbol": "TAO_USDT"
     },
     "83dd55d8d5a95ce22f6c": {
-      "attempts": 0,
+      "attempts": 1,
       "category": "INFO",
       "created_at": 1795282847,
       "expires_at": 1795284000,
@@ -34716,7 +34720,11 @@
         "2c280cf502fc0f769599"
       ],
       "quote_at": 0,
-      "status": "PENDING",
+      "sent_at": 1795282850,
+      "status": "SENT",
+      "telegram_ids": [
+        13957
+      ],
       "text": "👀 PLANO EM PREPARAÇÃO • AGUARDANDO GATILHO\nLTC/USDT\n🧪 SIMULAÇÃO • acompanhamento\n\nRegião em análise: 39.73 a 40.13\nDireção indefinida: cenários alternativos, não duas entradas.\nLONG somente se houver fechamento M1 acima de ≈ 40.1534.\nSHORT somente se houver fechamento M1 abaixo de ≈ 39.7066.\n\nConfirmação: dois fechamentos M1 consecutivos além do gatilho; volume do segundo de pelo menos 50% do primeiro.\nTP, SL e percentuais serão definidos no primeiro gatilho. A confirmação ainda precisa passar pela avaliação financeira.\n\nSem rompimento observado neste plano e sem entrada liberada.\nPreparação até 15:00:00 BRT.\nAnálise: 21/11/2026 14:40:47 BRT\nPlanos: ddd4c46689e76f0f07f3, 2c280cf502fc0f769599",
       "watch_stage": 2,
       "watch_symbol": "LTC_USDT"
