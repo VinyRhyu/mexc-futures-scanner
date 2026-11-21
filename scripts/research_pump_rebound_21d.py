@@ -3,7 +3,8 @@ Fixed rule saved by user: reject lower 15 M1, reclaim, next 5 M1
 close over rejection high without lower low, enter next open, SL at
 rejection low, TP +2.67%, timeout 125 minutes.
 """
-import csv,json,time,os
+import csv,json,time,os,gzip
+from concurrent.futures import ThreadPoolExecutor,as_completed
 from collections import Counter
 from datetime import datetime
 from zoneinfo import ZoneInfo
@@ -54,7 +55,7 @@ def candles(symbol):
         if oldest<=earliest*1000:break
         if oldest>=cursor:raise ValueError('Pagination not advancing')
         cursor=oldest
-        time.sleep(.13)
+        time.sleep(.24)
     else:
         raise ValueError('Max pagination pages exceeded')
     if not data or min(data)>earliest+60:
@@ -66,6 +67,7 @@ def candles(symbol):
 def scan(symbol,bars):
     signals={};stats=Counter()
     index={r[0]:i for i,r in enumerate(bars)}
+    last_rejection=None
     for i in range(15,len(bars)-7):
         t,o,h,l,c=bars[i]
         if t<START or t>=END:continue
@@ -73,6 +75,8 @@ def scan(symbol,bars):
         old=min(x[3] for x in bars[i-15:i])
         if not(l<old and c>old):continue
         stats['pre_alert']+=1
+        prev_gap=(t-last_rejection)//60 if last_rejection is not None else None
+        last_rejection=t
         for j in range(i+1,i+6):
             tt,oo,hh,ll,cc=bars[j]
             if tt!=t+(j-i)*60:stats['missing_confirmation_data']+=1;break
@@ -85,7 +89,8 @@ def scan(symbol,bars):
                 item=dict(symbol=symbol+'_USDT',reject_ts=t,confirm_ts=tt+60,entry_ts=et,
                           reject_brt=br(t),confirm_brt=br(tt+60),entry_brt=br(et),
                           entry=ep,stop=l,tp=ep*1.0267,risk_pct=(ep-l)/ep*100,
-                          confirm_after_minutes=j-i)
+                          confirm_after_minutes=j-i,
+                          previous_rejection_gap_min=prev_gap if prev_gap is not None and prev_gap<=15 else '')
                 # One notification per confirmed minute, earliest rejecting candle.
                 signals.setdefault(et,item);stats['confirmed_raw']+=1
                 break
@@ -132,15 +137,24 @@ def main():
     OUT.mkdir(parents=True,exist_ok=True)
     symbols=[x for x in os.environ.get('SYMBOLS','ALL').split(',') if x] if os.environ.get('SYMBOLS','ALL')!='ALL' else SYMBOLS
     result=[];coverage={}
-    for number,s in enumerate(symbols,1):
-        try:
-            bars,diag=candles(s)
-            hits,stats=scan(s,bars)
-            result+=hits;coverage[s]=dict(**diag,**stats)
-            print('COIN',number,'/',len(symbols),s,'confirmed',len(hits),json.dumps(coverage[s]),flush=True)
-        except Exception as e:
-            coverage[s]=dict(error=str(e)[:400])
-            print('FAILED',number,s,str(e)[:250],flush=True)
+    def work(symbol):
+        bars,diag=candles(symbol)
+        hits,stats=scan(symbol,bars)
+        raw=OUT/'raw'
+        raw.mkdir(exist_ok=True)
+        with gzip.open(raw/(symbol+'.json.gz'),'wt',encoding='utf-8') as dst:
+            json.dump(bars,dst)
+        return hits,dict(**diag,**stats)
+    with ThreadPoolExecutor(max_workers=4) as pool:
+        futures={pool.submit(work,s):s for s in symbols}
+        for number,done in enumerate(as_completed(futures),1):
+            s=futures[done]
+            try:
+                hits,diag=done.result();result+=hits;coverage[s]=diag
+                print('COIN',number,'/',len(symbols),s,'confirmed',len(hits),json.dumps(diag),flush=True)
+            except Exception as e:
+                coverage[s]=dict(error=str(e)[:400])
+                print('FAILED',number,s,str(e)[:250],flush=True)
     result.sort(key=lambda x:(x['entry_ts'],x['symbol']))
     distinct=one_per_symbol(result)
     portfolio=[];available=0
@@ -148,13 +162,19 @@ def main():
         if x['entry_ts']>=available:
             portfolio.append(x);available=x['exit_ts'] or END
     write('all_confirmed.csv',result)
+    # PUMP exemplar profile, predefined before looking at results of other coins.
+    similar=[x for x in result if x['confirm_after_minutes']==5 and .25<=x['risk_pct']<=.5
+             and x['previous_rejection_gap_min']!='' and x['previous_rejection_gap_min']<=15]
+    write('similar_ao_pump.csv',similar)
     write('targets_only.csv',[x for x in result if x['outcome']=='ALVO'])
     write('per_symbol_no_overlap.csv',distinct)
     write('global_one_position.csv',portfolio)
     expected=[x for x in result if x['symbol']=='PUMP_USDT' and x['entry_brt'].startswith('18/11/2026 22:')]
     report=dict(window_start=br(START),window_end=br(END),venue='OKX USDT swap',interval='M1',
                 symbols=symbols,coverage=coverage,
-                confirmed=aggregate(result),per_symbol=aggregate(distinct),
+                confirmed=aggregate(result),similar_to_pump=aggregate(similar),
+                similar_by_coin={k:aggregate([x for x in similar if x['symbol']==k+'_USDT']) for k in symbols},
+                per_symbol=aggregate(distinct),
                 portfolio_one_position=aggregate(portfolio),pump_example_18nov=expected,
                 warnings=['Historical causal reconstruction only; not alerts previously sent',
                           'Only confirmed signals before outcome, no filtering by later profitability',
@@ -162,7 +182,8 @@ def main():
                           'Uses OKX data, not MEXC execution prices',
                           'Stop first on same 1m candle ambiguity',
                           'Fixed universe may cause survivorship bias; coverage and missing data reported',
-                          'One position per symbol/global portfolio are separate post-scan simulations'])
+                          'One position per symbol/global portfolio are separate post-scan simulations',
+                          'Similarity profile: 5th M1 confirmation, 0.25%-0.50% risk, earlier rejection within 15m, inspired by one known winner; NOT validated strategy'])
     (OUT/'summary.json').write_text(json.dumps(report,ensure_ascii=False,indent=2),encoding='utf-8')
-    print('FINAL',json.dumps({k:report[k] for k in ('confirmed','per_symbol','portfolio_one_position','pump_example_18nov')},ensure_ascii=False),flush=True)
+    print('FINAL',json.dumps({k:report[k] for k in ('confirmed','similar_to_pump','per_symbol','portfolio_one_position','pump_example_18nov')},ensure_ascii=False),flush=True)
 if __name__=='__main__':main()
