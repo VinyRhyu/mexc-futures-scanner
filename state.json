@@ -24142,7 +24142,7 @@
       "text": "⚪ ATUALIZAÇÃO DOS PLANOS ACOMPANHADOS\n🧪 SIMULAÇÃO\n\n• UNI/USDT • LONG: prazo para nova entrada encerrado\n  Motivo: A janela para uma nova entrada terminou.\n  Plano: 3ba48d3a1cb30cd6c109\n• ETH/USDT • LONG: prazo para nova entrada encerrado\n  Motivo: A janela para uma nova entrada terminou.\n  Plano: 611e6150bb2d57893aa7\n• AAVE/USDT • LONG: prazo para nova entrada encerrado\n  Motivo: A janela para uma nova entrada terminou.\n  Plano: 6a1ffb3092abf3dc85fc\n\nSem novas entradas por esses planos.\nAvisos de movimento não equivalem a entradas liberadas.\nA expiração não encerra uma posição já aberta.\nAnálise: 20/11/2026 03:52:42 BRT"
     },
     "565c6edb962dac6d38b3": {
-      "attempts": 0,
+      "attempts": 1,
       "category": "INFO",
       "created_at": 1795291479,
       "expires_at": 1795291560,
@@ -24153,7 +24153,11 @@
         "b861d75d18c9a7ce88b0"
       ],
       "quote_at": 0,
-      "status": "PENDING",
+      "sent_at": 1795291482,
+      "status": "SENT",
+      "telegram_ids": [
+        14247
+      ],
       "text": "🟡 MOVIMENTO DETECTADO • ENTRADA BLOQUEADA\nNEAR/USDT • ALTA (LONG)\n🧪 SIMULAÇÃO • acompanhamento\n\nRompimento observado no M1 fechado às 17:04:00 BRT.\nPreço de referência do primeiro gatilho: 2.882.\n\nConfirmação técnica identificada; entrada bloqueada.\nCondição pendente: A relação entre ganho e perda ficou abaixo do mínimo.\n\nFaixa em estudo: 2.881 a 2.887\n🛑 Stop do plano: 2.866 (-5.55% bruto em 10x)\n🎯 Alvo do plano: 2.893 (+3.82% bruto em 10x)\nCenário indicativo sobre a margem em 10x; custos e liquidação ainda não validados.\nMovimento sem alavancagem: TP +0.38% • SL -0.56%.\nPercentuais sobre a referência do primeiro gatilho, na direção da operação, antes de custos.\n\nMovimento observado, sem entrada liberada. Aguarde o alerta de confirmação e viabilidade.\nAlerta válido até 17:06:00 BRT.\nAnálise: 21/11/2026 17:04:39 BRT\nPlano: b861d75d18c9a7ce88b0",
       "watch_stage": 0,
       "watch_symbol": "NEAR_USDT"
