@@ -11,6 +11,7 @@ class HypeFixedWatchRiskTest(unittest.TestCase):
     def setUp(self):
         self.m5=[[i*FIVE_MS,100.0,100.3,99.7,100.0,1.0,100]
                  for i in range(100)]
+        self.m5[50][3]=99.0
         self.w={"i":50,"side":"LONG","at_ms":51*FIVE_MS,"family":"BREAK"}
         self.m1=[[i*ONE_MS,100.,100.1,99.9,100.,1,100]
                  for i in range(440)]
