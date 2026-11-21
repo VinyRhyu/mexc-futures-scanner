@@ -19,6 +19,10 @@ jobs:
           python -m unittest discover -s tests -v
           python -m mexc_scanner demo
           python -m mexc_scanner replay reports/demo/snapshot.json --output reports/demo-replay
+      - name: HYPE economic meta-label walkforward on eligible trades - paper
+        if: github.event_name == 'pull_request'
+        timeout-minutes: 9
+        run: python -m scripts.audit_hype_economic_metalabel
       - name: HYPE triple barrier meta-label walkforward purgado - paper
         if: github.event_name == 'pull_request'
         timeout-minutes: 9
