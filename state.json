@@ -23217,17 +23217,21 @@
       "watch_symbol": "PEPE_USDT"
     },
     "58a519e97715d4db02d0": {
-      "attempts": 0,
+      "attempts": 1,
       "category": "ENTRY",
       "created_at": 1795276538,
       "expires_at": 1795276620,
       "id": "58a519e97715d4db02d0",
       "plan_id": "d4532b58b2bceb718643",
       "quote_at": 1795276535,
+      "sent_at": 1795276541,
       "side": "SHORT",
       "signal_at": 1795276500,
-      "status": "PENDING",
+      "status": "SENT",
       "symbol": "INJ_USDT",
+      "telegram_ids": [
+        13817
+      ],
       "text": "🟢 GATILHO VÁLIDO PARA SIMULAR\nINJ/USDT • SHORT\n🧪 SIMULAÇÃO • Confirmada\nRompimento • 2 fechamentos M1 • volume ≥50%\n\nVolume do segundo M1: 26515.4% do primeiro.\n📍 Entrada: 6.116 a 6.131\n🛑 Stop: 6.173 (-11.18% líquido sobre a margem)\n🎯 Alvo: 5.999 (+17.29% líquido sobre a margem)\nMovimento sem alavancagem: TP +1.91% • SL -0.93%.\nBase dos percentuais sem alavancagem: 6.116 (pior entrada); na direção da operação, antes de custos.\n\nMargem isolada estimada: 0.6116 USDT • 10x\nQuantidade: 1 contratos\nPerda planejada: -0.0684 USDT (-6.84% da banca)\nGanho projetado: +0.1057 USDT (+10.57% da banca)\nRetorno/risco líquido: 1.55:1 (pior entrada)\nCustos estimados: 0.0114 USDT\nROI líquido estimado sobre a margem: TP +17.29% • SL -11.18%.\nTaxa por execução: 0.06%\nDisparo do stop: último preço (Last)\n\nEstimativas de taxas, deslizamento e funding; ganho não garantido.\nFalta validar para uso real: taxa pessoal da conta; regras de margem da conta.\n\n⏱ Nova entrada até 12:57:00 BRT (1min 22s).\nGatilho M1 (segundo fechamento): 12:55:00 BRT\nCotação: 12:55:35 BRT\nAnálise: 21/11/2026 12:55:38 BRT\nA validade se aplica a novas entradas.\nPlano: d4532b58b2bceb718643 • revisão 1",
       "variant": "CONFIRMADA"
     },
