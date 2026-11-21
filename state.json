@@ -18365,13 +18365,17 @@
       "watch_symbol": "ARB_USDT"
     },
     "4fe673af089e95141a43": {
-      "attempts": 0,
+      "attempts": 1,
       "category": "INFO",
       "created_at": 1795229072,
       "expires_at": 1795232672,
       "id": "4fe673af089e95141a43",
       "quote_at": 0,
-      "status": "PENDING",
+      "sent_at": 1795229077,
+      "status": "SENT",
+      "telegram_ids": [
+        13267
+      ],
       "text": "⚪ ATUALIZAÇÃO DOS PLANOS ACOMPANHADOS\n🧪 SIMULAÇÃO\n\n• DOGE/USDT • SHORT: prazo para nova entrada encerrado\n  Motivo: A janela para uma nova entrada terminou.\n  Plano: 1a4835f16fb3ec9bbcc8\n• DOGE/USDT • SHORT: prazo para nova entrada encerrado\n  Motivo: A janela para uma nova entrada terminou.\n  Plano: 559d40eed84655c3cad5\n• AAVE/USDT • SHORT: prazo para nova entrada encerrado\n  Motivo: A janela para uma nova entrada terminou.\n  Plano: 788d0f53aa938424851a\n\nSem novas entradas por esses planos.\nAvisos de movimento não equivalem a entradas liberadas.\nA expiração não encerra uma posição já aberta.\nAnálise: 20/11/2026 23:44:32 BRT"
     },
     "504757c68a9720cbdb32": {
@@ -30825,7 +30829,7 @@
       "watch_symbol": "SKY_USDT"
     },
     "8a3c43f19c93fffc6c0e": {
-      "attempts": 0,
+      "attempts": 1,
       "category": "INFO",
       "created_at": 1795229072,
       "expires_at": 1795229100,
@@ -30836,7 +30840,11 @@
         "9ab126fc6288283bddfb"
       ],
       "quote_at": 0,
-      "status": "PENDING",
+      "sent_at": 1795229076,
+      "status": "SENT",
+      "telegram_ids": [
+        13265
+      ],
       "text": "🟡 MOVIMENTO DETECTADO • AINDA SEM CONFIRMAÇÃO\nINJ/USDT • BAIXA (SHORT)\n🧪 SIMULAÇÃO • acompanhamento\n\nRompimento observado no M1 fechado às 23:44:00 BRT.\nPreço de referência do primeiro gatilho: 6.293.\n\nPrimeiro fechamento além da região identificado.\nFalta o segundo fechamento sustentar o nível, com volume de pelo menos 50% do primeiro.\nApós confirmar, o plano ainda precisa passar pela avaliação financeira.\n\nFaixa em estudo: 6.28 a 6.294\n🛑 Stop do plano: 6.328 (-5.56% bruto em 10x)\n🎯 Alvo do plano: 6.219 (+11.76% bruto em 10x)\nCenário indicativo sobre a margem em 10x; custos e liquidação ainda não validados.\nMovimento sem alavancagem: TP +1.18% • SL -0.56%.\nPercentuais sobre a referência do primeiro gatilho, na direção da operação, antes de custos.\n\nMovimento observado, sem entrada liberada. Aguarde o alerta de confirmação e viabilidade.\nAlerta válido até 23:45:00 BRT.\nAnálise: 20/11/2026 23:44:32 BRT\nPlano: 9ab126fc6288283bddfb",
       "watch_stage": 1,
       "watch_symbol": "INJ_USDT"
@@ -53455,7 +53463,7 @@
       "watch_symbol": "TIA_USDT"
     },
     "f5222533baf2e0a8b832": {
-      "attempts": 0,
+      "attempts": 1,
       "category": "INFO",
       "created_at": 1795229072,
       "expires_at": 1795230000,
@@ -53464,7 +53472,11 @@
         "03de6df2c55bb2df0de9"
       ],
       "quote_at": 0,
-      "status": "PENDING",
+      "sent_at": 1795229076,
+      "status": "SENT",
+      "telegram_ids": [
+        13266
+      ],
       "text": "👀 PLANO EM PREPARAÇÃO • AGUARDANDO GATILHO\nDOGE/USDT\n🧪 SIMULAÇÃO • acompanhamento\n\nRegião em análise: 0.05425 a 0.05471\nLONG somente se houver fechamento M1 acima de ≈ 0.0547394.\n\nConfirmação: dois fechamentos M1 consecutivos além do gatilho; volume do segundo de pelo menos 50% do primeiro.\nTP, SL e percentuais serão definidos no primeiro gatilho. A confirmação ainda precisa passar pela avaliação financeira.\n\nSem rompimento observado neste plano e sem entrada liberada.\nPreparação até 21/11 00:00:00 BRT.\nAnálise: 20/11/2026 23:44:32 BRT\nPlanos: 03de6df2c55bb2df0de9",
       "watch_stage": 2,
       "watch_symbol": "DOGE_USDT"
