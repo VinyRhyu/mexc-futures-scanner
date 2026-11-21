@@ -28052,13 +28052,17 @@
       "text": "⚪ ATUALIZAÇÃO DOS PLANOS ACOMPANHADOS\n🧪 SIMULAÇÃO\n\n• AVAX/USDT • SHORT: prazo para nova entrada encerrado\n  Motivo: A janela para uma nova entrada terminou.\n  Plano: d949b2fd27c7273d9a74\n\nSem novas entradas por esses planos.\nAvisos de movimento não equivalem a entradas liberadas.\nA expiração não encerra uma posição já aberta.\nAnálise: 19/11/2026 23:36:44 BRT"
     },
     "69c3d18961e9482a2995": {
-      "attempts": 0,
+      "attempts": 1,
       "category": "INFO",
       "created_at": 1795282773,
       "expires_at": 1795286373,
       "id": "69c3d18961e9482a2995",
       "quote_at": 0,
-      "status": "PENDING",
+      "sent_at": 1795282777,
+      "status": "SENT",
+      "telegram_ids": [
+        13955
+      ],
       "text": "⚪ ATUALIZAÇÃO DOS PLANOS ACOMPANHADOS\n🧪 SIMULAÇÃO\n\n• AAVE/USDT • SHORT: confirmação não aprovada\n  Motivo: O volume do segundo candle M1 foi menor que50% do primeiro.\n  Plano: 27268165cc787dd54843\n• AAVE/USDT • SHORT: confirmação não aprovada\n  Motivo: O volume do segundo candle M1 foi menor que50% do primeiro.\n  Plano: cc649b21f899ac906592\n\nSem novas entradas por esses planos.\nAvisos de movimento não equivalem a entradas liberadas.\nA expiração não encerra uma posição já aberta.\nAnálise: 21/11/2026 14:39:33 BRT"
     },
     "69da5a6e257fb6abaefa": {
@@ -32906,7 +32910,7 @@
       "watch_symbol": "BTC_USDT"
     },
     "7c88d85e3af645f03781": {
-      "attempts": 0,
+      "attempts": 1,
       "category": "INFO",
       "created_at": 1795282773,
       "expires_at": 1795284000,
@@ -32915,7 +32919,11 @@
         "61810ce01b58c27e4e3f"
       ],
       "quote_at": 0,
-      "status": "PENDING",
+      "sent_at": 1795282776,
+      "status": "SENT",
+      "telegram_ids": [
+        13954
+      ],
       "text": "👀 PLANO EM PREPARAÇÃO • AGUARDANDO GATILHO\nAAVE/USDT\n🧪 SIMULAÇÃO • acompanhamento\n\nRegião em análise: 99.47 a 100.95\nLONG somente se houver fechamento M1 acima de ≈ 101.018.\n\nConfirmação: dois fechamentos M1 consecutivos além do gatilho; volume do segundo de pelo menos 50% do primeiro.\nTP, SL e percentuais serão definidos no primeiro gatilho. A confirmação ainda precisa passar pela avaliação financeira.\n\nSem rompimento observado neste plano e sem entrada liberada.\nPreparação até 15:00:00 BRT.\nAnálise: 21/11/2026 14:39:33 BRT\nPlanos: 61810ce01b58c27e4e3f",
       "watch_stage": 2,
       "watch_symbol": "AAVE_USDT"
@@ -48049,7 +48057,7 @@
       "watch_symbol": "ONDO_USDT"
     },
     "b833c6d55f5f1f06711f": {
-      "attempts": 0,
+      "attempts": 1,
       "category": "INFO",
       "created_at": 1795282773,
       "expires_at": 1795282860,
@@ -48060,7 +48068,11 @@
         "a8f13bd0537582bef471"
       ],
       "quote_at": 0,
-      "status": "PENDING",
+      "sent_at": 1795282776,
+      "status": "SENT",
+      "telegram_ids": [
+        13953
+      ],
       "text": "🟡 MOVIMENTO DETECTADO • ENTRADA BLOQUEADA\nNEAR/USDT • BAIXA (SHORT)\n🧪 SIMULAÇÃO • acompanhamento\n\nRompimento observado no M1 fechado às 14:39:00 BRT.\nPreço de referência do primeiro gatilho: 2.839.\n\nConfirmação técnica identificada; entrada bloqueada.\nCondição pendente: O preço está fora da faixa permitida.\n\nFaixa em estudo: 2.833 a 2.838\n🛑 Stop do plano: 2.856 (-5.99% bruto em 10x)\n🎯 Alvo do plano: 2.799 (+14.09% bruto em 10x)\nCenário indicativo sobre a margem em 10x; custos e liquidação ainda não validados.\nMovimento sem alavancagem: TP +1.41% • SL -0.60%.\nPercentuais sobre a referência do primeiro gatilho, na direção da operação, antes de custos.\n\nMovimento observado, sem entrada liberada. Aguarde o alerta de confirmação e viabilidade.\nAlerta válido até 14:41:00 BRT.\nAnálise: 21/11/2026 14:39:33 BRT\nPlano: a8f13bd0537582bef471",
       "watch_stage": 0,
       "watch_symbol": "NEAR_USDT"
