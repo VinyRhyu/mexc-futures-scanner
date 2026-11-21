@@ -13771,13 +13771,17 @@
       "watch_symbol": "UNI_USDT"
     },
     "30dd90988afe512efc5e": {
-      "attempts": 0,
+      "attempts": 1,
       "category": "INFO",
       "created_at": 1795304559,
       "expires_at": 1795308159,
       "id": "30dd90988afe512efc5e",
       "quote_at": 0,
-      "status": "PENDING",
+      "sent_at": 1795304563,
+      "status": "SENT",
+      "telegram_ids": [
+        14602
+      ],
       "text": "⚪ ATUALIZAÇÃO DOS PLANOS ACOMPANHADOS\n🧪 SIMULAÇÃO\n\n• ARB/USDT • LONG: confirmação não aprovada\n  Motivo: O segundo fechamento M1 perdeu o nível do gatilho.\n  Plano: 94e1cd05eb21aa4062a9\n\nSem novas entradas por esses planos.\nAvisos de movimento não equivalem a entradas liberadas.\nA expiração não encerra uma posição já aberta.\nAnálise: 21/11/2026 20:42:39 BRT"
     },
     "3109ede104e2ef291e10": {
@@ -51331,7 +51335,7 @@
       "text": "⚪ ATUALIZAÇÃO DOS PLANOS ACOMPANHADOS\n🧪 SIMULAÇÃO\n\n• APT/USDT • SHORT: confirmação não aprovada\n  Motivo: O volume do segundo candle M1 foi menor que50% do primeiro.\n  Plano: d6c59e458588dbd05e20\n\nSem novas entradas por esses planos.\nAvisos de movimento não equivalem a entradas liberadas.\nA expiração não encerra uma posição já aberta.\nAnálise: 20/11/2026 22:04:41 BRT"
     },
     "b9ab79e71318cfa65f1b": {
-      "attempts": 0,
+      "attempts": 1,
       "category": "INFO",
       "created_at": 1795304559,
       "expires_at": 1795305600,
@@ -51340,7 +51344,11 @@
         "89c93bd7a7dbd9b3f1e5"
       ],
       "quote_at": 0,
-      "status": "PENDING",
+      "sent_at": 1795304562,
+      "status": "SENT",
+      "telegram_ids": [
+        14601
+      ],
       "text": "👀 PLANO EM PREPARAÇÃO • AGUARDANDO GATILHO\nARB/USDT\n🧪 SIMULAÇÃO • acompanhamento\n\nRegião em análise: 0.11238 a 0.1135\nSHORT somente se houver fechamento M1 abaixo de ≈ 0.112319.\n\nConfirmação: dois fechamentos M1 consecutivos além do gatilho; volume do segundo de pelo menos 50% do primeiro.\nTP, SL e percentuais serão definidos no primeiro gatilho. A confirmação ainda precisa passar pela avaliação financeira.\n\nSem rompimento observado neste plano e sem entrada liberada.\nPreparação até 21:00:00 BRT.\nAnálise: 21/11/2026 20:42:39 BRT\nPlanos: 89c93bd7a7dbd9b3f1e5",
       "watch_stage": 2,
       "watch_symbol": "ARB_USDT"
