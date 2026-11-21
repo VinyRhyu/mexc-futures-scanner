@@ -1,6 +1,6 @@
 # MEXC Futures Scanner — rodada
 
-Modo: **paper**. Análise: 21/11/2026 00:55:39 BRT.
+Modo: **paper**. Análise: 21/11/2026 00:56:35 BRT.
 
 Fonte: OK
 Cobertura: 31/31 contratos selecionados.
@@ -2025,6 +2025,5 @@ Alavancagem de simulação: **10x a 20x**.
 
 ## Diagnósticos
 
-- TIA_USDT: LACUNA_M1_REINICIO_APENAS_FUTURO
 
 Os parâmetros e os custos simulados não demonstram rentabilidade. Sinal técnico e viabilidade para o saldo são avaliações separadas.
