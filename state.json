@@ -14498,17 +14498,21 @@
       "text": "⚪ ATUALIZAÇÃO DOS PLANOS ACOMPANHADOS\n🧪 SIMULAÇÃO\n\n• QNT/USDT • LONG: prazo para nova entrada encerrado\n  Motivo: A janela para uma nova entrada terminou.\n  Plano: 01a37db6cfa472639047\n• ZEC/USDT • LONG: prazo para nova entrada encerrado\n  Motivo: A janela para uma nova entrada terminou.\n  Plano: 0aeac3ad9652fd22aed6\n• SUI/USDT • LONG: prazo para nova entrada encerrado\n  Motivo: A janela para uma nova entrada terminou.\n  Plano: 277e3ba57b528d90ad15\n• NEAR/USDT • LONG: prazo para nova entrada encerrado\n  Motivo: A janela para uma nova entrada terminou.\n  Plano: 2be1460ee0816a426be3\n• ONDO/USDT • LONG: prazo para nova entrada encerrado\n  Motivo: A janela para uma nova entrada terminou.\n  Plano: 3348f37e82388281cb48\n• WLD/USDT • LONG: prazo para nova entrada encerrado\n  Motivo: A janela para uma nova entrada terminou.\n  Plano: 41cd1f0ba1eff2f6d94a\n\nSem novas entradas por esses planos.\nAvisos de movimento não equivalem a entradas liberadas.\nA expiração não encerra uma posição já aberta.\nAnálise: 19/11/2026 12:45:39 BRT"
     },
     "3e191fb6ee079e64d6f5": {
-      "attempts": 0,
+      "attempts": 1,
       "category": "ENTRY",
       "created_at": 1795229923,
       "expires_at": 1795230000,
       "id": "3e191fb6ee079e64d6f5",
       "plan_id": "b740c68e05251a89eddc",
       "quote_at": 1795229922,
+      "sent_at": 1795229927,
       "side": "SHORT",
       "signal_at": 1795229880,
-      "status": "PENDING",
+      "status": "SENT",
       "symbol": "ARB_USDT",
+      "telegram_ids": [
+        13279
+      ],
       "text": "🟢 GATILHO VÁLIDO PARA SIMULAR\nARB/USDT • SHORT\n🧪 SIMULAÇÃO • Confirmada\nRompimento • 2 fechamentos M1 • volume ≥50%\n\nVolume do segundo M1: 87608.7% do primeiro.\n📍 Entrada: 0.11201 a 0.11209\n🛑 Stop: 0.11261 (-10.46% líquido sobre a margem)\n🎯 Alvo: 0.11103 (+10.71% líquido sobre a margem)\nMovimento sem alavancagem: TP +0.87% • SL -0.54%.\nBase dos percentuais sem alavancagem: 0.11201 (pior entrada); na direção da operação, antes de custos.\n\nMargem isolada estimada: 0.9484 USDT • 15x\nQuantidade: 127 contratos\nPerda planejada: -0.0992 USDT (-9.92% da banca)\nGanho projetado: +0.1016 USDT (+10.16% da banca)\nRetorno/risco líquido: 1.02:1 (pior entrada)\nCustos estimados: 0.0230 USDT\nROI líquido estimado sobre a margem: TP +10.71% • SL -10.46%.\nTaxa por execução: 0.06%\nDisparo do stop: último preço (Last)\n\nEstimativas de taxas, deslizamento e funding; ganho não garantido.\nFalta validar para uso real: taxa pessoal da conta; regras de margem da conta.\n\n⏱ Nova entrada até 21/11 00:00:00 BRT (1min 17s).\nGatilho M1 (segundo fechamento): 23:58:00 BRT\nCotação: 23:58:42 BRT\nAnálise: 20/11/2026 23:58:43 BRT\nA validade se aplica a novas entradas.\nPlano: b740c68e05251a89eddc • revisão 1",
       "variant": "CONFIRMADA"
     },
