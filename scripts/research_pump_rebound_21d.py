@@ -20,14 +20,16 @@ SYMBOLS=('PUMP TAO AVAX HYPE BTC ETH SOL SUI LINK INJ ENA DOT AERO TRX QNT '
 OUT=Path('reports/pump-causal-21d')
 def br(t):return datetime.fromtimestamp(t,TZ).strftime('%d/%m/%Y %H:%M')
 def request(symbol,a,b):
-    url='https://api.gateio.ws/api/v4/futures/usdt/candlesticks?'+urlencode(
-        dict(contract=symbol+'_USDT',interval='1m',**{'from':a,'to':b}))
+    url='https://api.bybit.com/v5/market/kline?'+urlencode(
+        dict(category='linear',symbol=symbol+'USDT',interval='1',start=a*1000,end=b*1000,limit=1000))
     for attempt in range(4):
         try:
             with urlopen(Request(url,headers={'Accept':'application/json','User-Agent':'pump-m1-research/1'}),timeout=25) as response:
                 d=json.loads(response.read().decode())
-            if not isinstance(d,list):raise ValueError('Non-list response '+str(d)[:80])
-            return d
+            if str(d.get('retCode'))!='0':raise ValueError('Bybit '+str(d.get('retCode'))+': '+str(d.get('retMsg'))[:150])
+            batch=d.get('result',{}).get('list',[])
+            if not isinstance(batch,list):raise ValueError('Non-list market response')
+            return batch
         except HTTPError as e:
             if e.code in (400,404,422):raise ValueError('HTTP '+str(e.code)+' '+e.read().decode(errors='replace')[:400])
             err=str(e)
@@ -40,7 +42,7 @@ def candles(symbol):
         b=min(a+899*60,END-60)
         batch=request(symbol,a,b);calls+=1
         for x in batch:
-            ts=int(x['t']);r=(ts,float(x['o']),float(x['h']),float(x['l']),float(x['c']))
+            ts=int(x[0])//1000;r=(ts,float(x[1]),float(x[2]),float(x[3]),float(x[4]))
             if ts in data and data[ts]!=r:raise ValueError('Inconsistent OHLC')
             data[ts]=r
         a=b+60;time.sleep(.16)
@@ -138,14 +140,14 @@ def main():
     write('per_symbol_no_overlap.csv',distinct)
     write('global_one_position.csv',portfolio)
     expected=[x for x in result if x['symbol']=='PUMP_USDT' and x['entry_brt'].startswith('18/11/2026 22:')]
-    report=dict(window_start=br(START),window_end=br(END),venue='Gate USDT perpetual',interval='M1',
+    report=dict(window_start=br(START),window_end=br(END),venue='Bybit USDT linear perpetual',interval='M1',
                 symbols=symbols,coverage=coverage,
                 confirmed=aggregate(result),per_symbol=aggregate(distinct),
                 portfolio_one_position=aggregate(portfolio),pump_example_18nov=expected,
                 warnings=['Historical causal reconstruction only; not alerts previously sent',
                           'Only confirmed signals before outcome, no filtering by later profitability',
                           'Target +2.67%, maximum 125m, fee assumption 0.20 percentage points per trade',
-                          'Uses Gate data, not MEXC execution prices',
+                          'Uses Bybit data, not MEXC execution prices',
                           'Stop first on same 1m candle ambiguity',
                           'Fixed universe may cause survivorship bias; coverage and missing data reported',
                           'One position per symbol/global portfolio are separate post-scan simulations'])
