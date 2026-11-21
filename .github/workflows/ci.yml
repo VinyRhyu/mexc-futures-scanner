@@ -33,7 +33,9 @@ jobs:
         timeout-minutes: 14
         run: |
           set -e
-          for w in OCT05 OCT12 OCT19 OCT26 REF CMP CMP2; do
+          failed=0
+          for w in OCT26 NOV04 NOV06 NOV12 REF CMP CMP2; do
             echo "===== M1_PILOT $w ====="
-            python -m scripts.audit_hype_m1_trend --window "$w"
+            python -m scripts.audit_hype_m1_trend --window "$w" || failed=1
           done
+          exit "$failed"
