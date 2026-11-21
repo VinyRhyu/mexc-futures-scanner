@@ -8,7 +8,7 @@ permissions:
 jobs:
   tests:
     runs-on: ubuntu-latest
-    timeout-minutes: 10
+    timeout-minutes: 18
     steps:
       - uses: actions/checkout@v7.0.1
       - uses: actions/setup-python@v7
@@ -19,3 +19,40 @@ jobs:
           python -m unittest discover -s tests -v
           python -m mexc_scanner demo
           python -m mexc_scanner replay reports/demo/snapshot.json --output reports/demo-replay
+      - name: HYPE economic meta-label walkforward on eligible trades - paper
+        if: github.event_name == 'pull_request'
+        timeout-minutes: 9
+        run: python -m scripts.audit_hype_economic_metalabel
+      - name: HYPE triple barrier meta-label walkforward purgado - paper
+        if: github.event_name == 'pull_request'
+        timeout-minutes: 9
+        run: python -m scripts.audit_hype_meta_label_walkforward
+      - name: HYPE WATCH inalterado - quatro janelas sem 16 e 17 (paper)
+        if: github.event_name == 'pull_request'
+        timeout-minutes: 15
+        run: |
+          set -e
+          for w in T U V W0; do
+            echo "===== WATCH CROSS-PERIOD $w ====="
+            python -m scripts.audit_hype_watch_crossperiod --window "$w"
+          done
+      - name: HYPE matched M1 vs M5 same WATCH stop and TP - paper
+        if: github.event_name == 'pull_request'
+        timeout-minutes: 14
+        run: |
+          set -e
+          for w in OCT26 NOV04 NOV06 NOV12 CMP2 CMP REF; do
+            echo "===== HYPE_FIXED_WATCH $w ====="
+            python -m scripts.audit_hype_m1_fixed_watch_risk --window "$w"
+          done
+      - name: HYPE Min1 fast vs H1 M5 trend - paper only
+        if: github.event_name == 'pull_request'
+        timeout-minutes: 14
+        run: |
+          set -e
+          failed=0
+          for w in OCT26 NOV04 NOV06 NOV12 REF CMP CMP2; do
+            echo "===== M1_PILOT $w ====="
+            python -m scripts.audit_hype_m1_trend --window "$w" || failed=1
+          done
+          exit "$failed"
