@@ -6,6 +6,7 @@ on:
     paths:
       - scripts/research_orderflow.py
       - scripts/probe_okx.py
+      - scripts/research_okx.py
       - .github/workflows/research-orderflow.yml
   workflow_dispatch:
 permissions:
@@ -30,7 +31,7 @@ jobs:
           github-token: ${{ github.token }}
           path: reports/sustained-source
       - name: Cruzar observacoes Binance OI e agressao com entradas MEXC
-        run: python scripts/probe_okx.py
+        run: python scripts/research_okx.py
       - name: Guardar indicadores e comparacao, inclusive diagnosticos
         if: always()
         uses: actions/upload-artifact@v4
