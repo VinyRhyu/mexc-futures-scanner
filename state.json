@@ -29286,7 +29286,7 @@
       "text": "⚪ ATUALIZAÇÃO DOS PLANOS ACOMPANHADOS\n🧪 SIMULAÇÃO\n\n• BTC/USDT • LONG: prazo para nova entrada encerrado\n  Motivo: A janela para uma nova entrada terminou.\n  Plano: 2ac1f5b0a0f210500c67\n• BTC/USDT • LONG: prazo para nova entrada encerrado\n  Motivo: A janela para uma nova entrada terminou.\n  Plano: ff9f6e20ee8926ecaa4b\n\nSem novas entradas por esses planos.\nAvisos de movimento não equivalem a entradas liberadas.\nA expiração não encerra uma posição já aberta.\nAnálise: 21/11/2026 16:08:32 BRT"
     },
     "6a6efade7ea4edcdd7b9": {
-      "attempts": 0,
+      "attempts": 1,
       "category": "INFO",
       "created_at": 1795318051,
       "expires_at": 1795318080,
@@ -29297,7 +29297,11 @@
         "8a00d6d84a4930c55524"
       ],
       "quote_at": 0,
-      "status": "PENDING",
+      "sent_at": 1795318055,
+      "status": "SENT",
+      "telegram_ids": [
+        14866
+      ],
       "text": "🟡 MOVIMENTO DETECTADO • AINDA SEM CONFIRMAÇÃO\nAVAX/USDT • BAIXA (SHORT)\n🧪 SIMULAÇÃO • acompanhamento\n\nRompimento observado no M1 fechado às 00:27:00 BRT.\nPreço de referência do primeiro gatilho: 6.504.\n\nPrimeiro fechamento além da região identificado.\nFalta o segundo fechamento sustentar o nível, com volume de pelo menos 50% do primeiro.\nApós confirmar, o plano ainda precisa passar pela avaliação financeira.\n\nFaixa em estudo: 6.499 a 6.505\n🛑 Stop do plano: 6.521 (-2.61% bruto em 10x)\n🎯 Alvo do plano: 6.432 (+11.07% bruto em 10x)\nCenário indicativo sobre a margem em 10x; custos e liquidação ainda não validados.\nMovimento sem alavancagem: TP +1.11% • SL -0.26%.\nPercentuais sobre a referência do primeiro gatilho, na direção da operação, antes de custos.\n\nMovimento observado, sem entrada liberada. Aguarde o alerta de confirmação e viabilidade.\nAlerta válido até 00:28:00 BRT.\nAnálise: 22/11/2026 00:27:31 BRT\nPlano: 8a00d6d84a4930c55524",
       "watch_stage": 1,
       "watch_symbol": "AVAX_USDT"
