@@ -36,3 +36,21 @@ O teste `test_orca_asset_preserves_contract_and_liquidity_gates` cobre inclusão
 6. Não promover a estratégia como lucrativa sem expectativa líquida positiva e verificação fora da amostra.
 
 **Não alterar a branch `main` com base apenas no caso ORCA.**
+
+## Resultado do teste real (22/11/2026, 20h03 BRT)
+
+- [GitHub Actions: consulta pública sem ordens nem Telegram](https://github.com/VinyRhyu/mexc-futures-scanner/actions/runs/45081102022): concluído com sucesso.
+- [GitHub Actions: suíte de regressão](https://github.com/VinyRhyu/mexc-futures-scanner/actions/runs/45081022352): aprovado na revisão que introduziu o histórico. A suíte será reexecutada para alterações posteriores.
+- `ORCA_USDT` existe no catálogo da MEXC e aparece ativo, perpétuo regular, cripto, cotado e liquidado em USDT.
+- Ticker `amount24`: **400.032,532 USDT**, abaixo dos **5.000.000 USDT** exigidos. Resultado com ORCA reconhecida: `VOLUME_FINANCEIRO_INSUFICIENTE`, não selecionada.
+- Resultado sem reconhecimento de ORCA: `CLASSIFICACAO_PENDENTE`, também não selecionada.
+- Amostras recentes: 120 M1, 480 M15 e 240 H1 íntegros e fechados.
+- Volume histórico: somatório de 1.440 candles M1 na janela 20/11/2026 10h45 até 21/11/2026 10h45 BRT, anterior à entrada relatada, **388.605,637** no campo `amount` da MEXC; série completa sem lacunas. **Também abaixo do limiar de USDT 5 milhões**.
+- Verificação de unidade: série M1 das 24h atuais somou **399.831,761** e o ticker em horário praticamente igual apontou **400.032,532 USDT** (razão 0,999498). Isso confirma empiricamente que o campo agregado `amount` é compatível com o giro em USDT do ticker, na precisão dessa consulta.
+- Testes de disponibilidade histórica de M1: 60/60 candles na amostra 14 dias atrás, 60/60 na amostra 30 dias atrás, **0/60** na amostra 60 dias atrás. Isso **não** valida 30 dias íntegros, nem permite rodar já um backtest completo de 60 dias da ORCA por essa fonte. A causa de zero candles antigos (listagem, retenção ou limites da API) ainda não foi determinada.
+
+### Decisão após o teste
+
+A correção de classificação tem sentido técnico, mas **não desbloqueia ORCA atualmente**. Também não desbloquearia o contrato no horário aproximado da operação vencedora de 21/11, se a política de giro mínimo de 5 milhões fosse aplicada a esse histórico. Não reduziremos o limiar de liquidez apenas para incluir um caso vencedor. A rentabilidade de 30x informada é uma observação externa e não altera o teto da estratégia operacional de 20x.
+
+**O PR continua rascunho, a `main` intacta.** Antes de reconsiderar a cobertura operacional, estudar o impacto de diferentes faixas de liquidez, slippage e custos com coortes causais e operações perdedoras, preservando a avaliação fora da amostra.
