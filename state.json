@@ -4292,13 +4292,17 @@
       "text": "⚪ ATUALIZAÇÃO DOS PLANOS ACOMPANHADOS\n🧪 SIMULAÇÃO\n\n• AAVE/USDT • LONG: prazo para nova entrada encerrado\n  Motivo: A janela para uma nova entrada terminou.\n  Plano: 00bbdfaf5c22b5c62a28\n• ETH/USDT • LONG: prazo para nova entrada encerrado\n  Motivo: A janela para uma nova entrada terminou.\n  Plano: 19134bd4d7bc72c6b83c\n• DOGE/USDT • SHORT: prazo para nova entrada encerrado\n  Motivo: A janela para uma nova entrada terminou.\n  Plano: 2b94852d28cfcadcc06c\n• SOL/USDT • SHORT: prazo para nova entrada encerrado\n  Motivo: A janela para uma nova entrada terminou.\n  Plano: 2c87fe2a70f382434570\n• XRP/USDT • SHORT: prazo para nova entrada encerrado\n  Motivo: A janela para uma nova entrada terminou.\n  Plano: 35cb436a07e9527ce5c7\n• NEAR/USDT • SHORT: prazo para nova entrada encerrado\n  Motivo: A janela para uma nova entrada terminou.\n  Plano: 617bd80e220ad6c2be0e\n\nSem novas entradas por esses planos.\nAvisos de movimento não equivalem a entradas liberadas.\nA expiração não encerra uma posição já aberta.\nAnálise: 22/11/2026 16:00:53 BRT"
     },
     "12075f3b4aed560162eb": {
-      "attempts": 0,
+      "attempts": 1,
       "category": "INFO",
       "created_at": 1795384409,
       "expires_at": 1795388009,
       "id": "12075f3b4aed560162eb",
       "quote_at": 0,
-      "status": "PENDING",
+      "sent_at": 1795384414,
+      "status": "SENT",
+      "telegram_ids": [
+        15965
+      ],
       "text": "⚪ ATUALIZAÇÃO DOS PLANOS ACOMPANHADOS\n🧪 SIMULAÇÃO\n\n• SOL/USDT • LONG: confirmação não aprovada\n  Motivo: O segundo fechamento M1 perdeu o nível do gatilho.\n  Plano: 379bc8f2e1d6ff81e676\n• SOL/USDT • LONG: confirmação não aprovada\n  Motivo: O segundo fechamento M1 perdeu o nível do gatilho.\n  Plano: 3fa67d9ee191bcd085de\n\nSem novas entradas por esses planos.\nAvisos de movimento não equivalem a entradas liberadas.\nA expiração não encerra uma posição já aberta.\nAnálise: 22/11/2026 18:53:29 BRT"
     },
     "121d7a12e921278adc11": {
@@ -56118,7 +56122,7 @@
       "watch_symbol": "DOGE_USDT"
     },
     "e82ffd0d96d1eb2606aa": {
-      "attempts": 0,
+      "attempts": 1,
       "category": "INFO",
       "created_at": 1795384409,
       "expires_at": 1795385700,
@@ -56127,7 +56131,11 @@
         "7011adc25100cda03121"
       ],
       "quote_at": 0,
-      "status": "PENDING",
+      "sent_at": 1795384413,
+      "status": "SENT",
+      "telegram_ids": [
+        15964
+      ],
       "text": "👀 PLANO EM PREPARAÇÃO • AGUARDANDO GATILHO\nSOL/USDT\n🧪 SIMULAÇÃO • acompanhamento\n\nRegião em análise: 69.88 a 70.47\nSHORT somente se houver fechamento M1 abaixo de ≈ 69.8555.\n\nConfirmação: dois fechamentos M1 consecutivos além do gatilho; volume do segundo de pelo menos 50% do primeiro.\nTP, SL e percentuais serão definidos no primeiro gatilho. A confirmação ainda precisa passar pela avaliação financeira.\n\nSem rompimento observado neste plano e sem entrada liberada.\nPreparação até 19:15:00 BRT.\nAnálise: 22/11/2026 18:53:29 BRT\nPlanos: 7011adc25100cda03121",
       "watch_stage": 2,
       "watch_symbol": "SOL_USDT"
