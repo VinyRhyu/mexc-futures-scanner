@@ -21,6 +21,47 @@ def iso(timestamp):
     return datetime.fromtimestamp(timestamp, timezone.utc).isoformat()
 
 
+def minute_window(client, *, start, end):
+    """Validate a historical M1 interval and sum exchange-provided quote turnover.
+
+    Both endpoints are UTC epoch seconds. A complete 24h interval is 1440
+    closed one-minute candles: [start, end). No missing bars are fabricated.
+    """
+    from mexc_scanner.models import seconds
+
+    raw = client._get("/api/v1/contract/kline/" + SYMBOL, {
+        "interval": "Min1", "start": start - 60, "end": end,
+    })
+    timestamps = raw.get("time", []) if isinstance(raw, dict) else []
+    amounts = raw.get("amount", []) if isinstance(raw, dict) else []
+    result = {"first_requested_utc": iso(start), "end_exclusive_utc": iso(end),
+              "expected_candles": (end - start) // 60,
+              "returned_candles": len(timestamps)}
+    if not isinstance(amounts, list) or len(timestamps) != len(amounts):
+        result.update({"status": "NO_USDT_TURNOVER_FIELD",
+                       "reason": "MEXC M1 amount field unavailable or arrays misaligned"})
+        return result
+    by_time = {}
+    for ts, amount in zip(timestamps, amounts):
+        t = seconds(ts)
+        value = D(amount)
+        if value < 0:
+            raise ValueError("Negative candle transaction amount")
+        if start <= t < end:
+            if t in by_time and by_time[t] != value:
+                raise ValueError("Conflicting duplicate historical M1 candle")
+            by_time[t] = value
+    expected = list(range(start, end, 60))
+    missing = [t for t in expected if t not in by_time]
+    result.update({"status": "OK" if not missing else "INCOMPLETE",
+                   "covered": len(expected) - len(missing),
+                   "missing": len(missing)})
+    if not missing:
+        result["sum_amount_raw"] = str(sum((by_time[t] for t in expected), Decimal(0)))
+        result["turnover_assumption"] = "MEXC kline amount interpreted as USDT turnover; corroborate against recent ticker"
+    return result
+
+
 def main():
     assets = set(json.loads(Path("config/crypto-assets.json").read_text())["assets"])
     if "ORCA" not in assets:
@@ -90,6 +131,32 @@ def main():
                     "error_type": type(exc).__name__,
                     "reason": str(exc)[:180],
                 }
+
+    # The user reported a LONG around 10:45 BRT on 2026-11-21.
+    # Check the preceding 24h (no access to the actual fill or fees).
+    event_end = int(datetime(2026, 11, 21, 13, 45, tzinfo=timezone.utc).timestamp())
+    event_start = event_end - 24 * 3600
+    try:
+        result["historical_24h_before_example"] = minute_window(
+            client, start=event_start, end=event_end
+        )
+    except Exception as exc:
+        result["historical_24h_before_example"] = {
+            "status": "UNAVAILABLE", "error_type": type(exc).__name__,
+            "reason": str(exc)[:180],
+        }
+
+    # A single distant M1 sample is not evidence of 60 days of complete data.
+    old_start = (now // 60) * 60 - 60 * 24 * 3600
+    try:
+        result["historical_60d_sample"] = minute_window(
+            client, start=old_start, end=old_start + 60 * 60
+        )
+    except Exception as exc:
+        result["historical_60d_sample"] = {
+            "status": "UNAVAILABLE", "error_type": type(exc).__name__,
+            "reason": str(exc)[:180],
+        }
 
     print(json.dumps(result, ensure_ascii=False, indent=2, sort_keys=True))
     if not contract or not ticker:
