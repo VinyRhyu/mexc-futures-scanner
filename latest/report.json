@@ -1,5 +1,5 @@
 {
-  "analyzed_at": 1795350512,
+  "analyzed_at": 1795350571,
   "analyzed_symbols": 27,
   "config_fingerprint": "a0c2766956c79181fa62",
   "diagnostics": [],
@@ -2693,37 +2693,37 @@
   "operational_timings": [
     {
       "commit": "9f93310df53b77a98aa0a5166081b5693404df91",
-      "duration_s": 2.180301,
+      "duration_s": 1.397746,
       "event": "end",
-      "finished_at_utc": "2026-11-22T12:28:14.241294+00:00",
+      "finished_at_utc": "2026-11-22T12:29:13.106968+00:00",
       "phase": "market_catalog",
       "run_attempt": "1",
-      "run_id": "45022418068",
-      "started_at_utc": "2026-11-22T12:28:12.061013+00:00",
+      "run_id": "45022500440",
+      "started_at_utc": "2026-11-22T12:29:11.709244+00:00",
       "status": "OK",
       "telemetry": "phase_v1"
     },
     {
       "commit": "9f93310df53b77a98aa0a5166081b5693404df91",
-      "duration_s": 17.791412,
+      "duration_s": 17.825994,
       "event": "end",
-      "finished_at_utc": "2026-11-22T12:28:32.033288+00:00",
+      "finished_at_utc": "2026-11-22T12:29:30.933626+00:00",
       "phase": "candles_collect",
       "run_attempt": "1",
-      "run_id": "45022418068",
-      "started_at_utc": "2026-11-22T12:28:14.241899+00:00",
+      "run_id": "45022500440",
+      "started_at_utc": "2026-11-22T12:29:13.107658+00:00",
       "status": "OK",
       "telemetry": "phase_v1"
     },
     {
       "commit": "9f93310df53b77a98aa0a5166081b5693404df91",
-      "duration_s": 0.259703,
+      "duration_s": 0.285215,
       "event": "end",
-      "finished_at_utc": "2026-11-22T12:28:32.293085+00:00",
+      "finished_at_utc": "2026-11-22T12:29:31.218946+00:00",
       "phase": "analysis_and_finance",
       "run_attempt": "1",
-      "run_id": "45022418068",
-      "started_at_utc": "2026-11-22T12:28:32.033397+00:00",
+      "run_id": "45022500440",
+      "started_at_utc": "2026-11-22T12:29:30.933747+00:00",
       "status": "OK",
       "telemetry": "phase_v1"
     }
@@ -15782,7 +15782,7 @@
       "family": "4386dee3dfa7c683f932",
       "formed_at": 1795348800,
       "id": "4386dee3dfa7c683f932",
-      "last_bar": 1795350480,
+      "last_bar": 1795350540,
       "level": "0.13017",
       "lower": "0.12912",
       "observations": [],
@@ -19662,7 +19662,7 @@
       "family": "57df26597f9de1d1b4ba",
       "formed_at": 1795349700,
       "id": "57df26597f9de1d1b4ba",
-      "last_bar": 1795350480,
+      "last_bar": 1795350540,
       "level": "0.3439",
       "lower": "0.3365",
       "observations": [],
@@ -29491,17 +29491,17 @@
     {
       "atr": "0.03181401174885215718030018917",
       "detected_at": 1795348800,
-      "entry_started_at": 0,
-      "expires_at": 1795350600,
+      "entry_started_at": 1795350540,
+      "expires_at": 1795352340,
       "family": "8e55f48c1e6d18d0d7c8",
       "formed_at": 1795348800,
       "id": "8e55f48c1e6d18d0d7c8",
-      "last_bar": 1795350480,
+      "last_bar": 1795350540,
       "level": "6.658",
       "lower": "6.658",
       "observations": [],
       "preparation_expires_at": 1795350600,
-      "reaction_at": 0,
+      "reaction_at": 1795350540,
       "reaction_extreme": null,
       "reason": "",
       "revision": 0,
@@ -29511,7 +29511,21 @@
       "strategy": "ROMPIMENTO_M1_VOLUME",
       "symbol": "AVAX_USDT",
       "upper": "6.715",
-      "variants": {}
+      "variants": {
+        "ANTECIPADA": {
+          "entry_high": "6.653",
+          "entry_low": "6.642",
+          "financial": {},
+          "kind": "ANTECIPADA",
+          "reason": "",
+          "reference": "6.649",
+          "status": "AGUARDANDO_CONFIRMACAO",
+          "stop": "6.674",
+          "target": "6.601",
+          "target_origin": "PROJECAO_DA_FAIXA",
+          "triggered_at": 1795350540
+        }
+      }
     },
     {
       "atr": "0.0002137487095362658431723348913",
@@ -36883,7 +36897,7 @@
       "family": "b4c53c14a14465f19262",
       "formed_at": 1795348800,
       "id": "b4c53c14a14465f19262",
-      "last_bar": 1795350480,
+      "last_bar": 1795350540,
       "level": "6.099",
       "lower": "6.099",
       "observations": [],
@@ -38106,17 +38120,17 @@
     {
       "atr": "0.03111301090964843161774994464",
       "detected_at": 1795349700,
-      "entry_started_at": 0,
-      "expires_at": 1795351500,
+      "entry_started_at": 1795350540,
+      "expires_at": 1795352340,
       "family": "bd717a52c533e56d64f2",
       "formed_at": 1795349700,
       "id": "bd717a52c533e56d64f2",
-      "last_bar": 1795350480,
+      "last_bar": 1795350540,
       "level": "6.662",
       "lower": "6.662",
       "observations": [],
       "preparation_expires_at": 1795351500,
-      "reaction_at": 0,
+      "reaction_at": 1795350540,
       "reaction_extreme": null,
       "reason": "",
       "revision": 0,
@@ -38126,7 +38140,21 @@
       "strategy": "ROMPIMENTO_M1_VOLUME",
       "symbol": "AVAX_USDT",
       "upper": "6.715",
-      "variants": {}
+      "variants": {
+        "ANTECIPADA": {
+          "entry_high": "6.656",
+          "entry_low": "6.642",
+          "financial": {},
+          "kind": "ANTECIPADA",
+          "reason": "",
+          "reference": "6.649",
+          "status": "AGUARDANDO_CONFIRMACAO",
+          "stop": "6.678",
+          "target": "6.609",
+          "target_origin": "PROJECAO_DA_FAIXA",
+          "triggered_at": 1795350540
+        }
+      }
     },
     {
       "atr": "0.0225370957404608044510933520",
@@ -47339,17 +47367,17 @@
     {
       "atr": "2.110006044247557959443775566E-8",
       "detected_at": 1795348800,
-      "entry_started_at": 0,
-      "expires_at": 1795350600,
+      "entry_started_at": 1795350540,
+      "expires_at": 1795352340,
       "family": "e9f2687e8ed80248ea3f",
       "formed_at": 1795348800,
       "id": "e9f2687e8ed80248ea3f",
-      "last_bar": 1795350480,
+      "last_bar": 1795350540,
       "level": "0.0000033823",
       "lower": "0.0000033823",
       "observations": [],
       "preparation_expires_at": 1795350600,
-      "reaction_at": 0,
+      "reaction_at": 1795350540,
       "reaction_extreme": null,
       "reason": "",
       "revision": 0,
@@ -47359,7 +47387,21 @@
       "strategy": "ROMPIMENTO_M1_VOLUME",
       "symbol": "PEPE_USDT",
       "upper": "0.0000034261",
-      "variants": {}
+      "variants": {
+        "ANTECIPADA": {
+          "entry_high": "0.0000033779",
+          "entry_low": "0.0000033675",
+          "financial": {},
+          "kind": "ANTECIPADA",
+          "reason": "",
+          "reference": "0.0000033727",
+          "status": "AGUARDANDO_CONFIRMACAO",
+          "stop": "0.0000033929",
+          "target": "0.0000033515",
+          "target_origin": "PIVO_CONHECIDO",
+          "triggered_at": 1795350540
+        }
+      }
     },
     {
       "atr": "0.0004569943822405938455861945251",
