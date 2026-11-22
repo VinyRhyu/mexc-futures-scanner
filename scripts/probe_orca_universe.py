@@ -146,6 +146,38 @@ def main():
             "reason": str(exc)[:180],
         }
 
+    # Compare M1 `amount` against the live 24h ticker to check units.
+    current_end = (now // 60) * 60
+    try:
+        current = minute_window(
+            client, start=current_end - 24 * 3600, end=current_end
+        )
+        if current.get("status") == "OK" and ticker:
+            live_amount = D(ticker.get("amount24", 0))
+            if live_amount > 0:
+                current["ratio_to_live_ticker_amount24"] = str(
+                    D(current["sum_amount_raw"]) / live_amount
+                )
+        result["current_24h_crosscheck"] = current
+    except Exception as exc:
+        result["current_24h_crosscheck"] = {
+            "status": "UNAVAILABLE", "error_type": type(exc).__name__,
+            "reason": str(exc)[:180],
+        }
+
+    # Probe shorter historical horizons to characterize API availability.
+    for days in (14, 30):
+        sample_start = (now // 60) * 60 - days * 24 * 3600
+        try:
+            result[f"historical_{days}d_sample"] = minute_window(
+                client, start=sample_start, end=sample_start + 60 * 60
+            )
+        except Exception as exc:
+            result[f"historical_{days}d_sample"] = {
+                "status": "UNAVAILABLE", "error_type": type(exc).__name__,
+                "reason": str(exc)[:180],
+            }
+
     # A single distant M1 sample is not evidence of 60 days of complete data.
     old_start = (now // 60) * 60 - 60 * 24 * 3600
     try:
