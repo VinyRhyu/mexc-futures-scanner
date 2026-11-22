@@ -708,7 +708,7 @@
       "variant": "CONFIRMADA"
     },
     "01ce3d1466d26d0b4f1f": {
-      "attempts": 0,
+      "attempts": 1,
       "category": "INFO",
       "created_at": 1795314754,
       "expires_at": 1795314780,
@@ -719,7 +719,11 @@
         "5543399ffa97f83002d3"
       ],
       "quote_at": 0,
-      "status": "PENDING",
+      "sent_at": 1795314757,
+      "status": "SENT",
+      "telegram_ids": [
+        14837
+      ],
       "text": "🟡 MOVIMENTO DETECTADO • ENTRADA BLOQUEADA\nONDO/USDT • BAIXA (SHORT)\n🧪 SIMULAÇÃO • acompanhamento\n\nRompimento observado no M1 fechado às 23:31:00 BRT.\nPreço de referência do primeiro gatilho: 0.2805.\n\nConfirmação técnica identificada; entrada bloqueada.\nCondição pendente: A relação entre ganho e perda ficou abaixo do mínimo.\n\nFaixa em estudo: 0.2802 a 0.2805\n🛑 Stop do plano: 0.2815 (-3.57% bruto em 10x)\n🎯 Alvo do plano: 0.2784 (+7.49% bruto em 10x)\nCenário indicativo sobre a margem em 10x; custos e liquidação ainda não validados.\nMovimento sem alavancagem: TP +0.75% • SL -0.36%.\nPercentuais sobre a referência do primeiro gatilho, na direção da operação, antes de custos.\n\nMovimento observado, sem entrada liberada. Aguarde o alerta de confirmação e viabilidade.\nAlerta válido até 23:33:00 BRT.\nAnálise: 21/11/2026 23:32:34 BRT\nPlano: 5543399ffa97f83002d3",
       "watch_stage": 0,
       "watch_symbol": "ONDO_USDT"
@@ -55936,13 +55940,17 @@
       "watch_symbol": "ONDO_USDT"
     },
     "cfe4686042f2486cb382": {
-      "attempts": 0,
+      "attempts": 1,
       "category": "INFO",
       "created_at": 1795314754,
       "expires_at": 1795318354,
       "id": "cfe4686042f2486cb382",
       "quote_at": 0,
-      "status": "PENDING",
+      "sent_at": 1795314758,
+      "status": "SENT",
+      "telegram_ids": [
+        14838
+      ],
       "text": "⚪ ATUALIZAÇÃO DOS PLANOS ACOMPANHADOS\n🧪 SIMULAÇÃO\n\n• ONDO/USDT • SHORT: confirmação não aprovada\n  Motivo: O volume do segundo candle M1 foi menor que50% do primeiro.\n  Plano: 3f8ac462b2161b8a0ed7\n\nSem novas entradas por esses planos.\nAvisos de movimento não equivalem a entradas liberadas.\nA expiração não encerra uma posição já aberta.\nAnálise: 21/11/2026 23:32:34 BRT"
     },
     "d0382a9b4777825b6086": {
