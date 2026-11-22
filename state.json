@@ -14888,13 +14888,17 @@
       "text": "⚪ ATUALIZAÇÃO DOS PLANOS ACOMPANHADOS\n🧪 SIMULAÇÃO\n\n• HBAR/USDT • LONG: prazo para nova entrada encerrado\n  Motivo: A janela para uma nova entrada terminou.\n  Plano: 15365ec5f3b4c3a0975d\n• PEPE/USDT • LONG: prazo para nova entrada encerrado\n  Motivo: A janela para uma nova entrada terminou.\n  Plano: 197116e62c41dd23beeb\n• PEPE/USDT • SHORT: prazo para nova entrada encerrado\n  Motivo: A janela para uma nova entrada terminou.\n  Plano: 1accd3c5bf434584c6e3\n• ONDO/USDT • LONG: prazo para nova entrada encerrado\n  Motivo: A janela para uma nova entrada terminou.\n  Plano: 2b3054b4ea35032657cf\n• LTC/USDT • LONG: prazo para nova entrada encerrado\n  Motivo: A janela para uma nova entrada terminou.\n  Plano: 31a13a0979d6c6071f58\n• QNT/USDT • LONG: prazo para nova entrada encerrado\n  Motivo: A janela para uma nova entrada terminou.\n  Plano: 39cc6835c43c5e051d3e\n\nSem novas entradas por esses planos.\nAvisos de movimento não equivalem a entradas liberadas.\nA expiração não encerra uma posição já aberta.\nAnálise: 20/11/2026 06:15:40 BRT"
     },
     "35b6578c0c1573863ce1": {
-      "attempts": 0,
+      "attempts": 1,
       "category": "INFO",
       "created_at": 1795314039,
       "expires_at": 1795317639,
       "id": "35b6578c0c1573863ce1",
       "quote_at": 0,
-      "status": "PENDING",
+      "sent_at": 1795314044,
+      "status": "SENT",
+      "telegram_ids": [
+        14816
+      ],
       "text": "⚪ ATUALIZAÇÃO DOS PLANOS ACOMPANHADOS\n🧪 SIMULAÇÃO\n\n• BTC/USDT • SHORT: prazo para nova entrada encerrado\n  Motivo: A janela para uma nova entrada terminou.\n  Plano: 89f69e80be43d8e7614f\n\nSem novas entradas por esses planos.\nAvisos de movimento não equivalem a entradas liberadas.\nA expiração não encerra uma posição já aberta.\nAnálise: 21/11/2026 23:20:39 BRT"
     },
     "35b6b0cd1e1a7e8a939b": {
@@ -30801,7 +30805,7 @@
       "watch_symbol": "ADA_USDT"
     },
     "706473e39ba0c6f9351d": {
-      "attempts": 0,
+      "attempts": 1,
       "category": "INFO",
       "created_at": 1795314039,
       "expires_at": 1795314120,
@@ -30812,7 +30816,11 @@
         "a7b96592354a69825f28"
       ],
       "quote_at": 0,
-      "status": "PENDING",
+      "sent_at": 1795314043,
+      "status": "SENT",
+      "telegram_ids": [
+        14814
+      ],
       "text": "🟡 MOVIMENTO DETECTADO • ENTRADA BLOQUEADA\nSOL/USDT • BAIXA (SHORT)\n🧪 SIMULAÇÃO • acompanhamento\n\nRompimento observado no M1 fechado às 23:20:00 BRT.\nPreço de referência do primeiro gatilho: 70.12.\n\nConfirmação técnica identificada; entrada bloqueada.\nCondição pendente: A relação entre ganho e perda ficou abaixo do mínimo.\n\nFaixa em estudo: 70.07 a 70.14\n🛑 Stop do plano: 70.29 (-2.42% bruto em 10x)\n🎯 Alvo do plano: 70.05 (+1.00% bruto em 10x)\nCenário indicativo sobre a margem em 10x; custos e liquidação ainda não validados.\nMovimento sem alavancagem: TP +0.100% • SL -0.24%.\nPercentuais sobre a referência do primeiro gatilho, na direção da operação, antes de custos.\n\nMovimento observado, sem entrada liberada. Aguarde o alerta de confirmação e viabilidade.\nAlerta válido até 23:22:00 BRT.\nAnálise: 21/11/2026 23:20:39 BRT\nPlano: a7b96592354a69825f28",
       "watch_stage": 0,
       "watch_symbol": "SOL_USDT"
@@ -49422,7 +49430,7 @@
       "watch_symbol": "TIA_USDT"
     },
     "b714c224b389d45ee422": {
-      "attempts": 0,
+      "attempts": 1,
       "category": "INFO",
       "created_at": 1795314039,
       "expires_at": 1795315500,
@@ -49431,7 +49439,11 @@
         "41c500e4a21ac871a6c9"
       ],
       "quote_at": 0,
-      "status": "PENDING",
+      "sent_at": 1795314044,
+      "status": "SENT",
+      "telegram_ids": [
+        14815
+      ],
       "text": "👀 PLANO EM PREPARAÇÃO • AGUARDANDO GATILHO\nBTC/USDT\n🧪 SIMULAÇÃO • acompanhamento\n\nRegião em análise: 59984.2 a 60320\nLONG somente se houver fechamento M1 acima de ≈ 60335.6.\n\nConfirmação: dois fechamentos M1 consecutivos além do gatilho; volume do segundo de pelo menos 50% do primeiro.\nTP, SL e percentuais serão definidos no primeiro gatilho. A confirmação ainda precisa passar pela avaliação financeira.\n\nSem rompimento observado neste plano e sem entrada liberada.\nPreparação até 23:45:00 BRT.\nAnálise: 21/11/2026 23:20:39 BRT\nPlanos: 41c500e4a21ac871a6c9",
       "watch_stage": 2,
       "watch_symbol": "BTC_USDT"
