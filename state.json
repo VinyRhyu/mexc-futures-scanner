@@ -14553,7 +14553,7 @@
       "watch_symbol": "ICP_USDT"
     },
     "36eeb2e4baefdfde31ce": {
-      "attempts": 0,
+      "attempts": 1,
       "category": "INFO",
       "created_at": 1795335152,
       "expires_at": 1795335180,
@@ -14564,7 +14564,11 @@
         "7483049d0f8b7683bebd"
       ],
       "quote_at": 0,
-      "status": "PENDING",
+      "sent_at": 1795335156,
+      "status": "SENT",
+      "telegram_ids": [
+        15103
+      ],
       "text": "🟡 MOVIMENTO DETECTADO • AINDA SEM CONFIRMAÇÃO\nONDO/USDT • ALTA (LONG)\n🧪 SIMULAÇÃO • acompanhamento\n\nRompimento observado no M1 fechado às 05:12:00 BRT.\nPreço de referência do primeiro gatilho: 0.2783.\n\nPrimeiro fechamento além da região identificado.\nFalta o segundo fechamento sustentar o nível, com volume de pelo menos 50% do primeiro.\nApós confirmar, o plano ainda precisa passar pela avaliação financeira.\n\nFaixa em estudo: 0.2784 a 0.2786\n🛑 Stop do plano: 0.2774 (-3.23% bruto em 10x)\n🎯 Alvo do plano: 0.2803 (+7.19% bruto em 10x)\nCenário indicativo sobre a margem em 10x; custos e liquidação ainda não validados.\nMovimento sem alavancagem: TP +0.72% • SL -0.32%.\nPercentuais sobre a referência do primeiro gatilho, na direção da operação, antes de custos.\n\nMovimento observado, sem entrada liberada. Aguarde o alerta de confirmação e viabilidade.\nAlerta válido até 05:13:00 BRT.\nAnálise: 22/11/2026 05:12:32 BRT\nPlano: 7483049d0f8b7683bebd",
       "watch_stage": 1,
       "watch_symbol": "ONDO_USDT"
@@ -45807,13 +45811,17 @@
       "watch_symbol": "WLD_USDT"
     },
     "b10303f0395228f43c86": {
-      "attempts": 0,
+      "attempts": 1,
       "category": "INFO",
       "created_at": 1795335152,
       "expires_at": 1795338752,
       "id": "b10303f0395228f43c86",
       "quote_at": 0,
-      "status": "PENDING",
+      "sent_at": 1795335157,
+      "status": "SENT",
+      "telegram_ids": [
+        15105
+      ],
       "text": "⚪ ATUALIZAÇÃO DOS PLANOS ACOMPANHADOS\n🧪 SIMULAÇÃO\n\n• SUI/USDT • LONG: confirmação não aprovada\n  Motivo: O segundo fechamento M1 perdeu o nível do gatilho.\n  Plano: d5161a5c70842ba8e736\n\nSem novas entradas por esses planos.\nAvisos de movimento não equivalem a entradas liberadas.\nA expiração não encerra uma posição já aberta.\nAnálise: 22/11/2026 05:12:32 BRT"
     },
     "b13a073c9c74d23e192e": {
@@ -57150,7 +57158,7 @@
       "variant": "CONFIRMADA"
     },
     "df4f8f1f3681b5a22ba1": {
-      "attempts": 0,
+      "attempts": 1,
       "category": "INFO",
       "created_at": 1795335152,
       "expires_at": 1795336200,
@@ -57159,7 +57167,11 @@
         "26521d9d28535805db2a"
       ],
       "quote_at": 0,
-      "status": "PENDING",
+      "sent_at": 1795335157,
+      "status": "SENT",
+      "telegram_ids": [
+        15104
+      ],
       "text": "👀 PLANO EM PREPARAÇÃO • AGUARDANDO GATILHO\nSUI/USDT\n🧪 SIMULAÇÃO • acompanhamento\n\nRegião em análise: 0.6362 a 0.6412\nSHORT somente se houver fechamento M1 abaixo de ≈ 0.635927.\n\nConfirmação: dois fechamentos M1 consecutivos além do gatilho; volume do segundo de pelo menos 50% do primeiro.\nTP, SL e percentuais serão definidos no primeiro gatilho. A confirmação ainda precisa passar pela avaliação financeira.\n\nSem rompimento observado neste plano e sem entrada liberada.\nPreparação até 05:30:00 BRT.\nAnálise: 22/11/2026 05:12:32 BRT\nPlanos: 26521d9d28535805db2a",
       "watch_stage": 2,
       "watch_symbol": "SUI_USDT"
