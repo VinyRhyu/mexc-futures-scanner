@@ -8285,7 +8285,7 @@
       "text": "⚪ ATUALIZAÇÃO DOS PLANOS ACOMPANHADOS\n🧪 SIMULAÇÃO\n\n• ETH/USDT • SHORT: confirmação não aprovada\n  Motivo: O volume do segundo candle M1 foi menor que50% do primeiro.\n  Plano: 3e71f092af9f3c1f5c36\n• ETH/USDT • SHORT: confirmação não aprovada\n  Motivo: O volume do segundo candle M1 foi menor que50% do primeiro.\n  Plano: 8369cccf5b5c17ec76f3\n• TAO/USDT • SHORT: confirmação não aprovada\n  Motivo: O segundo fechamento M1 perdeu o nível do gatilho.\n  Plano: 8bdc367b1b5056ac5c11\n\nSem novas entradas por esses planos.\nAvisos de movimento não equivalem a entradas liberadas.\nA expiração não encerra uma posição já aberta.\nAnálise: 21/11/2026 19:07:33 BRT"
     },
     "1fc4852a1ee089e0bc9d": {
-      "attempts": 0,
+      "attempts": 1,
       "category": "INFO",
       "created_at": 1795310553,
       "expires_at": 1795310580,
@@ -8296,7 +8296,11 @@
         "72004756727910b4ac0a"
       ],
       "quote_at": 0,
-      "status": "PENDING",
+      "sent_at": 1795310557,
+      "status": "SENT",
+      "telegram_ids": [
+        14680
+      ],
       "text": "🟡 MOVIMENTO DETECTADO • AINDA SEM CONFIRMAÇÃO\nICP/USDT • BAIXA (SHORT)\n🧪 SIMULAÇÃO • acompanhamento\n\nRompimento observado no M1 fechado às 22:22:00 BRT.\nPreço de referência do primeiro gatilho: 1.895.\n\nPrimeiro fechamento além da região identificado.\nFalta o segundo fechamento sustentar o nível, com volume de pelo menos 50% do primeiro.\nApós confirmar, o plano ainda precisa passar pela avaliação financeira.\n\nFaixa em estudo: 1.893 a 1.894\n🛑 Stop do plano: 1.901 (-3.17% bruto em 10x)\n🎯 Alvo do plano: 1.889 (+3.17% bruto em 10x)\nCenário indicativo sobre a margem em 10x; custos e liquidação ainda não validados.\nMovimento sem alavancagem: TP +0.32% • SL -0.32%.\nPercentuais sobre a referência do primeiro gatilho, na direção da operação, antes de custos.\n\nMovimento observado, sem entrada liberada. Aguarde o alerta de confirmação e viabilidade.\nAlerta válido até 22:23:00 BRT.\nAnálise: 21/11/2026 22:22:33 BRT\nPlano: 72004756727910b4ac0a",
       "watch_stage": 1,
       "watch_symbol": "ICP_USDT"
