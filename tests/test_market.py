@@ -57,3 +57,33 @@ class MarketTests(unittest.TestCase):
         chosen, excluded = select_universe(contracts, tickers, {"A", "B"}, D(5000000), 1)
         self.assertEqual(chosen[0]["symbol"], "B_USDT")
         self.assertIn("CLASSIFICACAO_PENDENTE", [r["reason"] for r in excluded])
+
+
+    def test_orca_asset_preserves_contract_and_liquidity_gates(self):
+        import json
+        from pathlib import Path
+
+        assets = set(json.loads(Path("config/crypto-assets.json").read_text())["assets"])
+        self.assertIn("ORCA", assets)
+
+        contract = {"symbol": "ORCA_USDT", "baseCoin": "ORCA", "state": 0,
+                    "settleCoin": "USDT", "quoteCoin": "USDT", "futureType": 1}
+        ticker = {"symbol": "ORCA_USDT", "amount24": "6000000"}
+        chosen, excluded = select_universe([contract], [ticker], assets, D(5000000), 50)
+        self.assertEqual([item["symbol"] for item in chosen], ["ORCA_USDT"])
+        self.assertEqual(excluded, [])
+
+        low_ticker = {**ticker, "amount24": "4999999"}
+        chosen, excluded = select_universe([contract], [low_ticker], assets, D(5000000), 50)
+        self.assertEqual(chosen, [])
+        self.assertEqual(excluded[0]["reason"], "VOLUME_FINANCEIRO_INSUFICIENTE")
+
+        inactive_contract = {**contract, "state": 1}
+        chosen, excluded = select_universe([inactive_contract], [ticker], assets, D(5000000), 50)
+        self.assertEqual(chosen, [])
+        self.assertEqual(excluded[0]["reason"], "CONTRATO_INATIVO")
+
+        non_crypto_contract = {**contract, "typeLabel": 1}
+        chosen, excluded = select_universe([non_crypto_contract], [ticker], assets, D(5000000), 50)
+        self.assertEqual(chosen, [])
+        self.assertEqual(excluded[0]["reason"], "NAO_CRIPTO")
