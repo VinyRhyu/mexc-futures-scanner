@@ -58,7 +58,7 @@
   },
   "journal": [],
   "journal_ids": [],
-  "last_success": 1795340673,
+  "last_success": 1795340738,
   "last_summary_date": "2026-11-21",
   "minute_activation": {
     "AAVE_USDT": 1795086047,
@@ -105,47 +105,47 @@
     "ZRO_USDT": 1794748693
   },
   "minute_cursors": {
-    "AAVE_USDT": 1795340640,
-    "ADA_USDT": 1795340640,
+    "AAVE_USDT": 1795340700,
+    "ADA_USDT": 1795340700,
     "APT_USDT": 1795298400,
-    "ARB_USDT": 1795340640,
-    "AVAX_USDT": 1795340640,
-    "BNB_USDT": 1795340640,
-    "BTC_USDT": 1795340640,
+    "ARB_USDT": 1795340700,
+    "AVAX_USDT": 1795340700,
+    "BNB_USDT": 1795340700,
+    "BTC_USDT": 1795340700,
     "DASH_USDT": 1794499140,
-    "DOGE_USDT": 1795340640,
-    "DOT_USDT": 1795340640,
-    "ENA_USDT": 1795340640,
+    "DOGE_USDT": 1795340700,
+    "DOT_USDT": 1795340700,
+    "ENA_USDT": 1795340700,
     "ETC_USDT": 1795190340,
-    "ETH_USDT": 1795340640,
+    "ETH_USDT": 1795340700,
     "FET_USDT": 1795190340,
     "HBAR_USDT": 1795319940,
-    "HYPE_USDT": 1795340640,
-    "ICP_USDT": 1795340640,
-    "INJ_USDT": 1795340640,
+    "HYPE_USDT": 1795340700,
+    "ICP_USDT": 1795340700,
+    "INJ_USDT": 1795340700,
     "JUP_USDT": 1794826740,
-    "LINK_USDT": 1795340640,
+    "LINK_USDT": 1795340700,
     "LTC_USDT": 1795287600,
     "LUNC_USDT": 1795161540,
-    "NEAR_USDT": 1795340640,
-    "ONDO_USDT": 1795340640,
+    "NEAR_USDT": 1795340700,
+    "ONDO_USDT": 1795340700,
     "ONE_USDT": 1794567540,
     "OP_USDT": 1794754740,
-    "PEPE_USDT": 1795340640,
-    "QNT_USDT": 1795340640,
+    "PEPE_USDT": 1795340700,
+    "QNT_USDT": 1795340700,
     "SEI_USDT": 1794785460,
     "SHIB_USDT": 1795283100,
     "SKY_USDT": 1795190340,
-    "SOL_USDT": 1795340640,
-    "SUI_USDT": 1795340640,
-    "TAO_USDT": 1795340640,
+    "SOL_USDT": 1795340700,
+    "SUI_USDT": 1795340700,
+    "TAO_USDT": 1795340700,
     "TIA_USDT": 1795319940,
-    "UNI_USDT": 1795340640,
-    "WLD_USDT": 1795340640,
-    "XLM_USDT": 1795340640,
+    "UNI_USDT": 1795340700,
+    "WLD_USDT": 1795340700,
+    "XLM_USDT": 1795340700,
     "XMR_USDT": 1794393000,
-    "XRP_USDT": 1795340640,
-    "ZEC_USDT": 1795340640,
+    "XRP_USDT": 1795340700,
+    "ZEC_USDT": 1795340700,
     "ZRO_USDT": 1794758280
   },
   "mode": "paper",
@@ -1117,6 +1117,22 @@
         13435
       ],
       "text": "⚪ ATUALIZAÇÃO DOS PLANOS ACOMPANHADOS\n🧪 SIMULAÇÃO\n\n• ETH/USDT • LONG: prazo para nova entrada encerrado\n  Motivo: A janela para uma nova entrada terminou.\n  Plano: 4a8efd194f73d3437a7e\n\nSem novas entradas por esses planos.\nAvisos de movimento não equivalem a entradas liberadas.\nA expiração não encerra uma posição já aberta.\nAnálise: 21/11/2026 03:37:34 BRT"
+    },
+    "037669b0e7e2a72be409": {
+      "attempts": 0,
+      "category": "INFO",
+      "created_at": 1795340738,
+      "expires_at": 1795342500,
+      "id": "037669b0e7e2a72be409",
+      "plan_ids": [
+        "351fc1ab88172465f6ea",
+        "aff279a3596b3622b1e3"
+      ],
+      "quote_at": 0,
+      "status": "PENDING",
+      "text": "👀 PLANO EM PREPARAÇÃO • AGUARDANDO GATILHO\nENA/USDT\n🧪 SIMULAÇÃO • acompanhamento\n\nRegião em análise: 0.09771 a 0.10019\nDireção indefinida: cenários alternativos, não duas entradas.\nLONG somente se houver fechamento M1 acima de ≈ 0.100261.\nSHORT somente se houver fechamento M1 abaixo de ≈ 0.0976395.\n\nConfirmação: dois fechamentos M1 consecutivos além do gatilho; volume do segundo de pelo menos 50% do primeiro.\nTP, SL e percentuais serão definidos no primeiro gatilho. A confirmação ainda precisa passar pela avaliação financeira.\n\nSem rompimento observado neste plano e sem entrada liberada.\nPreparação até 07:15:00 BRT.\nAnálise: 22/11/2026 06:45:38 BRT\nPlanos: 351fc1ab88172465f6ea, aff279a3596b3622b1e3",
+      "watch_stage": 2,
+      "watch_symbol": "ENA_USDT"
     },
     "03779116dc77985e55bd": {
       "attempts": 1,
@@ -7528,25 +7544,6 @@
       "watch_stage": 2,
       "watch_symbol": "LINK_USDT"
     },
-    "1f526d5dc2974a4d95c7": {
-      "attempts": 1,
-      "category": "INFO",
-      "created_at": 1795166915,
-      "expires_at": 1795167900,
-      "id": "1f526d5dc2974a4d95c7",
-      "plan_ids": [
-        "6a95c4c383124aa8f0a5"
-      ],
-      "quote_at": 0,
-      "sent_at": 1795166918,
-      "status": "SENT",
-      "telegram_ids": [
-        11835
-      ],
-      "text": "👀 PLANO EM PREPARAÇÃO • AGUARDANDO GATILHO\nSOL/USDT\n🧪 SIMULAÇÃO • acompanhamento\n\nRegião em análise: 72.16 a 72.81\nLONG somente se houver fechamento M1 acima de ≈ 72.8468.\n\nConfirmação: dois fechamentos M1 consecutivos além do gatilho; volume do segundo de pelo menos 50% do primeiro.\nTP, SL e percentuais serão definidos no primeiro gatilho. A confirmação ainda precisa passar pela avaliação financeira.\n\nSem rompimento observado neste plano e sem entrada liberada.\nPreparação até 06:45:00 BRT.\nAnálise: 20/11/2026 06:28:35 BRT\nPlanos: 6a95c4c383124aa8f0a5",
-      "watch_stage": 2,
-      "watch_symbol": "SOL_USDT"
-    },
     "1f64918828dd8116372d": {
       "attempts": 1,
       "category": "INFO",
@@ -9636,26 +9633,6 @@
       "text": "👀 PLANO EM PREPARAÇÃO • AGUARDANDO GATILHO\nBTC/USDT\n🧪 SIMULAÇÃO • acompanhamento\n\nRegião em análise: 61601.2 a 62319.6\nLONG somente se houver fechamento M1 acima de ≈ 62343.9.\n\nConfirmação: dois fechamentos M1 consecutivos além do gatilho; volume do segundo de pelo menos 50% do primeiro.\nTP, SL e percentuais serão definidos no primeiro gatilho. A confirmação ainda precisa passar pela avaliação financeira.\n\nSem rompimento observado neste plano e sem entrada liberada.\nPreparação até 09:30:00 BRT.\nAnálise: 20/11/2026 09:07:38 BRT\nPlanos: 76f31f28c4f52cb85c2a",
       "watch_stage": 2,
       "watch_symbol": "BTC_USDT"
-    },
-    "25e1341c8cba1f230857": {
-      "attempts": 1,
-      "category": "INFO",
-      "created_at": 1795166197,
-      "expires_at": 1795167900,
-      "id": "25e1341c8cba1f230857",
-      "plan_ids": [
-        "60418b4c59d7dcb9a054",
-        "9c95945b6c7251960e43"
-      ],
-      "quote_at": 0,
-      "sent_at": 1795166200,
-      "status": "SENT",
-      "telegram_ids": [
-        11831
-      ],
-      "text": "👀 PLANO EM PREPARAÇÃO • AGUARDANDO GATILHO\nTAO/USDT\n🧪 SIMULAÇÃO • acompanhamento\n\nRegião em análise: 185.7 a 188.17\nDireção indefinida: cenários alternativos, não duas entradas.\nLONG somente se houver fechamento M1 acima de ≈ 188.296.\nSHORT somente se houver fechamento M1 abaixo de ≈ 185.574.\n\nConfirmação: dois fechamentos M1 consecutivos além do gatilho; volume do segundo de pelo menos 50% do primeiro.\nTP, SL e percentuais serão definidos no primeiro gatilho. A confirmação ainda precisa passar pela avaliação financeira.\n\nSem rompimento observado neste plano e sem entrada liberada.\nPreparação até 06:45:00 BRT.\nAnálise: 20/11/2026 06:16:37 BRT\nPlanos: 60418b4c59d7dcb9a054, 9c95945b6c7251960e43",
-      "watch_stage": 2,
-      "watch_symbol": "TAO_USDT"
     },
     "2622e0843e2e0bff840c": {
       "attempts": 1,
@@ -20378,6 +20355,22 @@
       ],
       "text": "⚪ ATUALIZAÇÃO DOS PLANOS ACOMPANHADOS\n🧪 SIMULAÇÃO\n\n• TAO/USDT • LONG: confirmação não aprovada\n  Motivo: O segundo fechamento M1 perdeu o nível do gatilho.\n  Plano: 4f0816994353da2ae2b5\n• TAO/USDT • LONG: confirmação não aprovada\n  Motivo: O segundo fechamento M1 perdeu o nível do gatilho.\n  Plano: dfd1312e069b60347bb0\n\nSem novas entradas por esses planos.\nAvisos de movimento não equivalem a entradas liberadas.\nA expiração não encerra uma posição já aberta.\nAnálise: 21/11/2026 18:49:33 BRT"
     },
+    "4edc91a5e0e633eafd69": {
+      "attempts": 0,
+      "category": "INFO",
+      "created_at": 1795340738,
+      "expires_at": 1795342500,
+      "id": "4edc91a5e0e633eafd69",
+      "plan_ids": [
+        "b0e7076d7ce86812e111",
+        "6f04228316dbf23be3b1"
+      ],
+      "quote_at": 0,
+      "status": "PENDING",
+      "text": "👀 PLANO EM PREPARAÇÃO • AGUARDANDO GATILHO\nONDO/USDT\n🧪 SIMULAÇÃO • acompanhamento\n\nRegião em análise: 0.277 a 0.2824\nDireção indefinida: cenários alternativos, não duas entradas.\nLONG somente se houver fechamento M1 acima de ≈ 0.282563.\nSHORT somente se houver fechamento M1 abaixo de ≈ 0.276837.\n\nConfirmação: dois fechamentos M1 consecutivos além do gatilho; volume do segundo de pelo menos 50% do primeiro.\nTP, SL e percentuais serão definidos no primeiro gatilho. A confirmação ainda precisa passar pela avaliação financeira.\n\nSem rompimento observado neste plano e sem entrada liberada.\nPreparação até 07:15:00 BRT.\nAnálise: 22/11/2026 06:45:38 BRT\nPlanos: b0e7076d7ce86812e111, 6f04228316dbf23be3b1",
+      "watch_stage": 2,
+      "watch_symbol": "ONDO_USDT"
+    },
     "4ee5531a2ba48e881054": {
       "attempts": 1,
       "category": "INFO",
@@ -23271,26 +23264,6 @@
       "watch_stage": 2,
       "watch_symbol": "TAO_USDT"
     },
-    "5a28fafb8ab2b455fc8c": {
-      "attempts": 1,
-      "category": "INFO",
-      "created_at": 1795166197,
-      "expires_at": 1795167900,
-      "id": "5a28fafb8ab2b455fc8c",
-      "plan_ids": [
-        "66e585847f36a8159454",
-        "ee9952c36c3ea8ac39c9"
-      ],
-      "quote_at": 0,
-      "sent_at": 1795166200,
-      "status": "SENT",
-      "telegram_ids": [
-        11832
-      ],
-      "text": "👀 PLANO EM PREPARAÇÃO • AGUARDANDO GATILHO\nZEC/USDT\n🧪 SIMULAÇÃO • acompanhamento\n\nRegião em análise: 845.05 a 856.71\nDireção indefinida: cenários alternativos, não duas entradas.\nLONG somente se houver fechamento M1 acima de ≈ 857.366.\nSHORT somente se houver fechamento M1 abaixo de ≈ 844.394.\n\nConfirmação: dois fechamentos M1 consecutivos além do gatilho; volume do segundo de pelo menos 50% do primeiro.\nTP, SL e percentuais serão definidos no primeiro gatilho. A confirmação ainda precisa passar pela avaliação financeira.\n\nSem rompimento observado neste plano e sem entrada liberada.\nPreparação até 06:45:00 BRT.\nAnálise: 20/11/2026 06:16:37 BRT\nPlanos: 66e585847f36a8159454, ee9952c36c3ea8ac39c9",
-      "watch_stage": 2,
-      "watch_symbol": "ZEC_USDT"
-    },
     "5a2dfde43b52d61ff7fe": {
       "attempts": 1,
       "category": "INFO",
@@ -23484,26 +23457,6 @@
       "text": "👀 PLANO EM PREPARAÇÃO • AGUARDANDO GATILHO\nSOL/USDT\n🧪 SIMULAÇÃO • acompanhamento\n\nRegião em análise: 70.03 a 70.66\nDireção indefinida: cenários alternativos, não duas entradas.\nLONG somente se houver fechamento M1 acima de ≈ 70.6853.\nSHORT somente se houver fechamento M1 abaixo de ≈ 70.0047.\n\nConfirmação: dois fechamentos M1 consecutivos além do gatilho; volume do segundo de pelo menos 50% do primeiro.\nTP, SL e percentuais serão definidos no primeiro gatilho. A confirmação ainda precisa passar pela avaliação financeira.\n\nSem rompimento observado neste plano e sem entrada liberada.\nPreparação até 20:15:00 BRT.\nAnálise: 21/11/2026 19:46:38 BRT\nPlanos: b17cdb8a651b6befb62f, 3f7e4f41f60f3dfcf2b1",
       "watch_stage": 2,
       "watch_symbol": "SOL_USDT"
-    },
-    "5af18683f17105c2564c": {
-      "attempts": 1,
-      "category": "INFO",
-      "created_at": 1795166140,
-      "expires_at": 1795167900,
-      "id": "5af18683f17105c2564c",
-      "plan_ids": [
-        "81719ec24a2793c7a889",
-        "316c88260fc7a8461a61"
-      ],
-      "quote_at": 0,
-      "sent_at": 1795166144,
-      "status": "SENT",
-      "telegram_ids": [
-        11824
-      ],
-      "text": "👀 PLANO EM PREPARAÇÃO • AGUARDANDO GATILHO\nINJ/USDT\n🧪 SIMULAÇÃO • acompanhamento\n\nRegião em análise: 6.602 a 6.695\nDireção indefinida: cenários alternativos, não duas entradas.\nLONG somente se houver fechamento M1 acima de ≈ 6.70028.\nSHORT somente se houver fechamento M1 abaixo de ≈ 6.59672.\n\nConfirmação: dois fechamentos M1 consecutivos além do gatilho; volume do segundo de pelo menos 50% do primeiro.\nTP, SL e percentuais serão definidos no primeiro gatilho. A confirmação ainda precisa passar pela avaliação financeira.\n\nSem rompimento observado neste plano e sem entrada liberada.\nPreparação até 06:45:00 BRT.\nAnálise: 20/11/2026 06:15:40 BRT\nPlanos: 81719ec24a2793c7a889, 316c88260fc7a8461a61",
-      "watch_stage": 2,
-      "watch_symbol": "INJ_USDT"
     },
     "5b0c3ca16a93e4f6f2ff": {
       "attempts": 1,
@@ -28000,26 +27953,6 @@
       "text": "👀 PLANO EM PREPARAÇÃO • AGUARDANDO GATILHO\nETC/USDT\n🧪 SIMULAÇÃO • acompanhamento\n\nRegião em análise: 5.695 a 5.758\nDireção indefinida: cenários alternativos, não duas entradas.\nLONG somente se houver fechamento M1 acima de ≈ 5.7608.\nSHORT somente se houver fechamento M1 abaixo de ≈ 5.6922.\n\nConfirmação: dois fechamentos M1 consecutivos além do gatilho; volume do segundo de pelo menos 50% do primeiro.\nTP, SL e percentuais serão definidos no primeiro gatilho. A confirmação ainda precisa passar pela avaliação financeira.\n\nSem rompimento observado neste plano e sem entrada liberada.\nPreparação até 07:00:00 BRT.\nAnálise: 20/11/2026 06:30:44 BRT\nPlanos: 8983e261f658cf6e2514, e52885a56371c58c85e6",
       "watch_stage": 2,
       "watch_symbol": "ETC_USDT"
-    },
-    "6cbfd2d61a92ce487f75": {
-      "attempts": 1,
-      "category": "INFO",
-      "created_at": 1795166140,
-      "expires_at": 1795167900,
-      "id": "6cbfd2d61a92ce487f75",
-      "plan_ids": [
-        "d8970d9683b2ac6cd5d5",
-        "3b17b8acd0145bda9bcc"
-      ],
-      "quote_at": 0,
-      "sent_at": 1795166145,
-      "status": "SENT",
-      "telegram_ids": [
-        11825
-      ],
-      "text": "👀 PLANO EM PREPARAÇÃO • AGUARDANDO GATILHO\nONDO/USDT\n🧪 SIMULAÇÃO • acompanhamento\n\nRegião em análise: 0.2903 a 0.2949\nDireção indefinida: cenários alternativos, não duas entradas.\nLONG somente se houver fechamento M1 acima de ≈ 0.2951.\nSHORT somente se houver fechamento M1 abaixo de ≈ 0.2901.\n\nConfirmação: dois fechamentos M1 consecutivos além do gatilho; volume do segundo de pelo menos 50% do primeiro.\nTP, SL e percentuais serão definidos no primeiro gatilho. A confirmação ainda precisa passar pela avaliação financeira.\n\nSem rompimento observado neste plano e sem entrada liberada.\nPreparação até 06:45:00 BRT.\nAnálise: 20/11/2026 06:15:40 BRT\nPlanos: d8970d9683b2ac6cd5d5, 3b17b8acd0145bda9bcc",
-      "watch_stage": 2,
-      "watch_symbol": "ONDO_USDT"
     },
     "6cc4d8b002c37a588118": {
       "attempts": 1,
@@ -33361,26 +33294,6 @@
       "text": "👀 PLANO EM PREPARAÇÃO • AGUARDANDO GATILHO\nAVAX/USDT\n🧪 SIMULAÇÃO • acompanhamento\n\nRegião em análise: 6.613 a 6.655\nDireção indefinida: cenários alternativos, não duas entradas.\nLONG somente se houver fechamento M1 acima de ≈ 6.65772.\nSHORT somente se houver fechamento M1 abaixo de ≈ 6.61028.\n\nConfirmação: dois fechamentos M1 consecutivos além do gatilho; volume do segundo de pelo menos 50% do primeiro.\nTP, SL e percentuais serão definidos no primeiro gatilho. A confirmação ainda precisa passar pela avaliação financeira.\n\nSem rompimento observado neste plano e sem entrada liberada.\nPreparação até 19:15:00 BRT.\nAnálise: 21/11/2026 18:45:40 BRT\nPlanos: f32ed21097d022c618f7, ecad8451791c2e86bd5d",
       "watch_stage": 2,
       "watch_symbol": "AVAX_USDT"
-    },
-    "807986908e7cac94811f": {
-      "attempts": 1,
-      "category": "INFO",
-      "created_at": 1795166140,
-      "expires_at": 1795167900,
-      "id": "807986908e7cac94811f",
-      "plan_ids": [
-        "5327aa524d3beaf0df4e",
-        "c6b9ee11ddfd53730247"
-      ],
-      "quote_at": 0,
-      "sent_at": 1795166145,
-      "status": "SENT",
-      "telegram_ids": [
-        11826
-      ],
-      "text": "👀 PLANO EM PREPARAÇÃO • AGUARDANDO GATILHO\nHYPE/USDT\n🧪 SIMULAÇÃO • acompanhamento\n\nRegião em análise: 64.954 a 66.123\nDireção indefinida: cenários alternativos, não duas entradas.\nLONG somente se houver fechamento M1 acima de ≈ 66.1697.\nSHORT somente se houver fechamento M1 abaixo de ≈ 64.9073.\n\nConfirmação: dois fechamentos M1 consecutivos além do gatilho; volume do segundo de pelo menos 50% do primeiro.\nTP, SL e percentuais serão definidos no primeiro gatilho. A confirmação ainda precisa passar pela avaliação financeira.\n\nSem rompimento observado neste plano e sem entrada liberada.\nPreparação até 06:45:00 BRT.\nAnálise: 20/11/2026 06:15:40 BRT\nPlanos: 5327aa524d3beaf0df4e, c6b9ee11ddfd53730247",
-      "watch_stage": 2,
-      "watch_symbol": "HYPE_USDT"
     },
     "80b1c29ed80e4e0799c2": {
       "attempts": 1,
@@ -39985,25 +39898,6 @@
       "watch_stage": 0,
       "watch_symbol": "BTC_USDT"
     },
-    "9afec9ad2d5112bf7375": {
-      "attempts": 1,
-      "category": "INFO",
-      "created_at": 1795167695,
-      "expires_at": 1795167900,
-      "id": "9afec9ad2d5112bf7375",
-      "plan_ids": [
-        "66e585847f36a8159454"
-      ],
-      "quote_at": 0,
-      "sent_at": 1795167698,
-      "status": "SENT",
-      "telegram_ids": [
-        11864
-      ],
-      "text": "👀 PLANO EM PREPARAÇÃO • AGUARDANDO GATILHO\nZEC/USDT\n🧪 SIMULAÇÃO • acompanhamento\n\nRegião em análise: 845.05 a 856.71\nLONG somente se houver fechamento M1 acima de ≈ 857.366.\n\nConfirmação: dois fechamentos M1 consecutivos além do gatilho; volume do segundo de pelo menos 50% do primeiro.\nTP, SL e percentuais serão definidos no primeiro gatilho. A confirmação ainda precisa passar pela avaliação financeira.\n\nSem rompimento observado neste plano e sem entrada liberada.\nPreparação até 06:45:00 BRT.\nAnálise: 20/11/2026 06:41:35 BRT\nPlanos: 66e585847f36a8159454",
-      "watch_stage": 2,
-      "watch_symbol": "ZEC_USDT"
-    },
     "9b02eccf976a98bb62b7": {
       "attempts": 1,
       "category": "INFO",
@@ -44752,26 +44646,6 @@
       "watch_stage": 0,
       "watch_symbol": "BNB_USDT"
     },
-    "b0703aa62f1f7fa48c63": {
-      "attempts": 1,
-      "category": "INFO",
-      "created_at": 1795166140,
-      "expires_at": 1795167900,
-      "id": "b0703aa62f1f7fa48c63",
-      "plan_ids": [
-        "f61e53f30b9a9de20d6d",
-        "5136acbcc274b49b10cd"
-      ],
-      "quote_at": 0,
-      "sent_at": 1795166146,
-      "status": "SENT",
-      "telegram_ids": [
-        11827
-      ],
-      "text": "👀 PLANO EM PREPARAÇÃO • AGUARDANDO GATILHO\nHBAR/USDT\n🧪 SIMULAÇÃO • acompanhamento\n\nRegião em análise: 0.05372 a 0.05419\nDireção indefinida: cenários alternativos, não duas entradas.\nLONG somente se houver fechamento M1 acima de ≈ 0.054222.\nSHORT somente se houver fechamento M1 abaixo de ≈ 0.053688.\n\nConfirmação: dois fechamentos M1 consecutivos além do gatilho; volume do segundo de pelo menos 50% do primeiro.\nTP, SL e percentuais serão definidos no primeiro gatilho. A confirmação ainda precisa passar pela avaliação financeira.\n\nSem rompimento observado neste plano e sem entrada liberada.\nPreparação até 06:45:00 BRT.\nAnálise: 20/11/2026 06:15:40 BRT\nPlanos: f61e53f30b9a9de20d6d, 5136acbcc274b49b10cd",
-      "watch_stage": 2,
-      "watch_symbol": "HBAR_USDT"
-    },
     "b07ab2e7fd135a003d04": {
       "attempts": 1,
       "category": "INFO",
@@ -45058,26 +44932,6 @@
         14631
       ],
       "text": "⚪ ATUALIZAÇÃO DOS PLANOS ACOMPANHADOS\n🧪 SIMULAÇÃO\n\n• INJ/USDT • LONG: prazo para nova entrada encerrado\n  Motivo: A janela para uma nova entrada terminou.\n  Plano: 00cc3f6948b947bbe393\n• TIA/USDT • SHORT: prazo para nova entrada encerrado\n  Motivo: A janela para uma nova entrada terminou.\n  Plano: 214f2837dd0653cbe706\n• DOT/USDT • SHORT: prazo para nova entrada encerrado\n  Motivo: A janela para uma nova entrada terminou.\n  Plano: 2d93eb9f82e7e5f20bcf\n• UNI/USDT • SHORT: prazo para nova entrada encerrado\n  Motivo: A janela para uma nova entrada terminou.\n  Plano: 36a1d53d408220d273cb\n• LINK/USDT • SHORT: prazo para nova entrada encerrado\n  Motivo: A janela para uma nova entrada terminou.\n  Plano: 52a593e379c4520a4ea8\n• LINK/USDT • LONG: prazo para nova entrada encerrado\n  Motivo: A janela para uma nova entrada terminou.\n  Plano: 95ac73d4a2c9cf2a40ac\n\nSem novas entradas por esses planos.\nAvisos de movimento não equivalem a entradas liberadas.\nA expiração não encerra uma posição já aberta.\nAnálise: 21/11/2026 21:15:38 BRT"
-    },
-    "b1d4b000bc4c8ce48f05": {
-      "attempts": 1,
-      "category": "INFO",
-      "created_at": 1795166140,
-      "expires_at": 1795167900,
-      "id": "b1d4b000bc4c8ce48f05",
-      "plan_ids": [
-        "de23a03af6740cd35b64",
-        "d856815dc8e2438dde7c"
-      ],
-      "quote_at": 0,
-      "sent_at": 1795166146,
-      "status": "SENT",
-      "telegram_ids": [
-        11828
-      ],
-      "text": "👀 PLANO EM PREPARAÇÃO • AGUARDANDO GATILHO\nLTC/USDT\n🧪 SIMULAÇÃO • acompanhamento\n\nRegião em análise: 41.55 a 42.05\nDireção indefinida: cenários alternativos, não duas entradas.\nLONG somente se houver fechamento M1 acima de ≈ 42.0715.\nSHORT somente se houver fechamento M1 abaixo de ≈ 41.5285.\n\nConfirmação: dois fechamentos M1 consecutivos além do gatilho; volume do segundo de pelo menos 50% do primeiro.\nTP, SL e percentuais serão definidos no primeiro gatilho. A confirmação ainda precisa passar pela avaliação financeira.\n\nSem rompimento observado neste plano e sem entrada liberada.\nPreparação até 06:45:00 BRT.\nAnálise: 20/11/2026 06:15:40 BRT\nPlanos: de23a03af6740cd35b64, d856815dc8e2438dde7c",
-      "watch_stage": 2,
-      "watch_symbol": "LTC_USDT"
     },
     "b1fb9dc378d0e83ca822": {
       "attempts": 1,
@@ -45487,6 +45341,22 @@
       "text": "👀 PLANO EM PREPARAÇÃO • AGUARDANDO GATILHO\nONDO/USDT\n🧪 SIMULAÇÃO • acompanhamento\n\nRegião em análise: 0.2782 a 0.2833\nDireção indefinida: cenários alternativos, não duas entradas.\nLONG somente se houver fechamento M1 acima de ≈ 0.283522.\nSHORT somente se houver fechamento M1 abaixo de ≈ 0.277978.\n\nConfirmação: dois fechamentos M1 consecutivos além do gatilho; volume do segundo de pelo menos 50% do primeiro.\nTP, SL e percentuais serão definidos no primeiro gatilho. A confirmação ainda precisa passar pela avaliação financeira.\n\nSem rompimento observado neste plano e sem entrada liberada.\nPreparação até 23:00:00 BRT.\nAnálise: 20/11/2026 22:32:36 BRT\nPlanos: b430e2ab617a9ff667f3, c2f91ce464a728e8ffd9",
       "watch_stage": 2,
       "watch_symbol": "ONDO_USDT"
+    },
+    "b3d9d735e436d84acfdc": {
+      "attempts": 0,
+      "category": "INFO",
+      "created_at": 1795340738,
+      "expires_at": 1795342500,
+      "id": "b3d9d735e436d84acfdc",
+      "plan_ids": [
+        "0f3b02f16910b2ab112f",
+        "00613f13d32b2704c361"
+      ],
+      "quote_at": 0,
+      "status": "PENDING",
+      "text": "👀 PLANO EM PREPARAÇÃO • AGUARDANDO GATILHO\nAVAX/USDT\n🧪 SIMULAÇÃO • acompanhamento\n\nRegião em análise: 6.515 a 6.634\nDireção indefinida: cenários alternativos, não duas entradas.\nLONG somente se houver fechamento M1 acima de ≈ 6.63708.\nSHORT somente se houver fechamento M1 abaixo de ≈ 6.51192.\n\nConfirmação: dois fechamentos M1 consecutivos além do gatilho; volume do segundo de pelo menos 50% do primeiro.\nTP, SL e percentuais serão definidos no primeiro gatilho. A confirmação ainda precisa passar pela avaliação financeira.\n\nSem rompimento observado neste plano e sem entrada liberada.\nPreparação até 07:15:00 BRT.\nAnálise: 22/11/2026 06:45:38 BRT\nPlanos: 0f3b02f16910b2ab112f, 00613f13d32b2704c361",
+      "watch_stage": 2,
+      "watch_symbol": "AVAX_USDT"
     },
     "b423c7f70192d2d7496a": {
       "attempts": 1,
@@ -57334,26 +57204,6 @@
       "watch_stage": 2,
       "watch_symbol": "WLD_USDT"
     },
-    "e5d5f93d36aba172406b": {
-      "attempts": 1,
-      "category": "INFO",
-      "created_at": 1795166197,
-      "expires_at": 1795167900,
-      "id": "e5d5f93d36aba172406b",
-      "plan_ids": [
-        "6a95c4c383124aa8f0a5",
-        "128e2308e587aa119f8c"
-      ],
-      "quote_at": 0,
-      "sent_at": 1795166201,
-      "status": "SENT",
-      "telegram_ids": [
-        11833
-      ],
-      "text": "👀 PLANO EM PREPARAÇÃO • AGUARDANDO GATILHO\nSOL/USDT\n🧪 SIMULAÇÃO • acompanhamento\n\nRegião em análise: 72.16 a 72.81\nDireção indefinida: cenários alternativos, não duas entradas.\nLONG somente se houver fechamento M1 acima de ≈ 72.8468.\nSHORT somente se houver fechamento M1 abaixo de ≈ 72.1232.\n\nConfirmação: dois fechamentos M1 consecutivos além do gatilho; volume do segundo de pelo menos 50% do primeiro.\nTP, SL e percentuais serão definidos no primeiro gatilho. A confirmação ainda precisa passar pela avaliação financeira.\n\nSem rompimento observado neste plano e sem entrada liberada.\nPreparação até 06:45:00 BRT.\nAnálise: 20/11/2026 06:16:37 BRT\nPlanos: 6a95c4c383124aa8f0a5, 128e2308e587aa119f8c",
-      "watch_stage": 2,
-      "watch_symbol": "SOL_USDT"
-    },
     "e5dcc8a4cfb36f933a4a": {
       "attempts": 1,
       "category": "INFO",
@@ -60105,26 +59955,6 @@
       ],
       "text": "🟢 GATILHO VÁLIDO PARA SIMULAR\nXRP/USDT • LONG\n🧪 SIMULAÇÃO • Confirmada\nRompimento • 2 fechamentos M1 • volume ≥50%\n\nVolume do segundo M1: 75.4% do primeiro.\n📍 Entrada: 0.9123 a 0.9146\n🛑 Stop: 0.907 (-9.94% líquido sobre a margem)\n🎯 Alvo: 0.9391 (+25.13% líquido sobre a margem)\nMovimento sem alavancagem: TP +2.68% • SL -0.83%.\nBase dos percentuais sem alavancagem: 0.9146 (pior entrada); na direção da operação, antes de custos.\n\nMargem isolada estimada: 0.9146 USDT • 10x\nQuantidade: 10 contratos\nPerda planejada: -0.0909 USDT (-9.09% da banca)\nGanho projetado: +0.2299 USDT (+22.99% da banca)\nRetorno/risco líquido: 2.53:1 (pior entrada)\nCustos estimados: 0.0151 USDT\nROI líquido estimado sobre a margem: TP +25.13% • SL -9.94%.\nTaxa por execução: 0.06%\nDisparo do stop: último preço (Last)\n\nEstimativas de taxas, deslizamento e funding; ganho não garantido.\nFalta validar para uso real: taxa pessoal da conta; regras de margem da conta.\n\n⏱ Nova entrada até 19:19:00 BRT (1min 26s).\nGatilho M1 (segundo fechamento): 19:17:00 BRT\nCotação: 19:17:30 BRT\nAnálise: 20/11/2026 19:17:34 BRT\nA validade se aplica a novas entradas.\nPlano: a4546cc44bb4ed2f6530 • revisão 1",
       "variant": "CONFIRMADA"
-    },
-    "f0f90dbdf939153ee698": {
-      "attempts": 1,
-      "category": "INFO",
-      "created_at": 1795166140,
-      "expires_at": 1795167900,
-      "id": "f0f90dbdf939153ee698",
-      "plan_ids": [
-        "9c39884e2ac177d1f005",
-        "e56188731666e2369d7c"
-      ],
-      "quote_at": 0,
-      "sent_at": 1795166147,
-      "status": "SENT",
-      "telegram_ids": [
-        11829
-      ],
-      "text": "👀 PLANO EM PREPARAÇÃO • AGUARDANDO GATILHO\nETH/USDT\n🧪 SIMULAÇÃO • acompanhamento\n\nRegião em análise: 1738.23 a 1759.2\nDireção indefinida: cenários alternativos, não duas entradas.\nLONG somente se houver fechamento M1 acima de ≈ 1760.1.\nSHORT somente se houver fechamento M1 abaixo de ≈ 1737.33.\n\nConfirmação: dois fechamentos M1 consecutivos além do gatilho; volume do segundo de pelo menos 50% do primeiro.\nTP, SL e percentuais serão definidos no primeiro gatilho. A confirmação ainda precisa passar pela avaliação financeira.\n\nSem rompimento observado neste plano e sem entrada liberada.\nPreparação até 06:45:00 BRT.\nAnálise: 20/11/2026 06:15:40 BRT\nPlanos: 9c39884e2ac177d1f005, e56188731666e2369d7c",
-      "watch_stage": 2,
-      "watch_symbol": "ETH_USDT"
     },
     "f10e7ae229b58c352cc5": {
       "attempts": 1,
@@ -63816,6 +63646,31 @@
       "strategy": "ROMPIMENTO_M1_VOLUME",
       "symbol": "XRP_USDT",
       "upper": "0.9386",
+      "variants": {}
+    },
+    "00613f13d32b2704c361": {
+      "atr": "0.03079849619250480090086123703",
+      "detected_at": 1795340700,
+      "entry_started_at": 0,
+      "expires_at": 1795342500,
+      "family": "00613f13d32b2704c361",
+      "formed_at": 1795340700,
+      "id": "00613f13d32b2704c361",
+      "last_bar": 0,
+      "level": "6.515",
+      "lower": "6.515",
+      "observations": [],
+      "preparation_expires_at": 1795342500,
+      "reaction_at": 0,
+      "reaction_extreme": null,
+      "reason": "",
+      "revision": 0,
+      "side": "SHORT",
+      "status": "POSSIVEL",
+      "stop": "6.531",
+      "strategy": "ROMPIMENTO_M1_VOLUME",
+      "symbol": "AVAX_USDT",
+      "upper": "6.634",
       "variants": {}
     },
     "00c58cf28d93069e0f0a": {
@@ -69096,6 +68951,31 @@
           "triggered_at": 1795301760
         }
       }
+    },
+    "0f3b02f16910b2ab112f": {
+      "atr": "0.03079849619250480090086123703",
+      "detected_at": 1795340700,
+      "entry_started_at": 0,
+      "expires_at": 1795342500,
+      "family": "0f3b02f16910b2ab112f",
+      "formed_at": 1795340700,
+      "id": "0f3b02f16910b2ab112f",
+      "last_bar": 0,
+      "level": "6.634",
+      "lower": "6.515",
+      "observations": [],
+      "preparation_expires_at": 1795342500,
+      "reaction_at": 0,
+      "reaction_extreme": null,
+      "reason": "",
+      "revision": 0,
+      "side": "LONG",
+      "status": "POSSIVEL",
+      "stop": "6.618",
+      "strategy": "ROMPIMENTO_M1_VOLUME",
+      "symbol": "AVAX_USDT",
+      "upper": "6.634",
+      "variants": {}
     },
     "0f40116ec3f651c50a06": {
       "atr": "0.0007127752656181099103449339329",
@@ -81516,31 +81396,6 @@
         }
       }
     },
-    "316c88260fc7a8461a61": {
-      "atr": "0.05277900257654507356616242001",
-      "detected_at": 1795166100,
-      "entry_started_at": 0,
-      "expires_at": 1795167900,
-      "family": "316c88260fc7a8461a61",
-      "formed_at": 1795166100,
-      "id": "316c88260fc7a8461a61",
-      "last_bar": 1795167900,
-      "level": "6.602",
-      "lower": "6.602",
-      "observations": [],
-      "preparation_expires_at": 1795167900,
-      "reaction_at": 0,
-      "reaction_extreme": null,
-      "reason": "PRAZO_ENCERRADO",
-      "revision": 0,
-      "side": "SHORT",
-      "status": "EXPIRADO",
-      "stop": "6.629",
-      "strategy": "ROMPIMENTO_M1_VOLUME",
-      "symbol": "INJ_USDT",
-      "upper": "6.695",
-      "variants": {}
-    },
     "317d0a313f96e7a1eca0": {
       "atr": "0.03805738048143403581086369593",
       "detected_at": 1795203000,
@@ -83158,6 +83013,31 @@
           "triggered_at": 1795228920
         }
       }
+    },
+    "351fc1ab88172465f6ea": {
+      "atr": "0.0007053820271534855687152076685",
+      "detected_at": 1795340700,
+      "entry_started_at": 0,
+      "expires_at": 1795342500,
+      "family": "351fc1ab88172465f6ea",
+      "formed_at": 1795340700,
+      "id": "351fc1ab88172465f6ea",
+      "last_bar": 0,
+      "level": "0.10019",
+      "lower": "0.09771",
+      "observations": [],
+      "preparation_expires_at": 1795342500,
+      "reaction_at": 0,
+      "reaction_extreme": null,
+      "reason": "",
+      "revision": 0,
+      "side": "LONG",
+      "status": "POSSIVEL",
+      "stop": "0.09983",
+      "strategy": "ROMPIMENTO_M1_VOLUME",
+      "symbol": "ENA_USDT",
+      "upper": "0.10019",
+      "variants": {}
     },
     "354f4347c36def488775": {
       "atr": "0.001298741392141632758526267526",
@@ -93652,31 +93532,6 @@
       "upper": "6.612",
       "variants": {}
     },
-    "5136acbcc274b49b10cd": {
-      "atr": "0.0003197854863229342431354999064",
-      "detected_at": 1795166100,
-      "entry_started_at": 0,
-      "expires_at": 1795167900,
-      "family": "5136acbcc274b49b10cd",
-      "formed_at": 1795166100,
-      "id": "5136acbcc274b49b10cd",
-      "last_bar": 1795167900,
-      "level": "0.05372",
-      "lower": "0.05372",
-      "observations": [],
-      "preparation_expires_at": 1795167900,
-      "reaction_at": 0,
-      "reaction_extreme": null,
-      "reason": "PRAZO_ENCERRADO",
-      "revision": 0,
-      "side": "SHORT",
-      "status": "EXPIRADO",
-      "stop": "0.05388",
-      "strategy": "ROMPIMENTO_M1_VOLUME",
-      "symbol": "HBAR_USDT",
-      "upper": "0.05419",
-      "variants": {}
-    },
     "5142ae7764382d212698": {
       "atr": "0.03799497233071681474221372637",
       "detected_at": 1795197600,
@@ -94558,31 +94413,6 @@
       "strategy": "ROMPIMENTO_M1_VOLUME",
       "symbol": "QNT_USDT",
       "upper": "145.74",
-      "variants": {}
-    },
-    "5327aa524d3beaf0df4e": {
-      "atr": "0.466545133657052453825501731",
-      "detected_at": 1795166100,
-      "entry_started_at": 0,
-      "expires_at": 1795167900,
-      "family": "5327aa524d3beaf0df4e",
-      "formed_at": 1795166100,
-      "id": "5327aa524d3beaf0df4e",
-      "last_bar": 1795167900,
-      "level": "66.123",
-      "lower": "64.954",
-      "observations": [],
-      "preparation_expires_at": 1795167900,
-      "reaction_at": 0,
-      "reaction_extreme": null,
-      "reason": "PRAZO_ENCERRADO",
-      "revision": 0,
-      "side": "LONG",
-      "status": "EXPIRADO",
-      "stop": "65.889",
-      "strategy": "ROMPIMENTO_M1_VOLUME",
-      "symbol": "HYPE_USDT",
-      "upper": "66.123",
       "variants": {}
     },
     "533c1c2e2468faec93b4": {
@@ -99782,31 +99612,6 @@
       "upper": "8.628",
       "variants": {}
     },
-    "60418b4c59d7dcb9a054": {
-      "atr": "1.255787208893644777457216292",
-      "detected_at": 1795166100,
-      "entry_started_at": 0,
-      "expires_at": 1795167900,
-      "family": "60418b4c59d7dcb9a054",
-      "formed_at": 1795166100,
-      "id": "60418b4c59d7dcb9a054",
-      "last_bar": 1795167900,
-      "level": "188.17",
-      "lower": "185.7",
-      "observations": [],
-      "preparation_expires_at": 1795167900,
-      "reaction_at": 0,
-      "reaction_extreme": null,
-      "reason": "PRAZO_ENCERRADO",
-      "revision": 0,
-      "side": "LONG",
-      "status": "EXPIRADO",
-      "stop": "187.54",
-      "strategy": "ROMPIMENTO_M1_VOLUME",
-      "symbol": "TAO_USDT",
-      "upper": "188.17",
-      "variants": {}
-    },
     "604840c1c7568f2e46f7": {
       "atr": "0.004841351903786768281005208508",
       "detected_at": 1795275900,
@@ -102349,31 +102154,6 @@
       "upper": "6.534",
       "variants": {}
     },
-    "66e585847f36a8159454": {
-      "atr": "6.562398206465077858152865857",
-      "detected_at": 1795166100,
-      "entry_started_at": 0,
-      "expires_at": 1795167900,
-      "family": "66e585847f36a8159454",
-      "formed_at": 1795166100,
-      "id": "66e585847f36a8159454",
-      "last_bar": 1795167900,
-      "level": "856.71",
-      "lower": "845.05",
-      "observations": [],
-      "preparation_expires_at": 1795167900,
-      "reaction_at": 0,
-      "reaction_extreme": null,
-      "reason": "PRAZO_ENCERRADO",
-      "revision": 0,
-      "side": "LONG",
-      "status": "EXPIRADO",
-      "stop": "853.42",
-      "strategy": "ROMPIMENTO_M1_VOLUME",
-      "symbol": "ZEC_USDT",
-      "upper": "856.71",
-      "variants": {}
-    },
     "66ec6168ec6159acd3eb": {
       "atr": "0.02110960239907681734707903937",
       "detected_at": 1795239900,
@@ -104018,31 +103798,6 @@
       "upper": "0.2258",
       "variants": {}
     },
-    "6a95c4c383124aa8f0a5": {
-      "atr": "0.3680837848476615616163283174",
-      "detected_at": 1795166100,
-      "entry_started_at": 0,
-      "expires_at": 1795167900,
-      "family": "6a95c4c383124aa8f0a5",
-      "formed_at": 1795166100,
-      "id": "6a95c4c383124aa8f0a5",
-      "last_bar": 1795167900,
-      "level": "72.81",
-      "lower": "72.16",
-      "observations": [],
-      "preparation_expires_at": 1795167900,
-      "reaction_at": 0,
-      "reaction_extreme": null,
-      "reason": "PRAZO_ENCERRADO",
-      "revision": 0,
-      "side": "LONG",
-      "status": "EXPIRADO",
-      "stop": "72.62",
-      "strategy": "ROMPIMENTO_M1_VOLUME",
-      "symbol": "SOL_USDT",
-      "upper": "72.81",
-      "variants": {}
-    },
     "6a9c70f8b130eb008e09": {
       "atr": "0.03096694426453629455002248731",
       "detected_at": 1795266000,
@@ -105201,6 +104956,31 @@
       "strategy": "ROMPIMENTO_M1_VOLUME",
       "symbol": "ETH_USDT",
       "upper": "1628.45",
+      "variants": {}
+    },
+    "6f04228316dbf23be3b1": {
+      "atr": "0.001629964482761173701121380086",
+      "detected_at": 1795340700,
+      "entry_started_at": 0,
+      "expires_at": 1795342500,
+      "family": "6f04228316dbf23be3b1",
+      "formed_at": 1795340700,
+      "id": "6f04228316dbf23be3b1",
+      "last_bar": 0,
+      "level": "0.277",
+      "lower": "0.277",
+      "observations": [],
+      "preparation_expires_at": 1795342500,
+      "reaction_at": 0,
+      "reaction_extreme": null,
+      "reason": "",
+      "revision": 0,
+      "side": "SHORT",
+      "status": "POSSIVEL",
+      "stop": "0.2779",
+      "strategy": "ROMPIMENTO_M1_VOLUME",
+      "symbol": "ONDO_USDT",
+      "upper": "0.2824",
       "variants": {}
     },
     "6f04c4fda040a3970258": {
@@ -109692,7 +109472,7 @@
       "family": "7a2b61f4911edd058af1",
       "formed_at": 1795339800,
       "id": "7a2b61f4911edd058af1",
-      "last_bar": 1795340640,
+      "last_bar": 1795340700,
       "level": "6.634",
       "lower": "6.513",
       "observations": [],
@@ -112492,31 +112272,6 @@
       "strategy": "ROMPIMENTO_M1_VOLUME",
       "symbol": "TAO_USDT",
       "upper": "182.46",
-      "variants": {}
-    },
-    "81719ec24a2793c7a889": {
-      "atr": "0.05277900257654507356616242001",
-      "detected_at": 1795166100,
-      "entry_started_at": 0,
-      "expires_at": 1795167900,
-      "family": "81719ec24a2793c7a889",
-      "formed_at": 1795166100,
-      "id": "81719ec24a2793c7a889",
-      "last_bar": 1795167900,
-      "level": "6.695",
-      "lower": "6.602",
-      "observations": [],
-      "preparation_expires_at": 1795167900,
-      "reaction_at": 0,
-      "reaction_extreme": null,
-      "reason": "PRAZO_ENCERRADO",
-      "revision": 0,
-      "side": "LONG",
-      "status": "EXPIRADO",
-      "stop": "6.668",
-      "strategy": "ROMPIMENTO_M1_VOLUME",
-      "symbol": "INJ_USDT",
-      "upper": "6.695",
       "variants": {}
     },
     "817f350ec13784d314de": {
@@ -117582,7 +117337,7 @@
       "family": "8eaf41bb91c14eae3965",
       "formed_at": 1795339800,
       "id": "8eaf41bb91c14eae3965",
-      "last_bar": 1795340640,
+      "last_bar": 1795340700,
       "level": "6.513",
       "lower": "6.513",
       "observations": [],
@@ -122705,31 +122460,6 @@
       "upper": "0.000003648",
       "variants": {}
     },
-    "9c39884e2ac177d1f005": {
-      "atr": "8.950535384729787892341777607",
-      "detected_at": 1795166100,
-      "entry_started_at": 0,
-      "expires_at": 1795167900,
-      "family": "9c39884e2ac177d1f005",
-      "formed_at": 1795166100,
-      "id": "9c39884e2ac177d1f005",
-      "last_bar": 1795167900,
-      "level": "1759.2",
-      "lower": "1738.23",
-      "observations": [],
-      "preparation_expires_at": 1795167900,
-      "reaction_at": 0,
-      "reaction_extreme": null,
-      "reason": "PRAZO_ENCERRADO",
-      "revision": 0,
-      "side": "LONG",
-      "status": "EXPIRADO",
-      "stop": "1754.72",
-      "strategy": "ROMPIMENTO_M1_VOLUME",
-      "symbol": "ETH_USDT",
-      "upper": "1759.2",
-      "variants": {}
-    },
     "9c3d68138e36b69b9fda": {
       "atr": "0.08327419213067028614402135907",
       "detected_at": 1795209300,
@@ -122842,31 +122572,6 @@
       "strategy": "ROMPIMENTO_M1_VOLUME",
       "symbol": "AVAX_USDT",
       "upper": "6.579",
-      "variants": {}
-    },
-    "9c95945b6c7251960e43": {
-      "atr": "1.255787208893644777457216292",
-      "detected_at": 1795166100,
-      "entry_started_at": 0,
-      "expires_at": 1795167900,
-      "family": "9c95945b6c7251960e43",
-      "formed_at": 1795166100,
-      "id": "9c95945b6c7251960e43",
-      "last_bar": 1795167900,
-      "level": "185.7",
-      "lower": "185.7",
-      "observations": [],
-      "preparation_expires_at": 1795167900,
-      "reaction_at": 0,
-      "reaction_extreme": null,
-      "reason": "PRAZO_ENCERRADO",
-      "revision": 0,
-      "side": "SHORT",
-      "status": "EXPIRADO",
-      "stop": "186.33",
-      "strategy": "ROMPIMENTO_M1_VOLUME",
-      "symbol": "TAO_USDT",
-      "upper": "188.17",
       "variants": {}
     },
     "9ca8f5724a8cd9634600": {
@@ -130549,6 +130254,31 @@
       "upper": "0.05462",
       "variants": {}
     },
+    "aff279a3596b3622b1e3": {
+      "atr": "0.0007053820271534855687152076685",
+      "detected_at": 1795340700,
+      "entry_started_at": 0,
+      "expires_at": 1795342500,
+      "family": "aff279a3596b3622b1e3",
+      "formed_at": 1795340700,
+      "id": "aff279a3596b3622b1e3",
+      "last_bar": 0,
+      "level": "0.09771",
+      "lower": "0.09771",
+      "observations": [],
+      "preparation_expires_at": 1795342500,
+      "reaction_at": 0,
+      "reaction_extreme": null,
+      "reason": "",
+      "revision": 0,
+      "side": "SHORT",
+      "status": "POSSIVEL",
+      "stop": "0.09807",
+      "strategy": "ROMPIMENTO_M1_VOLUME",
+      "symbol": "ENA_USDT",
+      "upper": "0.10019",
+      "variants": {}
+    },
     "b00c6d87bcac1742a99d": {
       "atr": "0.003943936710281921233806932267",
       "detected_at": 1795283100,
@@ -130824,6 +130554,31 @@
       "strategy": "ROMPIMENTO_M1_VOLUME",
       "symbol": "UNI_USDT",
       "upper": "4.756",
+      "variants": {}
+    },
+    "b0e7076d7ce86812e111": {
+      "atr": "0.001629964482761173701121380086",
+      "detected_at": 1795340700,
+      "entry_started_at": 0,
+      "expires_at": 1795342500,
+      "family": "b0e7076d7ce86812e111",
+      "formed_at": 1795340700,
+      "id": "b0e7076d7ce86812e111",
+      "last_bar": 0,
+      "level": "0.2824",
+      "lower": "0.277",
+      "observations": [],
+      "preparation_expires_at": 1795342500,
+      "reaction_at": 0,
+      "reaction_extreme": null,
+      "reason": "",
+      "revision": 0,
+      "side": "LONG",
+      "status": "POSSIVEL",
+      "stop": "0.2815",
+      "strategy": "ROMPIMENTO_M1_VOLUME",
+      "symbol": "ONDO_USDT",
+      "upper": "0.2824",
       "variants": {}
     },
     "b0e8760703b7d5caddf8": {
@@ -145170,31 +144925,6 @@
         }
       }
     },
-    "d8970d9683b2ac6cd5d5": {
-      "atr": "0.00200151253498425414710433425",
-      "detected_at": 1795166100,
-      "entry_started_at": 0,
-      "expires_at": 1795167900,
-      "family": "d8970d9683b2ac6cd5d5",
-      "formed_at": 1795166100,
-      "id": "d8970d9683b2ac6cd5d5",
-      "last_bar": 1795167900,
-      "level": "0.2949",
-      "lower": "0.2903",
-      "observations": [],
-      "preparation_expires_at": 1795167900,
-      "reaction_at": 0,
-      "reaction_extreme": null,
-      "reason": "PRAZO_ENCERRADO",
-      "revision": 0,
-      "side": "LONG",
-      "status": "EXPIRADO",
-      "stop": "0.2938",
-      "strategy": "ROMPIMENTO_M1_VOLUME",
-      "symbol": "ONDO_USDT",
-      "upper": "0.2949",
-      "variants": {}
-    },
     "d8c51796a1825fdfa9b6": {
       "atr": "0.00085185030161962161459928143",
       "detected_at": 1795283100,
@@ -147124,31 +146854,6 @@
       "strategy": "ROMPIMENTO_M1_VOLUME",
       "symbol": "NEAR_USDT",
       "upper": "2.877",
-      "variants": {}
-    },
-    "de23a03af6740cd35b64": {
-      "atr": "0.2151486243039548363720102434",
-      "detected_at": 1795166100,
-      "entry_started_at": 0,
-      "expires_at": 1795167900,
-      "family": "de23a03af6740cd35b64",
-      "formed_at": 1795166100,
-      "id": "de23a03af6740cd35b64",
-      "last_bar": 1795167900,
-      "level": "42.05",
-      "lower": "41.55",
-      "observations": [],
-      "preparation_expires_at": 1795167900,
-      "reaction_at": 0,
-      "reaction_extreme": null,
-      "reason": "PRAZO_ENCERRADO",
-      "revision": 0,
-      "side": "LONG",
-      "status": "EXPIRADO",
-      "stop": "41.94",
-      "strategy": "ROMPIMENTO_M1_VOLUME",
-      "symbol": "LTC_USDT",
-      "upper": "42.05",
       "variants": {}
     },
     "de31d8947ab287ab8185": {
@@ -150369,31 +150074,6 @@
           "triggered_at": 1795286400
         }
       }
-    },
-    "e56188731666e2369d7c": {
-      "atr": "8.950535384729787892341777607",
-      "detected_at": 1795166100,
-      "entry_started_at": 0,
-      "expires_at": 1795167900,
-      "family": "e56188731666e2369d7c",
-      "formed_at": 1795166100,
-      "id": "e56188731666e2369d7c",
-      "last_bar": 1795167900,
-      "level": "1738.23",
-      "lower": "1738.23",
-      "observations": [],
-      "preparation_expires_at": 1795167900,
-      "reaction_at": 0,
-      "reaction_extreme": null,
-      "reason": "PRAZO_ENCERRADO",
-      "revision": 0,
-      "side": "SHORT",
-      "status": "EXPIRADO",
-      "stop": "1742.71",
-      "strategy": "ROMPIMENTO_M1_VOLUME",
-      "symbol": "ETH_USDT",
-      "upper": "1759.2",
-      "variants": {}
     },
     "e5815952ec75511f04d4": {
       "atr": "2.317035578840686660109278806",
@@ -156990,31 +156670,6 @@
       "strategy": "ROMPIMENTO_M1_VOLUME",
       "symbol": "HYPE_USDT",
       "upper": "63.697",
-      "variants": {}
-    },
-    "f61e53f30b9a9de20d6d": {
-      "atr": "0.0003197854863229342431354999064",
-      "detected_at": 1795166100,
-      "entry_started_at": 0,
-      "expires_at": 1795167900,
-      "family": "f61e53f30b9a9de20d6d",
-      "formed_at": 1795166100,
-      "id": "f61e53f30b9a9de20d6d",
-      "last_bar": 1795167900,
-      "level": "0.05419",
-      "lower": "0.05372",
-      "observations": [],
-      "preparation_expires_at": 1795167900,
-      "reaction_at": 0,
-      "reaction_extreme": null,
-      "reason": "PRAZO_ENCERRADO",
-      "revision": 0,
-      "side": "LONG",
-      "status": "EXPIRADO",
-      "stop": "0.05403",
-      "strategy": "ROMPIMENTO_M1_VOLUME",
-      "symbol": "HBAR_USDT",
-      "upper": "0.05419",
       "variants": {}
     },
     "f6304cb1764cc5dcc4ad": {
