@@ -15547,7 +15547,7 @@
       "watch_symbol": "LTC_USDT"
     },
     "40ece880b74fffdb3a64": {
-      "attempts": 0,
+      "attempts": 1,
       "category": "INFO",
       "created_at": 1795389991,
       "expires_at": 1795390020,
@@ -15558,7 +15558,11 @@
         "ebd1eaf5745244c5aa5e"
       ],
       "quote_at": 0,
-      "status": "PENDING",
+      "sent_at": 1795389996,
+      "status": "SENT",
+      "telegram_ids": [
+        16050
+      ],
       "text": "🟡 MOVIMENTO DETECTADO • AINDA SEM CONFIRMAÇÃO\nWLD/USDT • BAIXA (SHORT)\n🧪 SIMULAÇÃO • acompanhamento\n\nRompimento observado no M1 fechado às 20:26:00 BRT.\nPreço de referência do primeiro gatilho: 0.2354.\n\nPrimeiro fechamento além da região identificado.\nFalta o segundo fechamento sustentar o nível, com volume de pelo menos 50% do primeiro.\nApós confirmar, o plano ainda precisa passar pela avaliação financeira.\n\nFaixa em estudo: 0.235 a 0.2355\n🛑 Stop do plano: 0.2367 (-5.52% bruto em 10x)\n🎯 Alvo do plano: 0.2314 (+16.99% bruto em 10x)\nCenário indicativo sobre a margem em 10x; custos e liquidação ainda não validados.\nMovimento sem alavancagem: TP +1.70% • SL -0.55%.\nPercentuais sobre a referência do primeiro gatilho, na direção da operação, antes de custos.\n\nMovimento observado, sem entrada liberada. Aguarde o alerta de confirmação e viabilidade.\nAlerta válido até 20:27:00 BRT.\nAnálise: 22/11/2026 20:26:31 BRT\nPlano: ebd1eaf5745244c5aa5e",
       "watch_stage": 1,
       "watch_symbol": "WLD_USDT"
