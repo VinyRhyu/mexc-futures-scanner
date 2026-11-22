@@ -53297,7 +53297,7 @@
       "text": "⚪ ATUALIZAÇÃO DOS PLANOS ACOMPANHADOS\n🧪 SIMULAÇÃO\n\n• PEPE/USDT • LONG: confirmação não aprovada\n  Motivo: O volume do segundo candle M1 foi menor que50% do primeiro.\n  Plano: 20e79a799e73de4c7f11\n• PEPE/USDT • LONG: confirmação não aprovada\n  Motivo: O volume do segundo candle M1 foi menor que50% do primeiro.\n  Plano: 7b736e9351633ab1a971\n\nSem novas entradas por esses planos.\nAvisos de movimento não equivalem a entradas liberadas.\nA expiração não encerra uma posição já aberta.\nAnálise: 21/11/2026 18:20:45 BRT"
     },
     "e326cac20b66674496c3": {
-      "attempts": 0,
+      "attempts": 1,
       "category": "INFO",
       "created_at": 1795366594,
       "expires_at": 1795366680,
@@ -53308,7 +53308,11 @@
         "5fa4d767a1350caa40bf"
       ],
       "quote_at": 0,
-      "status": "PENDING",
+      "sent_at": 1795366598,
+      "status": "SENT",
+      "telegram_ids": [
+        15554
+      ],
       "text": "🟡 MOVIMENTO DETECTADO • ENTRADA BLOQUEADA\nHYPE/USDT • ALTA (LONG)\n🧪 SIMULAÇÃO • acompanhamento\n\nRompimento observado no M1 fechado às 13:56:00 BRT.\nPreço de referência do primeiro gatilho: 63.165.\n\nConfirmação técnica identificada; entrada bloqueada.\nCondição pendente: A relação entre ganho e perda ficou abaixo do mínimo.\n\nFaixa em estudo: 63.152 a 63.256\n🛑 Stop do plano: 62.93 (-3.72% bruto em 10x)\n🎯 Alvo do plano: 63.296 (+2.07% bruto em 10x)\nCenário indicativo sobre a margem em 10x; custos e liquidação ainda não validados.\nMovimento sem alavancagem: TP +0.21% • SL -0.37%.\nPercentuais sobre a referência do primeiro gatilho, na direção da operação, antes de custos.\n\nMovimento observado, sem entrada liberada. Aguarde o alerta de confirmação e viabilidade.\nAlerta válido até 13:58:00 BRT.\nAnálise: 22/11/2026 13:56:34 BRT\nPlano: 5fa4d767a1350caa40bf",
       "watch_stage": 0,
       "watch_symbol": "HYPE_USDT"
