@@ -33308,7 +33308,7 @@
       "text": "⚪ ATUALIZAÇÃO DOS PLANOS ACOMPANHADOS\n🧪 SIMULAÇÃO\n\n• TAO/USDT • LONG: prazo para nova entrada encerrado\n  Motivo: A janela para uma nova entrada terminou.\n  Plano: 630368303ed1c8949f4c\n• LINK/USDT • LONG: prazo para nova entrada encerrado\n  Motivo: A janela para uma nova entrada terminou.\n  Plano: ea99497d75ffd043a39f\n• DOGE/USDT • LONG: prazo para nova entrada encerrado\n  Motivo: A janela para uma nova entrada terminou.\n  Plano: ef6cbfd1b89488a0b4ac\n\nSem novas entradas por esses planos.\nAvisos de movimento não equivalem a entradas liberadas.\nA expiração não encerra uma posição já aberta.\nAnálise: 21/11/2026 03:44:35 BRT"
     },
     "7a810ad0024d5c90b836": {
-      "attempts": 0,
+      "attempts": 1,
       "category": "INFO",
       "created_at": 1795322071,
       "expires_at": 1795322100,
@@ -33319,7 +33319,11 @@
         "6256c34c0eb87519524d"
       ],
       "quote_at": 0,
-      "status": "PENDING",
+      "sent_at": 1795322075,
+      "status": "SENT",
+      "telegram_ids": [
+        14897
+      ],
       "text": "🟡 MOVIMENTO DETECTADO • AINDA SEM CONFIRMAÇÃO\nENA/USDT • ALTA (LONG)\n🧪 SIMULAÇÃO • acompanhamento\n\nRompimento observado no M1 fechado às 01:34:00 BRT.\nPreço de referência do primeiro gatilho: 0.09834.\n\nPrimeiro fechamento além da região identificado.\nFalta o segundo fechamento sustentar o nível, com volume de pelo menos 50% do primeiro.\nApós confirmar, o plano ainda precisa passar pela avaliação financeira.\n\nFaixa em estudo: 0.09821 a 0.09847\n🛑 Stop do plano: 0.09787 (-4.78% bruto em 10x)\n🎯 Alvo do plano: 0.09906 (+7.32% bruto em 10x)\nCenário indicativo sobre a margem em 10x; custos e liquidação ainda não validados.\nMovimento sem alavancagem: TP +0.73% • SL -0.48%.\nPercentuais sobre a referência do primeiro gatilho, na direção da operação, antes de custos.\n\nMovimento observado, sem entrada liberada. Aguarde o alerta de confirmação e viabilidade.\nAlerta válido até 01:35:00 BRT.\nAnálise: 22/11/2026 01:34:31 BRT\nPlano: 6256c34c0eb87519524d",
       "watch_stage": 1,
       "watch_symbol": "ENA_USDT"
