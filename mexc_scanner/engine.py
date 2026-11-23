@@ -11,7 +11,7 @@ from .finance import evaluate
 from .market import parse_candles, select_universe, structure, aggregate_two_hours
 from .mexc import MexcClient, SourceError
 from .models import Contract, D, DataError, Plan, jsonable, stable_id
-from .reporting import brt, closed_plans_message, daily_message, plan_message
+from .reporting import brt, closed_plans_message, daily_message, plan_message, entry_signal_message
 from .state import queue_message
 from .observability import Timings, record_plan, record_source_gate
 from .strategies import process_symbol
@@ -278,7 +278,7 @@ def _queue_transitions(state: dict, previous: dict, config: Config, now: int, *,
                 else:
                     restriction = "A banca atingiu uma fase que exige revisão dos parâmetros."
         quote_at = int(v.financial.get("quote_at", 0))
-        queue_message(state, event_id, plan_message(p, config.mode, now, v, restriction=restriction) + suffix,
+        queue_message(state, event_id, entry_signal_message(p, config.mode, now, v, restriction=restriction) + suffix,
                       now, p.expires_at, "ENTRY", quote_at)
         message = state['outbox'][event_id]
         if message['status'] == 'PENDING':
