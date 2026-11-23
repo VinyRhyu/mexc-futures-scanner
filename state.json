@@ -8585,7 +8585,7 @@
       "watch_symbol": "QNT_USDT"
     },
     "26bfe3311977ba445b1b": {
-      "attempts": 0,
+      "attempts": 1,
       "category": "INFO",
       "created_at": 1795466080,
       "expires_at": 1795466100,
@@ -8596,7 +8596,11 @@
         "60c3417b7942e4d7f86b"
       ],
       "quote_at": 0,
-      "status": "PENDING",
+      "sent_at": 1795466084,
+      "status": "SENT",
+      "telegram_ids": [
+        17231
+      ],
       "text": "🟡 MOVIMENTO DETECTADO • AINDA SEM CONFIRMAÇÃO\nENA/USDT • BAIXA (SHORT)\n🧪 SIMULAÇÃO • acompanhamento\n\nRompimento observado no M1 fechado às 17:34:00 BRT.\nPreço de referência do primeiro gatilho: 0.10059.\n\nPrimeiro fechamento além da região identificado.\nFalta o segundo fechamento sustentar o nível, com volume de pelo menos 50% do primeiro.\nApós confirmar, o plano ainda precisa passar pela avaliação financeira.\n\nFaixa em estudo: 0.10025 a 0.10073\n🛑 Stop do plano: 0.10157 (-9.74% bruto em 10x)\n🎯 Alvo do plano: 0.10069 (-0.99% bruto em 10x)\nCenário indicativo sobre a margem em 10x; custos e liquidação ainda não validados.\nMovimento sem alavancagem: TP -0.099% • SL -0.97%.\nPercentuais sobre a referência do primeiro gatilho, na direção da operação, antes de custos.\n\nMovimento observado, sem entrada liberada. Aguarde o alerta de confirmação e viabilidade.\nAlerta válido até 17:35:00 BRT.\nAnálise: 23/11/2026 17:34:40 BRT\nPlano: 60c3417b7942e4d7f86b",
       "watch_stage": 1,
       "watch_symbol": "ENA_USDT"
