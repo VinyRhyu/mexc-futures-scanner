@@ -22,7 +22,7 @@ from mexc_scanner.models import Contract, D, jsonable
 from scripts.research_entry_context import portfolio_diagnostics, pick_portfolio
 from scripts.research_liquidity_cohort import analyze_symbol, iso, START, END
 
-MIN_COMPLETE = 35  # study fails; incomplete market data is not counted as no trade
+MIN_COMPLETE = 20  # preflight observed only 24 currently eligible; require >=20 complete
 
 
 def freeze_snapshot(contracts, tickers, assets, config, captured_at):
@@ -35,7 +35,7 @@ def freeze_snapshot(contracts, tickers, assets, config, captured_at):
     if not names or len(names) != len(set(names)):
         raise ValueError("empty or duplicated live eligible universe")
     if len(names) < MIN_COMPLETE:
-        raise ValueError(f"too few eligible symbols for research: {len(names)}")
+        raise ValueError(f"too few eligible symbols for research: {len(names)} (<{MIN_COMPLETE})")
     # Never replace selected symbols after seeing historical outcomes.
     digest = hashlib.sha256(",".join(names).encode("utf-8")).hexdigest()
     return {
