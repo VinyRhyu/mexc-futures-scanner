@@ -1,0 +1,33 @@
+name: Pesquisa de liquidez — M1 e custos
+on:
+  pull_request:
+    paths:
+      - 'scripts/research_liquidity_cohort.py'
+      - 'tests/test_research_liquidity_cohort.py'
+      - '.github/workflows/research-liquidity-cohort.yml'
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  research:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v7.0.1
+        with:
+          persist-credentials: false
+      - uses: actions/setup-python@v7
+        with:
+          python-version: '3.12'
+      - name: Testar motor experimental sem rede
+        run: python -m unittest tests.test_research_liquidity_cohort -v
+      - name: Coletar MEXC publica e calcular coorte retrospectiva sem ordens
+        run: python -m scripts.research_liquidity_cohort
+      - name: Guardar resultados mesmo se amostra incompleta
+        if: always()
+        uses: actions/upload-artifact@v7.0.2
+        with:
+          name: liquidity-cohort-${{ github.run_id }}
+          path: reports/liquidity-cohort/
+          retention-days: 30
+          if-no-files-found: warn
