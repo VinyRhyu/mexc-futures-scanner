@@ -813,7 +813,7 @@
       "watch_symbol": "HYPE_USDT"
     },
     "0326e6ba03c574d9bf15": {
-      "attempts": 0,
+      "attempts": 1,
       "category": "INFO",
       "created_at": 1795460505,
       "expires_at": 1795460580,
@@ -824,7 +824,11 @@
         "365aa9746768b280dd99"
       ],
       "quote_at": 0,
-      "status": "PENDING",
+      "sent_at": 1795460510,
+      "status": "SENT",
+      "telegram_ids": [
+        17114
+      ],
       "text": "🟡 MOVIMENTO DETECTADO • ENTRADA BLOQUEADA\nICP/USDT • BAIXA (SHORT)\n🧪 SIMULAÇÃO • acompanhamento\n\nRompimento observado no M1 fechado às 16:01:00 BRT.\nPreço de referência do primeiro gatilho: 2.075.\n\nConfirmação técnica identificada; entrada bloqueada.\nCondição pendente: Os custos estão altos demais em relação ao risco.\n\nFaixa em estudo: 2.07 a 2.077\n🛑 Stop do plano: 2.092 (-8.19% bruto em 10x)\n🎯 Alvo do plano: 2.049 (+12.53% bruto em 10x)\nCenário indicativo sobre a margem em 10x; custos e liquidação ainda não validados.\nMovimento sem alavancagem: TP +1.25% • SL -0.82%.\nPercentuais sobre a referência do primeiro gatilho, na direção da operação, antes de custos.\n\nMovimento observado, sem entrada liberada. Aguarde o alerta de confirmação e viabilidade.\nAlerta válido até 16:03:00 BRT.\nAnálise: 23/11/2026 16:01:45 BRT\nPlano: 365aa9746768b280dd99",
       "watch_stage": 0,
       "watch_symbol": "ICP_USDT"
@@ -4642,7 +4646,7 @@
       "watch_symbol": "TIA_USDT"
     },
     "15372b473c0a92e13773": {
-      "attempts": 0,
+      "attempts": 1,
       "category": "INFO",
       "created_at": 1795460505,
       "expires_at": 1795460520,
@@ -4653,7 +4657,11 @@
         "cd1f82dadba8c030418b"
       ],
       "quote_at": 0,
-      "status": "PENDING",
+      "sent_at": 1795460511,
+      "status": "SENT",
+      "telegram_ids": [
+        17115
+      ],
       "text": "🟡 MOVIMENTO DETECTADO • AINDA SEM CONFIRMAÇÃO\nSUI/USDT • BAIXA (SHORT)\n🧪 SIMULAÇÃO • acompanhamento\n\nRompimento observado no M1 fechado às 16:01:00 BRT.\nPreço de referência do primeiro gatilho: 0.6827.\n\nPrimeiro fechamento além da região identificado.\nFalta o segundo fechamento sustentar o nível, com volume de pelo menos 50% do primeiro.\nApós confirmar, o plano ainda precisa passar pela avaliação financeira.\n\nFaixa em estudo: 0.6808 a 0.6828\n🛑 Stop do plano: 0.6877 (-7.32% bruto em 10x)\n🎯 Alvo do plano: 0.676 (+9.81% bruto em 10x)\nCenário indicativo sobre a margem em 10x; custos e liquidação ainda não validados.\nMovimento sem alavancagem: TP +0.98% • SL -0.73%.\nPercentuais sobre a referência do primeiro gatilho, na direção da operação, antes de custos.\n\nMovimento observado, sem entrada liberada. Aguarde o alerta de confirmação e viabilidade.\nAlerta válido até 16:02:00 BRT.\nAnálise: 23/11/2026 16:01:45 BRT\nPlano: cd1f82dadba8c030418b",
       "watch_stage": 1,
       "watch_symbol": "SUI_USDT"
@@ -42820,11 +42828,12 @@
       "watch_symbol": "DOGE_USDT"
     },
     "bdbc7ba7e641a53707ea": {
-      "attempts": 0,
+      "attempts": 1,
       "category": "INFO",
       "created_at": 1795460505,
       "expires_at": 1795460520,
       "id": "bdbc7ba7e641a53707ea",
+      "last_error": "TELEGRAM_FALHA_OU_RESULTADO_AMBIGUO: URLError",
       "movement_at": 1795460460,
       "movement_side": "SHORT",
       "plan_ids": [
