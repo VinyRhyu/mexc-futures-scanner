@@ -45732,7 +45732,7 @@
       "text": "⚪ ATUALIZAÇÃO DOS PLANOS ACOMPANHADOS\n🧪 SIMULAÇÃO\n\n• ETH/USDT • LONG: prazo para nova entrada encerrado\n  Motivo: A janela para uma nova entrada terminou.\n  Plano: 00471f5107a56d3f68c5\n• SUI/USDT • SHORT: prazo para nova entrada encerrado\n  Motivo: A janela para uma nova entrada terminou.\n  Plano: 01879f5f12e403afdf08\n• BTC/USDT • SHORT: prazo para nova entrada encerrado\n  Motivo: A janela para uma nova entrada terminou.\n  Plano: 0c13e051dee8160298bd\n• ONDO/USDT • SHORT: prazo para nova entrada encerrado\n  Motivo: A janela para uma nova entrada terminou.\n  Plano: 0c72975540228b020645\n• ADA/USDT • SHORT: prazo para nova entrada encerrado\n  Motivo: A janela para uma nova entrada terminou.\n  Plano: 0e4c7db51b70b9686f53\n• ONDO/USDT • LONG: prazo para nova entrada encerrado\n  Motivo: A janela para uma nova entrada terminou.\n  Plano: 46f056579a65a4c0d105\n\nSem novas entradas por esses planos.\nAvisos de movimento não equivalem a entradas liberadas.\nA expiração não encerra uma posição já aberta.\nAnálise: 22/11/2026 21:30:43 BRT"
     },
     "c0e4b92ea3203fb02aea": {
-      "attempts": 0,
+      "attempts": 1,
       "category": "INFO",
       "created_at": 1795441890,
       "expires_at": 1795441920,
@@ -45743,7 +45743,11 @@
         "13dc17aceb2c96669db2"
       ],
       "quote_at": 0,
-      "status": "PENDING",
+      "sent_at": 1795441893,
+      "status": "SENT",
+      "telegram_ids": [
+        16919
+      ],
       "text": "🟡 MOVIMENTO DETECTADO • AINDA SEM CONFIRMAÇÃO\nONDO/USDT • BAIXA (SHORT)\n🧪 SIMULAÇÃO • acompanhamento\n\nRompimento observado no M1 fechado às 10:51:00 BRT.\nPreço de referência do primeiro gatilho: 0.29.\n\nPrimeiro fechamento além da região identificado.\nFalta o segundo fechamento sustentar o nível, com volume de pelo menos 50% do primeiro.\nApós confirmar, o plano ainda precisa passar pela avaliação financeira.\n\nFaixa em estudo: 0.2897 a 0.2903\n🛑 Stop do plano: 0.2914 (-4.83% bruto em 10x)\n🎯 Alvo do plano: 0.2898 (+0.69% bruto em 10x)\nCenário indicativo sobre a margem em 10x; custos e liquidação ainda não validados.\nMovimento sem alavancagem: TP +0.069% • SL -0.48%.\nPercentuais sobre a referência do primeiro gatilho, na direção da operação, antes de custos.\n\nMovimento observado, sem entrada liberada. Aguarde o alerta de confirmação e viabilidade.\nAlerta válido até 10:52:00 BRT.\nAnálise: 23/11/2026 10:51:30 BRT\nPlano: 13dc17aceb2c96669db2",
       "watch_stage": 1,
       "watch_symbol": "ONDO_USDT"
