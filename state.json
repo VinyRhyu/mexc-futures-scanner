@@ -3367,13 +3367,17 @@
       "watch_symbol": "PEPE_USDT"
     },
     "104e6c79dee33fbba54b": {
-      "attempts": 0,
+      "attempts": 1,
       "category": "INFO",
       "created_at": 1795472025,
       "expires_at": 1795475625,
       "id": "104e6c79dee33fbba54b",
       "quote_at": 0,
-      "status": "PENDING",
+      "sent_at": 1795472030,
+      "status": "SENT",
+      "telegram_ids": [
+        17371
+      ],
       "text": "⚪ ATUALIZAÇÃO DOS PLANOS ACOMPANHADOS\n🧪 SIMULAÇÃO\n\n• INJ/USDT • SHORT: confirmação não aprovada\n  Motivo: O volume do segundo candle M1 foi menor que50% do primeiro.\n  Plano: 2ceec4cf86e91fac160f\n\nSem novas entradas por esses planos.\nAvisos de movimento não equivalem a entradas liberadas.\nA expiração não encerra uma posição já aberta.\nAnálise: 23/11/2026 19:13:45 BRT"
     },
     "105193bb2cf4f65bcca1": {
@@ -33156,7 +33160,7 @@
       "watch_symbol": "ENA_USDT"
     },
     "9587f36d286f66b42622": {
-      "attempts": 0,
+      "attempts": 1,
       "category": "INFO",
       "created_at": 1795472025,
       "expires_at": 1795472040,
@@ -33167,7 +33171,11 @@
         "0887f98029b6bf7bbcbc"
       ],
       "quote_at": 0,
-      "status": "PENDING",
+      "sent_at": 1795472029,
+      "status": "SENT",
+      "telegram_ids": [
+        17369
+      ],
       "text": "🟡 MOVIMENTO DETECTADO • AINDA SEM CONFIRMAÇÃO\nENA/USDT • BAIXA (SHORT)\n🧪 SIMULAÇÃO • acompanhamento\n\nRompimento observado no M1 fechado às 19:13:00 BRT.\nPreço de referência do primeiro gatilho: 0.09929.\n\nPrimeiro fechamento além da região identificado.\nFalta o segundo fechamento sustentar o nível, com volume de pelo menos 50% do primeiro.\nApós confirmar, o plano ainda precisa passar pela avaliação financeira.\n\nFaixa em estudo: 0.09898 a 0.0993\n🛑 Stop do plano: 0.10007 (-7.86% bruto em 10x)\n🎯 Alvo do plano: 0.09876 (+5.34% bruto em 10x)\nCenário indicativo sobre a margem em 10x; custos e liquidação ainda não validados.\nMovimento sem alavancagem: TP +0.53% • SL -0.79%.\nPercentuais sobre a referência do primeiro gatilho, na direção da operação, antes de custos.\n\nMovimento observado, sem entrada liberada. Aguarde o alerta de confirmação e viabilidade.\nAlerta válido até 19:14:00 BRT.\nAnálise: 23/11/2026 19:13:45 BRT\nPlano: 0887f98029b6bf7bbcbc",
       "watch_stage": 1,
       "watch_symbol": "ENA_USDT"
@@ -55940,7 +55948,7 @@
       "watch_symbol": "NEAR_USDT"
     },
     "fe3478be5e9f4153f09b": {
-      "attempts": 0,
+      "attempts": 1,
       "category": "INFO",
       "created_at": 1795472025,
       "expires_at": 1795473000,
@@ -55949,7 +55957,11 @@
         "caa0ac3609a8a873d321"
       ],
       "quote_at": 0,
-      "status": "PENDING",
+      "sent_at": 1795472030,
+      "status": "SENT",
+      "telegram_ids": [
+        17370
+      ],
       "text": "👀 PLANO EM PREPARAÇÃO • AGUARDANDO GATILHO\nINJ/USDT\n🧪 SIMULAÇÃO • acompanhamento\n\nRegião em análise: 6.411 a 6.56\nLONG somente se houver fechamento M1 acima de ≈ 6.56711.\n\nConfirmação: dois fechamentos M1 consecutivos além do gatilho; volume do segundo de pelo menos 50% do primeiro.\nTP, SL e percentuais serão definidos no primeiro gatilho. A confirmação ainda precisa passar pela avaliação financeira.\n\nSem rompimento observado neste plano e sem entrada liberada.\nPreparação até 19:30:00 BRT.\nAnálise: 23/11/2026 19:13:45 BRT\nPlanos: caa0ac3609a8a873d321",
       "watch_stage": 2,
       "watch_symbol": "INJ_USDT"
