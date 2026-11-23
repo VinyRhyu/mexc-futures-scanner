@@ -250,7 +250,7 @@ def run_study(frozen_path, output_path, fail_on_partial=False):
     audit["unique_1usdt_base_viable_events"]=eligible_count
     audit["duplicate_1usdt_base_viable_plan_records"]=audit_dupes
     (output_path/"rr15_1usdt_summary.json").write_text(
-        json.dumps(audit,ensure_ascii=False,indent=2)+"\\n")
+        json.dumps(audit,ensure_ascii=False,indent=2)+"\n")
     print("RR15_TRADE_AUDIT="+json.dumps({
         "start":out["window_start_utc"],
         "number_of_selections":audit["total"]["trades"],
