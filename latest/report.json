@@ -1,5 +1,5 @@
 {
-  "analyzed_at": 1795401511,
+  "analyzed_at": 1795401573,
   "analyzed_symbols": 25,
   "config_fingerprint": "a0c2766956c79181fa62",
   "diagnostics": [],
@@ -2701,37 +2701,49 @@
   "operational_timings": [
     {
       "commit": "9f93310df53b77a98aa0a5166081b5693404df91",
-      "duration_s": 1.450572,
+      "duration_s": 1.624021,
       "event": "end",
-      "finished_at_utc": "2026-11-23T02:38:15.043421+00:00",
+      "finished_at_utc": "2026-11-23T02:39:15.413969+00:00",
       "phase": "market_catalog",
       "run_attempt": "1",
-      "run_id": "45101335929",
-      "started_at_utc": "2026-11-23T02:38:13.592876+00:00",
+      "run_id": "45101423533",
+      "started_at_utc": "2026-11-23T02:39:13.789973+00:00",
       "status": "OK",
       "telemetry": "phase_v1"
     },
     {
       "commit": "9f93310df53b77a98aa0a5166081b5693404df91",
-      "duration_s": 16.488522,
+      "duration_s": 16.641093,
       "event": "end",
-      "finished_at_utc": "2026-11-23T02:38:31.533226+00:00",
+      "finished_at_utc": "2026-11-23T02:39:32.056050+00:00",
       "phase": "candles_collect",
       "run_attempt": "1",
-      "run_id": "45101335929",
-      "started_at_utc": "2026-11-23T02:38:15.044728+00:00",
+      "run_id": "45101423533",
+      "started_at_utc": "2026-11-23T02:39:15.414993+00:00",
       "status": "OK",
       "telemetry": "phase_v1"
     },
     {
       "commit": "9f93310df53b77a98aa0a5166081b5693404df91",
-      "duration_s": 0.474543,
+      "duration_s": 0.835499,
       "event": "end",
-      "finished_at_utc": "2026-11-23T02:38:32.007898+00:00",
+      "finished_at_utc": "2026-11-23T02:39:33.202057+00:00",
+      "phase": "financial_quotes_and_evaluation",
+      "run_attempt": "1",
+      "run_id": "45101423533",
+      "started_at_utc": "2026-11-23T02:39:32.366564+00:00",
+      "status": "OK",
+      "telemetry": "phase_v1"
+    },
+    {
+      "commit": "9f93310df53b77a98aa0a5166081b5693404df91",
+      "duration_s": 1.302298,
+      "event": "end",
+      "finished_at_utc": "2026-11-23T02:39:33.358526+00:00",
       "phase": "analysis_and_finance",
       "run_attempt": "1",
-      "run_id": "45101335929",
-      "started_at_utc": "2026-11-23T02:38:31.533382+00:00",
+      "run_id": "45101423533",
+      "started_at_utc": "2026-11-23T02:39:32.056247+00:00",
       "status": "OK",
       "telemetry": "phase_v1"
     }
@@ -12497,7 +12509,7 @@
       "family": "328c73f3f26c4eaf3f00",
       "formed_at": 1795401000,
       "id": "328c73f3f26c4eaf3f00",
-      "last_bar": 1795401480,
+      "last_bar": 1795401540,
       "level": "70.87",
       "lower": "70.19",
       "observations": [],
@@ -14445,21 +14457,23 @@
       "atr": "0.2797631967470699227890520775",
       "detected_at": 1795401000,
       "entry_started_at": 1795401480,
-      "expires_at": 1795403280,
+      "expires_at": 1795401660,
       "family": "3c19868353c2b5743a41",
       "formed_at": 1795401000,
       "id": "3c19868353c2b5743a41",
-      "last_bar": 1795401480,
+      "last_bar": 1795401540,
       "level": "70.19",
       "lower": "70.19",
-      "observations": [],
+      "observations": [
+        "VOLUME_M1_PERCENT=201.1987833243871891214886384"
+      ],
       "preparation_expires_at": 1795402800,
       "reaction_at": 1795401480,
       "reaction_extreme": null,
       "reason": "",
-      "revision": 0,
+      "revision": 1,
       "side": "SHORT",
-      "status": "POSSIVEL",
+      "status": "ATIVO",
       "stop": "70.33",
       "strategy": "ROMPIMENTO_M1_VOLUME",
       "symbol": "SOL_USDT",
@@ -14468,15 +14482,46 @@
         "ANTECIPADA": {
           "entry_high": "70.15",
           "entry_low": "70.09",
-          "financial": {},
+          "financial": {
+            "assumptions": [],
+            "mode": "paper",
+            "reasons": [
+              "PLANO_NAO_ATUAL"
+            ],
+            "status": "BLOQUEADA"
+          },
           "kind": "ANTECIPADA",
           "reason": "",
           "reference": "70.15",
-          "status": "AGUARDANDO_CONFIRMACAO",
+          "status": "ENCERRADA",
           "stop": "70.33",
           "target": "70.05",
           "target_origin": "PIVO_CONHECIDO",
           "triggered_at": 1795401480
+        },
+        "CONFIRMADA": {
+          "entry_high": "70.15",
+          "entry_low": "70.09",
+          "financial": {
+            "assumptions": [
+              "FUNDING_FUTURO_MANTIDO_POR_6H",
+              "DESLIZAMENTO_ESTIMADO",
+              "TAXA_SIMULADA_NAO_PESSOAL"
+            ],
+            "mode": "paper",
+            "reasons": [
+              "RETORNO_RISCO_INSUFICIENTE"
+            ],
+            "status": "BLOQUEADA"
+          },
+          "kind": "CONFIRMADA",
+          "reason": "",
+          "reference": "70.15",
+          "status": "VALIDA",
+          "stop": "70.33",
+          "target": "70.05",
+          "target_origin": "PIVO_CONHECIDO",
+          "triggered_at": 1795401540
         }
       }
     },
@@ -36419,7 +36464,7 @@
       "family": "c0550d0e9ebeeb720682",
       "formed_at": 1795400100,
       "id": "c0550d0e9ebeeb720682",
-      "last_bar": 1795401480,
+      "last_bar": 1795401540,
       "level": "0.3324",
       "lower": "0.3284",
       "observations": [],
@@ -38040,7 +38085,7 @@
       "family": "c95da3871e3e49adbeef",
       "formed_at": 1795400100,
       "id": "c95da3871e3e49adbeef",
-      "last_bar": 1795401480,
+      "last_bar": 1795401540,
       "level": "0.05533",
       "lower": "0.05465",
       "observations": [],
