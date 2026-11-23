@@ -2,6 +2,7 @@
 from copy import deepcopy
 from datetime import datetime,timezone
 import unittest
+from unittest.mock import patch
 
 from mexc_scanner.minute_breakout import MODEL,STRATEGY
 from mexc_scanner.models import Candle, DataError, D
@@ -133,6 +134,45 @@ class ShadowATests(unittest.TestCase):
         b["shadow"]["verdict_A"]="POSSIVEL_ENTRADA_TARDIA"
         with self.assertRaisesRegex(DataError,"inconsistent"):
             unique_events([a,b])
+
+
+    def test_prospective_signal_captured_before_price_touch(self):
+        state=fake_state()
+        client=FakePublicClient()
+        with patch("scripts.research_shadow_a.PROSPECTIVE_START_UTC",
+                   "2026-11-22T23:00:00+00:00"), \
+             patch("scripts.research_shadow_a.PROSPECTIVE_END_UTC",
+                   "2026-11-24T00:00:00+00:00"):
+            r=run(state,client,CLOCK)
+        self.assertEqual(r["new_prospective_observations"],1)
+        self.assertEqual(r["new_prospective_flagged"],1)
+        self.assertTrue(r["signals"][0]["shadow"]["new_prospective_observation"])
+        self.assertEqual(r["distinct_events"][0]["first_observed_at"],
+                         "2026-11-23T00:00:20+00:00")
+
+    def test_prospective_requires_no_prior_tp_or_sl_touch(self):
+        state=fake_state()
+        client=FakePublicClient()
+        with patch("scripts.research_shadow_a.PROSPECTIVE_START_UTC",
+                   "2026-11-22T23:00:00+00:00"), \
+             patch("scripts.research_shadow_a.PROSPECTIVE_END_UTC",
+                   "2026-11-24T00:00:00+00:00"), \
+             patch("scripts.research_shadow_a.touch_path",
+                   return_value={"path_status":"TOCOU_SL",
+                                 "observed_at":"2026-11-23T00:00:10+00:00",
+                                 "window_complete":False}):
+            r=run(state,client,CLOCK)
+        self.assertEqual(r["new_prospective_observations"],0)
+        self.assertEqual(r["signals"][0]["shadow"]["observation_exclusion_reason"],
+                         "FIRST_SEEN_AFTER_TP_OR_SL")
+
+    def test_out_of_window_replay_not_counted_prospective(self):
+        state=fake_state()
+        client=FakePublicClient()
+        r=run(state,client,CLOCK)
+        self.assertEqual(r["new_prospective_observations"],0)
+        self.assertEqual(r["signals"][0]["shadow"]["observation_exclusion_reason"],
+                         "BEFORE_OR_AFTER_PROSPECTIVE_PERIOD")
 
     def test_path_observation_is_not_profit_claim(self):
         a=candle(END-3600,60)
