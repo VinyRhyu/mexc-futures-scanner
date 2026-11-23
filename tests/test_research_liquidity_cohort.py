@@ -2,7 +2,7 @@
 import unittest
 from decimal import Decimal
 
-from scripts.research_liquidity_cohort import wilson, summarize, portfolio_one_position
+from scripts.research_liquidity_cohort import wilson, summarize, portfolio_one_position, append_unseen_plans
 
 
 class LiquidityCohortTests(unittest.TestCase):
@@ -11,6 +11,19 @@ class LiquidityCohortTests(unittest.TestCase):
         self.assertEqual(wilson(10, 10)[1], 1.0)
         self.assertLess(wilson(1, 2)[0], 0.5)
         self.assertGreater(wilson(1, 2)[1], 0.5)
+
+    def test_retired_plan_never_resurrects_after_pruning(self):
+        from types import SimpleNamespace
+        active, known = [], set()
+        first = SimpleNamespace(id="formation_1")
+        self.assertEqual(append_unseen_plans(active, [first], known), 1)
+        self.assertEqual(len(active), 1)
+        active.clear()  # production plan is expired and pruned
+        self.assertEqual(append_unseen_plans(active, [first], known), 0)
+        self.assertEqual(active, [])
+        self.assertEqual(append_unseen_plans(
+            active, [SimpleNamespace(id="formation_2")], known), 1)
+        self.assertEqual({p.id for p in active}, {"formation_2"})
 
     def test_zero_signals_report_no_hit_probability(self):
         r = summarize([], "cost_base")
