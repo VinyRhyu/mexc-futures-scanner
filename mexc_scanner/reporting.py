@@ -318,6 +318,64 @@ def plan_message(plan: Plan, mode: str, now: int, variant: Variant | None = None
     return "\n".join(lines)
 
 
+def entry_signal_message(plan: Plan, mode: str, now: int, variant: Variant, *, restriction: str = "") -> str:
+    """Short, actionable ENTRY layout; never invent a second target.
+
+    The current trading model has exactly one technical target: Variant.target.
+    TP2 is deliberately unavailable. Reformatting MUST NOT modify technical
+    prices, margin, leverage, entry authorization, account state or risk limits.
+    """
+    f = variant.financial
+    expected = "VIAVEL_SIMULADO" if mode == "paper" else "VIAVEL_REAL"
+    if restriction or variant.status != "VALIDA" or f.get("status") != expected:
+        # Do not present an informational/blocked plan as an entry.
+        return plan_message(plan, mode, now, variant, restriction=restriction)
+
+    required = ("entry_low", "entry_high", "leverage", "margin_usdt",
+                "gain_usdt", "loss_usdt", "net_rr", "quote_at")
+    if any(f.get(k) is None for k in required) or D(f["margin_usdt"]) <= 0:
+        return plan_message(
+            plan, mode, now, variant,
+            restriction="Dados financeiros incompletos: aguardar nova avaliação.")
+
+    margin = D(f["margin_usdt"])
+    tp_roi = signed_percent(D(f["gain_usdt"]) / margin * 100)
+    sl_roi = signed_percent(-D(f["loss_usdt"]) / margin * 100)
+    direction = "📈 LONG (ALTA)" if plan.side == "LONG" else "📉 SHORT (BAIXA)"
+    lines = [
+        "🟢 SINAL DE ENTRADA • " + ("SIMULAÇÃO" if mode == "paper" else "EXECUÇÃO MANUAL"),
+        f"MOEDA: {plan.symbol.replace('_', '/')}",
+        f"MOVIMENTO: {direction}",
+        f"ALAVANCAGEM: {f['leverage']}x",
+        "",
+        f"ENTRADA: {number(f['entry_low'])} a {number(f['entry_high'])}",
+        f"TP1: {number(variant.target)} ({tp_roi} ROI líquido estimado sobre a margem)",
+        "TP2: não definido (modelo atual tem apenas um alvo técnico)",
+        "",
+        f"SL: {number(variant.stop)} ({sl_roi} ROI líquido estimado sobre a margem)",
+        "",
+        "TP1 é o único alvo técnico atual; não há saída parcial ou TP2 configurados.",
+        f"Margem isolada estimada: {money(margin)} • {f['leverage']}x",
+        f"Retorno/risco líquido: {fixed(f['net_rr'])}:1",
+    ]
+    if f.get("loss_fraction") is not None:
+        lines.append("Risco estimado: " + fixed(D(f["loss_fraction"]) * 100) + "% da banca")
+    if f.get("fee_rate") is not None:
+        lines.append("Taxa por execução: " + fixed(D(f["fee_rate"]) * 100) + "%")
+    if f.get("assumptions"):
+        lines.append("Taxas, slippage e funding estimados; retorno não garantido.")
+    if f.get("real_gates"):
+        lines.append("Verificações reais pendentes: " +
+                     "; ".join(friendly(r).rstrip(".") for r in f["real_gates"]) + ".")
+    lines += [
+        _mode(mode) + " • nenhuma ordem automática",
+        f"Nova entrada até {clock(plan.expires_at, now)}",
+        "Cotação: " + clock(int(f["quote_at"]), now),
+        f"Plano: {plan.id} • revisão {plan.revision}",
+    ]
+    return "\n".join(lines)
+
+
 def closed_plans_message(plans: list[Plan], mode: str, now: int) -> str:
     labels = {"EXPIRADO": "prazo para nova entrada encerrado", "INVALIDADO": "plano invalidado",
               "AMBIGUO": "candle ambíguo", "EVENTO_PASSADO": "acompanhamento encerrado"}
