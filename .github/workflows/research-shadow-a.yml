@@ -1,0 +1,47 @@
+name: Pesquisa shadow A — leitura sem interferencia
+on:
+  pull_request:
+    paths:
+      - 'scripts/research_shadow_a.py'
+      - 'tests/test_research_shadow_a.py'
+      - 'docs/experiments/shadow-a-2026-11-22.md'
+      - '.github/workflows/research-shadow-a.yml'
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  shadow:
+    # Never let forked PR code access the operational-state checkout.
+    if: github.event_name == 'workflow_dispatch' || github.event.pull_request.head.repo.full_name == github.repository
+    runs-on: ubuntu-latest
+    timeout-minutes: 16
+    steps:
+      - name: Recuperar pesquisa (sem credencial persistente)
+        uses: actions/checkout@v7.0.1
+        with:
+          persist-credentials: false
+      - uses: actions/setup-python@v7
+        with:
+          python-version: '3.12'
+      - name: Validar causalidade e isolamento
+        run: |
+          python -m unittest tests.test_research_shadow_a tests.test_research_entry_context tests.test_research_liquidity_cohort -v
+      - name: Consultar branch scanner-state em modo somente leitura
+        uses: actions/checkout@v7.0.1
+        with:
+          ref: scanner-state
+          path: shadow-source
+          persist-credentials: false
+          sparse-checkout: |
+            state.json
+          sparse-checkout-cone-mode: false
+      - name: Observar ultimas 12h de sinais registrados e candles GET publicos
+        run: python -m scripts.research_shadow_a --state shadow-source/state.json --output reports/shadow-a --lookback-hours 12
+      - name: Arquivar somente observacoes sanitizadas (nunca estado original)
+        if: always()
+        uses: actions/upload-artifact@v7.0.2
+        with:
+          name: shadow-a-${{ github.run_id }}
+          path: reports/shadow-a/
+          if-no-files-found: warn
+          retention-days: 30
