@@ -247,6 +247,16 @@ def run_study(frozen_path, output_path, fail_on_partial=False):
         writer.writeheader()
         writer.writerows(audit_rows)
     audit=audit_summary(audit_rows)
+    # Immutable controls from PR #13; diagnostic code must reproduce them
+    # without tuning any entry, stop, target, RR or selection criteria.
+    original_expected={
+        "2026-10-26T00:00:00+00:00":(4,D("3.044187831243531513754038228")),
+        "2026-11-14T00:00:00+00:00":(8,D("-3.130540822945179450891797569")),
+    }
+    if out["window_start_utc"] in original_expected:
+        n,r_expected=original_expected[out["window_start_utc"]]
+        if len(audit_rows)!=n or abs(D(audit["total"]["total_net_R"])-r_expected)>D("0.000001"):
+            raise ValueError("RR15 trade audit does not reproduce independently archived PR13 result")
     audit["unique_1usdt_base_viable_events"]=eligible_count
     audit["duplicate_1usdt_base_viable_plan_records"]=audit_dupes
     (output_path/"rr15_1usdt_summary.json").write_text(
