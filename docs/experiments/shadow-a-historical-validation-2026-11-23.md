@@ -20,7 +20,10 @@ A validação solicitada é **backtesting retrospectivo**, não aguardar alertas
 |---|---|---|---|
 | H1 | 2026-10-31 00:00 | 2026-11-07 00:00 | 7 dias |
 | H2 | 2026-11-14 00:00 | 2026-11-15 20:00 | 44h |
-| H3, disponibilidade de histórico mais profundo | 2026-10-24 00:00 | 2026-10-31 00:00 | 7 dias |
+| H3, disponibilidade de histórico mais profundo | 2026-10-24 00:00 | 2026-10-31 00:00 | 7 dias — **falhou: M1 incompleto nas 12 moedas** |
+| H3b, repetição somente por disponibilidade | 2026-10-25 00:00 | 2026-10-31 00:00 | 6 dias, ainda a validar |
+
+**Ajuste após tentativa de coleta:** H3 falhou com 10679/11760 M1 (1081 candles indisponíveis) em todos os 12 ativos; sem olhar desempenho de mercado, testamos deslocar o início para H3b (25/10). O resultado só é admissível caso todos os candles existam, com todos os 12 ativos completos. Não chamar H3 de período validado e não ocultar a mudança.
 
 **Importante:** o modelo M1 original já foi investigado com outros períodos, de modo que isto é um **holdout temporal para o filtro A**, mas não um teste totalmente cego e independente do desenvolvimento da estratégia. Essa distinção precisa acompanhar qualquer conclusão. A janela H3 é especialmente sensível ao limite de retenção M1 da MEXC; se não houver 100% dos candles exigidos, registrar a inviabilidade sem preencher, interpolar ou imputar.
 
