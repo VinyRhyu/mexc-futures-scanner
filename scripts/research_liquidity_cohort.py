@@ -178,6 +178,9 @@ def analyze_symbol(client, contract_row, selected_cohort, cfg, strict=True):
             plans.extend(p for p in new if p.id not in existing)
             formed += len(new)
         if not plans:
+            # The M1 source is continuous even when there are no active plans.
+            # Moving the clock prevents a future formation looking like a data gap.
+            cursor = candle.end
             continue
         pos_h = bisect_right(h_ends, candle.end)
         active_hourly = h[:pos_h]
