@@ -20861,7 +20861,7 @@
       "text": "⚪ ATUALIZAÇÃO DOS PLANOS ACOMPANHADOS\n🧪 SIMULAÇÃO\n\n• SHIB/USDT • LONG: prazo para nova entrada encerrado\n  Motivo: A janela para uma nova entrada terminou.\n  Plano: 04fa7e6d0d941375707d\n• SHIB/USDT • SHORT: prazo para nova entrada encerrado\n  Motivo: A janela para uma nova entrada terminou.\n  Plano: 274bbce20c94f8264014\n• PEPE/USDT • SHORT: prazo para nova entrada encerrado\n  Motivo: A janela para uma nova entrada terminou.\n  Plano: 42b0e2faf08df3659b6d\n• PEPE/USDT • LONG: prazo para nova entrada encerrado\n  Motivo: A janela para uma nova entrada terminou.\n  Plano: 4600d841cd1b2ddf7efe\n• AAVE/USDT • SHORT: prazo para nova entrada encerrado\n  Motivo: A janela para uma nova entrada terminou.\n  Plano: 4a02ed81d7f9a7d83fdb\n• WLD/USDT • SHORT: prazo para nova entrada encerrado\n  Motivo: A janela para uma nova entrada terminou.\n  Plano: 653e9984aa82d723d1a5\n\nSem novas entradas por esses planos.\nAvisos de movimento não equivalem a entradas liberadas.\nA expiração não encerra uma posição já aberta.\nAnálise: 21/11/2026 14:30:44 BRT"
     },
     "5b617700fe727f74d0f4": {
-      "attempts": 0,
+      "attempts": 1,
       "category": "INFO",
       "created_at": 1795415673,
       "expires_at": 1795415760,
@@ -20872,7 +20872,11 @@
         "6741c7ed6b0d4ddb1d02"
       ],
       "quote_at": 0,
-      "status": "PENDING",
+      "sent_at": 1795415676,
+      "status": "SENT",
+      "telegram_ids": [
+        16453
+      ],
       "text": "🟡 MOVIMENTO DETECTADO • ENTRADA BLOQUEADA\nETH/USDT • BAIXA (SHORT)\n🧪 SIMULAÇÃO • acompanhamento\n\nRompimento observado no M1 fechado às 03:34:00 BRT.\nPreço de referência do primeiro gatilho: 1721.38.\n\nConfirmação técnica identificada; entrada bloqueada.\nCondição pendente: A relação entre ganho e perda ficou abaixo do mínimo.\n\nFaixa em estudo: 1719.24 a 1721.72\n🛑 Stop do plano: 1726.89 (-3.20% bruto em 10x)\n🎯 Alvo do plano: 1718.01 (+1.96% bruto em 10x)\nCenário indicativo sobre a margem em 10x; custos e liquidação ainda não validados.\nMovimento sem alavancagem: TP +0.20% • SL -0.32%.\nPercentuais sobre a referência do primeiro gatilho, na direção da operação, antes de custos.\n\nMovimento observado, sem entrada liberada. Aguarde o alerta de confirmação e viabilidade.\nAlerta válido até 03:36:00 BRT.\nAnálise: 23/11/2026 03:34:33 BRT\nPlano: 6741c7ed6b0d4ddb1d02",
       "watch_stage": 0,
       "watch_symbol": "ETH_USDT"
