@@ -6,6 +6,7 @@ from unittest.mock import patch
 import unittest
 
 from mexc_scanner.models import Plan,Variant,Candle,D,jsonable
+from mexc_scanner.config import Config
 from scripts.research_equity_curve import (
     pack_equity_candidate,parse_candidate,describe_future_exit,
     reprice_candidate,settle_candidate,run_wallet,
@@ -60,14 +61,10 @@ class EquityCurveTests(unittest.TestCase):
                     "costs_usdt":"0.01","contracts":"3","base_quantity":"0.003",
                     "loss_usdt":"0.09","worst_entry":"100","leverage":10}
         with patch("scripts.research_equity_curve.paper_quote",side_effect=quote):
-            r1,_=reprice_candidate(x,D("1"),type("CFG",(),{
-                "mode":"paper","minimum_turnover":"5000000",
-                "taker_fee":"0.0006"})(),D(".0002"),D("1.5"))
+            r1,_=reprice_candidate(x,D("1"),Config(),D(".0002"),D("1.5"))
             x["future_exit"]["outcome"]="ALVO"
             x["future_exit"]["exit_reference"]="110"
-            r2,_=reprice_candidate(x,D("1"),type("CFG",(),{
-                "mode":"paper","minimum_turnover":"5000000",
-                "taker_fee":"0.0006"})(),D(".0002"),D("1.5"))
+            r2,_=reprice_candidate(x,D("1"),Config(),D(".0002"),D("1.5"))
         self.assertEqual(r1["entry"],r2["entry"])
 
     def test_dynamic_wallet_requotes_with_compounded_balance(self):
