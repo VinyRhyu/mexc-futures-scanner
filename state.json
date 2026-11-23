@@ -2225,7 +2225,7 @@
       "text": "⚪ ATUALIZAÇÃO DOS PLANOS ACOMPANHADOS\n🧪 SIMULAÇÃO\n\n• BNB/USDT • LONG: prazo para nova entrada encerrado\n  Motivo: A janela para uma nova entrada terminou.\n  Plano: 13ad73512bcd3434240a\n\nSem novas entradas por esses planos.\nAvisos de movimento não equivalem a entradas liberadas.\nA expiração não encerra uma posição já aberta.\nAnálise: 22/11/2026 05:18:31 BRT"
     },
     "0a6b7cc671ef3c218f59": {
-      "attempts": 0,
+      "attempts": 1,
       "category": "INFO",
       "created_at": 1795420898,
       "expires_at": 1795420920,
@@ -2236,7 +2236,11 @@
         "741ce051e1027f282693"
       ],
       "quote_at": 0,
-      "status": "PENDING",
+      "sent_at": 1795420902,
+      "status": "SENT",
+      "telegram_ids": [
+        16541
+      ],
       "text": "🟡 MOVIMENTO DETECTADO • AINDA SEM CONFIRMAÇÃO\nTAO/USDT • ALTA (LONG)\n🧪 SIMULAÇÃO • acompanhamento\n\nRompimento observado no M1 fechado às 05:01:00 BRT.\nPreço de referência do primeiro gatilho: 192.53.\n\nPrimeiro fechamento além da região identificado.\nFalta o segundo fechamento sustentar o nível, com volume de pelo menos 50% do primeiro.\nApós confirmar, o plano ainda precisa passar pela avaliação financeira.\n\nFaixa em estudo: 192.49 a 192.73\n🛑 Stop do plano: 191.98 (-2.86% bruto em 10x)\n🎯 Alvo do plano: 192.68 (+0.78% bruto em 10x)\nCenário indicativo sobre a margem em 10x; custos e liquidação ainda não validados.\nMovimento sem alavancagem: TP +0.078% • SL -0.29%.\nPercentuais sobre a referência do primeiro gatilho, na direção da operação, antes de custos.\n\nMovimento observado, sem entrada liberada. Aguarde o alerta de confirmação e viabilidade.\nAlerta válido até 05:02:00 BRT.\nAnálise: 23/11/2026 05:01:38 BRT\nPlano: 741ce051e1027f282693",
       "watch_stage": 1,
       "watch_symbol": "TAO_USDT"
@@ -22615,7 +22619,7 @@
       "text": "⚪ ATUALIZAÇÃO DOS PLANOS ACOMPANHADOS\n🧪 SIMULAÇÃO\n\n• TAO/USDT • LONG: confirmação não aprovada\n  Motivo: O volume do segundo candle M1 foi menor que50% do primeiro.\n  Plano: 4e271b8d936334d30786\n• AAVE/USDT • LONG: alvo do plano alcançado durante o acompanhamento\n  Motivo: O movimento já alcançou o alvo do plano.\n  Plano: 4f1c1bea8936f0ffe933\n• INJ/USDT • LONG: alvo do plano alcançado durante o acompanhamento\n  Motivo: O movimento já alcançou o alvo do plano.\n  Plano: 7d4e797d672cd6632fd5\n• TAO/USDT • LONG: confirmação não aprovada\n  Motivo: O volume do segundo candle M1 foi menor que50% do primeiro.\n  Plano: 84399e126037e12be699\n• ZEC/USDT • LONG: alvo do plano alcançado durante o acompanhamento\n  Motivo: O movimento já alcançou o alvo do plano.\n  Plano: 957d8e47930fa5e73577\n• AAVE/USDT • LONG: alvo do plano alcançado durante o acompanhamento\n  Motivo: O movimento já alcançou o alvo do plano.\n  Plano: 9e851de5cd18375bdde5\n\nSem novas entradas por esses planos.\nAvisos de movimento não equivalem a entradas liberadas.\nA expiração não encerra uma posição já aberta.\nAnálise: 23/11/2026 00:22:30 BRT"
     },
     "61236788bcafc3962f76": {
-      "attempts": 0,
+      "attempts": 1,
       "category": "INFO",
       "created_at": 1795420898,
       "expires_at": 1795422600,
@@ -22625,7 +22629,11 @@
         "6b6c15981b2822a74f78"
       ],
       "quote_at": 0,
-      "status": "PENDING",
+      "sent_at": 1795420902,
+      "status": "SENT",
+      "telegram_ids": [
+        16542
+      ],
       "text": "👀 PLANO EM PREPARAÇÃO • AGUARDANDO GATILHO\nXLM/USDT\n🧪 SIMULAÇÃO • acompanhamento\n\nRegião em análise: 0.1279 a 0.12915\nDireção indefinida: cenários alternativos, não duas entradas.\nLONG somente se houver fechamento M1 acima de ≈ 0.129201.\nSHORT somente se houver fechamento M1 abaixo de ≈ 0.127849.\n\nConfirmação: dois fechamentos M1 consecutivos além do gatilho; volume do segundo de pelo menos 50% do primeiro.\nTP, SL e percentuais serão definidos no primeiro gatilho. A confirmação ainda precisa passar pela avaliação financeira.\n\nSem rompimento observado neste plano e sem entrada liberada.\nPreparação até 05:30:00 BRT.\nAnálise: 23/11/2026 05:01:38 BRT\nPlanos: b57b126132a40a9294c7, 6b6c15981b2822a74f78",
       "watch_stage": 2,
       "watch_symbol": "XLM_USDT"
