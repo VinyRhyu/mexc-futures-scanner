@@ -1,0 +1,81 @@
+name: Pesquisa — universo ampliado produção vs filtro A
+on:
+  pull_request:
+    paths:
+      - 'scripts/research_production_universe.py'
+      - 'tests/test_research_production_universe.py'
+      - 'docs/experiments/expanded-production-universe-2026-11-23.md'
+      - '.github/workflows/research-expanded-universe.yml'
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  freeze-universe:
+    runs-on: ubuntu-latest
+    timeout-minutes: 8
+    steps:
+      - uses: actions/checkout@v7.0.1
+        with:
+          persist-credentials: false
+      - uses: actions/setup-python@v7
+        with:
+          python-version: '3.12'
+      - name: Unit tests without network
+        run: |
+          python -m unittest tests.test_research_production_universe tests.test_research_entry_context tests.test_research_liquidity_cohort -v
+      - name: Freeze top 50 CURRENT MEXC universe before seeing historical outcomes
+        run: |
+          python -m scripts.research_production_universe --freeze-only --universe frozen/universe.json
+      - name: Upload immutable universe selection
+        uses: actions/upload-artifact@v7.0.2
+        with:
+          name: expanded-frozen-universe-${{ github.run_id }}
+          path: frozen/universe.json
+          retention-days: 30
+          if-no-files-found: error
+  backtest:
+    needs: freeze-universe
+    runs-on: ubuntu-latest
+    timeout-minutes: 35
+    strategy:
+      fail-fast: false
+      max-parallel: 3
+      matrix:
+        include:
+          - label: older_oct31_nov07
+            start: "2026-10-31T00:00:00+00:00"
+            end: "2026-11-07T00:00:00+00:00"
+          - label: earlier_nov07_nov14
+            start: "2026-11-07T00:00:00+00:00"
+            end: "2026-11-14T00:00:00+00:00"
+          - label: latest_nov15_nov22
+            start: "2026-11-15T20:00:00+00:00"
+            end: "2026-11-22T20:00:00+00:00"
+    env:
+      LIQUIDITY_START_UTC: "${{ matrix.start }}"
+      LIQUIDITY_END_UTC: "${{ matrix.end }}"
+    steps:
+      - uses: actions/checkout@v7.0.1
+        with:
+          persist-credentials: false
+      - uses: actions/setup-python@v7
+        with:
+          python-version: '3.12'
+      - uses: actions/download-artifact@v7
+        with:
+          name: expanded-frozen-universe-${{ github.run_id }}
+          path: frozen/
+      - name: Verify frozen fingerprint, never re-rank on backtest results
+        run: |
+          python -c "import json; from pathlib import Path; from scripts.research_production_universe import validate_frozen; print(len(validate_frozen(json.loads(Path('frozen/universe.json').read_text()))))"
+      - name: Historical M1/M15/H1 public GET and one-position BASE vs A
+        run: |
+          python -m scripts.research_production_universe --universe frozen/universe.json --output reports/expanded-${{ matrix.label }}
+      - name: Publish detailed trades, errors, costs, coverage and A/B comparison
+        if: always()
+        uses: actions/upload-artifact@v7.0.2
+        with:
+          name: expanded-${{ matrix.label }}-${{ github.run_id }}
+          path: reports/expanded-${{ matrix.label }}/
+          retention-days: 30
+          if-no-files-found: warn
