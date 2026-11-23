@@ -77,6 +77,8 @@ class FinancialEdgeTests(unittest.TestCase):
         self.assertEqual(result["scenarios"]["50usd_base"]["portfolio_BASE"]["trades"],2)
         self.assertEqual(result["historical_5m_confirmations"],3)
         self.assertEqual(len(result["exploratory_minimum_projected_RR"]["50usd_base"]),4)
+        self.assertEqual(len(result["exploratory_minimum_projected_RR"]),6)
+        self.assertEqual(len(result["exploratory_minimum_projected_RR"]["1usd_stress"]),4)
         self.assertEqual(result["scenarios"]["1usd_base"]["blocking_reasons_by_plan"]
                          ["LOTE_MINIMO_OU_META_EXCEDE_RISCO"],1)
 
