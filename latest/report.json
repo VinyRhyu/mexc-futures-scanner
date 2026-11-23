@@ -1,13 +1,8 @@
 {
-  "analyzed_at": 1795444534,
+  "analyzed_at": 1795444593,
   "analyzed_symbols": 26,
   "config_fingerprint": "a0c2766956c79181fa62",
-  "diagnostics": [
-    {
-      "reason": "LACUNA_M1_REINICIO_APENAS_FUTURO",
-      "symbol": "BNB_USDT"
-    }
-  ],
+  "diagnostics": [],
   "excluded": [
     {
       "reason": "CLASSIFICACAO_PENDENTE",
@@ -2706,37 +2701,37 @@
   "operational_timings": [
     {
       "commit": "5d5d86b6bbd0cca703c7e80bd3ab4d4f8cab02f2",
-      "duration_s": 1.070007,
+      "duration_s": 0.999731,
       "event": "end",
-      "finished_at_utc": "2026-11-23T14:35:17.798522+00:00",
+      "finished_at_utc": "2026-11-23T14:36:16.698048+00:00",
       "phase": "market_catalog",
       "run_attempt": "1",
-      "run_id": "45195773919",
-      "started_at_utc": "2026-11-23T14:35:16.728540+00:00",
+      "run_id": "45195952200",
+      "started_at_utc": "2026-11-23T14:36:15.698342+00:00",
       "status": "OK",
       "telemetry": "phase_v1"
     },
     {
       "commit": "5d5d86b6bbd0cca703c7e80bd3ab4d4f8cab02f2",
-      "duration_s": 17.115849,
+      "duration_s": 17.102262,
       "event": "end",
-      "finished_at_utc": "2026-11-23T14:35:34.915364+00:00",
+      "finished_at_utc": "2026-11-23T14:36:33.801254+00:00",
       "phase": "candles_collect",
       "run_attempt": "1",
-      "run_id": "45195773919",
-      "started_at_utc": "2026-11-23T14:35:17.799545+00:00",
+      "run_id": "45195952200",
+      "started_at_utc": "2026-11-23T14:36:16.699014+00:00",
       "status": "OK",
       "telemetry": "phase_v1"
     },
     {
       "commit": "5d5d86b6bbd0cca703c7e80bd3ab4d4f8cab02f2",
-      "duration_s": 0.46701,
+      "duration_s": 0.370624,
       "event": "end",
-      "finished_at_utc": "2026-11-23T14:35:35.382488+00:00",
+      "finished_at_utc": "2026-11-23T14:36:34.172010+00:00",
       "phase": "analysis_and_finance",
       "run_attempt": "1",
-      "run_id": "45195773919",
-      "started_at_utc": "2026-11-23T14:35:34.915504+00:00",
+      "run_id": "45195952200",
+      "started_at_utc": "2026-11-23T14:36:33.801409+00:00",
       "status": "OK",
       "telemetry": "phase_v1"
     }
@@ -28505,7 +28500,7 @@
       "family": "821ddb2d3626b21f152e",
       "formed_at": 1795443300,
       "id": "821ddb2d3626b21f152e",
-      "last_bar": 1795444500,
+      "last_bar": 1795444560,
       "level": "155.21",
       "lower": "155.21",
       "observations": [],
