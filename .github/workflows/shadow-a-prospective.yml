@@ -1,8 +1,6 @@
 name: Shadow A prospectivo — somente observacao
 on:
-  schedule:
-    # Off the top-of-hour to reduce GitHub Actions scheduling contention.
-    - cron: '4,19,34,49 * 23-30 11 *'
+  # Scheduled collection paused: validation is by historical holdout backtests.
   workflow_dispatch:
   pull_request:
     paths:
