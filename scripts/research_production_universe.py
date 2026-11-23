@@ -9,6 +9,8 @@ from __future__ import annotations
 from collections import Counter
 from datetime import datetime, timezone
 from decimal import Decimal
+from http.client import IncompleteRead
+import time
 import argparse
 import hashlib
 import json
@@ -26,6 +28,26 @@ from scripts.research_breakout_quality import analyze_quality, save_quality
 from scripts.research_liquidity_cohort import analyze_symbol, iso, START, END
 
 MIN_COMPLETE = 20  # preflight observed only 24 currently eligible; require >=20 complete
+
+class ResearchMexcClient(MexcClient):
+    """Retry only truncated public GET responses; never fabricate missing bars.
+
+    Main production MexcClient has its own bounded HTTP/network retries, but
+    http.client.IncompleteRead is not an OSError and can escape during streaming.
+    Research-only wrapper repeats that GET at most three times; final failure
+    aborts the affected window, without interpolating or dropping a symbol.
+    """
+
+    def _get(self, path, params=None):
+        for attempt in range(3):
+            try:
+                return super()._get(path, params)
+            except IncompleteRead:
+                if attempt == 2:
+                    raise
+                time.sleep(0.75 * (attempt + 1))
+        raise AssertionError("unreachable")
+
 
 
 def freeze_snapshot(contracts, tickers, assets, config, captured_at):
@@ -117,7 +139,7 @@ def run_study(frozen_path, output_path, fail_on_partial=False):
         raise ValueError("production liquidity assumptions changed; do not silently adapt research")
     frozen=json.loads(frozen_path.read_text())
     names=validate_frozen(frozen)
-    client=MexcClient()
+    client=ResearchMexcClient()
     now=client.server_time()
     if now <= END+4*3600+10:
         raise ValueError("four-hour exit horizon not yet closed")
