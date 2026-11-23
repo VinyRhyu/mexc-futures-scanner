@@ -1,0 +1,67 @@
+name: Pesquisa — rentabilidade financeira M1 (1 vs 50 USDT)
+on:
+  pull_request:
+    paths:
+      - 'scripts/research_liquidity_cohort.py'
+      - 'scripts/research_financial_diagnostics.py'
+      - 'scripts/research_production_universe.py'
+      - 'tests/test_research_financial_diagnostics.py'
+      - 'docs/experiments/financial-edge-2026-11-23.md'
+      - '.github/workflows/research-financial-edge.yml'
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  wallet-cost-replay:
+    runs-on: ubuntu-latest
+    timeout-minutes: 35
+    strategy:
+      fail-fast: false
+      max-parallel: 3
+      matrix:
+        include:
+          - name: wk1_oct31_nov07
+            start: '2026-10-31T00:00:00+00:00'
+            end: '2026-11-07T00:00:00+00:00'
+          - name: wk2_nov07_nov14
+            start: '2026-11-07T00:00:00+00:00'
+            end: '2026-11-14T00:00:00+00:00'
+          - name: wk3_nov15_nov22
+            start: '2026-11-15T20:00:00+00:00'
+            end: '2026-11-22T20:00:00+00:00'
+    env:
+      LIQUIDITY_START_UTC: ${{ matrix.start }}
+      LIQUIDITY_END_UTC: ${{ matrix.end }}
+    steps:
+      - uses: actions/checkout@v7.0.1
+        with:
+          persist-credentials: false
+      - uses: actions/setup-python@v7
+        with:
+          python-version: '3.12'
+      - name: Offline regression — causal pre-entry decisions, cost pairs and wallet sizing
+        run: |
+          python -m unittest tests.test_research_financial_diagnostics tests.test_research_production_universe tests.test_research_entry_context tests.test_research_liquidity_cohort -v
+      - name: Verify the SAME frozen 24 symbols and SHA256 from prior validated experiment
+        run: |
+          python - <<'PY'
+          import json
+          from pathlib import Path
+          from scripts.research_production_universe import validate_frozen
+          p=Path('docs/experiments/frozen-finance-universe-2026-11-23.json')
+          d=json.loads(p.read_text())
+          assert d['sha256_ordered_symbols']=='edf08de9b2c1027c7631069a9b86baa73febd799c56fc8c2edf2274bc82601a1'
+          assert len(validate_frozen(d))==24
+          print('IMMUTABLE_COHORT_OK=24')
+          PY
+      - name: Reconstruct entry-level financial decisions using only MEXC GET
+        run: |
+          python -m scripts.research_production_universe --fail-on-partial --universe docs/experiments/frozen-finance-universe-2026-11-23.json --output reports/financial-${{ matrix.name }}
+      - name: Archive every scenario, portfolio, RR gate and per-signal block reason
+        if: always()
+        uses: actions/upload-artifact@v7.0.2
+        with:
+          name: financial-edge-${{ matrix.name }}-${{ github.run_id }}
+          path: reports/financial-${{ matrix.name }}/
+          retention-days: 30
+          if-no-files-found: warn
