@@ -31,6 +31,7 @@ def sample(name,symbol,when,rr="1.6",result="-1",end=None):
     exit_at=end or "2026-11-14T01:10:00+00:00"
     return {"plan_id":name,"symbol":symbol,"side":"LONG",
             "signal_at":when,"historical_group":"core_liquidity",
+            "causal_context":{"A_late":False,"B_against_h1":False,"A_or_B":False},
             "stop":"99","target":"103","turnover24":"12000000",
             "exante_features":{"asof_utc":when,
                 "M1_volume_vs_prev20":"2.0","M1_body_fraction_of_range":"0.5",
