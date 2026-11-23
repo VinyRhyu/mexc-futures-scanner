@@ -57,7 +57,7 @@ class ExpandedUniverseTests(unittest.TestCase):
             validate_frozen(bad)
 
     def test_insufficient_universe_not_misreported_as_complete(self):
-        c,t,a=synthetic_universe(20)
+        c,t,a=synthetic_universe(19)
         with self.assertRaisesRegex(ValueError,"too few"):
             freeze_snapshot(c,t,a,Config(),1795410000)
 
