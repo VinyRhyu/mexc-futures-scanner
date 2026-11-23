@@ -3,10 +3,13 @@ from copy import deepcopy
 from decimal import Decimal
 import hashlib
 import unittest
+from http.client import IncompleteRead
+from unittest.mock import patch
+from mexc_scanner.mexc import MexcClient
 
 from mexc_scanner.config import Config
 from scripts.research_production_universe import (
-    freeze_snapshot,validate_frozen,dedupe_viable_by_event,paired_cost_stress,
+    freeze_snapshot,validate_frozen,dedupe_viable_by_event,paired_cost_stress,ResearchMexcClient,
 )
 
 
@@ -70,6 +73,32 @@ class ExpandedUniverseTests(unittest.TestCase):
         got=next(r for r in picks if r["symbol"]=="ABC_USDT")
         self.assertEqual(got["plan_id"],"a")
         self.assertEqual(got["cost_base"]["net_r"],"-1")
+
+    def test_research_get_retries_partial_stream_exactly_not_historical_data(self):
+        path="/api/v1/contract/kline/BTC_USDT"
+        with patch.object(MexcClient,"_get",side_effect=[
+                  IncompleteRead(b"partial"),{"time":[1]}]) as stub, \
+             patch("scripts.research_production_universe.time.sleep") as sleeper:
+            result=ResearchMexcClient()._get(path,{"interval":"Min1"})
+        self.assertEqual(result,{"time":[1]})
+        self.assertEqual(stub.call_count,2)
+        sleeper.assert_called_once()
+
+    def test_research_get_fails_closed_after_three_corrupt_responses(self):
+        with patch.object(MexcClient,"_get",side_effect=IncompleteRead(b"incomplete")) as stub, \
+             patch("scripts.research_production_universe.time.sleep") as sleeper:
+            with self.assertRaises(IncompleteRead):
+                ResearchMexcClient()._get("/api/v1/contract/kline/BTC_USDT")
+        self.assertEqual(stub.call_count,3)
+        self.assertEqual(sleeper.call_count,2)
+
+    def test_research_get_never_retries_a_candle_validation_error(self):
+        with patch.object(MexcClient,"_get",side_effect=ValueError("incomplete Min1")) as stub, \
+             patch("scripts.research_production_universe.time.sleep") as sleeper:
+            with self.assertRaisesRegex(ValueError,"incomplete Min1"):
+                ResearchMexcClient()._get("/api/v1/contract/kline/BTC_USDT")
+        self.assertEqual(stub.call_count,1)
+        sleeper.assert_not_called()
 
     def test_cost_stress_compares_exact_same_baseline_ids(self):
         a=plan("ABC_USDT","a","2026-11-10T11:00:00+00:00","2")
