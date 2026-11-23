@@ -1,0 +1,126 @@
+name: Pesquisa — histórico 60d e banca 1 USDT composta
+on:
+  pull_request:
+    paths:
+      - 'scripts/research_equity_curve.py'
+      - 'scripts/research_60day_history_probe.py'
+      - 'scripts/research_production_universe.py'
+      - 'scripts/research_liquidity_cohort.py'
+      - 'tests/test_research_equity_curve.py'
+      - 'docs/experiments/historical-60d-and-compounded-paper-equity-2026-11-23.md'
+      - '.github/workflows/research-equity-60d.yml'
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  history-coverage:
+    runs-on: ubuntu-latest
+    timeout-minutes: 25
+    steps:
+      - uses: actions/checkout@v7.0.1
+        with:
+          persist-credentials: false
+      - uses: actions/setup-python@v7
+        with:
+          python-version: '3.12'
+      - name: Probar MEXC Futures Min1 antigo sem inventar candles
+        run: |
+          python -m scripts.research_60day_history_probe --output reports/history_60d_probe.json
+      - name: Guardar todas as janelas completas e incompletas
+        if: always()
+        uses: actions/upload-artifact@v7.0.2
+        with:
+          name: history-60d-coverage-${{ github.run_id }}
+          path: reports/history_60d_probe.json
+          retention-days: 30
+          if-no-files-found: warn
+
+  source-replay:
+    runs-on: ubuntu-latest
+    timeout-minutes: 48
+    strategy:
+      fail-fast: false
+      max-parallel: 2
+      matrix:
+        include:
+          - label: oct26_oct31
+            start: '2026-10-26T00:00:00+00:00'
+            end: '2026-10-31T00:00:00+00:00'
+          - label: oct31_nov07
+            start: '2026-10-31T00:00:00+00:00'
+            end: '2026-11-07T00:00:00+00:00'
+          - label: nov07_nov14
+            start: '2026-11-07T00:00:00+00:00'
+            end: '2026-11-14T00:00:00+00:00'
+          - label: nov14_nov15
+            start: '2026-11-14T00:00:00+00:00'
+            end: '2026-11-15T20:00:00+00:00'
+          - label: nov15_nov22
+            start: '2026-11-15T20:00:00+00:00'
+            end: '2026-11-22T20:00:00+00:00'
+    env:
+      LIQUIDITY_START_UTC: ${{ matrix.start }}
+      LIQUIDITY_END_UTC: ${{ matrix.end }}
+    steps:
+      - uses: actions/checkout@v7.0.1
+        with:
+          persist-credentials: false
+      - uses: actions/setup-python@v7
+        with:
+          python-version: '3.12'
+      - name: Testar conta mutável, risco, liquidez, versões de custo e regressões
+        run: |
+          python -m unittest tests.test_research_equity_curve tests.test_research_breakout_quality tests.test_research_rr15_entry_audit tests.test_research_financial_diagnostics tests.test_research_production_universe tests.test_research_entry_context -v
+      - name: Conferir snapshot original antes de consultar as saídas
+        run: |
+          python - <<'PY'
+          import json
+          from pathlib import Path
+          from scripts.research_production_universe import validate_frozen
+          j=json.loads(Path('docs/experiments/frozen-finance-universe-2026-11-23.json').read_text())
+          assert j['sha256_ordered_symbols']=='edf08de9b2c1027c7631069a9b86baa73febd799c56fc8c2edf2274bc82601a1'
+          assert len(validate_frozen(j))==24
+          PY
+      - name: MEXC publico GET, M1 M15 H1 completos e fontes para saldo composto
+        run: |
+          python -m scripts.research_production_universe --fail-on-partial --universe docs/experiments/frozen-finance-universe-2026-11-23.json --output reports/equity-inputs-${{ matrix.label }}
+      - name: Guardar candidatos causais inclusive entradas bloqueadas com 1 USDT
+        if: always()
+        uses: actions/upload-artifact@v7.0.2
+        with:
+          name: equity-inputs-${{ matrix.label }}-${{ github.run_id }}
+          path: reports/equity-inputs-${{ matrix.label }}/equity_candidates_*.json
+          retention-days: 30
+          if-no-files-found: error
+
+  compound-wallet:
+    needs: source-replay
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v7.0.1
+        with:
+          persist-credentials: false
+      - uses: actions/setup-python@v7
+        with:
+          python-version: '3.12'
+      - name: Reconstruir os cinco arquivos de candles sem reclassificar ativos
+        uses: actions/download-artifact@v7
+        with:
+          pattern: equity-inputs-*-${{ github.run_id }}
+          path: frozen-replay/
+          merge-multiple: true
+      - name: Validar regra, timestamps e posição única com testes offline
+        run: |
+          python -m unittest tests.test_research_equity_curve tests.test_research_production_universe -v
+      - name: Comparar BASE versus RR1.5 com saldo inicial 1 USDT realmente variavel
+        run: |
+          python -m scripts.research_equity_curve --inputs frozen-replay --output reports/compounded-paper
+      - name: Publicar curva financeira, risco, posição, contratos, margem e bloqueios
+        if: always()
+        uses: actions/upload-artifact@v7.0.2
+        with:
+          name: compounded-paper-equity-${{ github.run_id }}
+          path: reports/compounded-paper/
+          retention-days: 30
+          if-no-files-found: error
