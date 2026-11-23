@@ -1,0 +1,34 @@
+name: Pesquisa — acerto M1 nas moedas liquidas
+on:
+  pull_request:
+    paths:
+      - 'scripts/research_liquid_holdout.py'
+      - 'tests/test_research_liquid_holdout.py'
+      - '.github/workflows/research-liquid-holdout.yml'
+permissions:
+  contents: read
+jobs:
+  holdout:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v7.0.1
+        with:
+          persist-credentials: false
+      - uses: actions/setup-python@v7
+        with:
+          python-version: '3.12'
+      - name: Executar testes locais e de causalidade, sem internet
+        run: |
+          python -m unittest discover -s tests -q
+      - name: Coletar a coorte historica e comparar carteiras — nenhuma ordem nem Telegram
+        run: python -m scripts.research_liquid_holdout
+      - name: Armazenar as evidencias, mesmo se houver falha de dados
+        if: always()
+        uses: actions/upload-artifact@v7.0.2
+        with:
+          name: liquid-m1-holdout
+          path: reports/liquid-holdout/
+          retention-days: 21
+          compression-level: 0
+          if-no-files-found: warn
