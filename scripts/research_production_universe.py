@@ -241,7 +241,7 @@ def run_study(frozen_path, output_path, fail_on_partial=False):
             "incomplete_symbols":errors,
             "candidates":[r["equity_candidate"] for r in production_gate],
             "warning":"OHLC synthetic future exits are NOT consulted for eligibility"
-        },ensure_ascii=False)+"\\n",encoding="utf8")
+        },ensure_ascii=False)+"\n",encoding="utf8")
     save_quality(quality,quality_ledger,output_path)
     (output_path/"result.json").write_text(json.dumps(jsonable(out),ensure_ascii=False,indent=2)+"\n")
     (output_path/"frozen-universe.json").write_text(json.dumps(frozen,ensure_ascii=False,indent=2)+"\n")
