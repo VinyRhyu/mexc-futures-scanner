@@ -1520,7 +1520,7 @@
       "watch_symbol": "ADA_USDT"
     },
     "069c9fb33de7acea2da9": {
-      "attempts": 0,
+      "attempts": 1,
       "category": "INFO",
       "created_at": 1795457916,
       "expires_at": 1795459500,
@@ -1530,7 +1530,11 @@
         "8318cd9a18f27e2cb85b"
       ],
       "quote_at": 0,
-      "status": "PENDING",
+      "sent_at": 1795457919,
+      "status": "SENT",
+      "telegram_ids": [
+        17059
+      ],
       "text": "👀 PLANO EM PREPARAÇÃO • AGUARDANDO GATILHO\nTIA/USDT\n🧪 SIMULAÇÃO • acompanhamento\n\nRegião em análise: 0.337 a 0.3491\nDireção indefinida: cenários alternativos, não duas entradas.\nLONG somente se houver fechamento M1 acima de ≈ 0.349523.\nSHORT somente se houver fechamento M1 abaixo de ≈ 0.336577.\n\nConfirmação: dois fechamentos M1 consecutivos além do gatilho; volume do segundo de pelo menos 50% do primeiro.\nTP, SL e percentuais serão definidos no primeiro gatilho. A confirmação ainda precisa passar pela avaliação financeira.\n\nSem rompimento observado neste plano e sem entrada liberada.\nPreparação até 15:45:00 BRT.\nAnálise: 23/11/2026 15:18:36 BRT\nPlanos: 58bdcea9d9b9ff8eda92, 8318cd9a18f27e2cb85b",
       "watch_stage": 2,
       "watch_symbol": "TIA_USDT"
@@ -6092,7 +6096,7 @@
       "watch_symbol": "SOL_USDT"
     },
     "1c5400f0a994cd231822": {
-      "attempts": 0,
+      "attempts": 1,
       "category": "INFO",
       "created_at": 1795457916,
       "expires_at": 1795459500,
@@ -6101,7 +6105,11 @@
         "9dc253b10f8036819ec8"
       ],
       "quote_at": 0,
-      "status": "PENDING",
+      "sent_at": 1795457920,
+      "status": "SENT",
+      "telegram_ids": [
+        17060
+      ],
       "text": "👀 PLANO EM PREPARAÇÃO • AGUARDANDO GATILHO\nTAO/USDT\n🧪 SIMULAÇÃO • acompanhamento\n\nRegião em análise: 193.41 a 198.59\nLONG somente se houver fechamento M1 acima de ≈ 198.799.\n\nConfirmação: dois fechamentos M1 consecutivos além do gatilho; volume do segundo de pelo menos 50% do primeiro.\nTP, SL e percentuais serão definidos no primeiro gatilho. A confirmação ainda precisa passar pela avaliação financeira.\n\nSem rompimento observado neste plano e sem entrada liberada.\nPreparação até 15:45:00 BRT.\nAnálise: 23/11/2026 15:18:36 BRT\nPlanos: 9dc253b10f8036819ec8",
       "watch_stage": 2,
       "watch_symbol": "TAO_USDT"
@@ -23327,11 +23335,12 @@
       "watch_symbol": "XLM_USDT"
     },
     "66771b0c915468c3fb1d": {
-      "attempts": 0,
+      "attempts": 1,
       "category": "INFO",
       "created_at": 1795457916,
       "expires_at": 1795459500,
       "id": "66771b0c915468c3fb1d",
+      "last_error": "TELEGRAM_FALHA_OU_RESULTADO_AMBIGUO: URLError",
       "plan_ids": [
         "168eb62d4eddfbc3bf87",
         "d537535e6617f95645ef"
