@@ -160,7 +160,7 @@ class WatchNotificationsTests(unittest.TestCase):
         m = self.pending(state, 'ENTRY')
         self.assertEqual(len(m), 1)
         self.assertEqual(m[0]['id'], stable_id(p.id, 'CONFIRMADA', 'GATILHO', 'paper'))
-        self.assertIn('GATILHO VÁLIDO PARA SIMULAR', m[0]['text'])
+        self.assertIn('SINAL DE ENTRADA • SIMULAÇÃO', m[0]['text'])
         self.assertEqual(self.pending(state, 'INFO'), [])
 
     def test_unverified_symbol_does_not_generate_a_watch(self):
