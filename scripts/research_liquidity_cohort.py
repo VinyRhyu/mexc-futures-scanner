@@ -504,7 +504,8 @@ def run():
     (path/"report.md").write_text("\n".join(md)+"\n")
     print("ENTRY_CONTEXT_AB_SUMMARY="+json.dumps({
         "start":out["sample_start_utc"],"end":out["sample_end_utc_exclusive"],
-        "baseline_trades":b["trades"],"baseline_net_r":b["sum_net_r"],
+        "baseline_trades":out["AB_comparison"]["all_symbols"]["BASE"]["trades"],
+        "baseline_net_r":out["AB_comparison"]["all_symbols"]["BASE"]["sum_net_r"],
         "results":{k:{"trades":v["trades"],"wins":v["wins"],
                        "sum_net_r":v["sum_net_r"],
                        "max_dd_r":v["max_realized_drawdown_r"],
