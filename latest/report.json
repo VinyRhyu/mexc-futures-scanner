@@ -1,8 +1,13 @@
 {
-  "analyzed_at": 1795444473,
-  "analyzed_symbols": 25,
+  "analyzed_at": 1795444534,
+  "analyzed_symbols": 26,
   "config_fingerprint": "a0c2766956c79181fa62",
-  "diagnostics": [],
+  "diagnostics": [
+    {
+      "reason": "LACUNA_M1_REINICIO_APENAS_FUTURO",
+      "symbol": "BNB_USDT"
+    }
+  ],
   "excluded": [
     {
       "reason": "CLASSIFICACAO_PENDENTE",
@@ -127,10 +132,6 @@
     {
       "reason": "VOLUME_FINANCEIRO_INSUFICIENTE",
       "symbol": "FET_USDT"
-    },
-    {
-      "reason": "VOLUME_FINANCEIRO_INSUFICIENTE",
-      "symbol": "BNB_USDT"
     },
     {
       "reason": "CLASSIFICACAO_PENDENTE",
@@ -2705,37 +2706,37 @@
   "operational_timings": [
     {
       "commit": "5d5d86b6bbd0cca703c7e80bd3ab4d4f8cab02f2",
-      "duration_s": 2.463979,
+      "duration_s": 1.070007,
       "event": "end",
-      "finished_at_utc": "2026-11-23T14:34:17.124231+00:00",
+      "finished_at_utc": "2026-11-23T14:35:17.798522+00:00",
       "phase": "market_catalog",
       "run_attempt": "1",
-      "run_id": "45195590623",
-      "started_at_utc": "2026-11-23T14:34:14.660280+00:00",
+      "run_id": "45195773919",
+      "started_at_utc": "2026-11-23T14:35:16.728540+00:00",
       "status": "OK",
       "telemetry": "phase_v1"
     },
     {
       "commit": "5d5d86b6bbd0cca703c7e80bd3ab4d4f8cab02f2",
-      "duration_s": 16.723319,
+      "duration_s": 17.115849,
       "event": "end",
-      "finished_at_utc": "2026-11-23T14:34:33.848369+00:00",
+      "finished_at_utc": "2026-11-23T14:35:34.915364+00:00",
       "phase": "candles_collect",
       "run_attempt": "1",
-      "run_id": "45195590623",
-      "started_at_utc": "2026-11-23T14:34:17.125077+00:00",
+      "run_id": "45195773919",
+      "started_at_utc": "2026-11-23T14:35:17.799545+00:00",
       "status": "OK",
       "telemetry": "phase_v1"
     },
     {
       "commit": "5d5d86b6bbd0cca703c7e80bd3ab4d4f8cab02f2",
-      "duration_s": 0.25896,
+      "duration_s": 0.46701,
       "event": "end",
-      "finished_at_utc": "2026-11-23T14:34:34.107445+00:00",
+      "finished_at_utc": "2026-11-23T14:35:35.382488+00:00",
       "phase": "analysis_and_finance",
       "run_attempt": "1",
-      "run_id": "45195590623",
-      "started_at_utc": "2026-11-23T14:34:33.848510+00:00",
+      "run_id": "45195773919",
+      "started_at_utc": "2026-11-23T14:35:34.915504+00:00",
       "status": "OK",
       "telemetry": "phase_v1"
     }
@@ -28504,7 +28505,7 @@
       "family": "821ddb2d3626b21f152e",
       "formed_at": 1795443300,
       "id": "821ddb2d3626b21f152e",
-      "last_bar": 1795444440,
+      "last_bar": 1795444500,
       "level": "155.21",
       "lower": "155.21",
       "observations": [],
@@ -51901,7 +51902,7 @@
       }
     }
   ],
-  "selected_symbols": 25,
+  "selected_symbols": 26,
   "signal_model": "m1_volume50_v1",
   "source_status": "OK"
 }
