@@ -47115,13 +47115,17 @@
       "watch_symbol": "ENA_USDT"
     },
     "ca68b109368ef21900f5": {
-      "attempts": 0,
+      "attempts": 1,
       "category": "INFO",
       "created_at": 1795422873,
       "expires_at": 1795426473,
       "id": "ca68b109368ef21900f5",
       "quote_at": 0,
-      "status": "PENDING",
+      "sent_at": 1795422877,
+      "status": "SENT",
+      "telegram_ids": [
+        16574
+      ],
       "text": "⚪ ATUALIZAÇÃO DOS PLANOS ACOMPANHADOS\n🧪 SIMULAÇÃO\n\n• LINK/USDT • LONG: confirmação não aprovada\n  Motivo: O segundo fechamento M1 perdeu o nível do gatilho.\n  Plano: 19c3dd796f2ad498b873\n\nSem novas entradas por esses planos.\nAvisos de movimento não equivalem a entradas liberadas.\nA expiração não encerra uma posição já aberta.\nAnálise: 23/11/2026 05:34:33 BRT"
     },
     "ca882e6408a7a97d1a0c": {
@@ -58080,7 +58084,7 @@
       "text": "⚪ ATUALIZAÇÃO DOS PLANOS ACOMPANHADOS\n🧪 SIMULAÇÃO\n\n• AVAX/USDT • LONG: confirmação não aprovada\n  Motivo: O volume do segundo candle M1 foi menor que50% do primeiro.\n  Plano: 0f3b02f16910b2ab112f\n• ENA/USDT • LONG: confirmação não aprovada\n  Motivo: O volume do segundo candle M1 foi menor que50% do primeiro.\n  Plano: 351fc1ab88172465f6ea\n• AVAX/USDT • LONG: confirmação não aprovada\n  Motivo: O volume do segundo candle M1 foi menor que50% do primeiro.\n  Plano: 7a2b61f4911edd058af1\n\nSem novas entradas por esses planos.\nAvisos de movimento não equivalem a entradas liberadas.\nA expiração não encerra uma posição já aberta.\nAnálise: 22/11/2026 06:52:31 BRT"
     },
     "fa6b880f2b1e286f9c25": {
-      "attempts": 0,
+      "attempts": 1,
       "category": "INFO",
       "created_at": 1795422873,
       "expires_at": 1795422960,
@@ -58091,7 +58095,11 @@
         "5aaecae7e9fd5f257789"
       ],
       "quote_at": 0,
-      "status": "PENDING",
+      "sent_at": 1795422877,
+      "status": "SENT",
+      "telegram_ids": [
+        16573
+      ],
       "text": "🟡 MOVIMENTO DETECTADO • ENTRADA BLOQUEADA\nLINK/USDT • ALTA (LONG)\n🧪 SIMULAÇÃO • acompanhamento\n\nRompimento observado no M1 fechado às 05:34:00 BRT.\nPreço de referência do primeiro gatilho: 8.953.\n\nConfirmação técnica identificada; entrada bloqueada.\nCondição pendente: A relação entre ganho e perda ficou abaixo do mínimo.\n\nFaixa em estudo: 8.945 a 8.961\n🛑 Stop do plano: 8.922 (-3.46% bruto em 10x)\n🎯 Alvo do plano: 8.972 (+2.12% bruto em 10x)\nCenário indicativo sobre a margem em 10x; custos e liquidação ainda não validados.\nMovimento sem alavancagem: TP +0.21% • SL -0.35%.\nPercentuais sobre a referência do primeiro gatilho, na direção da operação, antes de custos.\n\nMovimento observado, sem entrada liberada. Aguarde o alerta de confirmação e viabilidade.\nAlerta válido até 05:36:00 BRT.\nAnálise: 23/11/2026 05:34:33 BRT\nPlano: 5aaecae7e9fd5f257789",
       "watch_stage": 0,
       "watch_symbol": "LINK_USDT"
