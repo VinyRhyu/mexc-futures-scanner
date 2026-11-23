@@ -514,6 +514,10 @@ def run():
         "core":{k:{"trades":v["trades"],"sum_net_r":v["sum_net_r"]}
                 for k,v in out["AB_comparison"]["core_only"].items()},
     },ensure_ascii=False),flush=True)
+    # The earlier research tolerated missing symbols. Holdout validation must
+    # fail closed: a partial cohort is not equivalent to a valid 12-asset test.
+    if os.environ.get("HOLDOUT_FAIL_ON_PARTIAL") == "1" and errors:
+        raise ValueError("HOLDOUT_INCOMPLETE_COHORT: "+json.dumps(errors,ensure_ascii=False))
     print("LIQUIDITY_COHORT_SUMMARY="+json.dumps({
         k:out[k] for k in ("symbols_complete","symbols_excluded",
                           "confirmed_signals","stats_by_historical_turnover",
