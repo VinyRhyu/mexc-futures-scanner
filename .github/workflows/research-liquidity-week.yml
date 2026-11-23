@@ -1,0 +1,38 @@
+name: Pesquisa — operações ultima semana TP SL
+on:
+  pull_request:
+    paths:
+      - 'scripts/research_liquidity_cohort.py'
+      - 'docs/experiments/liquidity-week-trades-2026-11-22.md'
+      - '.github/workflows/research-liquidity-week.yml'
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  weekly:
+    runs-on: ubuntu-latest
+    timeout-minutes: 25
+    env:
+      LIQUIDITY_START_UTC: "2026-11-15T20:00:00+00:00"
+      LIQUIDITY_END_UTC: "2026-11-22T20:00:00+00:00"
+      LIQUIDITY_FIXED_WEEK: "1"
+      LIQUIDITY_REPORT_DIR: "reports/liquidity-week"
+    steps:
+      - uses: actions/checkout@v7.0.1
+        with:
+          persist-credentials: false
+      - uses: actions/setup-python@v7
+        with:
+          python-version: '3.12'
+      - name: Testes de regressao sem rede
+        run: python -m unittest tests.test_research_liquidity_cohort -v
+      - name: Reconstruir entradas TP SL e resultado — apenas GET MEXC
+        run: python -m scripts.research_liquidity_cohort
+      - name: Publicar relatorios e CSVs
+        if: always()
+        uses: actions/upload-artifact@v7.0.2
+        with:
+          name: liquidity-week-${{ github.run_id }}
+          path: reports/liquidity-week/
+          retention-days: 30
+          if-no-files-found: warn
