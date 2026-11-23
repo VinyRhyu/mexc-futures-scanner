@@ -1,0 +1,72 @@
+name: Pesquisa — qualidade de rompimentos M1 (eventos financeiros)
+on:
+  pull_request:
+    paths:
+      - 'scripts/research_breakout_quality.py'
+      - 'scripts/research_production_universe.py'
+      - 'tests/test_research_breakout_quality.py'
+      - 'docs/experiments/breakout-quality-all-events-2026-11-23.md'
+      - '.github/workflows/research-breakout-quality.yml'
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  analyze:
+    if: github.event_name != 'pull_request' || github.event.pull_request.head.repo.full_name == github.repository
+    runs-on: ubuntu-latest
+    timeout-minutes: 45
+    strategy:
+      fail-fast: false
+      max-parallel: 3
+      matrix:
+        include:
+          - label: discovery_oct26_oct31
+            start: "2026-10-26T00:00:00+00:00"
+            end: "2026-10-31T00:00:00+00:00"
+          - label: discovery_oct31_nov07
+            start: "2026-10-31T00:00:00+00:00"
+            end: "2026-11-07T00:00:00+00:00"
+          - label: discovery_nov07_nov14
+            start: "2026-11-07T00:00:00+00:00"
+            end: "2026-11-14T00:00:00+00:00"
+          - label: check_nov14_nov15
+            start: "2026-11-14T00:00:00+00:00"
+            end: "2026-11-15T20:00:00+00:00"
+          - label: check_nov15_nov22
+            start: "2026-11-15T20:00:00+00:00"
+            end: "2026-11-22T20:00:00+00:00"
+    env:
+      LIQUIDITY_START_UTC: ${{ matrix.start }}
+      LIQUIDITY_END_UTC: ${{ matrix.end }}
+    steps:
+      - uses: actions/checkout@v7.0.1
+        with:
+          persist-credentials: false
+      - uses: actions/setup-python@v7
+        with:
+          python-version: '3.12'
+      - name: Testes sem internet: causalidade, deduplicação, rebalanceamento e custo
+        run: |
+          python -m unittest tests.test_research_breakout_quality tests.test_research_rr15_entry_audit tests.test_research_financial_diagnostics tests.test_research_production_universe tests.test_research_entry_context tests.test_research_liquidity_cohort -v
+      - name: Exigir universo congelado de 24 moedas anterior aos resultados
+        run: |
+          python - <<'PY'
+          import json
+          from pathlib import Path
+          from scripts.research_production_universe import validate_frozen
+          value=json.loads(Path("docs/experiments/frozen-finance-universe-2026-11-23.json").read_text())
+          assert value["sha256_ordered_symbols"]=="edf08de9b2c1027c7631069a9b86baa73febd799c56fc8c2edf2274bc82601a1"
+          assert len(validate_frozen(value))==24
+          print("QUALITY_SNAPSHOT_VALIDATED=24")
+          PY
+      - name: Reproduzir M1 M15 H1 e calcular causas anteriores à entrada
+        run: |
+          python -m scripts.research_production_universe --fail-on-partial --universe docs/experiments/frozen-finance-universe-2026-11-23.json --output reports/quality-${{ matrix.label }}
+      - name: Guardar eventos únicos, carteiras e indicadores sem dados privados
+        if: always()
+        uses: actions/upload-artifact@v7.0.2
+        with:
+          name: breakout-quality-${{ matrix.label }}-${{ github.run_id }}
+          path: reports/quality-${{ matrix.label }}/
+          retention-days: 30
+          if-no-files-found: warn
