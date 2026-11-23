@@ -17672,7 +17672,7 @@
       "text": "⚪ ATUALIZAÇÃO DOS PLANOS ACOMPANHADOS\n🧪 SIMULAÇÃO\n\n• SOL/USDT • LONG: prazo para nova entrada encerrado\n  Motivo: A janela para uma nova entrada terminou.\n  Plano: 05bf99214dde3b743809\n• SOL/USDT • SHORT: prazo para nova entrada encerrado\n  Motivo: A janela para uma nova entrada terminou.\n  Plano: 0984615ceddbbc609de3\n• QNT/USDT • LONG: prazo para nova entrada encerrado\n  Motivo: A janela para uma nova entrada terminou.\n  Plano: 12594cc5bd611993cae2\n• ETH/USDT • SHORT: prazo para nova entrada encerrado\n  Motivo: A janela para uma nova entrada terminou.\n  Plano: 22b6f8c2752f423da7eb\n• AAVE/USDT • LONG: prazo para nova entrada encerrado\n  Motivo: A janela para uma nova entrada terminou.\n  Plano: 28e07cc7ec9057883eae\n• BTC/USDT • SHORT: prazo para nova entrada encerrado\n  Motivo: A janela para uma nova entrada terminou.\n  Plano: 2c7c0e7d77909b19b997\n\nSem novas entradas por esses planos.\nAvisos de movimento não equivalem a entradas liberadas.\nA expiração não encerra uma posição já aberta.\nAnálise: 22/11/2026 15:00:45 BRT"
     },
     "4c828b142aa8b9eb7a89": {
-      "attempts": 0,
+      "attempts": 1,
       "category": "INFO",
       "created_at": 1795436791,
       "expires_at": 1795436820,
@@ -17683,7 +17683,11 @@
         "45095103063509bde54a"
       ],
       "quote_at": 0,
-      "status": "PENDING",
+      "sent_at": 1795436795,
+      "status": "SENT",
+      "telegram_ids": [
+        16799
+      ],
       "text": "🟡 MOVIMENTO DETECTADO • AINDA SEM CONFIRMAÇÃO\nPEPE/USDT • BAIXA (SHORT)\n🧪 SIMULAÇÃO • acompanhamento\n\nRompimento observado no M1 fechado às 09:26:00 BRT.\nPreço de referência do primeiro gatilho: 0.0000034222.\n\nPrimeiro fechamento além da região identificado.\nFalta o segundo fechamento sustentar o nível, com volume de pelo menos 50% do primeiro.\nApós confirmar, o plano ainda precisa passar pela avaliação financeira.\n\nFaixa em estudo: 0.0000034177 a 0.0000034267\n🛑 Stop do plano: 0.0000034392 (-4.97% bruto em 10x)\n🎯 Alvo do plano: 0.0000034002 (+6.43% bruto em 10x)\nCenário indicativo sobre a margem em 10x; custos e liquidação ainda não validados.\nMovimento sem alavancagem: TP +0.64% • SL -0.50%.\nPercentuais sobre a referência do primeiro gatilho, na direção da operação, antes de custos.\n\nMovimento observado, sem entrada liberada. Aguarde o alerta de confirmação e viabilidade.\nAlerta válido até 09:27:00 BRT.\nAnálise: 23/11/2026 09:26:31 BRT\nPlano: 45095103063509bde54a",
       "watch_stage": 1,
       "watch_symbol": "PEPE_USDT"
@@ -19876,7 +19880,7 @@
       "watch_symbol": "SOL_USDT"
     },
     "5523c13bfd59a1df981b": {
-      "attempts": 0,
+      "attempts": 1,
       "category": "INFO",
       "created_at": 1795436791,
       "expires_at": 1795436820,
@@ -19887,7 +19891,11 @@
         "cc7c323b3e62d7f46777"
       ],
       "quote_at": 0,
-      "status": "PENDING",
+      "sent_at": 1795436795,
+      "status": "SENT",
+      "telegram_ids": [
+        16800
+      ],
       "text": "🟡 MOVIMENTO DETECTADO • AINDA SEM CONFIRMAÇÃO\nTAO/USDT • BAIXA (SHORT)\n🧪 SIMULAÇÃO • acompanhamento\n\nRompimento observado no M1 fechado às 09:26:00 BRT.\nPreço de referência do primeiro gatilho: 190.84.\n\nPrimeiro fechamento além da região identificado.\nFalta o segundo fechamento sustentar o nível, com volume de pelo menos 50% do primeiro.\nApós confirmar, o plano ainda precisa passar pela avaliação financeira.\n\nFaixa em estudo: 190.67 a 190.87\n🛑 Stop do plano: 191.3 (-2.41% bruto em 10x)\n🎯 Alvo do plano: 190.87 (-0.16% bruto em 10x)\nCenário indicativo sobre a margem em 10x; custos e liquidação ainda não validados.\nMovimento sem alavancagem: TP -0.016% • SL -0.24%.\nPercentuais sobre a referência do primeiro gatilho, na direção da operação, antes de custos.\n\nMovimento observado, sem entrada liberada. Aguarde o alerta de confirmação e viabilidade.\nAlerta válido até 09:27:00 BRT.\nAnálise: 23/11/2026 09:26:31 BRT\nPlano: cc7c323b3e62d7f46777",
       "watch_stage": 1,
       "watch_symbol": "TAO_USDT"
