@@ -25,6 +25,7 @@ from mexc_scanner.models import Contract, D, jsonable, seconds
 from scripts.audit_pullback import close_outcome, paper_quote
 from scripts.research_entry_context import entry_context, portfolio_diagnostics, pick_portfolio
 from scripts.research_rr15_entry_audit import pre_entry_features
+from scripts.research_equity_curve import pack_equity_candidate
 
 END = int(datetime.fromisoformat(os.environ.get("LIQUIDITY_END_UTC", "2026-11-21T00:00:00+00:00")).timestamp())
 START = int(datetime.fromisoformat(os.environ.get("LIQUIDITY_START_UTC", "2026-11-07T00:00:00+00:00")).timestamp())
@@ -250,6 +251,12 @@ def analyze_symbol(client, contract_row, selected_cohort, cfg, strict=True):
                 "stop": str(v.stop), "target": str(v.target),
                 "entry_low": str(v.entry_low), "entry_high": str(v.entry_high),
             }
+            if group=="core_liquidity":
+                # Audit-only executable inputs, known quote at next opening
+                # plus future OHLC exit for evaluating a selected trade later.
+                # Future outcome is never used for plan/gate eligibility.
+                row["equity_candidate"]=pack_equity_candidate(
+                    p,v,contract_row,later[0].open,later,turnover,iso(v.triggered_at))
             for label, trial_cfg in (
                 ("cost_base", replace(cfg, initial_balance="50", slippage_rate=".0002")),
                 ("cost_mid", replace(cfg, initial_balance="50", slippage_rate=".0005")),
