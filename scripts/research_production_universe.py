@@ -357,7 +357,7 @@ def run_study(frozen_path, output_path, fail_on_partial=False):
             for name,d in q["one_slot"].items()
         }
     },ensure_ascii=False),flush=True)
-        print("PRODUCTION_EXPANDED_AB="+json.dumps(summary,ensure_ascii=False),flush=True)
+    print("PRODUCTION_EXPANDED_AB="+json.dumps(summary,ensure_ascii=False),flush=True)
     return out
 
 
