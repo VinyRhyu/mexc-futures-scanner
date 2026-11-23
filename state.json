@@ -14088,7 +14088,7 @@
       "text": "⚠️ FALHA NA COLETA\n🧪 SIMULAÇÃO\n\nMEXC não confirmou sucesso: 510\nNenhuma nova entrada liberada.\nÚltima coleta válida: 22/11/2026 15:10:38 BRT"
     },
     "3e38935e2e85bc03f872": {
-      "attempts": 0,
+      "attempts": 1,
       "category": "INFO",
       "created_at": 1795462653,
       "expires_at": 1795462680,
@@ -14099,7 +14099,11 @@
         "07c09b8b084c3bec3635"
       ],
       "quote_at": 0,
-      "status": "PENDING",
+      "sent_at": 1795462658,
+      "status": "SENT",
+      "telegram_ids": [
+        17188
+      ],
       "text": "🟡 MOVIMENTO DETECTADO • AINDA SEM CONFIRMAÇÃO\nNEAR/USDT • BAIXA (SHORT)\n🧪 SIMULAÇÃO • acompanhamento\n\nRompimento observado no M1 fechado às 16:37:00 BRT.\nPreço de referência do primeiro gatilho: 3.029.\n\nPrimeiro fechamento além da região identificado.\nFalta o segundo fechamento sustentar o nível, com volume de pelo menos 50% do primeiro.\nApós confirmar, o plano ainda precisa passar pela avaliação financeira.\n\nFaixa em estudo: 3.02 a 3.033\n🛑 Stop do plano: 3.057 (-9.24% bruto em 10x)\n🎯 Alvo do plano: 3.009 (+6.60% bruto em 10x)\nCenário indicativo sobre a margem em 10x; custos e liquidação ainda não validados.\nMovimento sem alavancagem: TP +0.66% • SL -0.92%.\nPercentuais sobre a referência do primeiro gatilho, na direção da operação, antes de custos.\n\nMovimento observado, sem entrada liberada. Aguarde o alerta de confirmação e viabilidade.\nAlerta válido até 16:38:00 BRT.\nAnálise: 23/11/2026 16:37:33 BRT\nPlano: 07c09b8b084c3bec3635",
       "watch_stage": 1,
       "watch_symbol": "NEAR_USDT"
