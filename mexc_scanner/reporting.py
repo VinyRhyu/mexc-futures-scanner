@@ -263,9 +263,27 @@ def plan_message(plan: Plan, mode: str, now: int, variant: Variant | None = None
     else:
         stop_pct = price_return_percent(plan.side, price_base, variant.stop) + ' sem alavancagem'
         target_pct = price_return_percent(plan.side, price_base, variant.target) + ' sem alavancagem'
-    lines += [f"📍 {'Entrada' if viable and not restriction else 'Faixa do plano'}: {number(f.get('entry_low', variant.entry_low))} a {number(f.get('entry_high', variant.entry_high))}",
-              f"🛑 Stop: {number(variant.stop)} ({stop_pct})",
-              f"🎯 Alvo: {number(variant.target)} ({target_pct})"]
+    if viable and not restriction:
+        # Keep the production ENTRY notification scannable: every level is
+        # taken from the same approved financial quote / technical plan.
+        # The strategy currently defines ONE target; never fabricate TP2.
+        leverage = f.get('leverage')
+        leverage_text = f"{leverage}x" if type(leverage) is int and leverage > 0 else "indisponível"
+        headline = [
+            f"MOEDA: {plan.symbol.replace('_', '/')}",
+            f"MOVIMENTO: {'ALTA (LONG)' if plan.side == 'LONG' else 'BAIXA (SHORT)'}",
+            f"ALAVANCAGEM: {leverage_text}",
+            "",
+            f"ENTRADA: {number(f.get('entry_low'))} a {number(f.get('entry_high'))}",
+            f"TP1: {number(variant.target)} ({target_pct})",
+            "TP2: não definido (sem segundo alvo técnico validado)",
+            f"SL: {number(variant.stop)} ({stop_pct})",
+        ]
+        lines[1:2] = headline + [""]
+    else:
+        lines += [f"📍 Faixa do plano: {number(f.get('entry_low', variant.entry_low))} a {number(f.get('entry_high', variant.entry_high))}",
+                  f"🛑 Stop: {number(variant.stop)} ({stop_pct})",
+                  f"🎯 Alvo: {number(variant.target)} ({target_pct})"]
     if margin_line:
         lines.append('Movimento sem alavancagem: TP ' + price_return_percent(plan.side, price_base, variant.target)
                      + ' • SL ' + price_return_percent(plan.side, price_base, variant.stop) + '.')
