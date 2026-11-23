@@ -1,0 +1,46 @@
+name: Pesquisa — ROI 35pct margem e alavancagem 10x 15x 20x
+on:
+  pull_request:
+    paths:
+      - 'scripts/research_equity_curve.py'
+      - 'scripts/research_roi35_leverage.py'
+      - 'tests/test_research_roi35_leverage.py'
+      - 'docs/experiments/roi35-leverage-2026-11-23.md'
+      - '.github/workflows/research-roi35-leverage.yml'
+  workflow_dispatch:
+permissions:
+  contents: read
+  actions: read
+jobs:
+  compare-on-same-frozen-data:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v7.0.1
+        with:
+          persist-credentials: false
+      - uses: actions/setup-python@v7
+        with:
+          python-version: '3.12'
+      - name: 'Testes causais: somente custos e ROI no TP antes da entrada'
+        run: |
+          python -m unittest tests.test_research_equity_curve tests.test_research_roi35_leverage tests.test_research_breakout_quality tests.test_research_production_universe -v
+      - name: Reutilizar os mesmos cinco arquivos congelados previamente verificados
+        uses: actions/download-artifact@v7
+        with:
+          run-id: 45280197755
+          github-token: ${{ github.token }}
+          pattern: 'equity-inputs-*-45280197755'
+          path: frozen-20261123/
+          merge-multiple: true
+      - name: Compare 10 15 20x with same 1 USDT paper, RR1.5 and optional target 35pct
+        run: |
+          python -m scripts.research_roi35_leverage --inputs frozen-20261123 --output reports/margin-roi35
+      - name: Publicar cada trade, ROI liquido e elegibilidade sem dados privados
+        if: always()
+        uses: actions/upload-artifact@v7.0.2
+        with:
+          name: margin-roi35-10x-15x-20x-${{ github.run_id }}
+          path: reports/margin-roi35/
+          retention-days: 30
+          if-no-files-found: warn
