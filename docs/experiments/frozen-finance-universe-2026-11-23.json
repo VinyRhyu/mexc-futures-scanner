@@ -1,0 +1,133 @@
+{
+  "schema": 1,
+  "snapshot_utc": "2026-11-23T12:33:54+00:00",
+  "selection": "current MEXC selection, not historical top50",
+  "minimum_turnover_now": "5000000",
+  "universe_size": 50,
+  "ticker_source": "MEXC contracts/ticker public GET",
+  "sha256_ordered_symbols": "edf08de9b2c1027c7631069a9b86baa73febd799c56fc8c2edf2274bc82601a1",
+  "symbols": [
+    {
+      "symbol": "BTC_USDT",
+      "rank_now": 1,
+      "turnover24_now": "1978577248.28205"
+    },
+    {
+      "symbol": "ZEC_USDT",
+      "rank_now": 2,
+      "turnover24_now": "872580217.688"
+    },
+    {
+      "symbol": "ETH_USDT",
+      "rank_now": 3,
+      "turnover24_now": "765028323.6441"
+    },
+    {
+      "symbol": "SOL_USDT",
+      "rank_now": 4,
+      "turnover24_now": "218807778.947"
+    },
+    {
+      "symbol": "XRP_USDT",
+      "rank_now": 5,
+      "turnover24_now": "204322548.9771"
+    },
+    {
+      "symbol": "DOGE_USDT",
+      "rank_now": 6,
+      "turnover24_now": "36742202.537"
+    },
+    {
+      "symbol": "QNT_USDT",
+      "rank_now": 7,
+      "turnover24_now": "31142954.9261"
+    },
+    {
+      "symbol": "TAO_USDT",
+      "rank_now": 8,
+      "turnover24_now": "29238654.0985"
+    },
+    {
+      "symbol": "PEPE_USDT",
+      "rank_now": 9,
+      "turnover24_now": "24618613.623"
+    },
+    {
+      "symbol": "HYPE_USDT",
+      "rank_now": 10,
+      "turnover24_now": "23714435.3526"
+    },
+    {
+      "symbol": "SUI_USDT",
+      "rank_now": 11,
+      "turnover24_now": "19320545.0113"
+    },
+    {
+      "symbol": "NEAR_USDT",
+      "rank_now": 12,
+      "turnover24_now": "18774003.869"
+    },
+    {
+      "symbol": "LINK_USDT",
+      "rank_now": 13,
+      "turnover24_now": "17608414.3017"
+    },
+    {
+      "symbol": "WLD_USDT",
+      "rank_now": 14,
+      "turnover24_now": "15825092.8928"
+    },
+    {
+      "symbol": "XLM_USDT",
+      "rank_now": 15,
+      "turnover24_now": "14547707.8274"
+    },
+    {
+      "symbol": "AAVE_USDT",
+      "rank_now": 16,
+      "turnover24_now": "14038134.8372"
+    },
+    {
+      "symbol": "ENA_USDT",
+      "rank_now": 17,
+      "turnover24_now": "13769325.9775"
+    },
+    {
+      "symbol": "INJ_USDT",
+      "rank_now": 18,
+      "turnover24_now": "12886695.858"
+    },
+    {
+      "symbol": "ADA_USDT",
+      "rank_now": 19,
+      "turnover24_now": "10719343.6099"
+    },
+    {
+      "symbol": "AVAX_USDT",
+      "rank_now": 20,
+      "turnover24_now": "9103047.8732"
+    },
+    {
+      "symbol": "UNI_USDT",
+      "rank_now": 21,
+      "turnover24_now": "7146990.6001"
+    },
+    {
+      "symbol": "ARB_USDT",
+      "rank_now": 22,
+      "turnover24_now": "6544439.37607"
+    },
+    {
+      "symbol": "ONDO_USDT",
+      "rank_now": 23,
+      "turnover24_now": "5722027.054"
+    },
+    {
+      "symbol": "TIA_USDT",
+      "rank_now": 24,
+      "turnover24_now": "5271639.198"
+    }
+  ],
+  "source_universe_excluded": 674,
+  "critical_bias": "survivorship and future snapshot of eligibility vs past signals"
+}
