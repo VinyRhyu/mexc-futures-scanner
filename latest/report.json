@@ -1,6 +1,6 @@
 {
-  "analyzed_at": 1795407151,
-  "analyzed_symbols": 24,
+  "analyzed_at": 1795407211,
+  "analyzed_symbols": 25,
   "config_fingerprint": "a0c2766956c79181fa62",
   "diagnostics": [],
   "excluded": [
@@ -155,10 +155,6 @@
     {
       "reason": "CLASSIFICACAO_PENDENTE",
       "symbol": "KOR_USDT"
-    },
-    {
-      "reason": "VOLUME_FINANCEIRO_INSUFICIENTE",
-      "symbol": "ARB_USDT"
     },
     {
       "reason": "CLASSIFICACAO_PENDENTE",
@@ -2705,37 +2701,37 @@
   "operational_timings": [
     {
       "commit": "5d5d86b6bbd0cca703c7e80bd3ab4d4f8cab02f2",
-      "duration_s": 1.997634,
+      "duration_s": 1.141453,
       "event": "end",
-      "finished_at_utc": "2026-11-23T04:12:14.641445+00:00",
+      "finished_at_utc": "2026-11-23T04:13:14.232547+00:00",
       "phase": "market_catalog",
       "run_attempt": "1",
-      "run_id": "45110393834",
-      "started_at_utc": "2026-11-23T04:12:12.643837+00:00",
+      "run_id": "45110487276",
+      "started_at_utc": "2026-11-23T04:13:13.091120+00:00",
       "status": "OK",
       "telemetry": "phase_v1"
     },
     {
       "commit": "5d5d86b6bbd0cca703c7e80bd3ab4d4f8cab02f2",
-      "duration_s": 15.825131,
+      "duration_s": 16.57636,
       "event": "end",
-      "finished_at_utc": "2026-11-23T04:12:30.467400+00:00",
+      "finished_at_utc": "2026-11-23T04:13:30.809809+00:00",
       "phase": "candles_collect",
       "run_attempt": "1",
-      "run_id": "45110393834",
-      "started_at_utc": "2026-11-23T04:12:14.642298+00:00",
+      "run_id": "45110487276",
+      "started_at_utc": "2026-11-23T04:13:14.233476+00:00",
       "status": "OK",
       "telemetry": "phase_v1"
     },
     {
       "commit": "5d5d86b6bbd0cca703c7e80bd3ab4d4f8cab02f2",
-      "duration_s": 0.346953,
+      "duration_s": 0.282997,
       "event": "end",
-      "finished_at_utc": "2026-11-23T04:12:30.814452+00:00",
+      "finished_at_utc": "2026-11-23T04:13:31.092907+00:00",
       "phase": "analysis_and_finance",
       "run_attempt": "1",
-      "run_id": "45110393834",
-      "started_at_utc": "2026-11-23T04:12:30.467525+00:00",
+      "run_id": "45110487276",
+      "started_at_utc": "2026-11-23T04:13:30.809935+00:00",
       "status": "OK",
       "telemetry": "phase_v1"
     }
@@ -4374,7 +4370,7 @@
       "family": "0880256578b4854e3810",
       "formed_at": 1795406400,
       "id": "0880256578b4854e3810",
-      "last_bar": 1795407120,
+      "last_bar": 1795407180,
       "level": "0.3343",
       "lower": "0.326",
       "observations": [],
@@ -9170,7 +9166,7 @@
       "family": "1fc06663aaac21363f91",
       "formed_at": 1795405500,
       "id": "1fc06663aaac21363f91",
-      "last_bar": 1795407120,
+      "last_bar": 1795407180,
       "level": "0.12517",
       "lower": "0.12517",
       "observations": [],
@@ -9384,7 +9380,7 @@
       "family": "20692c4b4434c3dd25e9",
       "formed_at": 1795405500,
       "id": "20692c4b4434c3dd25e9",
-      "last_bar": 1795407120,
+      "last_bar": 1795407180,
       "level": "0.12761",
       "lower": "0.12517",
       "observations": [],
@@ -13457,7 +13453,7 @@
       "family": "36e69d3afafa3f52e663",
       "formed_at": 1795405500,
       "id": "36e69d3afafa3f52e663",
-      "last_bar": 1795407120,
+      "last_bar": 1795407180,
       "level": "0.2306",
       "lower": "0.2306",
       "observations": [],
@@ -33054,7 +33050,7 @@
       "family": "a675495b34dc3e9d2e80",
       "formed_at": 1795405500,
       "id": "a675495b34dc3e9d2e80",
-      "last_bar": 1795407120,
+      "last_bar": 1795407180,
       "level": "0.3343",
       "lower": "0.326",
       "observations": [],
@@ -40759,7 +40755,7 @@
       "family": "d4ef359622ce384d42c8",
       "formed_at": 1795405500,
       "id": "d4ef359622ce384d42c8",
-      "last_bar": 1795407120,
+      "last_bar": 1795407180,
       "level": "0.2376",
       "lower": "0.2306",
       "observations": [],
@@ -42026,7 +42022,7 @@
       "family": "dbbdcd7bf74f8ebbc3db",
       "formed_at": 1795405500,
       "id": "dbbdcd7bf74f8ebbc3db",
-      "last_bar": 1795407120,
+      "last_bar": 1795407180,
       "level": "0.326",
       "lower": "0.326",
       "observations": [],
@@ -42933,7 +42929,7 @@
       "family": "e119e1349caedc58f5ef",
       "formed_at": 1795406400,
       "id": "e119e1349caedc58f5ef",
-      "last_bar": 1795407120,
+      "last_bar": 1795407180,
       "level": "0.326",
       "lower": "0.326",
       "observations": [],
@@ -48639,7 +48635,7 @@
       }
     }
   ],
-  "selected_symbols": 24,
+  "selected_symbols": 25,
   "signal_model": "m1_volume50_v1",
   "source_status": "OK"
 }
