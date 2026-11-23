@@ -10,7 +10,7 @@ from mexc_scanner.config import load_config
 from mexc_scanner.demo import DemoClient
 from mexc_scanner.engine import run_scan
 from mexc_scanner.models import Plan
-from mexc_scanner.reporting import plan_message
+from mexc_scanner.reporting import entry_signal_message
 from mexc_scanner.state import initial_state
 from mexc_scanner.telegram import send_text
 
@@ -24,7 +24,7 @@ def preview_message(now: int) -> str:
         for variant in plan.variants.values():
             if not plan.terminal and variant.status == "VALIDA" and variant.financial.get("status") == "VIAVEL_SIMULADO":
                 return ("EXEMPLO FICTÍCIO — NÃO OPERAR\nAtivo e preços inventados para testar o formato.\n\n" +
-                        plan_message(plan, "paper", client.now, variant))
+                        entry_signal_message(plan, "paper", client.now, variant))
     raise RuntimeError("A demonstração não produziu uma amostra viável")
 
 
