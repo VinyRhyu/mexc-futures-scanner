@@ -32,3 +32,35 @@ Resultado promissor exige acompanhamento prospectivo e amostra realmente indepen
 O segundo comando acessa somente endpoints **GET públicos** do catálogo, ticker e klines MEXC. No GitHub, o workflow de pesquisa gera `reports/liquidity-cohort/result.json` e `report.md` como artefatos, sem alterar `scanner-state` e sem notificar.
 
 **A `main` e os parâmetros de produção permanecem intocados.**
+
+
+## Resultado executado (23/11/2026 UTC, sem operações)
+
+Execução final e evidência: [GitHub Actions 45092062278](https://github.com/VinyRhyu/mexc-futures-scanner/actions/runs/45092062278). A suíte [45092062272](https://github.com/VinyRhyu/mexc-futures-scanner/actions/runs/45092062272) passou. Resultado completo está no artefato da execução (JSON e Markdown).
+
+A primeira execução [45091394222](https://github.com/VinyRhyu/mexc-futures-scanner/actions/runs/45091394222) foi inválida por cursor desatualizado durante minutos ociosos; a segunda [45091759379](https://github.com/VinyRhyu/mexc-futures-scanner/actions/runs/45091759379) revelou que planos encerrados podiam ser recriados no replay devido à limpeza da memória. Ambos os defeitos **eram no experimento**, não no scanner principal. A rodada final preserva os IDs vitalícios dos planos e apresenta cobertura válida 12/12, com 1.440 M15 comparados a M1 por símbolo, sem divergência.
+
+### Amostra retrospectiva com custos-base
+
+| Grupo segundo giro de 24h conhecido no momento do gatilho | Confirmações M1* | Entradas hipotéticas com saldo 50 USDT | Lucro líquido >0 | Acerto observado | Média R líquida por entrada |
+| --- | ---: | ---: | ---: | ---: | ---: |
+| 200 mil–5 milhões USDT | 351 | 17 | 1 | 5,9% | -0,885 R |
+| 5 milhões USDT ou mais | 290 | 40 | 6 | 15,0% | -0,687 R |
+| Abaixo de 200 mil USDT | 110 | 0 | — | indisponível | indisponível |
+
+*Confirmações podem ser sobrepostas, de formações múltiplas e ativos correlacionados. Não equivalem a observações estatísticas independentes.
+
+Desfechos no grupo 200 mil–5 milhões: 15 stops, 2 encerramentos em 4h, zero alvo; no grupo >=5 milhões: 34 stops, 5 alvos e 1 encerramento em 4h. O caso ORCA teve **100 confirmações técnicas** do motor no conjunto e **nenhuma entrada financeiramente viável** no cenário simulativo.
+
+**Contagem por evento único** (mesmo símbolo, direção e minuto, desempate determinístico pelo ID do plano, sem resultado futuro): entre as entradas simuladas, 14 eventos distintos no grupo menor com 1 positivo (7,1%; média -0,860 R) e 34 eventos distintos no grupo maior com 6 positivos (17,6%; média -0,632 R). A conclusão permanece negativa após eliminar duplicidades.
+
+Na carteira sequencial (uma posição por vez, desempate alfabético, R normalizado e saldo de referência fixo): **33 operações, 6 resultados positivos, soma -20,9572 R**, máximo drawdown realizado **22,3781 R**. Isso **não é uma curva de saldo real, ROI nem simulação de recomposição dinâmica de banca**. Não podemos somar a soma de R das operações independentes e chamá-la de lucro.
+
+Estresse de slippage de 0,10% por ponta, mantendo taxas e demais regras: apenas 4 fills hipotéticos aceitos no grupo de giro baixo (zero positivo), e zero fills aceitos no grupo acima de 5M. A seleção de operações muda com a hipótese de custo; não interpretar ausência de fills como zero perda nem tratar as médias de R de cenários com amostras diferentes como comparação direta.
+
+### Interpretação e decisão
+
+**Este experimento não encontrou evidência de expectativa matemática positiva em nenhum dos grupos.** É um resultado retrospectivo exploratório limitado a 12 contratos escolhidos por liquidez presente, 14 dias de dados, entradas idealizadas e regras já estudadas em outros históricos. A taxa de acerto observada não é previsão de probabilidade futura; intervalos binomiais ignoram dependência entre trades e podem ser excessivamente confiantes.
+
+**Manter o piso de 5 milhões, a estratégia e o modo paper na produção.** Não reduzir o filtro a partir de ORCA ou de desempenho isolado. Investigar em outra branch, se desejado, uma estratégia de impulso/volume realmente distinta voltada a contratos de baixo giro, com controle de spreads, profundidade e perdas. Reunir dados prospectivos e histórico contínuo antes de afirmar qualquer vantagem.
+
