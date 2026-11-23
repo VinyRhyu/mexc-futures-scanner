@@ -16695,7 +16695,7 @@
       "text": "⚪ ATUALIZAÇÃO DOS PLANOS ACOMPANHADOS\n🧪 SIMULAÇÃO\n\n• DOGE/USDT • SHORT: prazo para nova entrada encerrado\n  Motivo: A janela para uma nova entrada terminou.\n  Plano: 0cbf5bc8a1bc7f9133aa\n• HYPE/USDT • LONG: prazo para nova entrada encerrado\n  Motivo: A janela para uma nova entrada terminou.\n  Plano: 175bc7e6fab9f411ed27\n• ZEC/USDT • LONG: prazo para nova entrada encerrado\n  Motivo: A janela para uma nova entrada terminou.\n  Plano: 2578bafcedd64f375470\n• XLM/USDT • SHORT: prazo para nova entrada encerrado\n  Motivo: A janela para uma nova entrada terminou.\n  Plano: 33e9730079b6ef4ce4b0\n• AAVE/USDT • SHORT: prazo para nova entrada encerrado\n  Motivo: A janela para uma nova entrada terminou.\n  Plano: 379b4bb813ae8ff233ea\n• HYPE/USDT • SHORT: prazo para nova entrada encerrado\n  Motivo: A janela para uma nova entrada terminou.\n  Plano: 3800f39515935998500d\n\nSem novas entradas por esses planos.\nAvisos de movimento não equivalem a entradas liberadas.\nA expiração não encerra uma posição já aberta.\nAnálise: 21/11/2026 12:00:49 BRT"
     },
     "494961b765a72fa44bac": {
-      "attempts": 0,
+      "attempts": 1,
       "category": "INFO",
       "created_at": 1795410879,
       "expires_at": 1795410960,
@@ -16706,7 +16706,11 @@
         "e50a16d7fcec785086cf"
       ],
       "quote_at": 0,
-      "status": "PENDING",
+      "sent_at": 1795410882,
+      "status": "SENT",
+      "telegram_ids": [
+        16362
+      ],
       "text": "🟡 MOVIMENTO DETECTADO • ENTRADA BLOQUEADA\nQNT/USDT • ALTA (LONG)\n🧪 SIMULAÇÃO • acompanhamento\n\nRompimento observado no M1 fechado às 02:14:00 BRT.\nPreço de referência do primeiro gatilho: 143.84.\n\nConfirmação técnica identificada; entrada bloqueada.\nCondição pendente: A relação entre ganho e perda ficou abaixo do mínimo.\n\nFaixa em estudo: 143.78 a 144.06\n🛑 Stop do plano: 143.21 (-4.38% bruto em 10x)\n🎯 Alvo do plano: 144.03 (+1.32% bruto em 10x)\nCenário indicativo sobre a margem em 10x; custos e liquidação ainda não validados.\nMovimento sem alavancagem: TP +0.13% • SL -0.44%.\nPercentuais sobre a referência do primeiro gatilho, na direção da operação, antes de custos.\n\nMovimento observado, sem entrada liberada. Aguarde o alerta de confirmação e viabilidade.\nAlerta válido até 02:16:00 BRT.\nAnálise: 23/11/2026 02:14:39 BRT\nPlano: e50a16d7fcec785086cf",
       "watch_stage": 0,
       "watch_symbol": "QNT_USDT"
