@@ -1,0 +1,62 @@
+name: Auditoria 12 trades RR15 — M1 volume e contexto causal
+on:
+  pull_request:
+    paths:
+      - 'scripts/research_liquidity_cohort.py'
+      - 'scripts/research_production_universe.py'
+      - 'scripts/research_rr15_entry_audit.py'
+      - 'tests/test_research_rr15_entry_audit.py'
+      - 'docs/experiments/rr15-twelve-trade-audit-2026-11-23.md'
+      - '.github/workflows/research-rr15-entry-audit.yml'
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  audit:
+    runs-on: ubuntu-latest
+    timeout-minutes: 35
+    strategy:
+      fail-fast: false
+      max-parallel: 2
+      matrix:
+        include:
+          - label: oct26_oct31
+            start: "2026-10-26T00:00:00+00:00"
+            end: "2026-10-31T00:00:00+00:00"
+          - label: nov14_nov15
+            start: "2026-11-14T00:00:00+00:00"
+            end: "2026-11-15T20:00:00+00:00"
+    env:
+      LIQUIDITY_START_UTC: ${{ matrix.start }}
+      LIQUIDITY_END_UTC: ${{ matrix.end }}
+    steps:
+      - uses: actions/checkout@v7.0.1
+        with:
+          persist-credentials: false
+      - uses: actions/setup-python@v7
+        with:
+          python-version: '3.12'
+      - name: Testes offline de causalidade, seleção, saída e deduplicação
+        run: |
+          python -m unittest tests.test_research_rr15_entry_audit tests.test_research_financial_diagnostics tests.test_research_entry_context tests.test_research_production_universe -v
+      - name: Exigir os mesmos 24 símbolos congelados
+        run: |
+          python - <<'PY'
+          import json
+          from pathlib import Path
+          from scripts.research_production_universe import validate_frozen
+          d=json.loads(Path('docs/experiments/frozen-finance-universe-2026-11-23.json').read_text())
+          assert len(validate_frozen(d))==24
+          assert d['sha256_ordered_symbols']=='edf08de9b2c1027c7631069a9b86baa73febd799c56fc8c2edf2274bc82601a1'
+          PY
+      - name: Reproduzir os fills hipotéticos e contexto M1 fechado
+        run: |
+          python -m scripts.research_production_universe --fail-on-partial --universe docs/experiments/frozen-finance-universe-2026-11-23.json --output reports/rr15-audit-${{ matrix.label }}
+      - name: Arquivar CSV detalhado, resumo e integridade dos candles
+        if: always()
+        uses: actions/upload-artifact@v7.0.2
+        with:
+          name: rr15-audit-${{ matrix.label }}-${{ github.run_id }}
+          path: reports/rr15-audit-${{ matrix.label }}/
+          retention-days: 30
+          if-no-files-found: warn

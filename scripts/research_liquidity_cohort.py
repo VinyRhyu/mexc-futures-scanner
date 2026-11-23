@@ -24,6 +24,7 @@ from mexc_scanner.minute_breakout import MODEL, form_plans, process_minutes
 from mexc_scanner.models import Contract, D, jsonable, seconds
 from scripts.audit_pullback import close_outcome, paper_quote
 from scripts.research_entry_context import entry_context, portfolio_diagnostics, pick_portfolio
+from scripts.research_rr15_entry_audit import pre_entry_features
 
 END = int(datetime.fromisoformat(os.environ.get("LIQUIDITY_END_UTC", "2026-11-21T00:00:00+00:00")).timestamp())
 START = int(datetime.fromisoformat(os.environ.get("LIQUIDITY_START_UTC", "2026-11-07T00:00:00+00:00")).timestamp())
@@ -241,6 +242,7 @@ def analyze_symbol(client, contract_row, selected_cohort, cfg, strict=True):
             if causal_context["asof"] != v.triggered_at:
                 raise ValueError("entry context not available at confirmation")
             row = {
+                "exante_features":pre_entry_features(m,j,q[:pos_q],causal_context,p.side),
                 "causal_context": causal_context,
                 "symbol": symbol, "side": p.side, "plan_id": p.id,
                 "signal_at": iso(v.triggered_at), "turnover24": str(turnover),
