@@ -22,6 +22,7 @@ from mexc_scanner.models import Contract, D, jsonable
 from scripts.research_entry_context import portfolio_diagnostics, pick_portfolio
 from scripts.research_financial_diagnostics import analyze_financial_robustness
 from scripts.research_rr15_entry_audit import audit_selection, audit_summary
+from scripts.research_breakout_quality import analyze_quality, save_quality
 from scripts.research_liquidity_cohort import analyze_symbol, iso, START, END
 
 MIN_COMPLETE = 20  # preflight observed only 24 currently eligible; require >=20 complete
@@ -185,6 +186,7 @@ def run_study(frozen_path, output_path, fail_on_partial=False):
             "A":paired_cost_stress(a_picked),
         },
         "financial_viability_and_profit_exploratory":analyze_financial_robustness(production_gate),
+        "breakout_quality_all_viable_events_summary":None,
         "model_limitations":[
             "selected universe is from one CURRENT snapshot and has survivorship bias",
             "Historical top50 membership cannot be recovered from these 50 ticker histories",
@@ -197,7 +199,17 @@ def run_study(frozen_path, output_path, fail_on_partial=False):
                              "ohlc_checked":results[s]["ohlc_checked"]}
                             for s in names if s in results],
     }
+    # Preserve original strategy outcomes; use closed-candle features to
+    # characterize all eligible 1-USDT events, not just the 12 RR15 trades.
+    quality,quality_ledger=analyze_quality(production_gate,out["window_start_utc"])
+    out["breakout_quality_all_viable_events_summary"]={
+        "raw_filled_1usd_plans":quality["scenario_result"]["wallet_1usdt"]["raw_filled_plans"],
+        "viable_unique_1usd_events":quality["scenario_result"]["wallet_1usdt"]["unique_viable_events"],
+        "one_slot_BASE":quality["scenario_result"]["wallet_1usdt"]["one_slot"]["BASE"],
+        "one_slot_RR15":quality["scenario_result"]["wallet_1usdt"]["one_slot"]["RR15"],
+    }
     output_path.mkdir(parents=True,exist_ok=True)
+    save_quality(quality,quality_ledger,output_path)
     (output_path/"result.json").write_text(json.dumps(jsonable(out),ensure_ascii=False,indent=2)+"\n")
     (output_path/"frozen-universe.json").write_text(json.dumps(frozen,ensure_ascii=False,indent=2)+"\n")
     def export_csv(rows,path):
@@ -330,7 +342,22 @@ def run_study(frozen_path, output_path, fail_on_partial=False):
         "A":{"trades":a["trades"],"wins":a["wins"],"net_r":a["sum_net_r"]},
         "eliminated":len(skipped),"replacements":len(replacements),
     }
-    print("PRODUCTION_EXPANDED_AB="+json.dumps(summary,ensure_ascii=False),flush=True)
+    q=quality["scenario_result"]["wallet_1usdt"]
+    print("BREAKOUT_QUALITY_SUMMARY="+json.dumps({
+        "window_start_utc":out["window_start_utc"],
+        "window_end_utc_exclusive":out["window_end_utc_exclusive"],
+        "technical_5m_plans":quality["raw_technical_5m_plans"],
+        "filled_1usdt_plans":q["raw_filled_plans"],
+        "distinct_1usdt_viable_events":q["unique_viable_events"],
+        "duplicates":q["duplicate_viable_plan_records"],
+        "selected_trades_by_exploratory_gate":{
+            name:{"trades":d["trades"],"wins":d["wins"],"net_r":d["net_r_sum"],
+                  "removed_winners":d["removed_BASE_winners"],"removed_nonwinners":d["removed_BASE_nonwinners"],
+                  "new_from_reallocation":d["new_from_reallocation"]}
+            for name,d in q["one_slot"].items()
+        }
+    },ensure_ascii=False),flush=True)
+        print("PRODUCTION_EXPANDED_AB="+json.dumps(summary,ensure_ascii=False),flush=True)
     return out
 
 
