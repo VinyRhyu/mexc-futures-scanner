@@ -23,6 +23,7 @@ from mexc_scanner.mexc import MexcClient
 from mexc_scanner.minute_breakout import MODEL, form_plans, process_minutes
 from mexc_scanner.models import Contract, D, jsonable, seconds
 from scripts.audit_pullback import close_outcome, paper_quote
+from scripts.research_entry_context import entry_context, portfolio_diagnostics, pick_portfolio
 
 END = int(datetime.fromisoformat(os.environ.get("LIQUIDITY_END_UTC", "2026-11-21T00:00:00+00:00")).timestamp())
 START = int(datetime.fromisoformat(os.environ.get("LIQUIDITY_START_UTC", "2026-11-07T00:00:00+00:00")).timestamp())
@@ -236,7 +237,11 @@ def analyze_symbol(client, contract_row, selected_cohort, cfg, strict=True):
             group = ("lower_liquidity" if LOW_MIN <= turnover < CORE_MIN else
                      "core_liquidity" if turnover >= CORE_MIN else "under_minimum")
             later = m[j+1:j+241]
+            causal_context = entry_context(q[:pos_q], active_hourly, m, j, p.side)
+            if causal_context["asof"] != v.triggered_at:
+                raise ValueError("entry context not available at confirmation")
             row = {
+                "causal_context": causal_context,
                 "symbol": symbol, "side": p.side, "plan_id": p.id,
                 "signal_at": iso(v.triggered_at), "turnover24": str(turnover),
                 "historical_group": group, "sampling_group": selected_cohort,
@@ -377,6 +382,11 @@ def run():
             for g in ("lower_liquidity","core_liquidity")
         },
         "portfolio_r": portfolio_one_position(cases),
+        "AB_comparison": {
+            "all_symbols": portfolio_diagnostics(cases),
+            "core_only": portfolio_diagnostics([r for r in cases if r["historical_group"] == "core_liquidity"]),
+            "low_only": portfolio_diagnostics([r for r in cases if r["historical_group"] == "lower_liquidity"]),
+        },
         "limitations": [
             "Exploratory selected symbols, not representative full futures universe",
             "ORCA known prior winner; these are not independent out-of-sample tests",
@@ -396,6 +406,10 @@ def run():
         ],
         "trades": cases,
     }
+    # Crucial invariant: A/B cannot change original BASE ordering/fills/returns.
+    b = out["AB_comparison"]["all_symbols"]["BASE"]
+    if b["trades"] != out["portfolio_r"]["trades"] or abs(D(b["sum_net_r"])-D(out["portfolio_r"]["sum_net_r"]))>D(".0001"):
+        raise ValueError("A/B baseline differs from original one-position portfolio")
     path=Path(os.environ.get("LIQUIDITY_REPORT_DIR","reports/liquidity-cohort"))
     path.mkdir(parents=True,exist_ok=True)
     (path/"result.json").write_text(json.dumps(jsonable(out),ensure_ascii=False,indent=2))
@@ -443,6 +457,29 @@ def run():
                     "plan_id":row["plan_id"]})
     export_rows(selected,"portfolio_selecionadas.csv")
     export_rows(viable,"todas_viaveis.csv")
+    for variant in ("A", "B", "A+B"):
+        filename={"A":"sem_extensao_4h.csv","B":"sem_h1_contraria.csv",
+                  "A+B":"combinado_A_B.csv"}[variant]
+        export_rows(pick_portfolio(cases,variant),filename)
+    # Audit paired feature flags for every financially viable candidate.
+    with (path/"contexto_viaveis.csv").open("w",newline="",encoding="utf-8-sig") as handle:
+        fields=["symbol","side","signal_at_utc","group","outcome","net_r",
+                "signed_extension_4h_atr","h1_structure","A_late","B_against_h1",
+                "baseline_portfolio_selected"]
+        writer=csv.DictWriter(handle,fieldnames=fields)
+        writer.writeheader()
+        selected_ids={(r["symbol"],r["plan_id"]) for r in selected}
+        for row in viable:
+            c,v=row["causal_context"],row["cost_base"]
+            writer.writerow({
+                "symbol":row["symbol"],"side":row["side"],
+                "signal_at_utc":row["signal_at"],"group":row["historical_group"],
+                "outcome":v["outcome"],"net_r":v["net_r"],
+                "signed_extension_4h_atr":c["m1_signed_4h_extension_atr"],
+                "h1_structure":c["h1_structure"],
+                "A_late":c["A_late"],"B_against_h1":c["B_against_h1"],
+                "baseline_portfolio_selected":(row["symbol"],row["plan_id"]) in selected_ids,
+            })
     md = [
         "# Coorte exploratória de liquidez (sem ordens)",
         "", "Período de sinais UTC: "+iso(START)+" até "+iso(END)+" (exclusivo).",
@@ -465,6 +502,18 @@ def run():
         md.append(f"- {sym}: EXCLUÍDO {err}")
     md += ["", "## Limitações", ""] + ["- "+s for s in out["limitations"]]
     (path/"report.md").write_text("\n".join(md)+"\n")
+    print("ENTRY_CONTEXT_AB_SUMMARY="+json.dumps({
+        "start":out["sample_start_utc"],"end":out["sample_end_utc_exclusive"],
+        "baseline_trades":out["AB_comparison"]["all_symbols"]["BASE"]["trades"],
+        "baseline_net_r":out["AB_comparison"]["all_symbols"]["BASE"]["sum_net_r"],
+        "results":{k:{"trades":v["trades"],"wins":v["wins"],
+                       "sum_net_r":v["sum_net_r"],
+                       "max_dd_r":v["max_realized_drawdown_r"],
+                       "newly_available":v["newly_available_ids"]}
+                   for k,v in out["AB_comparison"]["all_symbols"].items()},
+        "core":{k:{"trades":v["trades"],"sum_net_r":v["sum_net_r"]}
+                for k,v in out["AB_comparison"]["core_only"].items()},
+    },ensure_ascii=False),flush=True)
     print("LIQUIDITY_COHORT_SUMMARY="+json.dumps({
         k:out[k] for k in ("symbols_complete","symbols_excluded",
                           "confirmed_signals","stats_by_historical_turnover",

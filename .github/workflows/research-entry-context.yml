@@ -1,0 +1,51 @@
+name: Pesquisa A-B — timing e estrutura H1
+on:
+  pull_request:
+    paths:
+      - 'scripts/research_entry_context.py'
+      - 'scripts/research_liquidity_cohort.py'
+      - 'tests/test_research_entry_context.py'
+      - 'docs/experiments/entry-timing-trend-2026-11-22.md'
+      - '.github/workflows/research-entry-context.yml'
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  compare:
+    runs-on: ubuntu-latest
+    timeout-minutes: 25
+    strategy:
+      fail-fast: false
+      matrix:
+        include:
+          - name: review_week
+            start: "2026-11-15T20:00:00+00:00"
+            end: "2026-11-22T20:00:00+00:00"
+          - name: earlier_week
+            start: "2026-11-07T00:00:00+00:00"
+            end: "2026-11-14T00:00:00+00:00"
+    env:
+      LIQUIDITY_START_UTC: "${{ matrix.start }}"
+      LIQUIDITY_END_UTC: "${{ matrix.end }}"
+      LIQUIDITY_FIXED_WEEK: "1"
+      LIQUIDITY_REPORT_DIR: "reports/entry-${{ matrix.name }}"
+    steps:
+      - uses: actions/checkout@v7.0.1
+        with:
+          persist-credentials: false
+      - uses: actions/setup-python@v7
+        with:
+          python-version: '3.12'
+      - name: Validar causalidade e carteira com dados sintéticos
+        run: |
+          python -m unittest tests.test_research_entry_context tests.test_research_liquidity_cohort -v
+      - name: Reexecutar MEXC publica e comparar A B A+B com a BASE
+        run: python -m scripts.research_liquidity_cohort
+      - name: Arquivar sinais, entradas, contexto, TP e SL
+        if: always()
+        uses: actions/upload-artifact@v7.0.2
+        with:
+          name: entry-context-${{ matrix.name }}-${{ github.run_id }}
+          path: reports/entry-${{ matrix.name }}/
+          retention-days: 30
+          if-no-files-found: warn
