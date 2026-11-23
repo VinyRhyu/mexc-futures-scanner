@@ -5,7 +5,7 @@ import unittest
 
 from mexc_scanner.minute_breakout import MODEL,STRATEGY
 from mexc_scanner.models import Candle, DataError, D
-from scripts.research_shadow_a import candidates_from_state, run, touch_path, MAX_STATE_AGE
+from scripts.research_shadow_a import candidates_from_state, run, touch_path, unique_events, MAX_STATE_AGE
 
 
 END=1795392000  # aligned UTC hour, synthetic clock base
@@ -105,6 +105,33 @@ class ShadowATests(unittest.TestCase):
         self.assertNotIn("private_balance",rendered)
         self.assertNotIn("DO_NOT_EXPORT",rendered)
         self.assertNotIn("net_usdt",rendered)
+
+    def test_unique_market_events_keep_distinct_plan_levels(self):
+        base={"symbol":"AVAX_USDT","side":"SHORT","signal_at":END,
+              "stop":"7.00","target":"6.70","shadow":{"verdict_A":"POSSIVEL_ENTRADA_TARDIA",
+              "path_status":"TOCOU_TP"}}
+        duplicate=deepcopy(base)
+        duplicate["stop"]="7.02"
+        duplicate["shadow"]["path_status"]="TOCOU_SL"
+        other=deepcopy(base)
+        other["symbol"]="ARB_USDT"
+        other["shadow"]["verdict_A"]="SEM_VETO_A"
+        events=unique_events([base,duplicate,other])
+        self.assertEqual(len(events),2)
+        avax=next(x for x in events if x["symbol"]=="AVAX_USDT")
+        self.assertEqual(avax["plan_count"],2)
+        self.assertTrue(avax["different_stops_or_targets"])
+        self.assertEqual(avax["price_path_by_plan"],{"TOCOU_TP":1,"TOCOU_SL":1})
+        self.assertTrue(avax["not_a_financial_trade"])
+
+    def test_unique_market_events_reject_conflicting_filter_decisions(self):
+        a={"symbol":"TEST_USDT","side":"LONG","signal_at":END,
+           "stop":"90","target":"120","shadow":{"verdict_A":"SEM_VETO_A",
+           "path_status":"TOCOU_TP"}}
+        b=deepcopy(a)
+        b["shadow"]["verdict_A"]="POSSIVEL_ENTRADA_TARDIA"
+        with self.assertRaisesRegex(DataError,"inconsistent"):
+            unique_events([a,b])
 
     def test_path_observation_is_not_profit_claim(self):
         a=candle(END-3600,60)
