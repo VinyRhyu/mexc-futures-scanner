@@ -231,6 +231,17 @@ def run_study(frozen_path, output_path, fail_on_partial=False):
         "one_slot_RR15":quality["scenario_result"]["wallet_1usdt"]["one_slot"]["RR15"],
     }
     output_path.mkdir(parents=True,exist_ok=True)
+    (output_path/("equity_candidates_"+datetime.fromtimestamp(START,timezone.utc).strftime("%Y%m%d")+".json")).write_text(
+        json.dumps({
+            "schema":1,
+            "snapshot_sha256":frozen["sha256_ordered_symbols"],
+            "start_utc":out["window_start_utc"],
+            "end_utc_exclusive":out["window_end_utc_exclusive"],
+            "completed_symbols":len(results),
+            "incomplete_symbols":errors,
+            "candidates":[r["equity_candidate"] for r in production_gate],
+            "warning":"OHLC synthetic future exits are NOT consulted for eligibility"
+        },ensure_ascii=False)+"\\n",encoding="utf8")
     save_quality(quality,quality_ledger,output_path)
     (output_path/"result.json").write_text(json.dumps(jsonable(out),ensure_ascii=False,indent=2)+"\n")
     (output_path/"frozen-universe.json").write_text(json.dumps(frozen,ensure_ascii=False,indent=2)+"\n")
