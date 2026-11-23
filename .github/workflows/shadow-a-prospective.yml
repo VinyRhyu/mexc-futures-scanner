@@ -1,0 +1,71 @@
+name: Shadow A prospectivo — somente observacao
+on:
+  schedule:
+    # Off the top-of-hour to reduce GitHub Actions scheduling contention.
+    - cron: '4,19,34,49 * * * *'
+  workflow_dispatch:
+  pull_request:
+    paths:
+      - 'scripts/research_shadow_a.py'
+      - 'scripts/research_entry_context.py'
+      - 'tests/test_research_shadow_a.py'
+      - 'tests/test_research_entry_context.py'
+      - '.github/workflows/shadow-a-prospective.yml'
+permissions:
+  contents: read
+concurrency:
+  group: shadow-a-observation-only
+  cancel-in-progress: false
+jobs:
+  observe:
+    if: github.event_name != 'pull_request' || github.event.pull_request.head.repo.full_name == github.repository
+    runs-on: ubuntu-latest
+    timeout-minutes: 12
+    steps:
+      - name: Checkout de pesquisa sem credenciais persistentes
+        uses: actions/checkout@v7.0.1
+        with:
+          persist-credentials: false
+      - uses: actions/setup-python@v7
+        with:
+          python-version: '3.12'
+      - name: Testes de isolamento e causalidade (sem rede)
+        run: |
+          python -m unittest tests.test_research_shadow_a tests.test_research_entry_context -v
+      - name: Restringir GET de mercado a janela de estudo de sete dias
+        id: window
+        run: |
+          python - <<'PY'
+          from datetime import datetime, timezone, timedelta
+          import os
+          start=datetime.fromisoformat('2026-11-23T04:00:00+00:00')
+          # Follow up on up to 8h of already-registered signals after end.
+          until=datetime.fromisoformat('2026-11-30T04:00:00+00:00')+timedelta(hours=8)
+          now=datetime.now(timezone.utc)
+          enabled=now<until
+          with open(os.environ['GITHUB_OUTPUT'],'a') as f:
+              f.write('enabled='+str(enabled).lower()+'\n')
+          print('SHADOW_WINDOW_STATUS='+('ACTIVE_OR_BOOTSTRAP' if enabled else 'ENDED_NO_MARKET_CALLS'))
+          PY
+      - name: Ler apenas arquivo de estado da branch operacional
+        if: steps.window.outputs.enabled == 'true'
+        uses: actions/checkout@v7.0.1
+        with:
+          ref: scanner-state
+          path: shadow-source
+          persist-credentials: false
+          sparse-checkout: |
+            state.json
+          sparse-checkout-cone-mode: false
+      - name: Registrar classificacao A antes de TP/SL quando possivel
+        if: steps.window.outputs.enabled == 'true'
+        run: |
+          python -m scripts.research_shadow_a --state shadow-source/state.json --output reports/shadow-a --lookback-hours 8
+      - name: Arquivar apenas evidencias sanitizadas; jamais state.json
+        if: always()
+        uses: actions/upload-artifact@v7.0.2
+        with:
+          name: shadow-a-prospective-${{ github.run_id }}
+          path: reports/shadow-a/
+          if-no-files-found: ignore
+          retention-days: 30
