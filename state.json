@@ -6593,7 +6593,7 @@
       "text": "⚪ ATUALIZAÇÃO DOS PLANOS ACOMPANHADOS\n🧪 SIMULAÇÃO\n\n• SHIB/USDT • LONG: prazo para nova entrada encerrado\n  Motivo: A janela para uma nova entrada terminou.\n  Plano: 02a24632ecad1da16741\n• LINK/USDT • SHORT: prazo para nova entrada encerrado\n  Motivo: A janela para uma nova entrada terminou.\n  Plano: 1d66dacd8b744c360cc2\n• ADA/USDT • LONG: prazo para nova entrada encerrado\n  Motivo: A janela para uma nova entrada terminou.\n  Plano: 3ae4584b41d023cbe0bc\n• BTC/USDT • SHORT: prazo para nova entrada encerrado\n  Motivo: A janela para uma nova entrada terminou.\n  Plano: 475644aee250f9565651\n• ARB/USDT • LONG: prazo para nova entrada encerrado\n  Motivo: A janela para uma nova entrada terminou.\n  Plano: 52f3a72526d7e2690d54\n• SUI/USDT • LONG: prazo para nova entrada encerrado\n  Motivo: A janela para uma nova entrada terminou.\n  Plano: 633d0b90271a304e6d9d\n\nSem novas entradas por esses planos.\nAvisos de movimento não equivalem a entradas liberadas.\nA expiração não encerra uma posição já aberta.\nAnálise: 21/11/2026 14:15:41 BRT"
     },
     "1da407f7568f1988acbe": {
-      "attempts": 0,
+      "attempts": 1,
       "category": "INFO",
       "created_at": 1795440512,
       "expires_at": 1795440540,
@@ -6604,7 +6604,11 @@
         "f394a4ce65b8bd73faf5"
       ],
       "quote_at": 0,
-      "status": "PENDING",
+      "sent_at": 1795440516,
+      "status": "SENT",
+      "telegram_ids": [
+        16899
+      ],
       "text": "🟡 MOVIMENTO DETECTADO • AINDA SEM CONFIRMAÇÃO\nZEC/USDT • ALTA (LONG)\n🧪 SIMULAÇÃO • acompanhamento\n\nRompimento observado no M1 fechado às 10:28:00 BRT.\nPreço de referência do primeiro gatilho: 797.78.\n\nPrimeiro fechamento além da região identificado.\nFalta o segundo fechamento sustentar o nível, com volume de pelo menos 50% do primeiro.\nApós confirmar, o plano ainda precisa passar pela avaliação financeira.\n\nFaixa em estudo: 797.66 a 799.24\n🛑 Stop do plano: 794.13 (-4.58% bruto em 10x)\n🎯 Alvo do plano: 798.01 (+0.29% bruto em 10x)\nCenário indicativo sobre a margem em 10x; custos e liquidação ainda não validados.\nMovimento sem alavancagem: TP +0.029% • SL -0.46%.\nPercentuais sobre a referência do primeiro gatilho, na direção da operação, antes de custos.\n\nMovimento observado, sem entrada liberada. Aguarde o alerta de confirmação e viabilidade.\nAlerta válido até 10:29:00 BRT.\nAnálise: 23/11/2026 10:28:32 BRT\nPlano: f394a4ce65b8bd73faf5",
       "watch_stage": 1,
       "watch_symbol": "ZEC_USDT"
