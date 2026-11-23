@@ -2294,13 +2294,17 @@
       "watch_symbol": "SOL_USDT"
     },
     "0a884ef4543fe1671ebd": {
-      "attempts": 0,
+      "attempts": 1,
       "category": "INFO",
       "created_at": 1795472254,
       "expires_at": 1795475854,
       "id": "0a884ef4543fe1671ebd",
       "quote_at": 0,
-      "status": "PENDING",
+      "sent_at": 1795472259,
+      "status": "SENT",
+      "telegram_ids": [
+        17384
+      ],
       "text": "⚪ ATUALIZAÇÃO DOS PLANOS ACOMPANHADOS\n🧪 SIMULAÇÃO\n\n• AAVE/USDT • SHORT: confirmação não aprovada\n  Motivo: O segundo fechamento M1 perdeu o nível do gatilho.\n  Plano: b8ac15c60f391e5f4240\n\nSem novas entradas por esses planos.\nAvisos de movimento não equivalem a entradas liberadas.\nA expiração não encerra uma posição já aberta.\nAnálise: 23/11/2026 19:17:34 BRT"
     },
     "0ac306b9272f01843a67": {
@@ -38229,7 +38233,7 @@
       "watch_symbol": "BTC_USDT"
     },
     "aea13e67ed0c73d94c22": {
-      "attempts": 0,
+      "attempts": 1,
       "category": "INFO",
       "created_at": 1795472254,
       "expires_at": 1795473000,
@@ -38238,7 +38242,11 @@
         "6a2ac2ef7b8965417dcc"
       ],
       "quote_at": 0,
-      "status": "PENDING",
+      "sent_at": 1795472259,
+      "status": "SENT",
+      "telegram_ids": [
+        17383
+      ],
       "text": "👀 PLANO EM PREPARAÇÃO • AGUARDANDO GATILHO\nAAVE/USDT\n🧪 SIMULAÇÃO • acompanhamento\n\nRegião em análise: 96.69 a 98.16\nLONG somente se houver fechamento M1 acima de ≈ 98.2458.\n\nConfirmação: dois fechamentos M1 consecutivos além do gatilho; volume do segundo de pelo menos 50% do primeiro.\nTP, SL e percentuais serão definidos no primeiro gatilho. A confirmação ainda precisa passar pela avaliação financeira.\n\nSem rompimento observado neste plano e sem entrada liberada.\nPreparação até 19:30:00 BRT.\nAnálise: 23/11/2026 19:17:34 BRT\nPlanos: 6a2ac2ef7b8965417dcc",
       "watch_stage": 2,
       "watch_symbol": "AAVE_USDT"
