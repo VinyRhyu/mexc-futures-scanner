@@ -11607,13 +11607,17 @@
       "watch_symbol": "XLM_USDT"
     },
     "335c893e47ca6b92a60f": {
-      "attempts": 0,
+      "attempts": 1,
       "category": "INFO",
       "created_at": 1795417952,
       "expires_at": 1795421552,
       "id": "335c893e47ca6b92a60f",
       "quote_at": 0,
-      "status": "PENDING",
+      "sent_at": 1795417958,
+      "status": "SENT",
+      "telegram_ids": [
+        16490
+      ],
       "text": "⚪ ATUALIZAÇÃO DOS PLANOS ACOMPANHADOS\n🧪 SIMULAÇÃO\n\n• TAO/USDT • LONG: confirmação não aprovada\n  Motivo: O segundo fechamento M1 perdeu o nível do gatilho.\n  Plano: 4a702416c18780764075\n\nSem novas entradas por esses planos.\nAvisos de movimento não equivalem a entradas liberadas.\nA expiração não encerra uma posição já aberta.\nAnálise: 23/11/2026 04:12:32 BRT"
     },
     "335fc11a4b504aabf171": {
@@ -19914,7 +19918,7 @@
       "text": "⚪ ATUALIZAÇÃO DOS PLANOS ACOMPANHADOS\n🧪 SIMULAÇÃO\n\n• NEAR/USDT • SHORT: confirmação não aprovada\n  Motivo: O segundo fechamento M1 perdeu o nível do gatilho.\n  Plano: 39420f136a99b3b6ada2\n• NEAR/USDT • SHORT: confirmação não aprovada\n  Motivo: O segundo fechamento M1 perdeu o nível do gatilho.\n  Plano: 8cfa86a1019f3eccf9e2\n\nSem novas entradas por esses planos.\nAvisos de movimento não equivalem a entradas liberadas.\nA expiração não encerra uma posição já aberta.\nAnálise: 22/11/2026 16:41:31 BRT"
     },
     "5867e4f24bb312bce014": {
-      "attempts": 0,
+      "attempts": 1,
       "category": "INFO",
       "created_at": 1795417952,
       "expires_at": 1795417980,
@@ -19925,7 +19929,11 @@
         "8bcf018daef9118f62b6"
       ],
       "quote_at": 0,
-      "status": "PENDING",
+      "sent_at": 1795417957,
+      "status": "SENT",
+      "telegram_ids": [
+        16488
+      ],
       "text": "🟡 MOVIMENTO DETECTADO • AINDA SEM CONFIRMAÇÃO\nENA/USDT • ALTA (LONG)\n🧪 SIMULAÇÃO • acompanhamento\n\nRompimento observado no M1 fechado às 04:12:00 BRT.\nPreço de referência do primeiro gatilho: 0.10411.\n\nPrimeiro fechamento além da região identificado.\nFalta o segundo fechamento sustentar o nível, com volume de pelo menos 50% do primeiro.\nApós confirmar, o plano ainda precisa passar pela avaliação financeira.\n\nFaixa em estudo: 0.10411 a 0.10429\n🛑 Stop do plano: 0.10365 (-4.42% bruto em 10x)\n🎯 Alvo do plano: 0.10534 (+11.81% bruto em 10x)\nCenário indicativo sobre a margem em 10x; custos e liquidação ainda não validados.\nMovimento sem alavancagem: TP +1.18% • SL -0.44%.\nPercentuais sobre a referência do primeiro gatilho, na direção da operação, antes de custos.\n\nMovimento observado, sem entrada liberada. Aguarde o alerta de confirmação e viabilidade.\nAlerta válido até 04:13:00 BRT.\nAnálise: 23/11/2026 04:12:32 BRT\nPlano: 8bcf018daef9118f62b6",
       "watch_stage": 1,
       "watch_symbol": "ENA_USDT"
@@ -47260,7 +47268,7 @@
       "watch_symbol": "ZEC_USDT"
     },
     "d03b812197b36b814b76": {
-      "attempts": 0,
+      "attempts": 1,
       "category": "INFO",
       "created_at": 1795417952,
       "expires_at": 1795418100,
@@ -47269,7 +47277,11 @@
         "ecbbcbef12fc5facdd02"
       ],
       "quote_at": 0,
-      "status": "PENDING",
+      "sent_at": 1795417957,
+      "status": "SENT",
+      "telegram_ids": [
+        16489
+      ],
       "text": "👀 PLANO EM PREPARAÇÃO • AGUARDANDO GATILHO\nTAO/USDT\n🧪 SIMULAÇÃO • acompanhamento\n\nRegião em análise: 190.18 a 191.8\nSHORT somente se houver fechamento M1 abaixo de ≈ 190.093.\n\nConfirmação: dois fechamentos M1 consecutivos além do gatilho; volume do segundo de pelo menos 50% do primeiro.\nTP, SL e percentuais serão definidos no primeiro gatilho. A confirmação ainda precisa passar pela avaliação financeira.\n\nSem rompimento observado neste plano e sem entrada liberada.\nPreparação até 04:15:00 BRT.\nAnálise: 23/11/2026 04:12:32 BRT\nPlanos: ecbbcbef12fc5facdd02",
       "watch_stage": 2,
       "watch_symbol": "TAO_USDT"
