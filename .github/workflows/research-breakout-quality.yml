@@ -45,7 +45,7 @@ jobs:
       - uses: actions/setup-python@v7
         with:
           python-version: '3.12'
-      - name: Testes sem internet: causalidade, deduplicação, rebalanceamento e custo
+      - name: 'Testes sem internet: causalidade, deduplicação, rebalanceamento e custo'
         run: |
           python -m unittest tests.test_research_breakout_quality tests.test_research_rr15_entry_audit tests.test_research_financial_diagnostics tests.test_research_production_universe tests.test_research_entry_context tests.test_research_liquidity_cohort -v
       - name: Exigir universo congelado de 24 moedas anterior aos resultados
