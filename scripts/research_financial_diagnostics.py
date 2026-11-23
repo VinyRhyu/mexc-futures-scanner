@@ -124,14 +124,15 @@ def analyze_financial_robustness(rows):
             "portfolio_BASE":summarize_selected(p,key),
             "portfolio_A":summarize_selected(p_a,key),
         }
-        # Pre-registered exploratory RR: only as-of-entry net RR, no re-optimization.
-        if label in ("50usd_base","1usd_base"):
-            trials={}
-            for floor in EXPLORATORY_RR:
-                for variant in ("BASE","A"):
-                    chosen=select_at_quote(unique,key,floor,variant)
-                    trials[f"{variant}_netRR_at_least_{floor}"]=summarize_selected(chosen,key)
-            out["exploratory_minimum_projected_RR"][label]=trials
+        # Identical preregistered net-RR thresholds across ALL cost scenarios.
+        # Recompute the one-slot portfolio for each scenario; never assign a
+        # return to a candidate that was financially blocked in that scenario.
+        trials={}
+        for floor in EXPLORATORY_RR:
+            for variant in ("BASE","A"):
+                chosen=select_at_quote(unique,key,floor,variant)
+                trials[f"{variant}_netRR_at_least_{floor}"]=summarize_selected(chosen,key)
+        out["exploratory_minimum_projected_RR"][label]=trials
     base_unique,_=dedupe_scenario(rows,"cost_base")
     base_selected=select_at_quote(base_unique,"cost_base")
     for label,(key,_,_) in SCENARIOS.items():
