@@ -21,6 +21,7 @@ from mexc_scanner.mexc import MexcClient
 from mexc_scanner.models import Contract, D, jsonable
 from scripts.research_entry_context import portfolio_diagnostics, pick_portfolio
 from scripts.research_financial_diagnostics import analyze_financial_robustness
+from scripts.research_rr15_entry_audit import audit_selection, audit_summary
 from scripts.research_liquidity_cohort import analyze_symbol, iso, START, END
 
 MIN_COMPLETE = 20  # preflight observed only 24 currently eligible; require >=20 complete
@@ -219,6 +220,45 @@ def run_study(frozen_path, output_path, fail_on_partial=False):
     export_csv(base_picked,"portfolio_BASE.csv")
     export_csv(a_picked,"portfolio_A.csv")
     export_csv(unique,"viable_unique.csv")
+    # Separate forensic ledger for RR>=1.5 / 1USDT, NOT a new trading rule.
+    # Selection is performed by frozen quote-level RR before grouping by outcome.
+    import csv
+    audit_rows,eligible_count,audit_dupes=audit_selection(
+        production_gate,out["window_start_utc"])
+    if len(audit_rows)!=out["financial_viability_and_profit_exploratory"][
+            "exploratory_minimum_projected_RR"]["1usd_base"][
+                "BASE_netRR_at_least_1.5"]["trades"]:
+        raise ValueError("audited RR15 ledger disagrees with scenario replay")
+    columns=[
+        "period","signal_BRT","symbol","side","entry_price_estimated",
+        "target","stop","exit_BRT","exit_type","minutes_to_exit",
+        "net_R","net_USDT_independent_paper","pretrade_projected_net_RR",
+        "M1_volume_vs_prev20","M1_body_fraction_of_range",
+        "M1_close_near_side_fraction","M1_range_over_M15_ATR",
+        "signed_1h_M1_extension_ATR","signed_4h_M1_extension_ATR",
+        "signed_2h_M15_extension_ATR","H1_structure","A_late","B_against_H1",
+        "risk_distance_entry_to_SL_percent",
+        "reward_distance_entry_to_TP_percent","historical_24h_turnover_USDT",
+        "signal_utc","entry_utc","exit_utc","plan_id",
+    ]
+    with (output_path/"rr15_1usdt_selected_ledger.csv").open(
+        "w",newline="",encoding="utf-8-sig") as handle:
+        writer=csv.DictWriter(handle,fieldnames=columns,extrasaction="ignore")
+        writer.writeheader()
+        writer.writerows(audit_rows)
+    audit=audit_summary(audit_rows)
+    audit["unique_1usdt_base_viable_events"]=eligible_count
+    audit["duplicate_1usdt_base_viable_plan_records"]=audit_dupes
+    (output_path/"rr15_1usdt_summary.json").write_text(
+        json.dumps(audit,ensure_ascii=False,indent=2)+"\\n")
+    print("RR15_TRADE_AUDIT="+json.dumps({
+        "start":out["window_start_utc"],
+        "number_of_selections":audit["total"]["trades"],
+        "wins":audit["total"]["wins"],
+        "sum_R":audit["total"]["total_net_R"],
+        "median_winner_features":audit["winners"]["medians_preentry_and_exit"],
+        "median_loser_features":audit["nonwinners"]["medians_preentry_and_exit"],
+    },ensure_ascii=False),flush=True)
     # Export the actual pre-entry wallet/cost decisions for each confirmed signal;
     # these are not executed positions or realized account outcomes.
     import csv
