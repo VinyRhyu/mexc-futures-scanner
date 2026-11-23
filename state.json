@@ -1833,13 +1833,17 @@
       "text": "📊 RESUMO DO SCANNER\n🧪 SIMULAÇÃO\nAnálise: 21/11/2026 21:00:47 BRT\n\nColeta validada • 28/28 ativos\nPlanos ainda em acompanhamento: 18\nOperações encerradas no diário: 0\nSaldo registrado: 1.00 USDT\n\nSem resultados de operação registrados.\nSem meta obrigatória de entradas."
     },
     "086a3ee9d7b366a0acc0": {
-      "attempts": 0,
+      "attempts": 1,
       "category": "INFO",
       "created_at": 1795425752,
       "expires_at": 1795429352,
       "id": "086a3ee9d7b366a0acc0",
       "quote_at": 0,
-      "status": "PENDING",
+      "sent_at": 1795425756,
+      "status": "SENT",
+      "telegram_ids": [
+        16660
+      ],
       "text": "⚪ ATUALIZAÇÃO DOS PLANOS ACOMPANHADOS\n🧪 SIMULAÇÃO\n\n• ENA/USDT • LONG: confirmação não aprovada\n  Motivo: O segundo fechamento M1 perdeu o nível do gatilho.\n  Plano: 035bf9c40b7e16e7c4e8\n\nSem novas entradas por esses planos.\nAvisos de movimento não equivalem a entradas liberadas.\nA expiração não encerra uma posição já aberta.\nAnálise: 23/11/2026 06:22:32 BRT"
     },
     "0883d28178e629434e78": {
@@ -13287,7 +13291,7 @@
       "watch_symbol": "DOGE_USDT"
     },
     "3925a09d1a6fbb7741f7": {
-      "attempts": 0,
+      "attempts": 1,
       "category": "INFO",
       "created_at": 1795425752,
       "expires_at": 1795427100,
@@ -13296,7 +13300,11 @@
         "7832124cdf14dcdcb801"
       ],
       "quote_at": 0,
-      "status": "PENDING",
+      "sent_at": 1795425756,
+      "status": "SENT",
+      "telegram_ids": [
+        16659
+      ],
       "text": "👀 PLANO EM PREPARAÇÃO • AGUARDANDO GATILHO\nENA/USDT\n🧪 SIMULAÇÃO • acompanhamento\n\nRegião em análise: 0.10285 a 0.10424\nSHORT somente se houver fechamento M1 abaixo de ≈ 0.102781.\n\nConfirmação: dois fechamentos M1 consecutivos além do gatilho; volume do segundo de pelo menos 50% do primeiro.\nTP, SL e percentuais serão definidos no primeiro gatilho. A confirmação ainda precisa passar pela avaliação financeira.\n\nSem rompimento observado neste plano e sem entrada liberada.\nPreparação até 06:45:00 BRT.\nAnálise: 23/11/2026 06:22:32 BRT\nPlanos: 7832124cdf14dcdcb801",
       "watch_stage": 2,
       "watch_symbol": "ENA_USDT"
