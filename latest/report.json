@@ -1,13 +1,8 @@
 {
-  "analyzed_at": 1795445194,
+  "analyzed_at": 1795445252,
   "analyzed_symbols": 27,
   "config_fingerprint": "a0c2766956c79181fa62",
-  "diagnostics": [
-    {
-      "reason": "LACUNA_M1_REINICIO_APENAS_FUTURO",
-      "symbol": "LTC_USDT"
-    }
-  ],
+  "diagnostics": [],
   "excluded": [
     {
       "reason": "CLASSIFICACAO_PENDENTE",
@@ -2702,37 +2697,37 @@
   "operational_timings": [
     {
       "commit": "5d5d86b6bbd0cca703c7e80bd3ab4d4f8cab02f2",
-      "duration_s": 1.438105,
+      "duration_s": 1.457306,
       "event": "end",
-      "finished_at_utc": "2026-11-23T14:46:16.754768+00:00",
+      "finished_at_utc": "2026-11-23T14:47:15.134305+00:00",
       "phase": "market_catalog",
       "run_attempt": "1",
-      "run_id": "45197725095",
-      "started_at_utc": "2026-11-23T14:46:15.316687+00:00",
+      "run_id": "45197905603",
+      "started_at_utc": "2026-11-23T14:47:13.677027+00:00",
       "status": "OK",
       "telemetry": "phase_v1"
     },
     {
       "commit": "5d5d86b6bbd0cca703c7e80bd3ab4d4f8cab02f2",
-      "duration_s": 17.843095,
+      "duration_s": 17.814219,
       "event": "end",
-      "finished_at_utc": "2026-11-23T14:46:34.598714+00:00",
+      "finished_at_utc": "2026-11-23T14:47:32.949407+00:00",
       "phase": "candles_collect",
       "run_attempt": "1",
-      "run_id": "45197725095",
-      "started_at_utc": "2026-11-23T14:46:16.755639+00:00",
+      "run_id": "45197905603",
+      "started_at_utc": "2026-11-23T14:47:15.135212+00:00",
       "status": "OK",
       "telemetry": "phase_v1"
     },
     {
       "commit": "5d5d86b6bbd0cca703c7e80bd3ab4d4f8cab02f2",
-      "duration_s": 0.472514,
+      "duration_s": 0.511373,
       "event": "end",
-      "finished_at_utc": "2026-11-23T14:46:35.071336+00:00",
+      "finished_at_utc": "2026-11-23T14:47:33.460907+00:00",
       "phase": "analysis_and_finance",
       "run_attempt": "1",
-      "run_id": "45197725095",
-      "started_at_utc": "2026-11-23T14:46:34.598845+00:00",
+      "run_id": "45197905603",
+      "started_at_utc": "2026-11-23T14:47:32.949560+00:00",
       "status": "OK",
       "telemetry": "phase_v1"
     }
