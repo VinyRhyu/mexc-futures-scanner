@@ -149,6 +149,15 @@ def financial_experiment(plan, variant, contract, next_bar, future, cfg):
             "net_rr": f.get("net_rr")}
 
 
+
+def append_unseen_plans(active, proposed, lifetime_ids):
+    """Do not resurrect terminal formations after pruning their live instances."""
+    fresh = [p for p in proposed if p.id not in lifetime_ids]
+    lifetime_ids.update(p.id for p in fresh)
+    active.extend(fresh)
+    return len(fresh)
+
+
 def analyze_symbol(client, contract_row, selected_cohort, cfg, strict=True):
     symbol = contract_row["symbol"]
     contract = Contract.from_api(contract_row)
@@ -166,6 +175,7 @@ def analyze_symbol(client, contract_row, selected_cohort, cfg, strict=True):
     for a in amounts:
         prefix.append(prefix[-1]+a)
     plans, cursor, seen, records = [], 0, set(), []
+    lifetime_ids = set()
     formed = 0
     for j, candle in enumerate(m):
         if candle.end < START or candle.end > END:
@@ -174,9 +184,7 @@ def analyze_symbol(client, contract_row, selected_cohort, cfg, strict=True):
         if candle.end in q_ends:
             new = form_plans(symbol, q[max(0,pos_q-480):pos_q],
                              contract.tick, START, START)
-            existing = {p.id for p in plans}
-            plans.extend(p for p in new if p.id not in existing)
-            formed += len(new)
+            formed += append_unseen_plans(plans, new, lifetime_ids)
         if not plans:
             # The M1 source is continuous even when there are no active plans.
             # Moving the clock prevents a future formation looking like a data gap.
