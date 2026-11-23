@@ -1,0 +1,58 @@
+name: Pesquisa — RR 1.5 em blocos historicos adicionais
+on:
+  pull_request:
+    paths:
+      - '.github/workflows/research-financial-rr15-check.yml'
+      - 'docs/experiments/financial-rr15-temporal-check-2026-11-23.md'
+      - 'scripts/research_financial_diagnostics.py'
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    timeout-minutes: 35
+    strategy:
+      fail-fast: false
+      max-parallel: 2
+      matrix:
+        include:
+          - name: earlier_oct26_oct31
+            start: '2026-10-26T00:00:00+00:00'
+            end: '2026-10-31T00:00:00+00:00'
+          - name: gap_nov14_nov15
+            start: '2026-11-14T00:00:00+00:00'
+            end: '2026-11-15T20:00:00+00:00'
+    env:
+      LIQUIDITY_START_UTC: ${{ matrix.start }}
+      LIQUIDITY_END_UTC: ${{ matrix.end }}
+    steps:
+      - uses: actions/checkout@v7.0.1
+        with:
+          persist-credentials: false
+      - uses: actions/setup-python@v7
+        with:
+          python-version: '3.12'
+      - name: Offline causal and scenario tests
+        run: python -m unittest tests.test_research_financial_diagnostics tests.test_research_production_universe tests.test_research_entry_context -v
+      - name: Exact frozen 24-symbol snapshot check
+        run: |
+          python - <<'PY'
+          import json
+          from pathlib import Path
+          from scripts.research_production_universe import validate_frozen
+          d=json.loads(Path('docs/experiments/frozen-finance-universe-2026-11-23.json').read_text())
+          assert len(validate_frozen(d))==24
+          assert d['sha256_ordered_symbols']=='edf08de9b2c1027c7631069a9b86baa73febd799c56fc8c2edf2274bc82601a1'
+          PY
+      - name: Recompute 1 and 50 USDT scenarios and RR1.5 over additional window
+        run: |
+          python -m scripts.research_production_universe --fail-on-partial --universe docs/experiments/frozen-finance-universe-2026-11-23.json --output reports/holdout-rr15-${{ matrix.name }}
+      - name: Archive results and data coverage
+        if: always()
+        uses: actions/upload-artifact@v7.0.2
+        with:
+          name: holdout-rr15-${{ matrix.name }}-${{ github.run_id }}
+          path: reports/holdout-rr15-${{ matrix.name }}/
+          retention-days: 30
+          if-no-files-found: warn

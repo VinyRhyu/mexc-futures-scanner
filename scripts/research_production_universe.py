@@ -20,6 +20,7 @@ from mexc_scanner.market import select_universe
 from mexc_scanner.mexc import MexcClient
 from mexc_scanner.models import Contract, D, jsonable
 from scripts.research_entry_context import portfolio_diagnostics, pick_portfolio
+from scripts.research_financial_diagnostics import analyze_financial_robustness
 from scripts.research_liquidity_cohort import analyze_symbol, iso, START, END
 
 MIN_COMPLETE = 20  # preflight observed only 24 currently eligible; require >=20 complete
@@ -182,6 +183,7 @@ def run_study(frozen_path, output_path, fail_on_partial=False):
             "BASE":paired_cost_stress(base_picked),
             "A":paired_cost_stress(a_picked),
         },
+        "financial_viability_and_profit_exploratory":analyze_financial_robustness(production_gate),
         "model_limitations":[
             "selected universe is from one CURRENT snapshot and has survivorship bias",
             "Historical top50 membership cannot be recovered from these 50 ticker histories",
@@ -217,6 +219,57 @@ def run_study(frozen_path, output_path, fail_on_partial=False):
     export_csv(base_picked,"portfolio_BASE.csv")
     export_csv(a_picked,"portfolio_A.csv")
     export_csv(unique,"viable_unique.csv")
+    # Export the actual pre-entry wallet/cost decisions for each confirmed signal;
+    # these are not executed positions or realized account outcomes.
+    import csv
+    fields=["symbol","side","signal_at","plan_id","turnover24","A_late",
+            "wallet_50_base","wallet_50_mid","wallet_50_stress",
+            "wallet_1_base","wallet_1_mid","wallet_1_stress",
+            "wallet_1_reason","wallet_50_rr_entry","wallet_1_rr_entry"]
+    with (output_path/"financial_status_all_signals.csv").open("w",newline="",
+                    encoding="utf-8-sig") as handle:
+        writer=csv.DictWriter(handle,fieldnames=fields)
+        writer.writeheader()
+        for row in production_gate:
+            writer.writerow({
+                "symbol":row["symbol"],"side":row["side"],
+                "signal_at":row["signal_at"],"plan_id":row["plan_id"],
+                "turnover24":row["turnover24"],
+                "A_late":row["causal_context"]["A_late"],
+                "wallet_50_base":row["cost_base"]["status"],
+                "wallet_50_mid":row["cost_mid"]["status"],
+                "wallet_50_stress":row["cost_stress"]["status"],
+                "wallet_1_base":row["wallet_1usdt"]["status"],
+                "wallet_1_mid":row["wallet_1usdt_mid"]["status"],
+                "wallet_1_stress":row["wallet_1usdt_stress"]["status"],
+                "wallet_1_reason":";".join(map(str,row["wallet_1usdt"].get("reasons",[]))),
+                "wallet_50_rr_entry":row["cost_base"].get("net_rr"),
+                "wallet_1_rr_entry":row["wallet_1usdt"].get("net_rr"),
+            })
+    money=out["financial_viability_and_profit_exploratory"]
+    wallet_summaries={
+        label:{
+            "base_fills":value["portfolio_BASE"]["trades"],
+            "base_net_r":value["portfolio_BASE"]["net_r_sum"],
+            "A_fills":value["portfolio_A"]["trades"],
+            "A_net_r":value["portfolio_A"]["net_r_sum"],
+            "plan_status":value["status_by_plan"],
+        }
+        for label,value in money["scenarios"].items()
+    }
+    print("RESEARCH_FINANCIAL_DIAGNOSTICS="+json.dumps({
+        "start":out["window_start_utc"],"end":out["window_end_utc_exclusive"],
+        "technical_confirmations_5m":len(production_gate),
+        "wallet_cost_scenarios":wallet_summaries,
+        "pretrade_RR_trials":{
+            label:{
+                floor_key:{"trades":stats["trades"],"wins":stats["wins"],
+                           "net_r":stats["net_r_sum"]}
+                for floor_key,stats in trials.items()
+            }
+            for label,trials in money["exploratory_minimum_projected_RR"].items()
+        }
+    },ensure_ascii=False),flush=True)
     summary={
         "start":out["window_start_utc"],"end":out["window_end_utc_exclusive"],
         "frozen_sha256":frozen["sha256_ordered_symbols"],
