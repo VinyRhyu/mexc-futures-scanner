@@ -10,6 +10,7 @@ from collections import Counter
 from dataclasses import replace
 from datetime import datetime, timezone
 from decimal import Decimal
+import csv
 import json
 import math
 import os
@@ -23,8 +24,10 @@ from mexc_scanner.minute_breakout import MODEL, form_plans, process_minutes
 from mexc_scanner.models import Contract, D, jsonable, seconds
 from scripts.audit_pullback import close_outcome, paper_quote
 
-END = int(datetime(2026, 11, 21, tzinfo=timezone.utc).timestamp())
-START = END - 14 * 86400
+END = int(datetime.fromisoformat(os.environ.get("LIQUIDITY_END_UTC", "2026-11-21T00:00:00+00:00")).timestamp())
+START = int(datetime.fromisoformat(os.environ.get("LIQUIDITY_START_UTC", "2026-11-07T00:00:00+00:00")).timestamp())
+if START >= END or START % 3600 or END % 3600:
+    raise ValueError("Experiment period must be ordered and aligned to full UTC hour")
 LOW_MIN, CORE_MIN = D("200000"), D("5000000")
 SAMPLES_PER_COHORT = 6
 HORIZON = 4 * 3600
@@ -142,10 +145,27 @@ def financial_experiment(plan, variant, contract, next_bar, future, cfg):
         net = quantity*(sign*(price-entry) - slip - fee*(entry+price))
         out.update(outcome="TIME_4H", net_r=net/risk,
                    net_usdt=net, exited_at=iso(end.end))
+    # Reconstruct the same indicative entry/exit prices used in the OHLC
+    # simulation. These are modeled fills, never historical executable quotes.
+    exit_time = int(datetime.fromisoformat(out["exited_at"]).timestamp())
+    exit_bar = next((c for c in future if c.end == exit_time), None)
+    if exit_bar is None:
+        raise ValueError("No corresponding exit candle")
+    if out["outcome"] == "TIME_4H":
+        exit_reference = exit_bar.close
+    elif out["outcome"] in {"STOP", "STOP_AMBIGUO"}:
+        exit_reference = (min(variant.stop, exit_bar.open) if sign == 1 else
+                          max(variant.stop, exit_bar.open))
+    elif out["outcome"] == "ALVO":
+        exit_reference = variant.target
+    else:
+        raise ValueError("Unexpected simulated exit outcome: " + out["outcome"])
+    exit_fill = exit_reference - sign * max(2*contract.tick, exit_reference*D(cfg.slippage_rate))
     return {"status": "FILLED_SIMULATED", "outcome": out["outcome"],
             "net_r": str(out["net_r"]), "net_usdt": str(out["net_usdt"]),
-            "exit_at": out["exited_at"],
-            "entry_at": iso(variant.triggered_at),
+            "exit_at": out["exited_at"], "entry_at": iso(variant.triggered_at),
+            "entry_open_mid": str(next_bar.open), "entry_fill_estimate": str(entry),
+            "exit_reference": str(exit_reference), "exit_fill_estimate": str(exit_fill),
             "net_rr": f.get("net_rr")}
 
 
@@ -167,8 +187,9 @@ def analyze_symbol(client, contract_row, selected_cohort, cfg, strict=True):
     # One day before START is required for causal 24h turnover at first signal.
     m, amounts = fetch_range(client, symbol, 60, START-86400, END+HORIZON)
     checked, mismatches = candles_consistent(q, m)
-    if strict and (mismatches or checked < 14*96):
-        raise ValueError(f"M1 vs M15 mismatch: {mismatches}/{checked}; expected 1344")
+    required = (END - START) // 900
+    if strict and (mismatches or checked < required):
+        raise ValueError(f"M1 vs M15 mismatch: {mismatches}/{checked}; expected {required}")
     h_ends, q_ends = [c.end for c in h], [c.end for c in q]
     m_by_ts = {c.ts: i for i, c in enumerate(m)}
     prefix = [D(0)]
@@ -300,12 +321,24 @@ def run():
         raise ValueError("research requires paper mode")
     client = MexcClient()
     now = client.server_time()
-    if now <= END:
-        raise ValueError("historical evaluation end must precede now")
+    if now < END + HORIZON + 10:
+        raise ValueError("4h exit horizon not fully closed for historical sample")
     assets = set(json.loads(Path("config/crypto-assets.json").read_text())["assets"])
     catalog = {c["symbol"]: c for c in client.contracts()}
     tickers = client.tickers()
-    cohorts = select_samples(list(catalog.values()), tickers, assets)
+    if os.environ.get("LIQUIDITY_FIXED_WEEK") == "1":
+        # Frozen 12 symbols from prior run; do not re-rank based on latest ticker.
+        frozen = {
+            "lower_liquidity": ["ORCA_USDT", "S_USDT", "NEO_USDT",
+                                "FLOKI_USDT", "TRB_USDT", "SAND_USDT"],
+            "core_liquidity": ["ONDO_USDT", "ARB_USDT", "TIA_USDT",
+                               "DOT_USDT", "AVAX_USDT", "UNI_USDT"],
+        }
+        current = {r["symbol"]:r for r in tickers}
+        cohorts = {g: [(s,D(current[s].get("amount24",0))) for s in symbols]
+                   for g,symbols in frozen.items()}
+    else:
+        cohorts = select_samples(list(catalog.values()), tickers, assets)
     results, errors = [], {}
     for group in ("lower_liquidity", "core_liquidity"):
         for i, (symbol, volume) in enumerate(cohorts[group],1):
@@ -326,7 +359,8 @@ def run():
         "name": "LOW_LIQUIDITY_M1_FIXED_COHORT",
         "created_utc": iso(now),
         "sample_start_utc": iso(START), "sample_end_utc_exclusive": iso(END),
-        "sampling_rule": "ORCA + 5 nearest current-turnover low; 6 nearest-above-5M core",
+        "sampling_rule": ("frozen 12-symbol sample from 14-day study" if os.environ.get("LIQUIDITY_FIXED_WEEK") == "1" else
+                          "ORCA + 5 nearest current-turnover low; 6 nearest-above-5M core"),
         "sampling_selection_bias": "Current universe and survivor bias; ORCA is a known prior winner",
         "current_turnover_cohorts": {g: [{"symbol":s,"turnover24":str(v)} for s,v in items]
                                       for g,items in cohorts.items()},
@@ -362,8 +396,53 @@ def run():
         ],
         "trades": cases,
     }
-    path=Path("reports/liquidity-cohort");path.mkdir(parents=True,exist_ok=True)
+    path=Path(os.environ.get("LIQUIDITY_REPORT_DIR","reports/liquidity-cohort"))
+    path.mkdir(parents=True,exist_ok=True)
     (path/"result.json").write_text(json.dumps(jsonable(out),ensure_ascii=False,indent=2))
+    # A portfolio can choose one open position at a time. Persist the exact
+    # chosen rows; distinguish from independent viable signals and skips.
+    viable = sorted((r for r in cases if r["cost_base"]["status"] == "FILLED_SIMULATED"),
+                    key=lambda r:(r["cost_base"]["entry_at"],r["symbol"],r["plan_id"]))
+    selected, next_free = [], ""
+    for row in viable:
+        trade = row["cost_base"]
+        if trade["entry_at"] < next_free:
+            continue
+        selected.append(row)
+        next_free = trade["exit_at"]
+    if len(selected) != out["portfolio_r"]["trades"]:
+        raise ValueError("Selected-trade ledger differs from portfolio summary")
+    out["portfolio_selected_trades"] = selected
+    (path/"result.json").write_text(json.dumps(jsonable(out),ensure_ascii=False,indent=2))
+    columns = ["symbol","side","signal_brt","entry_brt","exit_brt",
+               "entry_fill_estimate","stop","target","exit_fill_estimate",
+               "outcome","net_r","net_usdt","turnover24","historical_group",
+               "entry_low","entry_high","plan_id"]
+    from zoneinfo import ZoneInfo
+    brt = ZoneInfo("America/Sao_Paulo")
+    def local_time(stamp):
+        return datetime.fromisoformat(stamp).astimezone(brt).isoformat(timespec="minutes")
+    def export_rows(rows, filename):
+        with (path/filename).open("w",newline="",encoding="utf-8-sig") as handle:
+            writer = csv.DictWriter(handle,fieldnames=columns)
+            writer.writeheader()
+            for row in rows:
+                v = row["cost_base"]
+                writer.writerow({
+                    "symbol":row["symbol"],"side":row["side"],
+                    "signal_brt":local_time(row["signal_at"]),
+                    "entry_brt":local_time(v["entry_at"]),
+                    "exit_brt":local_time(v["exit_at"]),
+                    "entry_fill_estimate":v["entry_fill_estimate"],
+                    "stop":row["stop"],"target":row["target"],
+                    "exit_fill_estimate":v["exit_fill_estimate"],
+                    "outcome":v["outcome"],"net_r":v["net_r"],
+                    "net_usdt":v["net_usdt"],"turnover24":row["turnover24"],
+                    "historical_group":row["historical_group"],
+                    "entry_low":row["entry_low"],"entry_high":row["entry_high"],
+                    "plan_id":row["plan_id"]})
+    export_rows(selected,"portfolio_selecionadas.csv")
+    export_rows(viable,"todas_viaveis.csv")
     md = [
         "# Coorte exploratória de liquidez (sem ordens)",
         "", "Período de sinais UTC: "+iso(START)+" até "+iso(END)+" (exclusivo).",
