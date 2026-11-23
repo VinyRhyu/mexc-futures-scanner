@@ -978,7 +978,7 @@
       "text": "⚪ ATUALIZAÇÃO DOS PLANOS ACOMPANHADOS\n🧪 SIMULAÇÃO\n\n• NEAR/USDT • SHORT: prazo para nova entrada encerrado\n  Motivo: A janela para uma nova entrada terminou.\n  Plano: 2593923c05a3de2bc3c5\n\nSem novas entradas por esses planos.\nAvisos de movimento não equivalem a entradas liberadas.\nA expiração não encerra uma posição já aberta.\nAnálise: 22/11/2026 11:15:41 BRT"
     },
     "03ea217a7079d6dff2e9": {
-      "attempts": 0,
+      "attempts": 1,
       "category": "INFO",
       "created_at": 1795425158,
       "expires_at": 1795425180,
@@ -989,7 +989,11 @@
         "57304480324fe6636478"
       ],
       "quote_at": 0,
-      "status": "PENDING",
+      "sent_at": 1795425162,
+      "status": "SENT",
+      "telegram_ids": [
+        16625
+      ],
       "text": "🟡 MOVIMENTO DETECTADO • AINDA SEM CONFIRMAÇÃO\nAAVE/USDT • BAIXA (SHORT)\n🧪 SIMULAÇÃO • acompanhamento\n\nRompimento observado no M1 fechado às 06:12:00 BRT.\nPreço de referência do primeiro gatilho: 97.49.\n\nPrimeiro fechamento além da região identificado.\nFalta o segundo fechamento sustentar o nível, com volume de pelo menos 50% do primeiro.\nApós confirmar, o plano ainda precisa passar pela avaliação financeira.\n\nFaixa em estudo: 97.36 a 97.55\n🛑 Stop do plano: 97.9 (-4.21% bruto em 10x)\n🎯 Alvo do plano: 97.01 (+4.92% bruto em 10x)\nCenário indicativo sobre a margem em 10x; custos e liquidação ainda não validados.\nMovimento sem alavancagem: TP +0.49% • SL -0.42%.\nPercentuais sobre a referência do primeiro gatilho, na direção da operação, antes de custos.\n\nMovimento observado, sem entrada liberada. Aguarde o alerta de confirmação e viabilidade.\nAlerta válido até 06:13:00 BRT.\nAnálise: 23/11/2026 06:12:38 BRT\nPlano: 57304480324fe6636478",
       "watch_stage": 1,
       "watch_symbol": "AAVE_USDT"
