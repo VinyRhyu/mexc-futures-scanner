@@ -178,7 +178,8 @@ def settle_candidate(row,entry_snapshot,balance_before):
     }
 
 
-def run_wallet(rows, *, rule="BASE", slip="0.0002", initial_balance=INITIAL_BALANCE):
+def run_wallet(rows, *, rule="BASE", slip="0.0002", initial_balance=INITIAL_BALANCE,
+               fixed_leverage=None, min_projected_tp_roi_pct=None):
     if rule not in ALLOWED_RULES:
         raise ValueError("unknown frozen entry criterion")
     if D(initial_balance)!=INITIAL_BALANCE:
@@ -186,7 +187,16 @@ def run_wallet(rows, *, rule="BASE", slip="0.0002", initial_balance=INITIAL_BALA
     slip=D(slip)
     if slip not in SLIPS:
         raise ValueError("slippage not preregistered")
+    if fixed_leverage is not None and fixed_leverage not in (10,15,20):
+        raise ValueError("leverage must be predeclared 10x/15x/20x")
+    if min_projected_tp_roi_pct is not None and (
+            D(min_projected_tp_roi_pct)!=D("35") or rule!="RR15"):
+        raise ValueError("only predeclared RR15 + 35pct projected TP ROI supported")
     cfg=load_config("config/default.toml")
+    if fixed_leverage is not None:
+        # Production's risk, margin and STOP_LIQUIDATION checks still run.
+        # This changes only margin denominator/required leverage, NOT notional.
+        cfg=replace(cfg, minimum_leverage=fixed_leverage, max_leverage=fixed_leverage)
     if cfg.mode!="paper" or D(cfg.minimum_turnover)!=D("5000000"):
         raise ValueError("production paper assumptions changed")
     # Group by minute and market event; quote all alternative technical plans,
@@ -238,12 +248,27 @@ def run_wallet(rows, *, rule="BASE", slip="0.0002", initial_balance=INITIAL_BALA
             if rule=="RR15" and D(quoted["quote"]["net_rr"])<RR_FLOOR:
                 skip["RR15_FROZEN_VETO"]+=1
                 continue
+            if min_projected_tp_roi_pct is not None:
+                q=quoted["quote"]
+                if D(q["margin_usdt"])<=0:
+                    raise ValueError("invalid initial margin for ROI")
+                proj=D(q["gain_usdt"])/D(q["margin_usdt"])*D("100")
+                if proj<D(min_projected_tp_roi_pct):
+                    skip["ROI35_PROJECTED_AT_TP_VETO"]+=1
+                    continue
             eligible.append((first,quoted))
         if not eligible:
             continue
         selected,quote=min(eligible,key=lambda x:(x[0]["symbol"],x[0]["plan_id"]))
         balance_before=equity
         trade=settle_candidate(selected,quote,balance_before)
+        if trade["margin_usdt"]<=0:
+            raise ValueError("invalid posted trade margin")
+        trade["net_realized_roi_pct_of_margin"]=(
+            trade["net_usdt"]/trade["margin_usdt"]*D("100"))
+        if "gain_usdt" in quote["quote"]:
+            trade["net_tp_projected_roi_pct_of_margin"]=(
+                D(quote["quote"]["gain_usdt"])/trade["margin_usdt"]*D("100"))
         equity+=trade["net_usdt"]
         peak=max(peak,equity)
         drawdown=peak-equity
@@ -271,6 +296,9 @@ def run_wallet(rows, *, rule="BASE", slip="0.0002", initial_balance=INITIAL_BALA
         })
     return {
         "name":rule,"slippage_per_side":str(slip),
+        "leverage_fixed":fixed_leverage,
+        "projected_tp_roi_gate_pct":(str(min_projected_tp_roi_pct)
+                                   if min_projected_tp_roi_pct is not None else None),
         "initial_usdt":str(start_equity),"ending_usdt":str(equity),
         "net_usdt":str(equity-start_equity),
         "net_pct_of_initial":str((equity/start_equity-D(1))*100),
