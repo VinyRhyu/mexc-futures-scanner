@@ -1,0 +1,54 @@
+name: Pesquisa A — validacao historica em semanas nao avaliadas
+on:
+  pull_request:
+    paths:
+      - '.github/workflows/research-historical-holdout.yml'
+      - 'docs/experiments/shadow-a-historical-validation-2026-11-23.md'
+      - 'scripts/research_liquidity_cohort.py'
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  holdout:
+    runs-on: ubuntu-latest
+    timeout-minutes: 25
+    strategy:
+      fail-fast: false
+      matrix:
+        include:
+          - label: holdout_oct31_nov07
+            start: "2026-10-31T00:00:00+00:00"
+            end: "2026-11-07T00:00:00+00:00"
+          - label: gap_nov14_nov15
+            start: "2026-11-14T00:00:00+00:00"
+            end: "2026-11-15T20:00:00+00:00"
+          # First try (Oct24) failed for all 12 symbols: oldest M1 candles unavailable.
+          # Shift by one calendar day for data availability only, not trade results.
+          - label: oldest_complete_attempt_oct25_oct31
+            start: "2026-10-25T00:00:00+00:00"
+            end: "2026-10-31T00:00:00+00:00"
+    env:
+      LIQUIDITY_FIXED_WEEK: "1"
+      LIQUIDITY_START_UTC: "${{ matrix.start }}"
+      LIQUIDITY_END_UTC: "${{ matrix.end }}"
+      LIQUIDITY_REPORT_DIR: "reports/holdout-${{ matrix.label }}"
+      HOLDOUT_FAIL_ON_PARTIAL: "1"
+    steps:
+      - uses: actions/checkout@v7.0.1
+        with:
+          persist-credentials: false
+      - uses: actions/setup-python@v7
+        with:
+          python-version: '3.12'
+      - name: Testes de causalidade e carteira
+        run: python -m unittest tests.test_research_entry_context tests.test_research_liquidity_cohort -v
+      - name: Backtest historico com MEXC GET publico e filtro A congelado
+        run: python -m scripts.research_liquidity_cohort
+      - name: Publicar dados completos, inclusive diagnosticos de lacunas
+        if: always()
+        uses: actions/upload-artifact@v7.0.2
+        with:
+          name: a-holdout-${{ matrix.label }}-${{ github.run_id }}
+          path: reports/holdout-${{ matrix.label }}/
+          retention-days: 30
+          if-no-files-found: warn
