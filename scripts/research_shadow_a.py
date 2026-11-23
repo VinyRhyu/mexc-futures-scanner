@@ -125,6 +125,35 @@ def analyze_symbol(client, symbol, signals, clock):
     return result
 
 
+
+def unique_events(classified):
+    """Count one technical market event per symbol, side and confirmation minute.
+
+    Preserve individual plan levels because two valid plans may share a timestamp
+    but have different targets/stops. Do not invent an executable trade.
+    """
+    groups=defaultdict(list)
+    for row in classified:
+        groups[(row["symbol"],row["side"],row["signal_at"])].append(row)
+    records=[]
+    for (symbol,side,signal),plans in sorted(groups.items(),
+            key=lambda item:(item[0][2],item[0][0],item[0][1])):
+        verdicts={x["shadow"]["verdict_A"] for x in plans}
+        if len(verdicts)!=1:
+            raise DataError("Filter A inconsistent across identical market events")
+        paths=Counter(x["shadow"]["path_status"] for x in plans)
+        level_sets={(x["stop"],x["target"]) for x in plans}
+        records.append({
+            "symbol":symbol,"side":side,"signal_at":iso(signal),
+            "plan_count":len(plans),
+            "verdict_A":next(iter(verdicts)),
+            "price_path_by_plan":dict(paths),
+            "different_stops_or_targets":len(level_sets)>1,
+            "not_a_financial_trade":True,
+        })
+    return records
+
+
 def run(state, client, clock, lookback_hours=LOOKBACK_HOURS):
     signals=candidates_from_state(state,clock,int(lookback_hours*3600))
     by_symbol=defaultdict(list)
@@ -136,6 +165,7 @@ def run(state, client, clock, lookback_hours=LOOKBACK_HOURS):
             classified+=analyze_symbol(client,symbol,by_symbol[symbol],clock)
         except (DataError,ValueError,KeyError,TypeError) as exc:
             errors[symbol]=type(exc).__name__+": "+str(exc)[:160]
+    events=unique_events(classified)
     result={
         "kind":"SHADOW_A_READONLY_BOOTSTRAP",
         "created_at_utc":iso(clock),
@@ -146,6 +176,11 @@ def run(state, client, clock, lookback_hours=LOOKBACK_HOURS):
         "reason_not_prospective":"Prior state signals are observed retrospectively at bootstrap",
         "signals_found":len(signals),
         "signals_classified":len(classified),
+        "distinct_events_classified":len(events),
+        "duplicate_plan_records":len(classified)-len(events),
+        "distinct_events_shadow_rejected":sum(x["verdict_A"]=="POSSIVEL_ENTRADA_TARDIA" for x in events),
+        "distinct_events_shadow_allowed":sum(x["verdict_A"]=="SEM_VETO_A" for x in events),
+        "events_with_different_levels":sum(x["different_stops_or_targets"] for x in events),
         "symbols_with_errors":errors,
         "shadow_rejected":sum(x["shadow"]["verdict_A"]=="POSSIVEL_ENTRADA_TARDIA" for x in classified),
         "shadow_allowed":sum(x["shadow"]["verdict_A"]=="SEM_VETO_A" for x in classified),
@@ -160,6 +195,7 @@ def run(state, client, clock, lookback_hours=LOOKBACK_HOURS):
             "Bootstrap is retrospective; recurrent captures must be timestamped independently to validate prospectively",
         ],
         "signals":classified,
+        "distinct_events":events,
     }
     if len(classified)+len(errors)==0:
         result["classification_status"]="NO_SIGNALS_IN_LOOKBACK"
@@ -186,7 +222,10 @@ def main():
     args.output.mkdir(parents=True,exist_ok=True)
     (args.output/"shadow-result.json").write_text(json.dumps(out,ensure_ascii=False,indent=2)+"\n")
     summary={key:out[key] for key in ("created_at_utc","classification_status","signals_found",
-                                      "signals_classified","shadow_rejected","shadow_allowed",
+                                      "signals_classified","distinct_events_classified",
+                                      "duplicate_plan_records","distinct_events_shadow_rejected",
+                                      "distinct_events_shadow_allowed","events_with_different_levels",
+                                      "shadow_rejected","shadow_allowed",
                                       "path_observations","symbols_with_errors")}
     print("SHADOW_A_SUMMARY="+json.dumps(summary,ensure_ascii=False),flush=True)
     if out["symbols_with_errors"]:
