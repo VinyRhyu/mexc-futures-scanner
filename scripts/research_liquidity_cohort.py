@@ -250,8 +250,11 @@ def analyze_symbol(client, contract_row, selected_cohort, cfg, strict=True):
             }
             for label, trial_cfg in (
                 ("cost_base", replace(cfg, initial_balance="50", slippage_rate=".0002")),
+                ("cost_mid", replace(cfg, initial_balance="50", slippage_rate=".0005")),
                 ("cost_stress", replace(cfg, initial_balance="50", slippage_rate=".0010")),
                 ("wallet_1usdt", replace(cfg, initial_balance="1", slippage_rate=".0002")),
+                ("wallet_1usdt_mid", replace(cfg, initial_balance="1", slippage_rate=".0005")),
+                ("wallet_1usdt_stress", replace(cfg, initial_balance="1", slippage_rate=".0010")),
             ):
                 row[label] = financial_experiment(
                     p, v, contract, later[0] if later else None, later,
