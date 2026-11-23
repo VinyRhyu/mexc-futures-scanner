@@ -61,7 +61,7 @@ def pack_equity_candidate(plan,variant,contract_row,next_open,future,turnover,si
         raise ValueError("next opening price mismatch")
     if D(turnover)<D("5000000"):
         raise ValueError("less than historical five million turnover")
-    if plan.symbol!=contract_row["symbol"] or variant.triggered_at!=seconds(signal_at):
+    if plan.symbol!=contract_row["symbol"] or variant.triggered_at!=int(datetime.fromisoformat(signal_at).timestamp()):
         raise ValueError("plan identity or as-of mismatch")
     return {
         "symbol":plan.symbol, "side":plan.side, "plan_id":plan.id,
@@ -83,7 +83,7 @@ def parse_candidate(raw):
     v=Variant.from_dict(raw["variant"])
     c=Contract.from_api(raw["contract_row"])
     if not (p.id==raw["plan_id"] and p.symbol==c.symbol==raw["symbol"]
-            and p.side==raw["side"] and v.triggered_at==seconds(raw["signal_at"])):
+            and p.side==raw["side"] and v.triggered_at==int(datetime.fromisoformat(raw["signal_at"]).timestamp())):
         raise ValueError("candidate contains cross-signal contract or plan data")
     if D(raw["turnover24_USDT"])<D("5000000"):
         raise ValueError("historical turnover gate violated")
