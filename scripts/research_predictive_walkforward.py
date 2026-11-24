@@ -83,7 +83,7 @@ def pretrade_features(row):
     if turnover <= 0 or numeric["projected_net_RR"] <= 0:
         raise ValueError("nonpositive turnover or financial RR")
     alignment = row["H1_alignment"]
-    if alignment not in {"WITH_H1", "AGAINST_H1", "UNKNOWN_H1", "UNKNOWN"}:
+    if alignment not in {"WITH_H1", "AGAINST_H1", "NO_CONFIRMED_H1_TREND"}:
         raise ValueError("unknown H1 structure alignment")
     if row["side"] not in {"LONG", "SHORT"}:
         raise ValueError("unknown direction")
