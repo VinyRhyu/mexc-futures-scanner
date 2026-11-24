@@ -102,13 +102,14 @@ class AlertTests(unittest.TestCase):
         self.assertEqual(result["expired"], 1)
         self.assertFalse(calls)
 
-    def test_delivered_event_not_queued_again(self):
+    def test_suppressed_event_not_requeued_as_notification(self):
         state = initial_state(Config())
         queue_message(state, "a", "signal", NOW, NOW + 500)
         result = drain_outbox(state, NOW, "token", "chat", lambda p: {"ok": True, "result": {"message_id": 7}})
-        self.assertEqual(result["sent"], 1)
+        self.assertEqual(result["sent"], 0)
+        self.assertEqual(result["suppressed"], 1)
         queue_message(state, "a", "signal", NOW + 1, NOW + 500)
-        self.assertEqual(state["outbox"]["a"]["status"], "SENT")
+        self.assertEqual(state["outbox"]["a"]["status"], "EXPIRED")
 
     def test_missing_secret_does_not_attempt_delivery(self):
         state = initial_state(Config())
