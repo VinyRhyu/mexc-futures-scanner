@@ -59,6 +59,18 @@ def context(bars,btc,t):
             out.extend([float(np.std(np.diff(np.log(v)))),float((v[-1]-lo)/(hi-lo)) if hi>lo else np.nan,float(hi/lo-1)])
     return out
 
+def align_probabilities(probabilities,observed_classes):
+    # A class absent from training has no fitted probability, not an invented sample.
+    if len(set(observed_classes))!=len(observed_classes) or not set(observed_classes)<=set(CLASSES):
+        raise ValueError("invalid observed class mapping")
+    raw=np.asarray(probabilities,dtype=float)
+    if raw.ndim!=2 or raw.shape[1]!=len(observed_classes) or not np.all(np.isfinite(raw)) or np.any(raw<0) or not np.allclose(raw.sum(axis=1),1.):
+        raise ValueError("invalid class probabilities")
+    aligned=np.zeros((len(raw),len(CLASSES)))
+    for j,c in enumerate(observed_classes):
+        aligned[:,CLASSES.index(c)]=raw[:,j]
+    return aligned
+
 def auc(y,p):
     return float(roc_auc_score(y,p)) if len(np.unique(y))==2 else None
 
@@ -133,11 +145,13 @@ def run(raw,g,h,i,output):
     X=np.asarray(train["x"])
     y=np.asarray(train["y"])
     counts=Counter(y.tolist())
-    if set(counts)!=set(CLASSES):
-        raise ValueError("training lacks event class")
+    if not {"UP","DOWN","NONE"}<=set(counts) or not set(counts)<=set(CLASSES):
+        raise ValueError("training lacks a primary event class")
+    missing_classes=[k for k in CLASSES if k not in counts]
     prior=np.asarray([counts[k]/len(y) for k in CLASSES])
     report={"type":"V5A_EVENT_PREDICTABILITY","cutoffs":[CUT1,CUT2],"horizon_minutes":240,
-            "excursion_atr":3,"classes":CLASSES,"training_counts":dict(counts),
+            "excursion_atr":3,"classes":CLASSES,"training_counts":{k:counts[k] for k in CLASSES},
+            "absent_training_classes":missing_classes,
             "training_step_seconds":900,"evaluation_step_seconds":300,
             "feature_order":[*FEATURES,"atr_over_last_closed_price",*CONTEXT_NAMES],
             "coverage":audit,"results":{},"limitations":[
@@ -146,18 +160,18 @@ def run(raw,g,h,i,output):
                 "Directional metrics conditional on known direction after the fact; not standalone trading performance.",
                 "Existing inside-range proxy, fixed 52 assets, current-selection hindsight and previously examined dates.",
                 "Overlapping outcomes and correlated assets; day bootstrap descriptive with few dates.",
-                "No hyperparameter tuning or model selection for production. No independent temporal confirmation."]}
+                "No hyperparameter tuning or model selection for production. No independent temporal confirmation.",
+                "An unobserved optional AMBIGUOUS class receives zero probability in both model and train prior. Future appearances are counted, not discarded; log loss uses numerical clipping. No synthetic labels."]}
     for name,k in (("existing_features",width),("extended_context",X.shape[1])):
         model=make_pipeline(SimpleImputer(strategy="median",keep_empty_features=True),StandardScaler(),
                             LogisticRegression(C=1.,max_iter=1000,solver="lbfgs",random_state=SEED))
         model.fit(X[:,:k],y)
-        order=[list(model.classes_).index(c) for c in CLASSES]
         report["results"][name]={}
         for part in PARTS[1:]:
             q=data[part]
             xx=np.asarray(q["x"])[:,:k]
             yy=np.asarray(q["y"])
-            pp=model.predict_proba(xx)[:,order]
+            pp=align_probabilities(model.predict_proba(xx),list(model.classes_))
             base=np.tile(prior,(len(yy),1))
             sy=np.asarray(q["symbol"])
             report["results"][name][part]={"model":metrics(yy,pp),"constant_train_prior":metrics(yy,base),

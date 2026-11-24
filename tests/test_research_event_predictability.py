@@ -1,6 +1,6 @@
 import unittest
 import numpy as np
-from scripts.research_event_predictability import event,context,metrics,day_gain,CLASSES,CONTEXT_NAMES
+from scripts.research_event_predictability import event,context,metrics,day_gain,CLASSES,CONTEXT_NAMES,align_probabilities
 from mexc_scanner.models import Candle,D
 
 def candle(t,op=100,hi=101,lo=99,cl=100):
@@ -28,3 +28,13 @@ class EventTests(unittest.TestCase):
         p=np.full((4,4),.25)
         self.assertAlmostEqual(metrics(y,p)["event_auc"],.5)
         self.assertEqual(day_gain(y,p,p,["a","a","b","b"])["ci95"],[0.,0.])
+
+    def test_optional_class_absent(self):
+        p=align_probabilities([[.2,.5,.3]],["DOWN","NONE","UP"])
+        np.testing.assert_allclose(p,[[0,.2,.5,.3]])
+        q=metrics(np.array(["AMBIGUOUS"]),p)
+        self.assertTrue(np.isfinite(q["log_loss"]))
+        self.assertEqual(q["class_counts"],{"AMBIGUOUS":1})
+    def test_alignment_rejects_invalid_distribution(self):
+        with self.assertRaises(ValueError):
+            align_probabilities([[.2,.3]],["UP","DOWN"])
