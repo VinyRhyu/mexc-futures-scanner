@@ -1,6 +1,6 @@
 {
-  "analyzed_at": 1795534354,
-  "analyzed_symbols": 27,
+  "analyzed_at": 1795534413,
+  "analyzed_symbols": 28,
   "config_fingerprint": "a0c2766956c79181fa62",
   "diagnostics": [],
   "excluded": [
@@ -263,10 +263,6 @@
     {
       "reason": "CLASSIFICACAO_PENDENTE",
       "symbol": "RT_USDT"
-    },
-    {
-      "reason": "VOLUME_FINANCEIRO_INSUFICIENTE",
-      "symbol": "SHIB_USDT"
     },
     {
       "reason": "VOLUME_FINANCEIRO_INSUFICIENTE",
@@ -2705,37 +2701,37 @@
   "operational_timings": [
     {
       "commit": "f348de4b3bc313b483a342b3c7f96e3b85de0250",
-      "duration_s": 1.11524,
+      "duration_s": 1.695645,
       "event": "end",
-      "finished_at_utc": "2026-11-24T15:32:16.088379+00:00",
+      "finished_at_utc": "2026-11-24T15:33:14.965561+00:00",
       "phase": "market_catalog",
       "run_attempt": "1",
-      "run_id": "45426618966",
-      "started_at_utc": "2026-11-24T15:32:14.973164+00:00",
+      "run_id": "45426808759",
+      "started_at_utc": "2026-11-24T15:33:13.269952+00:00",
       "status": "OK",
       "telemetry": "phase_v1"
     },
     {
       "commit": "f348de4b3bc313b483a342b3c7f96e3b85de0250",
-      "duration_s": 17.853337,
+      "duration_s": 18.463346,
       "event": "end",
-      "finished_at_utc": "2026-11-24T15:32:33.942621+00:00",
+      "finished_at_utc": "2026-11-24T15:33:33.429864+00:00",
       "phase": "candles_collect",
       "run_attempt": "1",
-      "run_id": "45426618966",
-      "started_at_utc": "2026-11-24T15:32:16.089315+00:00",
+      "run_id": "45426808759",
+      "started_at_utc": "2026-11-24T15:33:14.966551+00:00",
       "status": "OK",
       "telemetry": "phase_v1"
     },
     {
       "commit": "f348de4b3bc313b483a342b3c7f96e3b85de0250",
-      "duration_s": 0.52531,
+      "duration_s": 0.545076,
       "event": "end",
-      "finished_at_utc": "2026-11-24T15:32:34.468086+00:00",
+      "finished_at_utc": "2026-11-24T15:33:33.975100+00:00",
       "phase": "analysis_and_finance",
       "run_attempt": "1",
-      "run_id": "45426618966",
-      "started_at_utc": "2026-11-24T15:32:33.942802+00:00",
+      "run_id": "45426808759",
+      "started_at_utc": "2026-11-24T15:33:33.430049+00:00",
       "status": "OK",
       "telemetry": "phase_v1"
     }
@@ -10907,7 +10903,7 @@
       "family": "2356c6c2503c1a48eb62",
       "formed_at": 1795533300,
       "id": "2356c6c2503c1a48eb62",
-      "last_bar": 1795534320,
+      "last_bar": 1795534380,
       "level": "4.761",
       "lower": "4.66",
       "observations": [],
@@ -15677,7 +15673,7 @@
       "family": "37dd22c8a1f2fdf2b474",
       "formed_at": 1795533300,
       "id": "37dd22c8a1f2fdf2b474",
-      "last_bar": 1795534320,
+      "last_bar": 1795534380,
       "level": "0.2348",
       "lower": "0.2288",
       "observations": [],
@@ -17726,7 +17722,7 @@
       "family": "41fe9c08fccc5766cee2",
       "formed_at": 1795534200,
       "id": "41fe9c08fccc5766cee2",
-      "last_bar": 1795534320,
+      "last_bar": 1795534380,
       "level": "5.869",
       "lower": "5.869",
       "observations": [],
@@ -23554,7 +23550,7 @@
       "family": "5c464ecc6287d5b6ff38",
       "formed_at": 1795534200,
       "id": "5c464ecc6287d5b6ff38",
-      "last_bar": 1795534320,
+      "last_bar": 1795534380,
       "level": "710.35",
       "lower": "710.35",
       "observations": [],
@@ -28916,7 +28912,7 @@
       "family": "75fdfad782eb6974e6f8",
       "formed_at": 1795534200,
       "id": "75fdfad782eb6974e6f8",
-      "last_bar": 1795534320,
+      "last_bar": 1795534380,
       "level": "6.031",
       "lower": "5.869",
       "observations": [],
@@ -34580,7 +34576,7 @@
       "family": "9055a235b7b59c42b004",
       "formed_at": 1795534200,
       "id": "9055a235b7b59c42b004",
-      "last_bar": 1795534320,
+      "last_bar": 1795534380,
       "level": "739.65",
       "lower": "710.35",
       "observations": [],
@@ -35172,7 +35168,7 @@
       "family": "9348e116d57925213883",
       "formed_at": 1795533300,
       "id": "9348e116d57925213883",
-      "last_bar": 1795534320,
+      "last_bar": 1795534380,
       "level": "184.69",
       "lower": "180.56",
       "observations": [],
@@ -38416,7 +38412,7 @@
       "family": "a3d155bf5c4b2cc95d42",
       "formed_at": 1795533300,
       "id": "a3d155bf5c4b2cc95d42",
-      "last_bar": 1795534320,
+      "last_bar": 1795534380,
       "level": "40.97",
       "lower": "40.17",
       "observations": [],
@@ -59510,7 +59506,7 @@
       "variants": {}
     }
   ],
-  "selected_symbols": 27,
+  "selected_symbols": 28,
   "signal_model": "m1_volume50_v1",
   "source_status": "OK"
 }
