@@ -1,0 +1,43 @@
+name: Predict V3 - expected net return
+on:
+  push:
+    branches: [research/expected-net-return-v3-20261124]
+    paths:
+      - scripts/research_expected_net_return.py
+      - tests/test_research_expected_net_return.py
+      - .github/workflows/research-expected-net-return.yml
+permissions:
+  contents: read
+  actions: read
+jobs:
+  expected-return:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v7.0.1
+        with:
+          persist-credentials: false
+      - uses: actions/setup-python@v7
+        with:
+          python-version: '3.12'
+      - run: python -m pip install numpy==2.2.6 scikit-learn==1.6.1
+      - run: python -m unittest discover -s tests -p test_research_expected_net_return.py -v
+      - uses: actions/download-artifact@v7
+        with:
+          run-id: 45434595239
+          github-token: ${{ github.token }}
+          name: predict-v2-e2-dataset
+          path: frozen-dataset/
+      - uses: actions/download-artifact@v7
+        with:
+          run-id: 45434889849
+          github-token: ${{ github.token }}
+          name: predict-v2-e3-model
+          path: frozen-v2/
+      - run: python -m scripts.research_expected_net_return --dataset frozen-dataset --previous frozen-v2 --output reports/predict-v3
+      - uses: actions/upload-artifact@v7
+        if: always()
+        with:
+          name: predict-v3-expected-net-return
+          path: reports/predict-v3/
+          retention-days: 30
