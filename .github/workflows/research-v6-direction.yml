@@ -1,0 +1,61 @@
+name: Predict V6d-e - direction decomposition and Bitget OI
+on:
+  push:
+    branches: [research/expected-net-return-v3-20261124]
+    paths:
+      - scripts/research_basis_direction.py
+      - scripts/research_bitget_oi.py
+      - tests/test_research_v6_direction.py
+      - .github/workflows/research-v6-direction.yml
+permissions:
+  contents: read
+  actions: read
+jobs:
+  basis:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v7.0.1
+        with:
+          persist-credentials: false
+      - uses: actions/setup-python@v7
+        with:
+          python-version: '3.12'
+      - run: python -m pip install numpy==2.2.6 scikit-learn==1.6.1
+      - run: python -m unittest discover -s tests -p test_research_v6_direction.py -v
+      - uses: actions/download-artifact@v7
+        with:
+          run-id: 45432136926
+          github-token: ${{ github.token }}
+          name: predict-v2-e1-coverage
+          path: frozen-raw/
+      - uses: actions/download-artifact@v7
+        with:
+          run-id: 45468866487
+          github-token: ${{ github.token }}
+          name: predict-v6a-source-coverage
+          path: frozen-v6a/
+      - run: python -m scripts.research_basis_direction --raw frozen-raw --source frozen-v6a --output reports/v6d
+      - uses: actions/upload-artifact@v7
+        if: always()
+        with:
+          name: predict-v6d-direction
+          path: reports/v6d/
+          retention-days: 60
+  external-oi:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v7.0.1
+        with:
+          persist-credentials: false
+      - uses: actions/setup-python@v7
+        with:
+          python-version: '3.12'
+      - run: python -m scripts.research_bitget_oi --output reports/v6e
+      - uses: actions/upload-artifact@v7
+        if: always()
+        with:
+          name: predict-v6e-bitget-oi
+          path: reports/v6e/
+          retention-days: 60
