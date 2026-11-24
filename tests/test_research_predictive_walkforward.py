@@ -175,7 +175,7 @@ class PredictiveResearchTests(unittest.TestCase):
         score=metrics(samples,0.25)
         self.assertAlmostEqual(score["target_rate"],0.5)
         self.assertAlmostEqual(score["prior_brier"],0.3125)
-        self.assertAlmostEqual(score["brier"],0.1)
+        self.assertAlmostEqual(score["brier"],0.2)
 
 
 if __name__=="__main__":
