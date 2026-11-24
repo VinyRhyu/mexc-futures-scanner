@@ -60,15 +60,6 @@ def allowed_scanner_alert(message: dict) -> bool:
                 lines[6].startswith("TP1: ") and
                 lines[7] == "TP2: não definido (modelo atual tem apenas um alvo técnico)" and
                 lines[8] == "" and lines[9].startswith("SL: "))
-    if (message.get("category") == "INFO" and
-            message.get("notification_format") == "movement_only_v2" and
-            message.get("watch_stage") == 1):
-        return (len(lines) == 4 and
-                lines[0] == "🟡 MOVIMENTO DETECTADO • POSSÍVEL ENTRADA" and
-                lines[1].startswith("MOEDA: ") and
-                lines[2] in {"MOVIMENTO: 📈 LONG (ALTA)",
-                             "MOVIMENTO: 📉 SHORT (BAIXA)"} and
-                lines[3] == "STATUS: aguardando segundo fechamento M1 e avaliação financeira.")
     return False
 
 
@@ -77,10 +68,10 @@ def drain_outbox(state: dict, now: int, token: str, chat_id: str, transport=None
     configured = bool(token and chat_id)
     if not configured:
         counts["configuration"] = "TELEGRAM_NAO_CONFIGURADO"
-    # Indicações com cotação recente chegam antes de resumos e acompanhamentos.
+    # All non-ENTRY rows (including previously pending M1 movement notices)
+    # are expired by the allowlist before ANY Telegram transport call.
     messages = sorted(state["outbox"].values(), key=lambda m: (
-        0 if m["category"] == "ENTRY" else 1 if m.get('movement_at') is not None
-        else 2 if m.get('watch_stage') == 2 else 3, m["created_at"]))
+        0 if m["category"] == "ENTRY" else 1, m["created_at"]))
     def record(event, message, current, **extra):
         if observer:
             fields = {k: message[k] for k in ('plan_id', 'variant', 'signal_at', 'symbol', 'side') if k in message}
