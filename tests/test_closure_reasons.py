@@ -10,6 +10,30 @@ from tests.test_finance import NOW, context
 from tests.test_watch_notifications import candidate
 
 
+def authorized_entry_text():
+    return "\n".join([
+        "🟢 SINAL DE ENTRADA • SIMULAÇÃO",
+        "MOEDA: TEST/USDT",
+        "MOVIMENTO: 📈 LONG (ALTA)",
+        "ALAVANCAGEM: 10x",
+        "",
+        "ENTRADA: 100 a 101",
+        "TP1: 106 (+35.00% ROI líquido estimado sobre a margem)",
+        "TP2: não definido (modelo atual tem apenas um alvo técnico)",
+        "",
+        "SL: 98 (-10.00% ROI líquido estimado sobre a margem)",
+    ])
+
+
+def authorized_movement_text():
+    return "\n".join([
+        "🟡 MOVIMENTO DETECTADO • POSSÍVEL ENTRADA",
+        "MOEDA: TEST/USDT",
+        "MOVIMENTO: 📈 LONG (ALTA)",
+        "STATUS: aguardando segundo fechamento M1 e avaliação financeira.",
+    ])
+
+
 class ClosureReasonTests(unittest.TestCase):
     def closed(self, status, reason):
         p = context()[0]
@@ -47,38 +71,44 @@ class ClosureReasonTests(unittest.TestCase):
         text = movement_message(p, 'paper', NOW, 1, NOW + 60, illustrative_leverage=10)
         self.assertIn('AINDA SEM CONFIRMAÇÃO', text.splitlines()[0])
 
-    def test_delivery_prioritizes_entry_then_movement_then_preparation_then_summary(self):
-        state = initial_state(Config())
-        queue_message(state, 'summary', 'summary', NOW - 10, NOW + 120)
-        queue_message(state, 'movement', 'movement', NOW, NOW + 60)
-        state['outbox']['movement']['movement_at'] = NOW
-        queue_message(state, 'entry', 'entry', NOW, NOW + 60, 'ENTRY', NOW)
-        queue_message(state, 'preparation', 'preparation', NOW - 5, NOW + 120)
-        state['outbox']['preparation']['watch_stage'] = 2
-        sent = []
+    def test_delivery_only_entry_then_first_m1_movement(self):
+        state=initial_state(Config())
+        queue_message(state,"summary","summary",NOW-10,NOW+120)
+        queue_message(state,"movement",authorized_movement_text(),NOW,NOW+60)
+        state["outbox"]["movement"].update(
+            notification_format="movement_only_v2",movement_at=NOW,
+            watch_stage=1,watch_symbol="TEST_USDT")
+        queue_message(state,"entry",authorized_entry_text(),NOW,NOW+60,"ENTRY",NOW)
+        state["outbox"]["entry"]["notification_format"]="entry_only_v2"
+        queue_message(state,"preparation","preparation",NOW-5,NOW+120)
+        state["outbox"]["preparation"]["watch_stage"]=2
+        sent=[]
         def send(payload):
-            sent.append(payload['text'])
-            return {'ok': True, 'result': {'message_id': len(sent)}}
-        drain_outbox(state, NOW, 'token', 'chat', send)
-        self.assertEqual(sent, ['entry', 'movement', 'preparation', 'summary'])
+            sent.append(payload["text"])
+            return {"ok":True,"result":{"message_id":len(sent)}}
+        result=drain_outbox(state,NOW,"token","chat",send)
+        self.assertEqual(sent,[authorized_entry_text(),authorized_movement_text()])
+        self.assertEqual(result["suppressed"],2)
 
     def test_expiry_is_rechecked_after_an_earlier_delivery_consumes_time(self):
-        state = initial_state(Config())
-        queue_message(state, 'movement', 'movement', NOW, NOW + 60)
-        state['outbox']['movement']['movement_at'] = NOW
-        queue_message(state, 'entry', 'entry', NOW, NOW + 120, 'ENTRY', NOW)
-        current = [NOW]
-        sent = []
+        state=initial_state(Config())
+        queue_message(state,"movement",authorized_movement_text(),NOW,NOW+60)
+        state["outbox"]["movement"].update(
+            notification_format="movement_only_v2",movement_at=NOW,
+            watch_stage=1,watch_symbol="TEST_USDT")
+        queue_message(state,"entry",authorized_entry_text(),NOW,NOW+120,"ENTRY",NOW)
+        state["outbox"]["entry"]["notification_format"]="entry_only_v2"
+        current=[NOW]
+        sent=[]
         def send(payload):
-            sent.append(payload['text'])
-            current[0] += 61
-            return {'ok': True, 'result': {'message_id': len(sent)}}
-        result = drain_outbox(state, NOW, 'token', 'chat', send, clock=lambda: current[0])
-        self.assertEqual(sent, ['entry'])
-        self.assertEqual(result['expired'], 1)
-        self.assertEqual(state['outbox']['movement']['attempts'], 0)
-        self.assertEqual(state['outbox']['entry']['sent_at'], NOW + 61)
-
+            sent.append(payload["text"])
+            current[0]+=61
+            return {"ok":True,"result":{"message_id":len(sent)}}
+        result=drain_outbox(state,NOW,"token","chat",send,clock=lambda:current[0])
+        self.assertEqual(sent,[authorized_entry_text()])
+        self.assertEqual(result["expired"],1)
+        self.assertEqual(state["outbox"]["movement"]["attempts"],0)
+        self.assertEqual(state["outbox"]["entry"]["sent_at"],NOW+61)
 
 if __name__ == '__main__':
     unittest.main()

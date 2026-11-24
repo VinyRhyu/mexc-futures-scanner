@@ -17,7 +17,7 @@ from .observability import DecisionLog
 from .mexc import MexcClient
 from .models import DataError, jsonable
 from .reporting import markdown_report
-from .state import atomic_json, initial_state, journal_event, load_state, queue_message
+from .state import atomic_json, initial_state, journal_event, load_state
 from .telegram import drain_outbox
 
 
@@ -147,9 +147,6 @@ def main(argv=None) -> int:
                 contract_size=args.contract_size, fees=args.fees, funding=args.funding, balance=args.balance,
                 repository_private=os.environ.get("REPOSITORY_IS_PRIVATE", "").lower() == "true",
                 executed_at=executed_at)
-            queue_message(state, "journal:" + args.event_id,
-                          f"DIÁRIO | {config.mode.upper()} | {args.action}\nID: {args.event_id}\nSaldo registrado: {state['wallet']['balance']} USDT.",
-                          now, now + 3600)
             atomic_json(path, state)
             print(json.dumps(jsonable(result), ensure_ascii=False))
             return 0

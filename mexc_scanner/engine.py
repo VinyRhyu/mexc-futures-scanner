@@ -1,17 +1,15 @@
 from __future__ import annotations
 
 from concurrent.futures import ThreadPoolExecutor, as_completed
-from datetime import datetime, timezone
 from decimal import Decimal
 import time
-from zoneinfo import ZoneInfo
 
 from .config import Config
 from .finance import evaluate
 from .market import parse_candles, select_universe, structure, aggregate_two_hours
 from .mexc import MexcClient, SourceError
 from .models import Contract, D, DataError, Plan, jsonable, stable_id
-from .reporting import brt, closed_plans_message, daily_message, plan_message, entry_signal_message
+from .reporting import brt, entry_signal_message
 from .state import queue_message
 from .observability import Timings, record_plan, record_source_gate
 from .strategies import process_symbol
@@ -166,14 +164,10 @@ def run_scan(client: MexcClient, config: Config, state: dict, assets: set[str],
         for message in state["outbox"].values():
             if message["status"] == "PENDING" and (message["category"] == "ENTRY" or message.get('watch_symbol')):
                 message["status"] = "EXPIRED"
-        error_key = stable_id("SOURCE_ERROR", str(exc), started // 86400)
-        queue_message(state, error_key, "⚠️ FALHA NA COLETA\n" +
-                      ("🧪 SIMULAÇÃO" if config.mode == "paper" else "REAL • EXECUÇÃO MANUAL") +
-                      "\n\n" + str(exc) + "\nNenhuma nova entrada liberada.\nÚltima coleta válida: " +
-                      (brt(state["last_success"]) if state["last_success"] else "nenhum"), started, started + 3600)
+        # Source failures remain in report and observability logs only.
+        # Telegram is reserved for actionable movement and valid ENTRY.
     report["plans"] = [p for p in state["plans"].values() if not p.get("hidden", False)
                         and p["formed_at"] >= report["analyzed_at"] - 86400]
-    _daily_summary(state, report, config)
     snapshot["source_status"] = report["source_status"]
     report["operational_timings"] = timings.rows
     return jsonable(report), jsonable(snapshot)
@@ -214,47 +208,20 @@ def _reconcile_pending_entries(state, now, observer=None):
 
 def _queue_transitions(state: dict, previous: dict, config: Config, now: int, *, watch_symbols=None, observer=None) -> None:
     viable = []
-    closed = []
-    observations_queued = 0
     watch_plans = []
-    notified_watch_ids = {pid for m in state['outbox'].values()
-                          if m['status'] == 'SENT' or m.get('attempts', 0) > 0
-                          for pid in m.get('plan_ids', [])}
-
-    def was_notified(p: Plan) -> bool:
-        if p.id in notified_watch_ids:
-            return True
-        ids = [stable_id(p.id, "POSSIVEL")]
-        for kind in p.variants:
-            ids += [stable_id(p.id, kind, "OBSERVACAO"), stable_id(p.id, kind, "GATILHO", config.mode)]
-        return any((m := state["outbox"].get(event)) and
-                   (m["status"] == "SENT" or m.get("attempts", 0) > 0) for event in ids)
-
     for row in state["plans"].values():
         p = Plan.from_dict(row)
-        old = previous.get(p.id)
         if p.strategy == WATCH_STRATEGY:
             watch_plans.append(p)
-        if p.strategy != WATCH_STRATEGY and old is None and p.status == "POSSIVEL" and observations_queued < config.max_alerts:
-            queue_message(state, stable_id(p.id, "POSSIVEL"), plan_message(p, config.mode, now), now, p.expires_at)
-            observations_queued += 1
         if p.terminal:
-            if old and old["status"] != p.status and was_notified(p) and len(closed) < config.max_alerts:
-                closed.append(p)
             continue
         for v in p.variants.values():
-            if v.status != "VALIDA":
-                continue
-            f = v.financial
-            if f.get("status") in {"VIAVEL_SIMULADO", "VIAVEL_REAL"}:
+            if v.status == "VALIDA" and v.financial.get("status") in {
+                    "VIAVEL_SIMULADO", "VIAVEL_REAL"}:
                 viable.append((p, v))
-            elif p.strategy != WATCH_STRATEGY and (old is None or not old.get("variants", {}).get(v.kind)) and observations_queued < config.max_alerts:
-                # Não esconder sinal técnico apenas porque a banca não comporta.
-                queue_message(state, stable_id(p.id, v.kind, "OBSERVACAO"),
-                              plan_message(p, config.mode, now, v), now, p.expires_at, "INFO")
-                observations_queued += 1
-    queue_waiting_entries(state, watch_plans, config, now, {p.symbol for p, v in viable},
-                          limit=max(0, config.max_alerts - observations_queued), verified_symbols=watch_symbols)
+    queue_waiting_entries(state, watch_plans, config, now,
+                          {p.symbol for p, _ in viable},
+                          limit=config.max_alerts, verified_symbols=watch_symbols)
     viable.sort(key=lambda pair: (-D(pair[1].financial["net_rr"]),
                                  D(pair[1].financial["costs_usdt"]) / D(pair[1].financial["loss_usdt"]),
                                  abs(D(pair[1].financial["entry_vwap"]) - pair[1].reference), pair[0].symbol, pair[1].kind))
@@ -277,10 +244,18 @@ def _queue_transitions(state: dict, previous: dict, config: Config, now: int, *,
                     restriction = "A banca está em pausa até " + brt(wallet["pause_until"]) + "."
                 else:
                     restriction = "A banca atingiu uma fase que exige revisão dos parâmetros."
+        text = entry_signal_message(p, config.mode, now, v, restriction=restriction)
+        if not text:
+            # Never queue "APENAS ACOMPANHAMENTO"/blocked plans as ENTRY.
+            if (suffix and wallet.get("pending") and
+                    wallet["pending"].get("delivery_event_id") == event_id):
+                wallet["pending"] = None
+            continue
         quote_at = int(v.financial.get("quote_at", 0))
-        queue_message(state, event_id, entry_signal_message(p, config.mode, now, v, restriction=restriction) + suffix,
-                      now, p.expires_at, "ENTRY", quote_at)
+        queue_message(state, event_id, text, now, p.expires_at, "ENTRY", quote_at)
         message = state['outbox'][event_id]
+        if message["status"] == "PENDING":
+            message["notification_format"] = "entry_only_v2"
         if message['status'] == 'PENDING':
             message.update(plan_id=p.id, variant=v.kind, signal_at=v.triggered_at,
                            symbol=p.symbol, side=p.side)
@@ -288,17 +263,3 @@ def _queue_transitions(state: dict, previous: dict, config: Config, now: int, *,
                         created_at=message['created_at'], quote_at=quote_at,
                         financial=v.financial)
 
-    if closed:
-        event_id = stable_id("CLOSED_PLANS", [(p.id, p.status) for p in closed], config.mode)
-        queue_message(state, event_id, closed_plans_message(closed, config.mode, now), now, now + 3600)
-
-
-def _daily_summary(state: dict, report: dict, config: Config) -> None:
-    now = report["analyzed_at"]
-    local = datetime.fromtimestamp(now, timezone.utc).astimezone(ZoneInfo("America/Sao_Paulo"))
-    date = local.date().isoformat()
-    if local.hour < 21 or state["last_summary_date"] == date:
-        return
-    text = daily_message(state, report, config.mode)
-    queue_message(state, stable_id("SUMMARY", date, config.mode), text, now, now + 86400)
-    state["last_summary_date"] = date
