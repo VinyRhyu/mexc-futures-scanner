@@ -12867,7 +12867,7 @@
       "text": "⚪ ATUALIZAÇÃO DOS PLANOS ACOMPANHADOS\n🧪 SIMULAÇÃO\n\n• SOL/USDT • LONG: prazo para nova entrada encerrado\n  Motivo: A janela para uma nova entrada terminou.\n  Plano: 328c73f3f26c4eaf3f00\n\nSem novas entradas por esses planos.\nAvisos de movimento não equivalem a entradas liberadas.\nA expiração não encerra uma posição já aberta.\nAnálise: 23/11/2026 00:00:50 BRT"
     },
     "3a162d875811c20f11e1": {
-      "attempts": 0,
+      "attempts": 1,
       "category": "INFO",
       "created_at": 1795479764,
       "expires_at": 1795479780,
@@ -12879,7 +12879,11 @@
         "3ca7c6a7b69b661e6401"
       ],
       "quote_at": 0,
-      "status": "PENDING",
+      "sent_at": 1795479768,
+      "status": "SENT",
+      "telegram_ids": [
+        17569
+      ],
       "text": "🟡 MOVIMENTO DETECTADO • POSSÍVEL ENTRADA\nMOEDA: LINK/USDT\nMOVIMENTO: 📈 LONG (ALTA)\nSTATUS: aguardando segundo fechamento M1 e avaliação financeira.",
       "watch_stage": 1,
       "watch_symbol": "LINK_USDT"
