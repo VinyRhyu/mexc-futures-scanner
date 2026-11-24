@@ -69,36 +69,35 @@ class MessageTests(unittest.TestCase):
         self.assertIn('abaixo', text)
         self.assertIn('independente', text)
 
-    def test_closures_only_notify_previously_seen_plans_in_one_message(self):
-        state, config = initial_state(Config()), Config()
-        previous = {}
-        for index in range(3):
-            p, _ = self.ready()
-            p.id = 'p' + str(index)
-            previous[p.id] = jsonable(p)
-            p.status, p.reason = 'EXPIRADO', 'PRAZO_ENCERRADO'
-            state['plans'][p.id] = jsonable(p)
-            if index < 2:
-                event = stable_id(p.id, 'POSSIVEL')
-                queue_message(state, event, 'previous', NOW - 1, NOW + 500)
-                state['outbox'][event]['status'] = 'SENT'
-        _queue_transitions(state, previous, config, NOW)
-        pending = [m for m in state['outbox'].values() if m['status'] == 'PENDING']
-        self.assertEqual(len(pending), 1)
-        self.assertIn('Plano: p0', pending[0]['text'])
-        self.assertIn('Plano: p1', pending[0]['text'])
-        self.assertNotIn('Plano: p2', pending[0]['text'])
+    def test_closed_plans_never_create_telegram_messages(self):
+        state,config=initial_state(Config()),Config()
+        previous={}
+        for i in range(3):
+            p,_=self.ready()
+            p.id="p"+str(i)
+            previous[p.id]=jsonable(p)
+            p.status,p.reason="EXPIRADO","PRAZO_ENCERRADO"
+            state["plans"][p.id]=jsonable(p)
+        _queue_transitions(state,previous,config,NOW)
+        self.assertFalse(any(m["status"]=="PENDING" for m in state["outbox"].values()))
 
-    def test_entry_delivery_precedes_information_messages(self):
-        state = initial_state(Config())
-        queue_message(state, 'info', 'summary', NOW, NOW + 500)
-        queue_message(state, 'entry', 'entry', NOW, NOW + 500, 'ENTRY', NOW)
-        sent = []
+    def test_valid_entry_delivers_and_suppresses_summary(self):
+        state=initial_state(Config())
+        queue_message(state,"info","summary",NOW,NOW+500)
+        p,v=self.ready()
+        from mexc_scanner.reporting import entry_signal_message
+        entry=entry_signal_message(p,"paper",NOW,v)
+        self.assertEqual(len(entry.splitlines()),10)
+        queue_message(state,"entry",entry,NOW,NOW+500,"ENTRY",NOW)
+        state["outbox"]["entry"]["notification_format"]="entry_only_v2"
+        sent=[]
         def transport(payload):
-            sent.append(payload['text'])
-            return {'ok': True, 'result': {'message_id': len(sent)}}
-        drain_outbox(state, NOW, 'token', 'chat', transport)
-        self.assertEqual(sent, ['entry', 'summary'])
+            sent.append(payload["text"])
+            return {"ok":True,"result":{"message_id":len(sent)}}
+        result=drain_outbox(state,NOW,"token","chat",transport)
+        self.assertEqual(sent,[entry])
+        self.assertEqual(result["suppressed"],1)
+        self.assertEqual(state["outbox"]["info"]["status"],"EXPIRED")
 
     def test_preview_is_explicitly_fictional_and_fits_one_message(self):
         text = preview_message(NOW)
