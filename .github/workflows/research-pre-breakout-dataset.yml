@@ -1,0 +1,38 @@
+name: Predict V2 - E2 causal dataset
+on:
+  push:
+    branches: [research/pre-breakout-forecast-v2-20261124]
+    paths:
+      - scripts/research_pre_breakout_dataset.py
+      - tests/test_research_pre_breakout_dataset.py
+      - .github/workflows/research-pre-breakout-dataset.yml
+permissions:
+  contents: read
+  actions: read
+jobs:
+  dataset:
+    runs-on: ubuntu-latest
+    timeout-minutes: 25
+    steps:
+      - uses: actions/checkout@v7.0.1
+        with:
+          persist-credentials: false
+      - uses: actions/setup-python@v7
+        with:
+          python-version: '3.12'
+      - name: Test causal features and labels
+        run: python -m unittest discover -s tests -p test_research_pre_breakout_dataset.py -v
+      - uses: actions/download-artifact@v7
+        with:
+          run-id: 45432136926
+          github-token: ${{ github.token }}
+          name: predict-v2-e1-coverage
+          path: frozen-coverage/
+      - name: Construct causal snapshots from frozen audit
+        run: python -m scripts.research_pre_breakout_dataset --input frozen-coverage --output reports/predict-v2-dataset
+      - uses: actions/upload-artifact@v7
+        if: always()
+        with:
+          name: predict-v2-e2-dataset
+          path: reports/predict-v2-dataset/
+          retention-days: 30
