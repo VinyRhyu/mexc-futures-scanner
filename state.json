@@ -36741,7 +36741,7 @@
       "text": "⚪ ATUALIZAÇÃO DOS PLANOS ACOMPANHADOS\n🧪 SIMULAÇÃO\n\n• ADA/USDT • LONG: confirmação não aprovada\n  Motivo: O volume do segundo candle M1 foi menor que50% do primeiro.\n  Plano: 1a88befd2ec93ce7cd58\n• AVAX/USDT • LONG: confirmação não aprovada\n  Motivo: O volume do segundo candle M1 foi menor que50% do primeiro.\n  Plano: 74247e397aec5d769e52\n\nSem novas entradas por esses planos.\nAvisos de movimento não equivalem a entradas liberadas.\nA expiração não encerra uma posição já aberta.\nAnálise: 23/11/2026 04:14:32 BRT"
     },
     "a62ad99c09fa63ef6868": {
-      "attempts": 0,
+      "attempts": 1,
       "category": "INFO",
       "created_at": 1795479877,
       "expires_at": 1795479900,
@@ -36753,7 +36753,11 @@
         "2fc193755dcce719b34d"
       ],
       "quote_at": 0,
-      "status": "PENDING",
+      "sent_at": 1795479880,
+      "status": "SENT",
+      "telegram_ids": [
+        17572
+      ],
       "text": "🟡 MOVIMENTO DETECTADO • POSSÍVEL ENTRADA\nMOEDA: ONDO/USDT\nMOVIMENTO: 📈 LONG (ALTA)\nSTATUS: aguardando segundo fechamento M1 e avaliação financeira.",
       "watch_stage": 1,
       "watch_symbol": "ONDO_USDT"
