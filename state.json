@@ -44015,7 +44015,7 @@
       "watch_symbol": "QNT_USDT"
     },
     "c8effd52b91d79fadf8a": {
-      "attempts": 0,
+      "attempts": 1,
       "category": "ENTRY",
       "created_at": 1795482816,
       "expires_at": 1795482840,
@@ -44023,10 +44023,14 @@
       "notification_format": "entry_only_v2",
       "plan_id": "af5ad2e4418dc1f7049d",
       "quote_at": 1795482812,
+      "sent_at": 1795482819,
       "side": "LONG",
       "signal_at": 1795482720,
-      "status": "PENDING",
+      "status": "SENT",
       "symbol": "XLM_USDT",
+      "telegram_ids": [
+        17575
+      ],
       "text": "🟢 SINAL DE ENTRADA • SIMULAÇÃO\nMOEDA: XLM/USDT\nMOVIMENTO: 📈 LONG (ALTA)\nALAVANCAGEM: 18x\n\nENTRADA: 0.13163 a 0.13168\nTP1: 0.13264 (+10.23% ROI líquido estimado sobre a margem)\nTP2: não definido (modelo atual tem apenas um alvo técnico)\n\nSL: 0.13115 (-10.12% ROI líquido estimado sobre a margem)",
       "variant": "CONFIRMADA"
     },
