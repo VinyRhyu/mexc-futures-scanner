@@ -13,9 +13,6 @@ jobs:
   test:
     runs-on: ubuntu-latest
     timeout-minutes: 5
-    env:
-      TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
-      TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
     steps:
       - uses: actions/checkout@v7.0.1
       - uses: actions/setup-python@v7
@@ -23,5 +20,5 @@ jobs:
           python-version: '3.12'
       - name: Validar o formato antes do envio
         run: python -m unittest discover -s tests -q
-      - name: Enviar uma amostra fictícia do formato
-        run: python -m scripts.telegram_preview --send
+      - name: Pré-visualizar formato fictício apenas nos logs (sem enviar Telegram)
+        run: python -m scripts.telegram_preview
