@@ -6421,7 +6421,7 @@
       "watch_symbol": "BTC_USDT"
     },
     "211fe36e36e60d69ea1a": {
-      "attempts": 0,
+      "attempts": 1,
       "category": "ENTRY",
       "created_at": 1795506157,
       "expires_at": 1795506240,
@@ -6429,10 +6429,14 @@
       "notification_format": "entry_only_v2",
       "plan_id": "ed853d3428cf38ff9d57",
       "quote_at": 1795506154,
+      "sent_at": 1795506160,
       "side": "SHORT",
       "signal_at": 1795506120,
-      "status": "PENDING",
+      "status": "SENT",
       "symbol": "ZEC_USDT",
+      "telegram_ids": [
+        17582
+      ],
       "text": "🟢 SINAL DE ENTRADA • SIMULAÇÃO\nMOEDA: ZEC/USDT\nMOVIMENTO: 📉 SHORT (BAIXA)\nALAVANCAGEM: 10x\n\nENTRADA: 759.09 a 760.61\nTP1: 751.04 (+9.01% ROI líquido estimado sobre a margem)\nTP2: não definido (modelo atual tem apenas um alvo técnico)\n\nSL: 764.7 (-9.00% ROI líquido estimado sobre a margem)",
       "variant": "CONFIRMADA"
     },
