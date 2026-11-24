@@ -10575,7 +10575,7 @@
       "watch_symbol": "WLD_USDT"
     },
     "36db57f2470ff4b81451": {
-      "attempts": 0,
+      "attempts": 1,
       "category": "ENTRY",
       "created_at": 1795505016,
       "expires_at": 1795505040,
@@ -10583,10 +10583,14 @@
       "notification_format": "entry_only_v2",
       "plan_id": "9e592586210a2905bb2a",
       "quote_at": 1795505013,
+      "sent_at": 1795505020,
       "side": "SHORT",
       "signal_at": 1795504920,
-      "status": "PENDING",
+      "status": "SENT",
       "symbol": "ARB_USDT",
+      "telegram_ids": [
+        17581
+      ],
       "text": "🟢 SINAL DE ENTRADA • SIMULAÇÃO\nMOEDA: ARB/USDT\nMOVIMENTO: 📉 SHORT (BAIXA)\nALAVANCAGEM: 14x\n\nENTRADA: 0.11483 a 0.11493\nTP1: 0.11376 (+10.79% ROI líquido estimado sobre a margem)\nTP2: não definido (modelo atual tem apenas um alvo técnico)\n\nSL: 0.11552 (-10.69% ROI líquido estimado sobre a margem)",
       "variant": "CONFIRMADA"
     },
