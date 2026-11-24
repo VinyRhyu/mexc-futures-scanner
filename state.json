@@ -4968,7 +4968,7 @@
       "watch_symbol": "DOT_USDT"
     },
     "2ae25dadf1081c1084ab": {
-      "attempts": 0,
+      "attempts": 1,
       "category": "ENTRY",
       "created_at": 1795559921,
       "expires_at": 1795559940,
@@ -4976,10 +4976,14 @@
       "notification_format": "entry_only_v2",
       "plan_id": "082a0e6d5e2e0f4c9789",
       "quote_at": 1795559919,
+      "sent_at": 1795559925,
       "side": "LONG",
       "signal_at": 1795559820,
-      "status": "PENDING",
+      "status": "SENT",
       "symbol": "INJ_USDT",
+      "telegram_ids": [
+        17590
+      ],
       "text": "🟢 SINAL DE ENTRADA • SIMULAÇÃO\nMOEDA: INJ/USDT\nMOVIMENTO: 📈 LONG (ALTA)\nALAVANCAGEM: 10x\n\nENTRADA: 5.855 a 5.869\nTP1: 5.948 (+11.57% ROI líquido estimado sobre a margem)\nTP2: não definido (modelo atual tem apenas um alvo técnico)\n\nSL: 5.825 (-9.37% ROI líquido estimado sobre a margem)",
       "variant": "CONFIRMADA"
     },
