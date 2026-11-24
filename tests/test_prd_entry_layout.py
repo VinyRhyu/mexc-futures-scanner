@@ -91,7 +91,6 @@ class ProductionEntryLayoutTests(unittest.TestCase):
         v.financial["status"]="VIAVEL_REAL"
         text=entry_signal_message(p,"real",NOW,v,
             restriction="Já existe uma posição registrada.")
-        self.assertIn("APENAS ACOMPANHAMENTO",text)
         self.assertEqual(text,"")
         self.assertNotIn("SINAL DE ENTRADA",text)
 
