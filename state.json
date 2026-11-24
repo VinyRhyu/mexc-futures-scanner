@@ -5520,7 +5520,7 @@
       "watch_symbol": "AVAX_USDT"
     },
     "1c04742c97c454ffb447": {
-      "attempts": 0,
+      "attempts": 1,
       "category": "ENTRY",
       "created_at": 1795504303,
       "expires_at": 1795504380,
@@ -5528,10 +5528,14 @@
       "notification_format": "entry_only_v2",
       "plan_id": "f76c6f834021b2adf553",
       "quote_at": 1795504299,
+      "sent_at": 1795504306,
       "side": "SHORT",
       "signal_at": 1795504260,
-      "status": "PENDING",
+      "status": "SENT",
       "symbol": "UNI_USDT",
+      "telegram_ids": [
+        17580
+      ],
       "text": "🟢 SINAL DE ENTRADA • SIMULAÇÃO\nMOEDA: UNI/USDT\nMOVIMENTO: 📉 SHORT (BAIXA)\nALAVANCAGEM: 13x\n\nENTRADA: 4.856 a 4.863\nTP1: 4.805 (+11.03% ROI líquido estimado sobre a margem)\nTP2: não definido (modelo atual tem apenas um alvo técnico)\n\nSL: 4.886 (-10.67% ROI líquido estimado sobre a margem)",
       "variant": "CONFIRMADA"
     },
