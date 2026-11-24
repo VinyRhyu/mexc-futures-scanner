@@ -27041,7 +27041,7 @@
       "watch_symbol": "ADA_USDT"
     },
     "83babf51cc94e14e0592": {
-      "attempts": 0,
+      "attempts": 1,
       "category": "ENTRY",
       "created_at": 1795488878,
       "expires_at": 1795488960,
@@ -27049,10 +27049,14 @@
       "notification_format": "entry_only_v2",
       "plan_id": "7e243b5894eb39892b13",
       "quote_at": 1795488874,
+      "sent_at": 1795488881,
       "side": "SHORT",
       "signal_at": 1795488840,
-      "status": "PENDING",
+      "status": "SENT",
       "symbol": "ENA_USDT",
+      "telegram_ids": [
+        17578
+      ],
       "text": "🟢 SINAL DE ENTRADA • SIMULAÇÃO\nMOEDA: ENA/USDT\nMOVIMENTO: 📉 SHORT (BAIXA)\nALAVANCAGEM: 11x\n\nENTRADA: 0.10006 a 0.10027\nTP1: 0.0989 (+10.91% ROI líquido estimado sobre a margem)\nTP2: não definido (modelo atual tem apenas um alvo técnico)\n\nSL: 0.10087 (-10.76% ROI líquido estimado sobre a margem)",
       "variant": "CONFIRMADA"
     },
