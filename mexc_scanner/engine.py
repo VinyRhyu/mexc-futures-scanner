@@ -14,7 +14,6 @@ from .state import queue_message
 from .observability import Timings, record_plan, record_source_gate
 from .strategies import process_symbol
 from .minute_breakout import MODEL,prepare_model,process_minutes,validate_minute_ohlc
-from .watch_notifications import STRATEGY as WATCH_STRATEGY, queue_waiting_entries
 
 
 def run_scan(client: MexcClient, config: Config, state: dict, assets: set[str],
@@ -208,20 +207,14 @@ def _reconcile_pending_entries(state, now, observer=None):
 
 def _queue_transitions(state: dict, previous: dict, config: Config, now: int, *, watch_symbols=None, observer=None) -> None:
     viable = []
-    watch_plans = []
     for row in state["plans"].values():
         p = Plan.from_dict(row)
-        if p.strategy == WATCH_STRATEGY:
-            watch_plans.append(p)
         if p.terminal:
             continue
         for v in p.variants.values():
             if v.status == "VALIDA" and v.financial.get("status") in {
                     "VIAVEL_SIMULADO", "VIAVEL_REAL"}:
                 viable.append((p, v))
-    queue_waiting_entries(state, watch_plans, config, now,
-                          {p.symbol for p, _ in viable},
-                          limit=config.max_alerts, verified_symbols=watch_symbols)
     viable.sort(key=lambda pair: (-D(pair[1].financial["net_rr"]),
                                  D(pair[1].financial["costs_usdt"]) / D(pair[1].financial["loss_usdt"]),
                                  abs(D(pair[1].financial["entry_vwap"]) - pair[1].reference), pair[0].symbol, pair[1].kind))
