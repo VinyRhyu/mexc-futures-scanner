@@ -167,7 +167,7 @@ class WatchNotificationsTests(unittest.TestCase):
         before=deepcopy(s["plans"])
         _queue_transitions(s,{},Config(),NOW)
         self.assertEqual(len(self.pending(s)),1)
-        self.assertIn("BAIXA (SHORT)",self.pending(s)[0]["text"])
+        self.assertIn("SHORT (BAIXA)",self.pending(s)[0]["text"])
         self.assertEqual(before,s["plans"])
 
     def test_tied_contradictory_first_candles_do_not_choose_direction(self):
