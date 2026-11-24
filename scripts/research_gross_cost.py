@@ -110,9 +110,9 @@ def fit_variant(data,times,name):
 def expected_net(gross,notional,side,rate):
     # Only last closed price/ATR, fitted gross estimate, fixed rate and side.
     # One adverse funding boundary reserved for a holding window of <=240m.
-    g=min(3.,float(gross))
-    if notional<=0 or rate<0 or side not in SIDES or not math.isfinite(g+notional+rate):
+    if not all(math.isfinite(float(v)) for v in (gross,notional,rate)) or notional<=0 or rate<0 or side not in SIDES:
         raise ValueError("invalid prediction geometry")
+    g=min(3.,float(gross))
     turn=max(0.,notional+(g/2 if side=="LONG" else -g/2))
     return g-rate*turn-.0005*notional
 
