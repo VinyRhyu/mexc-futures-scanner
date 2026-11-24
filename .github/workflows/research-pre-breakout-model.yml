@@ -1,0 +1,54 @@
+name: Predict V2 - E3 exploratory model
+on:
+  push:
+    branches: [research/pre-breakout-forecast-v2-20261124]
+    paths:
+      - scripts/research_pre_breakout_model.py
+      - tests/test_research_pre_breakout_model.py
+      - .github/workflows/research-pre-breakout-model.yml
+permissions:
+  contents: read
+  actions: read
+jobs:
+  model:
+    runs-on: ubuntu-latest
+    timeout-minutes: 35
+    steps:
+      - uses: actions/checkout@v7.0.1
+        with:
+          persist-credentials: false
+      - uses: actions/setup-python@v7
+        with:
+          python-version: '3.12'
+      - name: Install research-only model dependencies
+        run: python -m pip install numpy==2.2.6 scikit-learn==1.6.1
+      - name: Test split and cost logic
+        run: python -m unittest discover -s tests -p test_research_pre_breakout_model.py -v
+      - name: Require successful E2 run
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          for attempt in $(seq 1 60); do
+            status=$(gh api repos/VinyRhyu/mexc-futures-scanner/actions/runs/45434595239 --jq '.status')
+            if [ "$status" = completed ]; then
+              result=$(gh api repos/VinyRhyu/mexc-futures-scanner/actions/runs/45434595239 --jq '.conclusion')
+              test "$result" = success
+              exit
+            fi
+            sleep 15
+          done
+          exit 1
+      - uses: actions/download-artifact@v7
+        with:
+          run-id: 45434595239
+          github-token: ${{ github.token }}
+          name: predict-v2-e2-dataset
+          path: frozen-dataset/
+      - name: Evaluate locked chronological split and benchmark
+        run: python -m scripts.research_pre_breakout_model --input frozen-dataset --output reports/predict-v2-model
+      - uses: actions/upload-artifact@v7
+        if: always()
+        with:
+          name: predict-v2-e3-model
+          path: reports/predict-v2-model/
+          retention-days: 30
