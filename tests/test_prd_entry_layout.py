@@ -37,11 +37,16 @@ class ProductionEntryLayoutTests(unittest.TestCase):
         self.assertEqual(text.count("TP1:"),1)
         self.assertEqual(text.count("TP2:"),1)
         self.assertEqual(text.count("SL:"),1)
+        self.assertEqual(len(text.splitlines()),10)
+        self.assertEqual(text.splitlines()[4],"")
+        self.assertEqual(text.splitlines()[8],"")
+        self.assertNotIn("Plano:",text)
+        self.assertNotIn("Verificações reais pendentes:",text)
         self.assertIn("ROI líquido estimado sobre a margem",text)
         self.assertIn("TP2: não definido (modelo atual tem apenas um alvo técnico)",text)
-        self.assertIn("nenhuma ordem automática",text)
-        self.assertIn("Retorno/risco líquido:",text)
-        self.assertIn("Taxa por execução: 0.06%",text)
+        self.assertNotIn("nenhuma ordem automática",text)
+        self.assertNotIn("Retorno/risco líquido:",text)
+        self.assertNotIn("Taxa por execução:",text)
         self.assertLess(len(text),3500)
         self.assertEqual(jsonable(p),before)
         self.assertNotIn("50x",text)
@@ -69,7 +74,7 @@ class ProductionEntryLayoutTests(unittest.TestCase):
         p,v=self.ready()
         v.financial={"status":"BLOQUEADA","reasons":["PRECO_FORA_DO_PLANO"]}
         text=entry_signal_message(p,"paper",NOW,v)
-        self.assertIn("ENTRADA BLOQUEADA",text)
+        self.assertEqual(text,"")
         self.assertNotIn("SINAL DE ENTRADA",text)
         self.assertNotIn("ALAVANCAGEM:",text)
 
@@ -77,7 +82,7 @@ class ProductionEntryLayoutTests(unittest.TestCase):
         p,v=self.ready()
         v.financial.pop("margin_usdt")
         text=entry_signal_message(p,"paper",NOW,v)
-        self.assertIn("APENAS ACOMPANHAMENTO",text)
+        self.assertEqual(text,"")
         self.assertNotIn("SINAL DE ENTRADA",text)
         self.assertNotIn("TP1:",text)
 
@@ -87,7 +92,7 @@ class ProductionEntryLayoutTests(unittest.TestCase):
         text=entry_signal_message(p,"real",NOW,v,
             restriction="Já existe uma posição registrada.")
         self.assertIn("APENAS ACOMPANHAMENTO",text)
-        self.assertIn("Já existe uma posição",text)
+        self.assertEqual(text,"")
         self.assertNotIn("SINAL DE ENTRADA",text)
 
     def test_demo_preview_uses_production_layout_without_sending(self):
@@ -116,6 +121,8 @@ class ProductionEntryLayoutTests(unittest.TestCase):
             self.assertIn("TP2: não definido",m["text"])
             self.assertIn("SL:",m["text"])
             self.assertEqual(m["attempts"],0)
+            self.assertEqual(m["notification_format"],"entry_only_v2")
+            self.assertEqual(len(m["text"].splitlines()),10)
         self.assertEqual(state["wallet"]["balance"],"1")
         self.assertIsNone(state["wallet"].get("position"))
 
