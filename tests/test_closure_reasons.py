@@ -109,21 +109,6 @@ class ClosureReasonTests(unittest.TestCase):
         self.assertEqual(result["expired"],1)
         self.assertEqual(state["outbox"]["movement"]["attempts"],0)
         self.assertEqual(state["outbox"]["entry"]["sent_at"],NOW+61)
-ge(state, 'movement', 'movement', NOW, NOW + 60)
-        state['outbox']['movement']['movement_at'] = NOW
-        queue_message(state, 'entry', 'entry', NOW, NOW + 120, 'ENTRY', NOW)
-        current = [NOW]
-        sent = []
-        def send(payload):
-            sent.append(payload['text'])
-            current[0] += 61
-            return {'ok': True, 'result': {'message_id': len(sent)}}
-        result = drain_outbox(state, NOW, 'token', 'chat', send, clock=lambda: current[0])
-        self.assertEqual(sent, ['entry'])
-        self.assertEqual(result['expired'], 1)
-        self.assertEqual(state['outbox']['movement']['attempts'], 0)
-        self.assertEqual(state['outbox']['entry']['sent_at'], NOW + 61)
-
 
 if __name__ == '__main__':
     unittest.main()
