@@ -35,8 +35,45 @@ def send_text(token: str, chat_id: str, text: str, transport=None) -> list[int]:
     return ids
 
 
+def allowed_scanner_alert(message: dict) -> bool:
+    """Strict delivery allowlist. Old queued messages are NOT grandfathered in.
+
+    Requires an explicit current-format marker AND an exact line layout.
+    This protects future scanner changes from accidentally reviving summaries,
+    blocked confirmations, debugging output or verbose legacy ENTRY rows.
+    """
+    content = message.get("text", "")
+    if not isinstance(content, str):
+        return False
+    lines = content.splitlines()
+    if (message.get("category") == "ENTRY" and
+            message.get("notification_format") == "entry_only_v2"):
+        return (len(lines) == 10 and
+                lines[0] in {"🟢 SINAL DE ENTRADA • SIMULAÇÃO",
+                             "🟢 SINAL DE ENTRADA • EXECUÇÃO MANUAL"} and
+                lines[1].startswith("MOEDA: ") and
+                lines[2] in {"MOVIMENTO: 📈 LONG (ALTA)",
+                             "MOVIMENTO: 📉 SHORT (BAIXA)"} and
+                lines[3].startswith("ALAVANCAGEM: ") and
+                lines[4] == "" and
+                lines[5].startswith("ENTRADA: ") and
+                lines[6].startswith("TP1: ") and
+                lines[7] == "TP2: não definido (modelo atual tem apenas um alvo técnico)" and
+                lines[8] == "" and lines[9].startswith("SL: "))
+    if (message.get("category") == "INFO" and
+            message.get("notification_format") == "movement_only_v2" and
+            message.get("watch_stage") == 1):
+        return (len(lines) == 4 and
+                lines[0] == "🟡 MOVIMENTO DETECTADO • POSSÍVEL ENTRADA" and
+                lines[1].startswith("MOEDA: ") and
+                lines[2] in {"MOVIMENTO: 📈 LONG (ALTA)",
+                             "MOVIMENTO: 📉 SHORT (BAIXA)"} and
+                lines[3] == "STATUS: aguardando segundo fechamento M1 e avaliação financeira.")
+    return False
+
+
 def drain_outbox(state: dict, now: int, token: str, chat_id: str, transport=None, *, clock=None, observer=None) -> dict:
-    counts = {"sent": 0, "expired": 0, "failed": 0, "configuration": "OK"}
+    counts = {"sent": 0, "expired": 0, "suppressed": 0, "failed": 0, "configuration": "OK"}
     configured = bool(token and chat_id)
     if not configured:
         counts["configuration"] = "TELEGRAM_NAO_CONFIGURADO"
@@ -56,6 +93,16 @@ def drain_outbox(state: dict, now: int, token: str, chat_id: str, transport=None
         if message["status"] != "PENDING":
             continue
         current = int(clock()) if clock else now
+        if not allowed_scanner_alert(message):
+            message["status"] = "EXPIRED"
+            counts["suppressed"] += 1
+            counts["expired"] += 1
+            record("delivery_suppressed_non_signal", message, current)
+            pending = state["wallet"].get("pending")
+            if (pending and pending.get("delivery_event_id") == message["id"]
+                    and message["attempts"] == 0):
+                state["wallet"]["pending"] = None
+            continue
         if current >= message["expires_at"] or (message["category"] == "ENTRY" and current - message["quote_at"] > 60):
             message["status"] = "EXPIRED"
             counts["expired"] += 1
