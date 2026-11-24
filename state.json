@@ -17712,7 +17712,7 @@
       "watch_symbol": "TAO_USDT"
     },
     "680e3050d57b29ac54e7": {
-      "attempts": 0,
+      "attempts": 1,
       "category": "ENTRY",
       "created_at": 1795532977,
       "expires_at": 1795533000,
@@ -17720,10 +17720,14 @@
       "notification_format": "entry_only_v2",
       "plan_id": "e7dfe3fb5d39b53f15b8",
       "quote_at": 1795532975,
+      "sent_at": 1795532982,
       "side": "SHORT",
       "signal_at": 1795532880,
-      "status": "PENDING",
+      "status": "SENT",
       "symbol": "QNT_USDT",
+      "telegram_ids": [
+        17588
+      ],
       "text": "🟢 SINAL DE ENTRADA • SIMULAÇÃO\nMOEDA: QNT/USDT\nMOVIMENTO: 📉 SHORT (BAIXA)\nALAVANCAGEM: 10x\n\nENTRADA: 145.82 a 146.39\nTP1: 144.02 (+10.75% ROI líquido estimado sobre a margem)\nTP2: não definido (modelo atual tem apenas um alvo técnico)\n\nSL: 147.15 (-10.74% ROI líquido estimado sobre a margem)",
       "variant": "CONFIRMADA"
     },
