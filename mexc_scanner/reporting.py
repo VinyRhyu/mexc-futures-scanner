@@ -319,31 +319,35 @@ def plan_message(plan: Plan, mode: str, now: int, variant: Variant | None = None
 
 
 def entry_signal_message(plan: Plan, mode: str, now: int, variant: Variant, *, restriction: str = "") -> str:
-    """Short, actionable ENTRY layout; never invent a second target.
+    """Exact minimal Telegram ENTRY. Return empty when not authorized.
 
-    The current trading model has exactly one technical target: Variant.target.
-    TP2 is deliberately unavailable. Reformatting MUST NOT modify technical
-    prices, margin, leverage, entry authorization, account state or risk limits.
+    TP1 is the ONLY current technical target. No invented TP2, no partial
+    exit, no orders, no changes to finance or strategy decisions.
     """
     f = variant.financial
     expected = "VIAVEL_SIMULADO" if mode == "paper" else "VIAVEL_REAL"
-    if restriction or variant.status != "VALIDA" or f.get("status") != expected:
-        # Do not present an informational/blocked plan as an entry.
-        return plan_message(plan, mode, now, variant, restriction=restriction)
-
+    if restriction or variant.status != "VALIDA" or plan.terminal or now >= plan.expires_at:
+        return ""
+    if f.get("status") != expected:
+        return ""
     required = ("entry_low", "entry_high", "leverage", "margin_usdt",
                 "gain_usdt", "loss_usdt", "net_rr", "quote_at")
     if any(f.get(k) is None for k in required) or D(f["margin_usdt"]) <= 0:
-        return plan_message(
-            plan, mode, now, variant,
-            restriction="Dados financeiros incompletos: aguardar nova avaliação.")
-
+        return ""
+    if variant.stop is None or variant.target is None or D(variant.stop) <= 0 or D(variant.target) <= 0:
+        return ""
+    if D(f["entry_low"]) > D(f["entry_high"]):
+        return ""
+    # Percentage is NET projected PNL divided by model-approved initial margin,
+    # like MEXC ROI denominator, NOT percentage of total account balance.
     margin = D(f["margin_usdt"])
     tp_roi = signed_percent(D(f["gain_usdt"]) / margin * 100)
     sl_roi = signed_percent(-D(f["loss_usdt"]) / margin * 100)
     direction = "📈 LONG (ALTA)" if plan.side == "LONG" else "📉 SHORT (BAIXA)"
-    lines = [
-        "🟢 SINAL DE ENTRADA • " + ("SIMULAÇÃO" if mode == "paper" else "EXECUÇÃO MANUAL"),
+    header = ("🟢 SINAL DE ENTRADA • SIMULAÇÃO" if mode == "paper"
+              else "🟢 SINAL DE ENTRADA • EXECUÇÃO MANUAL")
+    return "\\n".join([
+        header,
         f"MOEDA: {plan.symbol.replace('_', '/')}",
         f"MOVIMENTO: {direction}",
         f"ALAVANCAGEM: {f['leverage']}x",
@@ -353,27 +357,22 @@ def entry_signal_message(plan: Plan, mode: str, now: int, variant: Variant, *, r
         "TP2: não definido (modelo atual tem apenas um alvo técnico)",
         "",
         f"SL: {number(variant.stop)} ({sl_roi} ROI líquido estimado sobre a margem)",
-        "",
-        "TP1 é o único alvo técnico atual; não há saída parcial ou TP2 configurados.",
-        f"Margem isolada estimada: {money(margin)} • {f['leverage']}x",
-        f"Retorno/risco líquido: {fixed(f['net_rr'])}:1",
-    ]
-    if f.get("loss_fraction") is not None:
-        lines.append("Risco estimado: " + fixed(D(f["loss_fraction"]) * 100) + "% da banca")
-    if f.get("fee_rate") is not None:
-        lines.append("Taxa por execução: " + fixed(D(f["fee_rate"]) * 100) + "%")
-    if f.get("assumptions"):
-        lines.append("Taxas, slippage e funding estimados; retorno não garantido.")
-    if f.get("real_gates"):
-        lines.append("Verificações reais pendentes: " +
-                     "; ".join(friendly(r).rstrip(".") for r in f["real_gates"]) + ".")
-    lines += [
-        _mode(mode) + " • nenhuma ordem automática",
-        f"Nova entrada até {clock(plan.expires_at, now)}",
-        "Cotação: " + clock(int(f["quote_at"]), now),
-        f"Plano: {plan.id} • revisão {plan.revision}",
-    ]
-    return "\n".join(lines)
+    ])
+
+
+def movement_candidate_message(plan: Plan) -> str:
+    """Minimal notification for the first observed M1; never claims entry."""
+    first = plan.variants.get("ANTECIPADA")
+    if (plan.strategy != "ROMPIMENTO_M1_VOLUME" or plan.terminal or
+            not first or first.status != "AGUARDANDO_CONFIRMACAO"):
+        return ""
+    direction = "📈 LONG (ALTA)" if plan.side == "LONG" else "📉 SHORT (BAIXA)"
+    return "\\n".join([
+        "🟡 MOVIMENTO DETECTADO • POSSÍVEL ENTRADA",
+        f"MOEDA: {plan.symbol.replace('_', '/')}",
+        f"MOVIMENTO: {direction}",
+        "STATUS: aguardando segundo fechamento M1 e avaliação financeira.",
+    ])
 
 
 def closed_plans_message(plans: list[Plan], mode: str, now: int) -> str:
