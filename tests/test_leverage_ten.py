@@ -90,7 +90,7 @@ class LeverageTenTests(unittest.TestCase):
 
     def test_telegram_preview_uses_configured_leverage_floor(self):
         text = preview_message(NOW)
-        self.assertIn('• 10x', text)
+        self.assertIn('ALAVANCAGEM: 10x', text)
         self.assertIn('ROI líquido estimado sobre a margem)', text)
         self.assertTrue(text.startswith('EXEMPLO FICTÍCIO'))
 
