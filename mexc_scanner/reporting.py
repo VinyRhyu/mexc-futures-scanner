@@ -346,7 +346,7 @@ def entry_signal_message(plan: Plan, mode: str, now: int, variant: Variant, *, r
     direction = "📈 LONG (ALTA)" if plan.side == "LONG" else "📉 SHORT (BAIXA)"
     header = ("🟢 SINAL DE ENTRADA • SIMULAÇÃO" if mode == "paper"
               else "🟢 SINAL DE ENTRADA • EXECUÇÃO MANUAL")
-    return "\\n".join([
+    return "\n".join([
         header,
         f"MOEDA: {plan.symbol.replace('_', '/')}",
         f"MOVIMENTO: {direction}",
@@ -367,7 +367,7 @@ def movement_candidate_message(plan: Plan) -> str:
             not first or first.status != "AGUARDANDO_CONFIRMACAO"):
         return ""
     direction = "📈 LONG (ALTA)" if plan.side == "LONG" else "📉 SHORT (BAIXA)"
-    return "\\n".join([
+    return "\n".join([
         "🟡 MOVIMENTO DETECTADO • POSSÍVEL ENTRADA",
         f"MOEDA: {plan.symbol.replace('_', '/')}",
         f"MOVIMENTO: {direction}",
