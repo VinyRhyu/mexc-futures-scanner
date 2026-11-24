@@ -3,7 +3,7 @@ from collections import defaultdict
 
 from .models import stable_id
 from .minute_breakout import STRATEGY, MAX_SIGNAL_AGE
-from .reporting import movement_message, preparation_message
+from .reporting import movement_candidate_message
 from .state import queue_message
 
 FIRST_CANDLE_NOTICE_AGE = 60
@@ -75,46 +75,56 @@ def grouped_candidates(plans, now, viable_symbols, verified_symbols=None):
 
 
 def queue_waiting_entries(state, plans, config, now, viable_symbols, *, limit, verified_symbols=None):
-    plans_by_id = {p.id: p for p in plans if p.strategy == STRATEGY}
-    # Retire only pending individual M1 observations from the previous format.
-    # Sent messages and all ENTRY messages retain their IDs and delivery history.
-    for p in plans_by_id.values():
-        old_ids = [stable_id(p.id, 'POSSIVEL')]
-        old_ids += [stable_id(p.id, kind, 'OBSERVACAO') for kind in p.variants]
+    """Notify ONLY first observed M1 with a possible entry; never preparations.
+
+    Confirmed+financially viable plans are handled by ENTRY in the engine.
+    Confirmed+blocked plans are not an actionable movement and stay in logs.
+    """
+    for p in plans:
+        if p.strategy != STRATEGY:
+            continue
+        old_ids = [stable_id(p.id, "POSSIVEL")]
+        old_ids += [stable_id(p.id, kind, "OBSERVACAO") for kind in p.variants]
         for event_id in old_ids:
-            m = state['outbox'].get(event_id)
-            if m and m['status'] == 'PENDING' and m['category'] == 'INFO':
-                m['status'] = 'EXPIRED'
-    groups = grouped_candidates(plans, now, viable_symbols, verified_symbols)
-    wanted = {symbol: (stable_id('PREPARATION_V1', symbol, sorted(p.id for p in chosen), config.mode)
-                       if stage == 2 else
-                       stable_id('MOVEMENT_V1', symbol, chosen[0].side, stage,
-                                 chosen[0].variants['CONFIRMADA' if stage == 0 else 'ANTECIPADA'].triggered_at, config.mode))
-              for stage, symbol, chosen in groups}
-    for event_id, m in state['outbox'].items():
-        symbol = m.get('watch_symbol')
-        if symbol and m['status'] == 'PENDING' and wanted.get(symbol) != event_id:
-            m['status'] = 'EXPIRED'
+            m = state["outbox"].get(event_id)
+            if m and m["status"] == "PENDING":
+                m["status"] = "EXPIRED"
+
+    groups = [(stage, symbol, chosen)
+              for stage, symbol, chosen in
+              grouped_candidates(plans, now, viable_symbols, verified_symbols)
+              if stage == 1]
+    wanted = {
+        symbol: stable_id("MOVEMENT_V1", symbol, chosen[0].side, 1,
+                          chosen[0].variants["ANTECIPADA"].triggered_at, config.mode)
+        for _, symbol, chosen in groups
+    }
+    # Suppress old preparation, blocked confirmation and verbose movement rows
+    # already persisted in the existing state branch (preserve sent history).
+    for m in state["outbox"].values():
+        if m["status"] != "PENDING" or not m.get("watch_symbol"):
+            continue
+        if (m.get("notification_format") != "movement_only_v2" or
+                wanted.get(m["watch_symbol"]) != m["id"]):
+            m["status"] = "EXPIRED"
+
     count = 0
-    for stage, symbol, chosen in groups:
+    for _, symbol, chosen in groups:
         if count >= limit:
             break
         event_id = wanted[symbol]
-        if event_id in state['outbox']:
+        if event_id in state["outbox"]:
             continue
-        p = chosen[0]
-        if stage == 2:
-            expires = min(p.expires_at for p in chosen)
-            text = preparation_message(chosen, config.mode, now)
-        else:
-            v = p.variants['CONFIRMADA' if stage == 0 else 'ANTECIPADA']
-            expires = min(p.expires_at, v.triggered_at + notice_age(stage))
-            text = movement_message(p, config.mode, now, stage, expires,
-                                    illustrative_leverage=config.minimum_leverage)
+        plan = chosen[0]
+        first = plan.variants["ANTECIPADA"]
+        expires = min(plan.expires_at, first.triggered_at + FIRST_CANDLE_NOTICE_AGE)
+        text = movement_candidate_message(plan)
+        if not text:
+            continue
         queue_message(state, event_id, text, now, expires)
-        metadata = dict(watch_symbol=symbol, watch_stage=stage, plan_ids=[p.id for p in chosen])
-        if stage < 2:
-            metadata.update(movement_at=v.triggered_at, movement_side=p.side)
-        state['outbox'][event_id].update(metadata)
+        state["outbox"][event_id].update(
+            notification_format="movement_only_v2",
+            watch_symbol=symbol, watch_stage=1, plan_ids=[plan.id],
+            movement_at=first.triggered_at, movement_side=plan.side)
         count += 1
     return count
