@@ -19526,7 +19526,7 @@
       "watch_symbol": "ZEC_USDT"
     },
     "71400aac97376a36d706": {
-      "attempts": 0,
+      "attempts": 1,
       "category": "ENTRY",
       "created_at": 1795526016,
       "expires_at": 1795526100,
@@ -19534,10 +19534,14 @@
       "notification_format": "entry_only_v2",
       "plan_id": "475e898c43185a5ef164",
       "quote_at": 1795526014,
+      "sent_at": 1795526019,
       "side": "SHORT",
       "signal_at": 1795525980,
-      "status": "PENDING",
+      "status": "SENT",
       "symbol": "TAO_USDT",
+      "telegram_ids": [
+        17587
+      ],
       "text": "🟢 SINAL DE ENTRADA • SIMULAÇÃO\nMOEDA: TAO/USDT\nMOVIMENTO: 📉 SHORT (BAIXA)\nALAVANCAGEM: 12x\n\nENTRADA: 181.43 a 181.95\nTP1: 179.38 (+11.65% ROI líquido estimado sobre a margem)\nTP2: não definido (modelo atual tem apenas um alvo técnico)\n\nSL: 182.63 (-9.86% ROI líquido estimado sobre a margem)",
       "variant": "CONFIRMADA"
     },
