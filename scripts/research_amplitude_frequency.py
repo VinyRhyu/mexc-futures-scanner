@@ -123,6 +123,7 @@ def geometry_report(candidates,raw_bars,end,days,base_actual):
     return out
 
 
+from scripts.research_v3e_prospective import load_model, score, HASH
 from datetime import datetime, timedelta, timezone
 from zoneinfo import ZoneInfo
 LOCAL=ZoneInfo("America/Sao_Paulo")
@@ -245,41 +246,22 @@ def run(raw,dataset,output):
                 "No real execution, historical tick/lot, liquidation or exact PRD replay."]}
     for s in SIDES:
         report["cohort"][s]={p:len(data[s][p]) for p in PARTS}
-    frozen={"version":"V3E_240_FIXED_GATE_3ATR","source_run":45446894380,
-            "feature_order":[*FEATURES,"atr_over_last_closed_price"],"costs":COSTS,
-            "gate":0.,"forecast_target_atr":1.5,"execution_target_atr":3.,"stop_atr":1.,
-            "horizon_min":240,"entry_delay_sec":60,"cutoffs":[CUT1,CUT2],"alpha":ALPHA,
-            "symbols":sorted(raw_bars),"models":{},"window_start":"2026-12-09T00:00:00Z",
-            "window_end_exclusive":"2026-12-23T00:00:00Z"}
+    frozen=load_model()
     for h in (240,):
         result={"prediction":{},"finance":{}}
         decisions={p:[] for p in PARTS[1:]}
         for side in SIDES:
             train=data[side]["train"]
-            y=[float(r["labels"][h]["gross_r"]) for r in train]
-            base=[float(np.mean([net_r(r["labels"][h],r["atr"],c) for r in train])) for c in COSTS]
-            pipe=make_pipeline(SimpleImputer(strategy="median",keep_empty_features=True),
-                               StandardScaler(),Ridge(alpha=ALPHA))
-            pipe.fit(np.asarray([r["x"] for r in train]),y)
-            if len(train)!=28210:
-                raise ValueError("training count differs from V3c")
-            imputer,scaler,ridge=[obj for _,obj in pipe.steps]
-            frozen["models"][side]={"train_n":len(train),"median":imputer.statistics_.tolist(),
-                "mean":scaler.mean_.tolist(),"scale":scaler.scale_.tolist(),
-                "coef":ridge.coef_.tolist(),"intercept":float(ridge.intercept_),"constant_net_r":base}
+            if len(train)!=frozen["models"][side]["train_n"]:
+                raise ValueError("training cohort differs")
+            base=frozen["models"][side]["constant_net_r"]
             result["prediction"][side]={}
             for p in PARTS[1:]:
                 sample=data[side][p]
-                X=np.asarray([r["x"] for r in sample])
-                g=pipe.predict(X)
-                fm=frozen["models"][side]
-                reconstructed=((np.where(np.isnan(X),fm["median"],X)-fm["mean"])/fm["scale"])@np.asarray(fm["coef"])+fm["intercept"]
-                if float(np.max(np.abs(g-reconstructed)))>1e-10:
-                    raise ValueError("exported coefficients do not reproduce predictions")
                 evaluated=[]
-                for r,pred in zip(sample,g):
+                for r in sample:
                     l=r["labels"][h]
-                    expected=predicted_net(pred,r["notional"],side)
+                    expected=score(r["x"],r["notional"],side,frozen)
                     actual=[net_r(l,r["atr"],c) for c in COSTS]
                     evaluated.append({**r,"label":l,"y":actual,"pred":expected,
                                       "rank":expected[1],"gross":float(l["gross_r"])})
@@ -312,11 +294,7 @@ def run(raw,dataset,output):
                     result.setdefault("daily_frequency",{})[p]=daily_report(candidates,raw_bars,meta["end_exclusive"],days,sample)
         report["results"][str(h)]=result
     output.mkdir(parents=True,exist_ok=True)
-    raw_model=json.dumps(frozen,sort_keys=True,separators=(",",":"),allow_nan=False).encode()
-    stored=Path("config/research/predict-v3e-frozen.json").read_bytes()
-    if raw_model!=stored:
-        raise ValueError("V3e frozen model differs")
-    report["model_sha256"]=hashlib.sha256(raw_model).hexdigest()
+    report["model_sha256"]=HASH
     (output/"summary.json").write_text(json.dumps(report,indent=2,allow_nan=False))
 
     print(json.dumps(report,indent=2,allow_nan=False),flush=True)
