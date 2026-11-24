@@ -156,8 +156,11 @@ class ObservabilityTests(unittest.TestCase):
 
     def test_delivery_audit_records_expiry_attempt_success_without_message_contents(self):
         state = initial_state(Config())
-        queue_message(state, 'expired', 'secret message', NOW, NOW, 'ENTRY', NOW)
-        queue_message(state, 'entry', 'secret message', NOW, NOW+100, 'ENTRY', NOW)
+        from tests.test_closure_reasons import authorized_entry_text
+        queue_message(state, 'expired', authorized_entry_text(), NOW, NOW, 'ENTRY', NOW)
+        queue_message(state, 'entry', authorized_entry_text(), NOW, NOW+100, 'ENTRY', NOW)
+        for key in ('expired', 'entry'):
+            state['outbox'][key]['notification_format'] = 'entry_only_v2'
         with tempfile.TemporaryDirectory() as temp:
             audit = DecisionLog(temp, mode='paper', fingerprint='test')
             result = drain_outbox(state, NOW, 'fake-token', 'private-chat',
@@ -172,7 +175,9 @@ class ObservabilityTests(unittest.TestCase):
 
     def test_delivery_failure_retains_retry_and_records_only_sanitized_type(self):
         state = initial_state(Config())
-        queue_message(state, 'entry', 'secret message', NOW, NOW+100, 'ENTRY', NOW)
+        from tests.test_closure_reasons import authorized_entry_text
+        queue_message(state, 'entry', authorized_entry_text(), NOW, NOW+100, 'ENTRY', NOW)
+        state['outbox']['entry']['notification_format'] = 'entry_only_v2'
         with tempfile.TemporaryDirectory() as temp:
             audit = DecisionLog(temp, mode='paper', fingerprint='test')
             def failed(_):
