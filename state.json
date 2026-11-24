@@ -17145,7 +17145,7 @@
       "watch_symbol": "DOGE_USDT"
     },
     "8bf3401dd0e84f6e0524": {
-      "attempts": 0,
+      "attempts": 1,
       "category": "ENTRY",
       "created_at": 1795559445,
       "expires_at": 1795559520,
@@ -17153,10 +17153,14 @@
       "notification_format": "entry_only_v2",
       "plan_id": "2a9af936eca90deccd47",
       "quote_at": 1795559444,
+      "sent_at": 1795559449,
       "side": "LONG",
       "signal_at": 1795559400,
-      "status": "PENDING",
+      "status": "SENT",
       "symbol": "ZEC_USDT",
+      "telegram_ids": [
+        17589
+      ],
       "text": "🟢 SINAL DE ENTRADA • SIMULAÇÃO\nMOEDA: ZEC/USDT\nMOVIMENTO: 📈 LONG (ALTA)\nALAVANCAGEM: 10x\n\nENTRADA: 734.78 a 735.73\nTP1: 743.48 (+8.90% ROI líquido estimado sobre a margem)\nTP2: não definido (modelo atual tem apenas um alvo técnico)\n\nSL: 730.39 (-8.88% ROI líquido estimado sobre a margem)",
       "variant": "CONFIRMADA"
     },
