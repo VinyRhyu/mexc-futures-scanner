@@ -35,7 +35,7 @@ def bounded_barrier(bars,t,a,side,end):
         if op<=-1:
             outcome,price,exit_t="SL",c.open,c.ts
             break
-        if op>=D(mult):
+        if op>=D(3):
             outcome,price,exit_t="TP",target,c.ts
             break
         adv=sign*((c.low if sign>0 else c.high)-entry)/a
@@ -43,7 +43,7 @@ def bounded_barrier(bars,t,a,side,end):
         if adv<=-1:
             outcome,price,exit_t="SL",stop,c.end
             break
-        if fav>=D(mult):
+        if fav>=D(3):
             outcome,price,exit_t="TP",target,c.end
             break
     return {"outcome":outcome,"entry_ts":entry_t,"exit_ts":exit_t,"entry":str(entry),
