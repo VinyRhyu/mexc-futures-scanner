@@ -216,15 +216,29 @@ def probability(model, row):
                         sum(w*v for w,v in zip(model["weights"],z)))
 
 
+def auc_roc(rows):
+    """Threshold-free ranking diagnostic. Null when one class is absent."""
+    wins=[r["p"] for r in rows if r["y"]==1]
+    others=[r["p"] for r in rows if r["y"]==0]
+    if not wins or not others:
+        return None
+    return sum((1.0 if a>b else 0.5 if a==b else 0.0)
+               for a in wins for b in others)/(len(wins)*len(others))
+
+
 def metrics(rows, prior):
     n=len(rows)
     if n==0:
         return {"n":0,"targets":0,"brier":None,"prior_brier":None,
-                "log_loss":None,"target_rate":None}
+                "log_loss":None,"target_rate":None,"auc_roc":None,
+                "mean_p_for_targets":None,"mean_p_for_non_targets":None}
     eps=1e-12
     return {
         "n":n,"targets":sum(x["y"] for x in rows),
         "target_rate":sum(x["y"] for x in rows)/n,
+        "auc_roc":auc_roc(rows),
+        "mean_p_for_targets":sum(x["p"] for x in rows if x["y"])/max(1,sum(x["y"] for x in rows)),
+        "mean_p_for_non_targets":sum(x["p"] for x in rows if not x["y"])/max(1,sum(not x["y"] for x in rows)),
         "brier":sum((x["p"]-x["y"])**2 for x in rows)/n,
         "prior_brier":sum((prior-x["y"])**2 for x in rows)/n,
         "log_loss":-sum(x["y"]*math.log(max(eps,x["p"]))+
