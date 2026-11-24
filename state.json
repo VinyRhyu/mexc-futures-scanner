@@ -2239,7 +2239,7 @@
       "watch_symbol": "TIA_USDT"
     },
     "09fde3773c96a6e795dd": {
-      "attempts": 0,
+      "attempts": 1,
       "category": "INFO",
       "created_at": 1795480122,
       "expires_at": 1795480140,
@@ -2251,7 +2251,11 @@
         "b828982b025288ce5945"
       ],
       "quote_at": 0,
-      "status": "PENDING",
+      "sent_at": 1795480125,
+      "status": "SENT",
+      "telegram_ids": [
+        17573
+      ],
       "text": "🟡 MOVIMENTO DETECTADO • POSSÍVEL ENTRADA\nMOEDA: XRP/USDT\nMOVIMENTO: 📈 LONG (ALTA)\nSTATUS: aguardando segundo fechamento M1 e avaliação financeira.",
       "watch_stage": 1,
       "watch_symbol": "XRP_USDT"
