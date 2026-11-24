@@ -176,6 +176,9 @@ class PredictiveResearchTests(unittest.TestCase):
         self.assertAlmostEqual(score["target_rate"],0.5)
         self.assertAlmostEqual(score["prior_brier"],0.3125)
         self.assertAlmostEqual(score["brier"],0.2)
+        self.assertEqual(score["auc_roc"],1.0)
+        self.assertEqual(score["mean_p_for_targets"],0.8)
+        self.assertEqual(score["mean_p_for_non_targets"],0.6)
 
 
 if __name__=="__main__":
