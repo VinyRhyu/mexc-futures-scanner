@@ -71,7 +71,7 @@ class ClosureReasonTests(unittest.TestCase):
         text = movement_message(p, 'paper', NOW, 1, NOW + 60, illustrative_leverage=10)
         self.assertIn('AINDA SEM CONFIRMAÇÃO', text.splitlines()[0])
 
-    def test_delivery_only_entry_then_first_m1_movement(self):
+    def test_delivery_only_entry_even_with_legacy_first_m1_movement(self):
         state=initial_state(Config())
         queue_message(state,"summary","summary",NOW-10,NOW+120)
         queue_message(state,"movement",authorized_movement_text(),NOW,NOW+60)
@@ -87,10 +87,10 @@ class ClosureReasonTests(unittest.TestCase):
             sent.append(payload["text"])
             return {"ok":True,"result":{"message_id":len(sent)}}
         result=drain_outbox(state,NOW,"token","chat",send)
-        self.assertEqual(sent,[authorized_entry_text(),authorized_movement_text()])
-        self.assertEqual(result["suppressed"],2)
+        self.assertEqual(sent,[authorized_entry_text()])
+        self.assertEqual(result["suppressed"],3)
 
-    def test_expiry_is_rechecked_after_an_earlier_delivery_consumes_time(self):
+    def test_legacy_first_m1_is_suppressed_even_when_previously_queued(self):
         state=initial_state(Config())
         queue_message(state,"movement",authorized_movement_text(),NOW,NOW+60)
         state["outbox"]["movement"].update(
@@ -107,6 +107,7 @@ class ClosureReasonTests(unittest.TestCase):
         result=drain_outbox(state,NOW,"token","chat",send,clock=lambda:current[0])
         self.assertEqual(sent,[authorized_entry_text()])
         self.assertEqual(result["expired"],1)
+        self.assertEqual(result["suppressed"],1)
         self.assertEqual(state["outbox"]["movement"]["attempts"],0)
         self.assertEqual(state["outbox"]["entry"]["sent_at"],NOW+61)
 
