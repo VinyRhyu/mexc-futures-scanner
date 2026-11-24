@@ -1,0 +1,29 @@
+name: Predict V6f - Gate historical derivatives coverage
+on:
+  push:
+    branches: [research/expected-net-return-v3-20261124]
+    paths:
+      - scripts/research_gate_stats.py
+      - tests/test_research_gate_stats.py
+      - .github/workflows/research-gate-stats.yml
+permissions:
+  contents: read
+jobs:
+  audit:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v7.0.1
+        with:
+          persist-credentials: false
+      - uses: actions/setup-python@v7
+        with:
+          python-version: '3.12'
+      - run: python -m unittest discover -s tests -p test_research_gate_stats.py -v
+      - run: python -m scripts.research_gate_stats --output reports/v6f
+      - uses: actions/upload-artifact@v7
+        if: always()
+        with:
+          name: predict-v6f-gate-stats
+          path: reports/v6f/
+          retention-days: 60
