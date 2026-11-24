@@ -1,0 +1,55 @@
+name: Predict V4b - failure attribution
+on:
+  push:
+    branches: [research/expected-net-return-v3-20261124]
+    paths:
+      - scripts/research_failure_attribution.py
+      - tests/test_research_failure_attribution.py
+      - .github/workflows/research-failure-attribution.yml
+permissions:
+  contents: read
+  actions: read
+jobs:
+  compare:
+    runs-on: ubuntu-latest
+    timeout-minutes: 90
+    steps:
+      - uses: actions/checkout@v7.0.1
+        with:
+          persist-credentials: false
+      - uses: actions/setup-python@v7
+        with:
+          python-version: '3.12'
+      - run: python -m pip install numpy==2.2.6 scikit-learn==1.6.1
+      - run: python -m unittest discover -s tests -p test_research_failure_attribution.py -v
+      - uses: actions/download-artifact@v7
+        with:
+          run-id: 45432136926
+          github-token: ${{ github.token }}
+          name: predict-v2-e1-coverage
+          path: frozen-raw/
+      - uses: actions/download-artifact@v7
+        with:
+          run-id: 45448971883
+          github-token: ${{ github.token }}
+          name: predict-v3g-expansion-coverage
+          path: frozen-g/
+      - uses: actions/download-artifact@v7
+        with:
+          run-id: 45449303295
+          github-token: ${{ github.token }}
+          name: predict-v3h-universe-50
+          path: frozen-h/
+      - uses: actions/download-artifact@v7
+        with:
+          run-id: 45450218995
+          github-token: ${{ github.token }}
+          name: predict-v3i-universe-100
+          path: frozen-i/
+      - run: python -m scripts.research_failure_attribution --raw frozen-raw --g frozen-g --h frozen-h --i frozen-i --output reports/predict-v4b
+      - uses: actions/upload-artifact@v7
+        if: always()
+        with:
+          name: predict-v4b-universe-transfer
+          path: reports/predict-v4b/
+          retention-days: 60
