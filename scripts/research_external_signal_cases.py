@@ -21,6 +21,16 @@ CASES=(
  ("QNT","2026-11-21 10:02","LONG",20,("136.87","139.56","142.24","144.93"),"134.19",("QNT_USDT",)),
  ("PUMPFUN","2026-11-18 22:27","LONG",30,("0.002618","0.002670","0.002721","0.002772"),"0.002551",("PUMPFUN_USDT","PUMP_USDT")),
 )
+NEW_CASES=(
+ ("WLFI","2026-11-24 10:05","LONG",30,("0.04169","0.04250","0.04332","0.04414"),None,("WLFI_USDT",)),
+ ("VVV","2026-11-23 21:57","SHORT",25,("24.176","23.682","23.189","22.695"),None,("VVV_USDT",)),
+ ("THETA","2026-11-22 13:12","LONG",30,("0.1289","0.1315","0.1340","0.1365"),None,("THETA_USDT",)),
+ ("NAORIS","2026-11-19 12:52","LONG",30,("0.03365","0.03431","0.03497","0.03563"),None,("NAORIS_USDT",)),
+ ("NEAR","2026-11-16 10:21","LONG",30,("3.1936","3.2562","3.3189","3.3815"),None,("NEAR_USDT",)),
+ ("EVAA","2026-11-15 17:42","LONG",10,("2.7518","2.8057","2.8597"),None,("EVAA_USDT",)),
+ ("STRK","2026-11-13 09:40","LONG",30,("0.0373","0.0381","0.0388","0.0395"),None,("STRK_USDT",)),
+ ("INJ","2026-11-12 11:43","LONG",25,("7.5674","7.7158","7.8641","8.0125"),None,("INJ_USDT",)),
+)
 def epoch(x):
     return int(datetime.strptime(x,"%Y-%m-%d %H:%M").replace(tzinfo=LOCAL).timestamp())
 
@@ -91,13 +101,29 @@ def compare(case,controls):
                 "percentile":100*(sum(a<v for a in allv)+.5*sum(a==v for a in allv))/len(allv) if v is not None and allv else None}
     return out
 
+def passes(f):
+    return all(f.get(k) is not None for k in ("rv_ratio","signed_ret_1","signed_ret_60")) and f["rv_ratio"]<=.75 and f["signed_ret_1"]<0 and f["signed_ret_60"]<0
+
+def extend(client,bars,symbol,left,right,output):
+    if right<=left:
+        return {"requested":0,"observed":0,"failures":[]}
+    fresh,fail,dupes=collect(client,symbol,left,right)
+    if any(t in bars and bars[t]!=c for t,c in fresh.items()):
+        raise ValueError("frozen/live candle conflict "+symbol)
+    bars.update(fresh)
+    return {"requested":(right-left)//60,"observed":len(fresh),"failures":fail,
+            "duplicates":dupes,"sha256_uncompressed":save_raw(output/(symbol+"-extension.jsonl.gz"),fresh)}
+
 def run(raw,g,h,i,output):
     loc,groups,bands,start,end=sources(raw,g,h,i)
     p,m=loc["BTC_USDT"];btc=load_raw(p/m["raw_file"],m["sha256_uncompressed"])
     client=MexcClient();output.mkdir(parents=True,exist_ok=True)
-    report={"type":"EXTERNAL_SIGNAL_CASE_AUDIT","cases":{},
+    closed=(client.server_time()-10)//60*60
+    report={"type":"EXTERNAL_SIGNAL_CASE_AUDIT_V2","cases":{},"closed_end":closed,
+            "hypothesis":{"rv_ratio_max":.75,"signed_ret_1_negative":True,"signed_ret_60_negative":True},
+            "btc_extension":extend(client,btc,"BTC_USDT",end,min(closed,max(epoch(c[1]) for c in NEW_CASES)+DAY+60),output),
             "limitations":["Dates assumed November 2026 Sao Paulo; source exchange and precise entry time unknown.",
-               "Four profit-selected examples; controls are earlier same-symbol same-side decision times, not the signal provider's losing signals.",
+               "Twelve profit-selected examples (four discovery, eight new checks); controls are earlier same-symbol same-side decision times, not the signal provider's losing signals.",
                "Screenshot entries separate from inferred target reference; screenshot mark and unrealized PNL do not prove realized profit or signal match.",
                "MEXC candidate PUMP mapping unverified; no automatic alias selection.",
                "Signal features use closed candles ending <= signal minus 1 minute. Simulated entry signal plus 1 minute.",
@@ -107,17 +133,20 @@ def run(raw,g,h,i,output):
         catalog={r["symbol"]:r for r in client.contracts()}
     except Exception as e:
         catalog={};report["catalog_error"]=str(e)[:200]
-    for name,stamp,side,lev,targets,shot,aliases in CASES:
+    for name,stamp,side,lev,targets,shot,aliases in (*CASES,*NEW_CASES):
         t=epoch(stamp);refs=inferred_reference(targets,side)
         entry=median(refs)
         c={"local":stamp,"utc":datetime.fromtimestamp(t,ZoneInfo("UTC")).isoformat(),"side":side,"leverage":lev,
            "targets":targets,"reference_by_target":[str(x) for x in refs],"inferred_reference":str(entry),
-           "screenshot_entry":shot,"screenshot_entry_vs_reference_pct":100*float(D(shot)/entry-1),"candidates":{}}
+           "screenshot_entry":shot,"screenshot_entry_vs_reference_pct":100*float(D(shot)/entry-1) if shot is not None else None,
+           "group":"discovery" if name in {r[0] for r in CASES} else "new_check","candidates":{}}
         for symbol in aliases:
             if symbol in loc:
                 p,m=loc[symbol];bars=load_raw(p/m["raw_file"],m["sha256_uncompressed"]);meta={"source":"frozen_mexc"}
+                if t+60+DAY>end:
+                    meta["extension"]=extend(client,bars,symbol,end,min(closed,t+60+DAY),output)
             elif symbol in catalog:
-                left=t-8*DAY;right=t+60+DAY
+                left=t-8*DAY;right=min(closed,t+60+DAY)
                 bars,fail,dupes=collect(client,symbol,left,right)
                 meta={"source":"live_mexc_historical","requested_minutes":(right-left)//60,"observed":len(bars),
                       "failed_chunks":fail,"duplicates":dupes}
@@ -134,7 +163,10 @@ def run(raw,g,h,i,output):
                 ff=snapshot(bars,btc,u,side);oo=outcome(bars,u,side)
                 if ff is not None and oo is not None:
                     controls.append((ff,oo))
-            q.update({"last_known_close":str(bars[t-120].close),"signal_minute_open":str(bars[t].open) if t in bars else None,
+            matched=[(ff,oo) for ff,oo in controls if passes(ff)]
+            q.update({"hypothesis_pass":passes(f),"matched_control_n":len(matched),"matched_control_tp":sum(oo["status"]=="TP" for _,oo in matched),
+                      "atr_above_control_median":f["atr_pct"]>median([ff["atr_pct"] for ff,oo in controls]) if controls else None,
+                      "last_known_close":str(bars[t-120].close),"signal_minute_open":str(bars[t].open) if t in bars else None,
                       "reference_vs_last_known_pct":100*float(entry/bars[t-120].close-1),
                       "path_4h":o,"path_24h":o24,"target_touches_4h":touches(bars,t,side,targets,4),
                       "target_touches_24h":touches(bars,t,side,targets,24),
@@ -143,6 +175,12 @@ def run(raw,g,h,i,output):
             c["candidates"][symbol]=q
         report["cases"][name]=c
         print(json.dumps({"case":name,"candidates":{s:{k:v for k,v in q.items() if k!="features"} for s,q in c["candidates"].items()}}),flush=True)
+    report["hypothesis_summary"]={}
+    for group in ("discovery","new_check"):
+        qs=[q for c in report["cases"].values() if c["group"]==group for q in c["candidates"].values() if q["status"]=="ok"]
+        report["hypothesis_summary"][group]={"available":len(qs),"pass":sum(q["hypothesis_pass"] for q in qs),
+            "controls":sum(q["control_n"] for q in qs),"controls_tp":sum(q["control_tp"] for q in qs),
+            "matched_controls":sum(q["matched_control_n"] for q in qs),"matched_controls_tp":sum(q["matched_control_tp"] for q in qs)}
     (output/"summary.json").write_text(json.dumps(report,indent=2,allow_nan=False))
     print(json.dumps(report,indent=2,allow_nan=False),flush=True)
 
