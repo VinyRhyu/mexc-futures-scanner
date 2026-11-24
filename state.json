@@ -58,7 +58,7 @@
   },
   "journal": [],
   "journal_ids": [],
-  "last_success": 1795479041,
+  "last_success": 1795479085,
   "last_summary_date": "2026-11-23",
   "minute_activation": {
     "AAVE_USDT": 1795086047,
@@ -109219,50 +109219,6 @@
       "symbol": "DOT_USDT",
       "upper": "0.6642",
       "variants": {}
-    },
-    "94e1cd05eb21aa4062a9": {
-      "atr": "0.000614143502351065406274343400",
-      "detected_at": 1795303800,
-      "entry_started_at": 1795304460,
-      "expires_at": 1795306260,
-      "family": "94e1cd05eb21aa4062a9",
-      "formed_at": 1795303800,
-      "id": "94e1cd05eb21aa4062a9",
-      "last_bar": 1795304520,
-      "level": "0.1135",
-      "lower": "0.11238",
-      "observations": [],
-      "preparation_expires_at": 1795305600,
-      "reaction_at": 1795304460,
-      "reaction_extreme": null,
-      "reason": "SEGUNDO_M1_NAO_SUSTENTOU",
-      "revision": 0,
-      "side": "LONG",
-      "status": "INVALIDADO",
-      "stop": "0.11319",
-      "strategy": "ROMPIMENTO_M1_VOLUME",
-      "symbol": "ARB_USDT",
-      "upper": "0.1135",
-      "variants": {
-        "ANTECIPADA": {
-          "entry_high": "0.11373",
-          "entry_low": "0.11358",
-          "financial": {
-            "reasons": [
-              "FALHA_DA_FONTE_NESTA_RODADA"
-            ],
-            "status": "BLOQUEADA"
-          },
-          "kind": "ANTECIPADA",
-          "reason": "",
-          "reference": "0.11358",
-          "status": "ENCERRADA",
-          "stop": "0.11319",
-          "target": "0.11394",
-          "target_origin": "PIVO_CONHECIDO",
-          "triggered_at": 1795304460
-        }
-      }
     },
     "94e73d930264113e64c5": {
       "atr": "0.001570819868170356773765611989",
