@@ -1,0 +1,82 @@
+name: Avaliar sinal externo MEXC
+on:
+  workflow_dispatch:
+    inputs:
+      contrato:
+        description: Contrato público da MEXC (ex. WLFI_USDT)
+        required: true
+      publicado_em:
+        description: Publicação com fuso (ex. 2026-11-24T10:05:50-03:00)
+        required: true
+      direcao:
+        description: Direção publicada
+        type: choice
+        options: [LONG, SHORT]
+        required: true
+      alavancagem:
+        description: Alavancagem publicada (ex. 30)
+        required: true
+      alvos:
+        description: TP1 a TP4, separados por espaço
+        required: true
+  push:
+    branches: [main]
+    paths: ['.github/workflows/external-signal.yml', 'mexc_scanner/external_signal.py']
+
+permissions:
+  contents: read
+
+jobs:
+  evaluate:
+    if: github.event_name == 'workflow_dispatch'
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    env:
+      CONTRACT: ${{ inputs.contrato }}
+      PUBLISHED: ${{ inputs.publicado_em }}
+      SIDE: ${{ inputs.direcao }}
+      LEVERAGE: ${{ inputs.alavancagem }}
+      TARGETS: ${{ inputs.alvos }}
+    steps:
+      - uses: actions/checkout@v7.0.1
+      - uses: actions/setup-python@v7
+        with:
+          python-version: '3.12'
+      - name: Avaliar com candles públicos de um minuto
+        shell: bash
+        run: |
+          read -r -a target_args <<< "$TARGETS"
+          python -m mexc_scanner.external_signal -- "$CONTRACT" "$PUBLISHED" "$SIDE" "$LEVERAGE" "${target_args[@]}" > result.json
+          {
+            printf '## Avaliação paper\n\n'
+            printf '%s\n' '```json'
+            cat result.json
+            printf '%s\n' '```'
+          } | tee "$GITHUB_STEP_SUMMARY"
+
+  production-smoke:
+    if: github.event_name == 'push'
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@v7.0.1
+      - uses: actions/setup-python@v7
+        with:
+          python-version: '3.12'
+      - name: Validar a regra e a fonte em produção
+        run: |
+          python -m unittest tests.test_external_signal -v
+          python - <<'PY'
+          from datetime import datetime, timezone
+          from mexc_scanner.external_signal import assess
+          from mexc_scanner.mexc import MexcClient
+          from mexc_scanner.models import D
+
+          client = MexcClient()
+          published = datetime.fromtimestamp(client.server_time() - 900, timezone.utc)
+          targets = tuple(map(D, ('100', '102', '104', '106')))
+          result = assess(client, 'BTC_USDT', published, 'LONG', 20, targets)
+          assert result['entrada_simulada'] > 0
+          assert result['modo'] == 'SIMULACAO'
+          print('Candle de referência e simulação verificados na API pública da MEXC.')
+          PY
