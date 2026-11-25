@@ -1,6 +1,6 @@
 # MEXC Futures Scanner — rodada
 
-Modo: **paper**. Análise: 25/11/2026 11:43:34 BRT.
+Modo: **paper**. Análise: 25/11/2026 11:44:43 BRT.
 
 Fonte: OK
 Cobertura: 26/26 contratos selecionados.
@@ -1600,7 +1600,8 @@ Alavancagem de simulação: **10x a 20x**.
 | TAO_USDT | ROMPIMENTO_M1_VOLUME | SHORT | EXPIRADO | ANTECIPADA | FALHA_DA_FONTE_NESTA_RODADA |
 | TAO_USDT | ROMPIMENTO_M1_VOLUME | SHORT | EXPIRADO | CONFIRMADA | FALHA_DA_FONTE_NESTA_RODADA |
 | ARB_USDT | ROMPIMENTO_M1_VOLUME | LONG | EXPIRADO | — | PRAZO_ENCERRADO |
-| ONDO_USDT | ROMPIMENTO_M1_VOLUME | SHORT | POSSIVEL | ANTECIPADA | aguardando gatilho |
+| ONDO_USDT | ROMPIMENTO_M1_VOLUME | SHORT | ATIVO | ANTECIPADA | PLANO_NAO_ATUAL |
+| ONDO_USDT | ROMPIMENTO_M1_VOLUME | SHORT | ATIVO | CONFIRMADA | CUSTO_RELATIVO_ELEVADO |
 | NEAR_USDT | ROMPIMENTO_M1_VOLUME | LONG | INVALIDADO | ANTECIPADA | VOLUME_M1_INSUFICIENTE |
 | BNB_USDT | ROMPIMENTO_M1_VOLUME | SHORT | EXPIRADO | — | PRAZO_ENCERRADO |
 | TIA_USDT | ROMPIMENTO_M1_VOLUME | LONG | EXPIRADO | — | PRAZO_ENCERRADO |
@@ -1793,11 +1794,12 @@ Alavancagem de simulação: **10x a 20x**.
 
 ## Sinais próprios com stop de 35% em simulação
 
-0 de 1 candidatos aprovados nesta rodada.
+0 de 2 candidatos aprovados nesta rodada.
 
 | Contrato | Direção | Entrada estimada | SL | TP1 | Retorno/risco | Resultado |
 | --- | --- | --- | --- | --- | --- | --- |
 | HBAR_USDT | SHORT | indisponível | indisponível | indisponível | indisponível | PLANO_FINANCEIRO_INDISPONIVEL |
+| ONDO_USDT | SHORT | indisponível | indisponível | indisponível | indisponível | PLANO_FINANCEIRO_INDISPONIVEL |
 
 ## Diagnósticos
 
