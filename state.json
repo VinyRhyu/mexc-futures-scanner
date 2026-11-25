@@ -23121,7 +23121,7 @@
       "watch_symbol": "TIA_USDT"
     },
     "dcc85abf2940302913a3": {
-      "attempts": 0,
+      "attempts": 1,
       "category": "ENTRY",
       "created_at": 1795571443,
       "expires_at": 1795571520,
@@ -23129,10 +23129,14 @@
       "notification_format": "entry_only_v2",
       "plan_id": "0fce2c65d59f894ecbd2",
       "quote_at": 1795571439,
+      "sent_at": 1795571447,
       "side": "SHORT",
       "signal_at": 1795571400,
-      "status": "PENDING",
+      "status": "SENT",
       "symbol": "HYPE_USDT",
+      "telegram_ids": [
+        17591
+      ],
       "text": "🟢 SINAL DE ENTRADA • SIMULAÇÃO\nMOEDA: HYPE/USDT\nMOVIMENTO: 📉 SHORT (BAIXA)\nALAVANCAGEM: 12x\n\nENTRADA: 58.814 a 58.923\nTP1: 57.835 (+18.07% ROI líquido estimado sobre a margem)\nTP2: não definido (modelo atual tem apenas um alvo técnico)\n\nSL: 59.161 (-9.01% ROI líquido estimado sobre a margem)",
       "variant": "CONFIRMADA"
     },
