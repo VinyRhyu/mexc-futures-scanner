@@ -7090,7 +7090,7 @@
       "watch_symbol": "ONDO_USDT"
     },
     "43edcde5c4b2553353df": {
-      "attempts": 0,
+      "attempts": 1,
       "category": "ENTRY",
       "created_at": 1795572452,
       "expires_at": 1795572480,
@@ -7098,10 +7098,14 @@
       "notification_format": "entry_only_v2",
       "plan_id": "d02f0964c48f5748021e",
       "quote_at": 1795572448,
+      "sent_at": 1795572456,
       "side": "SHORT",
       "signal_at": 1795572360,
-      "status": "PENDING",
+      "status": "SENT",
       "symbol": "ARB_USDT",
+      "telegram_ids": [
+        17592
+      ],
       "text": "🟢 SINAL DE ENTRADA • SIMULAÇÃO\nMOEDA: ARB/USDT\nMOVIMENTO: 📉 SHORT (BAIXA)\nALAVANCAGEM: 14x\n\nENTRADA: 0.10871 a 0.1089\nTP1: 0.10737 (+15.00% ROI líquido estimado sobre a margem)\nTP2: não definido (modelo atual tem apenas um alvo técnico)\n\nSL: 0.10933 (-10.26% ROI líquido estimado sobre a margem)",
       "variant": "CONFIRMADA"
     },
