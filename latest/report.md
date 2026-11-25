@@ -1,6 +1,6 @@
 # MEXC Futures Scanner — rodada
 
-Modo: **paper**. Análise: 25/11/2026 19:13:34 BRT.
+Modo: **paper**. Análise: 25/11/2026 19:14:33 BRT.
 
 Fonte: OK
 Cobertura: 27/27 contratos selecionados.
@@ -472,7 +472,7 @@ Alavancagem de simulação: **10x a 20x**.
 | ONDO_USDT | ROMPIMENTO_M1_VOLUME | SHORT | EXPIRADO | — | PRAZO_ENCERRADO |
 | DOGE_USDT | ROMPIMENTO_M1_VOLUME | LONG | EXPIRADO | — | PRAZO_ENCERRADO |
 | LTC_USDT | ROMPIMENTO_M1_VOLUME | SHORT | INVALIDADO | ANTECIPADA | COLETA_NAO_VALIDADA_NESTA_RODADA |
-| QNT_USDT | ROMPIMENTO_M1_VOLUME | SHORT | POSSIVEL | ANTECIPADA | aguardando gatilho |
+| QNT_USDT | ROMPIMENTO_M1_VOLUME | SHORT | EVENTO_PASSADO | ANTECIPADA | ALVO_JA_ATINGIDO |
 | NEAR_USDT | ROMPIMENTO_M1_VOLUME | LONG | EXPIRADO | — | PRAZO_ENCERRADO |
 | BNB_USDT | ROMPIMENTO_M1_VOLUME | LONG | EXPIRADO | — | PRAZO_ENCERRADO |
 | HBAR_USDT | ROMPIMENTO_M1_VOLUME | SHORT | EXPIRADO | — | PRAZO_ENCERRADO |
@@ -1360,7 +1360,8 @@ Alavancagem de simulação: **10x a 20x**.
 | LTC_USDT | ROMPIMENTO_M1_VOLUME | SHORT | EXPIRADO | — | PRAZO_ENCERRADO |
 | ARB_USDT | ROMPIMENTO_M1_VOLUME | SHORT | EXPIRADO | — | PRAZO_ENCERRADO |
 | WLD_USDT | ROMPIMENTO_M1_VOLUME | LONG | EXPIRADO | — | PRAZO_ENCERRADO |
-| INJ_USDT | ROMPIMENTO_M1_VOLUME | SHORT | POSSIVEL | ANTECIPADA | aguardando gatilho |
+| INJ_USDT | ROMPIMENTO_M1_VOLUME | SHORT | ATIVO | ANTECIPADA | PLANO_NAO_ATUAL |
+| INJ_USDT | ROMPIMENTO_M1_VOLUME | SHORT | ATIVO | CONFIRMADA | EXECUCAO_FORA_DA_FAIXA |
 | TAO_USDT | ROMPIMENTO_M1_VOLUME | LONG | EXPIRADO | ANTECIPADA | PLANO_NAO_ATUAL |
 | TAO_USDT | ROMPIMENTO_M1_VOLUME | LONG | EXPIRADO | CONFIRMADA | PRECO_FORA_DO_PLANO |
 | LTC_USDT | ROMPIMENTO_M1_VOLUME | SHORT | EXPIRADO | — | PRAZO_ENCERRADO |
@@ -1493,8 +1494,11 @@ Alavancagem de simulação: **10x a 20x**.
 
 ## Sinais próprios com stop de 35% em simulação
 
-0 de 0 candidatos aprovados nesta rodada.
+0 de 1 candidatos aprovados nesta rodada.
 
+| Contrato | Direção | Entrada estimada | SL | TP1 | Retorno/risco | Resultado |
+| --- | --- | --- | --- | --- | --- | --- |
+| INJ_USDT | SHORT | indisponível | indisponível | indisponível | indisponível | PLANO_FINANCEIRO_INDISPONIVEL |
 
 ## Diagnósticos
 
