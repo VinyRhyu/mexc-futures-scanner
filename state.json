@@ -1405,7 +1405,7 @@
       "text": "⚪ ATUALIZAÇÃO DOS PLANOS ACOMPANHADOS\n🧪 SIMULAÇÃO\n\n• BTC/USDT • LONG: prazo para nova entrada encerrado\n  Motivo: A janela para uma nova entrada terminou.\n  Plano: 1b90ad677e9004ccb085\n• ICP/USDT • LONG: prazo para nova entrada encerrado\n  Motivo: A janela para uma nova entrada terminou.\n  Plano: 6ab0361d30708d9a4484\n• XLM/USDT • SHORT: confirmação não aprovada\n  Motivo: O segundo fechamento M1 perdeu o nível do gatilho.\n  Plano: 701a08e552b6c8a47c6f\n• LTC/USDT • SHORT: confirmação não aprovada\n  Motivo: O segundo fechamento M1 perdeu o nível do gatilho.\n  Plano: 7b9fc100bce25341b5eb\n• TIA/USDT • LONG: prazo para nova entrada encerrado\n  Motivo: A janela para uma nova entrada terminou.\n  Plano: 9798783a9c33c4899678\n• PEPE/USDT • LONG: prazo para nova entrada encerrado\n  Motivo: A janela para uma nova entrada terminou.\n  Plano: a2a638a5074f4862ce38\n\nSem novas entradas por esses planos.\nAvisos de movimento não equivalem a entradas liberadas.\nA expiração não encerra uma posição já aberta.\nAnálise: 23/11/2026 19:45:48 BRT"
     },
     "3e4b96e7b736742354ee": {
-      "attempts": 0,
+      "attempts": 1,
       "category": "ENTRY",
       "created_at": 1795645596,
       "expires_at": 1795645620,
@@ -1413,10 +1413,14 @@
       "notification_format": "entry_only_v2",
       "plan_id": "21c1a961db25e6d1e79e",
       "quote_at": 1795645592,
+      "sent_at": 1795645598,
       "side": "SHORT",
       "signal_at": 1795645500,
-      "status": "PENDING",
+      "status": "SENT",
       "symbol": "TAO_USDT",
+      "telegram_ids": [
+        17599
+      ],
       "text": "🟢 SINAL DE ENTRADA • SIMULAÇÃO\nMOEDA: TAO/USDT\nMOVIMENTO: 📉 SHORT (BAIXA)\nALAVANCAGEM: 13x\n\nENTRADA: 181.23 a 181.43\nTP1: 179.57 (+9.84% ROI líquido estimado sobre a margem)\nTP2: não definido (modelo atual tem apenas um alvo técnico)\n\nSL: 182.3 (-9.76% ROI líquido estimado sobre a margem)",
       "variant": "CONFIRMADA"
     },
