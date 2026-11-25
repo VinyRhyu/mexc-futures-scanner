@@ -427,6 +427,19 @@ def markdown_report(report: dict) -> str:
             lines.append(f"| {p['symbol']} | {p['strategy']} | {p['side']} | {p['status']} | {kind} | {reason} |")
     if not report.get("plans"):
         lines += ["", "Nenhum plano identificado nesta rodada."]
+    if "sinais_proprios_simulados" in report:
+        candidates = report["sinais_proprios_simulados"]["candidatos"]
+        accepted = [c for c in candidates if c["status"] == "ELEGIVEL_EM_SIMULACAO"]
+        lines += ["", "## Sinais próprios com stop de 35% em simulação", "",
+                  f"{len(accepted)} de {len(candidates)} candidatos aprovados nesta rodada.", ""]
+        if candidates:
+            lines += ["| Contrato | Direção | Entrada estimada | SL | TP1 | Retorno/risco | Resultado |",
+                      "| --- | --- | --- | --- | --- | --- | --- |"]
+            for c in candidates:
+                detail = ", ".join(c["motivos"]) or "Elegível em simulação"
+                lines.append(f"| {c['contrato']} | {c['direcao']} | {number(c.get('entrada_simulada'))} | "
+                             f"{number(c.get('stop'))} | {number(c.get('tp1'))} | "
+                             f"{fixed(c.get('retorno_sobre_risco'))} | {detail} |")
     lines += ["", "## Diagnósticos", ""]
     for item in report.get("diagnostics", []):
         lines.append(f"- {item.get('symbol', 'GERAL')}: {item['reason']}")

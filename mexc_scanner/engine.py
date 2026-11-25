@@ -14,6 +14,7 @@ from .state import queue_message
 from .observability import Timings, record_plan, record_source_gate
 from .strategies import process_symbol
 from .minute_breakout import MODEL,prepare_model,process_minutes,validate_minute_ohlc
+from .native_signal import screen_native_plans
 
 
 def run_scan(client: MexcClient, config: Config, state: dict, assets: set[str],
@@ -167,6 +168,8 @@ def run_scan(client: MexcClient, config: Config, state: dict, assets: set[str],
         # Telegram is reserved for actionable movement and valid ENTRY.
     report["plans"] = [p for p in state["plans"].values() if not p.get("hidden", False)
                         and p["formed_at"] >= report["analyzed_at"] - 86400]
+    if signal_model == MODEL:
+        report["sinais_proprios_simulados"] = screen_native_plans(report["plans"], report["analyzed_at"])
     snapshot["source_status"] = report["source_status"]
     report["operational_timings"] = timings.rows
     return jsonable(report), jsonable(snapshot)
