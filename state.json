@@ -518,7 +518,7 @@
       "watch_symbol": "LINK_USDT"
     },
     "04b33e74666c70c8a459": {
-      "attempts": 0,
+      "attempts": 1,
       "category": "ENTRY",
       "created_at": 1795580322,
       "expires_at": 1795580400,
@@ -526,10 +526,14 @@
       "notification_format": "entry_only_v2",
       "plan_id": "eb2b5610300f07ba4148",
       "quote_at": 1795580322,
+      "sent_at": 1795580326,
       "side": "LONG",
       "signal_at": 1795580280,
-      "status": "PENDING",
+      "status": "SENT",
       "symbol": "ZEC_USDT",
+      "telegram_ids": [
+        17593
+      ],
       "text": "🟢 SINAL DE ENTRADA • SIMULAÇÃO\nMOEDA: ZEC/USDT\nMOVIMENTO: 📈 LONG (ALTA)\nALAVANCAGEM: 10x\n\nENTRADA: 734.98 a 736.18\nTP1: 743.56 (+8.32% ROI líquido estimado sobre a margem)\nTP2: não definido (modelo atual tem apenas um alvo técnico)\n\nSL: 731.31 (-8.31% ROI líquido estimado sobre a margem)",
       "variant": "CONFIRMADA"
     },
