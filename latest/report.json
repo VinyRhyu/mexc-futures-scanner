@@ -1,5 +1,5 @@
 {
-  "analyzed_at": 1795686160,
+  "analyzed_at": 1795686212,
   "analyzed_symbols": 27,
   "config_fingerprint": "a0c2766956c79181fa62",
   "diagnostics": [],
@@ -2705,37 +2705,49 @@
   "operational_timings": [
     {
       "commit": "d0cd3a07deb51cf86fc85aebb5c1d0fd3134d80d",
-      "duration_s": 1.269793,
+      "duration_s": 1.178301,
       "event": "end",
-      "finished_at_utc": "2026-11-26T09:42:22.145556+00:00",
+      "finished_at_utc": "2026-11-26T09:43:13.631091+00:00",
       "phase": "market_catalog",
       "run_attempt": "1",
-      "run_id": "45794405109",
-      "started_at_utc": "2026-11-26T09:42:20.875791+00:00",
+      "run_id": "45794550801",
+      "started_at_utc": "2026-11-26T09:43:12.452816+00:00",
       "status": "OK",
       "telemetry": "phase_v1"
     },
     {
       "commit": "d0cd3a07deb51cf86fc85aebb5c1d0fd3134d80d",
-      "duration_s": 18.035763,
+      "duration_s": 17.8181,
       "event": "end",
-      "finished_at_utc": "2026-11-26T09:42:40.182180+00:00",
+      "finished_at_utc": "2026-11-26T09:43:31.450233+00:00",
       "phase": "candles_collect",
       "run_attempt": "1",
-      "run_id": "45794405109",
-      "started_at_utc": "2026-11-26T09:42:22.146454+00:00",
+      "run_id": "45794550801",
+      "started_at_utc": "2026-11-26T09:43:13.632162+00:00",
       "status": "OK",
       "telemetry": "phase_v1"
     },
     {
       "commit": "d0cd3a07deb51cf86fc85aebb5c1d0fd3134d80d",
-      "duration_s": 0.331192,
+      "duration_s": 0.783313,
       "event": "end",
-      "finished_at_utc": "2026-11-26T09:42:40.513528+00:00",
+      "finished_at_utc": "2026-11-26T09:43:32.415076+00:00",
+      "phase": "financial_quotes_and_evaluation",
+      "run_attempt": "1",
+      "run_id": "45794550801",
+      "started_at_utc": "2026-11-26T09:43:31.631768+00:00",
+      "status": "OK",
+      "telemetry": "phase_v1"
+    },
+    {
+      "commit": "d0cd3a07deb51cf86fc85aebb5c1d0fd3134d80d",
+      "duration_s": 1.169841,
+      "event": "end",
+      "finished_at_utc": "2026-11-26T09:43:32.620176+00:00",
       "phase": "analysis_and_finance",
       "run_attempt": "1",
-      "run_id": "45794405109",
-      "started_at_utc": "2026-11-26T09:42:40.182361+00:00",
+      "run_id": "45794550801",
+      "started_at_utc": "2026-11-26T09:43:31.450364+00:00",
       "status": "OK",
       "telemetry": "phase_v1"
     }
@@ -11542,21 +11554,23 @@
       "atr": "0.1988344942273798856127749068",
       "detected_at": 1795685400,
       "entry_started_at": 1795686120,
-      "expires_at": 1795687920,
+      "expires_at": 1795686300,
       "family": "36fa2c0b2296ec8ce3ab",
       "formed_at": 1795685400,
       "id": "36fa2c0b2296ec8ce3ab",
-      "last_bar": 1795686120,
+      "last_bar": 1795686180,
       "level": "43.81",
       "lower": "43.25",
-      "observations": [],
+      "observations": [
+        "VOLUME_M1_PERCENT=64.22535211267605633802816901"
+      ],
       "preparation_expires_at": 1795687200,
       "reaction_at": 1795686120,
       "reaction_extreme": null,
       "reason": "",
-      "revision": 0,
+      "revision": 1,
       "side": "LONG",
-      "status": "POSSIVEL",
+      "status": "ATIVO",
       "stop": "43.71",
       "strategy": "ROMPIMENTO_M1_VOLUME",
       "symbol": "LTC_USDT",
@@ -11565,15 +11579,46 @@
         "ANTECIPADA": {
           "entry_high": "43.87",
           "entry_low": "43.84",
-          "financial": {},
+          "financial": {
+            "assumptions": [],
+            "mode": "paper",
+            "reasons": [
+              "PLANO_NAO_ATUAL"
+            ],
+            "status": "BLOQUEADA"
+          },
           "kind": "ANTECIPADA",
           "reason": "",
           "reference": "43.83",
-          "status": "AGUARDANDO_CONFIRMACAO",
+          "status": "ENCERRADA",
           "stop": "43.71",
           "target": "43.98",
           "target_origin": "PIVO_CONHECIDO",
           "triggered_at": 1795686120
+        },
+        "CONFIRMADA": {
+          "entry_high": "43.87",
+          "entry_low": "43.84",
+          "financial": {
+            "assumptions": [
+              "FUNDING_FUTURO_MANTIDO_POR_6H",
+              "DESLIZAMENTO_ESTIMADO",
+              "TAXA_SIMULADA_NAO_PESSOAL"
+            ],
+            "mode": "paper",
+            "reasons": [
+              "RETORNO_RISCO_INSUFICIENTE"
+            ],
+            "status": "BLOQUEADA"
+          },
+          "kind": "CONFIRMADA",
+          "reason": "",
+          "reference": "43.83",
+          "status": "VALIDA",
+          "stop": "43.71",
+          "target": "43.98",
+          "target_origin": "PIVO_CONHECIDO",
+          "triggered_at": 1795686180
         }
       }
     },
@@ -15859,7 +15904,7 @@
       "family": "52779edd40ad272696f6",
       "formed_at": 1795685400,
       "id": "52779edd40ad272696f6",
-      "last_bar": 1795686120,
+      "last_bar": 1795686180,
       "level": "1686.44",
       "lower": "1686.44",
       "observations": [],
@@ -22041,7 +22086,7 @@
       "family": "76bd46c0d5217c4f092b",
       "formed_at": 1795685400,
       "id": "76bd46c0d5217c4f092b",
-      "last_bar": 1795686120,
+      "last_bar": 1795686180,
       "level": "0.1474",
       "lower": "0.1474",
       "observations": [],
@@ -32341,7 +32386,7 @@
       "family": "b96b21b231efa8cb8598",
       "formed_at": 1795685400,
       "id": "b96b21b231efa8cb8598",
-      "last_bar": 1795686120,
+      "last_bar": 1795686180,
       "level": "43.25",
       "lower": "43.25",
       "observations": [],
@@ -32405,7 +32450,7 @@
       "family": "b9e1ae91dc9f3602f5d2",
       "formed_at": 1795684500,
       "id": "b9e1ae91dc9f3602f5d2",
-      "last_bar": 1795686120,
+      "last_bar": 1795686180,
       "level": "1685.86",
       "lower": "1685.86",
       "observations": [],
@@ -42563,7 +42608,7 @@
       "family": "f32ce3737ad13059cd02",
       "formed_at": 1795684500,
       "id": "f32ce3737ad13059cd02",
-      "last_bar": 1795686120,
+      "last_bar": 1795686180,
       "level": "0.1474",
       "lower": "0.1474",
       "observations": [],
@@ -45085,7 +45130,18 @@
   "selected_symbols": 27,
   "signal_model": "m1_volume50_v1",
   "sinais_proprios_simulados": {
-    "candidatos": [],
+    "candidatos": [
+      {
+        "confirmado_em": 1795686180,
+        "contrato": "LTC_USDT",
+        "direcao": "LONG",
+        "motivos": [
+          "PLANO_FINANCEIRO_INDISPONIVEL"
+        ],
+        "plano": "36fa2c0b2296ec8ce3ab",
+        "status": "DESCARTADO"
+      }
+    ],
     "modo": "SIMULACAO"
   },
   "source_status": "OK"
