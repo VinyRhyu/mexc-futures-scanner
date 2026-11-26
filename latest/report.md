@@ -1,6 +1,6 @@
 # MEXC Futures Scanner — rodada
 
-Modo: **paper**. Análise: 26/11/2026 03:21:34 BRT.
+Modo: **paper**. Análise: 26/11/2026 03:22:34 BRT.
 
 Fonte: OK
 Cobertura: 28/28 contratos selecionados.
@@ -1282,8 +1282,8 @@ Alavancagem de simulação: **10x a 20x**.
 | WLD_USDT | ROMPIMENTO_M1_VOLUME | SHORT | EXPIRADO | — | PRAZO_ENCERRADO |
 | UNI_USDT | ROMPIMENTO_M1_VOLUME | SHORT | EXPIRADO | — | PRAZO_ENCERRADO |
 | ARB_USDT | ROMPIMENTO_M1_VOLUME | SHORT | EXPIRADO | — | PRAZO_ENCERRADO |
-| WLD_USDT | ROMPIMENTO_M1_VOLUME | SHORT | ATIVO | ANTECIPADA | PLANO_NAO_ATUAL |
-| WLD_USDT | ROMPIMENTO_M1_VOLUME | SHORT | ATIVO | CONFIRMADA | RETORNO_RISCO_INSUFICIENTE |
+| WLD_USDT | ROMPIMENTO_M1_VOLUME | SHORT | EXPIRADO | ANTECIPADA | PLANO_NAO_ATUAL |
+| WLD_USDT | ROMPIMENTO_M1_VOLUME | SHORT | EXPIRADO | CONFIRMADA | RETORNO_RISCO_INSUFICIENTE |
 | ONDO_USDT | ROMPIMENTO_M1_VOLUME | SHORT | EXPIRADO | ANTECIPADA | PLANO_NAO_ATUAL |
 | ONDO_USDT | ROMPIMENTO_M1_VOLUME | SHORT | EXPIRADO | CONFIRMADA | CUSTO_RELATIVO_ELEVADO |
 | HBAR_USDT | ROMPIMENTO_M1_VOLUME | LONG | EXPIRADO | ANTECIPADA | PLANO_NAO_ATUAL |
@@ -1472,11 +1472,8 @@ Alavancagem de simulação: **10x a 20x**.
 
 ## Sinais próprios com stop de 35% em simulação
 
-0 de 1 candidatos aprovados nesta rodada.
+0 de 0 candidatos aprovados nesta rodada.
 
-| Contrato | Direção | Entrada estimada | SL | TP1 | Retorno/risco | Resultado |
-| --- | --- | --- | --- | --- | --- | --- |
-| WLD_USDT | SHORT | indisponível | indisponível | indisponível | indisponível | PLANO_FINANCEIRO_INDISPONIVEL |
 
 ## Diagnósticos
 
