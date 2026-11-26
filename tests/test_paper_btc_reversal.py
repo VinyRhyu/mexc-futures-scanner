@@ -115,3 +115,23 @@ class PaperReversalTests(TestCase):
         self.assertEqual([row["status"] for row in state["decisions"]],
                          ["ENTRADA_SIMULADA", "IGNORADO_LIMITE_DA_CARTEIRA"])
         self.assertEqual(state["trades"][0]["entry_at"], older["entry_at"])
+
+    def test_reentry_requires_one_hour_even_after_new_brasilia_day(self):
+        decision = self.decision(2 * paper.HOUR)
+        entry = decision["entry_at"]
+        prior_entry = paper.HOUR
+        self.assertNotEqual(paper.brt_day(prior_entry), paper.brt_day(entry))
+        market = type("Market", (), {
+            "closed_hours": lambda _, symbol, count, end, fair=False: [
+                self.candle(end - paper.HOUR, h=101 if fair else 104)
+            ],
+            "funding_rates": lambda *args: {},
+        })()
+        for interval, expected in ((0, "IGNORADO_LIMITE_DA_CARTEIRA"),
+                                   (paper.HOUR, "ENTRADA_SIMULADA")):
+            with self.subTest(interval=interval):
+                state = paper.new_state(decision["decision"] + 20)
+                state["decisions"].append(decision.copy())
+                state["trades"].append({"entry_at": prior_entry, "exit_at": entry - interval})
+                paper.reconcile(state, market, entry + paper.HOUR + 20)
+                self.assertEqual(state["decisions"][0]["status"], expected)

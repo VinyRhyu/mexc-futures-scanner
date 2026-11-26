@@ -20,7 +20,8 @@ from .models import DataError, seconds
 
 HOUR = 3600
 DAY = 24 * HOUR
-CADENCE = 4 * HOUR
+CADENCE = 2 * HOUR
+REENTRY_WAIT = HOUR
 HISTORY = 15 * 24 + 1
 HOLD = 48
 LEVERAGE = 2
@@ -31,8 +32,9 @@ COST = .003
 STARTING_BALANCE = 1000.
 DURATION = 45 * DAY
 COMMIT_BUFFER = 120
-SYMBOLS = ("ADA", "AVAX", "BTC", "DOGE", "ETH", "HYPE", "INJ", "LINK",
-           "PEPE", "QNT", "SOL", "SUI", "TAO", "XRP")
+SYMBOLS = ("AAVE", "ADA", "ARB", "AVAX", "BNB", "BTC", "DOGE", "DOT", "ENA",
+           "ETH", "FET", "HYPE", "ICP", "INJ", "LINK", "ONDO", "PEPE", "QNT",
+           "SOL", "SUI", "TAO", "TIA", "UNI", "WLD", "XLM", "XRP")
 
 
 class PaperMarket(MexcClient):
@@ -216,7 +218,8 @@ def _reconcile_next(state, market, now):
         raise SourceError("Candle de entrada ausente")
     if position is None:
         prior = state["trades"][-1] if state["trades"] else None
-        if prior and (prior["exit_at"] > start or brt_day(prior["entry_at"]) == brt_day(start)):
+        if prior and (prior["exit_at"] + REENTRY_WAIT > start
+                      or brt_day(prior["entry_at"]) == brt_day(start)):
             current["status"] = "IGNORADO_LIMITE_DA_CARTEIRA"
             return True
         values = setup(current, last[0].open, current["contract"], state["balance"])
@@ -298,7 +301,8 @@ def main():
               for status in sorted({d["status"] for d in state["decisions"]})}
     iso = lambda ts: datetime.fromtimestamp(ts, timezone.utc).isoformat()
     report = (
-        "# Reversão relativa ao BTC a 2× em paper\n\n"
+        "# Reversão relativa ao BTC a 2× em paper, decisões a cada 2h\n\n"
+        f"- Universo avaliado: {len(SYMBOLS)} contratos\n"
         f"- Primeira decisão programada em {iso(state['first_decision'])}\n"
         f"- Fim da janela de sinais em {iso(state['end'])}\n"
         f"- Decisões registradas por estado: `{json.dumps(counts)}`\n"
