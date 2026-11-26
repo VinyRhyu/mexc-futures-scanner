@@ -1,13 +1,8 @@
 {
-  "analyzed_at": 1795713816,
+  "analyzed_at": 1795713875,
   "analyzed_symbols": 29,
   "config_fingerprint": "a0c2766956c79181fa62",
-  "diagnostics": [
-    {
-      "reason": "LACUNA_M1_REINICIO_APENAS_FUTURO",
-      "symbol": "HBAR_USDT"
-    }
-  ],
+  "diagnostics": [],
   "excluded": [
     {
       "reason": "CLASSIFICACAO_PENDENTE",
@@ -2702,37 +2697,37 @@
   "operational_timings": [
     {
       "commit": "76ad5257f7afc61ee7ca0ecda616063b1be01684",
-      "duration_s": 1.680383,
+      "duration_s": 1.771225,
       "event": "end",
-      "finished_at_utc": "2026-11-26T17:23:16.626034+00:00",
+      "finished_at_utc": "2026-11-26T17:24:15.722725+00:00",
       "phase": "market_catalog",
       "run_attempt": "1",
-      "run_id": "45867273610",
-      "started_at_utc": "2026-11-26T17:23:14.945676+00:00",
+      "run_id": "45867416670",
+      "started_at_utc": "2026-11-26T17:24:13.951525+00:00",
       "status": "OK",
       "telemetry": "phase_v1"
     },
     {
       "commit": "76ad5257f7afc61ee7ca0ecda616063b1be01684",
-      "duration_s": 19.488912,
+      "duration_s": 19.151893,
       "event": "end",
-      "finished_at_utc": "2026-11-26T17:23:36.115748+00:00",
+      "finished_at_utc": "2026-11-26T17:24:34.875449+00:00",
       "phase": "candles_collect",
       "run_attempt": "1",
-      "run_id": "45867273610",
-      "started_at_utc": "2026-11-26T17:23:16.626865+00:00",
+      "run_id": "45867416670",
+      "started_at_utc": "2026-11-26T17:24:15.723582+00:00",
       "status": "OK",
       "telemetry": "phase_v1"
     },
     {
       "commit": "76ad5257f7afc61ee7ca0ecda616063b1be01684",
-      "duration_s": 0.510769,
+      "duration_s": 0.408698,
       "event": "end",
-      "finished_at_utc": "2026-11-26T17:23:36.626631+00:00",
+      "finished_at_utc": "2026-11-26T17:24:35.284241+00:00",
       "phase": "analysis_and_finance",
       "run_attempt": "1",
-      "run_id": "45867273610",
-      "started_at_utc": "2026-11-26T17:23:36.115885+00:00",
+      "run_id": "45867416670",
+      "started_at_utc": "2026-11-26T17:24:34.875570+00:00",
       "status": "OK",
       "telemetry": "phase_v1"
     }
@@ -5110,7 +5105,7 @@
       "family": "11025a71bca10acf2aa6",
       "formed_at": 1795713300,
       "id": "11025a71bca10acf2aa6",
-      "last_bar": 1795713780,
+      "last_bar": 1795713840,
       "level": "146.66",
       "lower": "146.66",
       "observations": [],
@@ -9251,7 +9246,7 @@
       "family": "2d523a0725ca6dc1a5ce",
       "formed_at": 1795713300,
       "id": "2d523a0725ca6dc1a5ce",
-      "last_bar": 1795713780,
+      "last_bar": 1795713840,
       "level": "150.8",
       "lower": "146.66",
       "observations": [],
@@ -17121,7 +17116,7 @@
       "family": "5f59e9704747301ef123",
       "formed_at": 1795713300,
       "id": "5f59e9704747301ef123",
-      "last_bar": 1795713780,
+      "last_bar": 1795713840,
       "level": "0.005737",
       "lower": "0.005424",
       "observations": [],
@@ -18728,7 +18723,7 @@
       "family": "69be2292e177e5587efa",
       "formed_at": 1795713300,
       "id": "69be2292e177e5587efa",
-      "last_bar": 1795713780,
+      "last_bar": 1795713840,
       "level": "0.005424",
       "lower": "0.005424",
       "observations": [],
