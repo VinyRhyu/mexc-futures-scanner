@@ -1,8 +1,13 @@
 {
-  "analyzed_at": 1795706492,
-  "analyzed_symbols": 27,
+  "analyzed_at": 1795706555,
+  "analyzed_symbols": 28,
   "config_fingerprint": "a0c2766956c79181fa62",
-  "diagnostics": [],
+  "diagnostics": [
+    {
+      "reason": "LACUNA_M1_REINICIO_APENAS_FUTURO",
+      "symbol": "SEI_USDT"
+    }
+  ],
   "excluded": [
     {
       "reason": "CLASSIFICACAO_PENDENTE",
@@ -123,10 +128,6 @@
     {
       "reason": "CLASSIFICACAO_PENDENTE",
       "symbol": "CLAUDIA_USDT"
-    },
-    {
-      "reason": "VOLUME_FINANCEIRO_INSUFICIENTE",
-      "symbol": "SEI_USDT"
     },
     {
       "reason": "CLASSIFICACAO_PENDENTE",
@@ -2705,37 +2706,37 @@
   "operational_timings": [
     {
       "commit": "d0cd3a07deb51cf86fc85aebb5c1d0fd3134d80d",
-      "duration_s": 1.326889,
+      "duration_s": 0.725224,
       "event": "end",
-      "finished_at_utc": "2026-11-26T15:21:14.444342+00:00",
+      "finished_at_utc": "2026-11-26T15:22:16.807003+00:00",
       "phase": "market_catalog",
       "run_attempt": "1",
-      "run_id": "45848206389",
-      "started_at_utc": "2026-11-26T15:21:13.117479+00:00",
+      "run_id": "45848382367",
+      "started_at_utc": "2026-11-26T15:22:16.081802+00:00",
       "status": "OK",
       "telemetry": "phase_v1"
     },
     {
       "commit": "d0cd3a07deb51cf86fc85aebb5c1d0fd3134d80d",
-      "duration_s": 17.832592,
+      "duration_s": 18.438119,
       "event": "end",
-      "finished_at_utc": "2026-11-26T15:21:32.277838+00:00",
+      "finished_at_utc": "2026-11-26T15:22:35.245963+00:00",
       "phase": "candles_collect",
       "run_attempt": "1",
-      "run_id": "45848206389",
-      "started_at_utc": "2026-11-26T15:21:14.445276+00:00",
+      "run_id": "45848382367",
+      "started_at_utc": "2026-11-26T15:22:16.807880+00:00",
       "status": "OK",
       "telemetry": "phase_v1"
     },
     {
       "commit": "d0cd3a07deb51cf86fc85aebb5c1d0fd3134d80d",
-      "duration_s": 0.280688,
+      "duration_s": 0.476798,
       "event": "end",
-      "finished_at_utc": "2026-11-26T15:21:32.558651+00:00",
+      "finished_at_utc": "2026-11-26T15:22:35.722914+00:00",
       "phase": "analysis_and_finance",
       "run_attempt": "1",
-      "run_id": "45848206389",
-      "started_at_utc": "2026-11-26T15:21:32.277987+00:00",
+      "run_id": "45848382367",
+      "started_at_utc": "2026-11-26T15:22:35.246138+00:00",
       "status": "OK",
       "telemetry": "phase_v1"
     }
@@ -7045,7 +7046,7 @@
       "family": "1ba501b5c80aaa8defc3",
       "formed_at": 1795705200,
       "id": "1ba501b5c80aaa8defc3",
-      "last_bar": 1795706460,
+      "last_bar": 1795706520,
       "level": "71.54",
       "lower": "70.84",
       "observations": [],
@@ -9113,7 +9114,7 @@
       "family": "296818fa7fdac9d994c7",
       "formed_at": 1795705200,
       "id": "296818fa7fdac9d994c7",
-      "last_bar": 1795706460,
+      "last_bar": 1795706520,
       "level": "0.9544",
       "lower": "0.9481",
       "observations": [],
@@ -10930,7 +10931,7 @@
       "family": "33cdbcb9e3bc5cfd4059",
       "formed_at": 1795705200,
       "id": "33cdbcb9e3bc5cfd4059",
-      "last_bar": 1795706460,
+      "last_bar": 1795706520,
       "level": "43.96",
       "lower": "43.51",
       "observations": [],
@@ -17986,7 +17987,7 @@
       "family": "619c16ca71b4d012cfee",
       "formed_at": 1795705200,
       "id": "619c16ca71b4d012cfee",
-      "last_bar": 1795706460,
+      "last_bar": 1795706520,
       "level": "60937.9",
       "lower": "60674.1",
       "observations": [],
@@ -21729,7 +21730,7 @@
       "family": "7ad2867411fd6d8e59f1",
       "formed_at": 1795705200,
       "id": "7ad2867411fd6d8e59f1",
-      "last_bar": 1795706460,
+      "last_bar": 1795706520,
       "level": "1707.98",
       "lower": "1695.99",
       "observations": [],
@@ -37070,7 +37071,7 @@
       "family": "dd145681fd6ff761af26",
       "formed_at": 1795705200,
       "id": "dd145681fd6ff761af26",
-      "last_bar": 1795706460,
+      "last_bar": 1795706520,
       "level": "3.097",
       "lower": "3.036",
       "observations": [],
@@ -41973,7 +41974,7 @@
       "family": "f7d1f755b675fdab76e2",
       "formed_at": 1795705200,
       "id": "f7d1f755b675fdab76e2",
-      "last_bar": 1795706460,
+      "last_bar": 1795706520,
       "level": "0.12818",
       "lower": "0.1272",
       "observations": [],
@@ -43202,7 +43203,7 @@
       "variants": {}
     }
   ],
-  "selected_symbols": 27,
+  "selected_symbols": 28,
   "signal_model": "m1_volume50_v1",
   "sinais_proprios_simulados": {
     "candidatos": [],
