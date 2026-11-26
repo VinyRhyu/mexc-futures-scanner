@@ -1,3 +1,10 @@
-# Diário paper da reversão relativa ao BTC
+# Reversão relativa ao BTC a 2× em paper
 
-A primeira execução do fluxo preencherá o diário nesta branch.
+- Primeira decisão programada em 2026-11-26T16:00:00+00:00
+- Fim da janela de sinais em 2027-01-10T16:00:00+00:00
+- Decisões registradas por estado: `{"SEM_SINAL": 1}`
+- Posição em simulação: nenhuma
+- Operações encerradas: 0
+- Operações com lucro: 0
+- ROI realizado da banca: +0.00%
+- Queda máxima marcada: 0.00%
