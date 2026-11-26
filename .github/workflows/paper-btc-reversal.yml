@@ -1,0 +1,81 @@
+name: Reversão relativa ao BTC a 2× em paper
+on:
+  schedule:
+    - cron: '11 * * * *'
+  workflow_dispatch:
+  pull_request:
+    paths:
+      - 'mexc_scanner/paper_btc_reversal.py'
+      - 'tests/test_paper_btc_reversal.py'
+      - '.github/workflows/paper-btc-reversal.yml'
+  push:
+    branches: [main]
+    paths:
+      - 'mexc_scanner/paper_btc_reversal.py'
+      - 'tests/test_paper_btc_reversal.py'
+      - '.github/workflows/paper-btc-reversal.yml'
+
+permissions:
+  contents: read
+
+jobs:
+  validate:
+    if: github.event_name == 'pull_request' && github.event.pull_request.head.repo.full_name == github.repository
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@v7.0.1
+        with:
+          persist-credentials: false
+      - uses: actions/setup-python@v7
+        with:
+          python-version: '3.12'
+      - name: Validar causalidade, carteira e integração
+        run: |
+          python -m unittest discover -s tests -p test_paper_btc_reversal.py -v
+          python -m mexc_scanner.paper_btc_reversal --smoke --state /tmp/paper-state.json --report /tmp/paper-report.md
+
+  paper:
+    if: github.event_name != 'pull_request' && github.ref == 'refs/heads/main'
+    runs-on: ubuntu-latest
+    timeout-minutes: 6
+    permissions:
+      contents: write
+    concurrency:
+      group: paper-btc-reversal-ledger
+      cancel-in-progress: false
+    steps:
+      - uses: actions/checkout@v7.0.1
+        with:
+          persist-credentials: false
+      - uses: actions/setup-python@v7
+        with:
+          python-version: '3.12'
+      - uses: actions/checkout@v7.0.1
+        with:
+          ref: paper-btc-reversal-state
+          path: paper-ledger
+      - name: Registrar decisões e apurar operações em paper
+        shell: bash
+        run: |
+          python -m mexc_scanner.paper_btc_reversal --state paper-ledger/state.json --report paper-ledger/README.md
+          cat paper-ledger/README.md >> "$GITHUB_STEP_SUMMARY"
+          python - <<'PY'
+          import json, subprocess, time
+          from pathlib import Path
+          old = subprocess.run(['git', '-C', 'paper-ledger', 'show', 'HEAD:state.json'],
+                               capture_output=True, text=True)
+          previous = json.loads(old.stdout) if old.returncode == 0 else {'decisions': []}
+          updated = json.loads(Path('paper-ledger/state.json').read_text())
+          for row in updated['decisions'][len(previous['decisions']):]:
+              if row['status'] == 'REGISTRADO' and time.time() >= row['entry_at'] - 30:
+                  raise SystemExit("A janela do sinal expirou antes de publicar o diário")
+          PY
+          cd paper-ledger
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add -- state.json README.md
+          if ! git diff --cached --quiet; then
+            git commit -m "Atualiza diário da reversão relativa ao BTC em paper"
+            git push origin HEAD:refs/heads/paper-btc-reversal-state
+          fi
