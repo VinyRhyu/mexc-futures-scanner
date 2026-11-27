@@ -1,13 +1,8 @@
 {
-  "analyzed_at": 1795792903,
+  "analyzed_at": 1795792956,
   "analyzed_symbols": 31,
   "config_fingerprint": "a0c2766956c79181fa62",
-  "diagnostics": [
-    {
-      "reason": "LACUNA_M1_REINICIO_APENAS_FUTURO",
-      "symbol": "LTC_USDT"
-    }
-  ],
+  "diagnostics": [],
   "excluded": [
     {
       "reason": "CLASSIFICACAO_PENDENTE",
@@ -2706,37 +2701,37 @@
   "operational_timings": [
     {
       "commit": "d35a4e7c6ad6342bac63333f59e407998dc38f35",
-      "duration_s": 1.054144,
+      "duration_s": 1.53509,
       "event": "end",
-      "finished_at_utc": "2026-11-27T15:21:23.473155+00:00",
+      "finished_at_utc": "2026-11-27T15:22:16.177881+00:00",
       "phase": "market_catalog",
       "run_attempt": "1",
-      "run_id": "46024128574",
-      "started_at_utc": "2026-11-27T15:21:22.419036+00:00",
+      "run_id": "46024274796",
+      "started_at_utc": "2026-11-27T15:22:14.642818+00:00",
       "status": "OK",
       "telemetry": "phase_v1"
     },
     {
       "commit": "d35a4e7c6ad6342bac63333f59e407998dc38f35",
-      "duration_s": 20.446778,
+      "duration_s": 20.476666,
       "event": "end",
-      "finished_at_utc": "2026-11-27T15:21:43.920650+00:00",
+      "finished_at_utc": "2026-11-27T15:22:36.655436+00:00",
       "phase": "candles_collect",
       "run_attempt": "1",
-      "run_id": "46024128574",
-      "started_at_utc": "2026-11-27T15:21:23.473895+00:00",
+      "run_id": "46024274796",
+      "started_at_utc": "2026-11-27T15:22:16.178793+00:00",
       "status": "OK",
       "telemetry": "phase_v1"
     },
     {
       "commit": "d35a4e7c6ad6342bac63333f59e407998dc38f35",
-      "duration_s": 0.34497,
+      "duration_s": 0.307818,
       "event": "end",
-      "finished_at_utc": "2026-11-27T15:21:44.265738+00:00",
+      "finished_at_utc": "2026-11-27T15:22:36.963341+00:00",
       "phase": "analysis_and_finance",
       "run_attempt": "1",
-      "run_id": "46024128574",
-      "started_at_utc": "2026-11-27T15:21:43.920789+00:00",
+      "run_id": "46024274796",
+      "started_at_utc": "2026-11-27T15:22:36.655549+00:00",
       "status": "OK",
       "telemetry": "phase_v1"
     }
