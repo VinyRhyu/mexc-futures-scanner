@@ -256,7 +256,7 @@
       "variant": "CONFIRMADA"
     },
     "daa744b6e9000965041a": {
-      "attempts": 0,
+      "attempts": 1,
       "category": "ENTRY",
       "created_at": 1795815157,
       "expires_at": 1795815240,
@@ -264,10 +264,14 @@
       "notification_format": "entry_only_v2",
       "plan_id": "78b9db1d7c59067e8652",
       "quote_at": 1795815152,
+      "sent_at": 1795815159,
       "side": "SHORT",
       "signal_at": 1795815120,
-      "status": "PENDING",
+      "status": "SENT",
       "symbol": "INJ_USDT",
+      "telegram_ids": [
+        17605
+      ],
       "text": "🟢 SINAL DE ENTRADA • SIMULAÇÃO\nMOEDA: INJ/USDT\nMOVIMENTO: 📉 SHORT (BAIXA)\nALAVANCAGEM: 10x\n\nENTRADA: 6.306 a 6.324\nTP1: 6.228 (+10.54% ROI líquido estimado sobre a margem)\nTP2: não definido (modelo atual tem apenas um alvo técnico)\n\nSL: 6.357 (-9.93% ROI líquido estimado sobre a margem)",
       "variant": "CONFIRMADA"
     },
