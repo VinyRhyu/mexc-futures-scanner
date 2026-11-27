@@ -1,9 +1,9 @@
 # MEXC Futures Scanner — rodada
 
-Modo: **paper**. Análise: 26/11/2026 23:43:34 BRT.
+Modo: **paper**. Análise: 26/11/2026 23:44:34 BRT.
 
 Fonte: OK
-Cobertura: 29/29 contratos selecionados.
+Cobertura: 30/30 contratos selecionados.
 
 Retorno/risco líquido mínimo: **1:1**.
 
@@ -1610,6 +1610,8 @@ Alavancagem de simulação: **10x a 20x**.
 | BTC_USDT | ROMPIMENTO_M1_VOLUME | SHORT | EXPIRADO | — | PRAZO_ENCERRADO |
 | LINK_USDT | ROMPIMENTO_M1_VOLUME | SHORT | EXPIRADO | — | PRAZO_ENCERRADO |
 | ETH_USDT | ROMPIMENTO_M1_VOLUME | LONG | EXPIRADO | — | PRAZO_ENCERRADO |
+| ARB_USDT | ROMPIMENTO_M1_VOLUME | LONG | INVALIDADO | ANTECIPADA | VOLUME_M1_INSUFICIENTE |
+| ARB_USDT | ROMPIMENTO_M1_VOLUME | SHORT | EXPIRADO | — | PRAZO_ENCERRADO |
 
 ## Sinais próprios com stop de 35% em simulação
 
