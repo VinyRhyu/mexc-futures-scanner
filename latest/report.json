@@ -1,6 +1,6 @@
 {
-  "analyzed_at": 1795795180,
-  "analyzed_symbols": 31,
+  "analyzed_at": 1795795254,
+  "analyzed_symbols": 30,
   "config_fingerprint": "a0c2766956c79181fa62",
   "diagnostics": [],
   "excluded": [
@@ -119,6 +119,10 @@
     {
       "reason": "CLASSIFICACAO_PENDENTE",
       "symbol": "NES_USDT"
+    },
+    {
+      "reason": "VOLUME_FINANCEIRO_INSUFICIENTE",
+      "symbol": "LTC_USDT"
     },
     {
       "reason": "CLASSIFICACAO_PENDENTE",
@@ -2701,37 +2705,37 @@
   "operational_timings": [
     {
       "commit": "d35a4e7c6ad6342bac63333f59e407998dc38f35",
-      "duration_s": 0.721712,
+      "duration_s": 1.224623,
       "event": "end",
-      "finished_at_utc": "2026-11-27T15:59:20.133368+00:00",
+      "finished_at_utc": "2026-11-27T16:00:34.199799+00:00",
       "phase": "market_catalog",
       "run_attempt": "1",
-      "run_id": "46029653351",
-      "started_at_utc": "2026-11-27T15:59:19.411699+00:00",
+      "run_id": "46029837611",
+      "started_at_utc": "2026-11-27T16:00:32.975202+00:00",
       "status": "OK",
       "telemetry": "phase_v1"
     },
     {
       "commit": "d35a4e7c6ad6342bac63333f59e407998dc38f35",
-      "duration_s": 20.437808,
+      "duration_s": 19.840458,
       "event": "end",
-      "finished_at_utc": "2026-11-27T15:59:40.571881+00:00",
+      "finished_at_utc": "2026-11-27T16:00:54.040944+00:00",
       "phase": "candles_collect",
       "run_attempt": "1",
-      "run_id": "46029653351",
-      "started_at_utc": "2026-11-27T15:59:20.134099+00:00",
+      "run_id": "46029837611",
+      "started_at_utc": "2026-11-27T16:00:34.200518+00:00",
       "status": "OK",
       "telemetry": "phase_v1"
     },
     {
       "commit": "d35a4e7c6ad6342bac63333f59e407998dc38f35",
-      "duration_s": 0.347003,
+      "duration_s": 0.547167,
       "event": "end",
-      "finished_at_utc": "2026-11-27T15:59:40.918997+00:00",
+      "finished_at_utc": "2026-11-27T16:00:54.588211+00:00",
       "phase": "analysis_and_finance",
       "run_attempt": "1",
-      "run_id": "46029653351",
-      "started_at_utc": "2026-11-27T15:59:40.572019+00:00",
+      "run_id": "46029837611",
+      "started_at_utc": "2026-11-27T16:00:54.041067+00:00",
       "status": "OK",
       "telemetry": "phase_v1"
     }
@@ -44945,7 +44949,7 @@
       "variants": {}
     }
   ],
-  "selected_symbols": 31,
+  "selected_symbols": 30,
   "signal_model": "m1_volume50_v1",
   "sinais_proprios_simulados": {
     "candidatos": [],
