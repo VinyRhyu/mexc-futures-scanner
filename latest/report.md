@@ -1,6 +1,6 @@
 # MEXC Futures Scanner — rodada
 
-Modo: **paper**. Análise: 27/11/2026 20:58:35 BRT.
+Modo: **paper**. Análise: 27/11/2026 20:59:34 BRT.
 
 Fonte: OK
 Cobertura: 28/28 contratos selecionados.
@@ -847,7 +847,7 @@ Alavancagem de simulação: **10x a 20x**.
 | FET_USDT | ROMPIMENTO_M1_VOLUME | SHORT | EXPIRADO | — | PRAZO_ENCERRADO |
 | ZEC_USDT | ROMPIMENTO_M1_VOLUME | SHORT | EXPIRADO | — | PRAZO_ENCERRADO |
 | ZRO_USDT | ROMPIMENTO_M1_VOLUME | LONG | ATIVO | ANTECIPADA | PLANO_NAO_ATUAL |
-| ZRO_USDT | ROMPIMENTO_M1_VOLUME | LONG | ATIVO | CONFIRMADA | PRECO_FORA_DO_PLANO |
+| ZRO_USDT | ROMPIMENTO_M1_VOLUME | LONG | ATIVO | CONFIRMADA | VIAVEL_SIMULADO |
 | DOGE_USDT | ROMPIMENTO_M1_VOLUME | SHORT | EXPIRADO | — | PRAZO_ENCERRADO |
 | LINK_USDT | ROMPIMENTO_M1_VOLUME | LONG | EXPIRADO | — | PRAZO_ENCERRADO |
 | FET_USDT | ROMPIMENTO_M1_VOLUME | LONG | INVALIDADO | ANTECIPADA | FALHA_DA_FONTE_NESTA_RODADA |
@@ -1842,7 +1842,7 @@ Alavancagem de simulação: **10x a 20x**.
 
 | Contrato | Direção | Entrada estimada | SL | TP1 | Retorno/risco | Resultado |
 | --- | --- | --- | --- | --- | --- | --- |
-| ZRO_USDT | LONG | indisponível | indisponível | indisponível | indisponível | PLANO_FINANCEIRO_INDISPONIVEL |
+| ZRO_USDT | LONG | 1.088 | 1.060883692307692307692307692 | 1.1021 | 0.41 | RETORNO_RISCO_INSUFICIENTE |
 
 ## Diagnósticos
 
