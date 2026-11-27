@@ -58,7 +58,7 @@
   },
   "journal": [],
   "journal_ids": [],
-  "last_success": 1795799195,
+  "last_success": 1795799255,
   "last_summary_date": "2026-11-23",
   "minute_activation": {
     "AAVE_USDT": 1795086047,
@@ -107,50 +107,50 @@
     "ZRO_USDT": 1795787556
   },
   "minute_cursors": {
-    "AAVE_USDT": 1795799160,
-    "ADA_USDT": 1795799160,
+    "AAVE_USDT": 1795799220,
+    "ADA_USDT": 1795799220,
     "APT_USDT": 1795527000,
-    "ARB_USDT": 1795799160,
-    "AVAX_USDT": 1795799160,
-    "BCH_USDT": 1795799160,
-    "BNB_USDT": 1795799160,
-    "BTC_USDT": 1795799160,
+    "ARB_USDT": 1795799220,
+    "AVAX_USDT": 1795799220,
+    "BCH_USDT": 1795799220,
+    "BNB_USDT": 1795799220,
+    "BTC_USDT": 1795799220,
     "DASH_USDT": 1794499140,
-    "DOGE_USDT": 1795799160,
+    "DOGE_USDT": 1795799220,
     "DOT_USDT": 1795688100,
-    "ENA_USDT": 1795799160,
+    "ENA_USDT": 1795799220,
     "ETC_USDT": 1795190340,
-    "ETH_USDT": 1795799160,
-    "FET_USDT": 1795799160,
-    "HBAR_USDT": 1795799160,
-    "HYPE_USDT": 1795799160,
+    "ETH_USDT": 1795799220,
+    "FET_USDT": 1795799220,
+    "HBAR_USDT": 1795799220,
+    "HYPE_USDT": 1795799220,
     "ICP_USDT": 1795554900,
-    "INJ_USDT": 1795799160,
+    "INJ_USDT": 1795799220,
     "JUP_USDT": 1794826740,
-    "LINK_USDT": 1795799160,
+    "LINK_USDT": 1795799220,
     "LTC_USDT": 1795795140,
     "LUNC_USDT": 1795161540,
     "MOVE_USDT": 1795791600,
-    "NEAR_USDT": 1795799160,
-    "ONDO_USDT": 1795799160,
+    "NEAR_USDT": 1795799220,
+    "ONDO_USDT": 1795799220,
     "ONE_USDT": 1794567540,
     "OP_USDT": 1794754740,
-    "PEPE_USDT": 1795799160,
-    "QNT_USDT": 1795799160,
-    "SEI_USDT": 1795799160,
+    "PEPE_USDT": 1795799220,
+    "QNT_USDT": 1795799220,
+    "SEI_USDT": 1795799220,
     "SHIB_USDT": 1795535940,
     "SKY_USDT": 1795190340,
-    "SOL_USDT": 1795799160,
-    "SUI_USDT": 1795799160,
-    "TAO_USDT": 1795799160,
-    "TIA_USDT": 1795799160,
-    "UNI_USDT": 1795799160,
-    "WLD_USDT": 1795799160,
-    "XLM_USDT": 1795799160,
+    "SOL_USDT": 1795799220,
+    "SUI_USDT": 1795799220,
+    "TAO_USDT": 1795799220,
+    "TIA_USDT": 1795799220,
+    "UNI_USDT": 1795799220,
+    "WLD_USDT": 1795799220,
+    "XLM_USDT": 1795799220,
     "XMR_USDT": 1794393000,
-    "XRP_USDT": 1795799160,
-    "ZEC_USDT": 1795799160,
-    "ZRO_USDT": 1795799160
+    "XRP_USDT": 1795799220,
+    "ZEC_USDT": 1795799220,
+    "ZRO_USDT": 1795799220
   },
   "mode": "paper",
   "model_activated_at": 1794349620,
@@ -7226,99 +7226,6 @@
       "symbol": "WLD_USDT",
       "upper": "0.2537",
       "variants": {}
-    },
-    "1864ead56ae3fe61b37c": {
-      "atr": "0.6271274256754500066846743626",
-      "detected_at": 1795626000,
-      "entry_started_at": 1795626240,
-      "expires_at": 1795626420,
-      "family": "1864ead56ae3fe61b37c",
-      "formed_at": 1795626000,
-      "id": "1864ead56ae3fe61b37c",
-      "last_bar": 1795626420,
-      "level": "58.17",
-      "lower": "56.34",
-      "observations": [
-        "VOLUME_M1_PERCENT=51.50124162841447813981488449"
-      ],
-      "preparation_expires_at": 1795627800,
-      "reaction_at": 1795626240,
-      "reaction_extreme": null,
-      "reason": "PRAZO_ENCERRADO",
-      "revision": 1,
-      "side": "LONG",
-      "status": "EXPIRADO",
-      "stop": "57.856",
-      "strategy": "ROMPIMENTO_M1_VOLUME",
-      "symbol": "HYPE_USDT",
-      "upper": "58.17",
-      "variants": {
-        "ANTECIPADA": {
-          "entry_high": "58.518",
-          "entry_low": "58.234",
-          "financial": {
-            "assumptions": [],
-            "mode": "paper",
-            "reasons": [
-              "PLANO_NAO_ATUAL"
-            ],
-            "status": "BLOQUEADA"
-          },
-          "kind": "ANTECIPADA",
-          "reason": "",
-          "reference": "58.362",
-          "status": "ENCERRADA",
-          "stop": "57.856",
-          "target": "59.064",
-          "target_origin": "PIVO_CONHECIDO",
-          "triggered_at": 1795626240
-        },
-        "CONFIRMADA": {
-          "entry_high": "58.518",
-          "entry_low": "58.234",
-          "financial": {
-            "assumptions": [
-              "FUNDING_FUTURO_MANTIDO_POR_6H",
-              "DESLIZAMENTO_ESTIMADO",
-              "TAXA_SIMULADA_NAO_PESSOAL"
-            ],
-            "base_quantity": "0.1",
-            "contract_size": "0.1",
-            "contracts": "1",
-            "costs_usdt": "0.0096335324",
-            "daily_goal_fraction": "0.60",
-            "daily_goal_reachable_in_one_trade": false,
-            "entry_high": "58.364",
-            "entry_low": "58.234",
-            "evaluated_at": 1795626394,
-            "fee_rate": "0.0006",
-            "funding_cost_rate": "0.000041",
-            "gain_fraction": "0.0603664676",
-            "gain_usdt": "0.0603664676",
-            "loss_fraction": "0.0603368924",
-            "loss_usdt": "0.0603368924",
-            "mode": "paper",
-            "net_rr": "1.000490167770059036053371552",
-            "quote_at": 1795626392,
-            "reasons": [
-              "PRECO_FORA_DO_PLANO"
-            ],
-            "status": "BLOQUEADA",
-            "stop": "57.856",
-            "stop_trigger": "LAST",
-            "target": "59.064",
-            "worst_entry": "58.364"
-          },
-          "kind": "CONFIRMADA",
-          "reason": "",
-          "reference": "58.362",
-          "status": "ENCERRADA",
-          "stop": "57.856",
-          "target": "59.064",
-          "target_origin": "PIVO_CONHECIDO",
-          "triggered_at": 1795626300
-        }
-      }
     },
     "18764ef90ce67ba42d68": {
       "atr": "0.3914522416101843928935730207",
@@ -49951,99 +49858,6 @@
       "upper": "184.81",
       "variants": {}
     },
-    "9f8affdb1c9a8ef699cb": {
-      "atr": "0.06149349735546666404938046041",
-      "detected_at": 1795626000,
-      "entry_started_at": 1795626240,
-      "expires_at": 1795626420,
-      "family": "9f8affdb1c9a8ef699cb",
-      "formed_at": 1795626000,
-      "id": "9f8affdb1c9a8ef699cb",
-      "last_bar": 1795626420,
-      "level": "5.748",
-      "lower": "5.602",
-      "observations": [
-        "VOLUME_M1_PERCENT=86.94304533126695079426578845"
-      ],
-      "preparation_expires_at": 1795627800,
-      "reaction_at": 1795626240,
-      "reaction_extreme": null,
-      "reason": "PRAZO_ENCERRADO",
-      "revision": 1,
-      "side": "LONG",
-      "status": "EXPIRADO",
-      "stop": "5.717",
-      "strategy": "ROMPIMENTO_M1_VOLUME",
-      "symbol": "INJ_USDT",
-      "upper": "5.748",
-      "variants": {
-        "ANTECIPADA": {
-          "entry_high": "5.777",
-          "entry_low": "5.756",
-          "financial": {
-            "assumptions": [],
-            "mode": "paper",
-            "reasons": [
-              "PLANO_NAO_ATUAL"
-            ],
-            "status": "BLOQUEADA"
-          },
-          "kind": "ANTECIPADA",
-          "reason": "",
-          "reference": "5.762",
-          "status": "ENCERRADA",
-          "stop": "5.717",
-          "target": "5.848",
-          "target_origin": "PIVO_CONHECIDO",
-          "triggered_at": 1795626240
-        },
-        "CONFIRMADA": {
-          "entry_high": "5.777",
-          "entry_low": "5.756",
-          "financial": {
-            "assumptions": [
-              "FUNDING_FUTURO_MANTIDO_POR_6H",
-              "DESLIZAMENTO_ESTIMADO",
-              "TAXA_SIMULADA_NAO_PESSOAL"
-            ],
-            "base_quantity": "1",
-            "contract_size": "1",
-            "contracts": "1",
-            "costs_usdt": "0.010971400",
-            "daily_goal_fraction": "0.60",
-            "daily_goal_reachable_in_one_trade": false,
-            "entry_high": "5.771",
-            "entry_low": "5.756",
-            "evaluated_at": 1795626395,
-            "fee_rate": "0.0006",
-            "funding_cost_rate": "0.000000",
-            "gain_fraction": "0.066028600",
-            "gain_usdt": "0.066028600",
-            "loss_fraction": "0.064892800",
-            "loss_usdt": "0.064892800",
-            "mode": "paper",
-            "net_rr": "1.017502712165294146654174269",
-            "quote_at": 1795626392,
-            "reasons": [
-              "PRECO_FORA_DO_PLANO"
-            ],
-            "status": "BLOQUEADA",
-            "stop": "5.717",
-            "stop_trigger": "LAST",
-            "target": "5.848",
-            "worst_entry": "5.771"
-          },
-          "kind": "CONFIRMADA",
-          "reason": "",
-          "reference": "5.762",
-          "status": "ENCERRADA",
-          "stop": "5.717",
-          "target": "5.848",
-          "target_origin": "PIVO_CONHECIDO",
-          "triggered_at": 1795626300
-        }
-      }
-    },
     "9fa50bcbfd47263590fc": {
       "atr": "0.001346077800456773855490176443",
       "detected_at": 1795635900,
@@ -76061,99 +75875,6 @@
         }
       }
     },
-    "edfcc959bf76eb1f8a35": {
-      "atr": "1.643686226642558638726966003",
-      "detected_at": 1795626000,
-      "entry_started_at": 1795626240,
-      "expires_at": 1795626420,
-      "family": "edfcc959bf76eb1f8a35",
-      "formed_at": 1795626000,
-      "id": "edfcc959bf76eb1f8a35",
-      "last_bar": 1795626420,
-      "level": "174.78",
-      "lower": "170.54",
-      "observations": [
-        "VOLUME_M1_PERCENT=172.5821098834569396095050704"
-      ],
-      "preparation_expires_at": 1795627800,
-      "reaction_at": 1795626240,
-      "reaction_extreme": null,
-      "reason": "PRAZO_ENCERRADO",
-      "revision": 1,
-      "side": "LONG",
-      "status": "EXPIRADO",
-      "stop": "173.95",
-      "strategy": "ROMPIMENTO_M1_VOLUME",
-      "symbol": "TAO_USDT",
-      "upper": "174.78",
-      "variants": {
-        "ANTECIPADA": {
-          "entry_high": "175.56",
-          "entry_low": "174.96",
-          "financial": {
-            "assumptions": [],
-            "mode": "paper",
-            "reasons": [
-              "PLANO_NAO_ATUAL"
-            ],
-            "status": "BLOQUEADA"
-          },
-          "kind": "ANTECIPADA",
-          "reason": "",
-          "reference": "175.15",
-          "status": "ENCERRADA",
-          "stop": "173.95",
-          "target": "177.36",
-          "target_origin": "PIVO_CONHECIDO",
-          "triggered_at": 1795626240
-        },
-        "CONFIRMADA": {
-          "entry_high": "175.56",
-          "entry_low": "174.96",
-          "financial": {
-            "assumptions": [
-              "FUNDING_FUTURO_MANTIDO_POR_6H",
-              "DESLIZAMENTO_ESTIMADO",
-              "TAXA_SIMULADA_NAO_PESSOAL"
-            ],
-            "base_quantity": "0.05",
-            "contract_size": "0.01",
-            "contracts": "5",
-            "costs_usdt": "0.01410920",
-            "daily_goal_fraction": "0.60",
-            "daily_goal_reachable_in_one_trade": false,
-            "entry_high": "175.37",
-            "entry_low": "174.96",
-            "evaluated_at": 1795626396,
-            "fee_rate": "0.0006",
-            "funding_cost_rate": "0",
-            "gain_fraction": "0.08539080",
-            "gain_usdt": "0.08539080",
-            "loss_fraction": "0.08497280",
-            "loss_usdt": "0.08497280",
-            "mode": "paper",
-            "net_rr": "1.004919221209610604805302403",
-            "quote_at": 1795626392,
-            "reasons": [
-              "PRECO_FORA_DO_PLANO"
-            ],
-            "status": "BLOQUEADA",
-            "stop": "173.95",
-            "stop_trigger": "LAST",
-            "target": "177.36",
-            "worst_entry": "175.37"
-          },
-          "kind": "CONFIRMADA",
-          "reason": "",
-          "reference": "175.15",
-          "status": "ENCERRADA",
-          "stop": "173.95",
-          "target": "177.36",
-          "target_origin": "PIVO_CONHECIDO",
-          "triggered_at": 1795626300
-        }
-      }
-    },
     "edfd261a99daec876c87": {
       "atr": "0.0005741836604564667613942639736",
       "detected_at": 1795702500,
@@ -76606,99 +76327,6 @@
       "symbol": "BTC_USDT",
       "upper": "61079.6",
       "variants": {}
-    },
-    "f03f6202e44b1a02006a": {
-      "atr": "1.445435320615087707220398594",
-      "detected_at": 1795626000,
-      "entry_started_at": 1795626240,
-      "expires_at": 1795626420,
-      "family": "f03f6202e44b1a02006a",
-      "formed_at": 1795626000,
-      "id": "f03f6202e44b1a02006a",
-      "last_bar": 1795626420,
-      "level": "140.77",
-      "lower": "137.44",
-      "observations": [
-        "VOLUME_M1_PERCENT=76.01568956696270448254601267"
-      ],
-      "preparation_expires_at": 1795627800,
-      "reaction_at": 1795626240,
-      "reaction_extreme": null,
-      "reason": "PRAZO_ENCERRADO",
-      "revision": 1,
-      "side": "LONG",
-      "status": "EXPIRADO",
-      "stop": "140.04",
-      "strategy": "ROMPIMENTO_M1_VOLUME",
-      "symbol": "QNT_USDT",
-      "upper": "140.77",
-      "variants": {
-        "ANTECIPADA": {
-          "entry_high": "141.74",
-          "entry_low": "141.02",
-          "financial": {
-            "assumptions": [],
-            "mode": "paper",
-            "reasons": [
-              "PLANO_NAO_ATUAL"
-            ],
-            "status": "BLOQUEADA"
-          },
-          "kind": "ANTECIPADA",
-          "reason": "",
-          "reference": "141.38",
-          "status": "ENCERRADA",
-          "stop": "140.04",
-          "target": "143.43",
-          "target_origin": "PIVO_CONHECIDO",
-          "triggered_at": 1795626240
-        },
-        "CONFIRMADA": {
-          "entry_high": "141.74",
-          "entry_low": "141.02",
-          "financial": {
-            "assumptions": [
-              "FUNDING_FUTURO_MANTIDO_POR_6H",
-              "DESLIZAMENTO_ESTIMADO",
-              "TAXA_SIMULADA_NAO_PESSOAL"
-            ],
-            "base_quantity": "0.05",
-            "contract_size": "0.01",
-            "contracts": "5",
-            "costs_usdt": "0.011397200",
-            "daily_goal_fraction": "0.60",
-            "daily_goal_reachable_in_one_trade": false,
-            "entry_high": "141.50",
-            "entry_low": "141.02",
-            "evaluated_at": 1795626396,
-            "fee_rate": "0.0006",
-            "funding_cost_rate": "0.00000",
-            "gain_fraction": "0.085102800",
-            "gain_usdt": "0.085102800",
-            "loss_fraction": "0.084261600",
-            "loss_usdt": "0.084261600",
-            "mode": "paper",
-            "net_rr": "1.009983195192115981657124954",
-            "quote_at": 1795626392,
-            "reasons": [
-              "PRECO_FORA_DO_PLANO"
-            ],
-            "status": "BLOQUEADA",
-            "stop": "140.04",
-            "stop_trigger": "LAST",
-            "target": "143.43",
-            "worst_entry": "141.50"
-          },
-          "kind": "CONFIRMADA",
-          "reason": "",
-          "reference": "141.38",
-          "status": "ENCERRADA",
-          "stop": "140.04",
-          "target": "143.43",
-          "target_origin": "PIVO_CONHECIDO",
-          "triggered_at": 1795626300
-        }
-      }
     },
     "f04586b9bb4ca9cce0c0": {
       "atr": "0.05036228058716759994840893401",
