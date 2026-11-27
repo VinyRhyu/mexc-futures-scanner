@@ -1,5 +1,5 @@
 {
-  "analyzed_at": 1795791654,
+  "analyzed_at": 1795791694,
   "analyzed_symbols": 29,
   "config_fingerprint": "a0c2766956c79181fa62",
   "diagnostics": [],
@@ -2709,37 +2709,37 @@
   "operational_timings": [
     {
       "commit": "d35a4e7c6ad6342bac63333f59e407998dc38f35",
-      "duration_s": 1.308294,
+      "duration_s": 1.060488,
       "event": "end",
-      "finished_at_utc": "2026-11-27T15:00:34.906549+00:00",
+      "finished_at_utc": "2026-11-27T15:01:15.831796+00:00",
       "phase": "market_catalog",
       "run_attempt": "1",
-      "run_id": "46020967083",
-      "started_at_utc": "2026-11-27T15:00:33.598281+00:00",
+      "run_id": "46021085660",
+      "started_at_utc": "2026-11-27T15:01:14.771331+00:00",
       "status": "OK",
       "telemetry": "phase_v1"
     },
     {
       "commit": "d35a4e7c6ad6342bac63333f59e407998dc38f35",
-      "duration_s": 19.732293,
+      "duration_s": 19.200823,
       "event": "end",
-      "finished_at_utc": "2026-11-27T15:00:54.639806+00:00",
+      "finished_at_utc": "2026-11-27T15:01:35.033524+00:00",
       "phase": "candles_collect",
       "run_attempt": "1",
-      "run_id": "46020967083",
-      "started_at_utc": "2026-11-27T15:00:34.907542+00:00",
+      "run_id": "46021085660",
+      "started_at_utc": "2026-11-27T15:01:15.832746+00:00",
       "status": "OK",
       "telemetry": "phase_v1"
     },
     {
       "commit": "d35a4e7c6ad6342bac63333f59e407998dc38f35",
-      "duration_s": 0.556858,
+      "duration_s": 0.398303,
       "event": "end",
-      "finished_at_utc": "2026-11-27T15:00:55.196799+00:00",
+      "finished_at_utc": "2026-11-27T15:01:35.431967+00:00",
       "phase": "analysis_and_finance",
       "run_attempt": "1",
-      "run_id": "46020967083",
-      "started_at_utc": "2026-11-27T15:00:54.639965+00:00",
+      "run_id": "46021085660",
+      "started_at_utc": "2026-11-27T15:01:35.033693+00:00",
       "status": "OK",
       "telemetry": "phase_v1"
     }
@@ -11675,7 +11675,12 @@
         "ANTECIPADA": {
           "entry_high": "0.005627",
           "entry_low": "0.005599",
-          "financial": {},
+          "financial": {
+            "reasons": [
+              "COLETA_NAO_VALIDADA_NESTA_RODADA"
+            ],
+            "status": "BLOQUEADA"
+          },
           "kind": "ANTECIPADA",
           "reason": "",
           "reference": "0.005615",
@@ -12470,7 +12475,12 @@
         "ANTECIPADA": {
           "entry_high": "0.005475",
           "entry_low": "0.005460",
-          "financial": {},
+          "financial": {
+            "reasons": [
+              "COLETA_NAO_VALIDADA_NESTA_RODADA"
+            ],
+            "status": "BLOQUEADA"
+          },
           "kind": "ANTECIPADA",
           "reason": "",
           "reference": "0.005462",
@@ -16129,10 +16139,8 @@
           "entry_high": "0.005503",
           "entry_low": "0.005480",
           "financial": {
-            "assumptions": [],
-            "mode": "paper",
             "reasons": [
-              "PLANO_NAO_ATUAL"
+              "COLETA_NAO_VALIDADA_NESTA_RODADA"
             ],
             "status": "BLOQUEADA"
           },
@@ -16149,14 +16157,8 @@
           "entry_high": "0.005503",
           "entry_low": "0.005480",
           "financial": {
-            "assumptions": [
-              "FUNDING_FUTURO_MANTIDO_POR_6H",
-              "DESLIZAMENTO_ESTIMADO",
-              "TAXA_SIMULADA_NAO_PESSOAL"
-            ],
-            "mode": "paper",
             "reasons": [
-              "RETORNO_RISCO_INSUFICIENTE"
+              "COLETA_NAO_VALIDADA_NESTA_RODADA"
             ],
             "status": "BLOQUEADA"
           },
@@ -17169,7 +17171,12 @@
         "ANTECIPADA": {
           "entry_high": "0.005360",
           "entry_low": "0.005341",
-          "financial": {},
+          "financial": {
+            "reasons": [
+              "COLETA_NAO_VALIDADA_NESTA_RODADA"
+            ],
+            "status": "BLOQUEADA"
+          },
           "kind": "ANTECIPADA",
           "reason": "",
           "reference": "0.005355",
@@ -18522,7 +18529,12 @@
         "ANTECIPADA": {
           "entry_high": "0.005356",
           "entry_low": "0.005341",
-          "financial": {},
+          "financial": {
+            "reasons": [
+              "COLETA_NAO_VALIDADA_NESTA_RODADA"
+            ],
+            "status": "BLOQUEADA"
+          },
           "kind": "ANTECIPADA",
           "reason": "",
           "reference": "0.005355",
@@ -21727,7 +21739,12 @@
         "ANTECIPADA": {
           "entry_high": "0.005533",
           "entry_low": "0.005493",
-          "financial": {},
+          "financial": {
+            "reasons": [
+              "COLETA_NAO_VALIDADA_NESTA_RODADA"
+            ],
+            "status": "BLOQUEADA"
+          },
           "kind": "ANTECIPADA",
           "reason": "",
           "reference": "0.005518",
@@ -30023,7 +30040,12 @@
         "ANTECIPADA": {
           "entry_high": "0.005392",
           "entry_low": "0.005369",
-          "financial": {},
+          "financial": {
+            "reasons": [
+              "COLETA_NAO_VALIDADA_NESTA_RODADA"
+            ],
+            "status": "BLOQUEADA"
+          },
           "kind": "ANTECIPADA",
           "reason": "",
           "reference": "0.005382",
@@ -30882,7 +30904,12 @@
         "ANTECIPADA": {
           "entry_high": "0.005483",
           "entry_low": "0.005468",
-          "financial": {},
+          "financial": {
+            "reasons": [
+              "COLETA_NAO_VALIDADA_NESTA_RODADA"
+            ],
+            "status": "BLOQUEADA"
+          },
           "kind": "ANTECIPADA",
           "reason": "",
           "reference": "0.00547",
@@ -31496,7 +31523,12 @@
         "ANTECIPADA": {
           "entry_high": "0.005464",
           "entry_low": "0.005448",
-          "financial": {},
+          "financial": {
+            "reasons": [
+              "COLETA_NAO_VALIDADA_NESTA_RODADA"
+            ],
+            "status": "BLOQUEADA"
+          },
           "kind": "ANTECIPADA",
           "reason": "",
           "reference": "0.005465",
@@ -34701,7 +34733,12 @@
         "ANTECIPADA": {
           "entry_high": "0.005627",
           "entry_low": "0.005599",
-          "financial": {},
+          "financial": {
+            "reasons": [
+              "COLETA_NAO_VALIDADA_NESTA_RODADA"
+            ],
+            "status": "BLOQUEADA"
+          },
           "kind": "ANTECIPADA",
           "reason": "",
           "reference": "0.005615",
@@ -39835,10 +39872,8 @@
           "entry_high": "0.005715",
           "entry_low": "0.005697",
           "financial": {
-            "assumptions": [],
-            "mode": "paper",
             "reasons": [
-              "PLANO_NAO_ATUAL"
+              "COLETA_NAO_VALIDADA_NESTA_RODADA"
             ],
             "status": "BLOQUEADA"
           },
@@ -39855,14 +39890,8 @@
           "entry_high": "0.005715",
           "entry_low": "0.005697",
           "financial": {
-            "assumptions": [
-              "FUNDING_FUTURO_MANTIDO_POR_6H",
-              "DESLIZAMENTO_ESTIMADO",
-              "TAXA_SIMULADA_NAO_PESSOAL"
-            ],
-            "mode": "paper",
             "reasons": [
-              "RETORNO_RISCO_INSUFICIENTE"
+              "COLETA_NAO_VALIDADA_NESTA_RODADA"
             ],
             "status": "BLOQUEADA"
           },
@@ -40304,7 +40333,12 @@
         "ANTECIPADA": {
           "entry_high": "0.005392",
           "entry_low": "0.005369",
-          "financial": {},
+          "financial": {
+            "reasons": [
+              "COLETA_NAO_VALIDADA_NESTA_RODADA"
+            ],
+            "status": "BLOQUEADA"
+          },
           "kind": "ANTECIPADA",
           "reason": "",
           "reference": "0.005382",
@@ -41373,10 +41407,8 @@
           "entry_high": "0.005693",
           "entry_low": "0.005663",
           "financial": {
-            "assumptions": [],
-            "mode": "paper",
             "reasons": [
-              "PLANO_NAO_ATUAL"
+              "COLETA_NAO_VALIDADA_NESTA_RODADA"
             ],
             "status": "BLOQUEADA"
           },
@@ -41393,37 +41425,10 @@
           "entry_high": "0.005693",
           "entry_low": "0.005663",
           "financial": {
-            "assumptions": [
-              "FUNDING_FUTURO_MANTIDO_POR_6H",
-              "DESLIZAMENTO_ESTIMADO",
-              "TAXA_SIMULADA_NAO_PESSOAL"
-            ],
-            "base_quantity": "878",
-            "contract_size": "1",
-            "contracts": "878",
-            "costs_usdt": "0.0096065492",
-            "daily_goal_fraction": "0.60",
-            "daily_goal_reachable_in_one_trade": false,
-            "entry_high": "0.005693",
-            "entry_low": "0.005663",
-            "evaluated_at": 1795716047,
-            "fee_rate": "0.0006",
-            "funding_cost_rate": "0",
-            "gain_fraction": "0.1510674508",
-            "gain_usdt": "0.1510674508",
-            "loss_fraction": "0.0998898844",
-            "loss_usdt": "0.0998898844",
-            "mode": "paper",
-            "net_rr": "1.512339830077929292307800488",
-            "quote_at": 1795716045,
             "reasons": [
-              "PRECO_FORA_DO_PLANO"
+              "COLETA_NAO_VALIDADA_NESTA_RODADA"
             ],
-            "status": "BLOQUEADA",
-            "stop": "0.005590",
-            "stop_trigger": "LAST",
-            "target": "0.005876",
-            "worst_entry": "0.005693"
+            "status": "BLOQUEADA"
           },
           "kind": "CONFIRMADA",
           "reason": "",
