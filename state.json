@@ -236,7 +236,7 @@
       "variant": "CONFIRMADA"
     },
     "d8b623c6af0a8c9b60cd": {
-      "attempts": 0,
+      "attempts": 1,
       "category": "ENTRY",
       "created_at": 1795823974,
       "expires_at": 1795824000,
@@ -244,10 +244,14 @@
       "notification_format": "entry_only_v2",
       "plan_id": "74a35a52abad838a0292",
       "quote_at": 1795823972,
+      "sent_at": 1795823977,
       "side": "LONG",
       "signal_at": 1795823880,
-      "status": "PENDING",
+      "status": "SENT",
       "symbol": "ZRO_USDT",
+      "telegram_ids": [
+        17606
+      ],
       "text": "🟢 SINAL DE ENTRADA • SIMULAÇÃO\nMOEDA: ZRO/USDT\nMOVIMENTO: 📈 LONG (ALTA)\nALAVANCAGEM: 13x\n\nENTRADA: 1.0859 a 1.088\nTP1: 1.1021 (+14.62% ROI líquido estimado sobre a margem)\nTP2: não definido (modelo atual tem apenas um alvo técnico)\n\nSL: 1.0812 (-10.33% ROI líquido estimado sobre a margem)",
       "variant": "CONFIRMADA"
     },
