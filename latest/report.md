@@ -1,6 +1,6 @@
 # MEXC Futures Scanner — rodada
 
-Modo: **paper**. Análise: 27/11/2026 16:35:39 BRT.
+Modo: **paper**. Análise: 27/11/2026 16:36:35 BRT.
 
 Fonte: OK
 Cobertura: 30/30 contratos selecionados.
@@ -1462,8 +1462,8 @@ Alavancagem de simulação: **10x a 20x**.
 | WLD_USDT | ROMPIMENTO_M1_VOLUME | SHORT | EXPIRADO | CONFIRMADA | FALHA_DA_FONTE_NESTA_RODADA |
 | UNI_USDT | ROMPIMENTO_M1_VOLUME | LONG | EXPIRADO | — | PRAZO_ENCERRADO |
 | NEAR_USDT | ROMPIMENTO_M1_VOLUME | SHORT | EXPIRADO | — | PRAZO_ENCERRADO |
-| LINK_USDT | ROMPIMENTO_M1_VOLUME | LONG | ATIVO | ANTECIPADA | PLANO_NAO_ATUAL |
-| LINK_USDT | ROMPIMENTO_M1_VOLUME | LONG | ATIVO | CONFIRMADA | CUSTO_RELATIVO_ELEVADO |
+| LINK_USDT | ROMPIMENTO_M1_VOLUME | LONG | EXPIRADO | ANTECIPADA | PLANO_NAO_ATUAL |
+| LINK_USDT | ROMPIMENTO_M1_VOLUME | LONG | EXPIRADO | CONFIRMADA | CUSTO_RELATIVO_ELEVADO |
 | XRP_USDT | ROMPIMENTO_M1_VOLUME | SHORT | INVALIDADO | ANTECIPADA | FALHA_DA_FONTE_NESTA_RODADA |
 | XLM_USDT | ROMPIMENTO_M1_VOLUME | SHORT | EXPIRADO | ANTECIPADA | FALHA_DA_FONTE_NESTA_RODADA |
 | XLM_USDT | ROMPIMENTO_M1_VOLUME | SHORT | EXPIRADO | CONFIRMADA | FALHA_DA_FONTE_NESTA_RODADA |
@@ -1662,11 +1662,8 @@ Alavancagem de simulação: **10x a 20x**.
 
 ## Sinais próprios com stop de 35% em simulação
 
-0 de 1 candidatos aprovados nesta rodada.
+0 de 0 candidatos aprovados nesta rodada.
 
-| Contrato | Direção | Entrada estimada | SL | TP1 | Retorno/risco | Resultado |
-| --- | --- | --- | --- | --- | --- | --- |
-| LINK_USDT | LONG | indisponível | indisponível | indisponível | indisponível | PLANO_FINANCEIRO_INDISPONIVEL |
 
 ## Diagnósticos
 
