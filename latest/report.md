@@ -1,9 +1,9 @@
 # MEXC Futures Scanner — rodada
 
-Modo: **paper**. Análise: 28/11/2026 00:47:30 BRT.
+Modo: **paper**. Análise: 28/11/2026 00:48:33 BRT.
 
 Fonte: OK
-Cobertura: 26/26 contratos selecionados.
+Cobertura: 27/27 contratos selecionados.
 
 Retorno/risco líquido mínimo: **1:1**.
 
@@ -1902,6 +1902,13 @@ Alavancagem de simulação: **10x a 20x**.
 | QNT_USDT | ROMPIMENTO_M1_VOLUME | SHORT | EXPIRADO | — | PRAZO_ENCERRADO |
 | SEI_USDT | ROMPIMENTO_M1_VOLUME | SHORT | EXPIRADO | — | PRAZO_ENCERRADO |
 | ZEC_USDT | ROMPIMENTO_M1_VOLUME | LONG | EXPIRADO | — | PRAZO_ENCERRADO |
+| LTC_USDT | ROMPIMENTO_M1_VOLUME | LONG | EXPIRADO | — | PRAZO_ENCERRADO |
+| LTC_USDT | ROMPIMENTO_M1_VOLUME | SHORT | INVALIDADO | ANTECIPADA | SEGUNDO_M1_NAO_SUSTENTOU |
+| LTC_USDT | ROMPIMENTO_M1_VOLUME | LONG | EXPIRADO | — | PRAZO_ENCERRADO |
+| LTC_USDT | ROMPIMENTO_M1_VOLUME | SHORT | EVENTO_PASSADO | ANTECIPADA | GATILHO_M1_ATRASADO |
+| LTC_USDT | ROMPIMENTO_M1_VOLUME | SHORT | EVENTO_PASSADO | CONFIRMADA | GATILHO_M1_ATRASADO |
+| LTC_USDT | ROMPIMENTO_M1_VOLUME | LONG | POSSIVEL | — | aguardando gatilho |
+| LTC_USDT | ROMPIMENTO_M1_VOLUME | SHORT | POSSIVEL | — | aguardando gatilho |
 
 ## Sinais próprios com stop de 35% em simulação
 
