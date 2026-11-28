@@ -1,0 +1,48 @@
+name: Pesquisa paralela — probabilidade TP antes do SL (walk-forward)
+on:
+  pull_request:
+    paths:
+      - 'scripts/research_predictive_walkforward.py'
+      - 'tests/test_research_predictive_walkforward.py'
+      - 'docs/experiments/predictive-walkforward-2026-11-24.md'
+      - '.github/workflows/research-predictive-walkforward.yml'
+  workflow_dispatch:
+permissions:
+  contents: read
+  actions: read
+jobs:
+  predictive-probability:
+    runs-on: ubuntu-latest
+    timeout-minutes: 12
+    steps:
+      - uses: actions/checkout@v7.0.1
+        with:
+          persist-credentials: false
+      - uses: actions/setup-python@v7
+        with:
+          python-version: '3.12'
+      - name: Executar testes de causalidade e regressões de produção offline
+        run: |
+          python -m unittest tests.test_research_predictive_walkforward -v
+          python -m unittest discover -s tests -q
+      - name: Recuperar cinco conjuntos históricos congelados do PR anterior, sem nova seleção
+        uses: actions/download-artifact@v7
+        with:
+          run-id: 45280197720
+          github-token: ${{ github.token }}
+          pattern: 'breakout-quality-*-45280197720'
+          path: frozen-breakout-quality/
+          merge-multiple: false
+      - name: Treinar uma vez e avaliar cronologicamente contra duas regras-base
+        run: |
+          python -m scripts.research_predictive_walkforward \
+            --inputs frozen-breakout-quality/ \
+            --output reports/predictive-walkforward/
+      - name: Anexar modelo, probabilidades, Brier, trades e comparações auditáveis
+        if: always()
+        uses: actions/upload-artifact@v7.0.2
+        with:
+          name: predictive-walkforward-45280197720-${{ github.run_id }}
+          path: reports/predictive-walkforward/
+          retention-days: 30
+          if-no-files-found: warn
