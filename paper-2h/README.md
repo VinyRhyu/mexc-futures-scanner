@@ -3,7 +3,7 @@
 - Universo avaliado: 26 contratos
 - Primeira decisão programada em 2026-11-26T18:00:00+00:00
 - Fim da janela de sinais em 2027-01-10T18:00:00+00:00
-- Decisões registradas por estado: `{"PERDIDO_POR_ATRASO": 12, "SEM_SINAL": 1}`
+- Decisões registradas por estado: `{"PERDIDO_POR_ATRASO": 15, "SEM_SINAL": 2}`
 - Posição em simulação: nenhuma
 - Operações encerradas: 0
 - Operações com lucro: 0
