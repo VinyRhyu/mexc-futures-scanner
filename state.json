@@ -58,7 +58,7 @@
   },
   "journal": [],
   "journal_ids": [],
-  "last_success": 1795847446,
+  "last_success": 1795847502,
   "last_summary_date": "2026-11-23",
   "minute_activation": {
     "AAVE_USDT": 1795086047,
@@ -107,49 +107,49 @@
     "ZRO_USDT": 1795787556
   },
   "minute_cursors": {
-    "AAVE_USDT": 1795847400,
-    "ADA_USDT": 1795847400,
+    "AAVE_USDT": 1795847460,
+    "ADA_USDT": 1795847460,
     "APT_USDT": 1795527000,
-    "ARB_USDT": 1795847400,
-    "AVAX_USDT": 1795847400,
+    "ARB_USDT": 1795847460,
+    "AVAX_USDT": 1795847460,
     "BCH_USDT": 1795813140,
     "BNB_USDT": 1795832100,
-    "BTC_USDT": 1795847400,
+    "BTC_USDT": 1795847460,
     "DASH_USDT": 1794499140,
-    "DOGE_USDT": 1795847400,
+    "DOGE_USDT": 1795847460,
     "DOT_USDT": 1795688100,
-    "ENA_USDT": 1795847400,
+    "ENA_USDT": 1795847460,
     "ETC_USDT": 1795190340,
-    "ETH_USDT": 1795847400,
-    "FET_USDT": 1795847400,
-    "HBAR_USDT": 1795847400,
-    "HYPE_USDT": 1795847400,
+    "ETH_USDT": 1795847460,
+    "FET_USDT": 1795847460,
+    "HBAR_USDT": 1795847460,
+    "HYPE_USDT": 1795847460,
     "ICP_USDT": 1795554900,
-    "INJ_USDT": 1795847400,
+    "INJ_USDT": 1795847460,
     "JUP_USDT": 1794826740,
-    "LINK_USDT": 1795847400,
-    "LTC_USDT": 1795847400,
+    "LINK_USDT": 1795847460,
+    "LTC_USDT": 1795847460,
     "LUNC_USDT": 1795161540,
     "MOVE_USDT": 1795791600,
-    "NEAR_USDT": 1795847400,
-    "ONDO_USDT": 1795847400,
+    "NEAR_USDT": 1795847460,
+    "ONDO_USDT": 1795847460,
     "ONE_USDT": 1794567540,
     "OP_USDT": 1794754740,
-    "PEPE_USDT": 1795847400,
-    "QNT_USDT": 1795847400,
-    "SEI_USDT": 1795847400,
+    "PEPE_USDT": 1795847460,
+    "QNT_USDT": 1795847460,
+    "SEI_USDT": 1795847460,
     "SHIB_USDT": 1795535940,
     "SKY_USDT": 1795190340,
-    "SOL_USDT": 1795847400,
-    "SUI_USDT": 1795847400,
-    "TAO_USDT": 1795847400,
+    "SOL_USDT": 1795847460,
+    "SUI_USDT": 1795847460,
+    "TAO_USDT": 1795847460,
     "TIA_USDT": 1795809540,
-    "UNI_USDT": 1795847400,
-    "WLD_USDT": 1795847400,
-    "XLM_USDT": 1795847400,
+    "UNI_USDT": 1795847460,
+    "WLD_USDT": 1795847460,
+    "XLM_USDT": 1795847460,
     "XMR_USDT": 1794393000,
-    "XRP_USDT": 1795847400,
-    "ZEC_USDT": 1795847400,
+    "XRP_USDT": 1795847460,
+    "ZEC_USDT": 1795847460,
     "ZRO_USDT": 1795824900
   },
   "mode": "paper",
@@ -30530,7 +30530,7 @@
       "family": "522f832919bcda6b4fad",
       "formed_at": 1795847400,
       "id": "522f832919bcda6b4fad",
-      "last_bar": 0,
+      "last_bar": 1795847460,
       "level": "0.10093",
       "lower": "0.10093",
       "observations": [],
@@ -36685,7 +36685,7 @@
       "family": "62ab07f9372d3986e6c5",
       "formed_at": 1795847400,
       "id": "62ab07f9372d3986e6c5",
-      "last_bar": 0,
+      "last_bar": 1795847460,
       "level": "0.10329",
       "lower": "0.10093",
       "observations": [],
@@ -41451,50 +41451,6 @@
       "symbol": "ARB_USDT",
       "upper": "0.11882",
       "variants": {}
-    },
-    "6ec3066d75e5df41085e": {
-      "atr": "0.00135575008618794690525555176",
-      "detected_at": 1795672800,
-      "entry_started_at": 1795672860,
-      "expires_at": 1795674660,
-      "family": "6ec3066d75e5df41085e",
-      "formed_at": 1795672800,
-      "id": "6ec3066d75e5df41085e",
-      "last_bar": 1795672920,
-      "level": "0.2868",
-      "lower": "0.2868",
-      "observations": [],
-      "preparation_expires_at": 1795674600,
-      "reaction_at": 1795672860,
-      "reaction_extreme": null,
-      "reason": "VOLUME_M1_INSUFICIENTE",
-      "revision": 0,
-      "side": "SHORT",
-      "status": "INVALIDADO",
-      "stop": "0.2875",
-      "strategy": "ROMPIMENTO_M1_VOLUME",
-      "symbol": "ONDO_USDT",
-      "upper": "0.289",
-      "variants": {
-        "ANTECIPADA": {
-          "entry_high": "0.2865",
-          "entry_low": "0.2861",
-          "financial": {
-            "reasons": [
-              "FALHA_DA_FONTE_NESTA_RODADA"
-            ],
-            "status": "BLOQUEADA"
-          },
-          "kind": "ANTECIPADA",
-          "reason": "",
-          "reference": "0.2864",
-          "status": "ENCERRADA",
-          "stop": "0.2875",
-          "target": "0.2853",
-          "target_origin": "PIVO_CONHECIDO",
-          "triggered_at": 1795672860
-        }
-      }
     },
     "6ec611f80e7e3e0f914a": {
       "atr": "0.02688817663606097370352469567",
@@ -46633,50 +46589,6 @@
       "upper": "0.000003524",
       "variants": {}
     },
-    "7b351eb77beafd65ce76": {
-      "atr": "0.02509363324169572552882154174",
-      "detected_at": 1795671900,
-      "entry_started_at": 1795672860,
-      "expires_at": 1795674660,
-      "family": "7b351eb77beafd65ce76",
-      "formed_at": 1795671900,
-      "id": "7b351eb77beafd65ce76",
-      "last_bar": 1795672920,
-      "level": "6.671",
-      "lower": "6.671",
-      "observations": [],
-      "preparation_expires_at": 1795673700,
-      "reaction_at": 1795672860,
-      "reaction_extreme": null,
-      "reason": "ALVO_JA_ATINGIDO",
-      "revision": 0,
-      "side": "SHORT",
-      "status": "EVENTO_PASSADO",
-      "stop": "6.684",
-      "strategy": "ROMPIMENTO_M1_VOLUME",
-      "symbol": "AVAX_USDT",
-      "upper": "6.718",
-      "variants": {
-        "ANTECIPADA": {
-          "entry_high": "6.667",
-          "entry_low": "6.660",
-          "financial": {
-            "reasons": [
-              "FALHA_DA_FONTE_NESTA_RODADA"
-            ],
-            "status": "BLOQUEADA"
-          },
-          "kind": "ANTECIPADA",
-          "reason": "",
-          "reference": "6.666",
-          "status": "ENCERRADA",
-          "stop": "6.684",
-          "target": "6.666",
-          "target_origin": "PIVO_CONHECIDO",
-          "triggered_at": 1795672860
-        }
-      }
-    },
     "7b432a2dfad0b02fde85": {
       "atr": "0.9734416974050818349882320307",
       "detected_at": 1795754700,
@@ -47330,7 +47242,7 @@
       "family": "7d5b9c7c0199ed7cad41",
       "formed_at": 1795847400,
       "id": "7d5b9c7c0199ed7cad41",
-      "last_bar": 0,
+      "last_bar": 1795847460,
       "level": "145.86",
       "lower": "143.63",
       "observations": [],
@@ -56070,50 +55982,6 @@
       "symbol": "SEI_USDT",
       "upper": "0.04021",
       "variants": {}
-    },
-    "955368c95e5c3f1a6abd": {
-      "atr": "0.2039483378457029646372457201",
-      "detected_at": 1795672800,
-      "entry_started_at": 1795672860,
-      "expires_at": 1795674660,
-      "family": "955368c95e5c3f1a6abd",
-      "formed_at": 1795672800,
-      "id": "955368c95e5c3f1a6abd",
-      "last_bar": 1795672920,
-      "level": "43.5",
-      "lower": "43.5",
-      "observations": [],
-      "preparation_expires_at": 1795674600,
-      "reaction_at": 1795672860,
-      "reaction_extreme": null,
-      "reason": "SEGUNDO_M1_NAO_SUSTENTOU",
-      "revision": 0,
-      "side": "SHORT",
-      "status": "INVALIDADO",
-      "stop": "43.61",
-      "strategy": "ROMPIMENTO_M1_VOLUME",
-      "symbol": "LTC_USDT",
-      "upper": "44.0",
-      "variants": {
-        "ANTECIPADA": {
-          "entry_high": "43.46",
-          "entry_low": "43.38",
-          "financial": {
-            "reasons": [
-              "COLETA_NAO_VALIDADA_NESTA_RODADA"
-            ],
-            "status": "BLOQUEADA"
-          },
-          "kind": "ANTECIPADA",
-          "reason": "",
-          "reference": "43.43",
-          "status": "ENCERRADA",
-          "stop": "43.61",
-          "target": "43.31",
-          "target_origin": "PIVO_CONHECIDO",
-          "triggered_at": 1795672860
-        }
-      }
     },
     "956d76c0b71850c4f0a0": {
       "atr": "0.71568065859773543829917099",
@@ -69142,50 +69010,6 @@
       "upper": "189.06",
       "variants": {}
     },
-    "b7cdd036ff488650054f": {
-      "atr": "0.002971935491192052175848821276",
-      "detected_at": 1795672800,
-      "entry_started_at": 1795672860,
-      "expires_at": 1795674660,
-      "family": "b7cdd036ff488650054f",
-      "formed_at": 1795672800,
-      "id": "b7cdd036ff488650054f",
-      "last_bar": 1795672920,
-      "level": "0.6662",
-      "lower": "0.6662",
-      "observations": [],
-      "preparation_expires_at": 1795674600,
-      "reaction_at": 1795672860,
-      "reaction_extreme": null,
-      "reason": "VOLUME_M1_INSUFICIENTE",
-      "revision": 0,
-      "side": "SHORT",
-      "status": "INVALIDADO",
-      "stop": "0.6677",
-      "strategy": "ROMPIMENTO_M1_VOLUME",
-      "symbol": "DOT_USDT",
-      "upper": "0.6729",
-      "variants": {
-        "ANTECIPADA": {
-          "entry_high": "0.6652",
-          "entry_low": "0.6638",
-          "financial": {
-            "reasons": [
-              "COLETA_NAO_VALIDADA_NESTA_RODADA"
-            ],
-            "status": "BLOQUEADA"
-          },
-          "kind": "ANTECIPADA",
-          "reason": "",
-          "reference": "0.6645",
-          "status": "ENCERRADA",
-          "stop": "0.6677",
-          "target": "0.6641",
-          "target_origin": "PIVO_CONHECIDO",
-          "triggered_at": 1795672860
-        }
-      }
-    },
     "b7dfc6379d047ab0b2f8": {
       "atr": "320.7007556954662996468568655",
       "detected_at": 1795806000,
@@ -71408,50 +71232,6 @@
       "symbol": "ZEC_USDT",
       "upper": "761.95",
       "variants": {}
-    },
-    "bca543fad13ddbc68162": {
-      "atr": "0.001390807785125481178569597663",
-      "detected_at": 1795671900,
-      "entry_started_at": 1795672860,
-      "expires_at": 1795674660,
-      "family": "bca543fad13ddbc68162",
-      "formed_at": 1795671900,
-      "id": "bca543fad13ddbc68162",
-      "last_bar": 1795672920,
-      "level": "0.2868",
-      "lower": "0.2868",
-      "observations": [],
-      "preparation_expires_at": 1795673700,
-      "reaction_at": 1795672860,
-      "reaction_extreme": null,
-      "reason": "VOLUME_M1_INSUFICIENTE",
-      "revision": 0,
-      "side": "SHORT",
-      "status": "INVALIDADO",
-      "stop": "0.2875",
-      "strategy": "ROMPIMENTO_M1_VOLUME",
-      "symbol": "ONDO_USDT",
-      "upper": "0.289",
-      "variants": {
-        "ANTECIPADA": {
-          "entry_high": "0.2865",
-          "entry_low": "0.2861",
-          "financial": {
-            "reasons": [
-              "FALHA_DA_FONTE_NESTA_RODADA"
-            ],
-            "status": "BLOQUEADA"
-          },
-          "kind": "ANTECIPADA",
-          "reason": "",
-          "reference": "0.2864",
-          "status": "ENCERRADA",
-          "stop": "0.2875",
-          "target": "0.2853",
-          "target_origin": "PIVO_CONHECIDO",
-          "triggered_at": 1795672860
-        }
-      }
     },
     "bcb1cc2bb4ebd409774d": {
       "atr": "0.79285752525057630733237713",
@@ -80066,7 +79846,7 @@
       "family": "d4390cab20a5fb22532e",
       "formed_at": 1795847400,
       "id": "d4390cab20a5fb22532e",
-      "last_bar": 0,
+      "last_bar": 1795847460,
       "level": "143.63",
       "lower": "143.63",
       "observations": [],
