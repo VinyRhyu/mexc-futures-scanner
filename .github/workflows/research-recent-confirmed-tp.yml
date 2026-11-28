@@ -1,0 +1,46 @@
+name: Pesquisa TP real — últimas entradas confirmadas (MEXC M1)
+on:
+  pull_request:
+    paths:
+      - 'scripts/verify_recent_confirmed_tp.py'
+      - 'tests/test_verify_recent_confirmed_tp.py'
+      - '.github/workflows/research-recent-confirmed-tp.yml'
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  verify-recent-delivered-signals:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - name: Carregar somente codigo de pesquisa, sem credenciais persistidas
+        uses: actions/checkout@v7.0.1
+        with:
+          persist-credentials: false
+      - name: Ler branch de estado, sem alterar ou publicar nela
+        uses: actions/checkout@v7.0.1
+        with:
+          ref: scanner-state
+          path: saved-scanner-state
+          fetch-depth: 1
+          persist-credentials: false
+      - uses: actions/setup-python@v7
+        with:
+          python-version: '3.12'
+      - name: Testes de causalidade e incerteza intrabar
+        run: python -m unittest tests.test_verify_recent_confirmed_tp -v
+      - name: MEXC futures Min1 read-only e auditoria dos 20 sinais entregues mais recentes
+        run: |
+          python -m scripts.verify_recent_confirmed_tp \
+            --audit-dir saved-scanner-state/audit \
+            --output reports/recent-confirmed-tp \
+            --lookback-hours 24 \
+            --max-signals 20
+      - name: Publicar JSON e CSV auditáveis, nunca estado nem credenciais
+        if: always()
+        uses: actions/upload-artifact@v7.0.2
+        with:
+          name: recent-confirmed-tp-mexc-${{ github.run_id }}
+          path: reports/recent-confirmed-tp/
+          retention-days: 30
+          if-no-files-found: warn
